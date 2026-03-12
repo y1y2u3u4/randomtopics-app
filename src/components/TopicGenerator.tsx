@@ -26,32 +26,52 @@ export default function TopicGenerator({
   const [generatedTopics, setGeneratedTopics] = useState<Topic[]>([]);
   const [isSpinning, setIsSpinning] = useState(false);
   const [hasGenerated, setHasGenerated] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const generate = useCallback(() => {
-    setIsSpinning(true);
-
-    setTimeout(() => {
-      let pool = [...topics];
-
-      if (selectedMode) {
-        pool = pool.filter((t) => t.modes.includes(selectedMode));
-      }
-      if (selectedCategory) {
-        pool = pool.filter((t) => t.category === selectedCategory);
-      }
-      if (selectedDepth) {
-        pool = pool.filter((t) => t.depth === selectedDepth);
-      }
-
-      // Shuffle and pick
-      const shuffled = pool.sort(() => Math.random() - 0.5);
-      const picked = shuffled.slice(0, Math.min(count, shuffled.length));
-
-      setGeneratedTopics(picked);
-      setIsSpinning(false);
-      setHasGenerated(true);
-    }, 600);
+  const generateFromStatic = useCallback(() => {
+    let pool = [...topics];
+    if (selectedMode) pool = pool.filter((t) => t.modes.includes(selectedMode));
+    if (selectedCategory) pool = pool.filter((t) => t.category === selectedCategory);
+    if (selectedDepth) pool = pool.filter((t) => t.depth === selectedDepth);
+    const shuffled = pool.sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, Math.min(count, shuffled.length));
   }, [selectedMode, selectedCategory, selectedDepth, count]);
+
+  const generate = useCallback(async () => {
+    setIsSpinning(true);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/generate-topics', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          count,
+          mode: selectedMode,
+          category: selectedCategory,
+          depth: selectedDepth,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error('API error');
+      }
+
+      const data = await res.json();
+      if (data.topics && data.topics.length > 0) {
+        setGeneratedTopics(data.topics);
+      } else {
+        // Fallback to static if AI returns empty
+        setGeneratedTopics(generateFromStatic());
+      }
+    } catch {
+      // Fallback to static database on any error
+      setGeneratedTopics(generateFromStatic());
+    }
+
+    setIsSpinning(false);
+    setHasGenerated(true);
+  }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic]);
 
   const showModeSelector = !initialMode;
   const showCategorySelector = !initialCategory;
