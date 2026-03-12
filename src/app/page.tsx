@@ -94,87 +94,323 @@ export default function Home() {
           <div className="h-px bg-gradient-to-r from-transparent via-[var(--neon-purple)]/20 to-transparent" />
         </div>
 
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "Random Topic Generator",
+              url: "https://randomtopics.app",
+              applicationCategory: "UtilityApplication",
+              operatingSystem: "Any",
+              offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+              description:
+                "Generate random topics for conversations, writing prompts, debates, speeches, and icebreakers. 500+ curated topics across 15+ categories.",
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "What is a random topic generator?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "A random topic generator is an online tool that instantly provides conversation starters, writing prompts, debate topics, speech ideas, and icebreaker questions from a curated database of 500+ topics across 15+ categories.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "How does the random topic generator work?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Select a mode (conversation, writing, debate, speech, or icebreaker), optionally filter by category and depth, choose how many topics you want, and click Generate. The tool uses AI and a curated database to deliver relevant random topics instantly.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Is the random topic generator free to use?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes, the random topic generator is completely free. No signup, no login, and no limits. Generate as many random topics as you need for conversations, writing, debates, speeches, and icebreakers.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "What categories of random topics are available?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "The generator includes 15+ categories: Science & Technology, Philosophy, History, Arts & Culture, Psychology, Society, Nature, Health, Business, Education, Sports, Food, Travel, Relationships, Ethics, and Miscellaneous.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Can I use random topics for classroom activities?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Absolutely! Teachers use the random topic generator for classroom discussions, debate practice, essay prompts, and group activities. Filter by category and depth level to match your students' grade and subject area.",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
+
         {/* SEO content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-20">
           <div className="glass-card p-8 sm:p-10">
-            <h2
-              className="section-heading text-2xl sm:text-3xl mb-8 text-[var(--text-primary)]"
-            >
+            <h2 className="section-heading text-2xl sm:text-3xl mb-8 text-[var(--text-primary)]">
               What is a Random Topic Generator?
             </h2>
             <div className="space-y-5 text-[var(--text-secondary)] text-sm leading-relaxed">
               <p>
-                A random topic generator is a tool that instantly provides you with conversation
-                starters, writing prompts, debate topics, speech ideas, and icebreaker questions.
-                Whether you&apos;re stuck in a creative rut, preparing for a presentation, or just
-                looking for something interesting to talk about, our generator has you covered.
+                A <strong>random topic generator</strong> is an online tool that instantly provides
+                you with conversation starters, writing prompts, debate topics, speech ideas, and
+                icebreaker questions. Whether you&apos;re stuck in a creative rut, preparing for a
+                presentation, or just looking for something interesting to talk about, our random
+                topic generator has you covered with over 500 hand-curated topics.
               </p>
               <p>
-                With over 500 hand-curated topics across 15+ categories including science,
-                philosophy, technology, relationships, and more, you&apos;ll never run out of
-                interesting things to discuss. Each topic comes with talking points to help guide
-                your conversation or writing.
+                Unlike simple random word generators, a dedicated <strong>random topic generator</strong>{" "}
+                gives you fully-formed discussion ideas complete with talking points, depth levels,
+                and category tags. Each topic is designed to spark meaningful conversation, inspire
+                creative writing, or fuel a lively debate. Our tool also uses AI to generate fresh,
+                unique topics on the fly — so you&apos;ll never see the same result twice.
               </p>
+
               <h3
                 className="text-lg font-semibold text-[var(--text-primary)] pt-4"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 How to Use the Random Topic Generator
               </h3>
+              <p>
+                Using our random topic generator is simple and takes just a few seconds. Follow
+                these steps to get started:
+              </p>
               <ol className="space-y-3 list-none pl-0">
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--neon-pink)]/15 text-[var(--neon-pink)] text-xs font-bold flex items-center justify-center mt-0.5">1</span>
-                  <span>Choose a mode: conversation, writing, debate, speech, or icebreaker</span>
+                  <span><strong>Choose a mode</strong> — Pick from conversation, writing, debate, speech, or icebreaker mode to tailor the random topics to your specific need.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--neon-pink)]/15 text-[var(--neon-pink)] text-xs font-bold flex items-center justify-center mt-0.5">2</span>
-                  <span>Optionally filter by category and depth level</span>
+                  <span><strong>Filter by category</strong> — Optionally narrow results to a specific category like science, philosophy, history, or technology.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--neon-pink)]/15 text-[var(--neon-pink)] text-xs font-bold flex items-center justify-center mt-0.5">3</span>
-                  <span>Select how many topics you want (1, 3, 5, or 10)</span>
+                  <span><strong>Set the depth</strong> — Choose between casual, moderate, or deep topics to match your audience and context.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--neon-pink)]/15 text-[var(--neon-pink)] text-xs font-bold flex items-center justify-center mt-0.5">4</span>
-                  <span>Click Generate and get instant random topics!</span>
+                  <span><strong>Select a count</strong> — Generate 1, 3, 5, or 10 random topics at once.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--neon-pink)]/15 text-[var(--neon-pink)] text-xs font-bold flex items-center justify-center mt-0.5">5</span>
-                  <span>Copy any topic with one click to share or save</span>
+                  <span><strong>Click Generate</strong> — Get instant random topics with talking points you can copy and share with one click.</span>
                 </li>
               </ol>
+
               <h3
                 className="text-lg font-semibold text-[var(--text-primary)] pt-4"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Perfect For
+                Why Use a Random Topic Generator?
+              </h3>
+              <p>
+                Coming up with interesting topics on the spot is harder than it sounds. Whether
+                you&apos;re a teacher preparing for class, a writer facing a blank page, or a team
+                leader planning a meeting, a random topic generator saves time and eliminates the
+                mental overhead of brainstorming from scratch.
+              </p>
+              <p>
+                Our random topic generator is especially useful because it combines AI-powered
+                generation with a curated database of 500+ topics. This means you get both the
+                reliability of expert-written prompts and the novelty of AI-generated ideas. Every
+                topic includes multiple talking points to help you explore the subject in depth.
+              </p>
+
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-4"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Random Topic Generator for Conversations
+              </h3>
+              <p>
+                Stuck in small talk? Use the random topic generator in conversation mode to discover
+                thought-provoking discussion starters. Whether you&apos;re on a first date, at a
+                networking event, or just hanging out with friends, a well-chosen topic transforms
+                an awkward silence into an engaging exchange. Our conversation topics span casual
+                icebreakers to deep philosophical questions, so there&apos;s always something that
+                matches the mood.
+              </p>
+
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-4"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Random Topics for Writing Prompts
+              </h3>
+              <p>
+                Writers of all levels use our random topic generator to overcome writer&apos;s block
+                and spark creativity. Switch to writing mode and generate prompts for essays, blog
+                posts, short stories, journal entries, or creative nonfiction. Each writing topic
+                comes with angle suggestions and talking points to help you develop your piece.
+                Whether you&apos;re a student looking for essay ideas or a professional content
+                creator seeking fresh angles, the generator delivers inspiration instantly.
+              </p>
+
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-4"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Random Debate Topics
+              </h3>
+              <p>
+                Debate teams, classroom instructors, and discussion group leaders rely on random
+                topic generators to keep practice sessions fresh and unpredictable. Our debate mode
+                focuses on topics with clear pro/con angles and multiple perspectives. From ethical
+                dilemmas to policy questions, technology controversies to social issues — the random
+                topic generator provides balanced topics that encourage critical thinking and
+                structured argumentation.
+              </p>
+
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-4"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Speech Topics & Presentation Ideas
+              </h3>
+              <p>
+                Need a topic for your next speech or presentation? The random topic generator in
+                speech mode delivers presentation-ready ideas across every category imaginable.
+                Each topic includes talking points you can use as an outline for your speech.
+                Public speaking students, Toastmasters members, and corporate presenters all
+                benefit from having a reliable source of fresh, engaging presentation topics at
+                their fingertips.
+              </p>
+
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-4"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                15+ Categories of Random Topics
+              </h3>
+              <p>
+                Our random topic generator covers a wide range of subject areas to match any
+                interest or occasion. Browse topics across Science &amp; Technology, Philosophy,
+                History, Arts &amp; Culture, Psychology, Society &amp; Politics, Nature &amp;
+                Environment, Health &amp; Wellness, Business &amp; Economics, Education, Sports
+                &amp; Recreation, Food &amp; Cooking, Travel &amp; Geography, Relationships,
+                Ethics &amp; Morality, and more. Each category contains dozens of carefully
+                crafted topics at varying depth levels.
+              </p>
+
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-4"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Who Uses a Random Topic Generator?
               </h3>
               <ul className="space-y-2.5 list-none pl-0">
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--neon-cyan)]" />
-                  <span>Teachers looking for classroom discussion topics</span>
+                  <span><strong>Teachers and educators</strong> — Generate discussion topics for classrooms, assign random essay prompts, or run debate exercises with fresh topics every session.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--neon-cyan)]" />
-                  <span>Writers seeking creative writing prompts</span>
+                  <span><strong>Writers and content creators</strong> — Overcome writer&apos;s block with AI-powered writing prompts across every genre and category.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--neon-cyan)]" />
-                  <span>Debate teams preparing for practice rounds</span>
+                  <span><strong>Debate teams and forensics competitors</strong> — Practice impromptu speaking with unpredictable random debate topics.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--neon-cyan)]" />
-                  <span>Public speakers finding presentation ideas</span>
+                  <span><strong>Public speakers and presenters</strong> — Find unique presentation ideas and speech topics that stand out from the crowd.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--neon-cyan)]" />
-                  <span>Friends wanting fun conversation starters</span>
+                  <span><strong>Friends and social groups</strong> — Discover fun conversation starters for parties, road trips, game nights, and casual hangouts.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--neon-cyan)]" />
-                  <span>Team leaders running icebreaker activities</span>
+                  <span><strong>Team leaders and HR professionals</strong> — Run engaging icebreaker activities for meetings, onboarding, and team-building events.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--neon-cyan)]" />
+                  <span><strong>Podcasters and YouTubers</strong> — Generate episode ideas and discussion topics to keep your content pipeline full.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--neon-cyan)]" />
+                  <span><strong>ESL/EFL students</strong> — Practice English conversation with structured topics and talking points at appropriate difficulty levels.</span>
                 </li>
               </ul>
+
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-4"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Frequently Asked Questions
+              </h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="font-medium text-[var(--text-primary)]">
+                    Is the random topic generator free?
+                  </p>
+                  <p>
+                    Yes! Our random topic generator is 100% free to use. No signup, no login, and
+                    no usage limits. Generate as many topics as you need, whenever you need them.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-medium text-[var(--text-primary)]">
+                    How many topics can I generate at once?
+                  </p>
+                  <p>
+                    You can generate 1, 3, 5, or 10 random topics at a time. Each generation
+                    pulls from our database of 500+ topics or creates fresh ones using AI, so
+                    you&apos;ll always get unique results.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-medium text-[var(--text-primary)]">
+                    What makes this random topic generator different?
+                  </p>
+                  <p>
+                    Unlike basic random generators, our tool combines a curated database of 500+
+                    expert-written topics with AI-powered generation for unlimited variety. Every
+                    topic includes talking points, category tags, and depth levels — giving you
+                    everything you need to start a great conversation, essay, debate, or speech.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-medium text-[var(--text-primary)]">
+                    Can I filter topics by subject or difficulty?
+                  </p>
+                  <p>
+                    Absolutely. Filter by 15+ categories (science, philosophy, history, etc.) and
+                    three depth levels (casual, moderate, deep) to get random topics perfectly
+                    suited to your audience and purpose.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-medium text-[var(--text-primary)]">
+                    Do I need to create an account?
+                  </p>
+                  <p>
+                    No. The random topic generator works instantly without any registration. Just
+                    visit the page, set your preferences, and click Generate.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

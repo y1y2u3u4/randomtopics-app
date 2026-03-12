@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import { CATEGORIES } from "@/data/types";
 import type { Metadata } from "next";
@@ -34,6 +35,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     <>
       <Navbar />
       <main className="flex-1">
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Categories", href: "/categories" },
+            { label: label },
+          ]}
+        />
         <TopicGenerator
           initialCategory={category as any}
           title={`${label} Topic Generator`}

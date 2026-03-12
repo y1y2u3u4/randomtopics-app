@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import type { Metadata } from "next";
 
@@ -14,6 +15,12 @@ export default function IcebreakerPage() {
     <>
       <Navbar />
       <main className="flex-1">
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Icebreaker Questions" },
+          ]}
+        />
         <TopicGenerator
           initialMode="icebreaker"
           title="Icebreaker Question Generator"
