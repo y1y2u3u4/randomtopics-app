@@ -1,0 +1,181 @@
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
+import Link from "next/link";
+import { SEO_ARTICLES } from "@/data/seoContent";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+interface ArticlePageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export function generateStaticParams() {
+  return SEO_ARTICLES.map((article) => ({
+    slug: article.slug,
+  }));
+}
+
+export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const article = SEO_ARTICLES.find((a) => a.slug === slug);
+  if (!article) return {};
+
+  return {
+    title: article.metaTitle,
+    description: article.metaDescription,
+    alternates: {
+      canonical: `/topics/${article.slug}`,
+    },
+  };
+}
+
+export default async function ArticlePage({ params }: ArticlePageProps) {
+  const { slug } = await params;
+  const article = SEO_ARTICLES.find((a) => a.slug === slug);
+  if (!article) notFound();
+
+  return (
+    <>
+      <Navbar />
+      <main className="flex-1">
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Topics", href: "/topics" },
+            { label: article.title },
+          ]}
+        />
+
+        {/* Hero */}
+        <div className="text-center pt-12 sm:pt-20 pb-8 sm:pb-12 max-w-4xl mx-auto px-4 sm:px-6">
+          <h1
+            className="section-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-[1.15] tracking-tight"
+          >
+            {article.heroTitle}
+          </h1>
+          <p className="text-base sm:text-lg text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed opacity-80">
+            {article.heroSubtitle}
+          </p>
+        </div>
+
+        {/* Intro */}
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+          <div className="glass-card p-8 sm:p-10">
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+              {article.intro}
+            </p>
+          </div>
+        </section>
+
+        {/* Content sections */}
+        {article.sections.map((section, sIdx) => (
+          <section key={sIdx} className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <div className="glass-card p-8 sm:p-10">
+              <h2
+                className="text-xl sm:text-2xl font-bold mb-2 text-[var(--text-primary)]"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {section.heading}
+              </h2>
+              {section.description && (
+                <p className="text-[var(--text-muted)] text-sm mb-5">{section.description}</p>
+              )}
+              <ol className="space-y-3">
+                {section.items.map((item, iIdx) => (
+                  <li key={iIdx} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--neon-pink)]/10 text-[var(--neon-pink)] text-xs font-bold flex items-center justify-center mt-0.5">
+                      {sIdx * 20 + iIdx + 1}
+                    </span>
+                    <span className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+        ))}
+
+        {/* FAQ Section with Schema */}
+        {article.faq.length > 0 && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <div className="glass-card p-8 sm:p-10">
+              <h2
+                className="text-xl sm:text-2xl font-bold mb-6 text-[var(--text-primary)]"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-5">
+                {article.faq.map((f, i) => (
+                  <div key={i}>
+                    <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-1.5">
+                      {f.question}
+                    </h3>
+                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                      {f.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  mainEntity: article.faq.map((f) => ({
+                    "@type": "Question",
+                    name: f.question,
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: f.answer,
+                    },
+                  })),
+                }),
+              }}
+            />
+          </section>
+        )}
+
+        {/* Related Links */}
+        {article.relatedLinks.length > 0 && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16">
+            <div className="glass-card p-8 sm:p-10">
+              <h2
+                className="text-lg font-bold mb-4 text-[var(--text-primary)]"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Related Topics
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                {article.relatedLinks.map((link, i) => (
+                  <Link
+                    key={i}
+                    href={link.href}
+                    className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* CTA to generator */}
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16 text-center">
+          <Link
+            href="/"
+            className="btn-generate animate-pulse-glow inline-flex items-center gap-2 text-lg px-10 py-4"
+          >
+            <span>🎲</span> Generate More Random Topics
+          </Link>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}

@@ -72,6 +72,20 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
+        {/* Organization structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Random Topics",
+              url: "https://randomtopics.app",
+              logo: "https://randomtopics.app/icon.svg",
+              sameAs: [],
+            }),
+          }}
+        />
         {/* Animated gradient orbs */}
         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="orb orb-pink" />

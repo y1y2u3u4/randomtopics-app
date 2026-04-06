@@ -128,6 +128,14 @@ export default function Footer() {
                   All Categories
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/topics"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+                >
+                  Topic Collections
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

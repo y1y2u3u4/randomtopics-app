@@ -94,6 +94,48 @@ export default function Home() {
           <div className="h-px bg-gradient-to-r from-transparent via-[var(--neon-purple)]/20 to-transparent" />
         </div>
 
+        {/* Topic Collections CTA */}
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+          <h2 className="section-heading text-2xl sm:text-3xl text-center mb-4">
+            Curated <span className="gradient-text">Topic Lists</span>
+          </h2>
+          <p className="text-center text-[var(--text-muted)] text-sm mb-8 max-w-lg mx-auto">
+            Browse our hand-picked collections of topics for debates, conversations, writing, speeches, and more.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {[
+              { title: "75 Best Debate Topics for Students", href: "/topics/debate-topics-for-students" },
+              { title: "60 Conversation Starters for Couples", href: "/topics/conversation-starters-for-couples" },
+              { title: "50 Icebreaker Questions for Work", href: "/topics/icebreaker-questions-for-work" },
+              { title: "50 Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
+              { title: "80 Would You Rather Questions", href: "/topics/would-you-rather-questions" },
+              { title: "70 Random Questions to Ask Friends", href: "/topics/random-questions-to-ask-friends" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="glass-card p-5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] transition-all hover:translate-y-[-2px] hover:border-[var(--neon-cyan)]/30"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {item.title} →
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <Link
+              href="/topics"
+              className="text-sm text-[var(--text-muted)] hover:text-[var(--neon-cyan)] transition-colors"
+            >
+              View all topic collections →
+            </Link>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="h-px bg-gradient-to-r from-transparent via-[var(--neon-purple)]/20 to-transparent" />
+        </div>
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"

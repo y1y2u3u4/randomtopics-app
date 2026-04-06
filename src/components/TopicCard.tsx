@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Topic, CATEGORIES } from "@/data/types";
+import ShareButtons from "./ShareButtons";
 
 interface TopicCardProps {
   topic: Topic;
@@ -203,33 +204,36 @@ export default function TopicCard({ topic, index = 0 }: TopicCardProps) {
         </ul>
       )}
 
-      {/* Mode tags - subtle pill style */}
+      {/* Mode tags + share buttons */}
       <div
-        className="flex flex-wrap gap-1.5 mt-4 pt-4"
+        className="flex items-center justify-between gap-3 mt-4 pt-4"
         style={{
           borderTop: "1px solid rgba(255, 255, 255, 0.04)",
           position: "relative",
           zIndex: 1,
         }}
       >
-        {topic.modes.map((mode) => (
-          <span
-            key={mode}
-            style={{
-              fontSize: "0.7rem",
-              fontWeight: 500,
-              padding: "3px 10px",
-              borderRadius: "9999px",
-              background: "rgba(255, 255, 255, 0.04)",
-              border: "1px solid rgba(255, 255, 255, 0.06)",
-              color: "var(--text-muted)",
-              letterSpacing: "0.02em",
-              transition: "all 0.2s",
-            }}
-          >
-            {mode}
-          </span>
-        ))}
+        <div className="flex flex-wrap gap-1.5">
+          {topic.modes.map((mode) => (
+            <span
+              key={mode}
+              style={{
+                fontSize: "0.7rem",
+                fontWeight: 500,
+                padding: "3px 10px",
+                borderRadius: "9999px",
+                background: "rgba(255, 255, 255, 0.04)",
+                border: "1px solid rgba(255, 255, 255, 0.06)",
+                color: "var(--text-muted)",
+                letterSpacing: "0.02em",
+                transition: "all 0.2s",
+              }}
+            >
+              {mode}
+            </span>
+          ))}
+        </div>
+        <ShareButtons topic={topic} />
       </div>
     </motion.div>
   );
