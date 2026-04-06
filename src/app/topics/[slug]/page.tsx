@@ -103,33 +103,41 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </section>
 
         {/* Content sections */}
-        {article.sections.map((section, sIdx) => (
-          <section key={sIdx} className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
-            <div className="glass-card p-8 sm:p-10">
-              <h2
-                className="text-xl sm:text-2xl font-bold mb-2 text-[var(--text-primary)]"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {section.heading}
-              </h2>
-              {section.description && (
-                <p className="text-[var(--text-muted)] text-sm mb-5">{section.description}</p>
-              )}
-              <ol className="space-y-3">
-                {section.items.map((item, iIdx) => (
-                  <li key={iIdx} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--neon-pink)]/10 text-[var(--neon-pink)] text-xs font-bold flex items-center justify-center mt-0.5">
-                      {sIdx * 20 + iIdx + 1}
-                    </span>
-                    <span className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </section>
-        ))}
+        {article.sections.reduce<{ elements: React.ReactNode[]; runningCount: number }>(
+          (acc, section, sIdx) => {
+            const startNum = acc.runningCount;
+            acc.elements.push(
+              <section key={sIdx} className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+                <div className="glass-card p-8 sm:p-10">
+                  <h2
+                    className="text-xl sm:text-2xl font-bold mb-2 text-[var(--text-primary)]"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {section.heading}
+                  </h2>
+                  {section.description && (
+                    <p className="text-[var(--text-muted)] text-sm mb-5">{section.description}</p>
+                  )}
+                  <ol className="space-y-3">
+                    {section.items.map((item, iIdx) => (
+                      <li key={iIdx} className="flex items-start gap-3">
+                        <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--neon-pink)]/10 text-[var(--neon-pink)] text-xs font-bold flex items-center justify-center mt-0.5">
+                          {startNum + iIdx + 1}
+                        </span>
+                        <span className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </section>
+            );
+            acc.runningCount = startNum + section.items.length;
+            return acc;
+          },
+          { elements: [], runningCount: 0 }
+        ).elements}
 
         {/* FAQ Section with Schema */}
         {article.faq.length > 0 && (
