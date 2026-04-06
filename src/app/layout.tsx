@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -63,6 +64,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${outfit.variable} ${jakarta.variable}`}>
+      <head>
+        <Script
+          src="https://analytics.flashcardmaker.me/script.js"
+          data-website-id="15509cd4-881c-4ed8-8dd6-bb64822993ee"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="antialiased min-h-screen flex flex-col">
         {/* Animated gradient orbs */}
         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
