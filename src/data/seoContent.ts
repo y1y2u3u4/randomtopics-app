@@ -6,6 +6,7 @@ export interface SeoArticle {
   heroTitle: string;
   heroSubtitle: string;
   intro: string;
+  publishDate: string;
   sections: {
     heading: string;
     items: string[];
@@ -27,6 +28,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Thought-provoking topics that spark meaningful classroom discussions and sharpen critical thinking skills.",
     intro: "Finding the right debate topic can make the difference between a dull classroom exercise and a passionate intellectual exchange. Whether you are preparing for a formal debate competition, looking for engaging topics for your speech class, or simply want to encourage critical thinking among students, this curated list of 75 debate topics covers everything from technology and politics to ethics and education. Each topic is designed to have strong arguments on both sides, making them ideal for balanced, productive debates.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Technology & AI Debate Topics",
@@ -163,6 +165,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Meaningful questions that help you connect on a deeper level and keep the spark alive in your relationship.",
     intro: "Great relationships are built on great conversations. Whether you have been together for three months or thirty years, it is easy to fall into a routine where you only talk about logistics -- who is picking up groceries, what to watch tonight, when to pay the bills. These 60 conversation starters are designed to break that pattern and help you and your partner explore each other's dreams, fears, memories, and values. Use them during a quiet dinner, a long drive, or whenever you want to reconnect on a deeper level.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Getting to Know Each Other Better",
@@ -290,6 +293,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Professional yet engaging questions that warm up any meeting and help colleagues connect beyond the agenda.",
     intro: "We have all been in that meeting where everyone joins, cameras flicker on, and an uncomfortable silence fills the room while waiting for the last person to arrive. Icebreaker questions solve this problem by giving people a low-stakes, fun way to engage before diving into business. The best work icebreakers are inclusive, appropriate for professional settings, and easy to answer without too much thought. Here are 50 questions organized by category to suit any workplace situation.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Quick and Easy Icebreakers",
@@ -417,6 +421,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Imaginative prompts that turn reluctant writers into enthusiastic storytellers.",
     intro: "Getting kids excited about writing is one of the best gifts you can give them. These 40 creative writing prompts are designed to spark imagination, build confidence, and make writing feel like play rather than homework. Whether your child loves adventure, animals, magic, or humor, there is something here to inspire every young writer. These prompts work great for classroom exercises, homeschool assignments, journaling, or just a rainy afternoon activity.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Adventure and Exploration Prompts",
@@ -527,6 +532,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Break the ice, lighten the mood, and keep everyone laughing with these hilarious discussion starters.",
     intro: "Sometimes the best conversations are the ones that leave everyone laughing so hard they can barely breathe. Whether you are at a party that needs an energy boost, on a first date that could use some levity, or hanging out with friends on a lazy weekend, having a few funny conversation topics in your back pocket is a social superpower. These 65 topics range from absurd hypotheticals to relatable everyday humor, and they are designed to get people talking, debating, and most importantly, laughing.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Absurd Hypotheticals",
@@ -655,6 +661,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Questions that have puzzled humanity for centuries -- and still do not have easy answers.",
     intro: "Philosophy is not just for academics in ivory towers. The deepest questions about existence, consciousness, morality, and meaning are ones that every human grapples with, whether they realize it or not. These 50 philosophical questions are designed to challenge your assumptions, spark meaningful conversations, and make you genuinely think about the nature of reality and your place in it. They are perfect for late-night discussions, philosophy classes, journaling, or simply those quiet moments when you want to think about something bigger than your to-do list.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Consciousness and Reality",
@@ -782,6 +789,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Stand out in your next presentation with topics that are timely, thought-provoking, and audience-friendly.",
     intro: "Choosing the right speech topic can be the difference between a presentation that captivates the room and one that puts people to sleep. The best speech topics are ones you genuinely care about, are relevant to your audience, and offer enough depth for meaningful exploration. Whether you are preparing a persuasive speech, an informative presentation, or an impromptu talk, this list of 60 topics covers a wide range of subjects that resonate with college audiences in 2026.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Persuasive Speech Topics",
@@ -919,6 +927,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "The ultimate collection of impossible choices that spark laughter, debate, and surprisingly deep conversations.",
     intro: "Would You Rather is the perfect game because it requires zero equipment, works with any group size, and always leads to fascinating (and often hilarious) conversations. The magic is in the impossible choice -- both options must be compelling enough that the group genuinely debates which is better. This collection of 80 questions ranges from silly and lighthearted to deep and thought-provoking, so you can match the vibe of any gathering.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Classic Fun Questions",
@@ -1066,6 +1075,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Bold topics that challenge assumptions, spark passionate debate, and push you to think critically about the world.",
     intro: "Controversial topics are controversial for a reason -- they touch on deeply held values, complex tradeoffs, and genuine uncertainty about the right path forward. Engaging with these topics is not about winning arguments; it is about sharpening your thinking, understanding opposing viewpoints, and developing the intellectual humility to hold strong opinions loosely. These 55 topics are organized by theme and chosen because they have legitimate, well-reasoned arguments on multiple sides.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Technology and Privacy",
@@ -1199,6 +1209,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Carefully crafted topics and questions that help English learners build fluency and confidence through meaningful conversation.",
     intro: "The best way to learn a language is to speak it, and the best way to speak it is to have something interesting to talk about. These 45 ESL conversation topics are organized by difficulty level and designed to help English learners practice natural conversation while building vocabulary and confidence. Each topic includes specific discussion questions that give learners a clear starting point. Whether you are a teacher looking for classroom activities, a conversation partner, or a self-studying learner, these topics will keep the conversation flowing.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Beginner Topics (A1-A2)",
@@ -1314,6 +1325,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Build trust, improve communication, and create a stronger team culture with questions that go beyond small talk.",
     intro: "Strong teams are not built in strategic planning meetings -- they are built in the small moments of genuine human connection. When colleagues understand each other's motivations, communication styles, backgrounds, and aspirations, collaboration becomes natural rather than forced. These 50 team building questions are designed to help teams of all sizes build the kind of trust and understanding that translates into better work. Use them in team meetings, retreats, virtual happy hours, or one-on-ones.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Fun and Lighthearted Questions",
@@ -1441,6 +1453,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "From the depths of the ocean to the edge of the universe, these topics make science come alive through discussion.",
     intro: "Science is not just about memorizing facts in a textbook -- it is about asking questions, challenging assumptions, and exploring the unknown. The best science discussions happen when curiosity meets critical thinking, and when participants are willing to say 'I do not know, but let us figure it out.' These 40 science discussion topics span multiple disciplines and are designed to spark engaging conversations in classrooms, science clubs, study groups, or around the dinner table with curious friends and family.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Space and the Universe",
@@ -1546,6 +1559,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Moral puzzles with no easy answers that challenge your values and sharpen your ethical reasoning.",
     intro: "An ethical dilemma is a situation where every option involves some moral cost -- there is no perfectly right answer. These scenarios force you to examine your values, weigh competing principles, and articulate why you believe what you believe. Unlike simple moral questions with obvious answers, true dilemmas reveal the tensions between values like honesty and kindness, individual rights and collective good, justice and mercy. These 35 questions are designed for philosophy classes, ethics training, book clubs, or any group that enjoys wrestling with hard questions.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Technology and AI Ethics",
@@ -1651,6 +1665,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Stand out from the crowd with presentation topics that are interesting, researchable, and guaranteed to engage your classmates.",
     intro: "The key to a great school presentation is choosing a topic that is interesting enough to keep your audience engaged, specific enough to cover well in your time limit, and has enough available research to back up your points. Whether you need an idea for a five-minute class presentation or a major research project, these 50 topics span multiple subjects and are designed to help you create a presentation that is both informative and memorable. We have also included tips for making your delivery stand out.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Science and Technology Presentations",
@@ -1778,6 +1793,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "The perfect mix of funny, random, and deep questions that keep friend group conversations going for hours.",
     intro: "The best friendships are the ones where you can talk about anything and everything -- from the most absurd hypothetical scenarios to the deepest questions about life. But even the closest friends sometimes hit a lull in conversation, especially when you have been hanging out for hours or chatting over text. These 70 random questions are designed to reignite the conversation, spark unexpected stories, and help you discover new things about the people you already know best. Pull one out during road trips, sleepovers, group dinners, or lazy afternoons.",
+    publishDate: "2026-04-06",
     sections: [
       {
         heading: "Random Hypotheticals",

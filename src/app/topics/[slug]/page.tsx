@@ -57,7 +57,41 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <p className="text-base sm:text-lg text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed opacity-80">
             {article.heroSubtitle}
           </p>
+          <p className="text-xs text-[var(--text-muted)] mt-3">
+            Published: {new Date(article.publishDate).toLocaleDateString("en-US", {
+              year: "numeric", month: "long", day: "numeric",
+            })}
+          </p>
         </div>
+
+        {/* Article Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: article.title,
+              description: article.metaDescription,
+              datePublished: article.publishDate,
+              dateModified: article.publishDate,
+              author: {
+                "@type": "Organization",
+                name: "Random Topics",
+                url: "https://randomtopics.app",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Random Topics",
+                url: "https://randomtopics.app",
+              },
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": `https://randomtopics.app/topics/${article.slug}`,
+              },
+            }),
+          }}
+        />
 
         {/* Intro */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
@@ -164,6 +198,28 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </div>
           </section>
         )}
+
+        {/* More Topic Collections */}
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-lg font-bold mb-4 text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
+              More Topic Collections
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {SEO_ARTICLES.filter((a) => a.slug !== article.slug)
+                .slice(0, 6)
+                .map((a) => (
+                  <Link
+                    key={a.slug}
+                    href={`/topics/${a.slug}`}
+                    className="text-sm p-3 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
+                  >
+                    {a.title} →
+                  </Link>
+                ))}
+            </div>
+          </div>
+        </section>
 
         {/* CTA to generator */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16 text-center">
