@@ -105,11 +105,14 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {[
               { title: "75 Best Debate Topics for Students", href: "/topics/debate-topics-for-students" },
-              { title: "60 Conversation Starters for Couples", href: "/topics/conversation-starters-for-couples" },
-              { title: "50 Icebreaker Questions for Work", href: "/topics/icebreaker-questions-for-work" },
-              { title: "50 Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
-              { title: "80 Would You Rather Questions", href: "/topics/would-you-rather-questions" },
-              { title: "70 Random Questions to Ask Friends", href: "/topics/random-questions-to-ask-friends" },
+              { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
+              { title: "65 Presentation Ideas for School", href: "/topics/presentation-ideas-for-school" },
+              { title: "70 Toastmasters Table Topics", href: "/topics/toastmasters-table-topics" },
+              { title: "60 Deep Questions for Your Partner", href: "/topics/deep-questions-to-ask-your-partner" },
+              { title: "55 Virtual Meeting Icebreakers", href: "/topics/icebreaker-questions-for-virtual-meetings" },
+              { title: "75 Speech Topics for College", href: "/topics/speech-topics-for-college-students" },
+              { title: "60 Random Essay Topics for College", href: "/topics/random-essay-topics-for-college" },
+              { title: "65 Get to Know You Questions", href: "/topics/get-to-know-you-questions-for-adults" },
             ].map((item) => (
               <Link
                 key={item.href}
