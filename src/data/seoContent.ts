@@ -7,6 +7,7 @@ export interface SeoArticle {
   heroSubtitle: string;
   intro: string;
   publishDate: string;
+  lastModified: string;
   sections: {
     heading: string;
     items: string[];
@@ -28,7 +29,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Thought-provoking topics that spark meaningful classroom discussions and sharpen critical thinking skills.",
     intro: "Finding the right debate topic can make the difference between a dull classroom exercise and a passionate intellectual exchange. Whether you are preparing for a formal debate competition, looking for engaging topics for your speech class, or simply want to encourage critical thinking among students, this curated list of 75 debate topics covers everything from technology and politics to ethics and education. Each topic is designed to have strong arguments on both sides, making them ideal for balanced, productive debates.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-03-15",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Technology & AI Debate Topics",
@@ -188,7 +190,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Meaningful questions that help you connect on a deeper level and keep the spark alive in your relationship.",
     intro: "Great relationships are built on great conversations. Whether you have been together for three months or thirty years, it is easy to fall into a routine where you only talk about logistics -- who is picking up groceries, what to watch tonight, when to pay the bills. These 60 conversation starters are designed to break that pattern and help you and your partner explore each other's dreams, fears, memories, and values. Use them during a quiet dinner, a long drive, or whenever you want to reconnect on a deeper level.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-03-17",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Getting to Know Each Other Better",
@@ -325,7 +328,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Professional yet engaging questions that warm up any meeting and help colleagues connect beyond the agenda.",
     intro: "We have all been in that meeting where everyone joins, cameras flicker on, and an uncomfortable silence fills the room while waiting for the last person to arrive. Icebreaker questions solve this problem by giving people a low-stakes, fun way to engage before diving into business. The best work icebreakers are inclusive, appropriate for professional settings, and easy to answer without too much thought. Here are 50 questions organized by category to suit any workplace situation.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-03-19",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Quick and Easy Icebreakers",
@@ -453,7 +457,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Imaginative prompts that turn reluctant writers into enthusiastic storytellers.",
     intro: "Getting kids excited about writing is one of the best gifts you can give them. These 40 creative writing prompts are designed to spark imagination, build confidence, and make writing feel like play rather than homework. Whether your child loves adventure, animals, magic, or humor, there is something here to inspire every young writer. These prompts work great for classroom exercises, homeschool assignments, journaling, or just a rainy afternoon activity.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-03-21",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Adventure and Exploration Prompts",
@@ -564,7 +569,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Break the ice, lighten the mood, and keep everyone laughing with these hilarious discussion starters.",
     intro: "Sometimes the best conversations are the ones that leave everyone laughing so hard they can barely breathe. Whether you are at a party that needs an energy boost, on a first date that could use some levity, or hanging out with friends on a lazy weekend, having a few funny conversation topics in your back pocket is a social superpower. These 65 topics range from absurd hypotheticals to relatable everyday humor, and they are designed to get people talking, debating, and most importantly, laughing.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-03-23",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Absurd Hypotheticals",
@@ -701,7 +707,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Questions that have puzzled humanity for centuries -- and still do not have easy answers.",
     intro: "Philosophy is not just for academics in ivory towers. The deepest questions about existence, consciousness, morality, and meaning are ones that every human grapples with, whether they realize it or not. These 50 philosophical questions are designed to challenge your assumptions, spark meaningful conversations, and make you genuinely think about the nature of reality and your place in it. They are perfect for late-night discussions, philosophy classes, journaling, or simply those quiet moments when you want to think about something bigger than your to-do list.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-03-25",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Consciousness and Reality",
@@ -829,7 +836,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Stand out in your next presentation with topics that are timely, thought-provoking, and audience-friendly.",
     intro: "Choosing the right speech topic can be the difference between a presentation that captivates the room and one that puts people to sleep. Whether you are looking for persuasive speech topics to argue a bold position, informative speech topics for college that teach your audience something new, or public speaking topics that let you showcase your personality, this comprehensive list has you covered. The best speech topics are ones you genuinely care about, are relevant to your audience, and offer enough depth for meaningful exploration. This list of 75+ topics covers technology, health, social issues, personal development, and more -- all designed to resonate with college audiences in 2026 and help you deliver a speech your classmates will actually remember.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-03-26",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Persuasive Speech Topics",
@@ -1012,7 +1020,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "The ultimate collection of impossible choices that spark laughter, debate, and surprisingly deep conversations.",
     intro: "Would You Rather is the perfect game because it requires zero equipment, works with any group size, and always leads to fascinating (and often hilarious) conversations. The magic is in the impossible choice -- both options must be compelling enough that the group genuinely debates which is better. This collection of 80 questions ranges from silly and lighthearted to deep and thought-provoking, so you can match the vibe of any gathering.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-03-27",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Classic Fun Questions",
@@ -1168,7 +1177,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Bold topics that challenge assumptions, spark passionate debate, and push you to think critically about the world.",
     intro: "Controversial topics are controversial for a reason -- they touch on deeply held values, complex tradeoffs, and genuine uncertainty about the right path forward. Engaging with these topics is not about winning arguments; it is about sharpening your thinking, understanding opposing viewpoints, and developing the intellectual humility to hold strong opinions loosely. These 55 topics are organized by theme and chosen because they have legitimate, well-reasoned arguments on multiple sides.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-03-28",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Technology and Privacy",
@@ -1302,7 +1312,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Carefully crafted topics and questions that help English learners build fluency and confidence through meaningful conversation.",
     intro: "The best way to learn a language is to speak it, and the best way to speak it is to have something interesting to talk about. These 45 ESL conversation topics are organized by difficulty level and designed to help English learners practice natural conversation while building vocabulary and confidence. Each topic includes specific discussion questions that give learners a clear starting point. Whether you are a teacher looking for classroom activities, a conversation partner, or a self-studying learner, these topics will keep the conversation flowing.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-03-29",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Beginner Topics (A1-A2)",
@@ -1418,7 +1429,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Build trust, improve communication, and create a stronger team culture with questions that go beyond small talk.",
     intro: "Strong teams are not built in strategic planning meetings -- they are built in the small moments of genuine human connection. When colleagues understand each other's motivations, communication styles, backgrounds, and aspirations, collaboration becomes natural rather than forced. These 50 team building questions are designed to help teams of all sizes build the kind of trust and understanding that translates into better work. Use them in team meetings, retreats, virtual happy hours, or one-on-ones.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-03-30",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Fun and Lighthearted Questions",
@@ -1546,7 +1558,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "From the depths of the ocean to the edge of the universe, these topics make science come alive through discussion.",
     intro: "Science is not just about memorizing facts in a textbook -- it is about asking questions, challenging assumptions, and exploring the unknown. The best science discussions happen when curiosity meets critical thinking, and when participants are willing to say 'I do not know, but let us figure it out.' These 40 science discussion topics span multiple disciplines and are designed to spark engaging conversations in classrooms, science clubs, study groups, or around the dinner table with curious friends and family.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-03-31",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Space and the Universe",
@@ -1652,7 +1665,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Moral puzzles with no easy answers that challenge your values and sharpen your ethical reasoning.",
     intro: "An ethical dilemma is a situation where every option involves some moral cost -- there is no perfectly right answer. These moral dilemma scenarios force you to examine your values, weigh competing principles, and articulate why you believe what you believe. Unlike simple moral questions with obvious answers, true dilemmas reveal the tensions between values like honesty and kindness, individual rights and collective good, justice and mercy. Whether you are looking for ethical dilemma examples for a classroom exercise, preparing for a philosophy exam, or seeking moral dilemma scenarios to spark a deep group conversation, this comprehensive collection has you covered. These 50+ questions span technology, medicine, everyday life, workplace ethics, environmental concerns, and social justice -- designed for philosophy classes, ethics training, book clubs, job interview preparation, or any group that enjoys wrestling with hard questions.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-04-01",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Technology and AI Ethics",
@@ -1802,7 +1816,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Stand out from the crowd with presentation topics that are interesting, researchable, and guaranteed to engage your classmates.",
     intro: "The key to a great school presentation is choosing a topic that is interesting enough to keep your audience engaged, specific enough to cover well in your time limit, and has enough available research to back up your points. Whether you are searching for presentation topics for students, need school project ideas for a five-minute class presentation, or want 5-minute presentation topics that pack a punch in a short time, these 65+ ideas span multiple subjects and difficulty levels. From science and technology to health, wellness, and creative topics, this list is designed to help you create a presentation that is both informative and memorable. We have also included tips and FAQs for making your delivery stand out, no matter your grade level or subject area.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-04-02",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Science and Technology Presentations",
@@ -1981,7 +1996,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "The perfect mix of funny, random, and deep questions that keep friend group conversations going for hours.",
     intro: "The best friendships are the ones where you can talk about anything and everything -- from the most absurd hypothetical scenarios to the deepest questions about life. But even the closest friends sometimes hit a lull in conversation, especially when you have been hanging out for hours or chatting over text. These 70 random questions are designed to reignite the conversation, spark unexpected stories, and help you discover new things about the people you already know best. Pull one out during road trips, sleepovers, group dinners, or lazy afternoons.",
-    publishDate: "2026-04-06",
+    publishDate: "2026-04-02",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Random Hypotheticals",
@@ -2137,7 +2153,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Fun, thought-provoking debate ideas that help middle schoolers build confidence, critical thinking, and public speaking skills.",
     intro: "Middle school is the perfect time to introduce students to the art of debate. At this age, students are developing their own opinions and learning to back them up with reasoning -- but they still need topics that feel relevant and accessible. This list of 50 debate topics is specifically designed for middle school students, covering everything from lighthearted cafeteria controversies to real ethical dilemmas they can sink their teeth into. Each topic has clear two-sided arguments, making them ideal for classroom debates, speech practice, or after-school debate clubs.",
-    publishDate: "2026-04-07",
+    publishDate: "2026-04-03",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Fun & Lighthearted Debate Topics",
@@ -2258,7 +2275,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Break through the awkward silence of remote meetings with questions that actually get people talking.",
     intro: "Virtual meetings have a unique challenge that in-person gatherings do not: the dreaded grid of muted cameras and the silence that follows 'So, how is everyone doing?' Whether you are leading a weekly team standup, onboarding new remote employees, or kicking off a cross-functional Zoom call, the right icebreaker question can transform the energy of the entire meeting. These 55 questions are specifically designed for virtual settings -- they are quick to answer, do not require physical props, and work even when half the team has their cameras off.",
-    publishDate: "2026-04-07",
+    publishDate: "2026-04-04",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Quick 30-Second Icebreakers",
@@ -2391,7 +2409,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Stuck staring at a blank page? These essay topics span every genre and subject to get your writing started.",
     intro: "Every college student hits the wall: the assignment says 'choose your own topic' and suddenly your mind goes completely blank. Whether you need an argumentative essay for your composition class, a personal narrative for a creative writing workshop, or a research paper topic for your capstone, this collection of 60 essay topics is designed to spark ideas across every major genre. Each topic is specific enough to write about immediately but flexible enough to adapt to your professor's requirements and your own interests.",
-    publishDate: "2026-04-07",
+    publishDate: "2026-04-04",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Argumentative Essay Topics",
@@ -2529,7 +2548,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Sharpen your impromptu speaking skills with questions that challenge you to think clearly under pressure.",
     intro: "Table Topics is the part of every Toastmasters meeting that tests your ability to think on your feet. You get a question, and you have one to two minutes to deliver a coherent, engaging response with zero preparation. It is terrifying and exhilarating in equal measure -- and the best way to get better is to practice with a wide variety of questions. This collection of 70 Table Topics questions covers everything from classic opinion prompts to wild hypothetical scenarios, giving you plenty of material to practice with at home, in your club, or with friends.",
-    publishDate: "2026-04-07",
+    publishDate: "2026-04-05",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Classic Opinion Questions",
@@ -2677,7 +2697,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Move past 'What do you do?' with questions that spark real conversations and genuine connections.",
     intro: "As adults, we meet new people constantly -- at work events, dinner parties, through mutual friends, in new neighborhoods -- but somehow the conversations never seem to get past surface-level pleasantries. 'What do you do?' leads to a job title. 'Where are you from?' leads to a city name. And then silence. These 65 questions are designed to skip the small talk and get to the interesting stuff: what people actually care about, what shaped them, and what makes them tick. They work for first dates, networking events, dinner parties, or any situation where you want a real conversation instead of a polite one.",
-    publishDate: "2026-04-07",
+    publishDate: "2026-04-05",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Light & Easy Starters",
@@ -2820,7 +2841,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Go beyond the everyday and discover the conversations that bring couples closer together.",
     intro: "Even in the best relationships, conversations can fall into a routine of logistics and daily updates. 'What should we have for dinner?' replaces 'What are you dreaming about lately?' Over time, couples can start feeling like they know everything about each other when, in reality, people are always changing and growing. These 60 deep questions are designed to open doors to the parts of your partner's inner world that do not come up in everyday conversation -- their fears, hopes, memories, and the values that guide their decisions. Set aside a quiet evening, put the phones away, and use these questions to reconnect.",
-    publishDate: "2026-04-07",
+    publishDate: "2026-04-06",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "Understanding Each Other's Past",
@@ -2958,7 +2980,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     heroSubtitle:
       "Pick a topic, start the timer, and practice thinking on your feet -- no preparation needed.",
     intro: "Impromptu speaking is one of the most valuable communication skills you can develop, and the only way to get better is deliberate practice. This collection of 45 impromptu speech topics covers a range of categories to challenge different aspects of your speaking ability -- forming opinions quickly, telling stories under pressure, and thinking creatively in the moment. Pair these topics with the built-in speech practice timer at /speech to simulate real speaking conditions. Set it for one to two minutes, pick a random topic, and start talking. The more you practice, the more natural impromptu speaking becomes.",
-    publishDate: "2026-04-07",
+    publishDate: "2026-04-06",
+    lastModified: "2026-04-08",
     sections: [
       {
         heading: "General Knowledge & Opinion Topics",
@@ -3059,8 +3082,589 @@ export const SEO_ARTICLES: SeoArticle[] = [
     ],
     relatedLinks: [
       { label: "Speech Practice with Timer", href: "/speech" },
-      { label: "Toastmasters Table Topics", href: "/article/toastmasters-table-topics" },
-      { label: "Speech Topics for College Students", href: "/article/speech-topics-for-college-students" },
+      { label: "Toastmasters Table Topics", href: "/topics/toastmasters-table-topics" },
+      { label: "Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
+    ],
+  },
+
+  // 23. First Date Conversation Topics
+  {
+    slug: "first-date-conversation-topics",
+    title: "50 First Date Conversation Topics That Actually Work",
+    metaTitle: "50 First Date Conversation Topics That Actually Work | RandomTopics",
+    metaDescription: "Never run out of things to say on a first date. 50 proven conversation topics that spark genuine connection, from light icebreakers to deeper questions.",
+    heroTitle: "50 First Date Conversation Topics That Actually Work",
+    heroSubtitle: "From light icebreakers to meaningful questions — topics that help you connect authentically.",
+    intro: "First dates are exciting but nerve-wracking. The biggest fear? Awkward silence. The solution is not having a script, but having a mental library of interesting topics that naturally lead to genuine conversation. These 50 first date conversation topics are organized from light to deep, so you can read the vibe and go where the moment takes you.",
+    publishDate: "2026-03-20",
+    lastModified: "2026-04-08",
+    sections: [
+      {
+        heading: "Light & Easy Openers",
+        description: "Start here. These are safe, fun, and get the conversation flowing without feeling like a job interview.",
+        items: [
+          "What is the best meal you have had recently and what made it special?",
+          "If you could take a trip anywhere tomorrow, where would you go?",
+          "What is something you are really into right now — a show, a hobby, a podcast?",
+          "Do you prefer mornings or nights, and what does your ideal version of each look like?",
+          "What is the most spontaneous thing you have ever done?",
+          "If you could have any superpower for just one day, what would you choose?",
+          "What is a small thing that always makes your day better?",
+          "Do you have a go-to comfort food that never fails?",
+          "What is the last thing that made you genuinely laugh out loud?",
+          "If your life had a theme song, what would it be?",
+        ],
+      },
+      {
+        heading: "Getting to Know You",
+        description: "These help you learn who they really are beyond the surface level.",
+        items: [
+          "What do you do for work, and what is the part you enjoy most?",
+          "What is something you are surprisingly good at that most people do not know?",
+          "How would your best friend describe you in three words?",
+          "What is a hobby or interest you picked up recently?",
+          "Are you more of a planner or a go-with-the-flow person?",
+          "What is the best advice someone has ever given you?",
+          "Do you have any pets? If not, would you want one?",
+          "What is a skill you would love to learn if time and money were no issue?",
+          "What kind of music do you listen to when you want to feel good?",
+          "What does a perfect weekend look like for you?",
+        ],
+      },
+      {
+        heading: "Fun & Playful Questions",
+        description: "Inject some humor and playfulness to keep the energy up.",
+        items: [
+          "What is the most embarrassing song on your playlist that you secretly love?",
+          "If you could live in any fictional universe, which one would you choose?",
+          "What is the worst date you have ever been on — and can we top it tonight?",
+          "If you had to eat one cuisine for the rest of your life, what would it be?",
+          "What is a popular opinion that you completely disagree with?",
+          "If you won the lottery tomorrow, what is the first ridiculous thing you would buy?",
+          "What is the strangest food combination you enjoy that others find weird?",
+          "Would you rather be famous for something cool or quietly successful behind the scenes?",
+          "What childhood cartoon character do you secretly still relate to?",
+          "If you could switch lives with anyone for a week, who would it be?",
+        ],
+      },
+      {
+        heading: "Deeper Connection Questions",
+        description: "Only go here if the conversation is flowing well. These create real intimacy.",
+        items: [
+          "What is something you have changed your mind about in the last few years?",
+          "What do you value most in a friendship?",
+          "Is there a life experience that really shaped who you are today?",
+          "What is something you are working on improving about yourself?",
+          "How do you handle stress or difficult days?",
+          "What does a meaningful relationship look like to you?",
+          "What is a dream you have that you have not told many people about?",
+          "Do you think people can truly change, or are we mostly who we have always been?",
+          "What makes you feel most alive?",
+          "If you could tell your younger self one thing, what would it be?",
+        ],
+      },
+      {
+        heading: "Future-Oriented Topics",
+        description: "These subtly reveal compatibility without making it feel like an interrogation.",
+        items: [
+          "Where do you see yourself living in five years?",
+          "What is on your bucket list that you have not crossed off yet?",
+          "Do you prefer staying in one place or moving around?",
+          "What is a cause or issue you care deeply about?",
+          "If you could start a passion project with unlimited resources, what would it be?",
+          "What kind of adventures do you want more of in your life?",
+          "How important is family to you, and what does that look like?",
+          "What is a tradition — from your family or your own — that you love?",
+          "If money was not a factor, how would you spend your days?",
+          "What does personal growth mean to you?",
+        ],
+      },
+    ],
+    faq: [
+      { question: "What should you talk about on a first date?", answer: "Focus on topics that reveal personality, values, and sense of humor. Start light with travel, food, and hobbies, then move to deeper topics like life goals and values as the conversation flows naturally. Avoid heavy topics like exes, politics, or finances early on." },
+      { question: "How do you avoid awkward silence on a first date?", answer: "Have a mental bank of interesting questions ready, but do not fire them off like a checklist. Listen actively and follow up on what your date says — the best conversations are built on genuine curiosity, not pre-planned scripts. A random topic generator can help you brainstorm ideas beforehand." },
+      { question: "What topics should you avoid on a first date?", answer: "Generally avoid ex-partners, salary or financial details, controversial political opinions, complaints about your life, and anything that feels like a job interview. Save deeper or heavier topics for when you have built more rapport." },
+    ],
+    relatedLinks: [
+      { label: "Conversation Starters for Couples", href: "/topics/conversation-starters-for-couples" },
+      { label: "Get to Know You Questions", href: "/topics/get-to-know-you-questions-for-adults" },
+      { label: "Conversation Generator", href: "/conversation" },
+    ],
+  },
+
+  // 24. Debate Topics for Beginners
+  {
+    slug: "debate-topics-for-beginners",
+    title: "40 Easy Debate Topics for Beginners",
+    metaTitle: "40 Easy Debate Topics for Beginners | RandomTopics",
+    metaDescription: "40 beginner-friendly debate topics with clear two-sided arguments. Perfect for new debaters, ESL students, and classroom introductions to structured debate.",
+    heroTitle: "40 Easy Debate Topics for Beginners",
+    heroSubtitle: "Simple, clear topics with obvious two sides — perfect for your first debate experience.",
+    intro: "Starting out in debate can feel intimidating, but it does not have to be. The key is choosing topics where both sides are easy to understand and argue without needing specialized knowledge. These 40 beginner-friendly debate topics are designed to help new debaters build confidence with structured argumentation while exploring issues they already have opinions about.",
+    publishDate: "2026-03-22",
+    lastModified: "2026-04-08",
+    sections: [
+      {
+        heading: "Everyday Life Debates",
+        description: "Topics everyone has an opinion on — no research required to get started.",
+        items: [
+          "Is it better to be an early bird or a night owl?",
+          "Should pets be allowed in all workplaces?",
+          "Is it better to live in a big city or a small town?",
+          "Should tipping be mandatory at restaurants?",
+          "Is it better to rent or buy a home?",
+          "Should the work week be reduced to four days?",
+          "Are physical books better than e-books?",
+          "Should public transportation be free for everyone?",
+          "Is cooking at home always better than eating out?",
+          "Should there be a universal dress code for schools?",
+        ],
+      },
+      {
+        heading: "Technology & Social Media",
+        description: "Easy topics about the tech we all use daily.",
+        items: [
+          "Is social media making us more or less connected?",
+          "Should children have smartphones before age 13?",
+          "Are video games a waste of time or a valuable activity?",
+          "Should online classes replace traditional classrooms?",
+          "Is it okay to use AI to write school essays?",
+          "Should there be age limits on social media accounts?",
+          "Is technology making people lazier?",
+          "Should screen time be limited for adults too, not just children?",
+          "Are robots going to take most human jobs?",
+          "Is it better to text or call someone?",
+        ],
+      },
+      {
+        heading: "School & Education",
+        description: "Relatable topics that students can argue from personal experience.",
+        items: [
+          "Should homework be banned in elementary school?",
+          "Is group work better than individual work?",
+          "Should students grade their teachers?",
+          "Are exams the best way to test knowledge?",
+          "Should art and music be as important as math and science in school?",
+          "Is it better to study one subject deeply or many subjects broadly?",
+          "Should school lunches be free for all students?",
+          "Is recess important for older students too?",
+          "Should students be allowed to choose their own classes in middle school?",
+          "Is learning a second language more important than learning to code?",
+        ],
+      },
+      {
+        heading: "Fun & Hypothetical",
+        description: "Lighthearted topics that make debate practice enjoyable.",
+        items: [
+          "Would you rather be able to fly or be invisible?",
+          "Is summer better than winter?",
+          "Are cats better pets than dogs?",
+          "Is pizza the best food in the world?",
+          "Would it be better to live 200 years ago or 200 years in the future?",
+          "Should superheroes be held legally responsible for property damage?",
+          "Is it better to be the oldest or youngest sibling?",
+          "Would you rather have unlimited money or unlimited time?",
+          "Is it better to be really smart or really lucky?",
+          "Should weekends be three days long?",
+        ],
+      },
+    ],
+    faq: [
+      { question: "What makes a debate topic good for beginners?", answer: "Good beginner topics have clear two sides, require no specialized knowledge, and relate to everyday life. Students should be able to form an opinion immediately and think of at least two reasons to support it without research." },
+      { question: "How do you structure a beginner debate?", answer: "Keep it simple: each side gets two minutes for an opening statement, one minute for rebuttal, and one minute for closing. A moderator can help manage time and keep the discussion respectful. Focus on making clear arguments rather than winning." },
+    ],
+    relatedLinks: [
+      { label: "75 Debate Topics for Students", href: "/topics/debate-topics-for-students" },
+      { label: "50 Debate Topics for Middle School", href: "/topics/debate-topics-for-middle-school" },
+      { label: "Debate Topic Generator", href: "/debate" },
+    ],
+  },
+
+  // 25. Questions to Ask at a Party
+  {
+    slug: "questions-to-ask-at-a-party",
+    title: "55 Fun Questions to Ask at a Party",
+    metaTitle: "55 Fun Questions to Ask at a Party | RandomTopics",
+    metaDescription: "55 fun, engaging questions perfect for parties and social gatherings. From icebreakers to hilarious hypotheticals that get everyone talking and laughing.",
+    heroTitle: "55 Fun Questions to Ask at a Party",
+    heroSubtitle: "From casual icebreakers to laugh-out-loud hypotheticals — questions that turn any gathering into a great time.",
+    intro: "Whether you are at a house party, a work event, or a casual get-together, having a few great questions in your back pocket can transform the energy of the room. These 55 party questions are designed to be fun, inclusive, and easy to jump into — no awkward setup required.",
+    publishDate: "2026-03-24",
+    lastModified: "2026-04-08",
+    sections: [
+      {
+        heading: "Quick Icebreakers",
+        description: "Start a conversation with anyone in seconds.",
+        items: [
+          "What is the most interesting thing that happened to you this week?",
+          "If you could only eat one food for a month, what would it be?",
+          "What is the best concert or live event you have ever been to?",
+          "Do you have a hidden talent nobody here knows about?",
+          "What is the last show you binge-watched?",
+          "If you could live anywhere in the world for a year, where would you go?",
+          "What is your go-to karaoke song?",
+          "Are you more of a dance-floor person or a sit-and-chat person?",
+          "What is the best gift you have ever received?",
+          "If your life was a movie, what genre would it be?",
+          "What is something on your bucket list you have not done yet?",
+        ],
+      },
+      {
+        heading: "Would You Rather (Party Edition)",
+        description: "These always get a group going. Perfect for rounds.",
+        items: [
+          "Would you rather have the ability to talk to animals or speak every human language?",
+          "Would you rather never have to sleep or never have to eat?",
+          "Would you rather be famous on the internet or famous in your local community?",
+          "Would you rather go back in time ten years or forward ten years?",
+          "Would you rather always be slightly overdressed or slightly underdressed?",
+          "Would you rather give up your phone for a month or give up your bed for a month?",
+          "Would you rather have a personal chef or a personal chauffeur?",
+          "Would you rather know the date of your death or the cause of your death?",
+          "Would you rather be able to pause real life or rewind it?",
+          "Would you rather win a million dollars or have your best friend win five million?",
+          "Would you rather always tell the truth or always lie convincingly?",
+        ],
+      },
+      {
+        heading: "Funny & Absurd Questions",
+        description: "These get everyone laughing and debating ridiculous scenarios.",
+        items: [
+          "If you were a professional wrestler, what would your entrance song be?",
+          "What is the weirdest thing you have ever googled?",
+          "If you had to be haunted by one celebrity ghost, who would you choose?",
+          "What conspiracy theory do you find the most entertaining?",
+          "If aliens visited Earth, what would confuse them most about humans?",
+          "What is the most useless skill you are weirdly proud of?",
+          "If you could add one rule to any sport, what would it be?",
+          "What would your reality TV show be called?",
+          "If you could uninvent one thing, what would it be?",
+          "What is the worst fashion trend you have ever participated in?",
+          "If your pet could suddenly talk, what is the first thing it would say about you?",
+        ],
+      },
+      {
+        heading: "Group Discussion Starters",
+        description: "Questions that get the whole group debating and sharing stories.",
+        items: [
+          "What is the most overrated thing in pop culture right now?",
+          "If everyone at this party had to survive a zombie apocalypse together, who would be the leader?",
+          "What is the best piece of advice you have ever ignored?",
+          "If you could have dinner with any three people, dead or alive, who would you choose?",
+          "What is one thing you believed as a kid that turned out to be completely wrong?",
+          "What is the most adventurous food you have ever tried?",
+          "If you had to pick a new career tomorrow, what would you choose?",
+          "What is the funniest misunderstanding you have ever been part of?",
+          "If you could master one instrument overnight, which one?",
+          "What is a hill you are willing to die on that most people would find trivial?",
+          "Who at this party do you think has the most interesting life story?",
+          "What is a skill everyone should learn before turning 30?",
+        ],
+      },
+    ],
+    faq: [
+      { question: "How do you start a conversation at a party?", answer: "The easiest approach is to comment on something in the shared environment — the music, the food, or the venue — and follow up with an open-ended question. Having a few go-to icebreaker questions ready gives you confidence to approach anyone." },
+      { question: "What are good group questions for a party?", answer: "The best group questions are inclusive, fun, and do not put anyone on the spot. Would-you-rather questions, hypothetical scenarios, and opinion-based questions work well because everyone can participate regardless of how well they know each other." },
+    ],
+    relatedLinks: [
+      { label: "Random Questions to Ask Friends", href: "/topics/random-questions-to-ask-friends" },
+      { label: "Funny Conversation Topics", href: "/topics/funny-conversation-topics" },
+      { label: "Icebreaker Generator", href: "/icebreaker" },
+    ],
+  },
+
+  // 26. Public Speaking Topics for Beginners
+  {
+    slug: "public-speaking-topics-for-beginners",
+    title: "45 Public Speaking Topics for Beginners",
+    metaTitle: "45 Public Speaking Topics for Beginners | RandomTopics",
+    metaDescription: "45 easy and engaging public speaking topics for beginners. Perfect for first speeches, class presentations, and building confidence at the podium.",
+    heroTitle: "45 Public Speaking Topics for Beginners",
+    heroSubtitle: "Approachable topics that help you build confidence and find your voice as a speaker.",
+    intro: "Your first speech does not need to be about solving world peace. The best beginner speech topics are ones you already know something about and genuinely care about. When you speak from experience and passion, confidence follows naturally. These 45 topics are chosen specifically for new speakers — they are easy to research, relatable to any audience, and flexible enough for different speech lengths.",
+    publishDate: "2026-03-26",
+    lastModified: "2026-04-08",
+    sections: [
+      {
+        heading: "Personal Experience Topics",
+        description: "The easiest speeches draw from your own life. No research needed.",
+        items: [
+          "A lesson I learned the hard way",
+          "The person who influenced me the most",
+          "My favorite place in the world and why",
+          "A hobby that changed my perspective",
+          "The best decision I have ever made",
+          "A challenge I overcame and what it taught me",
+          "Why I chose my career path or field of study",
+          "A travel experience that surprised me",
+          "Something I wish I had known at 18",
+          "The book, movie, or song that changed how I think",
+          "A tradition in my family that means a lot to me",
+          "The moment I realized I was an adult",
+        ],
+      },
+      {
+        heading: "Informative Topics",
+        description: "Teach your audience something interesting without needing to be an expert.",
+        items: [
+          "How to build a simple budget that actually works",
+          "The science behind why we dream",
+          "Five common myths about nutrition that are not true",
+          "How social media algorithms decide what you see",
+          "The history of a food or drink you consume every day",
+          "How to give a great first impression according to psychology",
+          "What happens to your body when you do not get enough sleep",
+          "The basics of how the stock market works",
+          "Why some languages are harder to learn than others",
+          "How music affects your mood and productivity",
+          "The environmental impact of fast fashion",
+        ],
+      },
+      {
+        heading: "Persuasive Topics",
+        description: "Take a stance and convince your audience. Keep it light for beginners.",
+        items: [
+          "Everyone should learn basic first aid",
+          "Reading for fun should be part of every adult's routine",
+          "Schools should teach personal finance starting in middle school",
+          "Volunteering should be a graduation requirement",
+          "Everyone should try living alone at least once",
+          "Learning to cook is one of the most valuable life skills",
+          "Walking meetings are better than conference room meetings",
+          "People should travel solo at least once in their lives",
+          "Handwritten thank-you notes still matter in the digital age",
+          "Everyone should have a creative hobby outside of work",
+          "Public libraries are one of the most underrated community resources",
+        ],
+      },
+      {
+        heading: "Fun & Creative Topics",
+        description: "Perfect for lighthearted settings or when you want to entertain.",
+        items: [
+          "If I could have dinner with any three people in history",
+          "The worst advice I have ever received",
+          "Things I would change if I were in charge for a day",
+          "An unpopular opinion I am willing to defend",
+          "The most overrated and underrated things in life",
+          "If I could time travel to any era and why",
+          "My most embarrassing moment and what I learned from it",
+          "A review of the strangest food I have ever tried",
+          "If my life had a soundtrack, what songs would be on it",
+          "Three things everyone should try before turning 30",
+          "The funniest cultural misunderstanding I have experienced",
+        ],
+      },
+    ],
+    faq: [
+      { question: "What is a good topic for a first speech?", answer: "Choose a topic you already know well and care about. Personal stories, how-to explanations, and opinion-based topics work best for beginners because they require minimal research and allow you to speak authentically. Avoid overly complex or controversial topics for your first speech." },
+      { question: "How long should a beginner speech be?", answer: "Aim for three to five minutes. This is long enough to develop a clear point with supporting details but short enough to maintain audience attention and manage nerves. Most classroom speeches and Toastmasters speeches for beginners fall in this range." },
+    ],
+    relatedLinks: [
+      { label: "Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
+      { label: "Impromptu Speech Topics with Timer", href: "/topics/impromptu-speech-topics-with-timer" },
+      { label: "Speech Topic Generator", href: "/speech" },
+    ],
+  },
+
+  // 27. Conversation Topics for Teens
+  {
+    slug: "conversation-topics-for-teens",
+    title: "50 Conversation Topics for Teenagers",
+    metaTitle: "50 Conversation Topics for Teenagers | RandomTopics",
+    metaDescription: "50 engaging conversation topics designed for teenagers. Perfect for classroom discussions, youth groups, and helping teens develop social and critical thinking skills.",
+    heroTitle: "50 Conversation Topics for Teenagers",
+    heroSubtitle: "Topics that teens actually want to talk about — from social media and identity to future goals and fun hypotheticals.",
+    intro: "Getting teenagers to open up can be challenging, but the right topic makes all the difference. These 50 conversation topics are designed specifically for teens — they touch on issues that matter to this age group, from social media and friendship to identity and future plans. Whether you are a teacher, counselor, parent, or youth leader, these topics help spark genuine discussion.",
+    publishDate: "2026-03-28",
+    lastModified: "2026-04-08",
+    sections: [
+      {
+        heading: "Social Media & Technology",
+        items: [
+          "Do you think social media shows a realistic version of people's lives?",
+          "Should there be a minimum age to have a social media account?",
+          "How do you decide what to share online versus what to keep private?",
+          "Is it possible to be friends with someone you have only met online?",
+          "How has technology changed the way your generation communicates compared to your parents?",
+          "Do you think AI will change how students learn in the next five years?",
+          "Is it okay to ghost someone, or should you always give an explanation?",
+          "What app or platform could you not live without?",
+          "Do you feel pressure to present a certain image on social media?",
+          "Should schools ban phones during class or allow them as learning tools?",
+        ],
+      },
+      {
+        heading: "Identity & Growing Up",
+        items: [
+          "What is something about adulthood that excites you and something that worries you?",
+          "How do you figure out who you really are versus who others expect you to be?",
+          "What is a value or belief that is really important to you?",
+          "Do you think your generation has it harder or easier than your parents did at your age?",
+          "What is one thing you wish adults understood about being a teenager today?",
+          "How do you handle pressure to fit in or be like everyone else?",
+          "What does confidence mean to you, and how do you build it?",
+          "Is it important to have a plan for after high school, or is it okay not to know?",
+          "What role do friends play in shaping who you become?",
+          "How do you deal with failure or disappointment?",
+        ],
+      },
+      {
+        heading: "School & Future",
+        items: [
+          "What subject do you wish was taught in school that currently is not?",
+          "Do grades accurately reflect how smart or capable someone is?",
+          "What career would you pursue if money was not a factor?",
+          "Should students have more say in how schools are run?",
+          "Is college the only path to a successful life?",
+          "What is the most useful thing you have learned in school so far?",
+          "Would you rather have a job you love that pays little or a boring job that pays well?",
+          "How do you balance schoolwork, social life, and personal time?",
+          "What is a skill you think every teenager should learn before graduating?",
+          "Do you think the education system prepares students well for real life?",
+        ],
+      },
+      {
+        heading: "Fun & Hypothetical",
+        items: [
+          "If you could swap lives with anyone for a week, who would it be?",
+          "What is the most interesting thing you have learned outside of school?",
+          "If you could travel anywhere right now, where would you go and why?",
+          "What is a trend from your generation that you think will age well?",
+          "If you could change one thing about the world, what would it be?",
+          "What is the funniest thing that has happened to you at school?",
+          "If you could create a new holiday, what would it celebrate?",
+          "What movie or book do you think everyone your age should experience?",
+          "If you had one extra hour every day, how would you spend it?",
+          "What is a random fact you know that always surprises people?",
+          "What would you do if you were principal for a day?",
+          "If you could master any skill instantly, what would you choose?",
+          "What is a piece of advice you would give to incoming freshmen?",
+          "Would you rather know what happens in the future or be able to change the past?",
+          "What is the best thing about being a teenager right now?",
+          "If you started a YouTube channel, what would it be about?",
+          "What is something you have changed your mind about recently?",
+          "If you could invent something to make school better, what would it be?",
+          "What do you think the world will look like when you are 40?",
+          "What is a goal you want to achieve in the next year?",
+        ],
+      },
+    ],
+    faq: [
+      { question: "How do you get teens to open up in conversation?", answer: "Start with low-stakes, fun topics and avoid questions that feel like interrogations. Ask open-ended questions, share your own answers first to model vulnerability, and listen without judgment. Teens are more likely to open up when they feel the conversation is genuine rather than evaluative." },
+      { question: "What topics are appropriate for teen discussion groups?", answer: "Topics about social media, identity, friendship, school, and future plans are universally relatable and appropriate. Avoid overly sensitive personal topics unless the group has established trust. Hypothetical and fun questions can warm up the group before moving to deeper discussions." },
+    ],
+    relatedLinks: [
+      { label: "Debate Topics for Students", href: "/topics/debate-topics-for-students" },
+      { label: "Writing Prompts for Kids", href: "/topics/writing-prompts-for-kids" },
+      { label: "Conversation Generator", href: "/conversation" },
+    ],
+  },
+
+  // 28. Couples Game Night Questions
+  {
+    slug: "couples-game-night-questions",
+    title: "60 Couples Game Night Questions",
+    metaTitle: "60 Couples Game Night Questions for a Fun Date Night | RandomTopics",
+    metaDescription: "60 fun and revealing couples game night questions. Perfect for date nights, double dates, and couples who want to laugh, connect, and learn something new about each other.",
+    heroTitle: "60 Couples Game Night Questions",
+    heroSubtitle: "Turn date night into game night with questions that are fun, flirty, and surprisingly revealing.",
+    intro: "Game nights are not just for friend groups — they are one of the best ways for couples to reconnect, laugh, and discover new things about each other. These 60 questions range from playful and flirty to thoughtfully revealing. Use them as a card game, a drinking game, or just conversation starters for a cozy night in.",
+    publishDate: "2026-03-30",
+    lastModified: "2026-04-08",
+    sections: [
+      {
+        heading: "How Well Do You Know Me?",
+        description: "Test how well you really know your partner. Take turns answering about each other.",
+        items: [
+          "What is my biggest pet peeve?",
+          "What was I most afraid of as a child?",
+          "What is my dream vacation destination?",
+          "What is the one food I could never give up?",
+          "What is my love language?",
+          "What would I do if I won a million dollars?",
+          "What is my most embarrassing moment that I have told you about?",
+          "What is the first thing I would do if I had a day with zero responsibilities?",
+          "What am I most proud of in my life?",
+          "What is my guilty pleasure that I pretend not to have?",
+          "What is the one thing I always forget?",
+          "If I could change one thing about my daily routine, what would it be?",
+        ],
+      },
+      {
+        heading: "This or That (Couples Edition)",
+        description: "Quick-fire choices that reveal preferences and spark friendly debate.",
+        items: [
+          "Cooking together or ordering takeout?",
+          "Movie night at home or going to the theater?",
+          "Road trip or beach vacation?",
+          "Morning coffee date or late-night dessert?",
+          "Big wedding or small elopement?",
+          "Text all day or one long phone call?",
+          "Adventure travel or relaxing resort?",
+          "Plan every detail or be spontaneous?",
+          "Matching pajamas or totally different styles?",
+          "Meet at a coffee shop or meet on an app?",
+          "Live in the city or live in the countryside?",
+          "Have a personal chef or a personal masseuse?",
+        ],
+      },
+      {
+        heading: "Would You Still Love Me If...",
+        description: "The classic TikTok trend turned into a real game. Keep it lighthearted.",
+        items: [
+          "Would you still love me if I accidentally dyed my hair green?",
+          "Would you still love me if I snored as loud as a chainsaw?",
+          "Would you still love me if I became obsessed with a niche hobby like competitive duck herding?",
+          "Would you still love me if I wore Crocs every single day?",
+          "Would you still love me if I could only communicate through song?",
+          "Would you still love me if I told the same joke at every dinner party?",
+          "Would you still love me if I started a collection of garden gnomes?",
+          "Would you still love me if I quit my job to become a street magician?",
+          "Would you still love me if I accidentally became internet famous for something embarrassing?",
+          "Would you still love me if I insisted on narrating everything we do like a nature documentary?",
+          "Would you still love me if I only listened to one song on repeat for a year?",
+          "Would you still love me if I adopted six cats?",
+        ],
+      },
+      {
+        heading: "Deep & Meaningful",
+        description: "Questions that bring you closer and open up new conversations.",
+        items: [
+          "What is your favorite memory of us?",
+          "When did you first realize you were falling for me?",
+          "What is something I do that you wish I knew you appreciate?",
+          "What is a dream we should chase together?",
+          "How have we helped each other grow?",
+          "What is one thing about our relationship that makes you feel safe?",
+          "If we could relive one day together, which would you choose?",
+          "What is something we have never tried that you want to do together?",
+          "What is the hardest thing about being in a relationship that nobody talks about?",
+          "What is one relationship goal you have for us this year?",
+          "What do you think is our greatest strength as a couple?",
+          "What is one thing I could do to make your daily life even a little bit better?",
+          "What does happily ever after look like to you?",
+          "If you had to describe our relationship in three words, what would they be?",
+          "What is something you want us to never stop doing?",
+          "What does home feel like to you?",
+          "What is the most important thing you have learned from being with me?",
+          "How do you want us to handle disagreements going forward?",
+          "What is a small moment between us that you will never forget?",
+          "If we wrote a book about our love story, what would the title be?",
+          "What is one thing you wish we talked about more?",
+          "How do you want to celebrate our next big milestone?",
+          "What is the funniest thing that has ever happened to us?",
+          "What is one new tradition you want us to start?",
+        ],
+      },
+    ],
+    faq: [
+      { question: "How do you play a couples question game?", answer: "Take turns drawing or reading questions. Each person answers, then discuss. You can add scoring — one point for every correct guess about your partner — or keep it casual. For extra fun, add a rule where wrong guesses mean the other person picks the next activity." },
+      { question: "What questions bring couples closer?", answer: "Questions that invite vulnerability, gratitude, and shared dreaming tend to deepen connection. Ask about favorite memories together, future goals, appreciation, and feelings. Balance these with fun, lighthearted questions to keep the mood playful." },
+    ],
+    relatedLinks: [
+      { label: "Conversation Starters for Couples", href: "/topics/conversation-starters-for-couples" },
+      { label: "Deep Questions for Your Partner", href: "/topics/deep-questions-to-ask-your-partner" },
+      { label: "Would You Rather Questions", href: "/topics/would-you-rather-questions" },
     ],
   },
 ];

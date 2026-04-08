@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import { SEO_ARTICLES } from "@/data/seoContent";
+import { articleToPages } from "@/data/internalLinks";
+import { MODES, CATEGORIES } from "@/data/types";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -87,7 +89,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               headline: article.title,
               description: article.metaDescription,
               datePublished: article.publishDate,
-              dateModified: article.publishDate,
+              dateModified: article.lastModified,
               author: {
                 "@type": "Organization",
                 name: "Random Topics",
@@ -102,6 +104,21 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 "@type": "WebPage",
                 "@id": `https://randomtopics.app/topics/${article.slug}`,
               },
+            }),
+          }}
+        />
+        {/* BreadcrumbList Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://randomtopics.app" },
+                { "@type": "ListItem", position: 2, name: "Topics", item: "https://randomtopics.app/topics" },
+                { "@type": "ListItem", position: 3, name: article.title },
+              ],
             }),
           }}
         />
@@ -212,6 +229,46 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 }),
               }}
             />
+          </section>
+        )}
+
+        {/* Explore Generators */}
+        {articleToPages[article.slug] && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <div className="glass-card p-8 sm:p-10">
+              <h2
+                className="text-lg font-bold mb-4 text-[var(--text-primary)]"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Explore Generators
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                {articleToPages[article.slug].modes.map((modeSlug) => {
+                  const mode = MODES.find((m) => m.slug === modeSlug);
+                  return mode ? (
+                    <Link
+                      key={mode.slug}
+                      href={`/${mode.slug}`}
+                      className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-pink)] hover:border-[var(--neon-pink)]/30 hover:bg-[rgba(255,45,120,0.05)] transition-all"
+                    >
+                      {mode.emoji} {mode.label}
+                    </Link>
+                  ) : null;
+                })}
+                {articleToPages[article.slug].categories.map((catId) => {
+                  const cat = CATEGORIES.find((c) => c.id === catId);
+                  return cat ? (
+                    <Link
+                      key={cat.id}
+                      href={`/categories/${cat.id}`}
+                      className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
+                    >
+                      {cat.emoji} {cat.label} Topics
+                    </Link>
+                  ) : null;
+                })}
+              </div>
+            </div>
           </section>
         )}
 

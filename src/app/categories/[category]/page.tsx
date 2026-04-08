@@ -2,8 +2,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
-import { CATEGORIES } from "@/data/types";
+import Link from "next/link";
+import { CATEGORIES, MODES } from "@/data/types";
 import { categorySeoContent } from "@/data/categorySeoContent";
+import { categoryToArticles } from "@/data/internalLinks";
 import type { Metadata } from "next";
 
 interface CategoryPageProps {
@@ -121,6 +123,54 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               </div>
             </section>
 
+            {/* Related Articles */}
+            {categoryToArticles[category] && (
+              <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+                <div className="glass-card p-8 sm:p-10">
+                  <h2
+                    className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-4"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    Related {label} Articles
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {categoryToArticles[category].map((article, i) => (
+                      <Link
+                        key={i}
+                        href={article.href}
+                        className="text-sm p-3 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
+                      >
+                        {article.title} →
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* Generator modes for this category */}
+            <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+              <div className="glass-card p-8 sm:p-10">
+                <h2
+                  className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-4"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {label} Generators
+                </h2>
+                <div className="flex flex-wrap gap-3">
+                  {MODES.map((mode) => (
+                    <Link
+                      key={mode.slug}
+                      href={`/${mode.slug}/${category}`}
+                      className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-pink)] hover:border-[var(--neon-pink)]/30 hover:bg-[rgba(255,45,120,0.05)] transition-all"
+                    >
+                      {mode.emoji} {label} {mode.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </section>
+
             {/* FAQ JSON-LD Structured Data */}
             <script
               type="application/ld+json"
@@ -141,6 +191,22 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             />
           </>
         )}
+
+        {/* BreadcrumbList Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://randomtopics.app" },
+                { "@type": "ListItem", position: 2, name: "Categories", item: "https://randomtopics.app/categories" },
+                { "@type": "ListItem", position: 3, name: label },
+              ],
+            }),
+          }}
+        />
       </main>
       <Footer />
     </>

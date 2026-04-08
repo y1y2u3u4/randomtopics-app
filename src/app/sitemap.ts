@@ -93,5 +93,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...modePages, ...funnyPage, ...categoryPages, ...articlePages];
+  const comboPages: MetadataRoute.Sitemap = MODES.flatMap((mode) =>
+    CATEGORIES.map((cat) => ({
+      url: `${baseUrl}/${mode.slug}/${cat.id}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    }))
+  );
+
+  return [...staticPages, ...modePages, ...funnyPage, ...categoryPages, ...articlePages, ...comboPages];
 }
