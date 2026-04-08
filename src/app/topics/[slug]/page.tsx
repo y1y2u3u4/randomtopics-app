@@ -27,6 +27,19 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     alternates: {
       canonical: `/topics/${article.slug}`,
     },
+    openGraph: {
+      title: article.metaTitle,
+      description: article.metaDescription,
+      url: `https://randomtopics.app/topics/${article.slug}`,
+      siteName: "Random Topics",
+      type: "article",
+      publishedTime: article.publishDate,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.metaTitle,
+      description: article.metaDescription,
+    },
   };
 }
 
@@ -134,6 +147,26 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </section>
             );
             acc.runningCount = startNum + section.items.length;
+
+            {/* Mid-content CTA after the middle section */}
+            if (sIdx === Math.floor(article.sections.length / 2) - 1) {
+              acc.elements.push(
+                <section key="mid-cta" className="max-w-3xl mx-auto px-4 sm:px-6 pb-10 text-center">
+                  <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 bg-gradient-to-r from-[rgba(0,229,255,0.04)] to-[rgba(255,45,120,0.04)]">
+                    <p className="text-sm text-[var(--text-secondary)] mb-4">
+                      Want more topics like these? Generate unlimited random topics instantly.
+                    </p>
+                    <Link
+                      href="/"
+                      className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3"
+                    >
+                      <span>🎲</span> Try the Generator — It&apos;s Free
+                    </Link>
+                  </div>
+                </section>
+              );
+            }
+
             return acc;
           },
           { elements: [], runningCount: 0 }

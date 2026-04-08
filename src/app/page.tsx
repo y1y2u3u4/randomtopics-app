@@ -11,6 +11,24 @@ export default function Home() {
       <main className="flex-1">
         <TopicGenerator />
 
+        {/* Social proof / stats bar */}
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
+          <div className="grid grid-cols-3 gap-4">
+            <div className="glass-card p-5 text-center">
+              <p className="text-2xl sm:text-3xl font-extrabold gradient-text" style={{ fontFamily: "var(--font-display)" }}>500+</p>
+              <p className="text-xs text-[var(--text-muted)] mt-1">Curated Topics</p>
+            </div>
+            <div className="glass-card p-5 text-center">
+              <p className="text-2xl sm:text-3xl font-extrabold gradient-text" style={{ fontFamily: "var(--font-display)" }}>16</p>
+              <p className="text-xs text-[var(--text-muted)] mt-1">Categories</p>
+            </div>
+            <div className="glass-card p-5 text-center">
+              <p className="text-2xl sm:text-3xl font-extrabold gradient-text" style={{ fontFamily: "var(--font-display)" }}>100%</p>
+              <p className="text-xs text-[var(--text-muted)] mt-1">Free, No Signup</p>
+            </div>
+          </div>
+        </section>
+
         {/* Mode cards section */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 py-20">
           <h2 className="section-heading text-2xl sm:text-3xl text-center mb-12">

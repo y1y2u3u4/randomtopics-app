@@ -122,6 +122,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/terms"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+                >
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/press"
                   className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
                 >
