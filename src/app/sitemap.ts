@@ -79,6 +79,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const topicGeneratorPage: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/topic-generator`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+  ];
+
   const categoryPages: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
     url: `${baseUrl}/categories/${cat.id}`,
     lastModified: now,
@@ -102,5 +111,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...staticPages, ...modePages, ...funnyPage, ...categoryPages, ...articlePages, ...comboPages];
+  return [...staticPages, ...modePages, ...funnyPage, ...topicGeneratorPage, ...categoryPages, ...articlePages, ...comboPages];
 }

@@ -19,24 +19,27 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Random Topic Generator - Instant Conversation, Writing & Debate Topics",
+    default: "Random Topic Generator | 500+ Free Topics for Any Occasion",
     template: "%s | Random Topic Generator",
   },
   description:
-    "Generate random topics for conversations, writing prompts, debates, speeches, and icebreakers. 500+ curated topics across 15+ categories. Free, instant, no signup required.",
+    "Free random topic generator with 500+ curated topics. Get instant conversation starters, writing prompts, debate topics & icebreakers across 16 categories. No signup needed — just click and go!",
   keywords: [
     "random topic generator",
+    "topic generator",
+    "random topics",
     "conversation starters",
     "writing prompts",
     "debate topics",
     "icebreaker questions",
+    "funny topic generator",
     "random discussion topics",
     "speech topics",
   ],
   openGraph: {
-    title: "Random Topic Generator - Never Run Out of Things to Talk About",
+    title: "Random Topic Generator | 500+ Free Topics for Any Occasion",
     description:
-      "Generate random topics for conversations, writing, debates, speeches & icebreakers. 500+ topics, 15+ categories. Free & instant.",
+      "Free random topic generator with 500+ curated topics. Instant conversation starters, writing prompts, debate topics & icebreakers. No signup needed!",
     url: "https://randomtopics.app",
     siteName: "Random Topics",
     type: "website",
