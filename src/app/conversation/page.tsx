@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Random Conversation Starters & Discussion Topics | Free Generator",
   description:
     "Generate random conversation starters and discussion topics for any situation. 200+ things to talk about on dates, at work, with friends, and at parties. Never run out of things to say.",
+  alternates: { canonical: "/conversation" },
 };
 
 export default function ConversationPage() {

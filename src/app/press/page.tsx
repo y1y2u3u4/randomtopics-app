@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Press & Media Kit - Random Topics",
   description:
     "Press kit, embed widget, and media resources for Random Topics — the free AI-powered topic generator.",
+  alternates: { canonical: "/press" },
   robots: { index: true, follow: true },
 };
 

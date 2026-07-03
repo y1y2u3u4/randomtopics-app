@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Funny Random Topic Generator | Hilarious Questions & Weird Discussion Topics",
   description:
     "Generate funny, weird, and bizarre random topics guaranteed to make everyone laugh. Hilarious conversation starters, would-you-rather questions, and absurd discussion topics for parties, games, and groups.",
+  alternates: { canonical: "/funny" },
 };
 
 export default function FunnyPage() {

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Random Debate Topic Generator | Argumentative & Pro/Con Topics",
   description:
     "Generate random debate topics with pro and con arguments for classroom discussions, debate clubs, and practice rounds. Controversial, persuasive, and thought-provoking topics for students and adults.",
+  alternates: { canonical: "/debate" },
 };
 
 export default function DebatePage() {

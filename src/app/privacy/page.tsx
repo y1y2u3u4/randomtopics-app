@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Privacy policy for randomtopics.app - Random Topic Generator.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

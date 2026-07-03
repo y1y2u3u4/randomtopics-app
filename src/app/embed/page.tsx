@@ -3,6 +3,7 @@ import EmbedContent from "./EmbedContent";
 
 export const metadata = {
   title: "Random Topics Widget",
+  alternates: { canonical: "/embed" },
   robots: { index: false, follow: false },
 };
 
