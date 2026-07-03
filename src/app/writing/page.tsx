@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Random Writing Prompt Generator | Creative Writing Ideas & Essay Topics",
   description:
     "Generate random writing prompts for stories, essays, and creative writing exercises. 500+ narrative, persuasive, descriptive, and expository prompts for kids, students, and adults. Overcome writer's block instantly.",
+  alternates: { canonical: "/writing" },
 };
 
 export default function WritingPage() {

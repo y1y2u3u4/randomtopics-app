@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Random Speech Topic Generator - Public Speaking Ideas & Practice Timer",
   description:
     "Generate random speech topics for presentations, public speaking practice, and Toastmasters. Built-in speech timer for impromptu speaking practice. Find your next great speech idea instantly.",
+  alternates: { canonical: "/speech" },
 };
 
 export default function SpeechPage() {

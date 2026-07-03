@@ -6,7 +6,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Topic Generator - Generate Random Topics Instantly | Free Online Tool",
+  title: "Free Topic Generator — Get a Random Topic Instantly (No Signup)",
   description:
     "Need a topic? Our free topic generator creates random topics for conversations, essays, speeches, debates, and creative writing. 500+ topics across 16 categories. One click, instant results.",
   alternates: {

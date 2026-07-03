@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Learn about Random Topics - the free random topic generator for conversations, writing, debates, speeches, and icebreakers.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

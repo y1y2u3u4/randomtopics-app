@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Browse Topics by Category | Random Topic Generator",
   description:
     "Browse random topics across 16 categories including science, technology, philosophy, psychology, history, and more. Find the perfect topic for any occasion.",
+  alternates: { canonical: "/categories" },
 };
 
 export default function CategoriesPage() {
