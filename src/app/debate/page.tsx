@@ -6,9 +6,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Random Debate Topic Generator | Argumentative & Pro/Con Topics",
+  title: "Random Debate Topic Generator — 300+ Debate Topics with Pro & Con Arguments",
   description:
-    "Generate random debate topics with pro and con arguments for classroom discussions, debate clubs, and practice rounds. Controversial, persuasive, and thought-provoking topics for students and adults.",
+    "Generate random debate topics instantly — 300+ argumentative topics with pro and con talking points for classrooms, debate clubs, and practice rounds. Also works as a random argument generator for essays and discussions. Free, no signup.",
   alternates: { canonical: "/debate" },
 };
 
@@ -115,6 +115,22 @@ export default function DebatePage() {
                 className="text-lg font-semibold text-[var(--text-primary)] pt-3"
                 style={{ fontFamily: "var(--font-display)" }}
               >
+                Use It as a Random Argument Generator
+              </h3>
+              <p>
+                Every topic here doubles as a <strong>random argument generator</strong>: each
+                proposition comes with talking points you can develop into arguments for either side.
+                Teachers use it to assign surprise positions in class, essay writers use it to find
+                an <strong>argumentative essay topic</strong> with built-in pro/con structure, and
+                debate clubs use it to run impromptu rounds where speakers must defend whichever side
+                they draw. Hit generate, take the side you&apos;re given, and build your case — arguing
+                a position you don&apos;t personally hold is the fastest way to sharpen your reasoning.
+              </p>
+
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-3"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 Frequently Asked Questions
               </h3>
 
@@ -123,7 +139,8 @@ export default function DebatePage() {
                 Start with topics where both sides are intuitive and don&apos;t require specialized
                 knowledge. Examples include &quot;Should homework be abolished?&quot; or &quot;Is social
                 media doing more harm than good?&quot; These let beginners focus on argument structure
-                rather than struggling with unfamiliar subject matter.
+                rather than struggling with unfamiliar subject matter. We&apos;ve collected 40 of them
+                in our <Link href="/topics/debate-topics-for-beginners" className="text-[var(--neon-cyan)] hover:underline">easy debate topics for beginners</Link> guide.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">How do I choose a debate topic for my class?</h4>
@@ -157,6 +174,44 @@ export default function DebatePage() {
                 propositions on virtually any subject.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Debate topic collections */}
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+          <h2 className="section-heading text-2xl sm:text-3xl text-center mb-4">
+            Curated <span className="gradient-text">Debate Topic Lists</span>
+          </h2>
+          <p className="text-center text-[var(--text-muted)] text-sm mb-8 max-w-lg mx-auto">
+            Prefer a ready-made list of random debate topics? Browse our hand-picked collections by
+            level and theme.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {[
+              { title: "75 Best Debate Topics for Students", href: "/topics/debate-topics-for-students" },
+              { title: "50 Debate Topics for Middle School", href: "/topics/debate-topics-for-middle-school" },
+              { title: "40 Easy Debate Topics for Beginners", href: "/topics/debate-topics-for-beginners" },
+              { title: "55 Controversial Topics to Discuss", href: "/topics/controversial-topics-to-discuss" },
+              { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
+              { title: "50 Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="glass-card p-5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] transition-all hover:translate-y-[-2px] hover:border-[var(--neon-cyan)]/30"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {item.title} →
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <Link
+              href="/topics"
+              className="text-sm text-[var(--text-muted)] hover:text-[var(--neon-cyan)] transition-colors"
+            >
+              View all topic collections →
+            </Link>
           </div>
         </section>
       </main>
