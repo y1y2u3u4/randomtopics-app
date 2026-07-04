@@ -15,6 +15,11 @@ function getAllUrls(): string[] {
     `${base}/about`,
     `${base}/privacy`,
     `${base}/funny`,
+    `${base}/argument-generator`,
+    `${base}/table-topics-generator`,
+    `${base}/impromptu-speech-topics`,
+    `${base}/debate/students`,
+    `${base}/debate/funny`,
   ];
 
   for (const mode of MODES) {
