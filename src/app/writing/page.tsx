@@ -2,19 +2,49 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Random Writing Prompt Generator | Creative Writing Ideas & Essay Topics",
+  title: "Free Writing Prompt Generator — 500+ Prompts & Essay Topics",
   description:
-    "Generate random writing prompts for stories, essays, and creative writing exercises. 500+ narrative, persuasive, descriptive, and expository prompts for kids, students, and adults. Overcome writer's block instantly.",
+    "Beat writer's block in one click: 500+ free writing prompts — narrative, persuasive, descriptive & expository — for kids, students and adults. No signup, no ads, unlimited AI generation.",
   alternates: { canonical: "/writing" },
 };
+
+const FAQ_ITEMS = [
+  {
+    question: "How do writing prompts help with writer's block?",
+    answer:
+      "Writer's block often comes from the pressure of choosing what to write. Prompts remove that decision entirely — you simply respond to what's given. This lowers the barrier to starting, and once you're writing, momentum takes over.",
+  },
+  {
+    question: "Can I use these prompts for school assignments?",
+    answer:
+      "Yes. Our prompts cover narrative, persuasive, descriptive, and expository writing — the four main types taught in schools. Teachers are welcome to use the generator in classrooms, and students can use it for practice or to brainstorm essay ideas.",
+  },
+  {
+    question: "What if I don't like the prompt I get?",
+    answer:
+      "Simply generate another one. However, we encourage trying prompts that feel uncomfortable — writing outside your comfort zone is where the most growth happens.",
+  },
+  {
+    question: "Are these prompts good for journaling?",
+    answer:
+      "Many of our prompts work beautifully for journal entries, especially those in the personal reflection and self-discovery categories. Journaling with prompts adds structure to the practice.",
+  },
+  {
+    question: "How many writing prompts are available?",
+    answer:
+      "Our curated database contains over 500 writing prompts across 15+ categories. With AI-powered generation enabled, you can access virtually unlimited unique prompts tailored to any genre, age group, or difficulty level.",
+  },
+];
 
 export default function WritingPage() {
   return (
     <>
+      <FaqSchema items={FAQ_ITEMS} />
       <Navbar />
       <main className="flex-1">
         <Breadcrumb

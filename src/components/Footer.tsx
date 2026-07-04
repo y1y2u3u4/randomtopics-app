@@ -45,6 +45,38 @@ export default function Footer() {
                   😂 Funny Topics
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/argument-generator"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+                >
+                  ⚖️ Argument Generator
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/table-topics-generator"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+                >
+                  🎙️ Table Topics
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/impromptu-speech-topics"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+                >
+                  ⏱️ Impromptu Speech
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/press#embed"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+                >
+                  🔗 Embed This Widget
+                </Link>
+              </li>
             </ul>
           </div>
           <div>

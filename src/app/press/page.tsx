@@ -158,7 +158,7 @@ export default function PressPage() {
           </section>
 
           {/* Embed Widget */}
-          <section className="glass-card p-8 space-y-6">
+          <section id="embed" className="glass-card p-8 space-y-6">
             <h2
               className="text-2xl font-semibold text-[var(--text-primary)]"
               style={{ fontFamily: "var(--font-display)" }}

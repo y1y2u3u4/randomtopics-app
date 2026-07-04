@@ -55,13 +55,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.3,
     },
-    {
-      url: `${baseUrl}/embed`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.4,
-    },
   ];
+
+  // Standalone keyword tool pages (added 2026-07)
+  const toolPages: MetadataRoute.Sitemap = [
+    "argument-generator",
+    "table-topics-generator",
+    "impromptu-speech-topics",
+    "debate/students",
+    "debate/funny",
+  ].map((path) => ({
+    url: `${baseUrl}/${path}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
 
   const modePages: MetadataRoute.Sitemap = MODES.map((mode) => ({
     url: `${baseUrl}/${mode.slug}`,
@@ -111,5 +119,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...staticPages, ...modePages, ...funnyPage, ...topicGeneratorPage, ...categoryPages, ...articlePages, ...comboPages];
+  return [...staticPages, ...toolPages, ...modePages, ...funnyPage, ...topicGeneratorPage, ...categoryPages, ...articlePages, ...comboPages];
 }

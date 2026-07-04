@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -12,9 +13,38 @@ export const metadata: Metadata = {
   alternates: { canonical: "/debate" },
 };
 
+const FAQ_ITEMS = [
+  {
+    question: "What are the best debate topics for beginners?",
+    answer:
+      "Start with topics where both sides are intuitive and don't require specialized knowledge. Examples include 'Should homework be abolished?' or 'Is social media doing more harm than good?' These let beginners focus on argument structure rather than struggling with unfamiliar subject matter.",
+  },
+  {
+    question: "How do I choose a debate topic for my class?",
+    answer:
+      "Consider your students' age, interests, and the learning objectives. A good classroom debate topic is age-appropriate, connects to curriculum, and has enough nuance that students can't dismiss one side outright.",
+  },
+  {
+    question: "What's the difference between a debate topic and a discussion topic?",
+    answer:
+      "A debate topic takes a position (e.g., 'Social media should be banned for children under 16') that can be argued for or against. A discussion topic is more open-ended (e.g., 'How does social media affect children?'). Our generator provides debate-ready propositions with clear sides.",
+  },
+  {
+    question: "Can I use these topics for essay writing?",
+    answer:
+      "Absolutely. Every debate topic here doubles as an excellent argumentative essay topic. The pro/con structure maps directly to a five-paragraph persuasive essay format.",
+  },
+  {
+    question: "How often are new debate topics added?",
+    answer:
+      "We regularly update our topic database to reflect current events and emerging issues. You can also enable AI-powered topic generation for real-time, unique debate propositions on virtually any subject.",
+  },
+];
+
 export default function DebatePage() {
   return (
     <>
+      <FaqSchema items={FAQ_ITEMS} />
       <Navbar />
       <main className="flex-1">
         <Breadcrumb

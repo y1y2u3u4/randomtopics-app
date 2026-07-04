@@ -2,19 +2,49 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Random Conversation Starters & Discussion Topics | Free Generator",
+  title: "500+ Free Conversation Starters — No Signup",
   description:
-    "Generate random conversation starters and discussion topics for any situation. 200+ things to talk about on dates, at work, with friends, and at parties. Never run out of things to say.",
+    "Free conversation topic generator: 500+ starters for dates, work, friends & parties. Pick a category and depth, click once, get instant things to talk about — no signup, no ads.",
   alternates: { canonical: "/conversation" },
 };
+
+const FAQ_ITEMS = [
+  {
+    question: "What are good conversation starters for shy people?",
+    answer:
+      "Start with low-pressure, universal topics like favorite movies, recent travel, or food preferences. Compliment something specific to create a natural entry point. Our generator lets you pick lighter categories if you prefer a gentler approach.",
+  },
+  {
+    question: "How do I keep a conversation going when it stalls?",
+    answer:
+      "Use the thread-pulling technique: pick up on something the other person mentioned earlier and ask a deeper question about it. You can also switch senses — asking what something sounded, felt, or tasted like — to re-engage their imagination.",
+  },
+  {
+    question: "Are random topics better than planned ones?",
+    answer:
+      "Both have their place. Random topics add spontaneity and surprise, which can lead to more authentic exchanges. Planned topics work well for structured settings like networking events. Our tool bridges both — generate a random prompt, then steer it wherever feels natural.",
+  },
+  {
+    question: "How many conversation starters does this generator have?",
+    answer:
+      "Our database includes over 200 hand-curated conversation topics across 15+ categories, and we add new ones regularly. You can also enable AI-powered generation for virtually unlimited unique topics.",
+  },
+  {
+    question: "Can I use these for ESL or language practice?",
+    answer:
+      "Absolutely. Many English teachers and language exchange partners use random conversation topics to practice fluency. The variety of subjects helps learners build vocabulary across multiple domains while keeping practice sessions engaging.",
+  },
+];
 
 export default function ConversationPage() {
   return (
     <>
+      <FaqSchema items={FAQ_ITEMS} />
       <Navbar />
       <main className="flex-1">
         <Breadcrumb
