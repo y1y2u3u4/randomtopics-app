@@ -20,6 +20,10 @@ function getAllUrls(): string[] {
     `${base}/impromptu-speech-topics`,
     `${base}/debate/students`,
     `${base}/debate/funny`,
+    `${base}/debate/middle-school`,
+    `${base}/debate/high-school`,
+    `${base}/debate/college`,
+    `${base}/question-generator`,
   ];
 
   for (const mode of MODES) {

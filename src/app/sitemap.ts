@@ -64,6 +64,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "impromptu-speech-topics",
     "debate/students",
     "debate/funny",
+    "debate/middle-school",
+    "debate/high-school",
+    "debate/college",
+    "question-generator",
   ].map((path) => ({
     url: `${baseUrl}/${path}`,
     lastModified: now,
