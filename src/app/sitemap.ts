@@ -68,6 +68,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "debate/high-school",
     "debate/college",
     "question-generator",
+    "would-you-rather",
+    "never-have-i-ever",
   ].map((path) => ({
     url: `${baseUrl}/${path}`,
     lastModified: now,

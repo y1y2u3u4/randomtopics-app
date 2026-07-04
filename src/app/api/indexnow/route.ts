@@ -24,6 +24,8 @@ function getAllUrls(): string[] {
     `${base}/debate/high-school`,
     `${base}/debate/college`,
     `${base}/question-generator`,
+    `${base}/would-you-rather`,
+    `${base}/never-have-i-ever`,
   ];
 
   for (const mode of MODES) {

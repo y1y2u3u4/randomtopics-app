@@ -71,6 +71,30 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/question-generator"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+                >
+                  ❓ Question Generator
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/would-you-rather"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+                >
+                  🤔 Would You Rather
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/never-have-i-ever"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+                >
+                  🙈 Never Have I Ever
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/press#embed"
                   className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
                 >
