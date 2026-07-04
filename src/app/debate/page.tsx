@@ -218,6 +218,9 @@ export default function DebatePage() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {[
+              { title: "Debate Topic Generator for Students", href: "/debate/students" },
+              { title: "Funny Debate Topics Generator", href: "/debate/funny" },
+              { title: "Random Argument Generator", href: "/argument-generator" },
               { title: "75 Best Debate Topics for Students", href: "/topics/debate-topics-for-students" },
               { title: "50 Debate Topics for Middle School", href: "/topics/debate-topics-for-middle-school" },
               { title: "40 Easy Debate Topics for Beginners", href: "/topics/debate-topics-for-beginners" },

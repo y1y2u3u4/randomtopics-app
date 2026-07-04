@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Table Topics Generator — Toastmasters Questions + Timer",
   description:
     "Free Table Topics generator for Toastmasters with a built-in 1-2 minute speech timer. Generate random impromptu speaking questions, practice on the clock, and never run out of Table Topics ideas.",
+  alternates: { canonical: "/table-topics-generator" },
 };
 
 const FAQ_ITEMS = [

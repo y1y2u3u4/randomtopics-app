@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Funny Debate Topics Generator — Silly Arguments & Hot Takes",
   description:
     "Generate funny debate topics: is a hot dog a sandwich, is cereal soup, and hundreds more silly arguments with pro/con points. Free generator for parties, classrooms and icebreakers.",
+  alternates: { canonical: "/debate/funny" },
 };
 
 const FAQ_ITEMS = [

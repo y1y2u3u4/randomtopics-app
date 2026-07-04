@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Debate Topic Generator for Students — Middle & High School",
   description:
     "Random debate topic generator for students: age-appropriate topics with pro/con arguments for middle school, high school and college classrooms. Free for teachers, no signup.",
+  alternates: { canonical: "/debate/students" },
 };
 
 const FAQ_ITEMS = [

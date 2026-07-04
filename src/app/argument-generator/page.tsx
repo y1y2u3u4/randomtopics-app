@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Random Argument Generator — Free Pro/Con Argument Topics",
   description:
     "Generate random arguments with clear pro and con sides. Free argument generator for practice debates, persuasive essays, critical thinking exercises and friendly disputes. No signup needed.",
+  alternates: { canonical: "/argument-generator" },
 };
 
 const FAQ_ITEMS = [
