@@ -5,16 +5,22 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MODES } from "@/data/types";
+import { localeFromPath, localeBase, localizePath } from "@/i18n/config";
+import { getDict, MODE_LABELS } from "@/i18n/dictionaries";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
+  const locale = localeFromPath(pathname);
+  const base = localeBase(locale);
+  const t = getDict(locale);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-[#08080f]/90 border-b" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href={localizePath("/", locale)} className="flex items-center gap-2 group">
             <span className="text-2xl">🎲</span>
             <span
               className="font-bold text-lg tracking-tight"
@@ -30,23 +36,24 @@ export default function Navbar() {
             {MODES.map((mode) => (
               <Link
                 key={mode.slug}
-                href={`/${mode.slug}`}
+                href={`${base}/${mode.slug}`}
                 className={`nav-link px-3 py-2 rounded-lg text-sm transition-colors ${
-                  pathname === `/${mode.slug}` ? "active" : ""
+                  pathname === `${base}/${mode.slug}` ? "active" : ""
                 }`}
               >
                 <span className="mr-1">{mode.emoji}</span>
-                {mode.label.split(" ")[0]}
+                {MODE_LABELS[locale][mode.id].short}
               </Link>
             ))}
             <Link
-              href="/funny"
+              href={`${base}/funny`}
               className={`nav-link px-3 py-2 rounded-lg text-sm transition-colors ${
-                pathname === "/funny" ? "active" : ""
+                pathname === `${base}/funny` ? "active" : ""
               }`}
             >
-              <span className="mr-1">😂</span>Funny
+              <span className="mr-1">😂</span>{t.nav.funny}
             </Link>
+            <LocaleSwitcher />
           </div>
 
           {/* Mobile hamburger */}
@@ -80,34 +87,35 @@ export default function Navbar() {
                   {MODES.map((mode) => (
                     <Link
                       key={mode.slug}
-                      href={`/${mode.slug}`}
+                      href={`${base}/${mode.slug}`}
                       onClick={() => setMobileOpen(false)}
                       className={`nav-link px-3 py-2.5 rounded-lg text-sm ${
-                        pathname === `/${mode.slug}` ? "active" : ""
+                        pathname === `${base}/${mode.slug}` ? "active" : ""
                       }`}
                     >
                       <span className="mr-2">{mode.emoji}</span>
-                      {mode.label}
+                      {MODE_LABELS[locale][mode.id].label}
                     </Link>
                   ))}
                   <Link
-                    href="/funny"
+                    href={`${base}/funny`}
                     onClick={() => setMobileOpen(false)}
                     className={`nav-link px-3 py-2.5 rounded-lg text-sm ${
-                      pathname === "/funny" ? "active" : ""
+                      pathname === `${base}/funny` ? "active" : ""
                     }`}
                   >
-                    <span className="mr-2">😂</span>Funny Topics
+                    <span className="mr-2">😂</span>{t.footer.funnyTopics}
                   </Link>
                   <Link
-                    href="/categories"
+                    href={localizePath("/categories", locale)}
                     onClick={() => setMobileOpen(false)}
                     className={`nav-link px-3 py-2.5 rounded-lg text-sm ${
-                      pathname === "/categories" ? "active" : ""
+                      pathname === localizePath("/categories", locale) ? "active" : ""
                     }`}
                   >
-                    <span className="mr-2">📂</span>All Categories
+                    <span className="mr-2">📂</span>{t.nav.allCategories}
                   </Link>
+                  <div className="pt-1"><LocaleSwitcher /></div>
                 </div>
               </div>
             </motion.div>

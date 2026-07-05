@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback } from "react";
+import { Locale, defaultLocale } from "@/i18n/config";
+import { getDict } from "@/i18n/dictionaries";
 
 interface PrintButtonProps {
   /** Heading printed at the top of the document. */
@@ -10,6 +12,7 @@ interface PrintButtonProps {
   /** Optional short intro line under the heading. */
   intro?: string;
   label?: string;
+  locale?: Locale;
 }
 
 /**
@@ -18,7 +21,9 @@ interface PrintButtonProps {
  * "Save as PDF". Produces a clean, brandable handout for classrooms, parties,
  * and Teachers-Pay-Teachers / Pinterest distribution.
  */
-export default function PrintButton({ heading, items, intro, label = "🖨️ Save as PDF" }: PrintButtonProps) {
+export default function PrintButton({ heading, items, intro, label, locale = defaultLocale }: PrintButtonProps) {
+  const t = getDict(locale);
+  const btnLabel = label ?? t.print.defaultLabel;
   const handlePrint = useCallback(() => {
     const win = window.open("", "_blank", "width=800,height=900");
     if (!win) return;
@@ -54,19 +59,19 @@ export default function PrintButton({ heading, items, intro, label = "🖨️ Sa
   <h1>${esc(heading)}</h1>
   ${intro ? `<p class="intro">${esc(intro)}</p>` : ""}
   <ul>${rows}</ul>
-  <footer>Free printable from randomtopics.app — ${items.length} prompts. Generate more at randomtopics.app</footer>
+  <footer>${esc(t.print.footerNote(items.length))}</footer>
   <script>window.onload = function () { window.print(); };<\/script>
 </body>
 </html>`);
     win.document.close();
-  }, [heading, items, intro]);
+  }, [heading, items, intro, t]);
 
   return (
     <button
       onClick={handlePrint}
       className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50 transition-colors"
     >
-      {label}
+      {btnLabel}
     </button>
   );
 }

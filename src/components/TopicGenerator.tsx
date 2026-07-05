@@ -5,20 +5,31 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Topic, Mode, Category, Depth, CATEGORIES, MODES, DEPTHS } from "@/data/types";
 import { topics } from "@/data/topics";
 import TopicCard from "./TopicCard";
+import { Locale, defaultLocale } from "@/i18n/config";
+import { getDict, MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
 
 interface TopicGeneratorProps {
   initialMode?: Mode | null;
   initialCategory?: Category | null;
   title?: string;
   subtitle?: string;
+  locale?: Locale;
 }
+
+const DEPTH_KEYS: Record<Depth, "depthLight" | "depthMedium" | "depthDeep"> = {
+  light: "depthLight",
+  medium: "depthMedium",
+  deep: "depthDeep",
+};
 
 export default function TopicGenerator({
   initialMode = null,
   initialCategory = null,
   title,
   subtitle,
+  locale = defaultLocale,
 }: TopicGeneratorProps) {
+  const t = getDict(locale);
   const [selectedMode, setSelectedMode] = useState<Mode | null>(initialMode);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(initialCategory);
   const [selectedDepth, setSelectedDepth] = useState<Depth | null>(null);
@@ -86,14 +97,13 @@ export default function TopicGenerator({
           </h1>
         ) : (
           <h1 className="section-heading text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-5 leading-[1.1] tracking-tight">
-            Random Topic
+            {t.generator.heroLine1}
             <br />
-            <span className="gradient-text">Generator</span>
+            <span className="gradient-text">{t.generator.heroLine2}</span>
           </h1>
         )}
         <p className="text-base sm:text-lg text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed opacity-80">
-          {subtitle ||
-            "Generate random topics for conversations, writing, debates, speeches, and more. 500+ curated topics across 15+ categories."}
+          {subtitle || t.generator.heroSubtitle}
         </p>
       </div>
 
@@ -102,13 +112,13 @@ export default function TopicGenerator({
         {/* Mode selector */}
         {showModeSelector && (
           <div>
-            <label className="control-label mb-3 block">Mode</label>
+            <label className="control-label mb-3 block">{t.generator.mode}</label>
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setSelectedMode(null)}
                 className={`mode-chip ${selectedMode === null ? "active" : ""}`}
               >
-                🎲 All
+                🎲 {t.generator.all}
               </button>
               {MODES.map((mode) => (
                 <button
@@ -118,7 +128,7 @@ export default function TopicGenerator({
                   }
                   className={`mode-chip ${selectedMode === mode.id ? "active" : ""}`}
                 >
-                  {mode.emoji} {mode.label.split(" ")[0]}
+                  {mode.emoji} {MODE_LABELS[locale][mode.id].short}
                 </button>
               ))}
             </div>
@@ -128,13 +138,13 @@ export default function TopicGenerator({
         {/* Category selector */}
         {showCategorySelector && (
           <div>
-            <label className="control-label mb-3 block">Category</label>
+            <label className="control-label mb-3 block">{t.generator.category}</label>
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setSelectedCategory(null)}
                 className={`category-tag ${selectedCategory === null ? "active" : ""}`}
               >
-                All
+                {t.generator.allCategory}
               </button>
               {CATEGORIES.map((cat) => (
                 <button
@@ -146,7 +156,7 @@ export default function TopicGenerator({
                   }
                   className={`category-tag ${selectedCategory === cat.id ? "active" : ""}`}
                 >
-                  {cat.emoji} {cat.label}
+                  {cat.emoji} {CATEGORY_LABELS[locale][cat.id].label}
                 </button>
               ))}
             </div>
@@ -156,13 +166,13 @@ export default function TopicGenerator({
         {/* Depth + Count + Generate */}
         <div className="grid grid-cols-1 sm:grid-cols-[auto_auto_1fr] items-end gap-6">
           <div>
-            <label className="control-label mb-2 block">Depth</label>
+            <label className="control-label mb-2 block">{t.generator.depth}</label>
             <div className="flex gap-1.5">
               <button
                 onClick={() => setSelectedDepth(null)}
                 className={`depth-btn ${selectedDepth === null ? "active" : ""}`}
               >
-                Any
+                {t.generator.any}
               </button>
               {DEPTHS.map((d) => (
                 <button
@@ -172,14 +182,14 @@ export default function TopicGenerator({
                   }
                   className={`depth-btn ${selectedDepth === d.id ? "active" : ""}`}
                 >
-                  {d.label}
+                  {t.generator[DEPTH_KEYS[d.id]]}
                 </button>
               ))}
             </div>
           </div>
 
           <div>
-            <label className="control-label mb-2 block">Count</label>
+            <label className="control-label mb-2 block">{t.generator.count}</label>
             <div className="flex gap-1.5">
               {[1, 3, 5, 10].map((n) => (
                 <button
@@ -207,11 +217,11 @@ export default function TopicGenerator({
               >
                 {isSpinning ? (
                   <>
-                    <span>🎰</span> Spinning...
+                    <span>🎰</span> {t.generator.spinning}
                   </>
                 ) : (
                   <>
-                    <span>🎲</span> Generate
+                    <span>🎲</span> {t.generator.generate}
                   </>
                 )}
               </motion.span>
@@ -232,7 +242,7 @@ export default function TopicGenerator({
           >
             {generatedTopics.length > 0 ? (
               generatedTopics.map((topic, i) => (
-                <TopicCard key={topic.id} topic={topic} index={i} />
+                <TopicCard key={topic.id} topic={topic} index={i} locale={locale} />
               ))
             ) : (
               <div className="glass-card text-center py-16 px-6">
@@ -244,10 +254,10 @@ export default function TopicGenerator({
                   🤷
                 </motion.p>
                 <p className="text-xl font-semibold text-[var(--text-secondary)] mb-2">
-                  No topics found
+                  {t.generator.noTopicsTitle}
                 </p>
                 <p className="text-[var(--text-muted)] text-sm max-w-md mx-auto">
-                  Try broadening your filters — select fewer categories or a different mode to discover more topics.
+                  {t.generator.noTopicsBody}
                 </p>
               </div>
             )}
@@ -278,11 +288,11 @@ export default function TopicGenerator({
             🎲
           </motion.div>
           <p className="text-[var(--text-muted)] text-lg sm:text-xl">
-            Click{" "}
+            {t.generator.clickGenerate}{" "}
             <span className="gradient-text font-bold text-xl sm:text-2xl">
-              Generate
+              {t.generator.generate}
             </span>{" "}
-            to get your random topic!
+            {t.generator.clickPrompt}
           </p>
         </motion.div>
       )}

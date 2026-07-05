@@ -26,6 +26,12 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   return {
     title: article.metaTitle,
     description: article.metaDescription,
+    keywords: [
+      article.slug.replace(/-/g, " "),
+      article.title,
+      "random topics",
+      "random topic generator",
+    ],
     alternates: {
       canonical: `/topics/${article.slug}`,
     },

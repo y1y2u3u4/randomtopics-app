@@ -3,19 +3,23 @@
 import { useCallback, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PrintButton from "./PrintButton";
+import { Locale, defaultLocale } from "@/i18n/config";
+import { getDict } from "@/i18n/dictionaries";
 
 interface PartyGeneratorProps {
   questions: string[];
   title: string;
   subtitle: string;
   emoji: string;
+  locale?: Locale;
 }
 
 /**
  * Lightweight generator for fixed question lists (Would You Rather,
  * Never Have I Ever). Cycles without repeats until the pool is exhausted.
  */
-export default function PartyGenerator({ questions, title, subtitle, emoji }: PartyGeneratorProps) {
+export default function PartyGenerator({ questions, title, subtitle, emoji, locale = defaultLocale }: PartyGeneratorProps) {
+  const t = getDict(locale);
   const [current, setCurrent] = useState<string | null>(null);
   const [used, setUsed] = useState<Set<number>>(new Set());
   const [copied, setCopied] = useState(false);
@@ -75,32 +79,33 @@ export default function PartyGenerator({ questions, title, subtitle, emoji }: Pa
             </motion.p>
           ) : (
             <p className="text-lg text-[var(--text-muted)] min-h-[4rem] flex items-center justify-center">
-              Hit the button to get your first question {emoji}
+              {t.party.firstPrompt} {emoji}
             </p>
           )}
         </AnimatePresence>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
           <button onClick={generate} className="btn-generate">
-            <span>{emoji}</span> {current ? "Next Question" : "Generate"}
+            <span>{emoji}</span> {current ? t.party.next : t.party.generate}
           </button>
           {current && (
             <button
               onClick={copy}
               className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50 transition-colors"
             >
-              {copied ? "✅ Copied" : "📋 Copy"}
+              {copied ? t.party.copied : t.party.copy}
             </button>
           )}
           <PrintButton
             heading={title}
             items={questions}
-            intro={`${questions.length} questions — a free printable deck from randomtopics.app`}
-            label="🖨️ Print deck"
+            intro={t.print.footerNote(questions.length)}
+            label={t.party.printDeck}
+            locale={locale}
           />
         </div>
         <p className="text-xs text-[var(--text-muted)] mt-4">
-          {questions.length} questions in this deck · no repeats until you&apos;ve seen them all
+          {questions.length} {t.party.deckInfo}
         </p>
       </div>
     </section>

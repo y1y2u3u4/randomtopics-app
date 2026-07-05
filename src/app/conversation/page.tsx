@@ -7,7 +7,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "500+ Free Conversation Starters — No Signup",
+  title: "Conversation Topic Generator — 500+ Free Conversation Starters",
   description:
     "Free conversation topic generator: 500+ starters for dates, work, friends & parties. Pick a category and depth, click once, get instant things to talk about — no signup, no ads.",
   keywords: [
@@ -65,7 +65,7 @@ export default function ConversationPage() {
         />
         <TopicGenerator
           initialMode="conversation"
-          title="Conversation Starter Generator"
+          title="Conversation Topic Generator"
           subtitle="Generate random conversation topics to break the ice and keep discussions flowing."
         />
 
@@ -88,6 +88,12 @@ export default function ConversationPage() {
                 right time. A well-chosen <strong>discussion topic</strong> can transform an awkward silence
                 into a memorable exchange. That&apos;s why we built this free tool — to give you an endless
                 supply of interesting things to talk about, no matter the occasion.
+              </p>
+              <p>
+                Need a different kind of prompt? Try our <Link href="/writing" className="text-[var(--neon-cyan)] hover:underline">writing prompt generator</Link>,
+                the <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link>,
+                fresh <Link href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">icebreaker questions</Link> for meetings,
+                or <Link href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topics</Link> with a built-in practice timer.
               </p>
 
               <h3
