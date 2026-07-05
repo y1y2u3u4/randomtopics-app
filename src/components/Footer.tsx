@@ -18,6 +18,10 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
     { href: `${base}/would-you-rather`, label: `🤔 ${t.footer.wouldYouRather}` },
     { href: `${base}/never-have-i-ever`, label: `🙈 ${t.footer.neverHaveIEver}` },
     { href: `${base}/spin-the-wheel`, label: `🎡 ${t.footer.spinTheWheel}` },
+    { href: `${base}/truth-or-dare`, label: `🎭 ${t.footer.truthOrDare}` },
+    { href: `${base}/this-or-that`, label: `⚖️ ${t.footer.thisOrThat}` },
+    { href: `${base}/most-likely-to`, label: `👉 ${t.footer.mostLikelyTo}` },
+    { href: `${base}/two-truths-and-a-lie`, label: `🕵️ ${t.footer.twoTruthsAndALie}` },
     { href: localizePath("/press", locale) + "#embed", label: `🔗 ${t.footer.embedWidget}` },
   ];
 

@@ -53,6 +53,10 @@ export interface UIDict {
     wouldYouRather: string;
     neverHaveIEver: string;
     spinTheWheel: string;
+    truthOrDare: string;
+    thisOrThat: string;
+    mostLikelyTo: string;
+    twoTruthsAndALie: string;
   };
   breadcrumb: { home: string };
   print: { defaultLabel: string; footerNote: (n: number) => string };
@@ -125,6 +129,10 @@ const en: UIDict = {
     wouldYouRather: "Would You Rather",
     neverHaveIEver: "Never Have I Ever",
     spinTheWheel: "Spin the Wheel",
+    truthOrDare: "Truth or Dare",
+    thisOrThat: "This or That",
+    mostLikelyTo: "Most Likely To",
+    twoTruthsAndALie: "Two Truths and a Lie",
   },
   breadcrumb: { home: "Home" },
   print: {
@@ -205,6 +213,10 @@ const es: UIDict = {
     wouldYouRather: "Qué Prefieres",
     neverHaveIEver: "Yo Nunca",
     spinTheWheel: "Gira la Ruleta",
+    truthOrDare: "Verdad o Reto",
+    thisOrThat: "Esto o Aquello",
+    mostLikelyTo: "Quién Es Más Probable",
+    twoTruthsAndALie: "Dos Verdades y una Mentira",
   },
   breadcrumb: { home: "Inicio" },
   print: {

@@ -32,6 +32,10 @@ function getPaths(): string[] {
     "/would-you-rather",
     "/never-have-i-ever",
     "/spin-the-wheel",
+    "/truth-or-dare",
+    "/this-or-that",
+    "/most-likely-to",
+    "/two-truths-and-a-lie",
   ];
   for (const mode of MODES) paths.push(`/${mode.slug}`);
   for (const cat of CATEGORIES) paths.push(`/categories/${cat.id}`);

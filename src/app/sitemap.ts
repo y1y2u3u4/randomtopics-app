@@ -40,6 +40,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "would-you-rather",
     "never-have-i-ever",
     "spin-the-wheel",
+    "truth-or-dare",
+    "this-or-that",
+    "most-likely-to",
+    "two-truths-and-a-lie",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "weekly", priority: 0.85 });
   }
