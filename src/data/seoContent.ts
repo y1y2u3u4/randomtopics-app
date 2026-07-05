@@ -172,9 +172,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Conversation Starters for Couples", href: "/article/conversation-starters-for-couples" },
-      { label: "Controversial Topics to Discuss", href: "/article/controversial-topics-to-discuss" },
-      { label: "Speech Topics for College Students", href: "/article/speech-topics-for-college-students" },
+      { label: "Conversation Starters for Couples", href: "/topics/conversation-starters-for-couples" },
+      { label: "Controversial Topics to Discuss", href: "/topics/controversial-topics-to-discuss" },
+      { label: "Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
       { label: "Browse Debate Topics", href: "/debate" },
     ],
   },
@@ -311,8 +311,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Funny Conversation Topics", href: "/article/funny-conversation-topics" },
-      { label: "Deep Philosophical Questions", href: "/article/deep-philosophical-questions" },
+      { label: "Funny Conversation Topics", href: "/topics/funny-conversation-topics" },
+      { label: "Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
       { label: "Browse Conversation Topics", href: "/conversation" },
     ],
   },
@@ -440,8 +440,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Team Building Questions", href: "/article/team-building-questions" },
-      { label: "Would You Rather Questions", href: "/article/would-you-rather-questions" },
+      { label: "Team Building Questions", href: "/topics/team-building-questions" },
+      { label: "Would You Rather Questions", href: "/topics/would-you-rather-questions" },
       { label: "Browse Conversation Topics", href: "/conversation" },
     ],
   },
@@ -552,8 +552,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Presentation Ideas for School", href: "/article/presentation-ideas-for-school" },
-      { label: "Debate Topics for Students", href: "/article/debate-topics-for-students" },
+      { label: "Presentation Ideas for School", href: "/topics/presentation-ideas-for-school" },
+      { label: "Debate Topics for Students", href: "/topics/debate-topics-for-students" },
       { label: "Browse Writing Prompts", href: "/writing" },
     ],
   },
@@ -689,9 +689,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Would You Rather Questions", href: "/article/would-you-rather-questions" },
-      { label: "Random Questions to Ask Friends", href: "/article/random-questions-to-ask-friends" },
-      { label: "Conversation Starters for Couples", href: "/article/conversation-starters-for-couples" },
+      { label: "Would You Rather Questions", href: "/topics/would-you-rather-questions" },
+      { label: "Random Questions to Ask Friends", href: "/topics/random-questions-to-ask-friends" },
+      { label: "Conversation Starters for Couples", href: "/topics/conversation-starters-for-couples" },
       { label: "Browse Conversation Topics", href: "/conversation" },
     ],
   },
@@ -819,9 +819,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Ethical Dilemma Questions", href: "/article/ethical-dilemma-questions" },
-      { label: "Controversial Topics to Discuss", href: "/article/controversial-topics-to-discuss" },
-      { label: "Conversation Starters for Couples", href: "/article/conversation-starters-for-couples" },
+      { label: "Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
+      { label: "Controversial Topics to Discuss", href: "/topics/controversial-topics-to-discuss" },
+      { label: "Conversation Starters for Couples", href: "/topics/conversation-starters-for-couples" },
     ],
   },
 
@@ -1002,9 +1002,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Debate Topics for Students", href: "/article/debate-topics-for-students" },
-      { label: "Presentation Ideas for School", href: "/article/presentation-ideas-for-school" },
-      { label: "Controversial Topics to Discuss", href: "/article/controversial-topics-to-discuss" },
+      { label: "Debate Topics for Students", href: "/topics/debate-topics-for-students" },
+      { label: "Presentation Ideas for School", href: "/topics/presentation-ideas-for-school" },
+      { label: "Controversial Topics to Discuss", href: "/topics/controversial-topics-to-discuss" },
       { label: "Browse Speech Topics", href: "/speech" },
     ],
   },
@@ -1160,9 +1160,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Funny Conversation Topics", href: "/article/funny-conversation-topics" },
-      { label: "Icebreaker Questions for Work", href: "/article/icebreaker-questions-for-work" },
-      { label: "Random Questions to Ask Friends", href: "/article/random-questions-to-ask-friends" },
+      { label: "Funny Conversation Topics", href: "/topics/funny-conversation-topics" },
+      { label: "Icebreaker Questions for Work", href: "/topics/icebreaker-questions-for-work" },
+      { label: "Random Questions to Ask Friends", href: "/topics/random-questions-to-ask-friends" },
     ],
   },
 
@@ -1294,9 +1294,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Debate Topics for Students", href: "/article/debate-topics-for-students" },
-      { label: "Deep Philosophical Questions", href: "/article/deep-philosophical-questions" },
-      { label: "Ethical Dilemma Questions", href: "/article/ethical-dilemma-questions" },
+      { label: "Debate Topics for Students", href: "/topics/debate-topics-for-students" },
+      { label: "Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
+      { label: "Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
       { label: "Browse Debate Topics", href: "/debate" },
     ],
   },
@@ -1412,8 +1412,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Icebreaker Questions for Work", href: "/article/icebreaker-questions-for-work" },
-      { label: "Funny Conversation Topics", href: "/article/funny-conversation-topics" },
+      { label: "Icebreaker Questions for Work", href: "/topics/icebreaker-questions-for-work" },
+      { label: "Funny Conversation Topics", href: "/topics/funny-conversation-topics" },
       { label: "Browse Conversation Topics", href: "/conversation" },
     ],
   },
@@ -1541,8 +1541,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Icebreaker Questions for Work", href: "/article/icebreaker-questions-for-work" },
-      { label: "Would You Rather Questions", href: "/article/would-you-rather-questions" },
+      { label: "Icebreaker Questions for Work", href: "/topics/icebreaker-questions-for-work" },
+      { label: "Would You Rather Questions", href: "/topics/would-you-rather-questions" },
       { label: "Browse Conversation Topics", href: "/conversation" },
     ],
   },
@@ -1648,9 +1648,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Deep Philosophical Questions", href: "/article/deep-philosophical-questions" },
-      { label: "Ethical Dilemma Questions", href: "/article/ethical-dilemma-questions" },
-      { label: "Debate Topics for Students", href: "/article/debate-topics-for-students" },
+      { label: "Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
+      { label: "Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
+      { label: "Debate Topics for Students", href: "/topics/debate-topics-for-students" },
     ],
   },
 
@@ -1798,9 +1798,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Deep Philosophical Questions", href: "/article/deep-philosophical-questions" },
-      { label: "Controversial Topics to Discuss", href: "/article/controversial-topics-to-discuss" },
-      { label: "Debate Topics for Students", href: "/article/debate-topics-for-students" },
+      { label: "Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
+      { label: "Controversial Topics to Discuss", href: "/topics/controversial-topics-to-discuss" },
+      { label: "Debate Topics for Students", href: "/topics/debate-topics-for-students" },
       { label: "Browse Debate Topics", href: "/debate" },
     ],
   },
@@ -1977,9 +1977,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Speech Topics for College Students", href: "/article/speech-topics-for-college-students" },
-      { label: "Writing Prompts for Kids", href: "/article/writing-prompts-for-kids" },
-      { label: "Debate Topics for Students", href: "/article/debate-topics-for-students" },
+      { label: "Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
+      { label: "Writing Prompts for Kids", href: "/topics/writing-prompts-for-kids" },
+      { label: "Debate Topics for Students", href: "/topics/debate-topics-for-students" },
       { label: "Science Discussion Topics", href: "/topics/science-discussion-topics" },
       { label: "Browse Speech Topics", href: "/speech" },
     ],
@@ -2135,9 +2135,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Funny Conversation Topics", href: "/article/funny-conversation-topics" },
-      { label: "Would You Rather Questions", href: "/article/would-you-rather-questions" },
-      { label: "Conversation Starters for Couples", href: "/article/conversation-starters-for-couples" },
+      { label: "Funny Conversation Topics", href: "/topics/funny-conversation-topics" },
+      { label: "Would You Rather Questions", href: "/topics/would-you-rather-questions" },
+      { label: "Conversation Starters for Couples", href: "/topics/conversation-starters-for-couples" },
       { label: "Browse Conversation Topics", href: "/conversation" },
     ],
   },
@@ -2258,9 +2258,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Debate Topics for Students", href: "/article/debate-topics-for-students" },
+      { label: "Debate Topics for Students", href: "/topics/debate-topics-for-students" },
       { label: "Browse Debate Topics", href: "/debate" },
-      { label: "Ethical Dilemma Questions", href: "/article/ethical-dilemma-questions" },
+      { label: "Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
     ],
   },
 
@@ -2392,8 +2392,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Icebreaker Questions for Work", href: "/article/icebreaker-questions-for-work" },
-      { label: "Team Building Questions", href: "/article/team-building-questions" },
+      { label: "Icebreaker Questions for Work", href: "/topics/icebreaker-questions-for-work" },
+      { label: "Team Building Questions", href: "/topics/team-building-questions" },
       { label: "Browse Icebreakers", href: "/icebreaker" },
     ],
   },
@@ -2532,8 +2532,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     ],
     relatedLinks: [
       { label: "Browse Writing Topics", href: "/writing" },
-      { label: "Speech Topics for College Students", href: "/article/speech-topics-for-college-students" },
-      { label: "Controversial Topics to Discuss", href: "/article/controversial-topics-to-discuss" },
+      { label: "Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
+      { label: "Controversial Topics to Discuss", href: "/topics/controversial-topics-to-discuss" },
     ],
   },
 
@@ -2681,8 +2681,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     ],
     relatedLinks: [
       { label: "Practice Speeches with Timer", href: "/speech" },
-      { label: "Speech Topics for College Students", href: "/article/speech-topics-for-college-students" },
-      { label: "Deep Philosophical Questions", href: "/article/deep-philosophical-questions" },
+      { label: "Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
+      { label: "Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
     ],
   },
 
@@ -2825,8 +2825,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
     ],
     relatedLinks: [
       { label: "Browse Conversation Starters", href: "/conversation" },
-      { label: "Conversation Starters for Couples", href: "/article/conversation-starters-for-couples" },
-      { label: "Random Questions to Ask Friends", href: "/article/random-questions-to-ask-friends" },
+      { label: "Conversation Starters for Couples", href: "/topics/conversation-starters-for-couples" },
+      { label: "Random Questions to Ask Friends", href: "/topics/random-questions-to-ask-friends" },
     ],
   },
 
@@ -2963,9 +2963,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
-      { label: "Conversation Starters for Couples", href: "/article/conversation-starters-for-couples" },
+      { label: "Conversation Starters for Couples", href: "/topics/conversation-starters-for-couples" },
       { label: "Browse Conversation Starters", href: "/conversation" },
-      { label: "Deep Philosophical Questions", href: "/article/deep-philosophical-questions" },
+      { label: "Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
     ],
   },
 
