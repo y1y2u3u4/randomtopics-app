@@ -55,7 +55,7 @@ export default function SpeechPageEs() {
 
         {/* Speech Timer Section */}
         <section className="max-w-md mx-auto px-4 sm:px-6 py-10">
-          <SpeechTimer />
+          <SpeechTimer locale="es" />
         </section>
 
         {/* SEO Content */}

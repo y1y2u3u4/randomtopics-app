@@ -76,7 +76,7 @@ export default function TableTopicsPageEs() {
 
         {/* Speech Timer */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
-          <SpeechTimer />
+          <SpeechTimer locale="es" />
         </section>
 
         {/* SEO Content */}

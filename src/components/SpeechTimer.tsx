@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Locale, defaultLocale } from "@/i18n/config";
 
 const PRESETS = [
   { label: "1 min", seconds: 60 },
@@ -10,7 +11,35 @@ const PRESETS = [
   { label: "5 min", seconds: 300 },
 ];
 
-export default function SpeechTimer() {
+const STRINGS: Record<Locale, { timer: React.ReactNode; done: string; restart: string; pause: string; start: string; reset: string }> = {
+  en: {
+    timer: (
+      <>
+        Speech <span className="gradient-text">Timer</span>
+      </>
+    ),
+    done: "Time's Up!",
+    restart: "▶ Restart",
+    pause: "⏸ Pause",
+    start: "▶ Start",
+    reset: "↺ Reset",
+  },
+  es: {
+    timer: (
+      <>
+        Cronómetro de <span className="gradient-text">Discurso</span>
+      </>
+    ),
+    done: "¡Se acabó el tiempo!",
+    restart: "▶ Reiniciar",
+    pause: "⏸ Pausar",
+    start: "▶ Iniciar",
+    reset: "↺ Restablecer",
+  },
+};
+
+export default function SpeechTimer({ locale = defaultLocale }: { locale?: Locale }) {
+  const t = STRINGS[locale] || STRINGS.en;
   const [totalSeconds, setTotalSeconds] = useState(60);
   const [remaining, setRemaining] = useState(60);
   const [isRunning, setIsRunning] = useState(false);
@@ -65,7 +94,7 @@ export default function SpeechTimer() {
         style={{ fontFamily: "var(--font-display)" }}
       >
         <span className="mr-2">⏱️</span>
-        Speech <span className="gradient-text">Timer</span>
+        {t.timer}
       </h3>
 
       {/* Preset buttons */}
@@ -139,7 +168,7 @@ export default function SpeechTimer() {
                     className="text-xs font-bold text-[var(--neon-pink)]"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
-                    Time&apos;s Up!
+                    {t.done}
                   </div>
                 </motion.div>
               ) : (
@@ -179,14 +208,14 @@ export default function SpeechTimer() {
             }`,
           }}
         >
-          {isFinished ? "▶ Restart" : isRunning ? "⏸ Pause" : "▶ Start"}
+          {isFinished ? t.restart : isRunning ? t.pause : t.start}
         </button>
         <button
           onClick={reset}
           className="px-5 py-2.5 rounded-xl text-sm font-bold transition-all border border-[rgba(255,255,255,0.08)] text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[rgba(255,255,255,0.04)]"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          ↺ Reset
+          {t.reset}
         </button>
       </div>
     </div>
