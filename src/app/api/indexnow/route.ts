@@ -5,51 +5,48 @@ import { SEO_ARTICLES } from "@/data/seoContent";
 const INDEXNOW_KEY = "randomtopics2026";
 const HOST = "randomtopics.app";
 
+// Root-relative paths, kept in parity with src/app/sitemap.ts. Each is pushed
+// for both English (root) and Spanish (/es) so IndexNow pings Bing/Yandex for
+// every indexable URL the moment we deploy.
+function getPaths(): string[] {
+  const paths: string[] = [
+    "/",
+    "/topics",
+    "/categories",
+    "/press",
+    "/about",
+    "/privacy",
+    "/terms",
+    "/stats",
+    "/funny",
+    "/topic-generator",
+    "/argument-generator",
+    "/table-topics-generator",
+    "/impromptu-speech-topics",
+    "/debate/students",
+    "/debate/funny",
+    "/debate/middle-school",
+    "/debate/high-school",
+    "/debate/college",
+    "/question-generator",
+    "/would-you-rather",
+    "/never-have-i-ever",
+    "/spin-the-wheel",
+  ];
+  for (const mode of MODES) paths.push(`/${mode.slug}`);
+  for (const cat of CATEGORIES) paths.push(`/categories/${cat.id}`);
+  for (const article of SEO_ARTICLES) paths.push(`/topics/${article.slug}`);
+  for (const mode of MODES) for (const cat of CATEGORIES) paths.push(`/${mode.slug}/${cat.id}`);
+  return paths;
+}
+
 function getAllUrls(): string[] {
   const base = `https://${HOST}`;
-  // Kept in parity with src/app/sitemap.ts so IndexNow pushes every
-  // indexable URL to Bing/Yandex the moment we deploy.
-  const urls: string[] = [
-    base,
-    `${base}/topics`,
-    `${base}/categories`,
-    `${base}/press`,
-    `${base}/about`,
-    `${base}/privacy`,
-    `${base}/terms`,
-    `${base}/stats`,
-    `${base}/funny`,
-    `${base}/topic-generator`,
-    `${base}/argument-generator`,
-    `${base}/table-topics-generator`,
-    `${base}/impromptu-speech-topics`,
-    `${base}/debate/students`,
-    `${base}/debate/funny`,
-    `${base}/debate/middle-school`,
-    `${base}/debate/high-school`,
-    `${base}/debate/college`,
-    `${base}/question-generator`,
-    `${base}/would-you-rather`,
-    `${base}/never-have-i-ever`,
-    `${base}/spin-the-wheel`,
-  ];
-
-  for (const mode of MODES) {
-    urls.push(`${base}/${mode.slug}`);
+  const urls: string[] = [];
+  for (const p of getPaths()) {
+    urls.push(p === "/" ? base : `${base}${p}`);
+    urls.push(p === "/" ? `${base}/es` : `${base}/es${p}`);
   }
-  for (const cat of CATEGORIES) {
-    urls.push(`${base}/categories/${cat.id}`);
-  }
-  for (const article of SEO_ARTICLES) {
-    urls.push(`${base}/topics/${article.slug}`);
-  }
-  // Mode × category combo pages (differentiated content, in sitemap)
-  for (const mode of MODES) {
-    for (const cat of CATEGORIES) {
-      urls.push(`${base}/${mode.slug}/${cat.id}`);
-    }
-  }
-
   return urls;
 }
 
@@ -59,11 +56,7 @@ export async function POST() {
   const res = await fetch("https://api.indexnow.org/indexnow", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      host: HOST,
-      key: INDEXNOW_KEY,
-      urlList: urls,
-    }),
+    body: JSON.stringify({ host: HOST, key: INDEXNOW_KEY, urlList: urls }),
   });
 
   return NextResponse.json({

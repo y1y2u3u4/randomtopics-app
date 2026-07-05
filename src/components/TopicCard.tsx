@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Topic, CATEGORIES } from "@/data/types";
 import ShareButtons from "./ShareButtons";
+import { Locale, defaultLocale } from "@/i18n/config";
+import { getDict, CATEGORY_LABELS } from "@/i18n/dictionaries";
 
 function getFavorites(): string[] {
   if (typeof window === "undefined") return [];
@@ -29,6 +31,7 @@ function toggleFavorite(topicId: string): boolean {
 interface TopicCardProps {
   topic: Topic;
   index?: number;
+  locale?: Locale;
 }
 
 const depthColors = {
@@ -49,10 +52,12 @@ const depthColors = {
   },
 };
 
-export default function TopicCard({ topic, index = 0 }: TopicCardProps) {
+export default function TopicCard({ topic, index = 0, locale = defaultLocale }: TopicCardProps) {
   const [copied, setCopied] = useState(false);
   const [isFav, setIsFav] = useState(false);
-  const category = CATEGORIES.find((c) => c.id === topic.category);
+  const t = getDict(locale);
+  const categoryEmoji = CATEGORIES.find((c) => c.id === topic.category)?.emoji;
+  const categoryLabel = CATEGORY_LABELS[locale][topic.category]?.label;
   const depth = depthColors[topic.depth] || depthColors.light;
 
   useEffect(() => {
@@ -98,9 +103,9 @@ export default function TopicCard({ topic, index = 0 }: TopicCardProps) {
         style={{ position: "relative", zIndex: 1 }}
       >
         <div className="flex items-center gap-2">
-          <span className="text-lg">{category?.emoji}</span>
+          <span className="text-lg">{categoryEmoji}</span>
           <span className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-wider">
-            {category?.label}
+            {categoryLabel}
           </span>
           <span
             style={{
@@ -123,7 +128,7 @@ export default function TopicCard({ topic, index = 0 }: TopicCardProps) {
         <div className="flex items-center gap-1.5">
         <button
           onClick={() => setIsFav(toggleFavorite(topic.id))}
-          title={isFav ? "Remove from favorites" : "Save to favorites"}
+          title={isFav ? t.card.removeFav : t.card.saveFav}
           style={{
             flexShrink: 0,
             padding: "8px",
@@ -141,7 +146,7 @@ export default function TopicCard({ topic, index = 0 }: TopicCardProps) {
         </button>
         <button
           onClick={handleCopy}
-          title="Copy topic"
+          title={t.card.copy}
           style={{
             flexShrink: 0,
             padding: "8px",

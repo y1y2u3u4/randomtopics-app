@@ -3,15 +3,18 @@
 import { useCallback, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CATEGORIES, Category, Mode } from "@/data/types";
-import { topics } from "@/data/topics";
+import { getLocalizedTopics } from "@/data/topics.es";
 import TopicCard from "./TopicCard";
 import type { Topic } from "@/data/types";
+import { Locale, defaultLocale } from "@/i18n/config";
+import { getDict, CATEGORY_LABELS } from "@/i18n/dictionaries";
 
 interface WheelGeneratorProps {
   /** Optional mode preset — when set, landed topics are filtered to this mode. */
   mode?: Mode | null;
   title?: string;
   subtitle?: string;
+  locale?: Locale;
 }
 
 const CX = 170;
@@ -31,7 +34,8 @@ function segmentPath(i: number) {
   return `M ${CX} ${CY} L ${p0.x.toFixed(2)} ${p0.y.toFixed(2)} A ${R} ${R} 0 0 1 ${p1.x.toFixed(2)} ${p1.y.toFixed(2)} Z`;
 }
 
-export default function WheelGenerator({ mode = null, title, subtitle }: WheelGeneratorProps) {
+export default function WheelGenerator({ mode = null, title, subtitle, locale = defaultLocale }: WheelGeneratorProps) {
+  const t = getDict(locale);
   const [rotation, setRotation] = useState(0);
   const [spinning, setSpinning] = useState(false);
   const [result, setResult] = useState<Topic | null>(null);
@@ -64,14 +68,15 @@ export default function WheelGenerator({ mode = null, title, subtitle }: WheelGe
     const cat = CATEGORIES[winner].id;
     setLandedCat(cat);
 
-    let pool = topics.filter((t) => t.category === cat);
+    const localized = getLocalizedTopics(locale);
+    let pool = localized.filter((t) => t.category === cat);
     if (mode) pool = pool.filter((t) => t.modes.includes(mode));
-    if (pool.length === 0) pool = topics.filter((t) => t.category === cat);
+    if (pool.length === 0) pool = localized.filter((t) => t.category === cat);
     const picked = pool[Math.floor(Math.random() * pool.length)] || null;
 
     setResult(picked);
     setSpinning(false);
-  }, [mode]);
+  }, [mode, locale]);
 
   return (
     <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20">
@@ -80,11 +85,10 @@ export default function WheelGenerator({ mode = null, title, subtitle }: WheelGe
           className="section-heading text-4xl sm:text-6xl font-extrabold mb-4"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          {title || "Spin the Wheel"}
+          {title || t.wheel.title}
         </h1>
         <p className="text-[var(--text-muted)] max-w-xl mx-auto">
-          {subtitle ||
-            "Give the wheel a spin and let chance pick your topic — 16 categories, one random result every time."}
+          {subtitle || t.wheel.subtitle}
         </p>
       </div>
 
@@ -140,15 +144,15 @@ export default function WheelGenerator({ mode = null, title, subtitle }: WheelGe
         </div>
 
         <button onClick={spin} disabled={spinning} className="btn-generate mt-8 disabled:opacity-70">
-          <span>🎡</span> {spinning ? "Spinning..." : result ? "Spin Again" : "Spin the Wheel"}
+          <span>🎡</span> {spinning ? t.wheel.spinning : result ? t.wheel.spinAgain : t.wheel.spin}
         </button>
 
         {landedCat && !spinning && (
           <p className="text-xs text-[var(--text-muted)] mt-4">
-            Landed on{" "}
+            {t.wheel.landedOn}{" "}
             <span className="text-[var(--neon-cyan)] font-semibold">
               {CATEGORIES.find((c) => c.id === landedCat)?.emoji}{" "}
-              {CATEGORIES.find((c) => c.id === landedCat)?.label}
+              {CATEGORY_LABELS[locale][landedCat].label}
             </span>
           </p>
         )}
@@ -164,7 +168,7 @@ export default function WheelGenerator({ mode = null, title, subtitle }: WheelGe
             exit={{ opacity: 0 }}
             className="mt-8"
           >
-            <TopicCard topic={result} />
+            <TopicCard topic={result} locale={locale} />
           </motion.div>
         )}
       </AnimatePresence>

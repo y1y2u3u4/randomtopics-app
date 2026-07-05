@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE_URL } from "@/i18n/config";
 
 interface BreadcrumbItem {
   label: string;
@@ -17,7 +18,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
       "@type": "ListItem",
       position: i + 1,
       name: item.label,
-      ...(item.href ? { item: `https://randomtopics.app${item.href}` } : {}),
+      ...(item.href ? { item: `${SITE_URL}${item.href}` } : {}),
     })),
   };
 
