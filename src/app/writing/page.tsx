@@ -91,11 +91,6 @@ export default function WritingPage() {
                 Whether you need an <strong>essay topic</strong> for class or a story seed for your next
                 novel, you&apos;ll find it here.
               </p>
-              <p>
-                Looking for other kinds of prompts? Pair this with our <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link> for
-                argumentative essays, the <Link href="/conversation" className="text-[var(--neon-cyan)] hover:underline">conversation topic generator</Link> for
-                dialogue practice, or browse ready-made <Link href="/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">essay topics for college</Link>.
-              </p>
 
               <h3
                 className="text-lg font-semibold text-[var(--text-primary)] pt-3"

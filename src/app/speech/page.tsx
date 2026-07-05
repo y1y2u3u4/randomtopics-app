@@ -9,16 +9,6 @@ export const metadata: Metadata = {
   title: "Random Speech Topic Generator - Public Speaking Ideas & Practice Timer",
   description:
     "Generate random speech topics for presentations, public speaking practice, and Toastmasters. Built-in speech timer for impromptu speaking practice. Find your next great speech idea instantly.",
-  keywords: [
-    "speech topic generator",
-    "random speech topics",
-    "impromptu speech topics",
-    "public speaking topics",
-    "toastmasters table topics",
-    "table topics generator",
-    "speech ideas",
-    "extemporaneous speech topics",
-  ],
   alternates: { canonical: "/speech" },
 };
 

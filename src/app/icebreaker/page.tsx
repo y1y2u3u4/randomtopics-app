@@ -9,16 +9,6 @@ export const metadata: Metadata = {
   title: "Random Icebreaker Questions Generator | Team Building & Get-to-Know-You",
   description:
     "Generate random icebreaker questions for meetings, team building, classrooms, and virtual events. 300+ get-to-know-you questions that get groups talking, laughing, and connecting instantly.",
-  keywords: [
-    "icebreaker questions",
-    "icebreaker generator",
-    "icebreaker questions for work",
-    "team building questions",
-    "get to know you questions",
-    "icebreaker questions for meetings",
-    "virtual icebreaker questions",
-    "fun icebreaker questions",
-  ],
   alternates: { canonical: "/icebreaker" },
 };
 
