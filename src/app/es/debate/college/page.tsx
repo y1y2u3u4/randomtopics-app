@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/es/debate/college`,
     siteName: "Random Topics",
     locale: "es_ES",
+    images: ["/es/opengraph-image"],
     type: "website",
   },
 };

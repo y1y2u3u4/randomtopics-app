@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/es/icebreaker`,
     siteName: "Random Topics",
     locale: "es_ES",
+    images: ["/es/opengraph-image"],
     type: "website",
   },
 };

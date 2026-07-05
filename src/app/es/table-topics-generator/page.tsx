@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/es/table-topics-generator`,
     siteName: "Random Topics",
     locale: "es_ES",
+    images: ["/es/opengraph-image"],
     type: "website",
   },
 };

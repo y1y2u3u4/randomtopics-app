@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/es/impromptu-speech-topics`,
     siteName: "Random Topics",
     locale: "es_ES",
+    images: ["/es/opengraph-image"],
     type: "website",
   },
 };

@@ -26,6 +26,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/es/argument-generator`,
     siteName: "Random Topics",
     locale: "es_ES",
+    images: ["/es/opengraph-image"],
     type: "website",
   },
 };

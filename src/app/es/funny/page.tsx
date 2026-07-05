@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/es/funny`,
     siteName: "Random Topics",
     locale: "es_ES",
+    images: ["/es/opengraph-image"],
     type: "website",
   },
 };
