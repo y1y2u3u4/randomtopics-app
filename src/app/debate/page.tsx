@@ -10,6 +10,17 @@ export const metadata: Metadata = {
   title: "Random Debate Topic Generator — 300+ Debate Topics with Pro & Con Arguments",
   description:
     "Generate random debate topics instantly — 300+ argumentative topics with pro and con talking points for classrooms, debate clubs, and practice rounds. Also works as a random argument generator for essays and discussions. Free, no signup.",
+  keywords: [
+    "debate topic generator",
+    "random debate topic generator",
+    "debate generator",
+    "random debate generator",
+    "debate topics generator",
+    "debate question generator",
+    "random argument generator",
+    "debate topics",
+    "random debate topics",
+  ],
   alternates: { canonical: "/debate" },
 };
 

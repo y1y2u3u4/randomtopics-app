@@ -95,6 +95,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/spin-the-wheel"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+                >
+                  🎡 Spin the Wheel
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/press#embed"
                   className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
                 >

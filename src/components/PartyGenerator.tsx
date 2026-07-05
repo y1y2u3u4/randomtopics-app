@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import PrintButton from "./PrintButton";
 
 interface PartyGeneratorProps {
   questions: string[];
@@ -91,6 +92,12 @@ export default function PartyGenerator({ questions, title, subtitle, emoji }: Pa
               {copied ? "✅ Copied" : "📋 Copy"}
             </button>
           )}
+          <PrintButton
+            heading={title}
+            items={questions}
+            intro={`${questions.length} questions — a free printable deck from randomtopics.app`}
+            label="🖨️ Print deck"
+          />
         </div>
         <p className="text-xs text-[var(--text-muted)] mt-4">
           {questions.length} questions in this deck · no repeats until you&apos;ve seen them all

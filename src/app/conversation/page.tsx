@@ -10,6 +10,16 @@ export const metadata: Metadata = {
   title: "500+ Free Conversation Starters — No Signup",
   description:
     "Free conversation topic generator: 500+ starters for dates, work, friends & parties. Pick a category and depth, click once, get instant things to talk about — no signup, no ads.",
+  keywords: [
+    "conversation starters",
+    "conversation topics",
+    "conversation topic generator",
+    "random conversation starters",
+    "things to talk about",
+    "questions to ask",
+    "deep conversation topics",
+    "conversation starters for adults",
+  ],
   alternates: { canonical: "/conversation" },
 };
 

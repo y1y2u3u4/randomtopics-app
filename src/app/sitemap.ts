@@ -70,6 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "question-generator",
     "would-you-rather",
     "never-have-i-ever",
+    "spin-the-wheel",
   ].map((path) => ({
     url: `${baseUrl}/${path}`,
     lastModified: now,

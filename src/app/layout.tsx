@@ -86,17 +86,58 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
-        {/* Organization structured data */}
+        {/* Structured data — Organization + WebSite + WebApplication.
+            Bing reads these for rich results and entity understanding. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Random Topics",
-              url: "https://randomtopics.app",
-              logo: "https://randomtopics.app/icon.svg",
-              sameAs: [],
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://randomtopics.app/#organization",
+                  name: "Random Topics",
+                  url: "https://randomtopics.app",
+                  logo: "https://randomtopics.app/icon-512.png",
+                  sameAs: [],
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://randomtopics.app/#website",
+                  name: "Random Topics",
+                  alternateName: "Random Topic Generator",
+                  url: "https://randomtopics.app",
+                  publisher: { "@id": "https://randomtopics.app/#organization" },
+                  inLanguage: "en",
+                },
+                {
+                  "@type": "WebApplication",
+                  "@id": "https://randomtopics.app/#webapp",
+                  name: "Random Topic Generator",
+                  url: "https://randomtopics.app",
+                  applicationCategory: "EducationApplication",
+                  operatingSystem: "Any (web-based)",
+                  browserRequirements: "Requires JavaScript. Runs in any modern browser.",
+                  description:
+                    "Free random topic generator with 500+ curated topics across 16 categories. Generate conversation starters, writing prompts, debate topics, speech ideas and icebreaker questions instantly.",
+                  featureList: [
+                    "500+ curated random topics",
+                    "16 categories",
+                    "5 modes: conversation, writing, debate, speech, icebreaker",
+                    "Built-in speech practice timer",
+                    "AI-powered topic generation",
+                    "No signup, no ads",
+                  ],
+                  isAccessibleForFree: true,
+                  offers: {
+                    "@type": "Offer",
+                    price: "0",
+                    priceCurrency: "USD",
+                  },
+                  publisher: { "@id": "https://randomtopics.app/#organization" },
+                },
+              ],
             }),
           }}
         />

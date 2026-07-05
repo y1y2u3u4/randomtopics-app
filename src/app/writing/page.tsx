@@ -10,6 +10,16 @@ export const metadata: Metadata = {
   title: "Free Writing Prompt Generator — 500+ Prompts & Essay Topics",
   description:
     "Beat writer's block in one click: 500+ free writing prompts — narrative, persuasive, descriptive & expository — for kids, students and adults. No signup, no ads, unlimited AI generation.",
+  keywords: [
+    "writing prompt generator",
+    "writing prompts",
+    "random writing prompts",
+    "story prompts",
+    "essay topics",
+    "creative writing prompts",
+    "journal prompts",
+    "random essay topic generator",
+  ],
   alternates: { canonical: "/writing" },
 };
 

@@ -7,6 +7,8 @@ const HOST = "randomtopics.app";
 
 function getAllUrls(): string[] {
   const base = `https://${HOST}`;
+  // Kept in parity with src/app/sitemap.ts so IndexNow pushes every
+  // indexable URL to Bing/Yandex the moment we deploy.
   const urls: string[] = [
     base,
     `${base}/topics`,
@@ -14,7 +16,10 @@ function getAllUrls(): string[] {
     `${base}/press`,
     `${base}/about`,
     `${base}/privacy`,
+    `${base}/terms`,
+    `${base}/stats`,
     `${base}/funny`,
+    `${base}/topic-generator`,
     `${base}/argument-generator`,
     `${base}/table-topics-generator`,
     `${base}/impromptu-speech-topics`,
@@ -26,6 +31,7 @@ function getAllUrls(): string[] {
     `${base}/question-generator`,
     `${base}/would-you-rather`,
     `${base}/never-have-i-ever`,
+    `${base}/spin-the-wheel`,
   ];
 
   for (const mode of MODES) {
@@ -36,6 +42,12 @@ function getAllUrls(): string[] {
   }
   for (const article of SEO_ARTICLES) {
     urls.push(`${base}/topics/${article.slug}`);
+  }
+  // Mode × category combo pages (differentiated content, in sitemap)
+  for (const mode of MODES) {
+    for (const cat of CATEGORIES) {
+      urls.push(`${base}/${mode.slug}/${cat.id}`);
+    }
   }
 
   return urls;
