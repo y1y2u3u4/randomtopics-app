@@ -3,7 +3,7 @@
 import { useCallback, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CATEGORIES, Category, Mode } from "@/data/types";
-import { topics } from "@/data/topics";
+import { getLocalizedTopics } from "@/data/topics.es";
 import TopicCard from "./TopicCard";
 import type { Topic } from "@/data/types";
 import { Locale, defaultLocale } from "@/i18n/config";
@@ -68,14 +68,15 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
     const cat = CATEGORIES[winner].id;
     setLandedCat(cat);
 
-    let pool = topics.filter((t) => t.category === cat);
+    const localized = getLocalizedTopics(locale);
+    let pool = localized.filter((t) => t.category === cat);
     if (mode) pool = pool.filter((t) => t.modes.includes(mode));
-    if (pool.length === 0) pool = topics.filter((t) => t.category === cat);
+    if (pool.length === 0) pool = localized.filter((t) => t.category === cat);
     const picked = pool[Math.floor(Math.random() * pool.length)] || null;
 
     setResult(picked);
     setSpinning(false);
-  }, [mode]);
+  }, [mode, locale]);
 
   return (
     <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20">

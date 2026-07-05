@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Topic, Mode, Category, Depth, CATEGORIES, MODES, DEPTHS } from "@/data/types";
-import { topics } from "@/data/topics";
+import { getLocalizedTopics } from "@/data/topics.es";
 import TopicCard from "./TopicCard";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { getDict, MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
@@ -40,17 +40,26 @@ export default function TopicGenerator({
   const [error, setError] = useState<string | null>(null);
 
   const generateFromStatic = useCallback(() => {
-    let pool = [...topics];
+    let pool = [...getLocalizedTopics(locale)];
     if (selectedMode) pool = pool.filter((t) => t.modes.includes(selectedMode));
     if (selectedCategory) pool = pool.filter((t) => t.category === selectedCategory);
     if (selectedDepth) pool = pool.filter((t) => t.depth === selectedDepth);
     const shuffled = pool.sort(() => Math.random() - 0.5);
     return shuffled.slice(0, Math.min(count, shuffled.length));
-  }, [selectedMode, selectedCategory, selectedDepth, count]);
+  }, [selectedMode, selectedCategory, selectedDepth, count, locale]);
 
   const generate = useCallback(async () => {
     setIsSpinning(true);
     setError(null);
+
+    // Spanish serves purely from the localized static database so results are
+    // always in Spanish (the AI API returns English only).
+    if (locale === "es") {
+      setGeneratedTopics(generateFromStatic());
+      setIsSpinning(false);
+      setHasGenerated(true);
+      return;
+    }
 
     try {
       const res = await fetch('/api/generate-topics', {
@@ -82,7 +91,7 @@ export default function TopicGenerator({
 
     setIsSpinning(false);
     setHasGenerated(true);
-  }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic]);
+  }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, locale]);
 
   const showModeSelector = !initialMode;
   const showCategorySelector = !initialCategory;
