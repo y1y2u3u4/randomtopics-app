@@ -3,13 +3,15 @@ import { seoArticlesEsPart1 } from "./seoContent.es.part1";
 import { seoArticlesEsPart2 } from "./seoContent.es.part2";
 import { seoArticlesEsPart3 } from "./seoContent.es.part3";
 import { seoArticlesEsPart4 } from "./seoContent.es.part4";
+import { seoArticlesEsPart5 } from "./seoContent.es.part5";
 
-// Merged Spanish SEO articles (28), same slugs as the English source.
+// Merged Spanish SEO articles (33), same slugs as the English source.
 export const SEO_ARTICLES_ES: SeoArticle[] = [
   ...seoArticlesEsPart1,
   ...seoArticlesEsPart2,
   ...seoArticlesEsPart3,
   ...seoArticlesEsPart4,
+  ...seoArticlesEsPart5,
 ];
 
 export function getArticleEs(slug: string): SeoArticle | undefined {
