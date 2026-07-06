@@ -11,6 +11,13 @@ export const metadata: Metadata = {
   title: "Most Likely To Questions Generator — Fun & Clean Party Prompts",
   description:
     "Free 'Most Likely To' question generator: clean, funny prompts for parties, classrooms, and team building. One click per question, no repeats — no signup needed.",
+  keywords: [
+    "most likely to questions",
+    "most likely to game",
+    "who is most likely to questions",
+    "most likely to questions for friends",
+    "party game questions",
+  ],
   alternates: { canonical: "/most-likely-to" },
 };
 

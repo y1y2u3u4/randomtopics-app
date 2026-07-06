@@ -9,6 +9,14 @@ export const metadata: Metadata = {
   title: "Topic Lists & Guides - Curated Collections for Every Occasion",
   description:
     "Browse our curated collections of conversation topics, debate ideas, writing prompts, icebreaker questions, and more. Find the perfect topics for any situation.",
+  keywords: [
+    "topic lists",
+    "conversation topics",
+    "discussion topics",
+    "topic ideas",
+    "random topics",
+    "question lists",
+  ],
   alternates: {
     canonical: "/topics",
   },

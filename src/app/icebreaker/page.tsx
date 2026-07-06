@@ -4,17 +4,52 @@ import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import Link from "next/link";
 import type { Metadata } from "next";
+import FaqSchema from "@/components/FaqSchema";
 
 export const metadata: Metadata = {
   title: "Random Icebreaker Questions Generator | Team Building & Get-to-Know-You",
   description:
     "Generate random icebreaker questions for meetings, team building, classrooms, and virtual events. 300+ get-to-know-you questions that get groups talking, laughing, and connecting instantly.",
+  keywords: [
+    "icebreaker questions",
+    "icebreaker generator",
+    "icebreaker questions for work",
+    "team building questions",
+    "get to know you questions",
+    "icebreaker questions for meetings",
+    "virtual icebreaker questions",
+    "fun icebreaker questions",
+  ],
   alternates: { canonical: "/icebreaker" },
 };
+
+const FAQ_ITEMS = [
+  {
+    question: "What are good icebreaker questions for work?",
+    answer:
+      "Good work icebreakers are engaging but low-pressure — favorite recent meal, most useless talent, best career advice received. They spark conversation without putting anyone on the spot. Our generator focuses on work-appropriate prompts by default.",
+  },
+  {
+    question: "How do I run an icebreaker in a virtual meeting?",
+    answer:
+      "Pick one question, share your own answer first to model the length, then invite each person to answer in 30-60 seconds. One-click copy makes it easy to paste the question straight into the meeting chat.",
+  },
+  {
+    question: "What makes a good icebreaker question?",
+    answer:
+      "A good icebreaker is quick to answer, inclusive (everyone has an answer), and reveals a little personality without being too personal. Keep it to one question per meeting so it stays fun, not draining.",
+  },
+  {
+    question: "How many icebreaker questions should I use per meeting?",
+    answer:
+      "Usually just one. A single well-chosen question warms up the room without eating into the agenda. Save the rest for future meetings so the ritual stays fresh.",
+  },
+];
 
 export default function IcebreakerPage() {
   return (
     <>
+      <FaqSchema items={FAQ_ITEMS} />
       <Navbar />
       <main className="flex-1">
         <Breadcrumb

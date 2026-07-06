@@ -4,17 +4,52 @@ import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import SpeechTimer from "@/components/SpeechTimer";
 import type { Metadata } from "next";
+import FaqSchema from "@/components/FaqSchema";
 
 export const metadata: Metadata = {
   title: "Random Speech Topic Generator - Public Speaking Ideas & Practice Timer",
   description:
     "Generate random speech topics for presentations, public speaking practice, and Toastmasters. Built-in speech timer for impromptu speaking practice. Find your next great speech idea instantly.",
+  keywords: [
+    "speech topic generator",
+    "random speech topics",
+    "impromptu speech topics",
+    "public speaking topics",
+    "toastmasters table topics",
+    "table topics generator",
+    "speech ideas",
+    "extemporaneous speech topics",
+  ],
   alternates: { canonical: "/speech" },
 };
+
+const FAQ_ITEMS = [
+  {
+    question: "What are good impromptu speech topics?",
+    answer:
+      "Good impromptu topics are ones almost anyone can speak on without research — personal experiences, opinions, and 'this vs that' choices. Our generator pulls substantive prompts across 16 categories so you always have something meaningful to say.",
+  },
+  {
+    question: "How long should an impromptu speech be?",
+    answer:
+      "Most impromptu speeches run 1-2 minutes, which is why the built-in timer offers 1, 2, 3, and 5-minute presets. Start with 1 minute and work up as you get more comfortable.",
+  },
+  {
+    question: "How do I practice impromptu speaking alone?",
+    answer:
+      "Generate a random topic, give yourself 15-30 seconds to think, then start the timer and speak out loud using a simple structure like Point-Reason-Example-Point. Ten minutes a day makes a noticeable difference within a few weeks.",
+  },
+  {
+    question: "What is the best way to structure a short speech?",
+    answer:
+      "Use a quick framework: open with your main point, give one or two supporting reasons or examples, then restate your point to close. It keeps you on track even when you are thinking on your feet.",
+  },
+];
 
 export default function SpeechPage() {
   return (
     <>
+      <FaqSchema items={FAQ_ITEMS} />
       <Navbar />
       <main className="flex-1">
         <Breadcrumb

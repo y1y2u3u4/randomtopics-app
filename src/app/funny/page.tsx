@@ -4,17 +4,50 @@ import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import Link from "next/link";
 import type { Metadata } from "next";
+import FaqSchema from "@/components/FaqSchema";
 
 export const metadata: Metadata = {
   title: "Funny Random Topic Generator | Hilarious Questions & Weird Discussion Topics",
   description:
     "Generate funny, weird, and bizarre random topics guaranteed to make everyone laugh. Hilarious conversation starters, would-you-rather questions, and absurd discussion topics for parties, games, and groups.",
+  keywords: [
+    "funny topic generator",
+    "funny random topic generator",
+    "funny questions generator",
+    "random funny topics",
+    "hilarious conversation topics",
+    "funny discussion topics",
+  ],
   alternates: { canonical: "/funny" },
 };
+
+const FAQ_ITEMS = [
+  {
+    question: "What makes a good funny topic?",
+    answer:
+      "The best funny topics are relatable and low-stakes — everyday absurdities, silly hypotheticals, and 'what would you do' scenarios that everyone can riff on. Our generator mixes clever prompts with genuinely goofy ones so the laughs feel natural, not forced.",
+  },
+  {
+    question: "Are these funny topics appropriate for all ages?",
+    answer:
+      "Yes. Every prompt is kept clean and family-friendly, so you can use them in classrooms, at work, or on family game night without worrying about the content.",
+  },
+  {
+    question: "How do I use funny topics to break the ice?",
+    answer:
+      "Read one aloud and answer it yourself first to set a playful tone, then go around the group. Funny topics lower everyone's guard faster than serious questions, which makes them great openers for parties and meetings.",
+  },
+  {
+    question: "Can I get unlimited funny topics?",
+    answer:
+      "Yes. Click generate as many times as you like — with AI generation enabled you get an endless supply of fresh, unique funny prompts that never repeat.",
+  },
+];
 
 export default function FunnyPage() {
   return (
     <>
+      <FaqSchema items={FAQ_ITEMS} />
       <Navbar />
       <main className="flex-1">
         <Breadcrumb

@@ -11,6 +11,13 @@ export const metadata: Metadata = {
   title: "Two Truths and a Lie — Idea Generator & Prompts",
   description:
     "Free Two Truths and a Lie idea generator: themed prompts that help you craft convincing rounds fast. Great for icebreakers, classrooms, team building, and parties. No signup.",
+  keywords: [
+    "two truths and a lie",
+    "two truths and a lie ideas",
+    "two truths and a lie generator",
+    "two truths and a lie examples",
+    "icebreaker game ideas",
+  ],
   alternates: { canonical: "/two-truths-and-a-lie" },
 };
 

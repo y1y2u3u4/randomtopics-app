@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   title: "Spin the Wheel — Random Topic Wheel Generator, Free & No Signup",
   description:
     "Spin the wheel to get a random topic. A free random topic wheel across 16 categories — perfect for conversations, classroom warm-ups, debates and icebreakers. One click, instant result, no signup.",
+  keywords: [
+    "spin the wheel",
+    "random topic wheel",
+    "wheel of topics",
+    "spinner wheel generator",
+    "random wheel picker",
+    "topic wheel generator",
+  ],
   alternates: { canonical: "/spin-the-wheel" },
 };
 

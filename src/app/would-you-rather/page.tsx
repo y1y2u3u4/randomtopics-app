@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   title: "Would You Rather Generator — 60+ Questions, No Repeats",
   description:
     "Free Would You Rather question generator: 60+ clean, party-safe dilemmas with a no-repeat deck. One click per question — perfect for parties, road trips, classrooms and icebreakers.",
+  keywords: [
+    "would you rather questions",
+    "would you rather generator",
+    "would you rather game",
+    "would you rather questions for adults",
+    "hard would you rather",
+    "funny would you rather",
+  ],
   alternates: { canonical: "/would-you-rather" },
 };
 

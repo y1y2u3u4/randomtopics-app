@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   title: "Impromptu Speech Topics Generator — Practice With a Timer",
   description:
     "Generate random impromptu speech topics and practice against a built-in timer. Free tool for speech class, forensics, Toastmasters and interview prep — 500+ topics, no signup.",
+  keywords: [
+    "impromptu speech topics",
+    "impromptu speech topics generator",
+    "extemporaneous speech topics",
+    "random speech topics",
+    "1 minute speech topics",
+    "impromptu speaking topics",
+  ],
   alternates: { canonical: "/impromptu-speech-topics" },
 };
 

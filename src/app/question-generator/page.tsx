@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   title: "Random Question Generator — 500+ Questions for Any Group",
   description:
     "Free random question generator: icebreakers, deep questions, funny prompts and discussion questions across 16 categories. Filter by depth, generate up to 10 at once — no signup.",
+  keywords: [
+    "random question generator",
+    "question generator",
+    "random questions to ask",
+    "get to know you questions",
+    "conversation question generator",
+    "random questions",
+  ],
   alternates: { canonical: "/question-generator" },
 };
 

@@ -11,6 +11,15 @@ export const metadata: Metadata = {
   title: "Truth or Dare Generator — Clean, Party-Safe Questions & Dares",
   description:
     "Free Truth or Dare generator with clean, party-safe truths and dares. One click per prompt, no repeats — perfect for parties, sleepovers, road trips, and family game nights. No signup.",
+  keywords: [
+    "truth or dare questions",
+    "truth or dare generator",
+    "truth or dare game",
+    "clean truth or dare",
+    "truth or dare for teens",
+    "good dares",
+    "funny truth or dare",
+  ],
   alternates: { canonical: "/truth-or-dare" },
 };
 

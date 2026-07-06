@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   title: "Never Have I Ever Generator — 60+ Clean Questions",
   description:
     "Free Never Have I Ever question generator: 60+ clean, funny prompts with a no-repeat deck. Perfect for parties, icebreakers, road trips and family game night — no signup.",
+  keywords: [
+    "never have i ever questions",
+    "never have i ever generator",
+    "never have i ever game",
+    "clean never have i ever questions",
+    "never have i ever for teens",
+    "funny never have i ever questions",
+  ],
   alternates: { canonical: "/never-have-i-ever" },
 };
 

@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   title: "This or That Questions Generator — 60+ Fun Either/Or Prompts",
   description:
     "Free This or That question generator: fun either/or prompts for parties, classrooms, road trips, and icebreakers. One click per question, no repeats — clean and party-safe. No signup.",
+  keywords: [
+    "this or that questions",
+    "this or that generator",
+    "this or that game",
+    "this or that questions for couples",
+    "fun this or that questions",
+    "hard this or that questions",
+  ],
   alternates: { canonical: "/this-or-that" },
 };
 

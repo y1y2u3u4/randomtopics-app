@@ -3667,4 +3667,748 @@ export const SEO_ARTICLES: SeoArticle[] = [
       { label: "Would You Rather Questions", href: "/topics/would-you-rather-questions" },
     ],
   },
+// ============================================================================
+// NEW SEO ARTICLES — 2026-07-05  (paste into SEO_ARTICLES[] in src/data/seoContent.ts)
+// ----------------------------------------------------------------------------
+// Adding these objects is the ONLY change required: sitemap.ts, the IndexNow
+// route, and app/topics/[slug]/page.tsx (generateStaticParams) all iterate
+// SEO_ARTICLES, so the pages, sitemap entries, and IndexNow URLs auto-generate.
+// After deploy, POST https://randomtopics.app/api/indexnow to push to Bing.
+//
+// Targets high-volume long-tail gaps (verified NOT already in the 29 existing
+// slugs). All content kept clean / family-friendly (site is used by teachers).
+// Each reinforces an existing generator page = the proven "cluster hub" play
+// that already made /debate rank #1 on Bing.
+// ============================================================================
+
+// 30. Truth or Dare Questions  → reinforces party/icebreaker cluster
+{
+  slug: "truth-or-dare-questions",
+  title: "150 Truth or Dare Questions (Clean, Funny & For Any Group)",
+  metaTitle: "150 Truth or Dare Questions — Clean, Funny & For Any Group | RandomTopics",
+  metaDescription:
+    "150 truth or dare questions for teens, friends, couples and family — clean, funny, and just-embarrassing-enough. Free printable list plus a random generator. No signup.",
+  heroTitle: "150 Truth or Dare Questions for Every Group",
+  heroSubtitle:
+    "Clean, funny, and just-awkward-enough truths and dares for teens, friends, couples, and family game nights.",
+  intro:
+    "Truth or dare is the classic party game that turns any gathering into a memory. The secret to a great round is having good questions ready before someone freezes up. Below are 150 truth or dare questions sorted by group and vibe — clean enough for family game night, funny enough for friends, and sweet enough for couples. Read a random one aloud, or use our generator to pull an endless supply.",
+  publishDate: "2026-07-05",
+  lastModified: "2026-07-05",
+  sections: [
+    {
+      heading: "Truth Questions for Friends",
+      description:
+        "Good opening truths that reveal personality without crossing a line.",
+      items: [
+        "What is the most embarrassing thing you have ever worn in public?",
+        "Who in this room would you swap lives with for a day?",
+        "What is a small lie you tell almost every week?",
+        "What is the most childish thing you still do?",
+        "What is the weirdest thing you have ever eaten?",
+        "What is a secret talent no one here knows about?",
+        "What is the last thing you searched for on your phone?",
+        "What is the most trouble you have ever gotten into at school?",
+        "If you had to delete one app forever, which would hurt most?",
+        "What is the pettiest reason you have ever stopped talking to someone?",
+        "What is your most irrational fear?",
+        "What is the biggest lie you told to get out of plans?",
+        "What is the most embarrassing song on your playlist right now?",
+      ],
+    },
+    {
+      heading: "Funny Truth Questions",
+      description: "Truths designed to get the whole room laughing.",
+      items: [
+        "What is the strangest dream you actually remember?",
+        "If your pet could talk, what is the first thing it would complain about?",
+        "What is the worst haircut you have ever had?",
+        "What nickname do you secretly hate?",
+        "What is the dumbest thing you have ever cried about?",
+        "What is the most embarrassing thing a family member has done in public?",
+        "What is a food combination you love that everyone else finds gross?",
+        "What is the longest you have gone without showering?",
+        "What is the most useless fact stuck in your head?",
+        "If you were a wrestler, what would your entrance song be?",
+        "What is the worst gift you have ever received and pretended to like?",
+        "What is your most embarrassing autocorrect fail?",
+      ],
+    },
+    {
+      heading: "Truth Questions for Couples",
+      description: "Sweet, revealing truths for date night — keep it kind.",
+      items: [
+        "What was your very first impression of me?",
+        "What is one small thing I do that always makes you smile?",
+        "What is a trip you would drop everything to take with me?",
+        "What song reminds you of us?",
+        "What is something you have always wanted to tell me but never did?",
+        "What is your favorite memory of us so far?",
+        "What is one habit of mine you have secretly grown to love?",
+        "If we opened a business together, what would it be?",
+        "What is the most thoughtful thing I have ever done for you?",
+        "What does your perfect lazy Sunday with me look like?",
+        "What is one thing you are proud of us for?",
+        "What is a tiny goal we should chase together this year?",
+      ],
+    },
+    {
+      heading: "Good Dares for Friends",
+      description: "Harmless, high-energy dares that always land.",
+      items: [
+        "Talk in an accent until your next turn.",
+        "Let the group post any (appropriate) photo from your camera roll.",
+        "Do your best impression of someone in the room until they guess who.",
+        "Call a friend and sing them happy birthday — even if it is not their birthday.",
+        "Do 20 jumping jacks while reciting the alphabet backwards.",
+        "Let the person to your right restyle your hair.",
+        "Speak only in questions until your next turn.",
+        "Do a dramatic slow-motion walk across the room.",
+        "Balance a spoon on your nose for 30 seconds.",
+        "Text the fifth person in your contacts a single emoji and share their reply.",
+        "Act out your morning routine with no words.",
+        "Let the group pick your profile picture for the next hour.",
+        "Do your best runway model walk down the hallway.",
+        "Invent a new dance move and name it after yourself.",
+        "Wear socks on your hands until your next turn.",
+      ],
+    },
+    {
+      heading: "Clean Dares for Kids & Family",
+      description: "Silly, safe dares that work for all ages.",
+      items: [
+        "Hop on one foot while singing your favorite song.",
+        "Talk like a robot until your next turn.",
+        "Do your best animal impression and make everyone guess.",
+        "Make up a short rap about the person to your left.",
+        "Balance a book on your head and walk across the room.",
+        "Pretend to be a news reporter and describe the room.",
+        "Do the silliest dance you can for 15 seconds.",
+        "Say the alphabet as fast as you can without messing up.",
+        "Give a dramatic speech thanking your imaginary award.",
+        "Pretend the floor is lava and get to the door.",
+        "Make the funniest face you can and hold it for 10 seconds.",
+        "Tell a knock-knock joke and actually commit to it.",
+      ],
+    },
+    {
+      heading: "Truth or Dare Over Text",
+      description: "Prompts that still work when the game is long-distance.",
+      items: [
+        "Send a screenshot of your most recent photo (keep it appropriate).",
+        "Voice-note your best evil-villain laugh.",
+        "Share the last five emojis you used.",
+        "Send a selfie making the goofiest face you can.",
+        "Text a random contact good morning and screenshot the reply.",
+        "Reveal your screen time for today.",
+        "Send the meme that best describes your week.",
+        "Type out your most-used phrase in all caps.",
+        "Share your current phone wallpaper.",
+        "Send a 10-second video of your best dance move.",
+      ],
+    },
+  ],
+  faq: [
+    {
+      question: "What are good clean truth or dare questions?",
+      answer:
+        "Good clean questions focus on funny, harmless reveals and silly physical dares — like your most embarrassing outfit, your worst haircut, or doing an impression until your next turn. Avoid anything private, mean, or unsafe. Every question and dare on this page is family-friendly.",
+    },
+    {
+      question: "How do you play truth or dare?",
+      answer:
+        "Players sit in a circle and take turns choosing 'truth' or 'dare.' If they pick truth, they answer a question honestly; if they pick dare, they complete a challenge. If someone refuses, the group agrees on a fun forfeit. Set ground rules first so everyone stays comfortable.",
+    },
+    {
+      question: "What are good dares that are not embarrassing?",
+      answer:
+        "Try energy-based dares that are silly rather than humiliating: talk in an accent, invent a dance move, do an impression, or attempt a goofy physical challenge like balancing a spoon on your nose. The goal is laughter, not discomfort.",
+    },
+    {
+      question: "Can you play truth or dare over text?",
+      answer:
+        "Yes. Swap physical dares for screenshot, selfie, voice-note, and screen-time challenges. This page has a dedicated 'Truth or Dare Over Text' section built for long-distance play.",
+    },
+    {
+      question: "How many truth or dare questions are on this list?",
+      answer:
+        "This page has 150 hand-picked truths and dares across friends, couples, family, and text play. For unlimited fresh prompts, use the random generator — it never repeats the same round twice.",
+    },
+  ],
+  relatedLinks: [
+    { label: "Would You Rather Questions", href: "/topics/would-you-rather-questions" },
+    { label: "Never Have I Ever Questions", href: "/topics/never-have-i-ever-questions" },
+    { label: "Questions to Ask at a Party", href: "/topics/questions-to-ask-at-a-party" },
+    { label: "Couples Game Night Questions", href: "/topics/couples-game-night-questions" },
+  ],
+},
+
+// 31. Never Have I Ever Questions  → reinforces the /never-have-i-ever generator page
+{
+  slug: "never-have-i-ever-questions",
+  title: "200 Never Have I Ever Questions (Clean, Funny & For Adults)",
+  metaTitle: "200 Never Have I Ever Questions — Clean, Funny & For Adults | RandomTopics",
+  metaDescription:
+    "200 never have I ever questions for teens, friends, couples, and work — clean, funny, and embarrassing. Free printable list plus a random generator. No signup, no ads.",
+  heroTitle: "200 Never Have I Ever Questions",
+  heroSubtitle:
+    "Clean, funny, and revealing 'never have I ever' prompts for teens, friends, couples, road trips, and team icebreakers.",
+  intro:
+    "Never Have I Ever is the fastest way to learn surprising things about the people around you. One person reads a statement starting with 'Never have I ever...' and anyone who HAS done it puts a finger down or takes a sip of their drink. The trick is a good list of statements — funny, relatable, and clean enough for the room you are in. Here are 200 never-have-I-ever questions sorted by group, from family game night to team icebreakers. Read one at random, or use our generator for an endless supply.",
+  publishDate: "2026-07-05",
+  lastModified: "2026-07-05",
+  sections: [
+    {
+      heading: "Classic Never Have I Ever Questions",
+      description: "Reliable openers that get almost everyone putting a finger down.",
+      items: [
+        "Never have I ever fallen asleep in a movie theater.",
+        "Never have I ever forgotten someone's name right after meeting them.",
+        "Never have I ever laughed at the worst possible moment.",
+        "Never have I ever pretended to be busy to avoid plans.",
+        "Never have I ever sent a text to the wrong person.",
+        "Never have I ever walked into a glass door.",
+        "Never have I ever binged an entire series in one day.",
+        "Never have I ever forgotten why I walked into a room.",
+        "Never have I ever waved back at someone who was not waving at me.",
+        "Never have I ever tripped in public and played it off as a dance.",
+        "Never have I ever eaten food that fell on the floor.",
+        "Never have I ever stayed up all night for no good reason.",
+        "Never have I ever re-read a text I sent to check how it sounded.",
+        "Never have I ever pretended to laugh at a joke I did not get.",
+      ],
+    },
+    {
+      heading: "Funny Never Have I Ever Questions",
+      description: "Statements built to embarrass in the most harmless way.",
+      items: [
+        "Never have I ever talked to myself and gotten caught.",
+        "Never have I ever called a teacher 'mom' or 'dad.'",
+        "Never have I ever practiced an argument in the shower.",
+        "Never have I ever ghosted a group chat and then reappeared like nothing happened.",
+        "Never have I ever googled myself.",
+        "Never have I ever worn clothes inside out for a full day without noticing.",
+        "Never have I ever forgotten my own phone number.",
+        "Never have I ever laughed so hard that no sound came out.",
+        "Never have I ever pretended a package was a surprise when I ordered it myself.",
+        "Never have I ever hidden from someone I knew in a store.",
+        "Never have I ever sang the wrong lyrics confidently for years.",
+        "Never have I ever taken a nap that ruined my whole night's sleep.",
+      ],
+    },
+    {
+      heading: "Never Have I Ever for Teens",
+      description: "School-friendly statements that stay clean.",
+      items: [
+        "Never have I ever fallen asleep in class.",
+        "Never have I ever forgotten about a test until the morning of.",
+        "Never have I ever blamed a sibling for something I did.",
+        "Never have I ever pretended to understand a lesson I was totally lost in.",
+        "Never have I ever lost my homework the day it was due.",
+        "Never have I ever sent a risky meme in the class group chat.",
+        "Never have I ever gotten the giggles during a serious moment at school.",
+        "Never have I ever called the wrong teacher by the wrong name.",
+        "Never have I ever stayed up late finishing a project I had weeks to do.",
+        "Never have I ever tripped up the stairs at school.",
+        "Never have I ever eaten lunch in a weird spot to avoid people.",
+        "Never have I ever forgotten my locker combination.",
+      ],
+    },
+    {
+      heading: "Never Have I Ever for Couples",
+      description: "Playful, revealing prompts for date night — keep it kind.",
+      items: [
+        "Never have I ever stalked my partner's social media before we met.",
+        "Never have I ever rehearsed what to say before a date.",
+        "Never have I ever pretended to like a hobby to impress someone.",
+        "Never have I ever fallen asleep during a movie date.",
+        "Never have I ever texted a friend for advice mid-date.",
+        "Never have I ever kept a gift I secretly did not like.",
+        "Never have I ever lost track of time talking to my partner.",
+        "Never have I ever planned a whole date in my head that never happened.",
+        "Never have I ever gotten nervous before saying 'I love you.'",
+        "Never have I ever memorized my partner's coffee order.",
+        "Never have I ever re-read our old messages for fun.",
+        "Never have I ever pretended not to be jealous when I was.",
+      ],
+    },
+    {
+      heading: "Never Have I Ever for Work & Team Icebreakers",
+      description: "Office-safe statements that get coworkers laughing.",
+      items: [
+        "Never have I ever muted a meeting to say something I should not have.",
+        "Never have I ever pretended my internet cut out to leave a call.",
+        "Never have I ever forgotten a coworker's name in an email.",
+        "Never have I ever replied-all by accident.",
+        "Never have I ever taken credit for a group idea.",
+        "Never have I ever joined a meeting one minute late and blamed 'traffic.'",
+        "Never have I ever eaten lunch at my desk to avoid small talk.",
+        "Never have I ever pretended to take notes while doodling.",
+        "Never have I ever sent a message and immediately wished I could unsend it.",
+        "Never have I ever kept a video call on while clearly not paying attention.",
+        "Never have I ever forgotten to unmute and talked to no one for 20 seconds.",
+        "Never have I ever scheduled a meeting that could have been an email.",
+      ],
+    },
+    {
+      heading: "Never Have I Ever — Travel Edition",
+      description: "Perfect for road trips and group vacations.",
+      items: [
+        "Never have I ever missed a flight.",
+        "Never have I ever gotten lost in a city with a map in my hand.",
+        "Never have I ever over-packed for a two-day trip.",
+        "Never have I ever fallen asleep and missed my stop.",
+        "Never have I ever forgotten something important on a trip.",
+        "Never have I ever eaten something abroad without knowing what it was.",
+        "Never have I ever taken a photo of my food before eating it on vacation.",
+        "Never have I ever booked the wrong date for a reservation.",
+        "Never have I ever argued about directions on a road trip.",
+        "Never have I ever pretended to know a language I did not speak.",
+      ],
+    },
+  ],
+  faq: [
+    {
+      question: "How do you play Never Have I Ever?",
+      answer:
+        "Everyone starts with ten fingers up (or a drink for adults). One person reads a 'Never have I ever...' statement. Anyone who HAS done it puts a finger down or takes a sip. Keep going around the circle; the last person with a finger still up wins. Set the tone — clean or spicy — before you start.",
+    },
+    {
+      question: "What are good clean Never Have I Ever questions?",
+      answer:
+        "Good clean statements focus on funny, relatable everyday moments — falling asleep in class, texting the wrong person, or forgetting someone's name. This page keeps every statement family-friendly, with dedicated sections for teens, work icebreakers, and couples.",
+    },
+    {
+      question: "Is Never Have I Ever good for team building?",
+      answer:
+        "Yes. It is a fast, low-pressure icebreaker that surfaces surprising commonalities between coworkers. Use the 'Work & Team Icebreakers' section above and let people pass on any statement they would rather skip.",
+    },
+    {
+      question: "How many Never Have I Ever questions are here?",
+      answer:
+        "This list has 200 statements across classic, funny, teen, couples, work, and travel categories. For unlimited fresh prompts, use the random generator so no two rounds are ever the same.",
+    },
+  ],
+  relatedLinks: [
+    { label: "Truth or Dare Questions", href: "/topics/truth-or-dare-questions" },
+    { label: "Would You Rather Questions", href: "/topics/would-you-rather-questions" },
+    { label: "Questions to Ask at a Party", href: "/topics/questions-to-ask-at-a-party" },
+    { label: "Icebreaker Questions for Work", href: "/topics/icebreaker-questions-for-work" },
+  ],
+},
+
+// 32. This or That Questions  → icebreaker / party crossover
+{
+  slug: "this-or-that-questions",
+  title: "180 This or That Questions (Fun, Hard & For Couples or Kids)",
+  metaTitle: "180 This or That Questions — Fun, Hard & For Any Group | RandomTopics",
+  metaDescription:
+    "180 this or that questions for kids, teens, couples, and friends — fun, funny, and surprisingly hard. Free printable list plus a random this-or-that generator. No signup.",
+  heroTitle: "180 This or That Questions for Any Group",
+  heroSubtitle:
+    "Quick-fire either/or choices for icebreakers, road trips, couples, and classrooms — easy to start, surprisingly hard to answer.",
+  intro:
+    "This or That is the fastest icebreaker there is: two options, no wrong answers, instant conversation. It works as a warm-up game, a road-trip time-killer, a classroom activity, or a way to learn how your partner really thinks. The magic is a good list — a mix of easy favorites and impossible dilemmas. Here are 180 this-or-that questions sorted by group and difficulty. Fire them off rapid-style, or use our generator to keep them coming.",
+  publishDate: "2026-07-05",
+  lastModified: "2026-07-05",
+  sections: [
+    {
+      heading: "Fun This or That Questions",
+      description: "Easy favorites to warm up any group.",
+      items: [
+        "Sweet or savory?",
+        "Beach or mountains?",
+        "Morning person or night owl?",
+        "Coffee or tea?",
+        "Books or movies?",
+        "Summer or winter?",
+        "Texting or calling?",
+        "Cats or dogs?",
+        "Pizza or tacos?",
+        "City or countryside?",
+        "Window seat or aisle seat?",
+        "Early bird or last-minute?",
+        "Sneakers or sandals?",
+        "Salty or sweet snacks?",
+        "Music or podcasts?",
+      ],
+    },
+    {
+      heading: "Hard This or That Questions",
+      description: "Genuine dilemmas that spark real debate.",
+      items: [
+        "Never use the internet again or never travel again?",
+        "Always be ten minutes late or always be twenty minutes early?",
+        "Know how you die or know when you die?",
+        "Be able to fly or be invisible?",
+        "Give up music or give up movies forever?",
+        "Have unlimited money or unlimited time?",
+        "Be famous or be powerful?",
+        "Relive your best day or erase your worst day?",
+        "Read minds or predict the future?",
+        "Never feel physical pain or never feel embarrassed?",
+        "Speak every language or play every instrument?",
+        "Live in the past or live in the future?",
+        "Always tell the truth or always get away with lies?",
+        "Be the funniest person alive or the smartest?",
+      ],
+    },
+    {
+      heading: "This or That for Couples",
+      description: "Choices that reveal how you each tick.",
+      items: [
+        "Night in or night out?",
+        "Cook together or order takeout?",
+        "Big wedding or tiny elopement?",
+        "Road trip or beach resort?",
+        "Save the money or spend it on an experience?",
+        "Early riser weekends or sleep-in weekends?",
+        "Plan every detail or wing it?",
+        "Same hobbies or separate hobbies?",
+        "Movie marathon or game night?",
+        "Mountains cabin or city apartment?",
+        "Surprise gifts or wish-list gifts?",
+        "Dance in the kitchen or quiet night reading?",
+      ],
+    },
+    {
+      heading: "This or That for Kids",
+      description: "Simple, silly choices perfect for classrooms and family time.",
+      items: [
+        "Ice cream or cookies?",
+        "Superheroes or dinosaurs?",
+        "Swimming or biking?",
+        "Drawing or building?",
+        "Cartoons or video games?",
+        "Playground or trampoline?",
+        "Pancakes or waffles?",
+        "Dogs or dragons?",
+        "Snow day or beach day?",
+        "Chocolate or candy?",
+        "Reading or coloring?",
+        "Bugs or fish?",
+      ],
+    },
+    {
+      heading: "Funny This or That Questions",
+      description: "Ridiculous either/or choices that spark laughter and arguments.",
+      items: [
+        "Fight one horse-sized duck or a hundred duck-sized horses?",
+        "Always sound like you are whispering or always sound like you are yelling?",
+        "Have fingers for toes or toes for fingers?",
+        "Sneeze glitter or burp bubbles?",
+        "Only be able to whisper or only be able to shout?",
+        "Have a permanent unibrow or be permanently bald?",
+        "Wear wet socks forever or a shirt one size too small forever?",
+        "Talk to animals but they are all rude, or talk to plants but they are boring?",
+        "Have hiccups for a year or feel like you need to sneeze for a year?",
+        "Only eat spicy food or only eat bland food?",
+      ],
+    },
+  ],
+  faq: [
+    {
+      question: "How do you play This or That?",
+      answer:
+        "One person reads two options and everyone answers quickly with their pick — no overthinking. You can go rapid-fire around a circle, keep score of matching answers, or use each choice as a jumping-off point for a longer chat. There are no wrong answers, which is why it works so well as an icebreaker.",
+    },
+    {
+      question: "What are good This or That questions for couples?",
+      answer:
+        "The best couple questions surface habits and preferences you can act on — night in or night out, plan every detail or wing it, save or splurge. See the dedicated 'This or That for Couples' section above.",
+    },
+    {
+      question: "Are This or That questions good for the classroom?",
+      answer:
+        "Very. They require zero prep, include everyone, and warm up a room in seconds. Use the 'This or That for Kids' section for age-appropriate choices, and have students explain their pick to practice speaking skills.",
+    },
+    {
+      question: "How many This or That questions are on this list?",
+      answer:
+        "This page has 180 questions across fun, hard, couples, kids, and funny categories. Use the random generator for an endless stream that never repeats.",
+    },
+  ],
+  relatedLinks: [
+    { label: "Would You Rather Questions", href: "/topics/would-you-rather-questions" },
+    { label: "Truth or Dare Questions", href: "/topics/truth-or-dare-questions" },
+    { label: "Get to Know You Questions for Adults", href: "/topics/get-to-know-you-questions-for-adults" },
+    { label: "Random Questions to Ask Friends", href: "/topics/random-questions-to-ask-friends" },
+  ],
+},
+// ============================================================================
+// NEW SEO ARTICLES — PART 2 (2026-07-06)  → append to SEO_ARTICLES[] in seoContent.ts
+// Completes companion long-form articles for the party-game generators.
+// Part 1 (new-articles-2026-07.ts) covered truth-or-dare / this-or-that / never-have-i-ever.
+// This part adds most-likely-to + two-truths-and-a-lie.
+// Safe re: i18n — /es/topics reads a separate SEO_ARTICLES_ES, so EN-only additions
+// do not affect the Spanish build. (For full bilingual coverage, mirror into
+// seoContent.es.ts later; optional, non-blocking.)
+// After deploy: POST https://randomtopics.app/api/indexnow
+// ============================================================================
+
+// 33. Most Likely To Questions  → companion to the /most-likely-to generator
+{
+  slug: "most-likely-to-questions",
+  title: "150 Most Likely To Questions (Funny, Clean & For Friends or Work)",
+  metaTitle: "150 Most Likely To Questions — Funny, Clean & For Any Group | RandomTopics",
+  metaDescription:
+    "150 'most likely to' questions for friends, couples, teens, and work teams — funny, clean, and revealing. Free printable list plus a random generator. No signup, no ads.",
+  heroTitle: "150 Most Likely To Questions",
+  heroSubtitle:
+    "Funny, clean, and surprisingly revealing 'who is most likely to...' prompts for friends, couples, classrooms, and team icebreakers.",
+  intro:
+    "'Most Likely To' is the group game where everyone points at the person most likely to do something — and the results are always funnier than you expect. It works as a party game, a road-trip time-killer, a classroom warm-up, or a quick team icebreaker. The only thing you need is a good list of prompts. Here are 150 'most likely to' questions sorted by group and vibe, all kept clean. Read one and count the fingers pointing, or use our generator to keep them coming.",
+  publishDate: "2026-07-06",
+  lastModified: "2026-07-06",
+  sections: [
+    {
+      heading: "Most Likely To Questions for Friends",
+      description: "Reliable prompts that get the whole group pointing and laughing.",
+      items: [
+        "Who is most likely to become famous?",
+        "Who is most likely to forget their own birthday?",
+        "Who is most likely to survive a zombie apocalypse?",
+        "Who is most likely to text back three days later?",
+        "Who is most likely to trip on a flat surface?",
+        "Who is most likely to start a business?",
+        "Who is most likely to cry during a movie?",
+        "Who is most likely to get lost with GPS on?",
+        "Who is most likely to win an award someday?",
+        "Who is most likely to eat dessert first?",
+        "Who is most likely to adopt ten pets?",
+        "Who is most likely to sleep through their alarm?",
+        "Who is most likely to become a millionaire?",
+        "Who is most likely to laugh at the wrong moment?",
+      ],
+    },
+    {
+      heading: "Funny Most Likely To Questions",
+      description: "Prompts designed for maximum group laughter.",
+      items: [
+        "Who is most likely to talk to their pet like a person?",
+        "Who is most likely to trip over nothing and blame the floor?",
+        "Who is most likely to laugh so hard they snort?",
+        "Who is most likely to forget why they walked into a room?",
+        "Who is most likely to fall asleep at a party?",
+        "Who is most likely to become a meme?",
+        "Who is most likely to argue with a self-checkout machine?",
+        "Who is most likely to wear mismatched shoes in public?",
+        "Who is most likely to get a song stuck in everyone's head?",
+        "Who is most likely to lose their phone while holding it?",
+        "Who is most likely to overreact to a jump scare?",
+        "Who is most likely to start dancing with no music?",
+      ],
+    },
+    {
+      heading: "Most Likely To for Couples",
+      description: "Playful prompts to see who knows the relationship best.",
+      items: [
+        "Who is most likely to say 'I love you' first every time?",
+        "Who is most likely to plan the surprise date?",
+        "Who is most likely to fall asleep during the movie?",
+        "Who is most likely to forget an anniversary?",
+        "Who is most likely to win an argument by being cute?",
+        "Who is most likely to steal the blanket?",
+        "Who is most likely to cook the fancy dinner?",
+        "Who is most likely to cry at a wedding?",
+        "Who is most likely to pick the restaurant?",
+        "Who is most likely to text good morning first?",
+        "Who is most likely to overpack for a trip?",
+        "Who is most likely to remember every little detail?",
+      ],
+    },
+    {
+      heading: "Most Likely To for Work & Team Icebreakers",
+      description: "Office-safe prompts that get coworkers laughing together.",
+      items: [
+        "Who is most likely to reply to every email in one minute?",
+        "Who is most likely to bring snacks for the whole team?",
+        "Who is most likely to have 40 browser tabs open?",
+        "Who is most likely to schedule a meeting that could be an email?",
+        "Who is most likely to save the day before a deadline?",
+        "Who is most likely to know a shortcut for everything?",
+        "Who is most likely to start a new team tradition?",
+        "Who is most likely to win employee of the month?",
+        "Who is most likely to keep the meeting on time?",
+        "Who is most likely to have the tidiest desk?",
+        "Who is most likely to volunteer for the fun project?",
+        "Who is most likely to bring the best energy on a Monday?",
+      ],
+    },
+    {
+      heading: "Most Likely To for Teens & Classrooms",
+      description: "School-friendly prompts that stay kind and clean.",
+      items: [
+        "Who is most likely to become a famous inventor?",
+        "Who is most likely to ace a test without studying?",
+        "Who is most likely to start a popular club?",
+        "Who is most likely to become a teacher one day?",
+        "Who is most likely to travel the world?",
+        "Who is most likely to write a bestselling book?",
+        "Who is most likely to make the whole class laugh?",
+        "Who is most likely to break a school record?",
+        "Who is most likely to become a scientist?",
+        "Who is most likely to always have a snack ready?",
+        "Who is most likely to organize the best group project?",
+        "Who is most likely to cheer everyone up on a bad day?",
+      ],
+    },
+  ],
+  faq: [
+    {
+      question: "How do you play Most Likely To?",
+      answer:
+        "One person reads a 'Who is most likely to...' prompt, then everyone points at the person they think fits best on the count of three. The person with the most fingers pointed at them 'wins' that round. There is no scoring pressure — it is really just an excuse to laugh and learn how the group sees each other.",
+    },
+    {
+      question: "What are good clean Most Likely To questions?",
+      answer:
+        "Good clean prompts focus on funny, harmless traits — most likely to become famous, forget their birthday, or survive a zombie apocalypse. Every prompt on this page is family-friendly, with dedicated sections for teens, couples, and work teams.",
+    },
+    {
+      question: "Is Most Likely To good for team building?",
+      answer:
+        "Yes. It is a fast, inclusive icebreaker that surfaces personalities in a positive way. Use the 'Work & Team Icebreakers' section and keep the prompts complimentary so it stays fun for everyone.",
+    },
+    {
+      question: "How many Most Likely To questions are here?",
+      answer:
+        "This list has 150 prompts across friends, funny, couples, work, and classroom categories. For unlimited fresh prompts, use the random generator so no two rounds repeat.",
+    },
+  ],
+  relatedLinks: [
+    { label: "Most Likely To Generator", href: "/most-likely-to" },
+    { label: "Truth or Dare Questions", href: "/topics/truth-or-dare-questions" },
+    { label: "Never Have I Ever Questions", href: "/topics/never-have-i-ever-questions" },
+    { label: "Would You Rather Questions", href: "/topics/would-you-rather-questions" },
+  ],
+},
+
+// 34. Two Truths and a Lie Ideas  → companion to the /two-truths-and-a-lie generator
+{
+  slug: "two-truths-and-a-lie-ideas",
+  title: "120 Two Truths and a Lie Ideas (Good Examples for Work & Fun)",
+  metaTitle: "120 Two Truths and a Lie Ideas — Good Examples for Work & Fun | RandomTopics",
+  metaDescription:
+    "120 two truths and a lie ideas and examples for work icebreakers, students, and parties — plus tips for a lie no one can spot. Free list and random generator. No signup.",
+  heroTitle: "120 Two Truths and a Lie Ideas",
+  heroSubtitle:
+    "Ready-to-use examples, work-friendly prompts, and tips for a convincing lie — the classic get-to-know-you game made easy.",
+  intro:
+    "Two Truths and a Lie is the icebreaker everyone knows: you say three statements about yourself — two true, one false — and the group guesses which is the lie. The catch is coming up with good statements on the spot. This page gives you 120 ideas and ready-made examples for work, school, and parties, plus a few tricks for making your lie impossible to spot. Steal a prompt, or use our generator when you draw a blank.",
+  publishDate: "2026-07-06",
+  lastModified: "2026-07-06",
+  sections: [
+    {
+      heading: "How to Play Two Truths and a Lie",
+      description: "The 30-second rules before you start.",
+      items: [
+        "Each person prepares three statements about themselves: two true, one false.",
+        "Say all three out loud in any order, with a straight face.",
+        "The group discusses and votes on which statement is the lie.",
+        "Reveal the lie — points or laughs for anyone who guessed right.",
+        "The best lies are believable and the best truths are surprising, so mix them up.",
+      ],
+    },
+    {
+      heading: "Good Two Truths and a Lie Prompts (Fill in the Blank)",
+      description: "Prompt starters you can complete about yourself.",
+      items: [
+        "I have visited ___ countries.",
+        "I once met ___ (a celebrity or notable person).",
+        "I can ___ (a surprising skill).",
+        "As a kid, I wanted to be a ___.",
+        "I have never ___ (a common experience).",
+        "My hidden talent is ___.",
+        "The strangest job I've had was ___.",
+        "I'm secretly afraid of ___.",
+        "I've broken ___ bones.",
+        "My first concert was ___.",
+        "I can speak a little ___ (language).",
+        "I once ate ___ on a dare.",
+      ],
+    },
+    {
+      heading: "Two Truths and a Lie Examples for Work",
+      description: "Office-safe, ready-to-use statement sets.",
+      items: [
+        "I've worked in three different countries / I once presented to 500 people / I can't drive.",
+        "I started coding at age 10 / I've run a marathon / I hate coffee.",
+        "I've met the CEO twice / I speak two languages / I've never had a cavity.",
+        "I used to be a barista / I collect vintage keyboards / I'm afraid of heights.",
+        "I once fixed a bug at 3 a.m. before a launch / I've never missed a deadline / I can juggle.",
+        "I interned at a startup that failed / I've written a newsletter for years / I hate pizza.",
+        "I can name every US state capital / I've given a TED-style talk / I've never flown first class.",
+        "I've onboarded 20 new hires / I bake sourdough / I've never used a spreadsheet formula.",
+      ],
+    },
+    {
+      heading: "Two Truths and a Lie Ideas for Students",
+      description: "School-friendly statement ideas.",
+      items: [
+        "I've read the same book five times / I've won a spelling bee / I hate ice cream.",
+        "I can solve a Rubik's cube / I've been to Disney World / I have a twin.",
+        "I play two instruments / I've never broken a bone / I once fainted at a science fair.",
+        "I've met my favorite author / I can whistle with two fingers / I'm scared of butterflies.",
+        "I skipped a grade / I've been camping ten times / I can't swim.",
+        "I've written a short story / I've never eaten sushi / I can do a backflip.",
+        "My family has three pets / I've been on TV once / I hate chocolate.",
+        "I can name 50 dinosaurs / I've climbed a real mountain / I've never lost a tooth on time.",
+      ],
+    },
+    {
+      heading: "Funny Two Truths and a Lie Ideas",
+      description: "Statements built to get a laugh and a wrong guess.",
+      items: [
+        "I've fallen asleep standing up / I once named a pet after a snack / I can touch my nose with my tongue.",
+        "I've eaten a bug on purpose / I've never watched a Star Wars movie / I talk in my sleep.",
+        "I got lost in my own neighborhood / I can burp the alphabet / I've never ridden a bike.",
+        "I once wore two different shoes all day / I've met a llama / I hate weekends.",
+        "I've cried at a commercial / I can wiggle my ears / I've never been to a birthday party.",
+        "I named my car / I've eaten cereal for dinner all week / I'm allergic to Mondays.",
+      ],
+    },
+    {
+      heading: "Tips for a Convincing Lie",
+      description: "How to make your lie impossible to spot.",
+      items: [
+        "Make the lie boring and believable — wild lies are easy to catch.",
+        "Make at least one truth sound unbelievable so the group second-guesses it.",
+        "Keep your tone identical for all three statements — no nervous laughing on the lie.",
+        "Add a small specific detail to your lie (a place, a number) to make it feel real.",
+        "Avoid statements the group could easily fact-check about you.",
+        "Practice your three statements once in your head so you don't hesitate on the lie.",
+      ],
+    },
+  ],
+  faq: [
+    {
+      question: "What are good two truths and a lie ideas?",
+      answer:
+        "Good ideas mix a surprising truth with a believable lie — for example, 'I've visited 12 countries / I once met a famous author / I can't ride a bike.' The trick is making your truths sound unlikely and your lie sound ordinary. This page has 120 ready examples for work, school, and parties.",
+    },
+    {
+      question: "What is a good lie for two truths and a lie?",
+      answer:
+        "The best lie is small, specific, and boring enough to be believable — like 'I have a twin' or 'I can't swim.' Avoid dramatic lies; they stand out. Keep your delivery identical to your truths so nothing gives it away.",
+    },
+    {
+      question: "Is two truths and a lie good for work icebreakers?",
+      answer:
+        "Yes — it is one of the most popular team icebreakers because it helps coworkers learn surprising things about each other in a low-pressure way. Use the 'Examples for Work' section above for office-safe statement sets.",
+    },
+    {
+      question: "How many two truths and a lie ideas are here?",
+      answer:
+        "This page has 120 ideas and examples across work, students, funny, and fill-in-the-blank prompts, plus tips for a convincing lie. Use the generator for endless fresh prompts.",
+    },
+  ],
+  relatedLinks: [
+    { label: "Two Truths and a Lie Generator", href: "/two-truths-and-a-lie" },
+    { label: "Icebreaker Questions for Work", href: "/topics/icebreaker-questions-for-work" },
+    { label: "Get to Know You Questions for Adults", href: "/topics/get-to-know-you-questions-for-adults" },
+    { label: "Team Building Questions", href: "/topics/team-building-questions" },
+  ],
+},
+
 ];

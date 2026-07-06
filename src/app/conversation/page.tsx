@@ -7,7 +7,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "500+ Free Conversation Starters — No Signup",
+  title: "Conversation Topic Generator — 500+ Free Conversation Starters",
   description:
     "Free conversation topic generator: 500+ starters for dates, work, friends & parties. Pick a category and depth, click once, get instant things to talk about — no signup, no ads.",
   keywords: [
@@ -65,7 +65,7 @@ export default function ConversationPage() {
         />
         <TopicGenerator
           initialMode="conversation"
-          title="Conversation Starter Generator"
+          title="Conversation Topic Generator"
           subtitle="Generate random conversation topics to break the ice and keep discussions flowing."
         />
 
