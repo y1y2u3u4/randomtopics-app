@@ -84,6 +84,19 @@ export default function RootLayout({
           data-website-id="15509cd4-881c-4ed8-8dd6-bb64822993ee"
           strategy="afterInteractive"
         />
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-C23RTYX4QS"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-C23RTYX4QS');
+          `}
+        </Script>
       </head>
       <body className="antialiased min-h-screen flex flex-col">
         {/* Structured data — Organization + WebSite + WebApplication.
