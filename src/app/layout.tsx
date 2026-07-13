@@ -97,6 +97,12 @@ export default function RootLayout({
             gtag('config', 'G-C23RTYX4QS');
           `}
         </Script>
+        {/* Google AdSense */}
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1513206179290827"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
         {/* Structured data — Organization + WebSite + WebApplication.
@@ -140,7 +146,7 @@ export default function RootLayout({
                     "5 modes: conversation, writing, debate, speech, icebreaker",
                     "Built-in speech practice timer",
                     "AI-powered topic generation",
-                    "No signup, no ads",
+                    "No signup required",
                   ],
                   isAccessibleForFree: true,
                   offers: {
