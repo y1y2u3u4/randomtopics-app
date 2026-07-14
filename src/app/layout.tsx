@@ -19,7 +19,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Random Topic Generator | 500+ Free Topics for Any Occasion",
+    default: "Free Random Topic Generator — 500+ Random Topics for Any Occasion",
     template: "%s | Random Topic Generator",
   },
   description:
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "speech topics",
   ],
   openGraph: {
-    title: "Random Topic Generator | 500+ Free Topics for Any Occasion",
+    title: "Free Random Topic Generator — 500+ Random Topics for Any Occasion",
     description:
       "Free random topic generator with 500+ curated topics. Instant conversation starters, writing prompts, debate topics & icebreakers. No signup needed!",
     url: "https://randomtopics.app",

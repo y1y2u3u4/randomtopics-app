@@ -1829,7 +1829,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
   {
     slug: "presentation-ideas-for-school",
     title: "65 Creative Presentation Ideas for School Projects That Stand Out",
-    metaTitle: "65 Creative Presentation Ideas for School Projects That Stand Out | RandomTopics",
+    metaTitle: "65 Unique Presentation Topics & Ideas for School That Stand Out | RandomTopics",
     metaDescription:
       "Find the perfect school presentation topic with 65+ creative ideas spanning science, technology, health, history, and more. Includes tips for making your presentation stand out.",
     heroTitle: "65 Creative Presentation Ideas for School Projects That Stand Out",
