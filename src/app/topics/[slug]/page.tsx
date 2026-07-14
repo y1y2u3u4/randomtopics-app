@@ -267,6 +267,15 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     </Link>
                   ) : null;
                 })}
+                {articleToPages[article.slug].tools?.map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-pink)] hover:border-[var(--neon-pink)]/30 hover:bg-[rgba(255,45,120,0.05)] transition-all"
+                  >
+                    {tool.emoji} {tool.label}
+                  </Link>
+                ))}
               </div>
             </div>
           </section>

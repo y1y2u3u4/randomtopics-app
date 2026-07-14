@@ -1657,16 +1657,16 @@ export const SEO_ARTICLES: SeoArticle[] = [
   // 13. Ethical Dilemma Questions
   {
     slug: "ethical-dilemma-questions",
-    title: "50 Thought-Provoking Ethical Dilemma Questions for Deep Discussions",
-    metaTitle: "50 Thought-Provoking Ethical Dilemma Questions for Deep Discussions | RandomTopics",
+    title: "60 Moral & Ethical Dilemma Questions for Deep Discussions",
+    metaTitle: "60 Moral & Ethical Dilemma Questions to Discuss | RandomTopics",
     metaDescription:
-      "Challenge your moral reasoning with 50+ ethical dilemma questions covering technology, medicine, workplace ethics, environmental issues, and society. Perfect for philosophy classes, discussions, and self-reflection.",
-    heroTitle: "50 Thought-Provoking Ethical Dilemma Questions for Deep Discussions",
+      "60 moral and ethical dilemma questions covering technology, medicine, workplace ethics, and everyday life — plus quick moral dilemmas to discuss. Perfect for philosophy classes, group discussions, adults, and self-reflection.",
+    heroTitle: "60 Moral & Ethical Dilemma Questions for Deep Discussions",
     heroSubtitle:
       "Moral puzzles with no easy answers that challenge your values and sharpen your ethical reasoning.",
-    intro: "An ethical dilemma is a situation where every option involves some moral cost -- there is no perfectly right answer. These moral dilemma scenarios force you to examine your values, weigh competing principles, and articulate why you believe what you believe. Unlike simple moral questions with obvious answers, true dilemmas reveal the tensions between values like honesty and kindness, individual rights and collective good, justice and mercy. Whether you are looking for ethical dilemma examples for a classroom exercise, preparing for a philosophy exam, or seeking moral dilemma scenarios to spark a deep group conversation, this comprehensive collection has you covered. These 50+ questions span technology, medicine, everyday life, workplace ethics, environmental concerns, and social justice -- designed for philosophy classes, ethics training, book clubs, job interview preparation, or any group that enjoys wrestling with hard questions.",
+    intro: "A moral or ethical dilemma is a situation where every option involves some moral cost -- there is no perfectly right answer. These moral dilemma scenarios force you to examine your values, weigh competing principles, and articulate why you believe what you believe. Unlike simple moral questions with obvious answers, true dilemmas reveal the tensions between values like honesty and kindness, individual rights and collective good, justice and mercy. Whether you are looking for ethical dilemma examples for a classroom exercise, moral dilemma questions for adults to discuss over dinner, preparation for a philosophy exam, or moral dilemma scenarios to spark a deep group conversation, this collection has you covered. These 60 questions span technology, medicine, everyday life, workplace ethics, environmental concerns, and social justice -- plus a set of quick moral dilemmas to discuss when you want punchier prompts -- designed for philosophy classes, ethics training, book clubs, job interview preparation, or any group that enjoys wrestling with hard questions.",
     publishDate: "2026-04-01",
-    lastModified: "2026-04-08",
+    lastModified: "2026-07-14",
     sections: [
       {
         heading: "Technology and AI Ethics",
@@ -1764,6 +1764,25 @@ export const SEO_ARTICLES: SeoArticle[] = [
           "A self-driving car must choose between hitting an elderly pedestrian or swerving into a wall, likely killing the passenger. How should it be programmed, and who is responsible for the outcome?",
         ],
       },
+      {
+        heading: "Quick Moral Dilemmas to Discuss",
+        description:
+          "Short, everyday moral dilemma questions for adults and groups when you want punchy prompts rather than long scenarios -- perfect for dinner tables, road trips, and warm-up discussions.",
+        items: [
+          "You find a wallet with 500 dollars and no ID except a photo of a family. Do you turn it in, and does the family photo change what you do?",
+          "A close friend asks you to lie to their partner to cover for them. Do you do it?",
+          "You witness a stranger shoplifting baby formula. Do you say anything?",
+          "Your employer accidentally overpays you by a month's salary. Do you report it?",
+          "A friend gives you an ugly gift and asks if you love it. Is honesty always the kind choice?",
+          "You could report a coworker's minor rule-breaking that no one else noticed. Do you?",
+          "You promised to keep a secret, but keeping it could hurt someone. Which promise wins?",
+          "A homeless person asks for money and you suspect it will be spent on alcohol. Do you give it?",
+          "You can get a much better grade by using AI in a way your teacher never explicitly banned. Do you?",
+          "A relative shares a strong opinion you find offensive at a family dinner. Do you speak up or keep the peace?",
+          "You accidentally scratch a parked car with no one around. Do you leave a note?",
+          "You can save money by not telling a cashier they undercharged you. Do you tell them?",
+        ],
+      },
     ],
     faq: [
       {
@@ -1801,6 +1820,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
       { label: "Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
       { label: "Controversial Topics to Discuss", href: "/topics/controversial-topics-to-discuss" },
       { label: "Debate Topics for Students", href: "/topics/debate-topics-for-students" },
+      { label: "Random Subject Generator", href: "/random-subject-generator" },
       { label: "Browse Debate Topics", href: "/debate" },
     ],
   },
@@ -2540,16 +2560,16 @@ export const SEO_ARTICLES: SeoArticle[] = [
   // 19. Toastmasters Table Topics
   {
     slug: "toastmasters-table-topics",
-    title: "70 Table Topics Questions for Toastmasters Practice",
-    metaTitle: "70 Table Topics Questions for Toastmasters Practice | RandomTopics",
+    title: "120 Table Topics Questions for Toastmasters (Funny, Work & Family)",
+    metaTitle: "120 Table Topics Questions — Toastmasters, Funny, Work & Family | RandomTopics",
     metaDescription:
-      "Master impromptu speaking with 70 Table Topics questions for Toastmasters. From classic opinion questions to creative hypotheticals, practice thinking on your feet.",
-    heroTitle: "70 Table Topics Questions for Toastmasters Practice",
+      "A big list of 120 Table Topics questions for Toastmasters: classic opinion prompts, funny table topics, work and business questions, family gathering starters, and creative hypotheticals. Free to read, copy, or print.",
+    heroTitle: "120 Table Topics Questions for Toastmasters",
     heroSubtitle:
-      "Sharpen your impromptu speaking skills with questions that challenge you to think clearly under pressure.",
-    intro: "Table Topics is the part of every Toastmasters meeting that tests your ability to think on your feet. You get a question, and you have one to two minutes to deliver a coherent, engaging response with zero preparation. It is terrifying and exhilarating in equal measure -- and the best way to get better is to practice with a wide variety of questions. This collection of 70 Table Topics questions covers everything from classic opinion prompts to wild hypothetical scenarios, giving you plenty of material to practice with at home, in your club, or with friends.",
+      "A ready-to-use list of impromptu speaking questions — classic, funny, work, and family — to sharpen thinking on your feet.",
+    intro: "Table Topics is the part of every Toastmasters meeting that tests your ability to think on your feet. You get a question, and you have one to two minutes to deliver a coherent, engaging response with zero preparation. It is terrifying and exhilarating in equal measure -- and the best way to get better is to practice with a wide variety of questions. This list of 120 Table Topics questions covers everything you need: classic opinion prompts, imaginative hypotheticals, personal reflection, funny table topics questions to keep the energy high, work and business questions for professional clubs, and family gathering questions for use at home. Read them here, copy the ones you like, or print the whole list to run Table Topics at your next meeting.",
     publishDate: "2026-04-05",
-    lastModified: "2026-04-08",
+    lastModified: "2026-07-14",
     sections: [
       {
         heading: "Classic Opinion Questions",
@@ -2656,6 +2676,84 @@ export const SEO_ARTICLES: SeoArticle[] = [
           "What is the most overrated food and what should replace it?",
         ],
       },
+      {
+        heading: "Funny Table Topics Questions",
+        description:
+          "Light, humorous prompts that get the room laughing and take the pressure off -- perfect for keeping meetings fun.",
+        items: [
+          "If your pet could talk, what is the first thing it would complain about?",
+          "What is the weirdest thing you believe that you cannot prove?",
+          "If you had to replace your hands with any object, what would you choose?",
+          "What would be the worst possible theme for a wedding?",
+          "If you were a vegetable, which one would you be and why?",
+          "What is the most embarrassing song on your playlist that you secretly love?",
+          "If aliens landed and asked to try one Earth snack, what would you give them?",
+          "What totally useless fact will you never forget?",
+          "If you had to describe your life using only movie titles, which three would you pick?",
+          "What is the pettiest reason you have ever stopped talking to someone?",
+          "If you could rename any color, which one and what would you call it?",
+          "What would the title of your cooking show be, and would anyone watch it?",
+          "If your mood today were a weather forecast, what would it be?",
+        ],
+      },
+      {
+        heading: "Work & Business Table Topics Questions",
+        description:
+          "Professional prompts for corporate and business Toastmasters clubs that build workplace communication skills.",
+        items: [
+          "What is one meeting habit you wish every workplace would abandon?",
+          "If you could automate one part of your job, what would it be and why?",
+          "What is the best piece of career advice you have ever received?",
+          "Should companies let employees set their own working hours? Defend your view.",
+          "What makes someone a great colleague versus simply a competent one?",
+          "Describe a time a small change at work made a big difference.",
+          "If you had to onboard a new hire in one sentence, what would you tell them?",
+          "Is it better to be a specialist or a generalist in today's job market?",
+          "What is one skill you think will matter more in ten years than it does now?",
+          "How do you rebuild trust with a client after a mistake?",
+          "What does good leadership look like when no one is watching?",
+          "If your team had a motto, what should it be?",
+        ],
+      },
+      {
+        heading: "Table Topics Questions for Family Gatherings",
+        description:
+          "Warm, inclusive prompts for using Table Topics at home -- great for dinner tables, holidays, and reunions.",
+        items: [
+          "What is a family tradition you hope never disappears?",
+          "What is the funniest thing that has ever happened at a family event?",
+          "If our family had a crest, what symbol should be on it?",
+          "What is one story about our family that gets better every time it is told?",
+          "Which relative would win in a talent show, and what would their act be?",
+          "What is a lesson an older family member taught you without meaning to?",
+          "If you could bring back one family recipe for tonight, what would it be?",
+          "What is the best gift anyone in this family has ever given?",
+          "What did you think was normal growing up that turned out to be unique to us?",
+          "If we planned one trip together next year, where should we go?",
+          "What is a small thing a family member does that always makes you smile?",
+          "What do you hope future generations of this family remember about us?",
+        ],
+      },
+      {
+        heading: "Table Topics Questions for Couples & Friends",
+        description:
+          "Playful and meaningful prompts for date nights, friend groups, and casual get-togethers away from the club.",
+        items: [
+          "What is a moment you knew we were going to be good friends?",
+          "If we opened a business together, what would it be?",
+          "What is the best trip we have taken, and where should we go next?",
+          "What is something you have always wanted to try but never have?",
+          "What is a small thing I do that you appreciate more than I realize?",
+          "If we swapped hobbies for a month, how do you think it would go?",
+          "What is the most memorable meal we have shared and why?",
+          "What is a goal you would love us to work toward together?",
+          "What is your favorite inside joke we have?",
+          "If we could relive one ordinary day together, which would you pick?",
+          "What is something new you learned about me this year?",
+          "What does a perfect lazy Sunday look like for us?",
+          "What is one adventure you would regret never doing?",
+        ],
+      },
     ],
     faq: [
       {
@@ -2678,8 +2776,15 @@ export const SEO_ARTICLES: SeoArticle[] = [
         answer:
           "The official Toastmasters guideline is one to two minutes, with the green light at one minute, yellow at one minute thirty seconds, and red at two minutes. Most experienced speakers aim for one minute fifteen seconds to one minute forty-five seconds. Going under one minute makes your answer feel underdeveloped, while going over two minutes means you are rambling. Practice with a timer until you develop an internal sense of how long 90 seconds feels -- that is the sweet spot for Table Topics.",
       },
+      {
+        question: "What are some good funny Table Topics questions?",
+        answer:
+          "Funny Table Topics work best when they are absurd but easy to answer, like 'If your pet could talk, what would it complain about?' or 'What is the most useless talent you possess?' Humor lowers the pressure and makes practice feel like play, which is exactly when people speak most naturally. The 'Funny Table Topics Questions' section above has thirteen ready-to-use prompts, and you can mix them with the work, family, and couples sets to match your audience.",
+      },
     ],
     relatedLinks: [
+      { label: "Table Topics Generator + Timer", href: "/table-topics-generator" },
+      { label: "Random Subject Generator", href: "/random-subject-generator" },
       { label: "Practice Speeches with Timer", href: "/speech" },
       { label: "Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
       { label: "Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },

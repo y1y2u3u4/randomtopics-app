@@ -72,7 +72,7 @@ export default function TopicGeneratorPage() {
                   <span className="text-[var(--neon-cyan)] font-bold text-lg leading-tight">1.</span>
                   <div>
                     <strong className="text-[var(--text-primary)]">Essay & Academic Writing</strong>
-                    <p className="mt-1">Stuck on what to write about? Generate topics filtered by category to match your subject area. Great for research papers, opinion pieces, and class assignments.</p>
+                    <p className="mt-1">Stuck on what to write about? Generate topics filtered by category to match your subject area, or spin a <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">random subject</Link> first. Great for research papers, opinion pieces, and class assignments.</p>
                   </div>
                 </li>
                 <li className="flex gap-3 items-start">

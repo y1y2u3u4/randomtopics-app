@@ -45,6 +45,22 @@ export function stripLocale(pathname: string): string {
 export const SITE_URL = "https://randomtopics.app";
 
 /**
+ * Root-relative paths that exist only in English (no /es mirror yet). Single
+ * source of truth so the sitemap omits their es alternate and the locale
+ * switcher hides the (nonexistent) Spanish toggle instead of 404-ing.
+ */
+export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
+  "/random-subject-generator",
+  "/essay-topic-generator",
+  "/debate/questions",
+]);
+
+/** True when a root-relative path has no Spanish counterpart. */
+export function isEnOnly(rootPath: string): boolean {
+  return EN_ONLY_PATHS.has(rootPath);
+}
+
+/**
  * Build the alternates.languages map for a given root-relative path so every
  * page emits correct hreflang (en, es, x-default) links.
  */

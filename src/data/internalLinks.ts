@@ -89,7 +89,10 @@ export const categoryToArticles: Record<string, { title: string; href: string }[
  * Mapping of article slugs to relevant mode and category pages.
  * Used for internal linking on article pages.
  */
-export const articleToPages: Record<string, { modes: string[]; categories: string[] }> = {
+export const articleToPages: Record<
+  string,
+  { modes: string[]; categories: string[]; tools?: { emoji: string; label: string; href: string }[] }
+> = {
   "debate-topics-for-students": { modes: ["debate"], categories: ["education", "politics", "technology"] },
   "conversation-starters-for-couples": { modes: ["conversation", "icebreaker"], categories: ["relationships", "psychology"] },
   "icebreaker-questions-for-work": { modes: ["icebreaker"], categories: ["business"] },
@@ -107,7 +110,11 @@ export const articleToPages: Record<string, { modes: string[]; categories: strin
   "random-questions-to-ask-friends": { modes: ["conversation", "icebreaker"], categories: ["relationships", "weird-fun"] },
   "debate-topics-for-middle-school": { modes: ["debate"], categories: ["education"] },
   "icebreaker-questions-for-virtual-meetings": { modes: ["icebreaker"], categories: ["business"] },
-  "random-essay-topics-for-college": { modes: ["writing"], categories: ["education"] },
+  "random-essay-topics-for-college": {
+    modes: ["writing"],
+    categories: ["education"],
+    tools: [{ emoji: "📝", label: "Essay Topic Generator", href: "/essay-topic-generator" }],
+  },
   "toastmasters-table-topics": { modes: ["speech"], categories: ["business", "education"] },
   "get-to-know-you-questions-for-adults": { modes: ["icebreaker", "conversation"], categories: ["relationships"] },
   "deep-questions-to-ask-your-partner": { modes: ["conversation"], categories: ["relationships", "psychology"] },
