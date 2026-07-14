@@ -190,7 +190,9 @@ export default function DebatePage() {
                 wording in seconds. Coaches use the 10-at-once mode to build a motions bank for
                 tournament prep, and clubs use random draws so neither side can prepare in advance —
                 the closest thing to a real impromptu round. Want questions instead of propositions?
-                Use the <Link href="/debate/questions" className="text-[var(--neon-cyan)] hover:underline">debate question generator</Link>.
+                Use the <Link href="/debate/questions" className="text-[var(--neon-cyan)] hover:underline">debate question generator</Link> — or
+                browse our curated bank of <Link href="/debate/motions" className="text-[var(--neon-cyan)] hover:underline">100+ debate motions</Link> in
+                This-House format.
               </p>
 
               <h3
@@ -269,6 +271,7 @@ export default function DebatePage() {
               { title: "College Debate Generator", href: "/debate/college" },
               { title: "Funny Debate Topics Generator", href: "/debate/funny" },
               { title: "Debate Question Generator", href: "/debate/questions" },
+              { title: "100+ Debate Motions (This House Would…)", href: "/debate/motions" },
               { title: "Random Argument Generator", href: "/argument-generator" },
               { title: "75 Best Debate Topics for Students", href: "/topics/debate-topics-for-students" },
               { title: "50 Debate Topics for Middle School", href: "/topics/debate-topics-for-middle-school" },
