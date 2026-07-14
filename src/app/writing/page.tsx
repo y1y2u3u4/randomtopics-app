@@ -7,10 +7,14 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Writing Prompt Generator — 500+ Prompts & Essay Topics",
+  title: "Random Topics to Write About — Free Writing Prompt Generator",
   description:
-    "Beat writer's block in one click: 500+ free writing prompts — narrative, persuasive, descriptive & expository — for kids, students and adults. No signup, no ads, unlimited AI generation.",
+    "Get a random topic to write about in one click: 500+ free writing prompts — narrative, persuasive, descriptive & expository — for essays, journaling, blogs and stories. No signup, unlimited generation.",
   keywords: [
+    "random topics to write about",
+    "random topic generator to write about",
+    "give me a random topic to write about",
+    "topics to write about",
     "writing prompt generator",
     "writing prompts",
     "random writing prompts",
@@ -19,6 +23,7 @@ export const metadata: Metadata = {
     "creative writing prompts",
     "journal prompts",
     "random essay topic generator",
+    "writing prompt generator for adults",
   ],
   alternates: { canonical: "/writing" },
 };
@@ -49,6 +54,11 @@ const FAQ_ITEMS = [
     answer:
       "Our curated database contains over 500 writing prompts across 15+ categories. With AI-powered generation enabled, you can access virtually unlimited unique prompts tailored to any genre, age group, or difficulty level.",
   },
+  {
+    question: "How do I get a random topic to write about?",
+    answer:
+      "Click generate and the tool hands you a random topic to write about instantly — no signup, no limits. Leave every filter on random for a complete surprise, or pick a category (science, history, relationships, and more) to keep the topic inside a subject you care about. Each result comes with talking points you can turn into an essay angle, a journal entry, a blog post, or a story seed.",
+  },
 ];
 
 export default function WritingPage() {
@@ -66,7 +76,7 @@ export default function WritingPage() {
         <TopicGenerator
           initialMode="writing"
           title="Writing Prompt Generator"
-          subtitle="Spark your creativity with random writing prompts across every genre and topic."
+          subtitle="Need a random topic to write about? Spark your creativity with random writing prompts across every genre and subject — one click, no signup."
         />
 
         {/* SEO Content */}
@@ -91,6 +101,25 @@ export default function WritingPage() {
                 Whether you need an <strong>essay topic</strong> for class or a story seed for your next
                 novel, you&apos;ll find it here.
               </p>
+
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-3"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Random Topics to Write About
+              </h3>
+              <p>
+                Sometimes you do not need a crafted prompt — you just need <strong>a random topic to
+                write about</strong>, right now. That is exactly what the generator above does: one
+                click and you have a topic, with talking points you can develop in whatever direction
+                the writing takes you. People use it four main ways:
+              </p>
+              <ul className="space-y-2 list-disc pl-5">
+                <li><strong>Essays &amp; assignments:</strong> generate until a topic clicks, then turn its talking points into a thesis. For full essay prompts by type, use our <Link href="/essay-topic-generator" className="text-[var(--neon-cyan)] hover:underline">essay topic generator</Link>.</li>
+                <li><strong>Daily journaling:</strong> a random topic beats staring at a blank page — respond to whatever you get for ten minutes, no editing allowed.</li>
+                <li><strong>Blogs &amp; newsletters:</strong> out of content ideas? Random topics push you outside the subjects you always circle back to.</li>
+                <li><strong>Fiction warm-ups:</strong> free-write on a random topic before your main project to loosen up. Prefer the broad subject first? Try the <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">random subject generator</Link>.</li>
+              </ul>
 
               <h3
                 className="text-lg font-semibold text-[var(--text-primary)] pt-3"
@@ -193,6 +222,15 @@ export default function WritingPage() {
                 Our curated database contains over 500 writing prompts across 15+ categories. With
                 AI-powered generation enabled, you can access virtually unlimited unique prompts
                 tailored to any genre, age group, or difficulty level.
+              </p>
+
+              <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">How do I get a random topic to write about?</h4>
+              <p>
+                Click generate and the tool hands you a random topic to write about instantly — no
+                signup, no limits. Leave every filter on random for a complete surprise, or pick a
+                category to keep the topic inside a subject you care about. Each result comes with
+                talking points you can turn into an essay angle, a journal entry, a blog post, or a
+                story seed.
               </p>
             </div>
           </div>

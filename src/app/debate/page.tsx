@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Random Debate Topic Generator — 300+ Debate Topics with Pro & Con Arguments",
   description:
-    "Generate random debate topics instantly — 300+ argumentative topics with pro and con talking points for classrooms, debate clubs, and practice rounds. Also works as a random argument generator for essays and discussions. Free, no signup.",
+    "Generate random debate topics instantly — 300+ argumentative topics and debate motions with pro and con talking points for classrooms, debate clubs, and practice rounds. Also works as a random argument generator. Free, no signup.",
   keywords: [
     "debate topic generator",
     "random debate topic generator",
@@ -17,6 +17,8 @@ export const metadata: Metadata = {
     "random debate generator",
     "debate topics generator",
     "debate question generator",
+    "debate motion generator",
+    "debate motions",
     "random argument generator",
     "debate topics",
     "random debate topics",
@@ -49,6 +51,11 @@ const FAQ_ITEMS = [
     question: "How often are new debate topics added?",
     answer:
       "We regularly update our topic database to reflect current events and emerging issues. You can also enable AI-powered topic generation for real-time, unique debate propositions on virtually any subject.",
+  },
+  {
+    question: "Can I use this as a debate motion generator?",
+    answer:
+      "Yes. A debate motion is simply a debate topic stated as a formal proposition — in parliamentary style it is phrased as 'This House would...' or 'This House believes that...'. Every topic our generator produces is a clear, two-sided proposition, so you can read it as a motion directly or reword it into This-House form in seconds. Generate 10 at once to build a motions bank for a tournament or club practice.",
   },
 ];
 
@@ -172,6 +179,24 @@ export default function DebatePage() {
                 className="text-lg font-semibold text-[var(--text-primary)] pt-3"
                 style={{ fontFamily: "var(--font-display)" }}
               >
+                Debate Motion Generator
+              </h3>
+              <p>
+                In competitive and parliamentary debate, topics are called <strong>motions</strong> —
+                formal propositions like &quot;This House would ban targeted advertising&quot; or
+                &quot;This House believes that space exploration is worth the cost.&quot; This tool
+                works as a <strong>debate motion generator</strong> too: every result is a clear,
+                two-sided proposition you can read as a motion directly, or flip into This-House
+                wording in seconds. Coaches use the 10-at-once mode to build a motions bank for
+                tournament prep, and clubs use random draws so neither side can prepare in advance —
+                the closest thing to a real impromptu round. Want questions instead of propositions?
+                Use the <Link href="/debate/questions" className="text-[var(--neon-cyan)] hover:underline">debate question generator</Link>.
+              </p>
+
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-3"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 Frequently Asked Questions
               </h3>
 
@@ -213,6 +238,15 @@ export default function DebatePage() {
                 We regularly update our topic database to reflect current events and emerging issues.
                 You can also enable AI-powered topic generation for real-time, unique debate
                 propositions on virtually any subject.
+              </p>
+
+              <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">Can I use this as a debate motion generator?</h4>
+              <p>
+                Yes. A debate motion is simply a debate topic stated as a formal proposition — in
+                parliamentary style, &quot;This House would...&quot; or &quot;This House believes
+                that...&quot;. Every topic our generator produces is a clear, two-sided proposition,
+                so you can read it as a motion directly or reword it into This-House form in seconds.
+                Generate 10 at once to build a motions bank for a tournament or club practice.
               </p>
             </div>
           </div>
