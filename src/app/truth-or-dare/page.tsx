@@ -82,7 +82,8 @@ export default function TruthOrDarePage() {
                 Want more party ammunition? Try{" "}
                 <Link href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>,{" "}
                 <Link href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>,{" "}
-                <Link href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>, or the{" "}
+                <Link href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>,{" "}
+                <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">Charades</Link>, or the{" "}
                 <Link href="/question-generator" className="text-[var(--neon-cyan)] hover:underline">random question generator</Link>.
               </p>
 

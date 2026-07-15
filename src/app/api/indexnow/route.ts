@@ -35,6 +35,7 @@ function getPaths(): string[] {
     "/debate/motions",
     "/speech/persuasive",
     "/speech/informative",
+    "/charades",
     "/question-generator",
     "/would-you-rather",
     "/never-have-i-ever",

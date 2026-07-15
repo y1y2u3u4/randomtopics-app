@@ -42,6 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "debate/motions",
     "speech/persuasive",
     "speech/informative",
+    "charades",
     "question-generator",
     "would-you-rather",
     "never-have-i-ever",
