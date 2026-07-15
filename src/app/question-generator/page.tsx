@@ -87,7 +87,8 @@ export default function QuestionGeneratorPage() {
                 generator: <Link href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">icebreaker questions</Link> for
                 teams, <Link href="/conversation" className="text-[var(--neon-cyan)] hover:underline">conversation starters</Link> for
                 social settings, or <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate questions</Link> when
-                you want structured disagreement.
+                you want structured disagreement. Prefer one great question daily instead of many?
+                See the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link>.
               </p>
 
               <h3

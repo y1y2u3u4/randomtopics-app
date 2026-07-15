@@ -99,7 +99,8 @@ export default function HotSeatPage() {
                 <Link href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}
                 <Link href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>,{" "}
                 <Link href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>,{" "}
-                <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">Charades</Link>, and{" "}
+                <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">Charades</Link>,{" "}
+                <Link href="/paranoia-questions" className="text-[var(--neon-cyan)] hover:underline">Paranoia</Link>, and{" "}
                 <Link href="/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Two Truths and a Lie</Link>.
                 Quieter group? Start with{" "}
                 <Link href="/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">questions to ask at a party</Link>.

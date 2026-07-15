@@ -60,6 +60,8 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/journal-prompts",
   "/hot-seat-questions",
   "/group-discussion-topics",
+  "/question-of-the-day",
+  "/paranoia-questions",
 ]);
 
 /** True when a root-relative path has no Spanish counterpart. */

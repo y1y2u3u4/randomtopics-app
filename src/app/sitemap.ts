@@ -46,6 +46,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "journal-prompts",
     "hot-seat-questions",
     "group-discussion-topics",
+    "question-of-the-day",
+    "paranoia-questions",
     "question-generator",
     "would-you-rather",
     "never-have-i-ever",
