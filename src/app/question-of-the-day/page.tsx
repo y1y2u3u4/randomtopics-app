@@ -5,7 +5,11 @@ import QuestionOfTheDay from "@/components/QuestionOfTheDay";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { QOTD_QUESTIONS, QOTD_CATEGORIES } from "@/data/questionOfTheDay";
+import { QOTD_QUESTIONS, QOTD_CATEGORIES, qotdIndexForDate } from "@/data/questionOfTheDay";
+
+// ISR: regenerate hourly so the server-rendered "today's question" (UTC) stays
+// current and crawlers always see a real question in the HTML, not a placeholder.
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Question of the Day — Today's QOTD for Classrooms, Teams & Family",
@@ -98,6 +102,16 @@ const SAMPLES: Record<string, string[]> = {
 };
 
 export default function QuestionOfTheDayPage() {
+  // Server-side (UTC) pick so the question is part of the crawlable HTML; the
+  // client component re-checks against the visitor's local date after mount.
+  const now = new Date();
+  const initialIdx = qotdIndexForDate(now);
+  const initialDateLabel = now.toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
   return (
     <>
       <FaqSchema items={FAQ_ITEMS} />
@@ -124,7 +138,7 @@ export default function QuestionOfTheDayPage() {
           </p>
         </section>
 
-        <QuestionOfTheDay />
+        <QuestionOfTheDay initialIdx={initialIdx} initialDateLabel={initialDateLabel} />
 
         {/* Crawlable samples by audience */}
         {QOTD_CATEGORIES.map((cat) => (

@@ -10,10 +10,19 @@ import {
   qotdIndexForDate,
 } from "@/data/questionOfTheDay";
 
-export default function QuestionOfTheDay() {
-  // Today's question — resolved client-side so it matches the visitor's date.
-  const [todayIdx, setTodayIdx] = useState<number | null>(null);
-  const [dateLabel, setDateLabel] = useState("");
+interface QuestionOfTheDayProps {
+  /** Server-computed (UTC) index so today's question is in the static HTML. */
+  initialIdx: number;
+  /** Server-formatted date label matching initialIdx. */
+  initialDateLabel: string;
+}
+
+export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: QuestionOfTheDayProps) {
+  // Seeded from the server render (crawlable), then corrected to the visitor's
+  // local date after hydration — a no-op for most visitors, a seamless swap
+  // for timezones on the other side of midnight.
+  const [todayIdx, setTodayIdx] = useState<number>(initialIdx);
+  const [dateLabel, setDateLabel] = useState(initialDateLabel);
   const [copied, setCopied] = useState(false);
 
   // Random-mode state
@@ -49,7 +58,7 @@ export default function QuestionOfTheDay() {
     setRandomQ(pick);
   }, [pool, used]);
 
-  const shown = randomQ ?? (todayIdx !== null ? QOTD_QUESTIONS[todayIdx] : null);
+  const shown = randomQ ?? QOTD_QUESTIONS[todayIdx];
   const catMeta = shown ? QOTD_CATEGORIES.find((c) => c.id === shown.c) : null;
   const isToday = randomQ === null;
 
