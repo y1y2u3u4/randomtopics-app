@@ -10,6 +10,7 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
     "text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors";
 
   const tools: { href: string; label: string }[] = [
+    { href: localizePath("/", locale), label: "🎲 Random Topic Generator" },
     { href: `${base}/funny`, label: `😂 ${t.footer.funnyTopics}` },
     { href: `${base}/argument-generator`, label: `⚖️ ${t.footer.argumentGenerator}` },
     { href: `${base}/table-topics-generator`, label: `🎙️ ${t.footer.tableTopics}` },
@@ -23,6 +24,24 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
     { href: `${base}/most-likely-to`, label: `👉 ${t.footer.mostLikelyTo}` },
     { href: `${base}/two-truths-and-a-lie`, label: `🕵️ ${t.footer.twoTruthsAndALie}` },
     { href: localizePath("/press", locale) + "#embed", label: `🔗 ${t.footer.embedWidget}` },
+    // English-only tool pages (no /es counterpart) — rendered only on the
+    // English locale so the footer never links to a nonexistent /es route.
+    ...(locale === "en"
+      ? [
+          { href: "/question-of-the-day", label: "✨ Question of the Day" },
+          { href: "/charades", label: "🎭 Charades Generator" },
+          { href: "/journal-prompts", label: "📓 Journal Prompts" },
+          { href: "/hot-seat-questions", label: "🔥 Hot Seat Questions" },
+          { href: "/paranoia-questions", label: "🤫 Paranoia Questions" },
+          { href: "/essay-topic-generator", label: "📝 Essay Topic Generator" },
+          { href: "/random-subject-generator", label: "🧪 Random Subject Generator" },
+          { href: "/group-discussion-topics", label: "🗣️ GD Topics" },
+          { href: "/speech/persuasive", label: "📣 Persuasive Speech Topics" },
+          { href: "/speech/informative", label: "📖 Informative Speech Topics" },
+          { href: "/debate/questions", label: "💬 Debate Question Generator" },
+          { href: "/debate/motions", label: "🏛️ Debate Motions" },
+        ]
+      : []),
   ];
 
   const headingStyle = { fontFamily: "var(--font-display)", color: "var(--text-secondary)" };

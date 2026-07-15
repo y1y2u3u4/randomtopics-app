@@ -118,7 +118,8 @@ export default function Home() {
             Curated <span className="gradient-text">Topic Lists</span>
           </h2>
           <p className="text-center text-[var(--text-muted)] text-sm mb-8 max-w-lg mx-auto">
-            Browse our hand-picked collections of topics for debates, conversations, writing, speeches, and more.
+            Browse our hand-picked collections of topics for debates, conversations, writing, speeches, and more —
+            or just hit Generate above and the tool will give you a random topic instantly.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {[
@@ -195,6 +196,14 @@ export default function Home() {
                   acceptedAnswer: {
                     "@type": "Answer",
                     text: "Select a mode (conversation, writing, debate, speech, or icebreaker), optionally filter by category and depth, choose how many topics you want, and click Generate. The tool uses AI and a curated database to deliver relevant random topics instantly.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Can this tool give me a random topic right now?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes — click Generate and it will give you a random topic instantly, with talking points included. Leave every filter on random for a complete surprise, or pick a mode and category to get a random topic to talk about, write about, or debate.",
                   },
                 },
                 {
