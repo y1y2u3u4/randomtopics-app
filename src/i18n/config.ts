@@ -54,6 +54,8 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/essay-topic-generator",
   "/debate/questions",
   "/debate/motions",
+  "/speech/persuasive",
+  "/speech/informative",
 ]);
 
 /** True when a root-relative path has no Spanish counterpart. */

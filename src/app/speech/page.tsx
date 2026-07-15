@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import SpeechTimer from "@/components/SpeechTimer";
+import Link from "next/link";
 import type { Metadata } from "next";
 import FaqSchema from "@/components/FaqSchema";
 
@@ -103,6 +104,35 @@ export default function SpeechPage() {
                 <li>Gradually increase the duration as you improve</li>
               </ol>
             </div>
+          </div>
+        </section>
+
+        {/* Speech topics by type */}
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16">
+          <h2 className="section-heading text-2xl sm:text-3xl text-center mb-4">
+            Speech Topics <span className="gradient-text">by Type</span>
+          </h2>
+          <p className="text-center text-[var(--text-muted)] text-sm mb-8 max-w-lg mx-auto">
+            Know what kind of speech you&apos;ve been assigned? Jump straight to a curated list.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              { title: "100+ Persuasive Speech Topics", href: "/speech/persuasive" },
+              { title: "100+ Informative Speech Topics", href: "/speech/informative" },
+              { title: "Impromptu Speech Topics with Timer", href: "/impromptu-speech-topics" },
+              { title: "Toastmasters Table Topics Generator", href: "/table-topics-generator" },
+              { title: "75 Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
+              { title: "60 Public Speaking Topics for Beginners", href: "/topics/public-speaking-topics-for-beginners" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="glass-card p-5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] transition-all hover:translate-y-[-2px] hover:border-[var(--neon-cyan)]/30"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {item.title} →
+              </Link>
+            ))}
           </div>
         </section>
       </main>
