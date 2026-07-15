@@ -272,6 +272,7 @@ export default function DebatePage() {
               { title: "Funny Debate Topics Generator", href: "/debate/funny" },
               { title: "Debate Question Generator", href: "/debate/questions" },
               { title: "100+ Debate Motions (This House Would…)", href: "/debate/motions" },
+              { title: "100+ Group Discussion (GD) Topics", href: "/group-discussion-topics" },
               { title: "Random Argument Generator", href: "/argument-generator" },
               { title: "75 Best Debate Topics for Students", href: "/topics/debate-topics-for-students" },
               { title: "50 Debate Topics for Middle School", href: "/topics/debate-topics-for-middle-school" },

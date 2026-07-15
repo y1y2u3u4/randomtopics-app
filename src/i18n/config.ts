@@ -57,6 +57,9 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/speech/persuasive",
   "/speech/informative",
   "/charades",
+  "/journal-prompts",
+  "/hot-seat-questions",
+  "/group-discussion-topics",
 ]);
 
 /** True when a root-relative path has no Spanish counterpart. */

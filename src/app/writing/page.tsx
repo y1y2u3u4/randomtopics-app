@@ -116,7 +116,7 @@ export default function WritingPage() {
               </p>
               <ul className="space-y-2 list-disc pl-5">
                 <li><strong>Essays &amp; assignments:</strong> generate until a topic clicks, then turn its talking points into a thesis. For full essay prompts by type, use our <Link href="/essay-topic-generator" className="text-[var(--neon-cyan)] hover:underline">essay topic generator</Link>.</li>
-                <li><strong>Daily journaling:</strong> a random topic beats staring at a blank page — respond to whatever you get for ten minutes, no editing allowed.</li>
+                <li><strong>Daily journaling:</strong> a random topic beats staring at a blank page — respond to whatever you get for ten minutes, no editing allowed. For reflection questions rather than story starters, use the <Link href="/journal-prompts" className="text-[var(--neon-cyan)] hover:underline">journal prompt generator</Link>.</li>
                 <li><strong>Blogs &amp; newsletters:</strong> out of content ideas? Random topics push you outside the subjects you always circle back to.</li>
                 <li><strong>Fiction warm-ups:</strong> free-write on a random topic before your main project to loosen up. Prefer the broad subject first? Try the <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">random subject generator</Link>.</li>
               </ul>
