@@ -77,7 +77,7 @@ export default function SpinTheWheelPage() {
               </p>
               <p>
                 The wheel is the playful cousin of our{" "}
-                <Link href="/topic-generator" className="text-[var(--neon-cyan)] hover:underline">
+                <Link href="/" className="text-[var(--neon-cyan)] hover:underline">
                   random topic generator
                 </Link>
                 . Both draw from the same curated database of 500+ topics, but the wheel adds the spin-and-reveal

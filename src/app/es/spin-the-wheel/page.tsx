@@ -83,7 +83,7 @@ export default function SpinTheWheelPageEs() {
               </p>
               <p>
                 La ruleta es la prima juguetona de nuestro{" "}
-                <Link href="/es/topic-generator" className="text-[var(--neon-cyan)] hover:underline">
+                <Link href="/es" className="text-[var(--neon-cyan)] hover:underline">
                   generador de temas al azar
                 </Link>
                 . Ambos beben de la misma base de datos seleccionada de más de 500 temas, pero la ruleta añade el

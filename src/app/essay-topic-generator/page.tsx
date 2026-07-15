@@ -232,7 +232,7 @@ export default function EssayTopicGeneratorPage() {
               <p className="pt-2">
                 Looking for a broader subject rather than a full prompt? Try the{" "}
                 <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">random subject generator</Link>. Want any topic across every category? Use the general{" "}
-                <Link href="/topic-generator" className="text-[var(--neon-cyan)] hover:underline">topic generator</Link>.
+                <Link href="/" className="text-[var(--neon-cyan)] hover:underline">topic generator</Link>.
               </p>
 
               <h3

@@ -20,7 +20,6 @@ function getPaths(): string[] {
     "/terms",
     "/stats",
     "/funny",
-    "/topic-generator",
     "/argument-generator",
     "/table-topics-generator",
     "/random-subject-generator",
