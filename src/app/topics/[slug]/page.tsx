@@ -24,7 +24,11 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   if (!article) return {};
 
   return {
-    title: article.metaTitle,
+    // metaTitle already carries the "| RandomTopics" brand suffix, so opt out
+    // of the layout's "%s | Random Topic Generator" template — otherwise every
+    // article title double-brands ("… | RandomTopics | Random Topic Generator")
+    // and Google truncates or rewrites the redundant tail.
+    title: { absolute: article.metaTitle },
     description: article.metaDescription,
     alternates: {
       canonical: `/topics/${article.slug}`,
