@@ -119,6 +119,11 @@ export default function ImpromptuSpeechPage() {
                 <li><strong>Weekend:</strong> one &quot;cold start&quot; — speak the instant you read the topic, zero prep. This is the hardest and highest-yield drill.</li>
               </ul>
               <p>
+                Want a ready question bank to drill from? Work through our{" "}
+                <Link href="/topics/toastmasters-table-topics" className="text-[var(--neon-cyan)] hover:underline">120 Table Topics questions</Link>{" "}
+                — classic, funny, work, and family prompts you can practice one after another.
+              </p>
+              <p>
                 Preparing a full presentation instead? Browse
                 our <Link href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> for
                 prepared speech ideas, or grab ready-made lists

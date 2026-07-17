@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { CATEGORIES, MODES } from "@/data/types";
 import { SEO_ARTICLES } from "@/data/seoContent";
-import { SITE_URL, localizePath, EN_ONLY_PATHS } from "@/i18n/config";
+import { SITE_URL, localizePath, isEnOnly } from "@/i18n/config";
 
 // Bilingual sitemap: every route is emitted for both English (root) and Spanish
 // (/es), and each entry carries hreflang alternates (en / es / x-default) so
@@ -72,7 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const e of entries) {
     const enUrl = abs(e.path);
 
-    if (EN_ONLY_PATHS.has(e.path)) {
+    if (isEnOnly(e.path)) {
       const languages = { en: enUrl, "x-default": enUrl };
       result.push({ url: enUrl, lastModified: now, changeFrequency: e.changeFrequency, priority: e.priority, alternates: { languages } });
       continue;

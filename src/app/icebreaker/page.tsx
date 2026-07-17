@@ -127,8 +127,9 @@ export default function IcebreakerPage() {
               <p>
                 At parties or social gatherings, icebreakers should be playful and surprising. Hypothetical
                 questions, &quot;would you rather&quot; scenarios, and quirky preference questions work
-                best. The goal is laughter and curiosity, not deep reflection. For team-oriented
-                options, explore
+                best. The goal is laughter and curiosity, not deep reflection. Once the ice is broken,
+                keep the momentum going with a few good <Link href="/conversation" className="text-[var(--neon-cyan)] hover:underline">conversation starters</Link>.
+                For team-oriented options, explore
                 our <Link href="/topics/team-building-questions" className="text-[var(--neon-cyan)] hover:underline">team building questions</Link> collection.
               </p>
 

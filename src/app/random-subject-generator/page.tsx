@@ -152,7 +152,7 @@ export default function RandomSubjectGeneratorPage() {
                   <span className="text-[var(--neon-cyan)] font-bold text-lg leading-tight">2.</span>
                   <div>
                     <strong className="text-[var(--text-primary)]">Essays &amp; Research Papers</strong>
-                    <p className="mt-1">Stuck on what to write about? Generate a random subject, then narrow to a specific prompt. Pair it with our <Link href="/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">random essay topics</Link> for full essay ideas.</p>
+                    <p className="mt-1">Stuck on what to write about? Generate a random subject, then narrow to a specific prompt. Send it straight to our <Link href="/essay-topic-generator" className="text-[var(--neon-cyan)] hover:underline">essay topic generator</Link>, or browse <Link href="/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">random essay topics for college</Link> for ready-made lists.</p>
                   </div>
                 </li>
                 <li className="flex gap-3 items-start">

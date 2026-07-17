@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { CATEGORIES, MODES } from "@/data/types";
 import { SEO_ARTICLES } from "@/data/seoContent";
-import { EN_ONLY_PATHS } from "@/i18n/config";
+import { isEnOnly } from "@/i18n/config";
 
 const INDEXNOW_KEY = "randomtopics2026";
 const HOST = "randomtopics.app";
@@ -61,8 +61,8 @@ function getAllUrls(): string[] {
   const urls: string[] = [];
   for (const p of getPaths()) {
     urls.push(p === "/" ? base : `${base}${p}`);
-    // English-only pages have no Spanish counterpart — never ping a dead /es URL.
-    if (!EN_ONLY_PATHS.has(p)) {
+    // Never ping a /es URL that is missing or noindexed (see isEnOnly).
+    if (!isEnOnly(p)) {
       urls.push(p === "/" ? `${base}/es` : `${base}/es${p}`);
     }
   }

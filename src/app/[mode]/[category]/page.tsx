@@ -49,7 +49,10 @@ export async function generateMetadata({ params }: ComboPageProps): Promise<Meta
   const modeInfo = MODES.find((m) => m.slug === mode)!;
   const catInfo = CATEGORIES.find((c) => c.id === category)!;
 
-  const title = `${catInfo.label} ${modeInfo.label} - Random ${catInfo.label} ${modeInfo.label} Generator`;
+  // Front-load the exact phrase and let the layout template supply the
+  // "| Random Topic Generator" suffix. Repeating the phrase here pushed every
+  // combo title past 90 chars, so Google truncated it mid-word in the SERP.
+  const title = `${catInfo.label} ${modeInfo.label}`;
   const description = `Generate random ${catInfo.label.toLowerCase()} ${modeInfo.label.toLowerCase()} instantly. ${catInfo.description}. Free, no signup required.`;
 
   return {

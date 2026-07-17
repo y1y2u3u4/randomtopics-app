@@ -93,7 +93,7 @@ export default function TableTopicsPage() {
                 The question database spans 16 categories — from light &quot;would you rather&quot; style
                 prompts to deeper questions about values and experiences — so you can simulate everything
                 from a casual club night to a district contest. Need a full question list to print instead?
-                See our curated <Link href="/topics/toastmasters-table-topics" className="text-[var(--neon-cyan)] hover:underline">70 Table Topics questions</Link>.
+                See our curated <Link href="/topics/toastmasters-table-topics" className="text-[var(--neon-cyan)] hover:underline">120 Table Topics questions</Link>.
               </p>
 
               <h3

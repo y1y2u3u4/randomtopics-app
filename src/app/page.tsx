@@ -126,7 +126,7 @@ export default function Home() {
               { title: "75 Best Debate Topics for Students", href: "/topics/debate-topics-for-students" },
               { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
               { title: "65 Presentation Ideas for School", href: "/topics/presentation-ideas-for-school" },
-              { title: "70 Toastmasters Table Topics", href: "/topics/toastmasters-table-topics" },
+              { title: "120 Toastmasters Table Topics", href: "/topics/toastmasters-table-topics" },
               { title: "60 Deep Questions for Your Partner", href: "/topics/deep-questions-to-ask-your-partner" },
               { title: "55 Virtual Meeting Icebreakers", href: "/topics/icebreaker-questions-for-virtual-meetings" },
               { title: "75 Speech Topics for College", href: "/topics/speech-topics-for-college-students" },
@@ -316,8 +316,9 @@ export default function Home() {
                 Random Topic Generator for Conversations
               </h3>
               <p>
-                Stuck in small talk? Use the random topic generator in conversation mode to discover
-                thought-provoking discussion starters. Whether you&apos;re on a first date, at a
+                Stuck in small talk? Use the random topic generator in{" "}
+                <Link href="/conversation" className="text-[var(--neon-cyan)] hover:underline">conversation mode</Link>{" "}
+                to discover thought-provoking discussion starters. Whether you&apos;re on a first date, at a
                 networking event, or just hanging out with friends, a well-chosen topic transforms
                 an awkward silence into an engaging exchange. Our conversation topics span casual
                 icebreakers to deep philosophical questions, so there&apos;s always something that
@@ -335,8 +336,12 @@ export default function Home() {
                 and spark creativity. Switch to writing mode and generate prompts for essays, blog
                 posts, short stories, journal entries, or creative nonfiction. Each writing topic
                 comes with angle suggestions and talking points to help you develop your piece.
-                Whether you&apos;re a student looking for essay ideas or a professional content
-                creator seeking fresh angles, the generator delivers inspiration instantly.
+                Whether you&apos;re a student looking for{" "}
+                <Link href="/essay-topic-generator" className="text-[var(--neon-cyan)] hover:underline">essay ideas</Link>{" "}
+                or a professional content creator seeking fresh angles, the generator delivers
+                inspiration instantly. Not sure what to write about at all? Spin a{" "}
+                <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">random subject</Link>{" "}
+                and get assigned a school subject to explore.
               </p>
 
               <h3

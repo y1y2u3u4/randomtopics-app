@@ -2,6 +2,8 @@
 // canonical/default locale; Spanish lives under the /es path prefix. This is an
 // additive design — no existing English URL changes.
 
+import { CATEGORIES, MODES } from "@/data/types";
+
 export const locales = ["en", "es"] as const;
 export type Locale = (typeof locales)[number];
 
@@ -64,9 +66,30 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/paranoia-questions",
 ]);
 
-/** True when a root-relative path has no Spanish counterpart. */
+const MODE_SLUGS: ReadonlySet<string> = new Set(MODES.map((m) => m.slug));
+const CATEGORY_IDS: ReadonlySet<string> = new Set(CATEGORIES.map((c) => c.id));
+
+/**
+ * True for a mode×category combo path such as "/debate/technology". These are
+ * templated permutations — 5 modes × 16 categories = 80 per locale.
+ */
+export function isModeCategoryPath(rootPath: string): boolean {
+  const seg = rootPath.split("/");
+  return seg.length === 3 && MODE_SLUGS.has(seg[1]) && CATEGORY_IDS.has(seg[2]);
+}
+
+/**
+ * True when a root-relative path has no *indexable* Spanish counterpart.
+ *
+ * Combo paths are English-only by this rule even though /es/<mode>/<category>
+ * still renders: Google crawled the Spanish permutations and declined to index
+ * them, and they made up the bulk of the 167 not-indexed URLs in 2026-07. The
+ * English set earns clicks, so it stays. Excluding the Spanish half here keeps
+ * them out of the sitemap and drops their hreflang pairing, which concentrates
+ * crawl budget on the /es hubs and topic articles that do rank.
+ */
 export function isEnOnly(rootPath: string): boolean {
-  return EN_ONLY_PATHS.has(rootPath);
+  return EN_ONLY_PATHS.has(rootPath) || isModeCategoryPath(rootPath);
 }
 
 /**

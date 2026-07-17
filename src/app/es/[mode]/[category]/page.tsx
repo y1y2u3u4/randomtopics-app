@@ -8,7 +8,7 @@ import type { Category, Mode } from "@/data/types";
 import { getLocalizedTopics } from "@/data/topics.es";
 import { categorySeoContentEs } from "@/data/categorySeoContent.es";
 import { MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
-import { hreflangAlternates, SITE_URL } from "@/i18n/config";
+import { SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -56,9 +56,12 @@ export async function generateMetadata({ params }: ComboPageProps): Promise<Meta
   return {
     title: { absolute: `${title} | Random Topics` },
     description,
+    // Google crawled these 80 Spanish permutations and declined to index them.
+    // Saying so explicitly stops the re-crawl attempts from eating budget the
+    // /es hubs and topic articles need. The English combos stay indexable.
+    robots: { index: false, follow: true },
     alternates: {
       canonical: `/es/${mode}/${category}`,
-      languages: hreflangAlternates(`/${mode}/${category}`),
     },
     openGraph: {
       title,
