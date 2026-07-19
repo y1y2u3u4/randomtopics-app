@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
@@ -24,7 +25,7 @@ export default function PrivacyPage() {
               Privacy <span className="gradient-text">Policy</span>
             </h1>
             <p className="text-sm text-[var(--text-muted)]">
-              Last updated: March 2026
+              Last updated: July 2026
             </p>
           </section>
 
@@ -159,6 +160,101 @@ export default function PrivacyPage() {
             </p>
           </section>
 
+          {/* Advertising */}
+          <section className="glass-card p-8 space-y-4">
+            <h2
+              className="text-2xl font-semibold text-[var(--text-primary)]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Advertising
+            </h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              randomtopics.app is free to use, and advertising is what pays for it.
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)]">
+              <li>
+                Third-party vendors, including Google, use cookies to serve ads based on
+                your prior visits to this website or other websites.
+              </li>
+              <li>
+                Google&apos;s use of advertising cookies enables it and its partners to
+                serve ads to you based on your visit to this site and/or other sites on
+                the Internet.
+              </li>
+            </ul>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              You can opt out of personalized advertising in{" "}
+              <a
+                href="https://www.google.com/settings/ads"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--accent-blue)] hover:underline"
+              >
+                Google Ads Settings
+              </a>
+              , or opt out of third-party vendors&apos; use of cookies for personalized
+              advertising at{" "}
+              <a
+                href="https://www.aboutads.info/choices/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--accent-blue)] hover:underline"
+              >
+                aboutads.info
+              </a>
+              .
+            </p>
+          </section>
+
+          {/* GDPR & CCPA */}
+          <section className="glass-card p-8 space-y-4">
+            <h2
+              className="text-2xl font-semibold text-[var(--text-primary)]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Your Rights (GDPR &amp; CCPA)
+            </h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              <strong className="text-[var(--text-primary)]">
+                If you are in the EEA or UK (GDPR):
+              </strong>{" "}
+              analytics and personalized advertising are processed on the basis of your
+              consent, which you may withdraw at any time through your browser or the
+              advertising controls above. You have the right to access, correct, delete
+              or restrict processing of personal data relating to you, and to complain to
+              your local supervisory authority. Because we operate no accounts and store
+              no personal records, in most cases we simply hold nothing to return.
+            </p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              <strong className="text-[var(--text-primary)]">
+                If you are a California resident (CCPA/CPRA):
+              </strong>{" "}
+              we do not sell your personal information for money. Serving personalized
+              advertising may be treated as &quot;sharing&quot; under California law; the
+              opt-out links above stop it. We will not treat you differently for
+              exercising these rights.
+            </p>
+          </section>
+
+          {/* Children */}
+          <section className="glass-card p-8 space-y-4">
+            <h2
+              className="text-2xl font-semibold text-[var(--text-primary)]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Children&apos;s Privacy
+            </h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              Our topics and party questions are written to be classroom- and
+              family-friendly, and teachers use them with students. The site is intended
+              for a general audience and is not directed at children under 13, and we do
+              not knowingly collect personal information from anyone — there are no
+              accounts, forms or sign-ups anywhere on the site. If you believe a child
+              has somehow provided personal information to us, contact us and we will
+              delete it.
+            </p>
+          </section>
+
           {/* Changes */}
           <section className="glass-card p-8 space-y-4">
             <h2
@@ -183,14 +279,18 @@ export default function PrivacyPage() {
               Contact
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              If you have any questions about this privacy policy, please
-              reach out to us through our website at{" "}
+              Questions about this policy, or a request relating to your data, can be
+              sent to{" "}
               <a
-                href="https://randomtopics.app"
+                href="mailto:zhanggongqing1314007@gmail.com"
                 className="text-[var(--accent-blue)] hover:underline"
               >
-                randomtopics.app
+                zhanggongqing1314007@gmail.com
               </a>
+              . You can also reach us through our{" "}
+              <Link href="/contact" className="text-[var(--accent-blue)] hover:underline">
+                contact page
+              </Link>
               .
             </p>
           </section>

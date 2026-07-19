@@ -117,6 +117,7 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
               <li><Link href={localizePath("/privacy", locale)} className={linkClass}>{t.footer.privacy}</Link></li>
               <li><Link href={localizePath("/terms", locale)} className={linkClass}>{t.footer.terms}</Link></li>
               <li><Link href={localizePath("/press", locale)} className={linkClass}>{t.footer.press}</Link></li>
+              <li><Link href={localizePath("/contact", locale)} className={linkClass}>{t.footer.contact}</Link></li>
               <li><Link href={localizePath("/categories", locale)} className={linkClass}>{t.footer.allCategories}</Link></li>
               <li><Link href={localizePath("/topics", locale)} className={linkClass}>{t.footer.topicCollections}</Link></li>
             </ul>

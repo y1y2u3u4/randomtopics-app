@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { hreflangAlternates } from "@/i18n/config";
@@ -28,7 +29,7 @@ export default function PrivacyPageEs() {
               Política de <span className="gradient-text">Privacidad</span>
             </h1>
             <p className="text-sm text-[var(--text-muted)]">
-              Última actualización: marzo de 2026
+              Última actualización: julio de 2026
             </p>
           </section>
 
@@ -167,6 +168,101 @@ export default function PrivacyPageEs() {
             </p>
           </section>
 
+          {/* Advertising */}
+          <section className="glass-card p-8 space-y-4">
+            <h2
+              className="text-2xl font-semibold text-[var(--text-primary)]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Publicidad
+            </h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              randomtopics.app es gratuito, y la publicidad es lo que lo financia.
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)]">
+              <li>
+                Proveedores externos, incluido Google, utilizan cookies para mostrar
+                anuncios basados en tus visitas anteriores a este sitio web o a otros
+                sitios web.
+              </li>
+              <li>
+                El uso de cookies de publicidad por parte de Google permite que Google y
+                sus socios muestren anuncios basados en tu visita a este sitio y/o a
+                otros sitios de Internet.
+              </li>
+            </ul>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              Puedes desactivar la publicidad personalizada en la{" "}
+              <a
+                href="https://www.google.com/settings/ads"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--accent-blue)] hover:underline"
+              >
+                Configuración de anuncios de Google
+              </a>
+              , o rechazar el uso de cookies de proveedores externos en{" "}
+              <a
+                href="https://www.aboutads.info/choices/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--accent-blue)] hover:underline"
+              >
+                aboutads.info
+              </a>
+              .
+            </p>
+          </section>
+
+          {/* GDPR & CCPA */}
+          <section className="glass-card p-8 space-y-4">
+            <h2
+              className="text-2xl font-semibold text-[var(--text-primary)]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Tus Derechos (RGPD y CCPA)
+            </h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              <strong className="text-[var(--text-primary)]">
+                Si te encuentras en el EEE o el Reino Unido (RGPD):
+              </strong>{" "}
+              la analítica y la publicidad personalizada se basan en tu consentimiento,
+              que puedes retirar en cualquier momento desde tu navegador o mediante los
+              controles de publicidad indicados arriba. Tienes derecho a acceder,
+              rectificar, suprimir o limitar el tratamiento de tus datos personales, y a
+              presentar una reclamación ante tu autoridad de control local. Como no
+              tenemos cuentas ni almacenamos registros personales, en la mayoría de los
+              casos sencillamente no conservamos nada que devolverte.
+            </p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              <strong className="text-[var(--text-primary)]">
+                Si resides en California (CCPA/CPRA):
+              </strong>{" "}
+              no vendemos tu información personal a cambio de dinero. Mostrar publicidad
+              personalizada puede considerarse &quot;compartir&quot; según la legislación
+              de California; los enlaces de exclusión anteriores lo detienen. No te
+              trataremos de forma distinta por ejercer estos derechos.
+            </p>
+          </section>
+
+          {/* Children */}
+          <section className="glass-card p-8 space-y-4">
+            <h2
+              className="text-2xl font-semibold text-[var(--text-primary)]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Privacidad de los Menores
+            </h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              Nuestros temas y preguntas están escritos para ser aptos para el aula y
+              para toda la familia, y hay profesores que los usan con sus alumnos. El
+              sitio está dirigido al público general, no a menores de 13 años, y no
+              recopilamos conscientemente información personal de nadie: no hay cuentas,
+              formularios ni registros en ninguna parte del sitio. Si crees que un menor
+              nos ha facilitado información personal, escríbenos y la eliminaremos.
+            </p>
+          </section>
+
           {/* Changes */}
           <section className="glass-card p-8 space-y-4">
             <h2
@@ -191,14 +287,18 @@ export default function PrivacyPageEs() {
               Contacto
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              Si tienes alguna pregunta sobre esta política de privacidad, ponte
-              en contacto con nosotros a través de nuestro sitio web en{" "}
+              Si tienes alguna pregunta sobre esta política de privacidad, o una
+              solicitud relativa a tus datos, escríbenos a{" "}
               <a
-                href="https://randomtopics.app"
+                href="mailto:zhanggongqing1314007@gmail.com"
                 className="text-[var(--accent-blue)] hover:underline"
               >
-                randomtopics.app
+                zhanggongqing1314007@gmail.com
               </a>
+              . También puedes contactarnos desde nuestra{" "}
+              <Link href="/es/contact" className="text-[var(--accent-blue)] hover:underline">
+                página de contacto
+              </Link>
               .
             </p>
           </section>

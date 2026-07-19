@@ -41,6 +41,7 @@ export interface UIDict {
     privacy: string;
     terms: string;
     press: string;
+    contact: string;
     allCategories: string;
     topicCollections: string;
     funnyTopics: string;
@@ -117,6 +118,7 @@ const en: UIDict = {
     privacy: "Privacy Policy",
     terms: "Terms of Service",
     press: "Press & Media",
+    contact: "Contact Us",
     allCategories: "All Categories",
     topicCollections: "Topic Collections",
     funnyTopics: "Funny Topics",
@@ -201,6 +203,7 @@ const es: UIDict = {
     privacy: "Política de Privacidad",
     terms: "Términos del Servicio",
     press: "Prensa y Medios",
+    contact: "Contacto",
     allCategories: "Todas las Categorías",
     topicCollections: "Colecciones de Temas",
     funnyTopics: "Temas Divertidos",
