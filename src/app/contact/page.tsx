@@ -70,14 +70,8 @@ export default function ContactPage() {
               </a>
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              For press and media enquiries, use{" "}
-              <a
-                href="mailto:press@randomtopics.app"
-                className="text-[var(--accent-blue)] hover:underline"
-              >
-                press@randomtopics.app
-              </a>{" "}
-              instead — details and assets are on our{" "}
+              This is also the address for press and media enquiries — logos, screenshots
+              and the facts you may want to quote are already on our{" "}
               <Link href="/press" className="text-[var(--accent-blue)] hover:underline">
                 press page
               </Link>

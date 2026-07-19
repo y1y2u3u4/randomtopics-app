@@ -252,10 +252,10 @@ export default function PressPage() {
             <p className="text-[var(--text-secondary)]">
               Email us at{" "}
               <a
-                href="mailto:press@randomtopics.app"
+                href="mailto:zhanggongqing1314007@gmail.com"
                 className="text-[var(--neon-cyan)] hover:underline"
               >
-                press@randomtopics.app
+                zhanggongqing1314007@gmail.com
               </a>
             </p>
             <p className="text-sm text-[var(--text-muted)]">

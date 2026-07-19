@@ -74,14 +74,8 @@ export default function ContactPageEs() {
               </a>
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              Para prensa y medios, escribe a{" "}
-              <a
-                href="mailto:press@randomtopics.app"
-                className="text-[var(--accent-blue)] hover:underline"
-              >
-                press@randomtopics.app
-              </a>{" "}
-              — los materiales están en nuestra{" "}
+              Esta es también la dirección para prensa y medios: los logotipos, capturas
+              y datos que quieras citar ya están en nuestra{" "}
               <Link href="/es/press" className="text-[var(--accent-blue)] hover:underline">
                 página de prensa
               </Link>
