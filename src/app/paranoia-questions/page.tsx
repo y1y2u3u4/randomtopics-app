@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
+import QuestionBank from "@/components/QuestionBank";
+import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -62,6 +64,7 @@ export default function ParanoiaPage() {
             { label: "Paranoia Questions" },
           ]}
         />
+        <PartyIllustration game="paranoia-questions" />
 
         <PartyGenerator
           questions={PARANOIA_QUESTIONS}
@@ -114,6 +117,26 @@ export default function ParanoiaPage() {
             </div>
           </div>
         </section>
+
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-5" style={{ fontFamily: "var(--font-display)" }}>
+              How to Run a Paranoia Circle
+            </h2>
+            <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
+              <p><strong className="text-[var(--text-primary)]">Classic rules.</strong> Player A whispers a question to player B. B answers out loud with a name &mdash; but the group only hears the name, never the question. Then a coin flip: heads, the question is revealed; tails, everyone stays paranoid. Rotate clockwise.</p>
+              <p><strong className="text-[var(--text-primary)]">Group size.</strong> The sweet spot is 5&ndash;10 players. Fewer and the name pool is too small; more and the whisper chain takes forever.</p>
+              <p><strong className="text-[var(--text-primary)]">Safe mode.</strong> New group or mixed company? Play reveal-always for the first full rotation. The coin flip tension works better once everyone trusts the questions are kind &mdash; and this deck is built to stay kind.</p>
+              <p><strong className="text-[var(--text-primary)]">No-repeat rule.</strong> A name can only be answered once per rotation. Forces the spotlight to move and saves the quiet players from being everyone&apos;s easy answer.</p>
+              <p className="text-xs text-[var(--text-muted)]">Facilitator tip: if a tails-flip leaves someone visibly desperate to know, offer the liar&apos;s bargain &mdash; they can buy the reveal by taking the next whisper turn twice.</p>
+            </div>
+          </div>
+        </section>
+        <QuestionBank
+          heading="All 60 Paranoia Questions"
+          intro="The full whisper deck &mdash; every question is kind by design, so the mystery stays fun even when the answer never gets revealed."
+          questions={PARANOIA_QUESTIONS}
+        />
       </main>
       <Footer />
     </>

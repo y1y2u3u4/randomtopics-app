@@ -41,6 +41,18 @@ const MODE_SCENES: Record<Mode, SceneSpec> = {
   icebreaker: { glyph: "🧊", accent: "#00e5ff", accent2: "#00ff88", label: "Icebreaker questions illustration: ice cube cracking into conversation sparks", orbs: [[75, 50, 14], [635, 95, 13], [545, 25, 9], [140, 120, 8]] },
 };
 
+const PARTY_SCENES: Record<string, SceneSpec> = {
+  "would-you-rather": { glyph: "🤷", accent: "#ffe234", accent2: "#ff2d78", label: "Would You Rather illustration: a fork between two glowing choices", orbs: [[85, 45, 13], [635, 100, 15], [555, 30, 9], [130, 115, 10]] },
+  "never-have-i-ever": { glyph: "🙈", accent: "#ff2d78", accent2: "#b14eff", label: "Never Have I Ever illustration: ten fingers up under party lights", orbs: [[90, 105, 14], [620, 40, 12], [660, 110, 8], [115, 35, 9]] },
+  "truth-or-dare": { glyph: "🎭", accent: "#b14eff", accent2: "#ff6b35", label: "Truth or Dare illustration: masks of truth and dare facing off", orbs: [[80, 40, 12], [640, 105, 14], [560, 35, 9], [125, 110, 11]] },
+  "this-or-that": { glyph: "⚖️", accent: "#00e5ff", accent2: "#ffe234", label: "This or That illustration: scales weighing two quick choices", orbs: [[95, 110, 13], [615, 35, 11], [655, 105, 8], [110, 40, 10]] },
+  "most-likely-to": { glyph: "👉", accent: "#00ff88", accent2: "#ff2d78", label: "Most Likely To illustration: fingers pointing across the circle", orbs: [[75, 50, 14], [635, 95, 13], [545, 25, 9], [140, 120, 8]] },
+  "two-truths-and-a-lie": { glyph: "🃏", accent: "#ff6b35", accent2: "#00e5ff", label: "Two Truths and a Lie illustration: three cards, one bluffing", orbs: [[85, 100, 12], [630, 35, 13], [550, 110, 9], [145, 40, 10]] },
+  "spin-the-wheel": { glyph: "🎡", accent: "#b14eff", accent2: "#00ff88", label: "Spin the Wheel illustration: a prize wheel mid-spin", orbs: [[70, 40, 15], [645, 110, 12], [565, 30, 10], [130, 115, 8]] },
+  "paranoia-questions": { glyph: "🤫", accent: "#ff2d78", accent2: "#00e5ff", label: "Paranoia illustration: a whispered secret passing down the circle", orbs: [[80, 110, 13], [640, 40, 11], [545, 110, 10], [150, 30, 8]] },
+  "hot-seat-questions": { glyph: "🔥", accent: "#ff6b35", accent2: "#ffe234", label: "Hot Seat illustration: one glowing chair in the spotlight", orbs: [[90, 35, 14], [615, 105, 12], [660, 45, 8], [115, 110, 10]] },
+};
+
 function IllustrationSvg({ scene, keyId }: { scene: SceneSpec; keyId: string }) {
   const gid = `cat-grad-${keyId}`;
   const gid2 = `cat-glow-${keyId}`;
@@ -109,4 +121,10 @@ export function ModeIllustration({ mode }: { mode: Mode }) {
   const scene = MODE_SCENES[mode];
   if (!scene) return null;
   return <IllustrationSvg scene={scene} keyId={`mode-${mode}`} />;
+}
+
+export function PartyIllustration({ game }: { game: string }) {
+  const scene = PARTY_SCENES[game];
+  if (!scene) return null;
+  return <IllustrationSvg scene={scene} keyId={`party-${game}`} />;
 }

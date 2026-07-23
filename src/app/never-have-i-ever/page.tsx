@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
+import QuestionBank from "@/components/QuestionBank";
+import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -62,6 +64,7 @@ export default function NeverHaveIEverPage() {
             { label: "Never Have I Ever" },
           ]}
         />
+        <PartyIllustration game="never-have-i-ever" />
         <PartyGenerator
           questions={NEVER_HAVE_I_EVER}
           title="Never Have I Ever Generator"
@@ -121,6 +124,26 @@ export default function NeverHaveIEverPage() {
             </div>
           </div>
         </section>
+
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-5" style={{ fontFamily: "var(--font-display)" }}>
+              Four Ways to Play Never Have I Ever
+            </h2>
+            <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
+              <p><strong className="text-[var(--text-primary)]">Ten fingers (classic).</strong> Everyone holds up ten fingers; if you have done the thing, drop one. First to zero &mdash; or last standing, your call &mdash; ends the round. Sweet spot is 4&ndash;12 players.</p>
+              <p><strong className="text-[var(--text-primary)]">Storytime rule.</strong> The best version of this game: anyone who drops a finger owes the group the 20-second story behind it. The prompts are just bait &mdash; the stories are the game.</p>
+              <p><strong className="text-[var(--text-primary)]">Points, not fingers.</strong> For classrooms and icebreakers, flip the scoring: earn a point for each thing you have done, and the most-lived-life wins. Same prompts, zero elimination pressure.</p>
+              <p><strong className="text-[var(--text-primary)]">Speed rounds.</strong> Read prompts rapid-fire with no stories allowed until someone is out &mdash; then the eliminated player picks any three dropped fingers from the group and demands those stories.</p>
+              <p className="text-xs text-[var(--text-muted)]">Facilitator tip: seed the first two prompts with harmless ones (this deck is built that way) so nobody feels targeted early.</p>
+            </div>
+          </div>
+        </section>
+        <QuestionBank
+          heading="All 60 Never Have I Ever Prompts"
+          intro="The complete clean deck &mdash; embarrassing-but-innocent territory, safe for classrooms, families, and mixed company."
+          questions={NEVER_HAVE_I_EVER}
+        />
       </main>
       <Footer />
     </>

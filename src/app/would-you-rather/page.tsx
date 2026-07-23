@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
+import QuestionBank from "@/components/QuestionBank";
+import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -62,6 +64,7 @@ export default function WouldYouRatherPage() {
             { label: "Would You Rather" },
           ]}
         />
+        <PartyIllustration game="would-you-rather" />
         <PartyGenerator
           questions={WOULD_YOU_RATHER}
           title="Would You Rather Generator"
@@ -122,6 +125,27 @@ export default function WouldYouRatherPage() {
             </div>
           </div>
         </section>
+
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-5" style={{ fontFamily: "var(--font-display)" }}>
+              Five Ways to Play Would You Rather
+            </h2>
+            <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
+              <p><strong className="text-[var(--text-primary)]">Classic circle.</strong> Everyone answers the same question at once (thumbs left or right), then one volunteer defends their pick for 30 seconds. Works from 3 players to a full classroom.</p>
+              <p><strong className="text-[var(--text-primary)]">Guess the split.</strong> Before revealing answers, each player predicts what percentage of the group will pick option A. Closest guess earns a point &mdash; this variant turns the game into reading the room, and it is where the biggest laughs live.</p>
+              <p><strong className="text-[var(--text-primary)]">Chain rule.</strong> Whoever ends up in the minority on a question reads the next one. Keeps the phone moving and stops one person from hosting all night.</p>
+              <p><strong className="text-[var(--text-primary)]">Couples predict.</strong> Answer for yourself first, then predict your partner&apos;s answer before they reveal. Score a point per correct prediction &mdash; a surprisingly honest compatibility check.</p>
+              <p><strong className="text-[var(--text-primary)]">ESL / classroom four corners.</strong> Label two walls A and B, students walk to their answer, then explain their choice in a full sentence. Movement plus speaking practice in one warm-up.</p>
+              <p className="text-xs text-[var(--text-muted)]">Facilitator tip: when a question splits the group 50/50, stop and let both sides argue &mdash; those are the questions worth slowing down for.</p>
+            </div>
+          </div>
+        </section>
+        <QuestionBank
+          heading="All 60 Would You Rather Questions"
+          intro="The full curated deck, numbered for easy reference. Mix of everyday dilemmas and impossible hypotheticals, all clean and party-safe."
+          questions={WOULD_YOU_RATHER}
+        />
       </main>
       <Footer />
     </>

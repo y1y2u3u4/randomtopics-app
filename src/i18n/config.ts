@@ -52,6 +52,7 @@ export const SITE_URL = "https://randomtopics.app";
  * switcher hides the (nonexistent) Spanish toggle instead of 404-ing.
  */
 export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
+  "/how-we-curate",
   "/random-subject-generator",
   "/essay-topic-generator",
   "/debate/questions",

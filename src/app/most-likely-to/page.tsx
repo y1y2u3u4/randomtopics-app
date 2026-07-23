@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
+import QuestionBank from "@/components/QuestionBank";
+import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -56,6 +58,7 @@ export default function MostLikelyToPage() {
       <Navbar />
       <main className="flex-1">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Most Likely To" }]} />
+        <PartyIllustration game="most-likely-to" />
         <PartyGenerator
           questions={MOST_LIKELY_TO}
           title="Most Likely To Questions"
@@ -95,6 +98,26 @@ export default function MostLikelyToPage() {
             </div>
           </div>
         </section>
+
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-5" style={{ fontFamily: "var(--font-display)" }}>
+              Four Ways to Play Most Likely To
+            </h2>
+            <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
+              <p><strong className="text-[var(--text-primary)]">Point on three.</strong> Read the prompt, count to three, everyone points at once. The player with the most fingers aimed at them owes the group an explanation &mdash; or a rebuttal.</p>
+              <p><strong className="text-[var(--text-primary)]">Vote and defend.</strong> The accused gets 30 seconds to argue why they are NOT the most likely &mdash; then the group votes again. Watching someone argue against their own reputation is the whole game.</p>
+              <p><strong className="text-[var(--text-primary)]">Anonymous ballots.</strong> For shy groups or workplaces: everyone writes a name on a slip, votes are tallied out loud. Same fun, no direct finger-pointing.</p>
+              <p><strong className="text-[var(--text-primary)]">Superlatives ceremony.</strong> End-of-year classrooms and team offsites: run 10 prompts as an awards show, with a winner crowned per category. Pairs well with paper certificates and zero budget.</p>
+              <p className="text-xs text-[var(--text-muted)]">Facilitator tip: this game runs on affection, not roasting. If a prompt could genuinely sting someone in your group, skip it &mdash; there are 37 others.</p>
+            </div>
+          </div>
+        </section>
+        <QuestionBank
+          heading="All 38 Most Likely To Questions"
+          intro="The full deck &mdash; superlatives your group will actually argue about, kept kind by design."
+          questions={MOST_LIKELY_TO}
+        />
       </main>
       <Footer />
     </>

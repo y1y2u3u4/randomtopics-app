@@ -10,6 +10,7 @@ import type { Category } from "@/data/types";
 import { categorySeoContent } from "@/data/categorySeoContent";
 import { categoryToArticles } from "@/data/internalLinks";
 import { pickCategoryTopics } from "@/lib/editorial";
+import { topics } from "@/data/topics";
 import type { Metadata } from "next";
 
 interface CategoryPageProps {
@@ -107,6 +108,45 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               intro={`Eight picks from our curated ${label.toLowerCase()} database, spread across Light, Medium, and Deep. Each comes with the talking points our editors attached — copy one straight into your notes, or save it for later.`}
               topics={pickCategoryTopics(category as Category)}
             />
+
+            {/* Full library: every curated topic in this category, browsable */}
+            {(() => {
+              const all = topics.filter((t) => t.category === (category as Category));
+              if (all.length === 0) return null;
+              return (
+                <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+                  <div className="glass-card p-8 sm:p-10">
+                    <h2
+                      className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-3"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      Browse All {all.length} {label} Topics
+                    </h2>
+                    <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">
+                      The complete curated {label.toLowerCase()} deck — the same database the generator
+                      deals from, in one scannable list. Every entry passed the five-point bar in our{" "}
+                      <Link href="/how-we-curate" className="text-[var(--neon-cyan)] hover:underline">
+                        editorial policy
+                      </Link>{" "}
+                      and ships with talking points in the generator above.
+                    </p>
+                    <ol className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                      {all.map((t, i) => (
+                        <li
+                          key={t.id}
+                          className="flex items-start gap-2.5 text-[var(--text-secondary)] text-xs sm:text-sm leading-relaxed"
+                        >
+                          <span className="flex-shrink-0 w-6 text-right text-xs font-bold text-[var(--text-muted)] mt-0.5 tabular-nums">
+                            {i + 1}.
+                          </span>
+                          {t.text}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </section>
+              );
+            })()}
 
             {/* FAQ Section */}
             <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16">

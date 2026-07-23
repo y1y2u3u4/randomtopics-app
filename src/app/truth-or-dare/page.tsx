@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
+import QuestionBank from "@/components/QuestionBank";
+import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -58,6 +60,7 @@ export default function TruthOrDarePage() {
       <Navbar />
       <main className="flex-1">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Truth or Dare" }]} />
+        <PartyIllustration game="truth-or-dare" />
         <PartyGenerator
           questions={TRUTH_OR_DARE}
           title="Truth or Dare Generator"
@@ -100,6 +103,26 @@ export default function TruthOrDarePage() {
             </div>
           </div>
         </section>
+
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-5" style={{ fontFamily: "var(--font-display)" }}>
+              House Rules That Keep Truth or Dare Fun
+            </h2>
+            <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
+              <p><strong className="text-[var(--text-primary)]">Bottle ordering.</strong> Spin a bottle to pick who answers next instead of going in a circle &mdash; the randomness is half the tension, and nobody can count turns to dodge a dare.</p>
+              <p><strong className="text-[var(--text-primary)]">Truth-streak rule.</strong> Three truths in a row means your next turn must be a dare. Stops the table from going full interview mode.</p>
+              <p><strong className="text-[var(--text-primary)]">Dare jar.</strong> Before starting, everyone writes two dares on slips and drops them in a jar. Choosing dare means drawing blind. Crowd-sourced dares are consistently better than on-the-spot ones.</p>
+              <p><strong className="text-[var(--text-primary)]">Consent rules (non-negotiable).</strong> Every player gets two vetoes for the night, no dares involving phones or posting anything, and nothing that leaves the room. The game dies the moment someone is genuinely uncomfortable &mdash; the vetoes keep it alive.</p>
+              <p className="text-xs text-[var(--text-muted)]">Facilitator tip: with new groups, open with two rounds of truths only. Dares land better once the room is warm.</p>
+            </div>
+          </div>
+        </section>
+        <QuestionBank
+          heading="All 38 Truth Prompts and Dares"
+          intro="The full deck &mdash; every truth and dare in rotation, all clean enough for family game night."
+          questions={TRUTH_OR_DARE}
+        />
       </main>
       <Footer />
     </>

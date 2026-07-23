@@ -114,6 +114,7 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
             </h3>
             <ul className="space-y-2">
               <li><Link href={localizePath("/about", locale)} className={linkClass}>{t.footer.aboutUs}</Link></li>
+              <li><Link href="/how-we-curate" className={linkClass}>How We Curate</Link></li>
               <li><Link href={localizePath("/privacy", locale)} className={linkClass}>{t.footer.privacy}</Link></li>
               <li><Link href={localizePath("/terms", locale)} className={linkClass}>{t.footer.terms}</Link></li>
               <li><Link href={localizePath("/press", locale)} className={linkClass}>{t.footer.press}</Link></li>

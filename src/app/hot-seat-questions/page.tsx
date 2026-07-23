@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
+import QuestionBank from "@/components/QuestionBank";
+import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -63,6 +65,7 @@ export default function HotSeatPage() {
             { label: "Hot Seat Questions" },
           ]}
         />
+        <PartyIllustration game="hot-seat-questions" />
 
         <PartyGenerator
           questions={HOT_SEAT_QUESTIONS}
@@ -121,6 +124,26 @@ export default function HotSeatPage() {
             </div>
           </div>
         </section>
+
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-5" style={{ fontFamily: "var(--font-display)" }}>
+              Four Ways to Run the Hot Seat
+            </h2>
+            <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
+              <p><strong className="text-[var(--text-primary)]">Timer classic.</strong> Two minutes per person in the seat, rapid questions from the group, two passes allowed. The timer matters &mdash; without it one chatty answer eats the round.</p>
+              <p><strong className="text-[var(--text-primary)]">Depth ladder.</strong> Round one stays light for everyone, round two goes personal, round three goes deep. Laddering beats random depth &mdash; nobody gets ambushed with a heavy question cold.</p>
+              <p><strong className="text-[var(--text-primary)]">Team onboarding mode.</strong> New hire in the seat for five minutes, but they earn a reversal: for every three questions answered, they fire one back at anyone in the room. Levels the power dynamic instantly.</p>
+              <p><strong className="text-[var(--text-primary)]">Birthday spotlight.</strong> The guest of honor takes the seat while friends take turns asking &mdash; but every asker must answer their own question first. Self-incrimination keeps the questions honest.</p>
+              <p className="text-xs text-[var(--text-muted)]">Facilitator tip: the pass rule is not a formality. Announce it up front and never comment on a pass &mdash; the seat only works when it feels safe.</p>
+            </div>
+          </div>
+        </section>
+        <QuestionBank
+          heading="All 75 Hot Seat Questions"
+          intro="The complete interview deck, roughly ordered from warm-up to deep &mdash; pick your intensity or run it top to bottom."
+          questions={HOT_SEAT_QUESTIONS}
+        />
       </main>
       <Footer />
     </>

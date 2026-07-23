@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
+import QuestionBank from "@/components/QuestionBank";
+import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -56,6 +58,7 @@ export default function TwoTruthsAndALiePage() {
       <Navbar />
       <main className="flex-1">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Two Truths and a Lie" }]} />
+        <PartyIllustration game="two-truths-and-a-lie" />
         <PartyGenerator
           questions={TWO_TRUTHS_AND_A_LIE}
           title="Two Truths and a Lie"
@@ -95,6 +98,26 @@ export default function TwoTruthsAndALiePage() {
             </div>
           </div>
         </section>
+
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-5" style={{ fontFamily: "var(--font-display)" }}>
+              Four Ways to Play Two Truths and a Lie
+            </h2>
+            <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
+              <p><strong className="text-[var(--text-primary)]">Classic circle.</strong> Each player states three claims, the group votes on the lie, then the truth comes out. Points to everyone who spotted it &mdash; and a point to the liar for every person fooled.</p>
+              <p><strong className="text-[var(--text-primary)]">Interrogation round.</strong> Before voting, the group gets 30 seconds to cross-examine. Watching someone defend a fake vacation in real time is where this game earns its keep.</p>
+              <p><strong className="text-[var(--text-primary)]">Post-it wall.</strong> For big groups: everyone writes their three claims anonymously, the wall gets read aloud, and the room guesses both the author and the lie. Two mysteries per card.</p>
+              <p><strong className="text-[var(--text-primary)]">Work-safe onboarding.</strong> New-team icebreaker rules: claims stay professional-adjacent (hobbies, travel, skills &mdash; use the prompt list above), and the manager goes first to set the tone.</p>
+              <p className="text-xs text-[var(--text-muted)]">Strategy note: the best lie is a boring one sandwiched between two wild truths. Nobody suspects the mundane claim.</p>
+            </div>
+          </div>
+        </section>
+        <QuestionBank
+          heading="All 30 Prompt Ideas for Two Truths and a Lie"
+          intro="Stuck on what to claim? Thirty ready-made angles &mdash; travel stories, odd skills, brushes with fame &mdash; to build your two truths and one lie around."
+          questions={TWO_TRUTHS_AND_A_LIE}
+        />
       </main>
       <Footer />
     </>

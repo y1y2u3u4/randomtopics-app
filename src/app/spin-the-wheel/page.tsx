@@ -5,6 +5,9 @@ import WheelGenerator from "@/components/WheelGenerator";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { PartyIllustration } from "@/components/CategoryIllustration";
+import { CATEGORIES } from "@/data/types";
+import { topics } from "@/data/topics";
 
 export const metadata: Metadata = {
   title: "Spin the Wheel — Random Topic Wheel Generator, Free & No Signup",
@@ -56,6 +59,7 @@ export default function SpinTheWheelPage() {
       <Navbar />
       <main className="flex-1">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Spin the Wheel" }]} />
+        <PartyIllustration game="spin-the-wheel" />
         <WheelGenerator
           title="Spin the Wheel"
           subtitle="Spin the random topic wheel across 16 categories — one click, one topic, endless combinations."
@@ -145,6 +149,30 @@ export default function SpinTheWheelPage() {
                   <p>{item.answer}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* What can land on the wheel: one real topic per category, from the curated DB */}
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-3" style={{ fontFamily: "var(--font-display)" }}>
+              What Can Land on the Wheel
+            </h2>
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">
+              All sixteen wedges, each with a real example from the curated database it draws on &mdash;
+              so you know what kind of topic each slice can deal before you spin.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {CATEGORIES.map((cat) => {
+                const sample = topics.find((t) => t.category === cat.id && t.depth !== "light") ?? topics.find((t) => t.category === cat.id);
+                return (
+                  <Link key={cat.id} href={`/categories/${cat.id}`} className="rounded-xl border border-[rgba(255,255,255,0.06)] p-4 hover:border-[var(--neon-cyan)]/30 transition-all">
+                    <p className="text-xs font-bold text-[var(--text-primary)] mb-1">{cat.emoji} {cat.label}</p>
+                    {sample && <p className="text-[var(--text-secondary)] text-xs leading-relaxed">{sample.text}</p>}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>

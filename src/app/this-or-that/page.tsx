@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
+import QuestionBank from "@/components/QuestionBank";
+import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -57,6 +59,7 @@ export default function ThisOrThatPage() {
       <Navbar />
       <main className="flex-1">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "This or That" }]} />
+        <PartyIllustration game="this-or-that" />
         <PartyGenerator
           questions={THIS_OR_THAT}
           title="This or That Questions"
@@ -96,6 +99,27 @@ export default function ThisOrThatPage() {
             </div>
           </div>
         </section>
+
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-5" style={{ fontFamily: "var(--font-display)" }}>
+              Five Ways to Play This or That
+            </h2>
+            <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
+              <p><strong className="text-[var(--text-primary)]">Rapid fire.</strong> Three-second shot clock, answer by pointing left or right, no explanations allowed. Run 15 questions in two minutes &mdash; the speed is what makes answers honest.</p>
+              <p><strong className="text-[var(--text-primary)]">Four corners.</strong> The classroom classic: each wall is an option, students walk to their choice, then two volunteers per side defend it in one sentence. A bell-ringer that gets bodies moving.</p>
+              <p><strong className="text-[var(--text-primary)]">Sort the room.</strong> After answering, players line up by how strongly they feel, lukewarm in the middle. Suddenly a two-option question has a whole spectrum of takes to argue about.</p>
+              <p><strong className="text-[var(--text-primary)]">Couples predict.</strong> Write your answer down, then guess your partner&apos;s. A point per correct guess &mdash; low stakes, weirdly revealing.</p>
+              <p><strong className="text-[var(--text-primary)]">Road trip mode.</strong> Passenger reads, everyone answers in seat order, driver breaks ties. The no-wrong-answers format is exactly what hour three of a drive needs.</p>
+              <p className="text-xs text-[var(--text-muted)]">Facilitator tip: alternate easy comfort picks (coffee or tea) with genuinely hard ones &mdash; the rhythm keeps both kids and adults locked in.</p>
+            </div>
+          </div>
+        </section>
+        <QuestionBank
+          heading="All 38 This or That Questions"
+          intro="The complete deck of quick either/or prompts &mdash; scan it, steal from it, or copy the whole list for your next session."
+          questions={THIS_OR_THAT}
+        />
       </main>
       <Footer />
     </>
