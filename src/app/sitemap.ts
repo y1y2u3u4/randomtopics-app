@@ -63,9 +63,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const mode of MODES) entries.push({ path: `/${mode.slug}`, changeFrequency: "weekly", priority: 0.9 });
   for (const cat of CATEGORIES) entries.push({ path: `/categories/${cat.id}`, changeFrequency: "weekly", priority: 0.7 });
   for (const article of SEO_ARTICLES) entries.push({ path: `/topics/${article.slug}`, changeFrequency: "weekly", priority: 0.8 });
-  for (const mode of MODES)
-    for (const cat of CATEGORIES)
-      entries.push({ path: `/${mode.slug}/${cat.id}`, changeFrequency: "weekly", priority: 0.6 });
+  // mode×category combo pages are noindexed (thin template pages — AdSense
+  // "Low value content" remediation), so they no longer belong in the sitemap.
 
   const abs = (path: string) => (path === "/" ? SITE_URL : `${SITE_URL}${path}`);
 

@@ -2,6 +2,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import EditorsPicks from "@/components/EditorsPicks";
+import { ModeIllustration } from "@/components/CategoryIllustration";
+import { pickModeTopics } from "@/lib/editorial";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -73,6 +76,7 @@ export default function WritingPage() {
             { label: "Writing Prompts" },
           ]}
         />
+        <ModeIllustration mode="writing" />
         <TopicGenerator
           initialMode="writing"
           title="Writing Prompt Generator"
@@ -235,6 +239,11 @@ export default function WritingPage() {
             </div>
           </div>
         </section>
+        <EditorsPicks
+          heading="Writing Prompts with Angle Notes"
+          intro="Eight picks from the writing pool across every depth. The talking points work as a ready-made outline — copy a prompt with its angles straight into your draft."
+          topics={pickModeTopics("writing")}
+        />
       </main>
       <Footer />
     </>

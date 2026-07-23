@@ -1,8 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopicGenerator from "@/components/TopicGenerator";
+import EditorsPicks from "@/components/EditorsPicks";
 import Link from "next/link";
 import { MODES, CATEGORIES } from "@/data/types";
+import { pickFeaturedTopics } from "@/lib/editorial";
 
 export default function Home() {
   return (
@@ -28,6 +30,13 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Editorial feature: real topics + talking points from the database */}
+        <EditorsPicks
+          heading="Editor's Picks: Topics with Talking Points"
+          intro="A taste of the curated database — one pick from six different categories, each with the talking points our editors attached. Copy one straight into your notes, or hit Generate above for a fresh set."
+          topics={pickFeaturedTopics()}
+        />
 
         {/* Mode cards section */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 py-20">

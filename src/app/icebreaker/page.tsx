@@ -2,6 +2,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import EditorsPicks from "@/components/EditorsPicks";
+import { ModeIllustration } from "@/components/CategoryIllustration";
+import { pickModeTopics } from "@/lib/editorial";
 import Link from "next/link";
 import type { Metadata } from "next";
 import FaqSchema from "@/components/FaqSchema";
@@ -58,6 +61,7 @@ export default function IcebreakerPage() {
             { label: "Icebreaker Questions" },
           ]}
         />
+        <ModeIllustration mode="icebreaker" />
         <TopicGenerator
           initialMode="icebreaker"
           title="Icebreaker Question Generator"
@@ -192,6 +196,11 @@ export default function IcebreakerPage() {
             </div>
           </div>
         </section>
+        <EditorsPicks
+          heading="Icebreaker Questions with Facilitator Notes"
+          intro="Eight picks from the icebreaker pool, Light through Deep. The talking points tell you where each question tends to go — copy one with its notes into your session plan."
+          topics={pickModeTopics("icebreaker")}
+        />
       </main>
       <Footer />
     </>

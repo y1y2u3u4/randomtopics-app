@@ -2,6 +2,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import EditorsPicks from "@/components/EditorsPicks";
+import { ModeIllustration } from "@/components/CategoryIllustration";
+import { pickModeTopics } from "@/lib/editorial";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -71,6 +74,7 @@ export default function DebatePage() {
             { label: "Debate Topics" },
           ]}
         />
+        <ModeIllustration mode="debate" />
         <TopicGenerator
           initialMode="debate"
           title="Debate Topic Generator"
@@ -300,6 +304,11 @@ export default function DebatePage() {
             </Link>
           </div>
         </section>
+        <EditorsPicks
+          heading="Debate Topics with Prep Points"
+          intro="Eight motions from the debate pool, Light through Deep. The talking points give both sides their opening arguments — copy a motion with its prep straight into your round sheet."
+          topics={pickModeTopics("debate")}
+        />
       </main>
       <Footer />
     </>

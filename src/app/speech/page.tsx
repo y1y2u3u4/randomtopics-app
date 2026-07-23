@@ -2,6 +2,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import EditorsPicks from "@/components/EditorsPicks";
+import { ModeIllustration } from "@/components/CategoryIllustration";
+import { pickModeTopics } from "@/lib/editorial";
 import SpeechTimer from "@/components/SpeechTimer";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -59,6 +62,7 @@ export default function SpeechPage() {
             { label: "Speech Topics" },
           ]}
         />
+        <ModeIllustration mode="speech" />
         <TopicGenerator
           initialMode="speech"
           title="Speech Topic Generator"
@@ -135,6 +139,11 @@ export default function SpeechPage() {
             ))}
           </div>
         </section>
+        <EditorsPicks
+          heading="Speech Topics with Skeleton Points"
+          intro="Eight picks from the speech pool across every depth. The talking points double as a three-beat speech skeleton — copy one and you have your structure before you stand up."
+          topics={pickModeTopics("speech")}
+        />
       </main>
       <Footer />
     </>

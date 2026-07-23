@@ -58,6 +58,11 @@ export async function generateMetadata({ params }: ComboPageProps): Promise<Meta
   return {
     title,
     description,
+    // AdSense "Low value content" remediation (2026-07): these 80 mode×category
+    // combo pages share one template with ~2 differentiated fields (category
+    // intro + sample topics) — below the 3-field bar for standalone indexable
+    // pages. Keep them for users/navigation, but noindex like the /es combos.
+    robots: { index: false, follow: true },
     alternates: { canonical: `/${mode}/${category}` },
     openGraph: {
       title,

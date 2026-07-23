@@ -2,6 +2,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import EditorsPicks from "@/components/EditorsPicks";
+import { ModeIllustration } from "@/components/CategoryIllustration";
+import { pickModeTopics } from "@/lib/editorial";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -63,6 +66,7 @@ export default function ConversationPage() {
             { label: "Conversation Topics" },
           ]}
         />
+        <ModeIllustration mode="conversation" />
         <TopicGenerator
           initialMode="conversation"
           title="Conversation Topic Generator"
@@ -189,6 +193,11 @@ export default function ConversationPage() {
             </div>
           </div>
         </section>
+        <EditorsPicks
+          heading="Conversation Starters with Talking Points"
+          intro="Eight picks from the conversation pool, spread across Light, Medium, and Deep. Each shows the talking points our editors attached — copy one for your next dinner, date, or meeting, or save it for later."
+          topics={pickModeTopics("conversation")}
+        />
       </main>
       <Footer />
     </>

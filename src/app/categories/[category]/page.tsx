@@ -2,10 +2,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import EditorsPicks from "@/components/EditorsPicks";
+import CategoryIllustration from "@/components/CategoryIllustration";
 import Link from "next/link";
 import { CATEGORIES, MODES } from "@/data/types";
+import type { Category } from "@/data/types";
 import { categorySeoContent } from "@/data/categorySeoContent";
 import { categoryToArticles } from "@/data/internalLinks";
+import { pickCategoryTopics } from "@/lib/editorial";
 import type { Metadata } from "next";
 
 interface CategoryPageProps {
@@ -49,6 +53,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             { label: label },
           ]}
         />
+        <CategoryIllustration category={category as Category} />
         <TopicGenerator
           initialCategory={category as any}
           title={`${label} Topic Generator`}
@@ -95,6 +100,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 </ul>
               </div>
             </section>
+
+            {/* Editorial reference list: real topics + talking points from the curated DB */}
+            <EditorsPicks
+              heading={`${label} Topics with Talking Points`}
+              intro={`Eight picks from our curated ${label.toLowerCase()} database, spread across Light, Medium, and Deep. Each comes with the talking points our editors attached — copy one straight into your notes, or save it for later.`}
+              topics={pickCategoryTopics(category as Category)}
+            />
 
             {/* FAQ Section */}
             <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16">
