@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
+import { track } from "@/lib/track";
 import { motion, AnimatePresence } from "framer-motion";
 import { CATEGORIES, Category, Mode } from "@/data/types";
 import { getLocalizedTopics } from "@/data/topics.es";
@@ -43,6 +44,7 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
   const pendingWinner = useRef<number | null>(null);
 
   const spin = useCallback(() => {
+    track("spin_wheel");
     if (spinning) return;
     setResult(null);
     setSpinning(true);

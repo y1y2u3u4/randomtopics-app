@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@/lib/track";
 
 // Full browsable question bank for the party-game pages. The curated decks
 // used to live only inside the client generator — invisible as page content.
@@ -21,6 +22,7 @@ export default function QuestionBank({ questions, heading, intro }: QuestionBank
   const copyAll = async () => {
     try {
       await navigator.clipboard.writeText(questions.map((q, i) => `${i + 1}. ${q}`).join("\n"));
+      track("copy_deck", { deck: heading, deck_size: questions.length });
       setCopiedAll(true);
       setTimeout(() => setCopiedAll(false), 1800);
     } catch {
@@ -31,6 +33,7 @@ export default function QuestionBank({ questions, heading, intro }: QuestionBank
   const copyOne = async (q: string, i: number) => {
     try {
       await navigator.clipboard.writeText(q);
+      track("copy_question", { deck: heading });
       setCopiedIdx(i);
       setTimeout(() => setCopiedIdx(null), 1200);
     } catch {

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { Topic } from "@/data/types";
 import { MODES } from "@/data/types";
+import { track } from "@/lib/track";
 
 // Editorial reference list: real topics from the curated database, shown with
 // their talking points, depth, and best-fit modes — plus copy / save actions.
@@ -41,6 +42,7 @@ export default function EditorsPicks({ topics, heading, intro }: EditorsPicksPro
 
   const toggleSave = (id: string) => {
     const next = savedIds.includes(id) ? savedIds.filter((s) => s !== id) : [...savedIds, id];
+    if (!savedIds.includes(id)) track("save_topic", { topic_id: id });
     setSavedIds(next);
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
@@ -53,6 +55,7 @@ export default function EditorsPicks({ topics, heading, intro }: EditorsPicksPro
     const text = `${t.text}\n${t.talkingPoints.map((p) => `• ${p}`).join("\n")}`;
     try {
       await navigator.clipboard.writeText(text);
+      track("copy_topic", { topic_id: t.id, topic_category: t.category });
       setCopiedId(t.id);
       setTimeout(() => setCopiedId(null), 1500);
     } catch {

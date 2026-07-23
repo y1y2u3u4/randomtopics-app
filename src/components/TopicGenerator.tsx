@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Topic, Mode, Category, Depth, CATEGORIES, MODES, DEPTHS } from "@/data/types";
 import { getLocalizedTopics } from "@/data/topics.es";
 import TopicCard from "./TopicCard";
+import { track } from "@/lib/track";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { getDict, MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
 
@@ -51,6 +52,16 @@ export default function TopicGenerator({
   const generate = useCallback(async () => {
     setIsSpinning(true);
     setError(null);
+
+    // Usage telemetry: which mode/category/depth people actually generate.
+    // Feeds the /stats Usage Insights dataset (GA4 custom event).
+    track("generate_topic", {
+      gen_mode: selectedMode ?? "any",
+      gen_category: selectedCategory ?? "any",
+      gen_depth: selectedDepth ?? "any",
+      gen_count: count,
+      gen_locale: locale,
+    });
 
     // Spanish serves purely from the localized static database so results are
     // always in Spanish (the AI API returns English only).

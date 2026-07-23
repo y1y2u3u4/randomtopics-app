@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { track } from "@/lib/track";
 import { motion, AnimatePresence } from "framer-motion";
 import PrintButton from "./PrintButton";
 import { Locale, defaultLocale } from "@/i18n/config";
@@ -25,6 +26,7 @@ export default function PartyGenerator({ questions, title, subtitle, emoji, loca
   const [copied, setCopied] = useState(false);
 
   const generate = useCallback(() => {
+    track("deal_party_question", { deck: title });
     let pool = questions.map((_, i) => i).filter((i) => !used.has(i));
     let nextUsed = used;
     if (pool.length === 0) {

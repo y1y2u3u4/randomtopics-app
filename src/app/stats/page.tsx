@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CATEGORIES, MODES } from "@/data/types";
 import { topics } from "@/data/topics";
 import { SEO_ARTICLES } from "@/data/seoContent";
+import { usageInsights } from "@/data/usageInsights";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -90,6 +91,62 @@ export default function StatsPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+
+        {/* Usage Insights — REAL telemetry only. Until the first monthly pull,
+            this renders an honest "collecting" state (see data/usageInsights.ts). */}
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+          <div className="glass-card p-8 sm:p-10">
+            <h2
+              className="text-xl sm:text-2xl font-bold mb-3 text-[var(--text-primary)]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Usage Insights
+            </h2>
+            {usageInsights.updated ? (
+              <>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">
+                  What people actually generate on this site — real, measured numbers for{" "}
+                  {usageInsights.window}, pulled {usageInsights.updated}. Unlike the database
+                  breakdown above (what we curated), this is what visitors chose.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-[var(--text-secondary)]">
+                  <div>
+                    <h3 className="font-semibold text-[var(--text-primary)] mb-2">Most-generated categories</h3>
+                    <ol className="space-y-1 list-decimal pl-5">
+                      {usageInsights.topCategories.slice(0, 8).map((c) => (
+                        <li key={c.category}>{c.category} — {c.count.toLocaleString()}</li>
+                      ))}
+                    </ol>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-[var(--text-primary)] mb-2">Depth people choose</h3>
+                    <ol className="space-y-1 list-decimal pl-5">
+                      {usageInsights.depthSplit.map((d) => (
+                        <li key={d.depth}>{d.depth} — {d.count.toLocaleString()}</li>
+                      ))}
+                    </ol>
+                    <h3 className="font-semibold text-[var(--text-primary)] mb-2 mt-4">Most-copied decks</h3>
+                    <ol className="space-y-1 list-decimal pl-5">
+                      {usageInsights.topDecks.slice(0, 5).map((d) => (
+                        <li key={d.deck}>{d.deck} — {d.count.toLocaleString()}</li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                Coming soon — and honestly. We started measuring real usage (which categories,
+                modes, and depth levels people actually generate, and which party decks get
+                copied) on <strong className="text-[var(--text-primary)]">July 23, 2026</strong>.
+                Once a full month of data is in, this section will show the real numbers —
+                measured, never estimated. Everything above this line describes the curated
+                database itself, not usage.
+              </p>
+            )}
           </div>
         </section>
 
