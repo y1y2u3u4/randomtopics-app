@@ -13,6 +13,14 @@ export interface GenerateTopicsResult {
   topics: GeneratedTopic[];
 }
 
+interface RawTopic {
+  text?: unknown;
+  category?: unknown;
+  modes?: unknown;
+  depth?: unknown;
+  talkingPoints?: unknown;
+}
+
 const VALID_CATEGORIES: Category[] = [
   'science', 'technology', 'philosophy', 'psychology', 'history',
   'art-culture', 'food-travel', 'relationships', 'education', 'politics',
@@ -98,21 +106,46 @@ No additional text or markdown.`
     jsonContent = jsonContent.replace(/^```(?:json)?\s*\n?/, '').replace(/\n?```\s*$/, '');
   }
 
-  const parsed = JSON.parse(jsonContent);
-  const rawTopics = parsed.topics || (Array.isArray(parsed) ? parsed : []);
+  const parsed: unknown = JSON.parse(jsonContent);
+  const rawTopics: unknown[] = Array.isArray(parsed)
+    ? parsed
+    : typeof parsed === 'object' &&
+        parsed !== null &&
+        'topics' in parsed &&
+        Array.isArray(parsed.topics)
+      ? parsed.topics
+      : [];
 
-  const topics: GeneratedTopic[] = rawTopics.map((t: any, i: number) => ({
-    id: `ai-${Date.now()}-${i}`,
-    text: String(t.text || ''),
-    category: VALID_CATEGORIES.includes(t.category) ? t.category : 'weird-fun',
-    modes: Array.isArray(t.modes)
-      ? t.modes.filter((m: string) => VALID_MODES.includes(m as Mode))
-      : ['conversation'],
-    depth: VALID_DEPTHS.includes(t.depth) ? t.depth : 'medium',
-    talkingPoints: Array.isArray(t.talkingPoints)
-      ? t.talkingPoints.slice(0, 4).map(String)
-      : [],
-  }));
+  const topics: GeneratedTopic[] = rawTopics.map((candidate, i) => {
+    const topic: RawTopic =
+      typeof candidate === 'object' && candidate !== null ? candidate : {};
+    const category =
+      typeof topic.category === 'string' &&
+      VALID_CATEGORIES.includes(topic.category as Category)
+        ? (topic.category as Category)
+        : 'weird-fun';
+    const modes: Mode[] = Array.isArray(topic.modes)
+      ? topic.modes.filter(
+          (mode): mode is Mode =>
+            typeof mode === 'string' && VALID_MODES.includes(mode as Mode)
+        )
+      : ['conversation'];
+    const depth =
+      typeof topic.depth === 'string' && VALID_DEPTHS.includes(topic.depth as Depth)
+        ? (topic.depth as Depth)
+        : 'medium';
+
+    return {
+      id: `ai-${Date.now()}-${i}`,
+      text: String(topic.text || ''),
+      category,
+      modes,
+      depth,
+      talkingPoints: Array.isArray(topic.talkingPoints)
+        ? topic.talkingPoints.slice(0, 4).map(String)
+        : [],
+    };
+  });
 
   return { topics };
 }

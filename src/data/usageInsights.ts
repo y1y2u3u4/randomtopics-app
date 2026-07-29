@@ -4,6 +4,9 @@
 //   generate_topic  { gen_mode, gen_category, gen_depth, gen_count, gen_locale }
 //   copy_topic      { topic_id, topic_category }
 //   save_topic      { topic_id }
+//   remove_saved_topic { topic_id, topic_category }
+//   share_topic     { topic_id, topic_category, share_method }
+//   clear_recent_topics
 //   copy_deck       { deck, deck_size }
 //   copy_question   { deck }
 //   deal_party_question { deck }

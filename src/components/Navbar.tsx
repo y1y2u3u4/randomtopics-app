@@ -6,12 +6,16 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MODES } from "@/data/types";
 import { localeFromPath, localeBase, localizePath } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 import { getDict, MODE_LABELS } from "@/i18n/dictionaries";
 import LocaleSwitcher from "./LocaleSwitcher";
 
-export default function Navbar() {
+export default function Navbar({
+  locale: localeOverride,
+  showLocaleSwitcher = true,
+}: { locale?: Locale; showLocaleSwitcher?: boolean } = {}) {
   const pathname = usePathname() || "/";
-  const locale = localeFromPath(pathname);
+  const locale = localeOverride ?? localeFromPath(pathname);
   const base = localeBase(locale);
   const t = getDict(locale);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -53,7 +57,15 @@ export default function Navbar() {
             >
               <span className="mr-1">😂</span>{t.nav.funny}
             </Link>
-            <LocaleSwitcher />
+            <Link
+              href={`${base}/saved-topics`}
+              className={`nav-link px-3 py-2 rounded-lg text-sm transition-colors ${
+                pathname === `${base}/saved-topics` ? "active" : ""
+              }`}
+            >
+              <span className="mr-1">★</span>{t.nav.saved}
+            </Link>
+            {showLocaleSwitcher && <LocaleSwitcher />}
           </div>
 
           {/* Mobile hamburger */}
@@ -115,7 +127,16 @@ export default function Navbar() {
                   >
                     <span className="mr-2">📂</span>{t.nav.allCategories}
                   </Link>
-                  <div className="pt-1"><LocaleSwitcher /></div>
+                  <Link
+                    href={`${base}/saved-topics`}
+                    onClick={() => setMobileOpen(false)}
+                    className={`nav-link px-3 py-2.5 rounded-lg text-sm ${
+                      pathname === `${base}/saved-topics` ? "active" : ""
+                    }`}
+                  >
+                    <span className="mr-2">★</span>{t.nav.saved}
+                  </Link>
+                  {showLocaleSwitcher && <div className="pt-1"><LocaleSwitcher /></div>}
                 </div>
               </div>
             </motion.div>

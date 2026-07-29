@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -172,12 +173,12 @@ export default function AboutPage() {
             <p className="text-[var(--text-secondary)]">
               Ready to discover your next great topic?
             </p>
-            <a
+            <Link
               href="/"
               className="btn-generate inline-block"
             >
               Start Generating
-            </a>
+            </Link>
           </section>
         </div>
       </main>

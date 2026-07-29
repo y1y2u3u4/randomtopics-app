@@ -74,7 +74,7 @@ export default function ThisOrThatPage() {
             </h2>
             <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
               <p>
-                <strong>This or That</strong> works because it demands an instant choice. There's no wrong
+                <strong>This or That</strong> works because it demands an instant choice. There&apos;s no wrong
                 answer and no long setup — just two options and a snap decision, which is exactly why it
                 wakes up sleepy classrooms and warms up quiet parties. This generator deals from a curated
                 deck of clean either/or prompts, one per click, with no repeats until the deck runs out.

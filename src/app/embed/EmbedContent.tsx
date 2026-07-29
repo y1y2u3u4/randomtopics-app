@@ -1,9 +1,16 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import { topics } from "@/data/topics";
 import { Topic, Mode, Category, CATEGORIES } from "@/data/types";
+
+function pickTopic(mode: Mode | null, category: Category | null): Topic | null {
+  let pool = [...topics];
+  if (mode) pool = pool.filter((topic) => topic.modes.includes(mode));
+  if (category) pool = pool.filter((topic) => topic.category === category);
+  return pool[Math.floor(Math.random() * pool.length)] ?? null;
+}
 
 export default function EmbedContent() {
   const searchParams = useSearchParams();
@@ -11,19 +18,11 @@ export default function EmbedContent() {
   const category = searchParams.get("category") as Category | null;
   const theme = searchParams.get("theme") || "dark";
 
-  const [topic, setTopic] = useState<Topic | null>(null);
+  const [topic, setTopic] = useState<Topic | null>(() => pickTopic(mode, category));
 
   const generate = useCallback(() => {
-    let pool = [...topics];
-    if (mode) pool = pool.filter((t) => t.modes.includes(mode));
-    if (category) pool = pool.filter((t) => t.category === category);
-    const picked = pool[Math.floor(Math.random() * pool.length)];
-    setTopic(picked || null);
+    setTopic(pickTopic(mode, category));
   }, [mode, category]);
-
-  useEffect(() => {
-    generate();
-  }, [generate]);
 
   const isDark = theme === "dark";
   const bg = isDark ? "#0e0e1a" : "#ffffff";

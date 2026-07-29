@@ -11,6 +11,7 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
 
   const tools: { href: string; label: string }[] = [
     { href: localizePath("/", locale), label: "🎲 Random Topic Generator" },
+    { href: `${base}/saved-topics`, label: `★ ${t.nav.saved}` },
     { href: `${base}/funny`, label: `😂 ${t.footer.funnyTopics}` },
     { href: `${base}/argument-generator`, label: `⚖️ ${t.footer.argumentGenerator}` },
     { href: `${base}/table-topics-generator`, label: `🎙️ ${t.footer.tableTopics}` },
@@ -40,6 +41,7 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
           { href: "/speech/informative", label: "📖 Informative Speech Topics" },
           { href: "/debate/questions", label: "💬 Debate Question Generator" },
           { href: "/debate/motions", label: "🏛️ Debate Motions" },
+          { href: "/pro-and-con-debate-topics", label: "↔️ Pro & Con Debate Topics" },
         ]
       : []),
   ];

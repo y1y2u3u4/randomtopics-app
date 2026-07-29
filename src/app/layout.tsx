@@ -19,7 +19,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Free Random Topic Generator — 500+ Random Topics for Any Occasion",
+    default: "Free Random Topic Generator — Get a Topic Instantly (500+ Ideas)",
     template: "%s | Random Topic Generator",
   },
   description:
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "speech topics",
   ],
   openGraph: {
-    title: "Free Random Topic Generator — 500+ Random Topics for Any Occasion",
+    title: "Free Random Topic Generator — Get a Topic Instantly (500+ Ideas)",
     description:
       "Free random topic generator with 500+ curated topics. Instant conversation starters, writing prompts, debate topics & icebreakers. No signup needed!",
     url: "https://randomtopics.app",
@@ -69,6 +69,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
+  other: {
+    "google-adsense-account": "ca-pub-1513206179290827",
+  },
 };
 
 export default function RootLayout({
@@ -82,7 +85,7 @@ export default function RootLayout({
         <Script
           src="https://analytics.flashcardmaker.me/script.js"
           data-website-id="15509cd4-881c-4ed8-8dd6-bb64822993ee"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         {/* Google tag (gtag.js) */}
         <Script
@@ -97,12 +100,6 @@ export default function RootLayout({
             gtag('config', 'G-C23RTYX4QS');
           `}
         </Script>
-        {/* Google AdSense */}
-        <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1513206179290827"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
         {/* Structured data — Organization + WebSite + WebApplication.

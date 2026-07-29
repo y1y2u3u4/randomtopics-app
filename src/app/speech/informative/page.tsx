@@ -192,7 +192,6 @@ const FAQ_ITEMS = [
 ];
 
 export default function InformativeSpeechTopicsPage() {
-  let counter = 0;
   return (
     <>
       <FaqSchema items={FAQ_ITEMS} />
@@ -248,9 +247,11 @@ export default function InformativeSpeechTopicsPage() {
         </section>
 
         {/* Topics by theme */}
-        {TOPIC_SECTIONS.map((section) => {
-          const startAt = counter;
-          counter += section.topics.length;
+        {TOPIC_SECTIONS.map((section, sectionIndex) => {
+          const startAt = TOPIC_SECTIONS.slice(0, sectionIndex).reduce(
+            (total, previousSection) => total + previousSection.topics.length,
+            0
+          );
           return (
             <section
               key={section.theme}
@@ -299,7 +300,7 @@ export default function InformativeSpeechTopicsPage() {
               <p>
                 An <strong>informative speech topic</strong> earns attention with a question and
                 keeps it with structure. The reliable skeleton: open with the question your topic
-                answers ("Where does lost luggage actually go?"), preview your two or three main
+                answers (&quot;Where does lost luggage actually go?&quot;), preview your two or three main
                 points, teach each one with a concrete example or number, and close by returning to
                 the opening question — now answered. If your audience can explain the idea to a
                 friend afterward, the speech worked.

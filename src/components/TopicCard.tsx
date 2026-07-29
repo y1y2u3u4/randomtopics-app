@@ -1,32 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 import { Topic, CATEGORIES } from "@/data/types";
 import ShareButtons from "./ShareButtons";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { getDict, CATEGORY_LABELS } from "@/i18n/dictionaries";
-
-function getFavorites(): string[] {
-  if (typeof window === "undefined") return [];
-  try {
-    return JSON.parse(localStorage.getItem("rt_favorites") || "[]");
-  } catch { return []; }
-}
-
-function toggleFavorite(topicId: string): boolean {
-  const favs = getFavorites();
-  const idx = favs.indexOf(topicId);
-  if (idx >= 0) {
-    favs.splice(idx, 1);
-    localStorage.setItem("rt_favorites", JSON.stringify(favs));
-    return false;
-  } else {
-    favs.unshift(topicId);
-    localStorage.setItem("rt_favorites", JSON.stringify(favs.slice(0, 100)));
-    return true;
-  }
-}
+import { track } from "@/lib/track";
+import {
+  getEmptyTopicLibrarySnapshot,
+  getFavoriteTopicsSnapshot,
+  subscribeToTopicLibrary,
+  toggleFavoriteTopic,
+} from "@/lib/topicLibrary";
 
 interface TopicCardProps {
   topic: Topic;
@@ -54,20 +40,38 @@ const depthColors = {
 
 export default function TopicCard({ topic, index = 0, locale = defaultLocale }: TopicCardProps) {
   const [copied, setCopied] = useState(false);
-  const [isFav, setIsFav] = useState(false);
   const t = getDict(locale);
   const categoryEmoji = CATEGORIES.find((c) => c.id === topic.category)?.emoji;
   const categoryLabel = CATEGORY_LABELS[locale][topic.category]?.label;
   const depth = depthColors[topic.depth] || depthColors.light;
 
-  useEffect(() => {
-    setIsFav(getFavorites().includes(topic.id));
-  }, [topic.id]);
+  const favoriteSnapshot = useSyncExternalStore(
+    subscribeToTopicLibrary,
+    getFavoriteTopicsSnapshot,
+    getEmptyTopicLibrarySnapshot
+  );
+  const isFav = (JSON.parse(favoriteSnapshot) as Topic[]).some((saved) => saved.id === topic.id);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(topic.text);
+    track("copy_topic", {
+      topic_id: topic.id,
+      topic_category: topic.category,
+      copy_surface: "generated_card",
+      topic_locale: locale,
+    });
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleFavorite = () => {
+    const added = toggleFavoriteTopic(topic);
+    track(added ? "save_topic" : "remove_saved_topic", {
+      topic_id: topic.id,
+      topic_category: topic.category,
+      save_surface: "generated_card",
+      topic_locale: locale,
+    });
   };
 
   return (
@@ -127,7 +131,7 @@ export default function TopicCard({ topic, index = 0, locale = defaultLocale }: 
         {/* Favorite + Copy buttons */}
         <div className="flex items-center gap-1.5">
         <button
-          onClick={() => setIsFav(toggleFavorite(topic.id))}
+          onClick={handleFavorite}
           title={isFav ? t.card.removeFav : t.card.saveFav}
           style={{
             flexShrink: 0,
@@ -284,7 +288,7 @@ export default function TopicCard({ topic, index = 0, locale = defaultLocale }: 
             </span>
           ))}
         </div>
-        <ShareButtons topic={topic} />
+        <ShareButtons topic={topic} locale={locale} />
       </div>
     </motion.div>
   );

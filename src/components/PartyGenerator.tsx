@@ -40,7 +40,7 @@ export default function PartyGenerator({ questions, title, subtitle, emoji, loca
     setUsed(s);
     setCurrent(questions[idx]);
     setCopied(false);
-  }, [questions, used]);
+  }, [questions, title, used]);
 
   const copy = useCallback(async () => {
     if (!current) return;

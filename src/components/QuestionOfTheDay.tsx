@@ -31,11 +31,14 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
   const [used, setUsed] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    const now = new Date();
-    setTodayIdx(qotdIndexForDate(now));
-    setDateLabel(
-      now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })
-    );
+    const timeout = window.setTimeout(() => {
+      const now = new Date();
+      setTodayIdx(qotdIndexForDate(now));
+      setDateLabel(
+        now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })
+      );
+    }, 0);
+    return () => window.clearTimeout(timeout);
   }, []);
 
   const pool = useMemo(

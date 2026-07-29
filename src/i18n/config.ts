@@ -54,6 +54,7 @@ export const SITE_URL = "https://randomtopics.app";
 export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/how-we-curate",
   "/random-subject-generator",
+  "/pro-and-con-debate-topics",
   "/essay-topic-generator",
   "/debate/questions",
   "/debate/motions",
@@ -90,7 +91,7 @@ export function isModeCategoryPath(rootPath: string): boolean {
  * crawl budget on the /es hubs and topic articles that do rank.
  */
 export function isEnOnly(rootPath: string): boolean {
-  return EN_ONLY_PATHS.has(rootPath) || isModeCategoryPath(rootPath);
+  return EN_ONLY_PATHS.has(rootPath) || rootPath.startsWith("/share") || isModeCategoryPath(rootPath);
 }
 
 /**

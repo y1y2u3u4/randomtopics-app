@@ -237,7 +237,6 @@ const FAQ_ITEMS = [
 ];
 
 export default function DebateMotionsPage() {
-  let counter = 0;
   return (
     <>
       <FaqSchema items={FAQ_ITEMS} />
@@ -292,9 +291,11 @@ export default function DebateMotionsPage() {
         </section>
 
         {/* Motions by theme */}
-        {MOTION_SECTIONS.map((section) => {
-          const startAt = counter;
-          counter += section.motions.length;
+        {MOTION_SECTIONS.map((section, sectionIndex) => {
+          const startAt = MOTION_SECTIONS.slice(0, sectionIndex).reduce(
+            (total, previousSection) => total + previousSection.motions.length,
+            0
+          );
           return (
             <section
               key={section.theme}

@@ -7,7 +7,7 @@ import type { Category, Mode } from "@/data/types";
 export interface UIDict {
   langName: string;
   switchLang: string;
-  nav: { funny: string; allCategories: string };
+  nav: { funny: string; allCategories: string; saved: string };
   generator: {
     heroLine1: string;
     heroLine2: string;
@@ -66,7 +66,7 @@ export interface UIDict {
 const en: UIDict = {
   langName: "English",
   switchLang: "Español",
-  nav: { funny: "Funny", allCategories: "All Categories" },
+  nav: { funny: "Funny", allCategories: "All Categories", saved: "Saved" },
   generator: {
     heroLine1: "Random Topic",
     heroLine2: "Generator",
@@ -146,7 +146,7 @@ const en: UIDict = {
 const es: UIDict = {
   langName: "Español",
   switchLang: "English",
-  nav: { funny: "Divertido", allCategories: "Todas las Categorías" },
+  nav: { funny: "Divertido", allCategories: "Todas las Categorías", saved: "Guardados" },
   generator: {
     heroLine1: "Generador de",
     heroLine2: "Temas",

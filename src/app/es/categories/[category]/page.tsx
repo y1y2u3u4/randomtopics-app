@@ -36,7 +36,6 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
 export default async function CategoryPageEs({ params }: CategoryPageProps) {
   const { category } = await params;
-  const cat = CATEGORIES.find((c) => c.id === category);
   const catL = CATEGORY_LABELS.es[category as Category];
   const label = catL?.label ?? "Temas";
   const seoContent = categorySeoContentEs[category as Category];

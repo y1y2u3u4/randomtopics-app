@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Topic, Mode, Category, Depth, CATEGORIES, MODES, DEPTHS } from "@/data/types";
 import { getLocalizedTopics } from "@/data/topics.es";
@@ -8,6 +9,7 @@ import TopicCard from "./TopicCard";
 import { track } from "@/lib/track";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { getDict, MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
+import { recordRecentTopics } from "@/lib/topicLibrary";
 
 interface TopicGeneratorProps {
   initialMode?: Mode | null;
@@ -38,7 +40,6 @@ export default function TopicGenerator({
   const [generatedTopics, setGeneratedTopics] = useState<Topic[]>([]);
   const [isSpinning, setIsSpinning] = useState(false);
   const [hasGenerated, setHasGenerated] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   const generateFromStatic = useCallback(() => {
     let pool = [...getLocalizedTopics(locale)];
@@ -49,9 +50,15 @@ export default function TopicGenerator({
     return shuffled.slice(0, Math.min(count, shuffled.length));
   }, [selectedMode, selectedCategory, selectedDepth, count, locale]);
 
+  const finishGeneration = useCallback((nextTopics: Topic[]) => {
+    setGeneratedTopics(nextTopics);
+    recordRecentTopics(nextTopics);
+    setIsSpinning(false);
+    setHasGenerated(true);
+  }, []);
+
   const generate = useCallback(async () => {
     setIsSpinning(true);
-    setError(null);
 
     // Usage telemetry: which mode/category/depth people actually generate.
     // Feeds the /stats Usage Insights dataset (GA4 custom event).
@@ -66,9 +73,7 @@ export default function TopicGenerator({
     // Spanish serves purely from the localized static database so results are
     // always in Spanish (the AI API returns English only).
     if (locale === "es") {
-      setGeneratedTopics(generateFromStatic());
-      setIsSpinning(false);
-      setHasGenerated(true);
+      finishGeneration(generateFromStatic());
       return;
     }
 
@@ -90,19 +95,16 @@ export default function TopicGenerator({
 
       const data = await res.json();
       if (data.topics && data.topics.length > 0) {
-        setGeneratedTopics(data.topics);
+        finishGeneration(data.topics);
       } else {
         // Fallback to static if AI returns empty
-        setGeneratedTopics(generateFromStatic());
+        finishGeneration(generateFromStatic());
       }
     } catch {
       // Fallback to static database on any error
-      setGeneratedTopics(generateFromStatic());
+      finishGeneration(generateFromStatic());
     }
-
-    setIsSpinning(false);
-    setHasGenerated(true);
-  }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, locale]);
+  }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, finishGeneration, locale]);
 
   const showModeSelector = !initialMode;
   const showCategorySelector = !initialCategory;
@@ -261,9 +263,61 @@ export default function TopicGenerator({
             className="space-y-4 pb-16"
           >
             {generatedTopics.length > 0 ? (
-              generatedTopics.map((topic, i) => (
-                <TopicCard key={topic.id} topic={topic} index={i} locale={locale} />
-              ))
+              <>
+                {generatedTopics.map((topic, i) => (
+                  <TopicCard key={topic.id} topic={topic} index={i} locale={locale} />
+                ))}
+                <div className="glass-card p-5 sm:p-6">
+                  <p className="text-sm font-semibold text-[var(--text-primary)] mb-3">
+                    {locale === "es" ? "Guarda tus favoritos o sigue explorando" : "Save your favorites or keep exploring"}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <Link
+                      href={locale === "es" ? "/es/saved-topics" : "/saved-topics"}
+                      className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-pink)]/30 text-[var(--neon-pink)] hover:bg-[var(--neon-pink)]/10 transition-colors"
+                    >
+                      {locale === "es" ? "★ Temas guardados" : "★ Saved topics"}
+                    </Link>
+                    {selectedMode === "debate" ? (
+                      <>
+                        <Link href={locale === "es" ? "/es/debate/students" : "/pro-and-con-debate-topics"} className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/10 transition-colors">
+                          {locale === "es" ? "Temas para estudiantes" : "100 pro & con topics"}
+                        </Link>
+                        <Link href={locale === "es" ? "/es/debate" : "/debate/motions"} className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-white/20 transition-colors">
+                          {locale === "es" ? "Más temas de debate" : "Debate motions"}
+                        </Link>
+                      </>
+                    ) : selectedMode === "speech" ? (
+                      <>
+                        <Link href={locale === "es" ? "/es/table-topics-generator" : "/table-topics-generator"} className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/10 transition-colors">
+                          Table Topics
+                        </Link>
+                        <Link href={locale === "es" ? "/es/impromptu-speech-topics" : "/impromptu-speech-topics"} className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-white/20 transition-colors">
+                          {locale === "es" ? "Práctica improvisada" : "Impromptu practice"}
+                        </Link>
+                      </>
+                    ) : selectedMode === "conversation" ? (
+                      <>
+                        <Link href={locale === "es" ? "/es/topics/conversation-starters-for-couples" : "/topics/conversation-starters-for-couples"} className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/10 transition-colors">
+                          {locale === "es" ? "Listas de conversación" : "Conversation lists"}
+                        </Link>
+                        <Link href={locale === "es" ? "/es/question-generator" : "/question-generator"} className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-white/20 transition-colors">
+                          {locale === "es" ? "Generador de preguntas" : "Question generator"}
+                        </Link>
+                      </>
+                    ) : (
+                      <>
+                        <Link href={locale === "es" ? "/es/categories" : "/random-subject-generator"} className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/10 transition-colors">
+                          {locale === "es" ? "Explorar categorías" : "Random subject generator"}
+                        </Link>
+                        <Link href={locale === "es" ? "/es/spin-the-wheel" : "/spin-the-wheel"} className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-white/20 transition-colors">
+                          {locale === "es" ? "Gira la rueda" : "Spin the wheel"}
+                        </Link>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </>
             ) : (
               <div className="glass-card text-center py-16 px-6">
                 <motion.p

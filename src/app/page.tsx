@@ -13,6 +13,25 @@ export default function Home() {
       <main className="flex-1">
         <TopicGenerator />
 
+        {/* High-intent handoff: helps the dedicated subject page own its query
+            instead of forcing Google to route "random subject generator" to /. */}
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-8">
+          <div className="glass-card p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-cyan)]/20">
+            <div>
+              <p className="text-sm font-bold text-[var(--text-primary)]">Need a school subject instead of a topic?</p>
+              <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
+                Pick from 16 subjects for study drills, assignments, presentations, and revision roulette.
+              </p>
+            </div>
+            <Link
+              href="/random-subject-generator"
+              className="text-sm font-semibold text-[var(--neon-cyan)] whitespace-nowrap hover:underline"
+            >
+              Random Subject Generator →
+            </Link>
+          </div>
+        </section>
+
         {/* Social proof / stats bar */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
           <div className="grid grid-cols-3 gap-4">
@@ -326,7 +345,7 @@ export default function Home() {
               </h3>
               <p>
                 Stuck in small talk? Use the random topic generator in{" "}
-                <Link href="/conversation" className="text-[var(--neon-cyan)] hover:underline">conversation mode</Link>{" "}
+                <Link href="/conversation" className="text-[var(--neon-cyan)] underline underline-offset-2">conversation mode</Link>{" "}
                 to discover thought-provoking discussion starters. Whether you&apos;re on a first date, at a
                 networking event, or just hanging out with friends, a well-chosen topic transforms
                 an awkward silence into an engaging exchange. Our conversation topics span casual
@@ -346,10 +365,10 @@ export default function Home() {
                 posts, short stories, journal entries, or creative nonfiction. Each writing topic
                 comes with angle suggestions and talking points to help you develop your piece.
                 Whether you&apos;re a student looking for{" "}
-                <Link href="/essay-topic-generator" className="text-[var(--neon-cyan)] hover:underline">essay ideas</Link>{" "}
+                <Link href="/essay-topic-generator" className="text-[var(--neon-cyan)] underline underline-offset-2">essay ideas</Link>{" "}
                 or a professional content creator seeking fresh angles, the generator delivers
                 inspiration instantly. Not sure what to write about at all? Spin a{" "}
-                <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">random subject</Link>{" "}
+                <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] underline underline-offset-2">random subject</Link>{" "}
                 and get assigned a school subject to explore.
               </p>
 

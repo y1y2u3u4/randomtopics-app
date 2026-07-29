@@ -214,7 +214,6 @@ const FAQ_ITEMS = [
 ];
 
 export default function PersuasiveSpeechTopicsPage() {
-  let counter = 0;
   return (
     <>
       <FaqSchema items={FAQ_ITEMS} />
@@ -270,9 +269,11 @@ export default function PersuasiveSpeechTopicsPage() {
         </section>
 
         {/* Topics by theme */}
-        {TOPIC_SECTIONS.map((section) => {
-          const startAt = counter;
-          counter += section.topics.length;
+        {TOPIC_SECTIONS.map((section, sectionIndex) => {
+          const startAt = TOPIC_SECTIONS.slice(0, sectionIndex).reduce(
+            (total, previousSection) => total + previousSection.topics.length,
+            0
+          );
           return (
             <section
               key={section.theme}

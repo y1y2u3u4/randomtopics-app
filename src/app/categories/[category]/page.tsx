@@ -56,7 +56,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         />
         <CategoryIllustration category={category as Category} />
         <TopicGenerator
-          initialCategory={category as any}
+          initialCategory={category as Category}
           title={`${label} Topic Generator`}
           subtitle={cat?.description ?? "Explore interesting topics in this category."}
         />

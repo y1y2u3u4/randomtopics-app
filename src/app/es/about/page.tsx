@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
 
@@ -178,12 +179,12 @@ export default function AboutPageEs() {
             <p className="text-[var(--text-secondary)]">
               ¿Listo para descubrir tu próximo gran tema?
             </p>
-            <a
+            <Link
               href="/es"
               className="btn-generate inline-block"
             >
               Empezar a Generar
-            </a>
+            </Link>
           </section>
         </div>
       </main>

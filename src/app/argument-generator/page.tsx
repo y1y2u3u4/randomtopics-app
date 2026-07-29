@@ -101,7 +101,7 @@ export default function ArgumentGeneratorPage() {
                 <li><strong>State the claim precisely.</strong> Vague claims produce vague arguments. Narrow &quot;technology is bad&quot; down to &quot;smartphones should be banned in middle school classrooms.&quot;</li>
                 <li><strong>Give reasons, then evidence.</strong> A reason explains why your claim is true; evidence shows it. &quot;Phones hurt focus (reason) — a 2024 study found test scores rose 6% after phone bans (evidence).&quot;</li>
                 <li><strong>Steelman the other side.</strong> Before dismissing an objection, state it in its strongest form. Beating a weak version of the counterargument convinces no one.</li>
-                <li><strong>Land the impact.</strong> Explain why your argument matters: who benefits, what changes, what's at stake if you're wrong.</li>
+                <li><strong>Land the impact.</strong> Explain why your argument matters: who benefits, what changes, what&apos;s at stake if you&apos;re wrong.</li>
               </ol>
 
               <h3

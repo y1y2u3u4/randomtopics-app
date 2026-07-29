@@ -1,9 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import type { Topic } from "@/data/types";
 import { MODES } from "@/data/types";
 import { track } from "@/lib/track";
+import {
+  getEmptyTopicLibrarySnapshot,
+  getFavoriteTopicsSnapshot,
+  subscribeToTopicLibrary,
+  toggleFavoriteTopic,
+} from "@/lib/topicLibrary";
 
 // Editorial reference list: real topics from the curated database, shown with
 // their talking points, depth, and best-fit modes — plus copy / save actions.
@@ -22,33 +28,23 @@ const DEPTH_STYLE: Record<string, { label: string; color: string }> = {
   deep: { label: "Deep", color: "var(--neon-pink)" },
 };
 
-const STORAGE_KEY = "rt-saved-topics";
-
-function readSaved(): string[] {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "[]");
-  } catch {
-    return [];
-  }
-}
-
 export default function EditorsPicks({ topics, heading, intro }: EditorsPicksProps) {
-  const [savedIds, setSavedIds] = useState<string[]>([]);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const favoriteSnapshot = useSyncExternalStore(
+    subscribeToTopicLibrary,
+    getFavoriteTopicsSnapshot,
+    getEmptyTopicLibrarySnapshot
+  );
+  const savedIds = (JSON.parse(favoriteSnapshot) as Topic[]).map((topic) => topic.id);
 
-  useEffect(() => {
-    setSavedIds(readSaved());
-  }, []);
-
-  const toggleSave = (id: string) => {
-    const next = savedIds.includes(id) ? savedIds.filter((s) => s !== id) : [...savedIds, id];
-    if (!savedIds.includes(id)) track("save_topic", { topic_id: id });
-    setSavedIds(next);
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-    } catch {
-      /* private mode */
-    }
+  const toggleSave = (topic: Topic) => {
+    const added = toggleFavoriteTopic(topic);
+    track(added ? "save_topic" : "remove_saved_topic", {
+      topic_id: topic.id,
+      topic_category: topic.category,
+      save_surface: "editors_picks",
+      topic_locale: "en",
+    });
   };
 
   const copyTopic = async (t: Topic) => {
@@ -99,7 +95,7 @@ export default function EditorsPicks({ topics, heading, intro }: EditorsPicksPro
                       {copiedId === t.id ? "✓ Copied" : "Copy"}
                     </button>
                     <button
-                      onClick={() => toggleSave(t.id)}
+                      onClick={() => toggleSave(t)}
                       aria-label={isSaved ? "Remove from saved topics" : "Save topic"}
                       className={`text-xs px-2.5 py-1.5 rounded-lg border transition-all ${
                         isSaved

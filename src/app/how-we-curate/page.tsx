@@ -4,7 +4,6 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { topics } from "@/data/topics";
-import { CATEGORIES } from "@/data/types";
 
 export const metadata: Metadata = {
   title: "How We Curate — Editorial Standards Behind the Topic Database",

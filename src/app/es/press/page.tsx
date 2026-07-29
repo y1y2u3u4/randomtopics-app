@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
+import Link from "next/link";
 import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
 import CopyBlock from "../../press/CopyBlock";
@@ -283,9 +284,9 @@ export default function PressPageEs() {
             <p className="text-[var(--text-secondary)]">
               ¿Quieres probarlo tú mismo?
             </p>
-            <a href="/es" className="btn-generate inline-block">
+            <Link href="/es" className="btn-generate inline-block">
               Generar un Tema
-            </a>
+            </Link>
           </section>
         </div>
       </main>

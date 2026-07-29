@@ -8,11 +8,14 @@ import { SITE_URL, localizePath, isEnOnly } from "@/i18n/config";
 // Google serves the right language version. hreflang via sitemap is officially
 // supported, which keeps the English page files untouched.
 
-type Entry = { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number };
+type Entry = {
+  path: string;
+  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+  priority: number;
+  lastModified?: string | Date;
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   const entries: Entry[] = [
     { path: "/", changeFrequency: "daily", priority: 1 },
     { path: "/topics", changeFrequency: "weekly", priority: 0.8 },
@@ -22,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/stats", changeFrequency: "weekly", priority: 0.6 },
     { path: "/about", changeFrequency: "monthly", priority: 0.5 },
     { path: "/how-we-curate", changeFrequency: "monthly", priority: 0.5 },
+    { path: "/pro-and-con-debate-topics", changeFrequency: "monthly", priority: 0.85 },
     { path: "/privacy", changeFrequency: "monthly", priority: 0.3 },
     { path: "/terms", changeFrequency: "monthly", priority: 0.3 },
     { path: "/contact", changeFrequency: "monthly", priority: 0.4 },
@@ -63,7 +67,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const mode of MODES) entries.push({ path: `/${mode.slug}`, changeFrequency: "weekly", priority: 0.9 });
   for (const cat of CATEGORIES) entries.push({ path: `/categories/${cat.id}`, changeFrequency: "weekly", priority: 0.7 });
-  for (const article of SEO_ARTICLES) entries.push({ path: `/topics/${article.slug}`, changeFrequency: "weekly", priority: 0.8 });
+  for (const article of SEO_ARTICLES) {
+    entries.push({
+      path: `/topics/${article.slug}`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      lastModified: article.lastModified,
+    });
+  }
   // mode×category combo pages are noindexed (thin template pages — AdSense
   // "Low value content" remediation), so they no longer belong in the sitemap.
 
@@ -75,15 +86,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     if (isEnOnly(e.path)) {
       const languages = { en: enUrl, "x-default": enUrl };
-      result.push({ url: enUrl, lastModified: now, changeFrequency: e.changeFrequency, priority: e.priority, alternates: { languages } });
+      result.push({
+        url: enUrl,
+        ...(e.lastModified ? { lastModified: e.lastModified } : {}),
+        changeFrequency: e.changeFrequency,
+        priority: e.priority,
+        alternates: { languages },
+      });
       continue;
     }
 
     const esUrl = abs(localizePath(e.path, "es"));
     const languages = { en: enUrl, es: esUrl, "x-default": enUrl };
     // One entry per locale, each advertising both alternates.
-    result.push({ url: enUrl, lastModified: now, changeFrequency: e.changeFrequency, priority: e.priority, alternates: { languages } });
-    result.push({ url: esUrl, lastModified: now, changeFrequency: e.changeFrequency, priority: Math.max(0.1, e.priority - 0.1), alternates: { languages } });
+    result.push({
+      url: enUrl,
+      ...(e.lastModified ? { lastModified: e.lastModified } : {}),
+      changeFrequency: e.changeFrequency,
+      priority: e.priority,
+      alternates: { languages },
+    });
+    result.push({
+      url: esUrl,
+      ...(e.lastModified ? { lastModified: e.lastModified } : {}),
+      changeFrequency: e.changeFrequency,
+      priority: Math.max(0.1, e.priority - 0.1),
+      alternates: { languages },
+    });
   }
 
   return result;

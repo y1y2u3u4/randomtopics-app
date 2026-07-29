@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
+import Link from "next/link";
 import type { Metadata } from "next";
 import CopyBlock from "./CopyBlock";
 
@@ -277,9 +278,9 @@ export default function PressPage() {
             <p className="text-[var(--text-secondary)]">
               Want to try it yourself?
             </p>
-            <a href="/" className="btn-generate inline-block">
+            <Link href="/" className="btn-generate inline-block">
               Generate a Topic
-            </a>
+            </Link>
           </section>
         </div>
       </main>

@@ -81,6 +81,23 @@ export default function DebatePage() {
           subtitle="Find thought-provoking debate topics with clear arguments for both sides."
         />
 
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+          <div className="glass-card p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-cyan)]/20">
+            <div>
+              <p className="text-sm font-bold text-[var(--text-primary)]">Preparing both sides of an argument?</p>
+              <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
+                Browse 100 balanced topics grouped by subject, with research angles for each motion.
+              </p>
+            </div>
+            <Link
+              href="/pro-and-con-debate-topics"
+              className="text-sm font-semibold text-[var(--neon-cyan)] whitespace-nowrap hover:underline"
+            >
+              Pro &amp; Con Topics →
+            </Link>
+          </div>
+        </section>
+
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
