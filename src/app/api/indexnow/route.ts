@@ -16,6 +16,9 @@ function getPaths(): string[] {
     "/categories",
     "/press",
     "/about",
+    "/how-we-curate",
+    "/pro-and-con-debate-topics",
+    "/contact",
     "/privacy",
     "/terms",
     "/stats",
@@ -52,7 +55,6 @@ function getPaths(): string[] {
   for (const mode of MODES) paths.push(`/${mode.slug}`);
   for (const cat of CATEGORIES) paths.push(`/categories/${cat.id}`);
   for (const article of SEO_ARTICLES) paths.push(`/topics/${article.slug}`);
-  for (const mode of MODES) for (const cat of CATEGORIES) paths.push(`/${mode.slug}/${cat.id}`);
   return paths;
 }
 
