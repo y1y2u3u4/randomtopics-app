@@ -83,7 +83,7 @@ export async function POST() {
   return NextResponse.json({
     status: res.status,
     submitted: urls.length,
-    message: res.status === 202 ? "Accepted by IndexNow" : `Response: ${res.status}`,
+    message: res.ok ? "Accepted by IndexNow" : `Response: ${res.status}`,
   });
 }
 
