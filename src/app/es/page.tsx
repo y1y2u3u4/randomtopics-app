@@ -38,6 +38,13 @@ const COLLECTIONS = [
   { title: "65 Preguntas para Conocer a Alguien", href: "/es/topics/get-to-know-you-questions-for-adults" },
 ];
 
+const POPULAR_TOOLS = [
+  { emoji: "🎡", title: "Ruleta de Temas", detail: "Gira y recibe un tema", href: "/es/spin-the-wheel" },
+  { emoji: "👉", title: "Quién Es Más Probable", detail: "Preguntas para jugar", href: "/es/most-likely-to" },
+  { emoji: "⚖️", title: "Dilemas Éticos", detail: "60 preguntas morales", href: "/es/topics/ethical-dilemma-questions" },
+  { emoji: "💬", title: "Conversaciones", detail: "Temas para hablar", href: "/es/conversation" },
+];
+
 const FAQ = [
   {
     q: "¿Qué es un generador de temas al azar?",
@@ -83,6 +90,27 @@ export default function HomeEs() {
               <p className="text-2xl sm:text-3xl font-extrabold gradient-text" style={{ fontFamily: "var(--font-display)" }}>100%</p>
               <p className="text-xs text-[var(--text-muted)] mt-1">Gratis, Sin Registro</p>
             </div>
+          </div>
+        </section>
+
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
+          <h2 className="text-sm font-bold text-[var(--text-primary)] mb-3">
+            Herramientas populares
+          </h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {POPULAR_TOOLS.map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-all group"
+              >
+                <span className="text-2xl" aria-hidden="true">{tool.emoji}</span>
+                <p className="text-sm font-bold text-[var(--text-primary)] mt-2 group-hover:text-[var(--neon-cyan)]">
+                  {tool.title}
+                </p>
+                <p className="text-xs text-[var(--text-muted)] mt-1">{tool.detail}</p>
+              </Link>
+            ))}
           </div>
         </section>
 

@@ -8,9 +8,10 @@ import { pickModeTopics } from "@/lib/editorial";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 
 export const metadata: Metadata = {
-  title: "Random Topics to Write About — Free Writing Prompt Generator",
+  title: { absolute: "Random Topics to Write About — Writing Prompt Generator | Random Topics" },
   description:
     "Get a random topic to write about in one click: 500+ free writing prompts — narrative, persuasive, descriptive & expository — for essays, journaling, blogs and stories. No signup, unlimited generation.",
   keywords: [
@@ -28,7 +29,18 @@ export const metadata: Metadata = {
     "random essay topic generator",
     "writing prompt generator for adults",
   ],
-  alternates: { canonical: "/writing" },
+  alternates: {
+    canonical: "/writing",
+    languages: hreflangAlternates("/writing"),
+  },
+  openGraph: {
+    title: "Random Topics to Write About — Writing Prompt Generator",
+    description:
+      "Get a random topic to write about in one click for essays, journals, blogs and stories.",
+    url: `${SITE_URL}/writing`,
+    siteName: "Random Topics",
+    type: "website",
+  },
 };
 
 const FAQ_ITEMS = [

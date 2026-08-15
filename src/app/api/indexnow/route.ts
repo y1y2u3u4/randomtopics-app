@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { CATEGORIES, MODES } from "@/data/types";
 import { SEO_ARTICLES } from "@/data/seoContent";
-import { isEnOnly } from "@/i18n/config";
+import { INDEXABLE_MODE_CATEGORY_PATHS, isEnOnly } from "@/i18n/config";
 
 const INDEXNOW_KEY = "randomtopics2026";
 const HOST = "randomtopics.app";
@@ -54,6 +54,7 @@ function getPaths(): string[] {
   ];
   for (const mode of MODES) paths.push(`/${mode.slug}`);
   for (const cat of CATEGORIES) paths.push(`/categories/${cat.id}`);
+  paths.push(...INDEXABLE_MODE_CATEGORY_PATHS);
   for (const article of SEO_ARTICLES) paths.push(`/topics/${article.slug}`);
   return paths;
 }

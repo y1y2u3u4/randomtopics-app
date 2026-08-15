@@ -105,7 +105,14 @@ export const articleToPages: Record<
   "esl-conversation-topics": { modes: ["conversation"], categories: ["education"] },
   "team-building-questions": { modes: ["icebreaker"], categories: ["business"] },
   "science-discussion-topics": { modes: ["debate", "conversation"], categories: ["science", "nature"] },
-  "ethical-dilemma-questions": { modes: ["debate"], categories: ["philosophy", "politics"] },
+  "ethical-dilemma-questions": {
+    modes: ["debate", "conversation"],
+    categories: ["philosophy", "politics"],
+    tools: [
+      { emoji: "⚖️", label: "Random Argument Generator", href: "/argument-generator" },
+      { emoji: "↔️", label: "Pro & Con Debate Topics", href: "/pro-and-con-debate-topics" },
+    ],
+  },
   "presentation-ideas-for-school": { modes: ["speech"], categories: ["education", "science"] },
   "random-questions-to-ask-friends": { modes: ["conversation", "icebreaker"], categories: ["relationships", "weird-fun"] },
   "debate-topics-for-middle-school": { modes: ["debate"], categories: ["education"] },
@@ -115,7 +122,14 @@ export const articleToPages: Record<
     categories: ["education"],
     tools: [{ emoji: "📝", label: "Essay Topic Generator", href: "/essay-topic-generator" }],
   },
-  "toastmasters-table-topics": { modes: ["speech"], categories: ["business", "education"] },
+  "toastmasters-table-topics": {
+    modes: ["speech"],
+    categories: ["business", "education"],
+    tools: [
+      { emoji: "🎙️", label: "Table Topics Generator", href: "/table-topics-generator" },
+      { emoji: "⏱️", label: "Impromptu Speech Timer", href: "/impromptu-speech-topics" },
+    ],
+  },
   "get-to-know-you-questions-for-adults": { modes: ["icebreaker", "conversation"], categories: ["relationships"] },
   "deep-questions-to-ask-your-partner": { modes: ["conversation"], categories: ["relationships", "psychology"] },
   "impromptu-speech-topics-with-timer": { modes: ["speech"], categories: ["education", "business"] },

@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        source: "/es/:path*",
+        headers: [{ key: "Content-Language", value: "es" }],
+      },
+    ];
+  },
   async redirects() {
     return [
       // Legacy internal links pointed at /article/<slug>; canonical route is /topics/<slug>

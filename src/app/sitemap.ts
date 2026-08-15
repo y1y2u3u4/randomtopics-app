@@ -1,7 +1,12 @@
 import { MetadataRoute } from "next";
 import { CATEGORIES, MODES } from "@/data/types";
 import { SEO_ARTICLES } from "@/data/seoContent";
-import { SITE_URL, localizePath, isEnOnly } from "@/i18n/config";
+import {
+  INDEXABLE_MODE_CATEGORY_PATHS,
+  SITE_URL,
+  localizePath,
+  isEnOnly,
+} from "@/i18n/config";
 
 // Bilingual sitemap: every route is emitted for both English (root) and Spanish
 // (/es), and each entry carries hreflang alternates (en / es / x-default) so
@@ -67,6 +72,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const mode of MODES) entries.push({ path: `/${mode.slug}`, changeFrequency: "weekly", priority: 0.9 });
   for (const cat of CATEGORIES) entries.push({ path: `/categories/${cat.id}`, changeFrequency: "weekly", priority: 0.7 });
+  for (const path of INDEXABLE_MODE_CATEGORY_PATHS) {
+    entries.push({ path, changeFrequency: "weekly", priority: 0.7 });
+  }
   for (const article of SEO_ARTICLES) {
     entries.push({
       path: `/topics/${article.slug}`,
@@ -75,8 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: article.lastModified,
     });
   }
-  // mode×category combo pages are noindexed (thin template pages — AdSense
-  // "Low value content" remediation), so they no longer belong in the sitemap.
+  // Non-allowlisted mode×category pages stay noindexed and out of the sitemap.
 
   const abs = (path: string) => (path === "/" ? SITE_URL : `${SITE_URL}${path}`);
 

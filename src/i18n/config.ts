@@ -47,6 +47,27 @@ export function stripLocale(pathname: string): string {
 export const SITE_URL = "https://randomtopics.app";
 
 /**
+ * Mode/category pages that have demonstrated search demand in GSC and contain
+ * enough differentiated copy + real examples to remain standalone landing
+ * pages. Keep this deliberately small: new entries should only be added after
+ * they earn clicks or sustained impressions, rather than publishing all 80
+ * permutations by default.
+ *
+ * Evidence window: 2026-07-16 through 2026-08-12.
+ */
+export const INDEXABLE_MODE_CATEGORY_PATHS = [
+  "/writing/philosophy",
+  "/writing/psychology",
+  "/speech/politics",
+  "/debate/technology",
+  "/conversation/philosophy",
+] as const;
+
+const INDEXABLE_MODE_CATEGORY_SET: ReadonlySet<string> = new Set(
+  INDEXABLE_MODE_CATEGORY_PATHS,
+);
+
+/**
  * Root-relative paths that exist only in English (no /es mirror yet). Single
  * source of truth so the sitemap omits their es alternate and the locale
  * switcher hides the (nonexistent) Spanish toggle instead of 404-ing.
@@ -80,15 +101,17 @@ export function isModeCategoryPath(rootPath: string): boolean {
   return seg.length === 3 && MODE_SLUGS.has(seg[1]) && CATEGORY_IDS.has(seg[2]);
 }
 
+export function isIndexableModeCategoryPath(rootPath: string): boolean {
+  return INDEXABLE_MODE_CATEGORY_SET.has(rootPath);
+}
+
 /**
  * True when a root-relative path has no *indexable* Spanish counterpart.
  *
  * Combo paths are English-only by this rule even though /es/<mode>/<category>
- * still renders: Google crawled the Spanish permutations and declined to index
- * them, and they made up the bulk of the 167 not-indexed URLs in 2026-07. The
- * English set earns clicks, so it stays. Excluding the Spanish half here keeps
- * them out of the sitemap and drops their hreflang pairing, which concentrates
- * crawl budget on the /es hubs and topic articles that do rank.
+ * still renders. Only the small, GSC-backed English allowlist is indexable;
+ * excluding the Spanish permutations keeps crawl focus on the /es hubs and
+ * topic articles that already demonstrate demand.
  */
 export function isEnOnly(rootPath: string): boolean {
   return EN_ONLY_PATHS.has(rootPath) || rootPath.startsWith("/share") || isModeCategoryPath(rootPath);
