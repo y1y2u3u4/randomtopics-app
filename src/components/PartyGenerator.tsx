@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { track } from "@/lib/track";
 import { motion, AnimatePresence } from "framer-motion";
 import PrintButton from "./PrintButton";
@@ -13,34 +13,49 @@ interface PartyGeneratorProps {
   subtitle: string;
   emoji: string;
   locale?: Locale;
+  filters?: { id: string; label: string; prefix: string }[];
 }
 
 /**
  * Lightweight generator for fixed question lists (Would You Rather,
  * Never Have I Ever). Cycles without repeats until the pool is exhausted.
  */
-export default function PartyGenerator({ questions, title, subtitle, emoji, locale = defaultLocale }: PartyGeneratorProps) {
+export default function PartyGenerator({ questions, title, subtitle, emoji, locale = defaultLocale, filters = [] }: PartyGeneratorProps) {
   const t = getDict(locale);
   const [current, setCurrent] = useState<string | null>(null);
   const [used, setUsed] = useState<Set<number>>(new Set());
   const [copied, setCopied] = useState(false);
+  const [activeFilter, setActiveFilter] = useState("all");
+  const activeQuestions = useMemo(() => {
+    if (activeFilter === "all") return questions;
+    const prefix = filters.find((filter) => filter.id === activeFilter)?.prefix;
+    return prefix ? questions.filter((question) => question.startsWith(prefix)) : questions;
+  }, [activeFilter, filters, questions]);
 
   const generate = useCallback(() => {
     track("deal_party_question", { deck: title });
-    let pool = questions.map((_, i) => i).filter((i) => !used.has(i));
+    let pool = activeQuestions.map((_, i) => i).filter((i) => !used.has(i));
     let nextUsed = used;
     if (pool.length === 0) {
       // all used — reset the cycle
       nextUsed = new Set();
-      pool = questions.map((_, i) => i);
+      pool = activeQuestions.map((_, i) => i);
     }
     const idx = pool[Math.floor(Math.random() * pool.length)];
     const s = new Set(nextUsed);
     s.add(idx);
     setUsed(s);
-    setCurrent(questions[idx]);
+    setCurrent(activeQuestions[idx]);
     setCopied(false);
-  }, [questions, title, used]);
+  }, [activeQuestions, title, used]);
+
+  function changeFilter(id: string) {
+    setActiveFilter(id);
+    setCurrent(null);
+    setUsed(new Set());
+    setCopied(false);
+    track("filter_party_questions", { deck: title, filter: id });
+  }
 
   const copy = useCallback(async () => {
     if (!current) return;
@@ -66,6 +81,25 @@ export default function PartyGenerator({ questions, title, subtitle, emoji, loca
       </div>
 
       <div className="glass-card p-8 sm:p-10 text-center">
+        {filters.length > 0 && (
+          <div className="flex flex-wrap justify-center gap-2 mb-6" aria-label={`${title} filters`}>
+            {[{ id: "all", label: "Mix" }, ...filters].map((filter) => (
+              <button
+                key={filter.id}
+                type="button"
+                onClick={() => changeFilter(filter.id)}
+                aria-pressed={activeFilter === filter.id}
+                className={`text-xs font-semibold px-4 py-2 rounded-full border transition-all ${
+                  activeFilter === filter.id
+                    ? "border-[var(--neon-cyan)]/50 bg-[rgba(0,229,255,0.1)] text-[var(--neon-cyan)]"
+                    : "border-white/10 text-[var(--text-muted)] hover:border-white/20 hover:text-[var(--text-primary)]"
+                }`}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+        )}
         <AnimatePresence mode="wait">
           {current ? (
             <motion.p
@@ -100,14 +134,14 @@ export default function PartyGenerator({ questions, title, subtitle, emoji, loca
           )}
           <PrintButton
             heading={title}
-            items={questions}
-            intro={t.print.footerNote(questions.length)}
+            items={activeQuestions}
+            intro={t.print.footerNote(activeQuestions.length)}
             label={t.party.printDeck}
             locale={locale}
           />
         </div>
         <p className="text-xs text-[var(--text-muted)] mt-4">
-          {questions.length} {t.party.deckInfo}
+          {activeQuestions.length} {t.party.deckInfo}
         </p>
       </div>
     </section>

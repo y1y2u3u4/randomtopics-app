@@ -415,20 +415,20 @@ export const seoArticlesEsPart4: SeoArticle[] = [
   // 26. Public Speaking Topics for Beginners
   {
     slug: "public-speaking-topics-for-beginners",
-    title: "45 temas de oratoria para principiantes",
-    metaTitle: "45 temas de oratoria para principiantes | RandomTopics",
+    title: "45 temas para oratoria fáciles e interesantes",
+    metaTitle: "45 Temas para Oratoria Fáciles e Interesantes | RandomTopics",
     metaDescription:
-      "45 temas de oratoria fáciles y cautivadores para principiantes. Perfectos para los primeros discursos, las presentaciones en clase y para ganar confianza frente al público.",
-    heroTitle: "45 temas de oratoria para principiantes",
-    heroSubtitle: "Temas accesibles que te ayudan a ganar confianza y a encontrar tu voz como orador.",
+      "Elige entre 45 temas para oratoria fáciles e interesantes: discursos cortos, presentaciones escolares, temas informativos, persuasivos y creativos.",
+    heroTitle: "45 Temas para Oratoria Fáciles e Interesantes",
+    heroSubtitle: "Ideas para discursos cortos, presentaciones de clase y primeras prácticas frente al público.",
     intro:
-      "Tu primer discurso no tiene por qué tratar sobre cómo resolver la paz mundial. Los mejores temas de oratoria para principiantes son aquellos sobre los que ya sabes algo y que de verdad te importan. Cuando hablas desde la experiencia y la pasión, la confianza llega de forma natural. Estos 45 temas están elegidos específicamente para oradores nuevos: son fáciles de investigar, cercanos para cualquier audiencia y lo bastante flexibles para discursos de distintas duraciones.",
+      "Un buen tema para oratoria no necesita ser complicado. Para una primera exposición o un discurso corto, conviene elegir algo que ya conozcas, que puedas explicar con un ejemplo y que interese a la audiencia. Estos 45 temas para una oratoria están organizados por tipo —experiencia personal, informativos, persuasivos y creativos— y funcionan tanto para estudiantes como para principiantes que quieren ganar confianza al hablar en público.",
     publishDate: "2026-03-26",
-    lastModified: "2026-04-08",
+    lastModified: "2026-08-15",
     sections: [
       {
-        heading: "Temas de experiencia personal",
-        description: "Los discursos más fáciles se nutren de tu propia vida. No requieren investigación.",
+        heading: "Temas fáciles para una oratoria corta",
+        description: "Los discursos más sencillos se nutren de tu propia experiencia y caben bien en tres a cinco minutos.",
         items: [
           "Una lección que aprendí por las malas",
           "La persona que más me ha influido",
@@ -499,10 +499,13 @@ export const seoArticlesEsPart4: SeoArticle[] = [
     faq: [
       { question: "¿Cuál es un buen tema para un primer discurso?", answer: "Elige un tema que ya conozcas bien y que te importe. Las historias personales, las explicaciones de cómo hacer algo y los temas basados en la opinión funcionan mejor para los principiantes, porque requieren poca investigación y te permiten hablar con autenticidad. Evita los temas demasiado complejos o polémicos para tu primer discurso." },
       { question: "¿Cuánto debería durar el discurso de un principiante?", answer: "Apunta a entre tres y cinco minutos. Es lo bastante largo para desarrollar un punto claro con detalles de apoyo, pero lo bastante corto para mantener la atención de la audiencia y controlar los nervios. La mayoría de los discursos de clase y los de Toastmasters para principiantes se sitúan en este rango." },
+      { question: "¿Qué temas son buenos para una oratoria escolar?", answer: "Para una oratoria escolar funcionan los temas cercanos y fáciles de ejemplificar: una habilidad útil, un hábito que mejora el estudio, el impacto de las redes sociales, una experiencia personal o una propuesta concreta para mejorar la escuela. Evita los asuntos demasiado amplios y formula una sola idea central." },
+      { question: "¿Cómo preparo una oratoria de cinco minutos?", answer: "Usa una estructura de tres partes: abre con una pregunta o historia breve, desarrolla dos ideas con un ejemplo cada una y cierra repitiendo tu mensaje principal. Ensaya con un temporizador y elimina cualquier dato que no apoye directamente la idea central." },
     ],
     relatedLinks: [
       { label: "Temas de discurso para universitarios", href: "/es/topics/speech-topics-for-college-students" },
       { label: "Temas para discursos improvisados con temporizador", href: "/es/topics/impromptu-speech-topics-with-timer" },
+      { label: "Ideas de presentación para la escuela", href: "/es/topics/presentation-ideas-for-school" },
       { label: "Generador de temas de discurso", href: "/es/speech" },
     ],
   },
@@ -510,16 +513,16 @@ export const seoArticlesEsPart4: SeoArticle[] = [
   // 27. Conversation Topics for Teens
   {
     slug: "conversation-topics-for-teens",
-    title: "50 temas de conversación para adolescentes",
-    metaTitle: "50 temas de conversación para adolescentes | RandomTopics",
+    title: "50 temas para adolescentes: conversación y debate",
+    metaTitle: "50 Temas para Adolescentes: Hablar y Debatir | RandomTopics",
     metaDescription:
-      "50 temas de conversación cautivadores pensados para adolescentes. Perfectos para debates en el aula, grupos juveniles y para ayudar a los adolescentes a desarrollar habilidades sociales y de pensamiento crítico.",
-    heroTitle: "50 temas de conversación para adolescentes",
-    heroSubtitle: "Temas de los que los adolescentes de verdad quieren hablar: desde las redes sociales y la identidad hasta las metas de futuro y las hipótesis divertidas.",
+      "50 temas para hablar con adolescentes y debatir entre jóvenes: redes sociales, identidad, amistad, escuela, futuro y preguntas divertidas para grupos.",
+    heroTitle: "50 Temas para Adolescentes: Conversación y Debate",
+    heroSubtitle: "Preguntas para hablar, debatir y romper el hielo con jóvenes en clase, en familia o en grupos juveniles.",
     intro:
-      "Lograr que los adolescentes se abran puede ser todo un reto, pero el tema adecuado marca la diferencia. Estos 50 temas de conversación están pensados específicamente para adolescentes: abordan cuestiones que importan a esta franja de edad, desde las redes sociales y la amistad hasta la identidad y los planes de futuro. Ya seas profesor, orientador, madre o padre, o líder juvenil, estos temas ayudan a despertar una conversación genuina.",
+      "Lograr que los adolescentes se abran puede ser todo un reto, pero el tema adecuado marca la diferencia. Esta lista reúne 50 temas para adolescentes que sirven tanto para una conversación natural como para un debate entre jóvenes. Incluye redes sociales, identidad, amistad, escuela, futuro y preguntas hipotéticas. Profesores, orientadores, familias y líderes juveniles pueden empezar por las preguntas ligeras y pasar después a las que piden comparar posturas y justificar una opinión.",
     publishDate: "2026-03-28",
-    lastModified: "2026-04-08",
+    lastModified: "2026-08-15",
     sections: [
       {
         heading: "Redes sociales y tecnología",
@@ -552,7 +555,7 @@ export const seoArticlesEsPart4: SeoArticle[] = [
         ],
       },
       {
-        heading: "Escuela y futuro",
+        heading: "Temas de debate para adolescentes: escuela y futuro",
         items: [
           "¿Qué asignatura te gustaría que se enseñara en la escuela y que actualmente no se imparte?",
           "¿Reflejan las notas con precisión lo inteligente o capaz que es alguien?",
@@ -567,7 +570,7 @@ export const seoArticlesEsPart4: SeoArticle[] = [
         ],
       },
       {
-        heading: "Diversión e hipótesis",
+        heading: "Temas divertidos para hablar con adolescentes",
         items: [
           "Si pudieras intercambiar tu vida con la de alguien durante una semana, ¿quién sería?",
           "¿Qué es lo más interesante que has aprendido fuera de la escuela?",
@@ -595,9 +598,12 @@ export const seoArticlesEsPart4: SeoArticle[] = [
     faq: [
       { question: "¿Cómo se logra que los adolescentes se abran en una conversación?", answer: "Empieza con temas ligeros y divertidos, y evita las preguntas que parezcan interrogatorios. Haz preguntas abiertas, comparte tú primero tus propias respuestas para dar ejemplo de vulnerabilidad y escucha sin juzgar. Los adolescentes son más propensos a abrirse cuando sienten que la conversación es genuina y no una evaluación." },
       { question: "¿Qué temas son apropiados para los grupos de discusión de adolescentes?", answer: "Los temas sobre redes sociales, identidad, amistad, escuela y planes de futuro son universalmente cercanos y apropiados. Evita los temas personales demasiado delicados a menos que el grupo haya construido confianza. Las preguntas hipotéticas y divertidas pueden servir para romper el hielo antes de pasar a discusiones más profundas." },
+      { question: "¿Qué temas se pueden debatir entre jóvenes?", answer: "Algunos buenos temas son el uso del móvil en clase, la edad mínima para redes sociales, si las notas miden la capacidad, si la universidad es el único camino al éxito y cómo debería usarse la inteligencia artificial en la escuela. Pide a cada participante que dé una razón, un ejemplo y una respuesta respetuosa a la postura contraria." },
+      { question: "¿Qué temas ayudan a hablar con un adolescente?", answer: "Empieza por música, aplicaciones, amistades, metas y cosas que cambiarían de su escuela. Las preguntas abiertas funcionan mejor que las que se responden con sí o no. Escucha la respuesta completa antes de aconsejar y comparte también tu propia experiencia para que la conversación no parezca un interrogatorio." },
     ],
     relatedLinks: [
       { label: "Temas de debate para estudiantes", href: "/es/topics/debate-topics-for-students" },
+      { label: "Temas controversiales para debatir", href: "/es/topics/controversial-topics-to-discuss" },
       { label: "Ideas de escritura para niños", href: "/es/topics/writing-prompts-for-kids" },
       { label: "Generador de conversación", href: "/es/conversation" },
     ],

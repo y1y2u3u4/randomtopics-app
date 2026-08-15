@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
 import QuestionBank from "@/components/QuestionBank";
+import PartyGameLinks from "@/components/PartyGameLinks";
 import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
@@ -10,7 +11,7 @@ import type { Metadata } from "next";
 import { TRUTH_OR_DARE } from "@/data/partyGames";
 
 export const metadata: Metadata = {
-  title: "Truth or Dare Generator — Clean, Party-Safe Questions & Dares",
+  title: { absolute: "Truth or Dare Generator — Clean Questions & Dares | Random Topics" },
   description:
     "Free Truth or Dare generator with clean, party-safe truths and dares. One click per prompt, no repeats — perfect for parties, sleepovers, road trips, and family game nights. No signup.",
   keywords: [
@@ -66,7 +67,12 @@ export default function TruthOrDarePage() {
           title="Truth or Dare Generator"
           subtitle="Clean, party-safe truths and dares — one click per prompt, no repeats until you've seen the whole deck."
           emoji="🎭"
+          filters={[
+            { id: "truth", label: "Truths Only", prefix: "🫢 Truth:" },
+            { id: "dare", label: "Dares Only", prefix: "🔥 Dare:" },
+          ]}
         />
+        <PartyGameLinks currentPath="/truth-or-dare" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">

@@ -16,6 +16,19 @@ const checks = [
   { path: "/icebreaker", index: true, canonical: "/icebreaker", titleMax: 70, titleHas: "Icebreaker Question Generator", hreflang: true },
   { path: "/writing", index: true, canonical: "/writing", titleMax: 76, titleHas: "Random Topics to Write About", hreflang: true },
   { path: "/conversation", index: true, canonical: "/conversation", titleMax: 65, titleHas: "Conversation Topic Generator", hreflang: true, bodyHas: ["Popular Conversation Starter Collections"], bodyOccurrences: [{ needle: 'href="/topics/', min: 6 }] },
+  { path: "/random-subject-generator", index: true, canonical: "/random-subject-generator", titleMax: 65, titleHas: "Random Subject Generator", bodyHas: ["Get a Random Subject in One Click", "Pick a Random Subject", '"@type":"WebApplication"'] },
+  { path: "/speech", index: true, canonical: "/speech", titleMax: 60, titleHas: "Speech Topic Generator & Practice Timer", hreflang: true, bodyHas: ["random subject generator", "75 Presentation Topics for School"] },
+  { path: "/group-discussion-topics", index: true, canonical: "/group-discussion-topics", titleMax: 60, titleHas: "100+ Group Discussion Topics for 2026", bodyHas: ["Situation-Based Questions", "Updated August 15, 2026"], bodyOccurrences: [{ needle: 'class="text-[var(--neon-cyan)] font-bold shrink-0"', exact: 103 }] },
+  { path: "/topics/presentation-ideas-for-school", index: true, canonical: "/topics/presentation-ideas-for-school", titleMax: 60, titleHas: "75 Unique Presentation Topics for School", hreflang: true, bodyHas: ["Easy 5-Minute Presentation Topics", "Open the Speech Generator &amp; Timer"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 75 }] },
+  { path: "/es/topics/controversial-topics-to-discuss", index: true, canonical: "/es/topics/controversial-topics-to-discuss", titleMax: 70, titleHas: "Temas Controversiales y Polémicos", es: true, hreflang: true, bodyHas: ["temas controversiales", "Abrir el Generador de Debate"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 55 }] },
+  { path: "/es/topics/public-speaking-topics-for-beginners", index: true, canonical: "/es/topics/public-speaking-topics-for-beginners", titleMax: 70, titleHas: "Temas para Oratoria Fáciles", es: true, hreflang: true, bodyHas: ["Temas fáciles para una oratoria corta", "Practicar Oratoria con Temporizador"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 45 }] },
+  { path: "/es/topics/conversation-topics-for-teens", index: true, canonical: "/es/topics/conversation-topics-for-teens", titleMax: 65, titleHas: "Temas para Adolescentes", es: true, hreflang: true, bodyHas: ["Temas de debate para adolescentes", "Abrir el Generador de Conversación"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 50 }] },
+  { path: "/truth-or-dare", index: true, canonical: "/truth-or-dare", titleMax: 70, titleHas: "Truth or Dare Generator", bodyHas: ["Truths Only", "Dares Only", "More Party Game Generators"] },
+  { path: "/would-you-rather", index: true, canonical: "/would-you-rather", titleMax: 65, titleHas: "Would You Rather Generator", bodyHas: ["More Party Game Generators"] },
+  { path: "/paranoia-questions", index: true, canonical: "/paranoia-questions", titleMax: 70, titleHas: "Paranoia Questions Generator", bodyHas: ["More Party Game Generators"] },
+  { path: "/this-or-that", index: true, canonical: "/this-or-that", titleMax: 65, titleHas: "This or That Generator", bodyHas: ["More Party Game Generators", "All 38 This or That Questions"] },
+  { path: "/saved-topics", index: false, canonical: "/saved-topics", titleHas: "Saved Topics", headerNoindex: true },
+  { path: "/es/saved-topics", index: false, canonical: "/es/saved-topics", titleHas: "Temas guardados", es: true, headerNoindex: true },
   { path: "/topics/ethical-dilemma-questions", index: true, canonical: "/topics/ethical-dilemma-questions", titleMax: 65, titleHas: "65+ Moral & Ethical Dilemma Questions", hreflang: true, bodyHas: ["Quick Moral Dilemmas to Discuss", "Try the Argument Generator"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 66 }] },
   { path: "/topics/toastmasters-table-topics", index: true, canonical: "/topics/toastmasters-table-topics", titleMax: 70, titleHas: "Toastmasters Table Topics", bodyHas: ["Updated:", "Print or save as PDF"] },
   { path: "/es/most-likely-to", index: true, canonical: "/es/most-likely-to", titleMax: 76, titleHas: "Quién Es Más Probable", es: true, hreflang: true },
@@ -67,6 +80,17 @@ function hasSpanishHeaderRule() {
   );
 }
 
+function getConfiguredHeader(path, name) {
+  const matchingRules = routesManifest?.headers?.filter(
+    (candidate) => candidate.source === path || (candidate.source === "/es/:path*" && path.startsWith("/es")),
+  ) || [];
+  for (const rule of matchingRules) {
+    const header = rule.headers?.find((candidate) => candidate.key.toLowerCase() === name.toLowerCase());
+    if (header) return header.value;
+  }
+  return null;
+}
+
 async function getPage(path) {
   if (!buildDir) return fetch(`${baseUrl}${path}`, { redirect: "manual" });
 
@@ -76,10 +100,8 @@ async function getPage(path) {
     ok: true,
     headers: {
       get(name) {
-        if (name.toLowerCase() === "content-language" && path.startsWith("/es") && hasSpanishHeaderRule()) {
-          return "es";
-        }
-        return null;
+        if (name.toLowerCase() === "content-language" && path.startsWith("/es") && hasSpanishHeaderRule()) return "es";
+        return getConfiguredHeader(path, name);
       },
     },
     async text() {
@@ -120,6 +142,9 @@ async function checkPage(check) {
   }
   if (check.index && robots.includes("noindex")) fail(`${check.path}: unexpectedly noindexed`);
   if (!check.index && !robots.includes("noindex")) fail(`${check.path}: expected noindex`);
+  if (check.headerNoindex && !(response.headers.get("x-robots-tag") || "").toLowerCase().includes("noindex")) {
+    fail(`${check.path}: expected X-Robots-Tag noindex header`);
+  }
   if (check.titleHas && !title.includes(check.titleHas)) fail(`${check.path}: title misses “${check.titleHas}”`);
   if (check.titleMax && title.length > check.titleMax) fail(`${check.path}: title is ${title.length} chars (max ${check.titleMax})`);
   if (check.es) {
@@ -188,6 +213,16 @@ async function checkSitemap() {
   }
   if (!xml.includes('hreflang="es"') || !xml.includes('hreflang="x-default"')) {
     fail("sitemap: missing language alternates");
+  }
+  for (const path of [
+    "/topics/presentation-ideas-for-school",
+    "/es/topics/controversial-topics-to-discuss",
+    "/es/topics/public-speaking-topics-for-beginners",
+    "/es/topics/conversation-topics-for-teens",
+  ]) {
+    const marker = `<loc>${canonicalOrigin}${path}</loc>`;
+    const entryTail = xml.split(marker)[1]?.split("</url>")[0] || "";
+    if (!entryTail.includes("<lastmod>2026-08-15")) fail(`sitemap: stale lastmod for ${path}`);
   }
   return urls.length;
 }

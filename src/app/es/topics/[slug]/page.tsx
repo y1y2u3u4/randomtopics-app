@@ -22,6 +22,24 @@ const ARTICLE_CTA_ES: Record<string, { href: string; text: string; label: string
     label: "Abrir el Generador de Quién Es Más Probable",
     emoji: "👉",
   },
+  "controversial-topics-to-discuss": {
+    href: "/es/debate",
+    text: "¿Quieres practicar una postura al azar? Genera un tema y usa los puntos de apoyo para defender ambos lados.",
+    label: "Abrir el Generador de Debate",
+    emoji: "⚔️",
+  },
+  "public-speaking-topics-for-beginners": {
+    href: "/es/speech",
+    text: "Elige un tema, genera una propuesta y ensaya tu discurso con el temporizador integrado.",
+    label: "Practicar Oratoria con Temporizador",
+    emoji: "⏱️",
+  },
+  "conversation-topics-for-teens": {
+    href: "/es/conversation",
+    text: "Saca una pregunta nueva para la clase, la familia o el grupo juvenil y usa sus puntos para continuar la conversación.",
+    label: "Abrir el Generador de Conversación",
+    emoji: "💬",
+  },
 };
 
 export function generateStaticParams() {

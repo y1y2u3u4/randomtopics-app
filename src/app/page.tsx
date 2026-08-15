@@ -181,7 +181,7 @@ export default function Home() {
             {[
               { title: "75 Best Debate Topics for Students", href: "/topics/debate-topics-for-students" },
               { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
-              { title: "65 Presentation Ideas for School", href: "/topics/presentation-ideas-for-school" },
+              { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
               { title: "120 Toastmasters Table Topics", href: "/topics/toastmasters-table-topics" },
               { title: "60 Deep Questions for Your Partner", href: "/topics/deep-questions-to-ask-your-partner" },
               { title: "55 Virtual Meeting Icebreakers", href: "/topics/icebreaker-questions-for-virtual-meetings" },

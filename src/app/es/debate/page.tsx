@@ -163,7 +163,7 @@ export default function DebatePageEs() {
               </ol>
               <p>
                 ¿Quieres explorar temas que rompen esquemas? Echa un vistazo a
-                nuestros <Link href="/es/topics/controversial-topics-to-discuss" className="text-[var(--neon-cyan)] hover:underline">temas controvertidos para discutir</Link> para
+                nuestros <Link href="/es/topics/controversial-topics-to-discuss" className="text-[var(--neon-cyan)] hover:underline">temas controversiales y polémicos para debatir</Link> para
                 debates que de verdad desafían el pensamiento convencional.
               </p>
 
@@ -254,7 +254,7 @@ export default function DebatePageEs() {
               { title: "75 Mejores Temas de Debate para Estudiantes", href: "/es/topics/debate-topics-for-students" },
               { title: "50 Temas de Debate para Secundaria", href: "/es/topics/debate-topics-for-middle-school" },
               { title: "40 Temas de Debate Fáciles para Principiantes", href: "/es/topics/debate-topics-for-beginners" },
-              { title: "55 Temas Controvertidos para Discutir", href: "/es/topics/controversial-topics-to-discuss" },
+              { title: "55 Temas Controversiales para Debatir", href: "/es/topics/controversial-topics-to-discuss" },
               { title: "50 Preguntas de Dilemas Éticos", href: "/es/topics/ethical-dilemma-questions" },
               { title: "50 Preguntas Filosóficas Profundas", href: "/es/topics/deep-philosophical-questions" },
             ].map((item) => (

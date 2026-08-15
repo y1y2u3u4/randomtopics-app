@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
 import QuestionBank from "@/components/QuestionBank";
+import PartyGameLinks from "@/components/PartyGameLinks";
 import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
@@ -10,7 +11,7 @@ import type { Metadata } from "next";
 import { WOULD_YOU_RATHER } from "@/data/partyQuestions";
 
 export const metadata: Metadata = {
-  title: "Would You Rather Generator — 60+ Questions, No Repeats",
+  title: { absolute: "Would You Rather Generator — 60+ Questions | Random Topics" },
   description:
     "Free Would You Rather question generator: 60+ clean, party-safe dilemmas with a no-repeat deck. One click per question — perfect for parties, road trips, classrooms and icebreakers.",
   keywords: [
@@ -71,6 +72,7 @@ export default function WouldYouRatherPage() {
           subtitle="60+ clean either/or dilemmas — one click per question, no repeats until you've seen the whole deck."
           emoji="🤔"
         />
+        <PartyGameLinks currentPath="/would-you-rather" />
 
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">

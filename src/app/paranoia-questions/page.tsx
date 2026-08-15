@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
 import QuestionBank from "@/components/QuestionBank";
+import PartyGameLinks from "@/components/PartyGameLinks";
 import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
@@ -10,7 +11,7 @@ import type { Metadata } from "next";
 import { PARANOIA_QUESTIONS } from "@/data/paranoia";
 
 export const metadata: Metadata = {
-  title: "Paranoia Questions — 60+ Whisper Game Questions (Clean & Fun)",
+  title: { absolute: "Paranoia Questions Generator — 60+ Clean Prompts | Random Topics" },
   description:
     "60+ paranoia questions for the whisper party game — whisper the question, say the name out loud, flip a coin to reveal. All clean and party-safe. One click per question, no repeats, free.",
   keywords: [
@@ -72,6 +73,7 @@ export default function ParanoiaPage() {
           subtitle="The whisper game: whisper the question, answer with a name out loud, flip a coin to reveal. One click per question — all clean, no repeats."
           emoji="🤫"
         />
+        <PartyGameLinks currentPath="/paranoia-questions" />
 
         {/* SEO content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
