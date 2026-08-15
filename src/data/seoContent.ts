@@ -1657,16 +1657,16 @@ export const SEO_ARTICLES: SeoArticle[] = [
   // 13. Ethical Dilemma Questions
   {
     slug: "ethical-dilemma-questions",
-    title: "60 Moral & Ethical Dilemma Questions for Deep Discussions",
-    metaTitle: "60 Moral & Ethical Dilemma Questions to Discuss | RandomTopics",
+    title: "65+ Moral & Ethical Dilemma Questions for Adults",
+    metaTitle: "65+ Moral & Ethical Dilemma Questions | RandomTopics",
     metaDescription:
-      "60 moral and ethical dilemma questions covering technology, medicine, workplace ethics, and everyday life — plus quick moral dilemmas to discuss. Perfect for philosophy classes, group discussions, adults, and self-reflection.",
-    heroTitle: "60 Moral & Ethical Dilemma Questions for Deep Discussions",
+      "65+ moral and ethical dilemma questions for adults, students, and groups, with realistic examples about everyday life, work, medicine, society, and AI.",
+    heroTitle: "65+ Moral & Ethical Dilemma Questions for Adults",
     heroSubtitle:
-      "Moral puzzles with no easy answers that challenge your values and sharpen your ethical reasoning.",
-    intro: "A moral or ethical dilemma is a situation where every option involves some moral cost -- there is no perfectly right answer. These moral dilemma scenarios force you to examine your values, weigh competing principles, and articulate why you believe what you believe. Unlike simple moral questions with obvious answers, true dilemmas reveal the tensions between values like honesty and kindness, individual rights and collective good, justice and mercy. Whether you are looking for ethical dilemma examples for a classroom exercise, moral dilemma questions for adults to discuss over dinner, preparation for a philosophy exam, or moral dilemma scenarios to spark a deep group conversation, this collection has you covered. These 60 questions span technology, medicine, everyday life, workplace ethics, environmental concerns, and social justice -- plus a set of quick moral dilemmas to discuss when you want punchier prompts -- designed for philosophy classes, ethics training, book clubs, job interview preparation, or any group that enjoys wrestling with hard questions.",
+      "Realistic moral dilemma examples with no easy answers, organized for discussion, classrooms, interviews, and self-reflection.",
+    intro: "A moral or ethical dilemma is a situation where every option involves some moral cost -- there is no perfectly right answer. These moral dilemma scenarios force you to examine your values, weigh competing principles, and explain why you believe what you believe. Unlike simple moral questions with obvious answers, true dilemmas expose tensions between values such as honesty and kindness, individual rights and collective good, or justice and mercy. Whether you need ethical dilemma examples for a classroom, moral dilemma questions for adults to discuss over dinner, interview practice, or a structured group conversation, this collection has you covered. The 65+ questions below span technology and AI, medicine, everyday life, workplace ethics, society, and the environment, followed by quick moral dilemmas for shorter discussions.",
     publishDate: "2026-04-01",
-    lastModified: "2026-07-14",
+    lastModified: "2026-08-15",
     sections: [
       {
         heading: "Technology and AI Ethics",

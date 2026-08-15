@@ -15,8 +15,11 @@ const checks = [
   { path: "/question-of-the-day", index: true, canonical: "/question-of-the-day", titleMax: 70, titleHas: "Question of the Day" },
   { path: "/icebreaker", index: true, canonical: "/icebreaker", titleMax: 70, titleHas: "Icebreaker Question Generator", hreflang: true },
   { path: "/writing", index: true, canonical: "/writing", titleMax: 76, titleHas: "Random Topics to Write About", hreflang: true },
+  { path: "/conversation", index: true, canonical: "/conversation", titleMax: 65, titleHas: "Conversation Topic Generator", hreflang: true, bodyHas: ["Popular Conversation Starter Collections"], bodyOccurrences: [{ needle: 'href="/topics/', min: 6 }] },
+  { path: "/topics/ethical-dilemma-questions", index: true, canonical: "/topics/ethical-dilemma-questions", titleMax: 65, titleHas: "65+ Moral & Ethical Dilemma Questions", hreflang: true, bodyHas: ["Quick Moral Dilemmas to Discuss", "Try the Argument Generator"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 66 }] },
   { path: "/topics/toastmasters-table-topics", index: true, canonical: "/topics/toastmasters-table-topics", titleMax: 70, titleHas: "Toastmasters Table Topics", bodyHas: ["Updated:", "Print or save as PDF"] },
   { path: "/es/most-likely-to", index: true, canonical: "/es/most-likely-to", titleMax: 76, titleHas: "Quién Es Más Probable", es: true, hreflang: true },
+  { path: "/es/topics/most-likely-to-questions", index: true, canonical: "/es/topics/most-likely-to-questions", titleMax: 65, titleHas: "100 Preguntas de Quién Es Más Probable", es: true, hreflang: true, bodyHas: ["Preguntas fuertes de Quién es más probable para amigos", "Abrir el Generador de Quién Es Más Probable"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 100 }] },
   { path: "/writing/philosophy", index: true, canonical: "/writing/philosophy", titleHas: "Philosophy" },
   { path: "/writing/psychology", index: true, canonical: "/writing/psychology", titleHas: "Psychology" },
   { path: "/speech/politics", index: true, canonical: "/speech/politics", titleHas: "Politics" },
@@ -130,6 +133,15 @@ async function checkPage(check) {
   }
   for (const needle of check.bodyHas || []) {
     if (!html.includes(needle)) fail(`${check.path}: missing expected content “${needle}”`);
+  }
+  for (const occurrence of check.bodyOccurrences || []) {
+    const actual = html.split(occurrence.needle).length - 1;
+    if (occurrence.exact !== undefined && actual !== occurrence.exact) {
+      fail(`${check.path}: expected ${occurrence.exact} occurrences of “${occurrence.needle}”, received ${actual}`);
+    }
+    if (occurrence.min !== undefined && actual < occurrence.min) {
+      fail(`${check.path}: expected at least ${occurrence.min} occurrences of “${occurrence.needle}”, received ${actual}`);
+    }
   }
   return { path: check.path, title, robots: robots || "index (implicit)" };
 }

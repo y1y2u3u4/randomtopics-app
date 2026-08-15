@@ -27,6 +27,7 @@ export const metadata: Metadata = {
 };
 
 const COLLECTIONS = [
+  { title: "100 Preguntas de Quién Es Más Probable", href: "/es/topics/most-likely-to-questions" },
   { title: "75 Mejores Temas de Debate para Estudiantes", href: "/es/topics/debate-topics-for-students" },
   { title: "50 Preguntas de Dilemas Éticos", href: "/es/topics/ethical-dilemma-questions" },
   { title: "65 Ideas de Presentación para la Escuela", href: "/es/topics/presentation-ideas-for-school" },
