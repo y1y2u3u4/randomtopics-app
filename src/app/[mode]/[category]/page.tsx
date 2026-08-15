@@ -9,6 +9,10 @@ import { topics } from "@/data/topics";
 import { categorySeoContent } from "@/data/categorySeoContent";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import {
+  SITE_URL,
+  isIndexableModeCategoryPath,
+} from "@/i18n/config";
 
 // Mode-specific usage angle — combined with per-category intro and real
 // sample topics below, this differentiates every mode×category combo page.
@@ -54,20 +58,26 @@ export async function generateMetadata({ params }: ComboPageProps): Promise<Meta
   // combo title past 90 chars, so Google truncated it mid-word in the SERP.
   const title = `${catInfo.label} ${modeInfo.label}`;
   const description = `Generate random ${catInfo.label.toLowerCase()} ${modeInfo.label.toLowerCase()} instantly. ${catInfo.description}. Free, no signup required.`;
+  const path = `/${mode}/${category}`;
+  const indexable = isIndexableModeCategoryPath(path);
+  const absoluteUrl = `${SITE_URL}${path}`;
 
   return {
     title,
     description,
-    // AdSense "Low value content" remediation (2026-07): these 80 mode×category
-    // combo pages share one template with ~2 differentiated fields (category
-    // intro + sample topics) — below the 3-field bar for standalone indexable
-    // pages. Keep them for users/navigation, but noindex like the /es combos.
-    robots: { index: false, follow: true },
-    alternates: { canonical: `/${mode}/${category}` },
+    // Most template permutations stay out of the index. A small allowlist of
+    // GSC-proven pages remains indexable and is also emitted in the sitemap.
+    robots: { index: indexable, follow: true },
+    alternates: {
+      canonical: path,
+      ...(indexable
+        ? { languages: { en: absoluteUrl, "x-default": absoluteUrl } }
+        : {}),
+    },
     openGraph: {
       title,
       description,
-      url: `https://randomtopics.app/${mode}/${category}`,
+      url: absoluteUrl,
       siteName: "Random Topics",
       type: "website",
     },

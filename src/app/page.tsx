@@ -50,6 +50,34 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Put proven search intents one click from the homepage. These are
+            task-distinct tools, not keyword-variant landing pages. */}
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
+          <h2 className="text-sm font-bold text-[var(--text-primary)] mb-3">
+            Popular tools right now
+          </h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              { emoji: "🎡", label: "Topic Wheel", detail: "Spin for a topic", href: "/spin-the-wheel" },
+              { emoji: "⚔️", label: "Debate Generator", detail: "Topics with both sides", href: "/debate" },
+              { emoji: "✨", label: "Question of the Day", detail: "A fresh daily prompt", href: "/question-of-the-day" },
+              { emoji: "⚖️", label: "Moral Dilemmas", detail: "60 ethical questions", href: "/topics/ethical-dilemma-questions" },
+            ].map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-all group"
+              >
+                <span className="text-2xl" aria-hidden="true">{tool.emoji}</span>
+                <p className="text-sm font-bold text-[var(--text-primary)] mt-2 group-hover:text-[var(--neon-cyan)]">
+                  {tool.label}
+                </p>
+                <p className="text-xs text-[var(--text-muted)] mt-1">{tool.detail}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* Editorial feature: real topics + talking points from the database */}
         <EditorsPicks
           heading="Editor's Picks: Topics with Talking Points"

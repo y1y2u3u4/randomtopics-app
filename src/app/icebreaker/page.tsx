@@ -8,11 +8,12 @@ import { pickModeTopics } from "@/lib/editorial";
 import Link from "next/link";
 import type { Metadata } from "next";
 import FaqSchema from "@/components/FaqSchema";
+import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 
 export const metadata: Metadata = {
-  title: "Random Icebreaker Questions Generator | Team Building & Get-to-Know-You",
+  title: { absolute: "Icebreaker Question Generator — 300+ Questions | Random Topics" },
   description:
-    "Generate random icebreaker questions for meetings, team building, classrooms, and virtual events. 300+ get-to-know-you questions that get groups talking, laughing, and connecting instantly.",
+    "Generate 300+ icebreaker questions for meetings, team building, classrooms and virtual events. One click, work-safe prompts, free and no signup.",
   keywords: [
     "icebreaker questions",
     "icebreaker generator",
@@ -23,7 +24,18 @@ export const metadata: Metadata = {
     "virtual icebreaker questions",
     "fun icebreaker questions",
   ],
-  alternates: { canonical: "/icebreaker" },
+  alternates: {
+    canonical: "/icebreaker",
+    languages: hreflangAlternates("/icebreaker"),
+  },
+  openGraph: {
+    title: "Icebreaker Question Generator — 300+ Questions",
+    description:
+      "One-click icebreaker questions for meetings, classrooms, team building and virtual events.",
+    url: `${SITE_URL}/icebreaker`,
+    siteName: "Random Topics",
+    type: "website",
+  },
 };
 
 const FAQ_ITEMS = [
@@ -85,11 +97,10 @@ export default function IcebreakerPage() {
                 sets the tone for everything that follows.
               </p>
               <p>
-                Research in organizational psychology consistently shows that teams who engage in
-                structured social interaction — even brief icebreakers — collaborate more effectively,
-                communicate more openly, and report higher job satisfaction. Our generator provides
-                hundreds of tested <strong>get-to-know-you questions</strong> and <strong>team building
-                questions</strong> suitable for any group size, setting, or formality level.
+                A short, structured prompt gives everyone an easy first contribution and helps a group
+                move past awkward introductions. Our generator provides hundreds of curated
+                <strong> get-to-know-you questions</strong> and <strong>team building questions</strong>
+                for different group sizes, settings, and levels of formality.
               </p>
 
               <h3

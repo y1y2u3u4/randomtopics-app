@@ -2561,9 +2561,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
   {
     slug: "toastmasters-table-topics",
     title: "120 Table Topics Questions for Toastmasters (Funny, Work & Family)",
-    metaTitle: "120 Table Topics Questions — Toastmasters, Funny, Work & Family | RandomTopics",
+    metaTitle: "120 Toastmasters Table Topics Questions (Printable) | Random Topics",
     metaDescription:
-      "A big list of 120 Table Topics questions for Toastmasters: classic opinion prompts, funny table topics, work and business questions, family gathering starters, and creative hypotheticals. Free to read, copy, or print.",
+      "120 Toastmasters Table Topics questions: funny, reflective, work and family prompts. Read, copy or print the complete list for your next meeting.",
     heroTitle: "120 Table Topics Questions for Toastmasters",
     heroSubtitle:
       "A ready-to-use list of impromptu speaking questions — classic, funny, work, and family — to sharpen thinking on your feet.",

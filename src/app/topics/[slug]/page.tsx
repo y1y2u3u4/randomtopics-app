@@ -7,6 +7,7 @@ import { articleToPages } from "@/data/internalLinks";
 import { MODES, CATEGORIES } from "@/data/types";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import PrintButton from "@/components/PrintButton";
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
@@ -40,6 +41,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       siteName: "Random Topics",
       type: "article",
       publishedTime: article.publishDate,
+      modifiedTime: article.lastModified,
     },
     twitter: {
       card: "summary_large_image",
@@ -80,7 +82,20 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             Published: {new Date(article.publishDate).toLocaleDateString("en-US", {
               year: "numeric", month: "long", day: "numeric",
             })}
+            {article.lastModified !== article.publishDate && (
+              <> · Updated: {new Date(article.lastModified).toLocaleDateString("en-US", {
+                year: "numeric", month: "long", day: "numeric",
+              })}</>
+            )}
           </p>
+          <div className="mt-5 flex justify-center">
+            <PrintButton
+              heading={article.heroTitle}
+              items={article.sections.flatMap((section) => section.items)}
+              intro={article.heroSubtitle}
+              label="Print or save as PDF"
+            />
+          </div>
         </div>
 
         {/* Article Schema */}

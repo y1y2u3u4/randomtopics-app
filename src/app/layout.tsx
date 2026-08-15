@@ -80,8 +80,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${jakarta.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${outfit.variable} ${jakarta.variable}`}
+    >
       <head>
+        {/* Root layouts cannot vary the html lang attribute by pathname without
+            making every route dynamic. Set it before hydration; /es also sends
+            Content-Language: es and inherits lang="es" from its nested layout. */}
+        <Script id="document-language" strategy="beforeInteractive">
+          {`document.documentElement.lang = location.pathname === '/es' || location.pathname.startsWith('/es/') ? 'es' : 'en';`}
+        </Script>
         <Script
           src="https://analytics.flashcardmaker.me/script.js"
           data-website-id="15509cd4-881c-4ed8-8dd6-bb64822993ee"
@@ -125,7 +135,7 @@ export default function RootLayout({
                   alternateName: "Random Topic Generator",
                   url: "https://randomtopics.app",
                   publisher: { "@id": "https://randomtopics.app/#organization" },
-                  inLanguage: "en",
+                  inLanguage: ["en", "es"],
                 },
                 {
                   "@type": "WebApplication",
@@ -146,6 +156,7 @@ export default function RootLayout({
                     "No signup required",
                   ],
                   isAccessibleForFree: true,
+                  inLanguage: ["en", "es"],
                   offers: {
                     "@type": "Offer",
                     price: "0",

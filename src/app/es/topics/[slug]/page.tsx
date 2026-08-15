@@ -9,6 +9,7 @@ import { MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import PrintButton from "@/components/PrintButton";
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
@@ -38,6 +39,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       locale: "es_ES",
       type: "article",
       publishedTime: article.publishDate,
+      modifiedTime: article.lastModified,
     },
   };
 }
@@ -68,7 +70,19 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           </p>
           <p className="text-xs text-[var(--text-muted)] mt-3">
             Publicado: {new Date(article.publishDate).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}
+            {article.lastModified !== article.publishDate && (
+              <> · Actualizado: {new Date(article.lastModified).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}</>
+            )}
           </p>
+          <div className="mt-5 flex justify-center">
+            <PrintButton
+              heading={article.heroTitle}
+              items={article.sections.flatMap((section) => section.items)}
+              intro={article.heroSubtitle}
+              label="Imprimir o guardar como PDF"
+              locale="es"
+            />
+          </div>
         </div>
 
         <script

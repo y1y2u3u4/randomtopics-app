@@ -9,9 +9,9 @@ import { MOST_LIKELY_TO_ES } from "@/data/partyGames.es";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 
 export const metadata: Metadata = {
-  title: { absolute: "Generador de Quién Es Más Probable — Prompts Divertidos | Random Topics" },
+  title: { absolute: "Preguntas de Quién Es Más Probable — Generador Gratis | Random Topics" },
   description:
-    "Generador de '¿Quién es más probable que…?' gratis: prompts limpios y divertidos para fiestas, clases y team building. Un clic por pregunta, sin repeticiones. Sin registro.",
+    "Preguntas de quién es más probable que para fiestas, amigos, clases y equipos. Generador gratis, divertido, sin repeticiones y sin registro.",
   alternates: { canonical: "/es/most-likely-to", languages: hreflangAlternates("/most-likely-to") },
   openGraph: {
     title: "Generador de Quién Es Más Probable",

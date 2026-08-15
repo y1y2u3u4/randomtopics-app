@@ -8,11 +8,12 @@ import { pickModeTopics } from "@/lib/editorial";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 
 export const metadata: Metadata = {
-  title: "Random Debate Topic Generator — 300+ Debate Topics with Pro & Con Arguments",
+  title: { absolute: "Debate Topic Generator — 300+ Random Debate Topics | Random Topics" },
   description:
-    "Generate random debate topics instantly — 300+ argumentative topics and debate motions with pro and con talking points for classrooms, debate clubs, and practice rounds. Also works as a random argument generator. Free, no signup.",
+    "Generate 300+ random debate topics with pro and con talking points for classrooms, clubs and practice rounds. Free debate topic generator, no signup.",
   keywords: [
     "debate topic generator",
     "random debate topic generator",
@@ -26,7 +27,18 @@ export const metadata: Metadata = {
     "debate topics",
     "random debate topics",
   ],
-  alternates: { canonical: "/debate" },
+  alternates: {
+    canonical: "/debate",
+    languages: hreflangAlternates("/debate"),
+  },
+  openGraph: {
+    title: "Debate Topic Generator — 300+ Random Debate Topics",
+    description:
+      "Generate random debate topics with pro and con talking points for classrooms, clubs and practice rounds.",
+    url: `${SITE_URL}/debate`,
+    siteName: "Random Topics",
+    type: "website",
+  },
 };
 
 const FAQ_ITEMS = [
