@@ -5,6 +5,7 @@ import Link from "next/link";
 import { SEO_ARTICLES } from "@/data/seoContent";
 import { articleToPages } from "@/data/internalLinks";
 import { MODES, CATEGORIES } from "@/data/types";
+import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PrintButton from "@/components/PrintButton";
@@ -12,6 +13,15 @@ import PrintButton from "@/components/PrintButton";
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
+
+const ARTICLE_CTA: Record<string, { href: string; text: string; label: string; emoji: string }> = {
+  "ethical-dilemma-questions": {
+    href: "/argument-generator",
+    text: "Ready to turn a dilemma into a structured discussion? Generate a claim and practice both sides.",
+    label: "Try the Argument Generator",
+    emoji: "⚖️",
+  },
+};
 
 export function generateStaticParams() {
   return SEO_ARTICLES.map((article) => ({
@@ -33,6 +43,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     description: article.metaDescription,
     alternates: {
       canonical: `/topics/${article.slug}`,
+      languages: hreflangAlternates(`/topics/${article.slug}`),
     },
     openGraph: {
       title: article.metaTitle,
@@ -55,6 +66,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
   const article = SEO_ARTICLES.find((a) => a.slug === slug);
   if (!article) notFound();
+  const articleCta = ARTICLE_CTA[article.slug] ?? {
+    href: "/",
+    text: "Want more topics like these? Generate unlimited random topics instantly.",
+    label: "Try the Generator — It's Free",
+    emoji: "🎲",
+  };
 
   return (
     <>
@@ -190,13 +207,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 <section key="mid-cta" className="max-w-3xl mx-auto px-4 sm:px-6 pb-10 text-center">
                   <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 bg-gradient-to-r from-[rgba(0,229,255,0.04)] to-[rgba(255,45,120,0.04)]">
                     <p className="text-sm text-[var(--text-secondary)] mb-4">
-                      Want more topics like these? Generate unlimited random topics instantly.
+                      {articleCta.text}
                     </p>
                     <Link
-                      href="/"
+                      href={articleCta.href}
                       className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3"
                     >
-                      <span>🎲</span> Try the Generator — It&apos;s Free
+                      <span>{articleCta.emoji}</span> {articleCta.label}
                     </Link>
                   </div>
                 </section>
@@ -350,10 +367,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         {/* CTA to generator */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16 text-center">
           <Link
-            href="/"
+            href={articleCta.href}
             className="btn-generate animate-pulse-glow inline-flex items-center gap-2 text-lg px-10 py-4"
           >
-            <span>🎲</span> Generate More Random Topics
+            <span>{articleCta.emoji}</span> {articleCta.label}
           </Link>
         </section>
       </main>

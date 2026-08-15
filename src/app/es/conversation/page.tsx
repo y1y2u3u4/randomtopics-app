@@ -8,9 +8,9 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { absolute: "Generador de Temas de Conversación — Más de 500 Iniciadores Gratis | Random Topics" },
+  title: { absolute: "Generador de Temas de Conversación: 300+ Ideas | RandomTopics" },
   description:
-    "Generador de temas de conversación gratis: más de 500 iniciadores para citas, trabajo, amigos y fiestas. Elige categoría y profundidad, haz un clic y consigue al instante de qué hablar. Sin registro y sin anuncios.",
+    "Generador de temas de conversación gratis con más de 300 ideas para citas, amigos, trabajo, fiestas y clases. Elige una categoría y recibe un tema al instante.",
   keywords: [
     "iniciadores de conversación",
     "temas de conversación",
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/conversation"),
   },
   openGraph: {
-    title: "Generador de Temas de Conversación — Más de 500 Iniciadores Gratis",
+    title: "Generador de Temas de Conversación: Más de 300 Ideas Gratis",
     description:
-      "Generador de temas de conversación gratis: más de 500 iniciadores para citas, trabajo, amigos y fiestas. Haz un clic y consigue al instante de qué hablar. Sin registro.",
+      "Genera al instante temas de conversación para citas, amigos, trabajo, fiestas y clases. Más de 300 ideas seleccionadas, sin registro.",
     url: `${SITE_URL}/es/conversation`,
     siteName: "Random Topics",
     locale: "es_ES",
@@ -36,6 +36,15 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
+const CONVERSATION_COLLECTIONS_ES = [
+  { title: "Temas de conversación para adolescentes", detail: "Preguntas naturales y aptas para clase", href: "/es/topics/conversation-topics-for-teens" },
+  { title: "Conversaciones para parejas", detail: "Ideas para citas y relaciones", href: "/es/topics/conversation-starters-for-couples" },
+  { title: "Temas para practicar idiomas", detail: "Conversación por nivel y situación", href: "/es/topics/esl-conversation-topics" },
+  { title: "Temas de conversación divertidos", detail: "Preguntas ligeras para amigos y fiestas", href: "/es/topics/funny-conversation-topics" },
+  { title: "Preguntas para una fiesta", detail: "Rompe el hielo y anima al grupo", href: "/es/topics/questions-to-ask-at-a-party" },
+  { title: "Temas controvertidos para conversar", detail: "Debates respetuosos para grupos", href: "/es/topics/controversial-topics-to-discuss" },
+] as const;
 
 const FAQ_ITEMS = [
   {
@@ -56,7 +65,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Cuántos iniciadores de conversación tiene este generador?",
     answer:
-      "Nuestra base de datos incluye más de 200 temas de conversación seleccionados a mano en más de 15 categorías, y añadimos nuevos con regularidad. También puedes activar la generación con IA para conseguir temas únicos prácticamente ilimitados.",
+      "Nuestra base de datos incluye más de 300 temas de conversación seleccionados a mano en más de 15 categorías, y añadimos nuevos con regularidad. También puedes activar la generación con IA para conseguir temas únicos prácticamente ilimitados.",
   },
   {
     question: "¿Puedo usarlos para practicar idiomas o clases de español como lengua extranjera?",
@@ -83,6 +92,29 @@ export default function ConversationPageEs() {
           title="Generador de Temas de Conversación"
           subtitle="Genera temas de conversación al azar para romper el hielo y mantener la charla fluida."
         />
+
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-4">
+          <div className="glass-card p-6 sm:p-8">
+            <h2 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
+              Colecciones populares de conversación
+            </h2>
+            <p className="text-sm text-[var(--text-muted)] mt-2 mb-5">
+              Genera un tema al azar arriba o elige una lista específica para tu grupo y situación.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {CONVERSATION_COLLECTIONS_ES.map((collection) => (
+                <Link
+                  key={collection.href}
+                  href={collection.href}
+                  className="rounded-xl border border-[rgba(255,255,255,0.06)] p-4 transition-all hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)]"
+                >
+                  <span className="block text-sm font-semibold text-[var(--text-primary)]">{collection.title}</span>
+                  <span className="block text-xs text-[var(--text-muted)] mt-1">{collection.detail}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
@@ -198,7 +230,7 @@ export default function ConversationPageEs() {
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">¿Cuántos iniciadores de conversación tiene este generador?</h4>
               <p>
-                Nuestra base de datos incluye más de 200 temas de conversación seleccionados a mano en más de 15
+                Nuestra base de datos incluye más de 300 temas de conversación seleccionados a mano en más de 15
                 categorías, y añadimos nuevos con regularidad. También puedes activar la generación con IA para
                 conseguir temas únicos prácticamente ilimitados.
               </p>

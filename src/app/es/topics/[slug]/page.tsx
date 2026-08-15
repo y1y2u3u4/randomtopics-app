@@ -15,6 +15,15 @@ interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
 
+const ARTICLE_CTA_ES: Record<string, { href: string; text: string; label: string; emoji: string }> = {
+  "most-likely-to-questions": {
+    href: "/es/most-likely-to",
+    text: "¿Quieres seguir jugando sin leer la lista en orden? Saca una pregunta nueva con cada clic.",
+    label: "Abrir el Generador de Quién Es Más Probable",
+    emoji: "👉",
+  },
+};
+
 export function generateStaticParams() {
   return SEO_ARTICLES_ES.map((article) => ({ slug: article.slug }));
 }
@@ -48,6 +57,12 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
   const { slug } = await params;
   const article = SEO_ARTICLES_ES.find((a) => a.slug === slug);
   if (!article) notFound();
+  const articleCta = ARTICLE_CTA_ES[article.slug] ?? {
+    href: "/es",
+    text: "¿Quieres más temas como estos? Genera temas al azar ilimitados al instante.",
+    label: "Prueba el Generador — Es Gratis",
+    emoji: "🎲",
+  };
 
   return (
     <>
@@ -153,10 +168,10 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
                 <section key="mid-cta" className="max-w-3xl mx-auto px-4 sm:px-6 pb-10 text-center">
                   <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 bg-gradient-to-r from-[rgba(0,229,255,0.04)] to-[rgba(255,45,120,0.04)]">
                     <p className="text-sm text-[var(--text-secondary)] mb-4">
-                      ¿Quieres más temas como estos? Genera temas al azar ilimitados al instante.
+                      {articleCta.text}
                     </p>
-                    <Link href="/es" className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
-                      <span>🎲</span> Prueba el Generador — Es Gratis
+                    <Link href={articleCta.href} className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
+                      <span>{articleCta.emoji}</span> {articleCta.label}
                     </Link>
                   </div>
                 </section>
@@ -279,8 +294,8 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
         </section>
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16 text-center">
-          <Link href="/es" className="btn-generate animate-pulse-glow inline-flex items-center gap-2 text-lg px-10 py-4">
-            <span>🎲</span> Genera Más Temas al Azar
+          <Link href={articleCta.href} className="btn-generate animate-pulse-glow inline-flex items-center gap-2 text-lg px-10 py-4">
+            <span>{articleCta.emoji}</span> {articleCta.label}
           </Link>
         </section>
       </main>

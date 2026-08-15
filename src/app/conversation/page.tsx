@@ -7,12 +7,13 @@ import { ModeIllustration } from "@/components/CategoryIllustration";
 import { pickModeTopics } from "@/lib/editorial";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
+import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Conversation Topic Generator — 500+ Free Conversation Starters",
+  title: { absolute: "Conversation Topic Generator: 300+ Starters | RandomTopics" },
   description:
-    "Free conversation topic generator: 500+ starters for dates, work, friends & parties. Pick a category and depth, click once, get instant things to talk about — no signup, no ads.",
+    "Free random conversation topic generator with 300+ starters for dates, friends, work, parties, and ESL. Pick a category and get a topic instantly.",
   keywords: [
     "conversation starters",
     "conversation topics",
@@ -23,8 +24,28 @@ export const metadata: Metadata = {
     "deep conversation topics",
     "conversation starters for adults",
   ],
-  alternates: { canonical: "/conversation" },
+  alternates: {
+    canonical: "/conversation",
+    languages: hreflangAlternates("/conversation"),
+  },
+  openGraph: {
+    title: "Conversation Topic Generator: 300+ Free Starters",
+    description:
+      "Generate a random conversation topic instantly, then explore curated starters for dates, friends, work, parties, and ESL practice.",
+    url: `${SITE_URL}/conversation`,
+    siteName: "Random Topics",
+    type: "website",
+  },
 };
+
+const CONVERSATION_COLLECTIONS = [
+  { title: "Conversation Starters for Couples", detail: "Questions for dates and relationships", href: "/topics/conversation-starters-for-couples" },
+  { title: "Conversation Topics for Teens", detail: "School-friendly prompts that feel natural", href: "/topics/conversation-topics-for-teens" },
+  { title: "ESL Conversation Topics", detail: "Speaking practice by level and situation", href: "/topics/esl-conversation-topics" },
+  { title: "Funny Conversation Topics", detail: "Light prompts for friends and parties", href: "/topics/funny-conversation-topics" },
+  { title: "Questions to Ask Friends", detail: "Fresh questions for closer conversations", href: "/topics/random-questions-to-ask-friends" },
+  { title: "First-Date Conversation Topics", detail: "Low-pressure ways to keep a date flowing", href: "/topics/first-date-conversation-topics" },
+] as const;
 
 const FAQ_ITEMS = [
   {
@@ -45,7 +66,7 @@ const FAQ_ITEMS = [
   {
     question: "How many conversation starters does this generator have?",
     answer:
-      "Our database includes over 200 hand-curated conversation topics across 15+ categories, and we add new ones regularly. You can also enable AI-powered generation for virtually unlimited unique topics.",
+      "Our database includes over 300 hand-curated conversation topics across 15+ categories, and we add new ones regularly. You can also enable AI-powered generation for virtually unlimited unique topics.",
   },
   {
     question: "Can I use these for ESL or language practice?",
@@ -73,13 +94,42 @@ export default function ConversationPage() {
           subtitle="Generate random conversation topics to break the ice and keep discussions flowing."
         />
 
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-4">
+          <div className="glass-card p-6 sm:p-8">
+            <h2 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
+              Popular Conversation Starter Collections
+            </h2>
+            <p className="text-sm text-[var(--text-muted)] mt-2 mb-5">
+              Generate a random conversation topic above, or choose a focused list for your group and situation.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {CONVERSATION_COLLECTIONS.map((collection) => (
+                <Link
+                  key={collection.href}
+                  href={collection.href}
+                  className="rounded-xl border border-[rgba(255,255,255,0.06)] p-4 transition-all hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)]"
+                >
+                  <span className="block text-sm font-semibold text-[var(--text-primary)]">{collection.title}</span>
+                  <span className="block text-xs text-[var(--text-muted)] mt-1">{collection.detail}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
             <h2 className="section-heading text-2xl sm:text-3xl mb-6 text-[var(--text-primary)]">
-              What Are Conversation Starters?
+              Free Random Conversation Topic Generator
             </h2>
             <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
+              <p>
+                Use this <strong>random conversation generator</strong> whenever you need something to talk
+                about. Choose a category and depth, generate one or several prompts, then save or share the
+                topics that fit. There is no account required, so it works for a quick date-night question,
+                a classroom speaking activity, a team meeting, or a party.
+              </p>
               <p>
                 Conversation starters are questions or topics designed to spark meaningful dialogue between
                 people. Whether you&apos;re meeting someone new, reconnecting with an old friend, or trying to
@@ -179,7 +229,7 @@ export default function ConversationPage() {
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">How many conversation starters does this generator have?</h4>
               <p>
-                Our database includes over 200 hand-curated conversation topics across 15+ categories,
+                Our database includes over 300 hand-curated conversation topics across 15+ categories,
                 and we add new ones regularly. You can also enable AI-powered generation for virtually
                 unlimited unique topics.
               </p>

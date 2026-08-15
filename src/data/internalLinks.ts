@@ -139,4 +139,9 @@ export const articleToPages: Record<
   "public-speaking-topics-for-beginners": { modes: ["speech"], categories: ["education"] },
   "conversation-topics-for-teens": { modes: ["conversation"], categories: ["education", "relationships"] },
   "couples-game-night-questions": { modes: ["conversation", "icebreaker"], categories: ["relationships", "entertainment"] },
+  "most-likely-to-questions": {
+    modes: ["icebreaker", "conversation"],
+    categories: ["relationships", "weird-fun"],
+    tools: [{ emoji: "👉", label: "Most Likely To Generator", href: "/most-likely-to" }],
+  },
 };

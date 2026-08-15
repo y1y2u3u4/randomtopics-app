@@ -86,6 +86,12 @@ export default function MostLikelyToPageEs() {
                 <Link href="/es/this-or-that" className="text-[var(--neon-cyan)] hover:underline">Esto o Aquello</Link> y{" "}
                 <Link href="/es/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Dos Verdades y una Mentira</Link>.
               </p>
+              <p>
+                ¿Prefieres elegir por categoría o imprimir las preguntas? Consulta nuestra{" "}
+                <Link href="/es/topics/most-likely-to-questions" className="text-[var(--neon-cyan)] hover:underline">
+                  lista de 100 preguntas de Quién Es Más Probable para amigos, fiestas y familia
+                </Link>.
+              </p>
 
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>
                 Preguntas Frecuentes

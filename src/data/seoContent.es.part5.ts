@@ -460,17 +460,17 @@ export const seoArticlesEsPart5: SeoArticle[] = [
   // 33. Quién es más probable
   {
     slug: "most-likely-to-questions",
-    title: "150 preguntas de Quién es más probable (divertidas, limpias y para amigos o trabajo)",
-    metaTitle: "150 preguntas de Quién es más probable — divertidas y limpias | RandomTopics",
+    title: "100 preguntas de Quién es más probable para amigos (divertidas y fuertes)",
+    metaTitle: "100 Preguntas de Quién Es Más Probable | RandomTopics",
     metaDescription:
-      "150 preguntas de '¿Quién es más probable que...?' para amigos, parejas, adolescentes y equipos de trabajo: divertidas, limpias y reveladoras. Lista gratis y generador. Sin registro.",
-    heroTitle: "150 preguntas de Quién es más probable",
+      "100 preguntas de ¿Quién es más probable que...? para amigos, parejas, fiestas y familia. Incluye preguntas divertidas, fuertes y un generador gratis.",
+    heroTitle: "100 preguntas de Quién es más probable",
     heroSubtitle:
-      "Prompts divertidos, limpios y sorprendentemente reveladores de '¿quién es más probable que...?' para amigos, parejas, clases y rompehielos de equipo.",
+      "Preguntas divertidas, fuertes y aptas para distintos grupos: amigos, parejas, fiestas, familia, clases y equipos.",
     intro:
-      "'Quién es más probable' es el juego de grupo donde todos señalan a la persona con más probabilidades de hacer algo, y el resultado siempre es más gracioso de lo que esperas. Funciona como juego de fiesta, matatiempos de viaje, calentamiento de clase o rompehielos rápido de equipo. Lo único que necesitas es una buena lista de prompts. Aquí tienes 150 preguntas de 'Quién es más probable' ordenadas por grupo y estilo, todas limpias. Lee una y cuenta los dedos que señalan, o usa nuestro generador para que no paren.",
+      "'Quién es más probable' es el juego de grupo donde todos señalan a la persona con más probabilidades de hacer algo, y el resultado suele ser más gracioso de lo esperado. Funciona en una fiesta, un viaje, una clase, una reunión familiar o como rompehielos de equipo. Aquí tienes exactamente 100 preguntas de '¿Quién es más probable que...?' organizadas por grupo e intensidad: para amigos, divertidas, parejas, trabajo, adolescentes, fuertes, fiestas y familia. Lee una pregunta y cuenta los votos, imprime la lista o usa el generador gratuito para seguir jugando sin preparar nada.",
     publishDate: "2026-07-06",
-    lastModified: "2026-07-06",
+    lastModified: "2026-08-15",
     sections: [
       {
         heading: "Preguntas de Quién es más probable para amigos",
@@ -564,6 +564,63 @@ export const seoArticlesEsPart5: SeoArticle[] = [
           "¿Quién es más probable que anime a todos en un mal día?",
         ],
       },
+      {
+        heading: "Preguntas fuertes de Quién es más probable para amigos",
+        description:
+          "Preguntas más intensas y reveladoras para grupos con confianza, sin convertir el juego en algo ofensivo.",
+        items: [
+          "¿Quién es más probable que guarde un secreto importante durante años?",
+          "¿Quién es más probable que vuelva con una expareja aunque sepa que no le conviene?",
+          "¿Quién es más probable que abandone todo para empezar de cero en otro país?",
+          "¿Quién es más probable que diga una verdad incómoda cuando nadie más se atreve?",
+          "¿Quién es más probable que perdone una traición seria?",
+          "¿Quién es más probable que cambie de opinión después de una discusión profunda?",
+          "¿Quién es más probable que renuncie a un trabajo sin tener otro preparado?",
+          "¿Quién es más probable que mantenga la calma durante una crisis?",
+          "¿Quién es más probable que admita primero que se equivocó?",
+          "¿Quién es más probable que arriesgue una amistad por defender lo que cree correcto?",
+          "¿Quién es más probable que se enamore de alguien completamente inesperado?",
+          "¿Quién es más probable que cumpla un sueño que todos consideran imposible?",
+          "¿Quién es más probable que revele accidentalmente una sorpresa?",
+          "¿Quién es más probable que dé el mejor consejo en un momento difícil?",
+        ],
+      },
+      {
+        heading: "Preguntas de Quién es más probable para fiestas",
+        description: "Preguntas rápidas para animar una reunión y hacer participar a todo el grupo.",
+        items: [
+          "¿Quién es más probable que llegue primero a la pista de baile?",
+          "¿Quién es más probable que organice la próxima fiesta?",
+          "¿Quién es más probable que conozca a todo el mundo antes de terminar la noche?",
+          "¿Quién es más probable que invente un juego en el momento?",
+          "¿Quién es más probable que cante aunque no se sepa la letra?",
+          "¿Quién es más probable que se quede hasta el final ayudando a ordenar?",
+          "¿Quién es más probable que aparezca con el mejor aperitivo?",
+          "¿Quién es más probable que convierta una reunión tranquila en una gran celebración?",
+          "¿Quién es más probable que haga reír a una persona desconocida?",
+          "¿Quién es más probable que proponga una foto de grupo?",
+          "¿Quién es más probable que pierda la noción del tiempo conversando?",
+          "¿Quién es más probable que recuerde la mejor anécdota de la noche?",
+        ],
+      },
+      {
+        heading: "Preguntas de Quién es más probable para la familia",
+        description: "Opciones aptas para distintas edades y reuniones familiares.",
+        items: [
+          "¿Quién es más probable que conozca mejor la historia de la familia?",
+          "¿Quién es más probable que prepare la comida favorita de todos?",
+          "¿Quién es más probable que organice unas vacaciones familiares?",
+          "¿Quién es más probable que recuerde todos los cumpleaños?",
+          "¿Quién es más probable que empiece una tradición nueva?",
+          "¿Quién es más probable que conserve fotos y recuerdos antiguos?",
+          "¿Quién es más probable que llame solo para saber cómo estás?",
+          "¿Quién es más probable que gane una noche de juegos de mesa?",
+          "¿Quién es más probable que cuente la misma historia en cada reunión?",
+          "¿Quién es más probable que reúna a todos después de mucho tiempo?",
+          "¿Quién es más probable que tenga siempre un buen consejo?",
+          "¿Quién es más probable que haga reír a varias generaciones a la vez?",
+        ],
+      },
     ],
     faq: [
       {
@@ -584,7 +641,7 @@ export const seoArticlesEsPart5: SeoArticle[] = [
       {
         question: "¿Cuántas preguntas de Quién es más probable hay aquí?",
         answer:
-          "Esta lista tiene 150 prompts entre amigos, divertidas, parejas, trabajo y clase. Para prompts infinitos, usa el generador aleatorio para que ninguna ronda se repita.",
+          "Esta lista tiene exactamente 100 preguntas para amigos, parejas, fiestas, familia, trabajo y clase, incluidas opciones divertidas y fuertes. Para seguir jugando, usa el generador aleatorio gratuito.",
       },
     ],
     relatedLinks: [
