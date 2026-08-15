@@ -161,16 +161,16 @@ export const seoArticlesEsPart2: SeoArticle[] = [
   // 9. Controversial Topics to Discuss
   {
     slug: "controversial-topics-to-discuss",
-    title: "55 temas controvertidos para debates que hacen pensar",
-    metaTitle: "55 temas controvertidos para debates que hacen pensar | RandomTopics",
+    title: "55 temas controversiales y polémicos para debatir",
+    metaTitle: "55 Temas Controversiales y Polémicos para Debatir | RandomTopics",
     metaDescription:
-      "Explora 55 temas de debate controvertidos sobre política, tecnología, ética y sociedad. Perfectos para debates, ensayos y conversaciones desafiantes que agudizan el pensamiento crítico.",
-    heroTitle: "55 temas controvertidos para debates que hacen pensar",
+      "Explora 55 temas controversiales y polémicos para debatir sobre política, tecnología, ética y sociedad. Ideas con argumentos válidos en ambos lados.",
+    heroTitle: "55 Temas Controversiales y Polémicos para Debatir",
     heroSubtitle:
-      "Temas atrevidos que cuestionan suposiciones, encienden debates apasionados y te obligan a pensar de forma crítica sobre el mundo.",
-    intro: "Los temas controvertidos lo son por una razón: tocan valores muy arraigados, compensaciones complejas y una auténtica incertidumbre sobre el camino correcto a seguir. Involucrarse en estos temas no consiste en ganar discusiones, sino en agudizar tu pensamiento, comprender puntos de vista opuestos y desarrollar la humildad intelectual para sostener opiniones firmes con flexibilidad. Estos 55 temas están organizados por bloque temático y elegidos porque tienen argumentos legítimos y bien razonados en varios frentes.",
+      "Preguntas actuales que cuestionan suposiciones, encienden debates respetuosos y exigen argumentos en lugar de respuestas rápidas.",
+    intro: "En gran parte de Latinoamérica se buscan como temas controversiales; en otros países se habla de temas polémicos o controvertidos. Los tres términos describen preguntas donde personas informadas pueden discrepar por sus valores, prioridades o interpretación de la evidencia. Debatirlas no consiste en ganar a cualquier precio, sino en comprender puntos de vista opuestos y defender una postura con razones. Estos 55 temas están organizados por área y elegidos porque permiten construir argumentos sólidos en ambos lados.",
     publishDate: "2026-03-28",
-    lastModified: "2026-04-08",
+    lastModified: "2026-08-15",
     sections: [
       {
         heading: "Tecnología y privacidad",
@@ -284,12 +284,17 @@ export const seoArticlesEsPart2: SeoArticle[] = [
         answer:
           "En general, evita las controversias políticas o sociales muy candentes en el entorno laboral, salvo que sean directamente relevantes para tu trabajo. No obstante, los desacuerdos profesionales sobre estrategia, prioridades y enfoques son sanos y deben fomentarse. La distinción está entre las controversias de creencias personales (evitar) y las de criterio profesional (adoptar).",
       },
+      {
+        question: "¿Qué temas controversiales se pueden debatir en clase?",
+        answer:
+          "Funcionan bien la privacidad digital, la inteligencia artificial en la educación, la semana laboral de cuatro días, la energía nuclear, el voto obligatorio y los límites de la libertad de expresión. Elige un tema adecuado para la edad, establece reglas de respeto y pide que cada postura incluya evidencia y una respuesta al argumento contrario.",
+      },
     ],
     relatedLinks: [
       { label: "Temas de debate para estudiantes", href: "/es/topics/debate-topics-for-students" },
       { label: "Preguntas filosóficas profundas", href: "/es/topics/deep-philosophical-questions" },
       { label: "Preguntas de dilemas éticos", href: "/es/topics/ethical-dilemma-questions" },
-      { label: "Explorar temas de debate", href: "/es/debate" },
+      { label: "Generador de temas para debatir", href: "/es/debate" },
     ],
   },
 

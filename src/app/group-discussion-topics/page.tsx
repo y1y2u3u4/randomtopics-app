@@ -6,9 +6,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "100+ Group Discussion (GD) Topics for 2026 — With Prep Tips",
+  title: { absolute: "100+ Group Discussion Topics for 2026 | Random Topics" },
   description:
-    "100+ group discussion topics organized by theme — current affairs, technology & AI, business, education, environment and abstract GD topics. For placement interviews, MBA admissions, classrooms and clubs.",
+    "100+ group discussion topics for 2026, including current affairs, situation-based GD questions, AI, business, education, abstract topics, placements, and MBA interviews.",
   keywords: [
     "group discussion topics",
     "gd topics",
@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     "group discussion topics for students",
     "abstract gd topics",
     "current gd topics 2026",
+    "situation based gd topics",
+    "gd questions",
   ],
   alternates: { canonical: "/group-discussion-topics" },
 };
@@ -161,6 +163,28 @@ const TOPIC_SECTIONS: {
     ],
   },
   {
+    theme: "Situation-Based Questions",
+    emoji: "🎯",
+    intro:
+      "These situation-based GD topics test judgment, prioritization, and whether you can move a group toward a practical decision.",
+    href: "/categories/business",
+    topics: [
+      "Your team must cut a project budget by 25% without moving the deadline. What should be protected first?",
+      "A company discovers that its bestselling product has a minor safety risk. Should it recall immediately or investigate first?",
+      "Two high-performing teammates refuse to work together. How should the group divide responsibility?",
+      "A college has funding for either more scholarships or better campus facilities. Which should it prioritize?",
+      "An AI tool improves employee output but makes repeated factual errors. Should the organization keep using it?",
+      "A city can reduce traffic by raising parking prices or limiting private vehicles. Which policy is fairer?",
+      "A startup can become profitable by selling user data that customers technically agreed to share. Should it?",
+      "A manager must choose between an experienced safe candidate and a less experienced candidate with higher potential. Who should be hired?",
+      "A school can eliminate exams, but only if every course adopts continuous assessment. Is the tradeoff worthwhile?",
+      "A remote team is productive but reports growing isolation. Should office attendance become mandatory once a week?",
+      "A factory creates local jobs but exceeds proposed pollution limits. What conditions should the community demand?",
+      "A group presentation is due tomorrow and one member has contributed nothing. How should the team respond?",
+      "A public agency can release incomplete information quickly or verified information later during a crisis. Which approach builds more trust?",
+    ],
+  },
+  {
     theme: "Classroom & Club Discussions",
     emoji: "🗣️",
     intro:
@@ -210,6 +234,11 @@ const FAQ_ITEMS = [
     answer:
       "Use the define-lens-land method: define what the phrase could mean (literal and metaphorical), pick two or three lenses (personal, business, societal), and land a clear point of view with an example for each lens. Abstract topics like 'Old keys don't open new doors' aren't about the right answer — they test whether you can build structure where none is given.",
   },
+  {
+    question: "How should I answer a situation-based GD question?",
+    answer:
+      "State the objective first, identify the affected stakeholders, name the two biggest constraints, and propose a decision rule before choosing an option. Then test your recommendation against one likely downside. Panels are looking for structured judgment and collaboration, not a perfect answer.",
+  },
 ];
 
 export default function GroupDiscussionTopicsPage() {
@@ -237,6 +266,7 @@ export default function GroupDiscussionTopicsPage() {
             GD topics for placement rounds, MBA admissions, classrooms and clubs — organized by theme,
             current for 2026, with prep guidance from panel scoring criteria.
           </p>
+          <p className="text-xs text-[var(--text-muted)] mt-3">Updated August 15, 2026</p>
           <div className="flex flex-wrap justify-center gap-3 mt-6">
             <Link href="/debate" className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
               <span>🎲</span> Random Debate Topic Generator

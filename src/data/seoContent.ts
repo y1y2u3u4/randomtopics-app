@@ -1828,19 +1828,19 @@ export const SEO_ARTICLES: SeoArticle[] = [
   // 14. Presentation Ideas for School
   {
     slug: "presentation-ideas-for-school",
-    title: "65 Creative Presentation Ideas for School Projects That Stand Out",
-    metaTitle: "65 Unique Presentation Topics & Ideas for School That Stand Out | RandomTopics",
+    title: "75 Unique Presentation Topics for School",
+    metaTitle: "75 Unique Presentation Topics for School | RandomTopics",
     metaDescription:
-      "Find the perfect school presentation topic with 65+ creative ideas spanning science, technology, health, history, and more. Includes tips for making your presentation stand out.",
-    heroTitle: "65 Creative Presentation Ideas for School Projects That Stand Out",
+      "Choose from 75 unique presentation topics for school, including easy 5-minute ideas, science, history, technology, health, and current events for students.",
+    heroTitle: "75 Unique Presentation Topics for School",
     heroSubtitle:
-      "Stand out from the crowd with presentation topics that are interesting, researchable, and guaranteed to engage your classmates.",
-    intro: "The key to a great school presentation is choosing a topic that is interesting enough to keep your audience engaged, specific enough to cover well in your time limit, and has enough available research to back up your points. Whether you are searching for presentation topics for students, need school project ideas for a five-minute class presentation, or want 5-minute presentation topics that pack a punch in a short time, these 65+ ideas span multiple subjects and difficulty levels. From science and technology to health, wellness, and creative topics, this list is designed to help you create a presentation that is both informative and memorable. We have also included tips and FAQs for making your delivery stand out, no matter your grade level or subject area.",
+      "Researchable school presentation ideas for middle school, high school, short class talks, and creative projects — organized so you can find the right topic fast.",
+    intro: "The best school presentation topic is interesting enough to hold your classmates' attention, focused enough for the assigned time, and supported by sources you can actually find. This collection contains 75 presentation topics for students across science, history, current events, technology, health, and creative subjects. It also includes a dedicated set of easy 5-minute presentation topics. Middle school students can start with concrete explainers and demonstrations; high school students can choose questions that require comparison, evidence, and a clear point of view.",
     publishDate: "2026-04-02",
-    lastModified: "2026-04-08",
+    lastModified: "2026-08-15",
     sections: [
       {
-        heading: "Science and Technology Presentations",
+        heading: "Science Presentation Topics for School",
         description:
           "Topics that blend cutting-edge science with real-world impact, making them fascinating for any audience.",
         items: [
@@ -1857,7 +1857,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
         ],
       },
       {
-        heading: "History and Culture Presentations",
+        heading: "History Presentation Topics for Students",
         description:
           "Historical topics that connect past events to present-day issues, making history feel relevant and alive.",
         items: [
@@ -1874,7 +1874,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
         ],
       },
       {
-        heading: "Social Issues and Current Events",
+        heading: "Current Events Presentation Topics for Students",
         description:
           "Timely topics that show your awareness of the world and ability to analyze complex social dynamics.",
         items: [
@@ -1891,7 +1891,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
         ],
       },
       {
-        heading: "Creative and Unique Presentation Topics",
+        heading: "Unique Presentation Topics That Stand Out",
         description:
           "Topics that are unexpected and memorable, helping you stand out when everyone else is doing the obvious choices.",
         items: [
@@ -1908,20 +1908,20 @@ export const SEO_ARTICLES: SeoArticle[] = [
         ],
       },
       {
-        heading: "Personal and Persuasive Presentation Topics",
+        heading: "Easy 5-Minute Presentation Topics",
         description:
-          "Topics that allow you to share your perspective while building a compelling argument for your position.",
+          "Narrow ideas with one clear claim, example, or demonstration — realistic to explain well in five minutes.",
         items: [
-          "Why your generation is more entrepreneurial than any generation before",
-          "The case for teaching philosophy in elementary school",
-          "Why learning a second language should be mandatory starting in kindergarten",
-          "How gap years benefit students academically, professionally, and personally",
-          "Why your school should adopt a four-day school week",
-          "The benefits of mandatory community service for high school graduation",
-          "Why arts education is just as important as STEM education",
-          "How mentorship programs could reduce dropout rates in your school district",
-          "Why media literacy should be treated as essential as reading and math",
-          "The case for student-led conferences instead of traditional parent-teacher meetings",
+          "Why yawning is contagious",
+          "How caffeine changes alertness in the brain",
+          "The story behind one everyday invention",
+          "Three ways to spot a misleading graph",
+          "Why songs get stuck in your head",
+          "How a barcode stores information",
+          "What makes popcorn pop",
+          "Why phone batteries lose capacity over time",
+          "How one local landmark got its name",
+          "A simple habit that improves memory",
         ],
       },
       {
@@ -1995,12 +1995,19 @@ export const SEO_ARTICLES: SeoArticle[] = [
         answer:
           "The best 5-minute topics are narrow and specific. Instead of 'climate change' (too broad), try 'how one city reduced plastic waste by 80%.' Topics based on personal experience work well for short presentations: a skill you taught yourself, a place that changed your perspective, or a product you think is brilliantly designed. Science explainers like 'why the sky is blue' or 'how caffeine works in your brain' are also great because they have a clear beginning, middle, and end that fits a short time frame.",
       },
+      {
+        question: "What presentation topics work for middle school versus high school?",
+        answer:
+          "Middle school presentations work best with concrete explainers, demonstrations, and familiar examples, such as why popcorn pops or how optical illusions work. High school students can handle broader evidence and tradeoffs, such as AI in education, school phone bans, or the environmental cost of fast fashion. In either case, narrow the topic until it can be explained clearly within the assigned time.",
+      },
     ],
     relatedLinks: [
       { label: "Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
       { label: "Writing Prompts for Kids", href: "/topics/writing-prompts-for-kids" },
       { label: "Debate Topics for Students", href: "/topics/debate-topics-for-students" },
       { label: "Science Discussion Topics", href: "/topics/science-discussion-topics" },
+      { label: "Public Speaking Topics for Beginners", href: "/topics/public-speaking-topics-for-beginners" },
+      { label: "Impromptu Speech Topics with Timer", href: "/impromptu-speech-topics" },
       { label: "Browse Speech Topics", href: "/speech" },
     ],
   },

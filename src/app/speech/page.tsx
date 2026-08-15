@@ -9,11 +9,12 @@ import SpeechTimer from "@/components/SpeechTimer";
 import Link from "next/link";
 import type { Metadata } from "next";
 import FaqSchema from "@/components/FaqSchema";
+import { hreflangAlternates } from "@/i18n/config";
 
 export const metadata: Metadata = {
-  title: "Random Speech Topic Generator - Public Speaking Ideas & Practice Timer",
+  title: { absolute: "Speech Topic Generator & Practice Timer | Random Topics" },
   description:
-    "Generate random speech topics for presentations, public speaking practice, and Toastmasters. Built-in speech timer for impromptu speaking practice. Find your next great speech idea instantly.",
+    "Free speech topic generator with a built-in practice timer. Get prompts for impromptu speaking, presentations, Toastmasters, persuasive speeches, and public speaking practice.",
   keywords: [
     "speech topic generator",
     "random speech topics",
@@ -24,7 +25,10 @@ export const metadata: Metadata = {
     "speech ideas",
     "extemporaneous speech topics",
   ],
-  alternates: { canonical: "/speech" },
+  alternates: {
+    canonical: "/speech",
+    languages: hreflangAlternates("/speech"),
+  },
 };
 
 const FAQ_ITEMS = [
@@ -66,7 +70,7 @@ export default function SpeechPage() {
         <TopicGenerator
           initialMode="speech"
           title="Speech Topic Generator"
-          subtitle="Discover the perfect topic for your next presentation, speech, or public speaking practice."
+          subtitle="Generate a focused prompt for an impromptu speech, presentation, Toastmasters round, or public speaking practice."
         />
 
         {/* Speech Timer Section */}
@@ -83,7 +87,7 @@ export default function SpeechPage() {
             <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
               <p>
                 Our built-in <strong>speech practice timer</strong> helps you develop impromptu speaking skills.
-                Generate a random speech topic, start the timer, and practice delivering a 1, 2, 3, or 5-minute
+                Generate a speech topic, start the timer, and practice delivering a 1, 2, 3, or 5-minute
                 speech on the spot. This is the same technique used by Toastmasters Table Topics and speech
                 competitions worldwide.
               </p>
@@ -101,12 +105,21 @@ export default function SpeechPage() {
                 How to Practice Impromptu Speaking
               </h3>
               <ol className="space-y-2 list-decimal pl-5">
-                <li>Generate a random speech topic using the generator above</li>
+                <li>Generate a speech topic using the generator above</li>
                 <li>Set the timer to your desired duration (start with 1 minute)</li>
                 <li>Take 10-15 seconds to organize your thoughts</li>
                 <li>Deliver your speech until the timer runs out</li>
                 <li>Gradually increase the duration as you improve</li>
               </ol>
+              <p>
+                Looking for a broader starting point before choosing a speaking angle? Use the dedicated{" "}
+                <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">
+                  random subject generator
+                </Link>{" "}
+                to pick a field first. For writing prompts, use the{" "}
+                <Link href="/writing" className="text-[var(--neon-cyan)] hover:underline">writing generator</Link>
+                {" "}instead.
+              </p>
             </div>
           </div>
         </section>
@@ -127,6 +140,7 @@ export default function SpeechPage() {
               { title: "Toastmasters Table Topics Generator", href: "/table-topics-generator" },
               { title: "75 Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
               { title: "60 Public Speaking Topics for Beginners", href: "/topics/public-speaking-topics-for-beginners" },
+              { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
             ].map((item) => (
               <Link
                 key={item.href}

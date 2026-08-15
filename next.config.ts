@@ -7,6 +7,17 @@ const nextConfig: NextConfig = {
         source: "/es/:path*",
         headers: [{ key: "Content-Language", value: "es" }],
       },
+      {
+        // Reinforce the HTML robots directive for this browser-local utility
+        // page. It must remain crawlable so Google can see noindex and remove
+        // any stale search result, but it must never become a landing page.
+        source: "/saved-topics",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }],
+      },
+      {
+        source: "/es/saved-topics",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }],
+      },
     ];
   },
   async redirects() {
@@ -17,9 +28,8 @@ const nextConfig: NextConfig = {
         destination: "/topics/:slug",
         permanent: true,
       },
-      // /topic-generator cannibalized the homepage for the head term "random
-      // topic generator" (GSC: / at pos 42.6 vs /topic-generator at 67.7 for the
-      // same queries). Consolidate signals into the homepage, which owns the term.
+      // /topic-generator overlaps the homepage for the same head intent.
+      // Consolidate canonical and internal signals into the primary tool at /.
       {
         source: "/topic-generator",
         destination: "/",

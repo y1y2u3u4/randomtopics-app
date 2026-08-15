@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
 import QuestionBank from "@/components/QuestionBank";
+import PartyGameLinks from "@/components/PartyGameLinks";
 import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
@@ -10,7 +11,7 @@ import type { Metadata } from "next";
 import { THIS_OR_THAT } from "@/data/partyGames";
 
 export const metadata: Metadata = {
-  title: "This or That Questions Generator — 60+ Fun Either/Or Prompts",
+  title: { absolute: "This or That Generator — 38 Fun Questions | Random Topics" },
   description:
     "Free This or That question generator: fun either/or prompts for parties, classrooms, road trips, and icebreakers. One click per question, no repeats — clean and party-safe. No signup.",
   keywords: [
@@ -66,6 +67,7 @@ export default function ThisOrThatPage() {
           subtitle="60+ fun either/or prompts — one click per question, no repeats until you've seen the whole deck."
           emoji="⚖️"
         />
+        <PartyGameLinks currentPath="/this-or-that" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">

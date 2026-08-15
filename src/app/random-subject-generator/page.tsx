@@ -2,13 +2,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import RandomSubjectPicker from "@/components/RandomSubjectPicker";
 import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Random Subject Generator — Get a Random Subject or Topic Instantly",
+  title: { absolute: "Random Subject Generator — Free Subject Picker | Random Topics" },
   description:
-    "Free random subject generator. Spin a random subject to talk about, write about, or study — from science and history to philosophy and art. Includes a random school subject picker across 16 subjects. No signup.",
+    "Free random subject generator and school subject picker. Choose one of 16 subjects for study, writing, presentations, or revision. Instant and no signup.",
   keywords: [
     "random subject generator",
     "random subject",
@@ -16,7 +17,6 @@ export const metadata: Metadata = {
     "random subject generator school",
     "random subjects",
     "give me a random subject",
-    "random topic generator",
   ],
   alternates: {
     canonical: "/random-subject-generator",
@@ -47,7 +47,7 @@ const FAQ_ITEMS = [
   {
     question: "What is a random subject generator?",
     answer:
-      "A random subject generator instantly picks a subject or topic for you at the click of a button. Instead of staring at a blank page trying to decide what to talk about, write about, or study, you get a randomly chosen subject to work with. Our version pulls from 16 subject areas — science, history, philosophy, psychology, business, art, and more — and can generate a full discussion prompt within any subject you choose.",
+      "A random subject generator instantly chooses a broad subject for you at the click of a button. Instead of deciding what to study, write about, or present, you get one of 16 subject areas — including science, history, philosophy, psychology, business, and art — plus a path to prompts within that subject.",
   },
   {
     question: "How does the random school subject picker work?",
@@ -84,8 +84,10 @@ export default function RandomSubjectGeneratorPage() {
         />
         <TopicGenerator
           title="Random Subject Generator"
-          subtitle="Spin a random subject to talk about, write about, or study. Pick a subject to focus, or leave it on random and let the generator choose for you."
+          subtitle="Choose a school or study subject first, then generate a focused prompt within it. Free, instant, and no signup."
         />
+
+        <RandomSubjectPicker />
 
         {/* School subjects picker */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
@@ -206,6 +208,24 @@ export default function RandomSubjectGeneratorPage() {
             </div>
           </div>
         </section>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "Random Subject Generator",
+              url: "https://randomtopics.app/random-subject-generator",
+              applicationCategory: "EducationApplication",
+              operatingSystem: "Any",
+              isAccessibleForFree: true,
+              description:
+                "A free one-click picker for 16 school and study subjects with focused prompts for each subject.",
+              offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+            }),
+          }}
+        />
 
         {/* JSON-LD FAQPage */}
         <script

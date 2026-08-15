@@ -6,7 +6,7 @@ export const categoryToArticles: Record<string, { title: string; href: string }[
   science: [
     { title: "40 Fascinating Science Discussion Topics", href: "/topics/science-discussion-topics" },
     { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
-    { title: "65 Presentation Ideas for School", href: "/topics/presentation-ideas-for-school" },
+    { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
   ],
   technology: [
     { title: "75 Debate Topics for Students", href: "/topics/debate-topics-for-students" },
@@ -25,12 +25,12 @@ export const categoryToArticles: Record<string, { title: string; href: string }[
   ],
   history: [
     { title: "75 Speech Topics for College", href: "/topics/speech-topics-for-college-students" },
-    { title: "65 Presentation Ideas for School", href: "/topics/presentation-ideas-for-school" },
+    { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
     { title: "60 Random Essay Topics for College", href: "/topics/random-essay-topics-for-college" },
   ],
   "art-culture": [
     { title: "40 Creative Writing Prompts for Kids", href: "/topics/writing-prompts-for-kids" },
-    { title: "65 Presentation Ideas for School", href: "/topics/presentation-ideas-for-school" },
+    { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
     { title: "75 Speech Topics for College", href: "/topics/speech-topics-for-college-students" },
   ],
   "food-travel": [
@@ -47,6 +47,8 @@ export const categoryToArticles: Record<string, { title: string; href: string }[
     { title: "75 Debate Topics for Students", href: "/topics/debate-topics-for-students" },
     { title: "50 Debate Topics for Middle School", href: "/topics/debate-topics-for-middle-school" },
     { title: "40 Creative Writing Prompts for Kids", href: "/topics/writing-prompts-for-kids" },
+    { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
+    { title: "45 Public Speaking Topics for Beginners", href: "/topics/public-speaking-topics-for-beginners" },
   ],
   politics: [
     { title: "55 Controversial Topics to Discuss", href: "/topics/controversial-topics-to-discuss" },
@@ -71,7 +73,7 @@ export const categoryToArticles: Record<string, { title: string; href: string }[
   nature: [
     { title: "40 Science Discussion Topics", href: "/topics/science-discussion-topics" },
     { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
-    { title: "65 Presentation Ideas for School", href: "/topics/presentation-ideas-for-school" },
+    { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
   ],
   health: [
     { title: "60 Deep Questions for Your Partner", href: "/topics/deep-questions-to-ask-your-partner" },
@@ -113,7 +115,11 @@ export const articleToPages: Record<
       { emoji: "↔️", label: "Pro & Con Debate Topics", href: "/pro-and-con-debate-topics" },
     ],
   },
-  "presentation-ideas-for-school": { modes: ["speech"], categories: ["education", "science"] },
+  "presentation-ideas-for-school": {
+    modes: ["speech"],
+    categories: ["education", "science"],
+    tools: [{ emoji: "⏱️", label: "Impromptu Speech Timer", href: "/impromptu-speech-topics" }],
+  },
   "random-questions-to-ask-friends": { modes: ["conversation", "icebreaker"], categories: ["relationships", "weird-fun"] },
   "debate-topics-for-middle-school": { modes: ["debate"], categories: ["education"] },
   "icebreaker-questions-for-virtual-meetings": { modes: ["icebreaker"], categories: ["business"] },
@@ -136,7 +142,11 @@ export const articleToPages: Record<
   "first-date-conversation-topics": { modes: ["conversation", "icebreaker"], categories: ["relationships"] },
   "debate-topics-for-beginners": { modes: ["debate"], categories: ["education"] },
   "questions-to-ask-at-a-party": { modes: ["icebreaker", "conversation"], categories: ["entertainment", "weird-fun"] },
-  "public-speaking-topics-for-beginners": { modes: ["speech"], categories: ["education"] },
+  "public-speaking-topics-for-beginners": {
+    modes: ["speech"],
+    categories: ["education"],
+    tools: [{ emoji: "⏱️", label: "Impromptu Speech Timer", href: "/impromptu-speech-topics" }],
+  },
   "conversation-topics-for-teens": { modes: ["conversation"], categories: ["education", "relationships"] },
   "couples-game-night-questions": { modes: ["conversation", "icebreaker"], categories: ["relationships", "entertainment"] },
   "most-likely-to-questions": {

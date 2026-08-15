@@ -27,6 +27,20 @@ export default function CategoriesPage() {
             Explore our collection of random topics organized into 16 categories.
             Click any category to generate topics from that area.
           </p>
+          <div className="glass-card p-5 sm:p-6 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-cyan)]/20">
+            <div>
+              <p className="text-sm font-bold text-[var(--text-primary)]">Not sure which subject to choose?</p>
+              <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
+                Let the dedicated picker assign one of these 16 subjects instantly.
+              </p>
+            </div>
+            <Link
+              href="/random-subject-generator"
+              className="text-sm font-semibold text-[var(--neon-cyan)] whitespace-nowrap hover:underline"
+            >
+              Open the Random Subject Generator →
+            </Link>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {CATEGORIES.map((cat) => (
               <Link

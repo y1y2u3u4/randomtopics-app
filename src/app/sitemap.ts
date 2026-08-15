@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { CATEGORIES, MODES } from "@/data/types";
 import { SEO_ARTICLES } from "@/data/seoContent";
+import { SEO_ARTICLES_ES } from "@/data/seoContent.es";
 import {
   INDEXABLE_MODE_CATEGORY_PATHS,
   SITE_URL,
@@ -18,6 +19,7 @@ type Entry = {
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority: number;
   lastModified?: string | Date;
+  esLastModified?: string | Date;
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -76,11 +78,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path, changeFrequency: "weekly", priority: 0.7 });
   }
   for (const article of SEO_ARTICLES) {
+    const spanishArticle = SEO_ARTICLES_ES.find((candidate) => candidate.slug === article.slug);
     entries.push({
       path: `/topics/${article.slug}`,
       changeFrequency: "monthly",
       priority: 0.8,
       lastModified: article.lastModified,
+      esLastModified: spanishArticle?.lastModified,
     });
   }
   // Non-allowlisted mode×category pages stay noindexed and out of the sitemap.
@@ -115,7 +119,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
     result.push({
       url: esUrl,
-      ...(e.lastModified ? { lastModified: e.lastModified } : {}),
+      ...(e.esLastModified || e.lastModified ? { lastModified: e.esLastModified ?? e.lastModified } : {}),
       changeFrequency: e.changeFrequency,
       priority: Math.max(0.1, e.priority - 0.1),
       alternates: { languages },

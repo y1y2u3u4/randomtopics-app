@@ -21,6 +21,24 @@ const ARTICLE_CTA: Record<string, { href: string; text: string; label: string; e
     label: "Try the Argument Generator",
     emoji: "⚖️",
   },
+  "presentation-ideas-for-school": {
+    href: "/speech",
+    text: "Chosen a presentation topic? Generate a practice prompt, set the timer, and rehearse your opening out loud.",
+    label: "Open the Speech Generator & Timer",
+    emoji: "🎤",
+  },
+  "public-speaking-topics-for-beginners": {
+    href: "/speech",
+    text: "Ready to practice instead of just reading? Generate a speech prompt and rehearse it against the built-in timer.",
+    label: "Practice with the Speech Timer",
+    emoji: "⏱️",
+  },
+  "conversation-topics-for-teens": {
+    href: "/conversation",
+    text: "Need a fresh prompt for the group? Generate a conversation topic and use its talking points to keep everyone involved.",
+    label: "Open the Conversation Generator",
+    emoji: "💬",
+  },
 };
 
 export function generateStaticParams() {

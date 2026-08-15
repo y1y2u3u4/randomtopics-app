@@ -43,7 +43,7 @@ const CONVERSATION_COLLECTIONS_ES = [
   { title: "Temas para practicar idiomas", detail: "Conversación por nivel y situación", href: "/es/topics/esl-conversation-topics" },
   { title: "Temas de conversación divertidos", detail: "Preguntas ligeras para amigos y fiestas", href: "/es/topics/funny-conversation-topics" },
   { title: "Preguntas para una fiesta", detail: "Rompe el hielo y anima al grupo", href: "/es/topics/questions-to-ask-at-a-party" },
-  { title: "Temas controvertidos para conversar", detail: "Debates respetuosos para grupos", href: "/es/topics/controversial-topics-to-discuss" },
+  { title: "Temas controversiales para debatir", detail: "Debates respetuosos para grupos", href: "/es/topics/controversial-topics-to-discuss" },
 ] as const;
 
 const FAQ_ITEMS = [
