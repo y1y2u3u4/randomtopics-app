@@ -32,6 +32,26 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Search intent handoff: each tool has its own filters and result shape,
+            so broad homepage authority can flow to the task-specific page. */}
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
+          <h2 className="text-sm font-bold text-[var(--text-primary)] mb-3">Choose what the topic is for</h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              { emoji: "🧠", label: "Learn Something", detail: "Subject + difficulty", href: "/random-learning-topic-generator" },
+              { emoji: "✍️", label: "Write About It", detail: "Essay, journal, fiction", href: "/writing-topic-generator" },
+              { emoji: "🔎", label: "Research It", detail: "Question + scope note", href: "/research-topic-generator" },
+              { emoji: "📊", label: "Present It", detail: "Audience + slide angle", href: "/presentation-topic-generator" },
+            ].map((tool) => (
+              <Link key={tool.href} href={tool.href} className="glass-card p-4 hover:border-[var(--neon-pink)]/30 transition-all group">
+                <span className="text-2xl" aria-hidden="true">{tool.emoji}</span>
+                <p className="text-sm font-bold text-[var(--text-primary)] mt-2 group-hover:text-[var(--neon-pink)]">{tool.label}</p>
+                <p className="text-xs text-[var(--text-muted)] mt-1">{tool.detail}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* Social proof / stats bar */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
           <div className="grid grid-cols-3 gap-4">

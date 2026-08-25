@@ -12,9 +12,9 @@ import { QOTD_QUESTIONS, QOTD_CATEGORIES, qotdIndexForDate } from "@/data/questi
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: { absolute: "Question of the Day — Today's QOTD | Random Topics" },
+  title: { absolute: "Question of the Day — New QOTD for Today | Random Topics" },
   description:
-    "See today's question of the day, then browse 120 QOTD ideas for classrooms, work teams, kids and families. A fresh daily question, free.",
+    "Answer today's question of the day, then browse 120 QOTD ideas for classrooms, work teams, kids and families. New daily question, free and no signup.",
   keywords: [
     "question of the day",
     "question of the day ideas",

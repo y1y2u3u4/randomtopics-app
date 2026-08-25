@@ -43,6 +43,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "argument-generator",
     "table-topics-generator",
     "random-subject-generator",
+    "random-learning-topic-generator",
+    "writing-topic-generator",
+    "research-topic-generator",
+    "presentation-topic-generator",
     "essay-topic-generator",
     "impromptu-speech-topics",
     "debate/students",
@@ -123,6 +127,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: e.changeFrequency,
       priority: Math.max(0.1, e.priority - 0.1),
       alternates: { languages },
+    });
+  }
+
+  // These Spanish editorial clusters answer search demand that does not yet
+  // have a true English equivalent. Do not invent reciprocal hreflang URLs.
+  for (const path of [
+    "/es/topics/quien-es-mas-probable-parejas",
+    "/es/topics/quien-es-mas-probable-preguntas-fuertes",
+    "/es/topics/quien-es-mas-probable-amigos",
+  ]) {
+    const url = abs(path);
+    result.push({
+      url,
+      lastModified: "2026-08-25",
+      changeFrequency: "monthly",
+      priority: 0.82,
+      alternates: { languages: { es: url, "x-default": url } },
     });
   }
 

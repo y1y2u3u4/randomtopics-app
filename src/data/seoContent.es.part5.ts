@@ -470,7 +470,7 @@ export const seoArticlesEsPart5: SeoArticle[] = [
     intro:
       "'Quién es más probable' es el juego de grupo donde todos señalan a la persona con más probabilidades de hacer algo, y el resultado suele ser más gracioso de lo esperado. Funciona en una fiesta, un viaje, una clase, una reunión familiar o como rompehielos de equipo. Aquí tienes exactamente 100 preguntas de '¿Quién es más probable que...?' organizadas por grupo e intensidad: para amigos, divertidas, parejas, trabajo, adolescentes, fuertes, fiestas y familia. Lee una pregunta y cuenta los votos, imprime la lista o usa el generador gratuito para seguir jugando sin preparar nada.",
     publishDate: "2026-07-06",
-    lastModified: "2026-08-15",
+    lastModified: "2026-08-25",
     sections: [
       {
         heading: "Preguntas de Quién es más probable para amigos",
@@ -646,6 +646,9 @@ export const seoArticlesEsPart5: SeoArticle[] = [
     ],
     relatedLinks: [
       { label: "Generador de Quién es más probable", href: "/es/most-likely-to" },
+      { label: "Quién es más probable para parejas", href: "/es/topics/quien-es-mas-probable-parejas" },
+      { label: "Preguntas fuertes de Quién es más probable", href: "/es/topics/quien-es-mas-probable-preguntas-fuertes" },
+      { label: "Quién es más probable para amigos", href: "/es/topics/quien-es-mas-probable-amigos" },
       { label: "Preguntas de Verdad o Reto", href: "/es/topics/truth-or-dare-questions" },
       { label: "Preguntas Yo Nunca Nunca", href: "/es/topics/never-have-i-ever-questions" },
       { label: "Preguntas de ¿Prefieres?", href: "/es/topics/would-you-rather-questions" },

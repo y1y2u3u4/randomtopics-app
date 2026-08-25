@@ -67,6 +67,22 @@ export default function MostLikelyToPageEs() {
           locale="es"
         />
 
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
+          <h2 className="text-lg font-bold text-[var(--text-primary)] mb-4">Elige preguntas para tu grupo</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {[
+              { label: "Para parejas", detail: "Románticas y divertidas", href: "/es/topics/quien-es-mas-probable-parejas" },
+              { label: "Preguntas fuertes", detail: "Intensas y reveladoras", href: "/es/topics/quien-es-mas-probable-preguntas-fuertes" },
+              { label: "Para amigos", detail: "Fiestas, viajes y risas", href: "/es/topics/quien-es-mas-probable-amigos" },
+            ].map((collection) => (
+              <Link key={collection.href} href={collection.href} className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-colors">
+                <p className="text-sm font-bold text-[var(--text-primary)]">{collection.label}</p>
+                <p className="text-xs text-[var(--text-muted)] mt-1">{collection.detail}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
             <h2 className="section-heading text-2xl sm:text-3xl mb-6 text-[var(--text-primary)]">

@@ -1666,7 +1666,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
       "Realistic moral dilemma examples with no easy answers, organized for discussion, classrooms, interviews, and self-reflection.",
     intro: "A moral or ethical dilemma is a situation where every option involves some moral cost -- there is no perfectly right answer. These moral dilemma scenarios force you to examine your values, weigh competing principles, and explain why you believe what you believe. Unlike simple moral questions with obvious answers, true dilemmas expose tensions between values such as honesty and kindness, individual rights and collective good, or justice and mercy. Whether you need ethical dilemma examples for a classroom, moral dilemma questions for adults to discuss over dinner, interview practice, or a structured group conversation, this collection has you covered. The 65+ questions below span technology and AI, medicine, everyday life, workplace ethics, society, and the environment, followed by quick moral dilemmas for shorter discussions.",
     publishDate: "2026-04-01",
-    lastModified: "2026-08-15",
+    lastModified: "2026-08-25",
     sections: [
       {
         heading: "Technology and AI Ethics",

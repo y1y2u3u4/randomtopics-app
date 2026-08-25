@@ -8,15 +8,15 @@ import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { absolute: "Generador de Temas al Azar | Más de 500 Temas Gratis" },
+  title: { absolute: "Generador de Temas Aleatorios | Más de 500 Ideas Gratis" },
   description:
-    "Generador de temas al azar gratis con más de 500 temas seleccionados. Consigue al instante iniciadores de conversación, ideas para escribir, temas de debate y rompehielos en 16 categorías. Sin registro.",
+    "Generador de temas aleatorios y al azar gratis con más de 500 ideas. Consigue temas para conversar, escribir, debatir y practicar en 16 categorías. Sin registro.",
   alternates: {
     canonical: "/es",
     languages: hreflangAlternates("/"),
   },
   openGraph: {
-    title: "Generador de Temas al Azar | Más de 500 Temas Gratis",
+    title: "Generador de Temas Aleatorios | Más de 500 Ideas Gratis",
     description:
       "Generador de temas al azar gratis con más de 500 temas. Iniciadores de conversación, ideas para escribir, temas de debate y rompehielos al instante. ¡Sin registro!",
     url: "https://randomtopics.app/es",
@@ -40,7 +40,7 @@ const COLLECTIONS = [
 ];
 
 const POPULAR_TOOLS = [
-  { emoji: "🎡", title: "Ruleta de Temas", detail: "Gira y recibe un tema", href: "/es/spin-the-wheel" },
+  { emoji: "🎡", title: "Ruleta de Temas Aleatorios", detail: "Gira y recibe un tema", href: "/es/spin-the-wheel" },
   { emoji: "👉", title: "Quién Es Más Probable", detail: "Preguntas para jugar", href: "/es/most-likely-to" },
   { emoji: "⚖️", title: "Dilemas Éticos", detail: "60 preguntas morales", href: "/es/topics/ethical-dilemma-questions" },
   { emoji: "💬", title: "Conversaciones", detail: "Temas para hablar", href: "/es/conversation" },
@@ -74,7 +74,11 @@ export default function HomeEs() {
     <>
       <Navbar />
       <main className="flex-1" lang="es">
-        <TopicGenerator locale="es" />
+        <TopicGenerator
+          locale="es"
+          title="Generador de Temas Aleatorios"
+          subtitle="Genera temas al azar para conversar, escribir, debatir, practicar discursos o romper el hielo — más de 500 ideas, gratis y sin registro."
+        />
 
         {/* Social proof / stats bar */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
@@ -216,7 +220,7 @@ export default function HomeEs() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              name: "Generador de Temas al Azar",
+              name: "Generador de Temas Aleatorios",
               url: "https://randomtopics.app/es",
               applicationCategory: "UtilityApplication",
               operatingSystem: "Any",
@@ -247,11 +251,11 @@ export default function HomeEs() {
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-20">
           <div className="glass-card p-8 sm:p-10">
             <h2 className="section-heading text-2xl sm:text-3xl mb-8 text-[var(--text-primary)]">
-              ¿Qué es un Generador de Temas al Azar?
+              ¿Qué es un Generador de Temas Aleatorios?
             </h2>
             <div className="space-y-5 text-[var(--text-secondary)] text-sm leading-relaxed">
               <p>
-                Un <strong>generador de temas al azar</strong> es una herramienta online que te ofrece al
+                Un <strong>generador de temas aleatorios</strong>, también llamado generador de temas al azar, es una herramienta online que te ofrece al
                 instante iniciadores de conversación, ideas para escribir, temas de debate, ideas para discursos
                 y preguntas rompehielos. Tanto si te has quedado en blanco, si preparas una presentación o si
                 simplemente buscas algo interesante de qué hablar, nuestro generador tiene lo que necesitas con

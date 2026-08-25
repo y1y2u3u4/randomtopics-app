@@ -10,16 +10,20 @@ const routesManifest = buildDir
 
 const checks = [
   { path: "/", index: true, canonical: "/", titleMax: 70, titleHas: "Random Topic Generator" },
-  { path: "/es", index: true, canonical: "/es", titleMax: 70, titleHas: "Temas al Azar", es: true, hreflang: true },
+  { path: "/es", index: true, canonical: "/es", titleMax: 70, titleHas: "Generador de Temas Aleatorios", es: true, hreflang: true },
   { path: "/debate", index: true, canonical: "/debate", titleMax: 70, titleHas: "Debate Topic Generator", hreflang: true },
   { path: "/question-of-the-day", index: true, canonical: "/question-of-the-day", titleMax: 70, titleHas: "Question of the Day" },
   { path: "/icebreaker", index: true, canonical: "/icebreaker", titleMax: 70, titleHas: "Icebreaker Question Generator", hreflang: true },
   { path: "/writing", index: true, canonical: "/writing", titleMax: 76, titleHas: "Random Topics to Write About", hreflang: true },
   { path: "/conversation", index: true, canonical: "/conversation", titleMax: 65, titleHas: "Conversation Topic Generator", hreflang: true, bodyHas: ["Popular Conversation Starter Collections"], bodyOccurrences: [{ needle: 'href="/topics/', min: 6 }] },
   { path: "/random-subject-generator", index: true, canonical: "/random-subject-generator", titleMax: 65, titleHas: "Random Subject Generator", bodyHas: ["Get a Random Subject in One Click", "Pick a Random Subject", '"@type":"WebApplication"'] },
+  { path: "/random-learning-topic-generator", index: true, canonical: "/random-learning-topic-generator", titleMax: 65, titleHas: "Random Learning Topic Generator", bodyHas: ["Give Me a Topic to Learn", "Example topics by category", "Daily curiosity", '"@type":"WebApplication"'] },
+  { path: "/writing-topic-generator", index: true, canonical: "/writing-topic-generator", titleMax: 65, titleHas: "Writing Topic Generator", bodyHas: ["Generate Writing Topics", "Essay, Journal, Fiction, or Blog", "Example topics by category", '"@type":"WebApplication"'] },
+  { path: "/research-topic-generator", index: true, canonical: "/research-topic-generator", titleMax: 65, titleHas: "Research Topic Generator", bodyHas: ["Generate Research Ideas", "Research papers", "Example topics by category", '"@type":"WebApplication"'] },
+  { path: "/presentation-topic-generator", index: true, canonical: "/presentation-topic-generator", titleMax: 65, titleHas: "Presentation Topic Generator", bodyHas: ["Generate Presentation Ideas", "School presentations", "Example topics by category", '"@type":"WebApplication"'] },
   { path: "/speech", index: true, canonical: "/speech", titleMax: 60, titleHas: "Speech Topic Generator & Practice Timer", hreflang: true, bodyHas: ["random subject generator", "75 Presentation Topics for School"] },
   { path: "/group-discussion-topics", index: true, canonical: "/group-discussion-topics", titleMax: 60, titleHas: "100+ Group Discussion Topics for 2026", bodyHas: ["Situation-Based Questions", "Updated August 15, 2026"], bodyOccurrences: [{ needle: 'class="text-[var(--neon-cyan)] font-bold shrink-0"', exact: 103 }] },
-  { path: "/topics/presentation-ideas-for-school", index: true, canonical: "/topics/presentation-ideas-for-school", titleMax: 60, titleHas: "75 Unique Presentation Topics for School", hreflang: true, bodyHas: ["Easy 5-Minute Presentation Topics", "Open the Speech Generator &amp; Timer"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 75 }] },
+  { path: "/topics/presentation-ideas-for-school", index: true, canonical: "/topics/presentation-ideas-for-school", titleMax: 60, titleHas: "75 Unique Presentation Topics for School", hreflang: true, bodyHas: ["Easy 5-Minute Presentation Topics", "Open the Presentation Topic Generator"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 75 }] },
   { path: "/es/topics/controversial-topics-to-discuss", index: true, canonical: "/es/topics/controversial-topics-to-discuss", titleMax: 70, titleHas: "Temas Controversiales y Polémicos", es: true, hreflang: true, bodyHas: ["temas controversiales", "Abrir el Generador de Debate"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 55 }] },
   { path: "/es/topics/public-speaking-topics-for-beginners", index: true, canonical: "/es/topics/public-speaking-topics-for-beginners", titleMax: 70, titleHas: "Temas para Oratoria Fáciles", es: true, hreflang: true, bodyHas: ["Temas fáciles para una oratoria corta", "Practicar Oratoria con Temporizador"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 45 }] },
   { path: "/es/topics/conversation-topics-for-teens", index: true, canonical: "/es/topics/conversation-topics-for-teens", titleMax: 65, titleHas: "Temas para Adolescentes", es: true, hreflang: true, bodyHas: ["Temas de debate para adolescentes", "Abrir el Generador de Conversación"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 50 }] },
@@ -33,6 +37,10 @@ const checks = [
   { path: "/topics/toastmasters-table-topics", index: true, canonical: "/topics/toastmasters-table-topics", titleMax: 70, titleHas: "Toastmasters Table Topics", bodyHas: ["Updated:", "Print or save as PDF"] },
   { path: "/es/most-likely-to", index: true, canonical: "/es/most-likely-to", titleMax: 76, titleHas: "Quién Es Más Probable", es: true, hreflang: true },
   { path: "/es/topics/most-likely-to-questions", index: true, canonical: "/es/topics/most-likely-to-questions", titleMax: 65, titleHas: "100 Preguntas de Quién Es Más Probable", es: true, hreflang: true, bodyHas: ["Preguntas fuertes de Quién es más probable para amigos", "Abrir el Generador de Quién Es Más Probable"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 100 }] },
+  { path: "/es/spin-the-wheel", index: true, canonical: "/es/spin-the-wheel", titleMax: 65, titleHas: "Ruleta de Temas Aleatorios", es: true, hreflang: true, bodyHas: ["Ruleta de Temas Aleatorios", "más de 500 temas"] },
+  { path: "/es/topics/quien-es-mas-probable-parejas", index: true, canonical: "/es/topics/quien-es-mas-probable-parejas", titleMax: 65, titleHas: "45 Preguntas de Quién Es Más Probable para Parejas", es: true, bodyHas: ["Preguntas románticas y de complicidad", "Abrir el generador de Quién es más probable"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 45 }] },
+  { path: "/es/topics/quien-es-mas-probable-preguntas-fuertes", index: true, canonical: "/es/topics/quien-es-mas-probable-preguntas-fuertes", titleMax: 65, titleHas: "45 Preguntas Fuertes de Quién Es Más Probable", es: true, bodyHas: ["Preguntas intensas sobre amistad y relaciones", "Abrir el generador de Quién es más probable"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 45 }] },
+  { path: "/es/topics/quien-es-mas-probable-amigos", index: true, canonical: "/es/topics/quien-es-mas-probable-amigos", titleMax: 65, titleHas: "45 Preguntas de Quién Es Más Probable para Amigos", es: true, bodyHas: ["Preguntas de aventuras y planes", "Abrir el generador de Quién es más probable"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 45 }] },
   { path: "/writing/philosophy", index: true, canonical: "/writing/philosophy", titleHas: "Philosophy" },
   { path: "/writing/psychology", index: true, canonical: "/writing/psychology", titleHas: "Psychology" },
   { path: "/speech/politics", index: true, canonical: "/speech/politics", titleHas: "Politics" },
@@ -205,10 +213,17 @@ async function checkSitemap() {
     "/speech/politics",
     "/debate/technology",
     "/conversation/philosophy",
+    "/random-learning-topic-generator",
+    "/writing-topic-generator",
+    "/research-topic-generator",
+    "/presentation-topic-generator",
+    "/es/topics/quien-es-mas-probable-parejas",
+    "/es/topics/quien-es-mas-probable-preguntas-fuertes",
+    "/es/topics/quien-es-mas-probable-amigos",
   ]) {
     if (!urls.includes(`${canonicalOrigin}${path}`)) fail(`sitemap: missing ${path}`);
   }
-  for (const path of ["/writing/sports", "/es/speech/politics", "/saved-topics", "/embed"]) {
+  for (const path of ["/writing/sports", "/es/speech/politics", "/saved-topics", "/embed", "/es/random-learning-topic-generator", "/es/writing-topic-generator", "/es/research-topic-generator", "/es/presentation-topic-generator"]) {
     if (urls.includes(`${canonicalOrigin}${path}`)) fail(`sitemap: noindex URL included: ${path}`);
   }
   if (!xml.includes('hreflang="es"') || !xml.includes('hreflang="x-default"')) {
@@ -223,6 +238,17 @@ async function checkSitemap() {
     const marker = `<loc>${canonicalOrigin}${path}</loc>`;
     const entryTail = xml.split(marker)[1]?.split("</url>")[0] || "";
     if (!entryTail.includes("<lastmod>2026-08-15")) fail(`sitemap: stale lastmod for ${path}`);
+  }
+  for (const path of [
+    "/topics/ethical-dilemma-questions",
+    "/es/topics/most-likely-to-questions",
+    "/es/topics/quien-es-mas-probable-parejas",
+    "/es/topics/quien-es-mas-probable-preguntas-fuertes",
+    "/es/topics/quien-es-mas-probable-amigos",
+  ]) {
+    const marker = `<loc>${canonicalOrigin}${path}</loc>`;
+    const entryTail = xml.split(marker)[1]?.split("</url>")[0] || "";
+    if (!entryTail.includes("<lastmod>2026-08-25")) fail(`sitemap: stale lastmod for ${path}`);
   }
   return urls.length;
 }

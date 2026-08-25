@@ -73,6 +73,18 @@ export default function SpeechPage() {
           subtitle="Generate a focused prompt for an impromptu speech, presentation, Toastmasters round, or public speaking practice."
         />
 
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
+          <div className="glass-card p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-cyan)]/20">
+            <div>
+              <p className="text-sm font-bold text-[var(--text-primary)]">Building slides instead of an impromptu speech?</p>
+              <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1">Generate a presentation idea by audience and difficulty, with a ready-made slide angle.</p>
+            </div>
+            <Link href="/presentation-topic-generator" className="text-sm font-semibold text-[var(--neon-cyan)] whitespace-nowrap hover:underline">
+              Presentation Topic Generator →
+            </Link>
+          </div>
+        </section>
+
         {/* Speech Timer Section */}
         <section className="max-w-md mx-auto px-4 sm:px-6 py-10">
           <SpeechTimer />
@@ -141,6 +153,7 @@ export default function SpeechPage() {
               { title: "75 Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
               { title: "60 Public Speaking Topics for Beginners", href: "/topics/public-speaking-topics-for-beginners" },
               { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
+              { title: "Presentation Topic Generator", href: "/presentation-topic-generator" },
             ].map((item) => (
               <Link
                 key={item.href}
