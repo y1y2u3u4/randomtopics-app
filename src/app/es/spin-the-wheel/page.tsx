@@ -8,15 +8,15 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { absolute: "Gira la Ruleta — Ruleta de Temas al Azar, Gratis y Sin Registro | Random Topics" },
+  title: { absolute: "Ruleta de Temas Aleatorios — Generador Visual Gratis" },
   description:
-    "Gira la ruleta para conseguir un tema al azar. Una ruleta de temas gratis con 16 categorías — perfecta para conversaciones, calentamientos en clase, debates y rompehielos. Un clic, resultado al instante, sin registro.",
+    "Generador de temas aleatorios y ruleta gratis con más de 500 ideas en 16 categorías. Gira para conversar, escribir, debatir o practicar en clase. Sin registro.",
   alternates: {
     canonical: "/es/spin-the-wheel",
     languages: hreflangAlternates("/spin-the-wheel"),
   },
   openGraph: {
-    title: "Gira la Ruleta — Ruleta de Temas al Azar, Gratis y Sin Registro",
+    title: "Ruleta de Temas Aleatorios — Generador Visual Gratis",
     description:
       "Gira la ruleta para conseguir un tema al azar en 16 categorías. Perfecta para conversaciones, clase, debates y rompehielos. Un clic, sin registro.",
     url: `${SITE_URL}/es/spin-the-wheel`,
@@ -60,33 +60,33 @@ export default function SpinTheWheelPageEs() {
       <FaqSchema items={FAQ_ITEMS} />
       <Navbar />
       <main className="flex-1" lang="es">
-        <Breadcrumb items={[{ label: "Inicio", href: "/es" }, { label: "Gira la Ruleta" }]} />
+        <Breadcrumb items={[{ label: "Inicio", href: "/es" }, { label: "Ruleta de Temas Aleatorios" }]} />
         <WheelGenerator
           locale="es"
-          title="Gira la Ruleta"
-          subtitle="Gira la ruleta de temas al azar entre 16 categorías — un clic, un tema, combinaciones infinitas."
+          title="Ruleta de Temas Aleatorios"
+          subtitle="Gira entre 16 categorías y recibe uno de más de 500 temas al azar para conversar, escribir, debatir o practicar en clase."
         />
 
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
             <h2 className="section-heading text-2xl sm:text-3xl mb-6 text-[var(--text-primary)]">
-              Una Ruleta de Temas al Azar que de Verdad te Da Algo que Decir
+              Una Ruleta que Genera Temas Aleatorios Completos
             </h2>
             <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
               <p>
-                La mayoría de las herramientas de <strong>girar la ruleta</strong> se quedan en una palabra o un
-                nombre. Esta aterriza en un <strong>tema completo al azar</strong> — un disparador real con puntos
+                Este <strong>generador de temas aleatorios</strong> no se queda en una palabra o un
+                nombre. La ruleta aterriza en un <strong>tema completo al azar</strong> — un disparador real con puntos
                 de conversación incluidos — así que en cuanto la ruleta se detiene, ya sabes de qué hablar, escribir
                 o debatir. Dieciséis categorías ocupan la ruleta, desde ciencia y tecnología hasta comida y viajes,
                 relaciones, historia y lo maravillosamente raro. Dale un giro y deja que el azar rompa el punto muerto.
               </p>
               <p>
-                La ruleta es la prima juguetona de nuestro{" "}
+                La ruleta es la forma visual y divertida de usar nuestro{" "}
                 <Link href="/es" className="text-[var(--neon-cyan)] hover:underline">
                   generador de temas al azar
                 </Link>
-                . Ambos beben de la misma base de datos seleccionada de más de 500 temas, pero la ruleta añade el
+                . Ambos usan la misma base de datos seleccionada de más de 500 temas; la ruleta añade el
                 suspense de girar y revelar que encanta a los grupos. ¿Prefieres control en lugar de azar? El
                 generador te deja filtrar por modo, categoría y profundidad, y sacar varios temas a la vez.
               </p>

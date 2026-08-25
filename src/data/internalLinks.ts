@@ -118,7 +118,10 @@ export const articleToPages: Record<
   "presentation-ideas-for-school": {
     modes: ["speech"],
     categories: ["education", "science"],
-    tools: [{ emoji: "⏱️", label: "Impromptu Speech Timer", href: "/impromptu-speech-topics" }],
+    tools: [
+      { emoji: "📊", label: "Presentation Topic Generator", href: "/presentation-topic-generator" },
+      { emoji: "⏱️", label: "Impromptu Speech Timer", href: "/impromptu-speech-topics" },
+    ],
   },
   "random-questions-to-ask-friends": { modes: ["conversation", "icebreaker"], categories: ["relationships", "weird-fun"] },
   "debate-topics-for-middle-school": { modes: ["debate"], categories: ["education"] },

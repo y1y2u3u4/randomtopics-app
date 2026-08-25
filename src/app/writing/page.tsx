@@ -95,6 +95,18 @@ export default function WritingPage() {
           subtitle="Need a random topic to write about? Spark your creativity with random writing prompts across every genre and subject — one click, no signup."
         />
 
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
+          <div className="glass-card p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-cyan)]/20">
+            <div>
+              <p className="text-sm font-bold text-[var(--text-primary)]">Need a topic matched to the thing you are writing?</p>
+              <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1">Filter specifically for essays, journals, fiction, or blog posts and get a usable angle with every result.</p>
+            </div>
+            <Link href="/writing-topic-generator" className="text-sm font-semibold text-[var(--neon-cyan)] whitespace-nowrap hover:underline">
+              Writing Topic Generator →
+            </Link>
+          </div>
+        </section>
+
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">

@@ -26,6 +26,10 @@ function getPaths(): string[] {
     "/argument-generator",
     "/table-topics-generator",
     "/random-subject-generator",
+    "/random-learning-topic-generator",
+    "/writing-topic-generator",
+    "/research-topic-generator",
+    "/presentation-topic-generator",
     "/essay-topic-generator",
     "/impromptu-speech-topics",
     "/debate/students",
@@ -68,6 +72,13 @@ function getAllUrls(): string[] {
     if (!isEnOnly(p)) {
       urls.push(p === "/" ? `${base}/es` : `${base}/es${p}`);
     }
+  }
+  for (const path of [
+    "/es/topics/quien-es-mas-probable-parejas",
+    "/es/topics/quien-es-mas-probable-preguntas-fuertes",
+    "/es/topics/quien-es-mas-probable-amigos",
+  ]) {
+    urls.push(`${base}${path}`);
   }
   return urls;
 }

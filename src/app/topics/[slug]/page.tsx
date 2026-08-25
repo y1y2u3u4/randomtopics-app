@@ -10,6 +10,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PrintButton from "@/components/PrintButton";
 
+function sectionId(heading: string) {
+  return heading
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
@@ -22,10 +29,10 @@ const ARTICLE_CTA: Record<string, { href: string; text: string; label: string; e
     emoji: "⚖️",
   },
   "presentation-ideas-for-school": {
-    href: "/speech",
-    text: "Chosen a presentation topic? Generate a practice prompt, set the timer, and rehearse your opening out loud.",
-    label: "Open the Speech Generator & Timer",
-    emoji: "🎤",
+    href: "/presentation-topic-generator",
+    text: "Need another presentation idea? Generate a topic by subject and difficulty, then use it to plan your next deck.",
+    label: "Open the Presentation Topic Generator",
+    emoji: "📊",
   },
   "public-speaking-topics-for-beginners": {
     href: "/speech",
@@ -183,6 +190,22 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
               {article.intro}
             </p>
+            {article.sections.length >= 3 && (
+              <nav aria-label="On this page" className="mt-6 border-t border-white/10 pt-5">
+                <p className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mb-3">On this page</p>
+                <div className="flex flex-wrap gap-2">
+                  {article.sections.map((section) => (
+                    <a
+                      key={section.heading}
+                      href={`#${sectionId(section.heading)}`}
+                      className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-colors"
+                    >
+                      {section.heading}
+                    </a>
+                  ))}
+                </div>
+              </nav>
+            )}
           </div>
         </section>
 
@@ -191,7 +214,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           (acc, section, sIdx) => {
             const startNum = acc.runningCount;
             acc.elements.push(
-              <section key={sIdx} className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+              <section id={sectionId(section.heading)} key={sIdx} className="max-w-3xl mx-auto px-4 sm:px-6 pb-10 scroll-mt-24">
                 <div className="glass-card p-8 sm:p-10">
                   <h2
                     className="text-xl sm:text-2xl font-bold mb-2 text-[var(--text-primary)]"

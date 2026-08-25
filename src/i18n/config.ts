@@ -75,6 +75,10 @@ const INDEXABLE_MODE_CATEGORY_SET: ReadonlySet<string> = new Set(
 export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/how-we-curate",
   "/random-subject-generator",
+  "/random-learning-topic-generator",
+  "/writing-topic-generator",
+  "/research-topic-generator",
+  "/presentation-topic-generator",
   "/pro-and-con-debate-topics",
   "/essay-topic-generator",
   "/debate/questions",
@@ -88,6 +92,17 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/question-of-the-day",
   "/paranoia-questions",
 ]);
+
+/** Spanish-only editorial pages with no honest one-to-one English alternate. */
+export const ES_ONLY_PATHS: ReadonlySet<string> = new Set([
+  "/topics/quien-es-mas-probable-parejas",
+  "/topics/quien-es-mas-probable-preguntas-fuertes",
+  "/topics/quien-es-mas-probable-amigos",
+]);
+
+export function isEsOnly(rootPath: string): boolean {
+  return ES_ONLY_PATHS.has(rootPath);
+}
 
 const MODE_SLUGS: ReadonlySet<string> = new Set(MODES.map((m) => m.slug));
 const CATEGORY_IDS: ReadonlySet<string> = new Set(CATEGORIES.map((c) => c.id));

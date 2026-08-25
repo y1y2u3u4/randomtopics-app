@@ -11,6 +11,15 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PrintButton from "@/components/PrintButton";
 
+function sectionId(heading: string) {
+  return heading
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
@@ -153,6 +162,22 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
           <div className="glass-card p-8 sm:p-10">
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{article.intro}</p>
+            {article.sections.length >= 3 && (
+              <nav aria-label="Contenido de la página" className="mt-6 border-t border-white/10 pt-5">
+                <p className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mb-3">En esta página</p>
+                <div className="flex flex-wrap gap-2">
+                  {article.sections.map((section) => (
+                    <a
+                      key={section.heading}
+                      href={`#${sectionId(section.heading)}`}
+                      className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-colors"
+                    >
+                      {section.heading}
+                    </a>
+                  ))}
+                </div>
+              </nav>
+            )}
           </div>
         </section>
 
@@ -160,7 +185,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           (acc, section, sIdx) => {
             const startNum = acc.runningCount;
             acc.elements.push(
-              <section key={sIdx} className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+              <section id={sectionId(section.heading)} key={sIdx} className="max-w-3xl mx-auto px-4 sm:px-6 pb-10 scroll-mt-24">
                 <div className="glass-card p-8 sm:p-10">
                   <h2 className="text-xl sm:text-2xl font-bold mb-2 text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
                     {section.heading}
