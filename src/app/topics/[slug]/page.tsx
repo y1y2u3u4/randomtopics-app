@@ -100,6 +100,24 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     emoji: "🎲",
   };
   const articleItems = article.sections.flatMap((section) => section.items);
+  const currentRouting = articleToPages[article.slug];
+  const explicitRelated = new Set(article.relatedLinks.map((link) => link.href));
+  const contextualCollections = SEO_ARTICLES
+    .filter((candidate) => candidate.slug !== article.slug)
+    .filter((candidate) => !explicitRelated.has(`/topics/${candidate.slug}`))
+    .map((candidate) => {
+      const routing = articleToPages[candidate.slug];
+      const sharedModes = currentRouting && routing
+        ? routing.modes.filter((mode) => currentRouting.modes.includes(mode)).length
+        : 0;
+      const sharedCategories = currentRouting && routing
+        ? routing.categories.filter((category) => currentRouting.categories.includes(category)).length
+        : 0;
+      return { candidate, score: sharedModes * 3 + sharedCategories * 2 };
+    })
+    .sort((left, right) => right.score - left.score || left.candidate.title.localeCompare(right.candidate.title))
+    .slice(0, 6)
+    .map(({ candidate }) => candidate);
 
   return (
     <>
@@ -434,9 +452,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               More Topic Collections
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {SEO_ARTICLES.filter((a) => a.slug !== article.slug)
-                .slice(0, 6)
-                .map((a) => (
+              {contextualCollections.map((a) => (
                   <Link
                     key={a.slug}
                     href={`/topics/${a.slug}`}

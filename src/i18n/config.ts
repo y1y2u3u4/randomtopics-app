@@ -104,7 +104,11 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/hot-seat-questions",
   "/group-discussion-topics",
   "/question-of-the-day",
+  "/question-of-the-day-for-students",
+  "/question-of-the-day-for-work",
   "/paranoia-questions",
+  "/topics/ethical-dilemmas-for-students",
+  "/topics/workplace-ethical-dilemmas",
 ]);
 
 /** Spanish-only editorial pages with no honest one-to-one English alternate. */
@@ -170,7 +174,21 @@ export function isEnOnly(rootPath: string): boolean {
  */
 export function hreflangAlternates(path: string): Record<string, string> {
   const en = `${SITE_URL}${path === "/" ? "" : path}` || SITE_URL;
-  const esPath = spanishCounterpartPath(path) ?? localizePath(path, "es");
+  const customSpanishPath = spanishCounterpartPath(path);
+  if (customSpanishPath) {
+    return {
+      en: en || SITE_URL,
+      es: `${SITE_URL}${customSpanishPath}`,
+      "x-default": en || SITE_URL,
+    };
+  }
+  if (isEnOnly(path)) {
+    return {
+      en: en || SITE_URL,
+      "x-default": en || SITE_URL,
+    };
+  }
+  const esPath = localizePath(path, "es");
   const es = `${SITE_URL}${esPath}`;
   return {
     en: en || SITE_URL,

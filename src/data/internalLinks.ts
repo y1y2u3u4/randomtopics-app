@@ -44,6 +44,8 @@ export const categoryToArticles: Record<string, { title: string; href: string }[
     { title: "70 Random Questions to Ask Friends", href: "/topics/random-questions-to-ask-friends" },
   ],
   education: [
+    { title: "50 Ethical Dilemmas for Students", href: "/topics/ethical-dilemmas-for-students" },
+    { title: "180 Questions of the Day for Students", href: "/question-of-the-day-for-students" },
     { title: "75 Debate Topics for Students", href: "/topics/debate-topics-for-students" },
     { title: "50 Debate Topics for Middle School", href: "/topics/debate-topics-for-middle-school" },
     { title: "40 Creative Writing Prompts for Kids", href: "/topics/writing-prompts-for-kids" },
@@ -66,6 +68,8 @@ export const categoryToArticles: Record<string, { title: string; href: string }[
     { title: "65 Get to Know You Questions", href: "/topics/get-to-know-you-questions-for-adults" },
   ],
   business: [
+    { title: "45 Workplace Ethical Dilemmas", href: "/topics/workplace-ethical-dilemmas" },
+    { title: "120 Questions of the Day for Work", href: "/question-of-the-day-for-work" },
     { title: "50 Team Building Questions", href: "/topics/team-building-questions" },
     { title: "55 Icebreaker Questions for Virtual Meetings", href: "/topics/icebreaker-questions-for-virtual-meetings" },
     { title: "50 Icebreaker Questions for Work", href: "/topics/icebreaker-questions-for-work" },

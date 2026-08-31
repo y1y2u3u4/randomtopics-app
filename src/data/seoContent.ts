@@ -1817,6 +1817,8 @@ export const SEO_ARTICLES: SeoArticle[] = [
       },
     ],
     relatedLinks: [
+      { label: "Ethical Dilemmas for Students", href: "/topics/ethical-dilemmas-for-students" },
+      { label: "Workplace Ethical Dilemmas", href: "/topics/workplace-ethical-dilemmas" },
       { label: "Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
       { label: "Controversial Topics to Discuss", href: "/topics/controversial-topics-to-discuss" },
       { label: "Debate Topics for Students", href: "/topics/debate-topics-for-students" },
