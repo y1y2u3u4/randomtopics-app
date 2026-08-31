@@ -118,27 +118,51 @@ function base64Url(value: string): string {
   return Buffer.from(value).toString("base64url");
 }
 
-function parseCredentials(): ServiceAccountCredentials {
-  const encoded = process.env.GOOGLE_SERVICE_ACCOUNT_JSON_BASE64?.trim();
-  if (!encoded) throw new ReportingError("service_account_not_configured");
-
-  try {
-    const parsed = JSON.parse(
-      Buffer.from(encoded, "base64").toString("utf8")
-    ) as ServiceAccountCredentials;
-
-    if (
-      parsed.type !== "service_account" ||
-      !parsed.client_email?.endsWith(".iam.gserviceaccount.com") ||
-      !parsed.private_key?.includes("BEGIN PRIVATE KEY")
-    ) {
-      throw new Error("invalid_service_account_shape");
-    }
-
-    return parsed;
-  } catch {
-    throw new ReportingError("service_account_invalid");
+function unwrapCredentialValue(value: string): string {
+  let candidate = value.trim();
+  const assignmentPrefix = "GOOGLE_SERVICE_ACCOUNT_JSON_BASE64=";
+  if (candidate.startsWith(assignmentPrefix)) {
+    candidate = candidate.slice(assignmentPrefix.length).trim();
   }
+
+  if (
+    (candidate.startsWith("'") && candidate.endsWith("'")) ||
+    (candidate.startsWith('"') && candidate.endsWith('"'))
+  ) {
+    candidate = candidate.slice(1, -1).trim();
+  }
+  return candidate;
+}
+
+function parseCredentials(): ServiceAccountCredentials {
+  const configured = process.env.GOOGLE_SERVICE_ACCOUNT_JSON_BASE64;
+  if (!configured?.trim()) {
+    throw new ReportingError("service_account_not_configured");
+  }
+
+  const value = unwrapCredentialValue(configured);
+  const json = value.startsWith("{")
+    ? value
+    : Buffer.from(value.replace(/\s+/g, ""), "base64").toString("utf8").trim();
+
+  let parsed: ServiceAccountCredentials;
+  try {
+    parsed = JSON.parse(json) as ServiceAccountCredentials;
+  } catch {
+    throw new ReportingError("service_account_json_invalid");
+  }
+
+  if (parsed.type !== "service_account") {
+    throw new ReportingError("service_account_type_invalid");
+  }
+  if (!parsed.client_email?.endsWith(".iam.gserviceaccount.com")) {
+    throw new ReportingError("service_account_email_invalid");
+  }
+  if (!parsed.private_key?.includes("BEGIN PRIVATE KEY")) {
+    throw new ReportingError("service_account_private_key_invalid");
+  }
+
+  return parsed;
 }
 
 function requiredEnv(name: "GA4_PROPERTY_ID" | "GSC_SITE_URL"): string {
