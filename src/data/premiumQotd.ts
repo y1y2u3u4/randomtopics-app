@@ -595,4 +595,7 @@ export const WORK_QOTD_CONFIG: PremiumCollectionConfig = {
 
 validatePremiumCollection(STUDENT_QOTD_CONFIG, 180);
 validatePremiumCollection(WORK_QOTD_CONFIG, 120);
-validateFilterPairCoverage(WORK_QOTD_CONFIG, "audience", "useCase");
+validateFilterPairCoverage(WORK_QOTD_CONFIG, "audience", "useCase", {
+  minimum: 5,
+  firstFallbackValue: "Any Team",
+});

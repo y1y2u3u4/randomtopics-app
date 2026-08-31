@@ -82,7 +82,13 @@ export default function PremiumPromptTool({
     () => config.items.filter((item) =>
       config.filters.every((filter) => {
         const value = filters[filter.key];
-        return !value || item[filter.key] === value;
+        if (!value) return true;
+        const itemValue = item[filter.key];
+        const hasUniversalAudience = filter.key === "audience"
+          && filter.options.includes("Any Team");
+        if (hasUniversalAudience && value === "Any Team") return true;
+        const universalAudienceMatch = hasUniversalAudience && itemValue === "Any Team";
+        return itemValue === value || universalAudienceMatch;
       })
     ),
     [config.filters, config.items, filters]
