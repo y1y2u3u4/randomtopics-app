@@ -54,7 +54,9 @@ export default function TopicCard({ topic, index = 0, locale = defaultLocale }: 
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(topic.text);
-    track("copy_topic", {
+    track("copy_result", {
+      tool_type: "topic_card",
+      result_type: "topic",
       topic_id: topic.id,
       topic_category: topic.category,
       copy_surface: "generated_card",
@@ -66,7 +68,9 @@ export default function TopicCard({ topic, index = 0, locale = defaultLocale }: 
 
   const handleFavorite = () => {
     const added = toggleFavoriteTopic(topic);
-    track(added ? "save_topic" : "remove_saved_topic", {
+    track(added ? "save_result" : "remove_saved_result", {
+      tool_type: "topic_card",
+      result_type: "topic",
       topic_id: topic.id,
       topic_category: topic.category,
       save_surface: "generated_card",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import AnalyticsPageView from "@/components/AnalyticsPageView";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -107,11 +108,12 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-C23RTYX4QS');
+            gtag('config', 'G-C23RTYX4QS', { send_page_view: false });
           `}
         </Script>
       </head>
       <body className="antialiased min-h-screen flex flex-col">
+        <AnalyticsPageView />
         {/* Structured data — Organization + WebSite + WebApplication.
             Bing reads these for rich results and entity understanding. */}
         <script

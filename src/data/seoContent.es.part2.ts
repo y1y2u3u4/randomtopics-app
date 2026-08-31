@@ -162,15 +162,15 @@ export const seoArticlesEsPart2: SeoArticle[] = [
   {
     slug: "controversial-topics-to-discuss",
     title: "55 temas controversiales y polémicos para debatir",
-    metaTitle: "55 Temas Controversiales y Polémicos para Debatir | RandomTopics",
+    metaTitle: "55 Temas Controversiales para Debatir (2026)",
     metaDescription:
-      "Explora 55 temas controversiales y polémicos para debatir sobre política, tecnología, ética y sociedad. Ideas con argumentos válidos en ambos lados.",
+      "55 temas controversiales y polémicos para debatir hoy, organizados por tecnología, ética, política y sociedad. Ideas actuales con dos posturas posibles.",
     heroTitle: "55 Temas Controversiales y Polémicos para Debatir",
     heroSubtitle:
       "Preguntas actuales que cuestionan suposiciones, encienden debates respetuosos y exigen argumentos en lugar de respuestas rápidas.",
     intro: "En gran parte de Latinoamérica se buscan como temas controversiales; en otros países se habla de temas polémicos o controvertidos. Los tres términos describen preguntas donde personas informadas pueden discrepar por sus valores, prioridades o interpretación de la evidencia. Debatirlas no consiste en ganar a cualquier precio, sino en comprender puntos de vista opuestos y defender una postura con razones. Estos 55 temas están organizados por área y elegidos porque permiten construir argumentos sólidos en ambos lados.",
     publishDate: "2026-03-28",
-    lastModified: "2026-08-15",
+    lastModified: "2026-08-31",
     sections: [
       {
         heading: "Tecnología y privacidad",

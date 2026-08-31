@@ -3,6 +3,7 @@
 import { useCallback } from "react";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
+import { track } from "@/lib/track";
 
 interface PrintButtonProps {
   /** Heading printed at the top of the document. */
@@ -26,7 +27,17 @@ export default function PrintButton({ heading, items, intro, label, locale = def
   const btnLabel = label ?? t.print.defaultLabel;
   const handlePrint = useCallback(() => {
     const win = window.open("", "_blank", "width=800,height=900");
-    if (!win) return;
+    if (!win) {
+      track("print_error", { content_name: heading.slice(0, 100), item_count: items.length, locale });
+      return;
+    }
+
+    track("print_open", {
+      tool_type: "print_collection",
+      content_name: heading.slice(0, 100),
+      item_count: items.length,
+      locale,
+    });
 
     const esc = (s: string) =>
       s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -64,7 +75,7 @@ export default function PrintButton({ heading, items, intro, label, locale = def
 </body>
 </html>`);
     win.document.close();
-  }, [heading, items, intro, t]);
+  }, [heading, items, intro, t, locale]);
 
   return (
     <button

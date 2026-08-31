@@ -8,14 +8,16 @@ import type { PurposeGeneratorConfig } from "@/data/purposeGenerators";
 import { SITE_URL } from "@/i18n/config";
 
 export default function PurposeGeneratorPage({ config }: { config: PurposeGeneratorConfig }) {
+  const isSpanish = config.locale === "es";
+  const basePath = isSpanish ? `/es/${config.slug}` : `/${config.slug}`;
   const categories = [...new Set(config.prompts.map((prompt) => prompt.category))];
 
   return (
     <>
       <FaqSchema items={config.faq} />
       <Navbar />
-      <main className="flex-1">
-        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: config.name }]} />
+      <main className="flex-1" lang={isSpanish ? "es" : "en"}>
+        <Breadcrumb items={[{ label: isSpanish ? "Inicio" : "Home", href: isSpanish ? "/es" : "/" }, { label: config.name }]} />
 
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-10 text-center">
           <p className="text-4xl mb-4" aria-hidden="true">{config.emoji}</p>
@@ -28,7 +30,7 @@ export default function PurposeGeneratorPage({ config }: { config: PurposeGenera
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
           <div className="glass-card p-8 sm:p-10">
             <h2 className="section-heading text-2xl sm:text-3xl text-[var(--text-primary)]">
-              A Focused {config.name}
+              {isSpanish ? `Un ${config.name} pensado para tareas reales` : `A Focused ${config.name}`}
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-[var(--text-secondary)]">{config.intro}</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-7">
@@ -44,7 +46,7 @@ export default function PurposeGeneratorPage({ config }: { config: PurposeGenera
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
           <div className="glass-card p-8 sm:p-10">
-            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">How to use the generator</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">{isSpanish ? "Cómo usar el generador" : "How to use the generator"}</h2>
             <ol className="mt-5 space-y-3">
               {config.steps.map((step, index) => (
                 <li key={step} className="flex gap-3 text-sm text-[var(--text-secondary)]">
@@ -58,8 +60,8 @@ export default function PurposeGeneratorPage({ config }: { config: PurposeGenera
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
           <div className="glass-card p-8 sm:p-10">
-            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">Example topics by category</h2>
-            <p className="mt-2 text-sm text-[var(--text-muted)]">A crawlable sample from the same editor-written pool used by the generator.</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">{isSpanish ? "Ejemplos de temas por categoría" : "Example topics by category"}</h2>
+            <p className="mt-2 text-sm text-[var(--text-muted)]">{isSpanish ? "Una muestra visible del mismo banco seleccionado que utiliza el generador." : "A crawlable sample from the same editor-written pool used by the generator."}</p>
             <div className="mt-6 space-y-7">
               {categories.map((category) => (
                 <div key={category}>
@@ -80,7 +82,7 @@ export default function PurposeGeneratorPage({ config }: { config: PurposeGenera
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
           <div className="glass-card p-8 sm:p-10">
-            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">Frequently asked questions</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">{isSpanish ? "Preguntas frecuentes" : "Frequently asked questions"}</h2>
             <div className="mt-5 space-y-5">
               {config.faq.map((item) => (
                 <div key={item.question}>
@@ -93,7 +95,7 @@ export default function PurposeGeneratorPage({ config }: { config: PurposeGenera
         </section>
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 pb-16">
-          <h2 className="section-heading text-2xl text-center mb-6">Related tools and collections</h2>
+          <h2 className="section-heading text-2xl text-center mb-6">{isSpanish ? "Herramientas y colecciones relacionadas" : "Related tools and collections"}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {config.relatedLinks.map((link) => (
               <Link key={link.href} href={link.href} className="glass-card p-5 text-sm font-semibold text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-colors">
@@ -110,17 +112,18 @@ export default function PurposeGeneratorPage({ config }: { config: PurposeGenera
               "@context": "https://schema.org",
               "@type": "WebApplication",
               name: config.name,
-              url: `${SITE_URL}/${config.slug}`,
+              url: `${SITE_URL}${basePath}`,
               applicationCategory: config.applicationCategory,
               operatingSystem: "Any",
               isAccessibleForFree: true,
+              inLanguage: isSpanish ? "es" : "en",
               description: config.metaDescription,
               offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
             }),
           }}
         />
       </main>
-      <Footer />
+      <Footer locale={isSpanish ? "es" : "en"} />
     </>
   );
 }

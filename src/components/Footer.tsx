@@ -48,6 +48,13 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
           { href: "/pro-and-con-debate-topics", label: "↔️ Pro & Con Debate Topics" },
         ]
       : []),
+    ...(locale === "es"
+      ? [
+          { href: "/es/generador-de-temas-para-exponer", label: "📊 Temas para Exponer" },
+          { href: "/es/generador-de-temas-para-investigar", label: "🔎 Temas para Investigar" },
+          { href: "/es/generador-de-temas-para-estudiar", label: "🧠 Temas para Estudiar" },
+        ]
+      : []),
   ];
 
   const headingStyle = { fontFamily: "var(--font-display)", color: "var(--text-secondary)" };

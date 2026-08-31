@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { localeFromPath, stripLocale, localizePath, isEnOnly, isEsOnly } from "@/i18n/config";
+import { localeFromPath, localeCounterpartPath } from "@/i18n/config";
 
 /**
  * Toggles between the English (root) and Spanish (/es) version of the current
@@ -11,14 +11,10 @@ import { localeFromPath, stripLocale, localizePath, isEnOnly, isEsOnly } from "@
 export default function LocaleSwitcher() {
   const pathname = usePathname() || "/";
   const current = localeFromPath(pathname);
-  const rootPath = stripLocale(pathname);
   const target = current === "es" ? "en" : "es";
-  const href = localizePath(rootPath, target);
+  const href = localeCounterpartPath(pathname, target);
 
-  // English-only pages have no Spanish counterpart — hide the toggle so it
-  // never links to a nonexistent /es route.
-  if (target === "es" && isEnOnly(rootPath)) return null;
-  if (target === "en" && isEsOnly(rootPath)) return null;
+  if (!href) return null;
 
   return (
     <Link

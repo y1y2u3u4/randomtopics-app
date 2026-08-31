@@ -50,30 +50,39 @@ export default function TopicGenerator({
     return shuffled.slice(0, Math.min(count, shuffled.length));
   }, [selectedMode, selectedCategory, selectedDepth, count, locale]);
 
-  const finishGeneration = useCallback((nextTopics: Topic[]) => {
+  const finishGeneration = useCallback((nextTopics: Topic[], resultSource: "ai" | "localized_pool" | "static_fallback") => {
     setGeneratedTopics(nextTopics);
     recordRecentTopics(nextTopics);
     setIsSpinning(false);
     setHasGenerated(true);
-  }, []);
+    track(nextTopics.length > 0 ? "generate_success" : "generate_error", {
+      tool_type: "topic_generator",
+      generator_mode: selectedMode ?? "any",
+      generator_category: selectedCategory ?? "any",
+      generator_depth: selectedDepth ?? "any",
+      requested_count: count,
+      result_count: nextTopics.length,
+      result_source: resultSource,
+      locale,
+    });
+  }, [selectedMode, selectedCategory, selectedDepth, count, locale]);
 
   const generate = useCallback(async () => {
     setIsSpinning(true);
 
-    // Usage telemetry: which mode/category/depth people actually generate.
-    // Feeds the /stats Usage Insights dataset (GA4 custom event).
-    track("generate_topic", {
-      gen_mode: selectedMode ?? "any",
-      gen_category: selectedCategory ?? "any",
-      gen_depth: selectedDepth ?? "any",
-      gen_count: count,
-      gen_locale: locale,
+    track("generate_start", {
+      tool_type: "topic_generator",
+      generator_mode: selectedMode ?? "any",
+      generator_category: selectedCategory ?? "any",
+      generator_depth: selectedDepth ?? "any",
+      requested_count: count,
+      locale,
     });
 
     // Spanish serves purely from the localized static database so results are
     // always in Spanish (the AI API returns English only).
     if (locale === "es") {
-      finishGeneration(generateFromStatic());
+      finishGeneration(generateFromStatic(), "localized_pool");
       return;
     }
 
@@ -95,14 +104,14 @@ export default function TopicGenerator({
 
       const data = await res.json();
       if (data.topics && data.topics.length > 0) {
-        finishGeneration(data.topics);
+        finishGeneration(data.topics, "ai");
       } else {
         // Fallback to static if AI returns empty
-        finishGeneration(generateFromStatic());
+        finishGeneration(generateFromStatic(), "static_fallback");
       }
     } catch {
       // Fallback to static database on any error
-      finishGeneration(generateFromStatic());
+      finishGeneration(generateFromStatic(), "static_fallback");
     }
   }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, finishGeneration, locale]);
 

@@ -10,6 +10,7 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PrintButton from "@/components/PrintButton";
+import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
 
 function sectionId(heading: string) {
   return heading
@@ -42,6 +43,12 @@ const ARTICLE_CTA_ES: Record<string, { href: string; text: string; label: string
     text: "Elige un tema, genera una propuesta y ensaya tu discurso con el temporizador integrado.",
     label: "Practicar Oratoria con Temporizador",
     emoji: "⏱️",
+  },
+  "presentation-ideas-for-school": {
+    href: "/es/generador-de-temas-para-exponer",
+    text: "¿Necesitas otra idea para tu presentación? Genera un tema según el área y el nivel, con un enfoque listo para convertir en diapositivas.",
+    label: "Abrir el Generador de Temas para Exponer",
+    emoji: "📊",
   },
   "conversation-topics-for-teens": {
     href: "/es/conversation",
@@ -90,6 +97,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
     label: "Prueba el Generador — Es Gratis",
     emoji: "🎲",
   };
+  const articleItems = article.sections.flatMap((section) => section.items);
 
   return (
     <>
@@ -119,7 +127,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           <div className="mt-5 flex justify-center">
             <PrintButton
               heading={article.heroTitle}
-              items={article.sections.flatMap((section) => section.items)}
+              items={articleItems}
               intro={article.heroSubtitle}
               label="Imprimir o guardar como PDF"
               locale="es"
@@ -180,6 +188,31 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
             )}
           </div>
         </section>
+
+        {article.slug === "most-likely-to-questions" && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <InlineQuestionGenerator
+              items={articleItems}
+              title="Juega a Quién Es Más Probable"
+              description="Saca una pregunta al azar de la lista completa, voten todos a la vez y pasa a la siguiente sin leerlas en orden."
+              source="es_most_likely_article"
+              locale="es"
+              actionLabel="Sacar una pregunta"
+            />
+          </section>
+        )}
+
+        {article.slug === "presentation-ideas-for-school" && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 text-center">
+              <h2 className="text-xl font-bold text-[var(--text-primary)]">¿Necesitas un tema según la asignatura y el nivel?</h2>
+              <p className="mt-2 text-sm text-[var(--text-secondary)]">El generador especializado entrega una idea y un enfoque que puedes convertir directamente en diapositivas.</p>
+              <Link href="/es/generador-de-temas-para-exponer" className="btn-generate inline-flex mt-5 items-center gap-2 text-sm px-6 py-3">
+                <span aria-hidden="true">📊</span> Generar un Tema para Exponer
+              </Link>
+            </div>
+          </section>
+        )}
 
         {article.sections.reduce<{ elements: React.ReactNode[]; runningCount: number }>(
           (acc, section, sIdx) => {

@@ -9,6 +9,7 @@ import {
   QotdCategory,
   qotdIndexForDate,
 } from "@/data/questionOfTheDay";
+import { track } from "@/lib/track";
 
 interface QuestionOfTheDayProps {
   /** Server-computed (UTC) index so today's question is in the static HTML. */
@@ -24,6 +25,7 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
   const [todayIdx, setTodayIdx] = useState<number>(initialIdx);
   const [dateLabel, setDateLabel] = useState(initialDateLabel);
   const [copied, setCopied] = useState(false);
+  const [shared, setShared] = useState(false);
 
   // Random-mode state
   const [category, setCategory] = useState<QotdCategory | "all">("all");
@@ -48,6 +50,12 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
 
   const deal = useCallback(() => {
     if (pool.length === 0) return;
+    track("generate_start", {
+      tool_type: "question_of_the_day",
+      generator_category: category,
+      requested_count: 1,
+      locale: "en",
+    });
     let candidates = pool.filter((x) => !used.has(x.q));
     let nextUsed = used;
     if (candidates.length === 0) {
@@ -59,7 +67,26 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
     s.add(pick.q);
     setUsed(s);
     setRandomQ(pick);
-  }, [pool, used]);
+    track("generate_success", {
+      tool_type: "question_of_the_day",
+      generator_category: category,
+      result_category: pick.c,
+      result_count: 1,
+      result_source: "editorial_pool",
+      locale: "en",
+    });
+  }, [pool, used, category]);
+
+  const changeCategory = useCallback((nextCategory: QotdCategory | "all") => {
+    setCategory(nextCategory);
+    setUsed(new Set());
+    track("filter_select", {
+      tool_type: "question_of_the_day",
+      filter_name: "category",
+      filter_value: nextCategory,
+      locale: "en",
+    });
+  }, []);
 
   const shown = randomQ ?? QOTD_QUESTIONS[todayIdx];
   const catMeta = shown ? QOTD_CATEGORIES.find((c) => c.id === shown.c) : null;
@@ -71,8 +98,44 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
       await navigator.clipboard.writeText(shown.q);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
+      track("copy_result", {
+        tool_type: "question_of_the_day",
+        result_category: shown.c,
+        locale: "en",
+      });
     } catch {
       /* clipboard unavailable */
+    }
+  }, [shown]);
+
+  const share = useCallback(async () => {
+    if (!shown) return;
+    try {
+      if (typeof navigator.share === "function") {
+        await navigator.share({
+          title: "Question of the Day",
+          text: shown.q,
+          url: window.location.href,
+        });
+        track("share_result", {
+          tool_type: "question_of_the_day",
+          result_category: shown.c,
+          share_method: "native",
+          locale: "en",
+        });
+      } else {
+        await navigator.clipboard.writeText(`${shown.q}\n${window.location.href}`);
+        track("share_result", {
+          tool_type: "question_of_the_day",
+          result_category: shown.c,
+          share_method: "clipboard",
+          locale: "en",
+        });
+      }
+      setShared(true);
+      window.setTimeout(() => setShared(false), 1500);
+    } catch {
+      setShared(false);
     }
   }, [shown]);
 
@@ -131,6 +194,12 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
           >
             {copied ? "Copied ✓" : "Copy"}
           </button>
+          <button
+            onClick={share}
+            className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-pink)]/50 transition-colors"
+          >
+            {shared ? "Shared ✓" : "Share"}
+          </button>
           <PrintButton
             heading="Questions of the Day"
             items={pool.map((x) => x.q)}
@@ -142,7 +211,7 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
         {/* Category filter for random mode */}
         <div className="flex flex-wrap justify-center gap-2 mt-5">
           <button
-            onClick={() => { setCategory("all"); setUsed(new Set()); }}
+            onClick={() => changeCategory("all")}
             className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
               category === "all"
                 ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]"
@@ -154,7 +223,7 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
           {QOTD_CATEGORIES.map((c) => (
             <button
               key={c.id}
-              onClick={() => { setCategory(c.id); setUsed(new Set()); }}
+              onClick={() => changeCategory(c.id)}
               className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
                 category === c.id
                   ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]"

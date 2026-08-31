@@ -8,6 +8,7 @@ import {
   CHARADES_CATEGORIES,
   CharadesCategory,
 } from "@/data/charades";
+import { track } from "@/lib/track";
 
 const DIFFICULTIES = [
   { id: 0, label: "Any" },
@@ -62,6 +63,11 @@ export default function CharadesGenerator() {
           if (intervalRef.current) clearInterval(intervalRef.current);
           intervalRef.current = null;
           setTimeUp(true);
+          track("timer_complete", {
+            tool_type: "charades_generator",
+            timer_seconds: timerLength,
+            locale: "en",
+          });
           return 0;
         }
         return s - 1;
@@ -73,6 +79,13 @@ export default function CharadesGenerator() {
 
   const deal = useCallback(() => {
     if (pool.length === 0) return;
+    track("generate_start", {
+      tool_type: "charades_generator",
+      generator_category: category,
+      generator_difficulty: difficulty === 0 ? "any" : difficulty,
+      requested_count: 1,
+      locale: "en",
+    });
     let candidates = pool.filter((x) => !usedKeys.has(x.w));
     let nextUsed = usedKeys;
     if (candidates.length === 0) {
@@ -86,7 +99,17 @@ export default function CharadesGenerator() {
     setCurrent(pick);
     setTimeUp(false);
     startTimer();
-  }, [pool, usedKeys, startTimer]);
+    track("generate_success", {
+      tool_type: "charades_generator",
+      generator_category: category,
+      generator_difficulty: difficulty === 0 ? "any" : difficulty,
+      result_category: pick.c,
+      result_difficulty: pick.d,
+      result_count: 1,
+      result_source: "editorial_pool",
+      locale: "en",
+    });
+  }, [pool, usedKeys, startTimer, category, difficulty]);
 
   const catMeta = current ? CHARADES_CATEGORIES.find((c) => c.id === current.c) : null;
   const remaining = pool.filter((x) => !usedKeys.has(x.w)).length;
@@ -99,7 +122,11 @@ export default function CharadesGenerator() {
         <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-2">Category</p>
         <div className="flex flex-wrap gap-2 mb-5">
           <button
-            onClick={() => { setCategory("all"); setUsedKeys(new Set()); }}
+            onClick={() => {
+              setCategory("all");
+              setUsedKeys(new Set());
+              track("filter_select", { tool_type: "charades_generator", filter_name: "category", filter_value: "all", locale: "en" });
+            }}
             className={`text-sm px-3.5 py-1.5 rounded-lg border transition-all ${
               category === "all"
                 ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]"
@@ -111,7 +138,11 @@ export default function CharadesGenerator() {
           {CHARADES_CATEGORIES.map((c) => (
             <button
               key={c.id}
-              onClick={() => { setCategory(c.id); setUsedKeys(new Set()); }}
+              onClick={() => {
+                setCategory(c.id);
+                setUsedKeys(new Set());
+                track("filter_select", { tool_type: "charades_generator", filter_name: "category", filter_value: c.id, locale: "en" });
+              }}
               className={`text-sm px-3.5 py-1.5 rounded-lg border transition-all ${
                 category === c.id
                   ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]"
@@ -131,7 +162,11 @@ export default function CharadesGenerator() {
               {DIFFICULTIES.map((d) => (
                 <button
                   key={d.id}
-                  onClick={() => { setDifficulty(d.id as 0 | 1 | 2 | 3); setUsedKeys(new Set()); }}
+                  onClick={() => {
+                    setDifficulty(d.id as 0 | 1 | 2 | 3);
+                    setUsedKeys(new Set());
+                    track("filter_select", { tool_type: "charades_generator", filter_name: "difficulty", filter_value: d.id, locale: "en" });
+                  }}
                   className={`text-sm px-3.5 py-1.5 rounded-lg border transition-all ${
                     difficulty === d.id
                       ? "border-[var(--neon-pink)] text-[var(--neon-pink)] bg-[rgba(255,45,120,0.08)]"
@@ -149,7 +184,12 @@ export default function CharadesGenerator() {
               {TIMER_OPTIONS.map((t) => (
                 <button
                   key={t}
-                  onClick={() => { setTimerLength(t); stopTimer(); setTimeUp(false); }}
+                  onClick={() => {
+                    setTimerLength(t);
+                    stopTimer();
+                    setTimeUp(false);
+                    track("timer_preset_select", { tool_type: "charades_generator", timer_seconds: t, locale: "en" });
+                  }}
                   className={`text-sm px-3.5 py-1.5 rounded-lg border transition-all ${
                     timerLength === t
                       ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]"

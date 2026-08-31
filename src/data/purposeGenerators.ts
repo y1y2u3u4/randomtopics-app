@@ -7,6 +7,7 @@ export interface PurposePrompt {
 
 export interface PurposeGeneratorConfig {
   slug: string;
+  locale?: "en" | "es";
   name: string;
   emoji: string;
   title: string;

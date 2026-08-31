@@ -6,6 +6,7 @@ import PrintButton from "@/components/PrintButton";
 import FaqSchema from "@/components/FaqSchema";
 import type { SpanishMostLikelyConfig } from "@/data/mostLikelySpanishClusters";
 import { SITE_URL } from "@/i18n/config";
+import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
 
 function sectionId(heading: string) {
   return heading
@@ -18,6 +19,7 @@ function sectionId(heading: string) {
 
 export default function SpanishMostLikelyCollectionPage({ config }: { config: SpanishMostLikelyConfig }) {
   const pageUrl = `${SITE_URL}/es/topics/${config.slug}`;
+  const questions = config.sections.flatMap((section) => section.items);
 
   return (
     <>
@@ -35,11 +37,11 @@ export default function SpanishMostLikelyCollectionPage({ config }: { config: Sp
         <section className="text-center pt-12 sm:pt-20 pb-8 sm:pb-12 max-w-4xl mx-auto px-4 sm:px-6">
           <h1 className="section-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight">{config.title}</h1>
           <p className="text-base sm:text-lg text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed">{config.heroSubtitle}</p>
-          <p className="text-xs text-[var(--text-muted)] mt-3">Publicado y actualizado: 25 de agosto de 2026</p>
+          <p className="text-xs text-[var(--text-muted)] mt-3">Publicado el 25 de agosto de 2026 · actualizado el 31 de agosto de 2026</p>
           <div className="mt-5 flex justify-center">
             <PrintButton
               heading={config.title}
-              items={config.sections.flatMap((section) => section.items)}
+              items={questions}
               intro={config.heroSubtitle}
               label="Imprimir o guardar como PDF"
               locale="es"
@@ -61,6 +63,17 @@ export default function SpanishMostLikelyCollectionPage({ config }: { config: Sp
               </div>
             </nav>
           </div>
+        </section>
+
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+          <InlineQuestionGenerator
+            items={questions}
+            title="Juega directamente desde esta lista"
+            description="Saca una pregunta al azar, voten todos a la vez y continúa sin repetir hasta completar la colección."
+            source={`es_most_likely_${config.slug}`}
+            locale="es"
+            actionLabel="Sacar una pregunta"
+          />
         </section>
 
         {config.sections.map((section, sectionIndex) => (
@@ -128,7 +141,7 @@ export default function SpanishMostLikelyCollectionPage({ config }: { config: Sp
               headline: config.title,
               description: config.metaDescription,
               datePublished: "2026-08-25",
-              dateModified: "2026-08-25",
+              dateModified: "2026-08-31",
               author: { "@type": "Organization", name: "Random Topics", url: SITE_URL },
               publisher: { "@type": "Organization", name: "Random Topics", url: SITE_URL },
               mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
