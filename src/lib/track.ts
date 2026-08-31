@@ -5,7 +5,7 @@
 //
 // Safe no-op when gtag is absent (adblock, SSR, tests). Never throws.
 
-type GtagParams = Record<string, string | number | boolean | null | undefined>;
+export type GtagParams = Record<string, string | number | boolean | null | undefined>;
 
 declare global {
   interface Window {
@@ -16,9 +16,34 @@ declare global {
 export function track(eventName: string, params?: GtagParams): void {
   try {
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
-      window.gtag("event", eventName, params);
+      window.gtag("event", eventName, {
+        page_path: `${window.location.pathname}${window.location.search}`,
+        page_location: window.location.href,
+        page_title: document.title,
+        page_language: document.documentElement.lang || "en",
+        ...params,
+      });
     }
   } catch {
     /* analytics must never break the app */
+  }
+}
+
+/**
+ * Emit one explicit GA4 page_view for the current App Router location.
+ * Returns false while gtag is still loading so the caller can retry briefly.
+ */
+export function trackPageView(): boolean {
+  try {
+    if (typeof window === "undefined" || typeof window.gtag !== "function") return false;
+    window.gtag("event", "page_view", {
+      page_path: `${window.location.pathname}${window.location.search}`,
+      page_location: window.location.href,
+      page_title: document.title,
+      page_language: document.documentElement.lang || "en",
+    });
+    return true;
+  } catch {
+    return false;
   }
 }

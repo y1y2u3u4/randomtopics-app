@@ -44,8 +44,12 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
   const pendingWinner = useRef<number | null>(null);
 
   const spin = useCallback(() => {
-    track("spin_wheel");
     if (spinning) return;
+    track("spin_start", {
+      tool_type: "topic_wheel",
+      generator_mode: mode ?? "any",
+      locale,
+    });
     setResult(null);
     setSpinning(true);
 
@@ -62,7 +66,7 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
     const jitter = (Math.random() - 0.5) * (SEG - 6);
     const total = delta + 360 * 5 + jitter;
     setRotation((r) => r + total);
-  }, [rotation, spinning]);
+  }, [rotation, spinning, mode, locale]);
 
   const onComplete = useCallback(() => {
     const winner = pendingWinner.current;
@@ -78,6 +82,14 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
 
     setResult(picked);
     setSpinning(false);
+    track(picked ? "spin_success" : "spin_error", {
+      tool_type: "topic_wheel",
+      generator_mode: mode ?? "any",
+      result_category: cat,
+      result_count: picked ? 1 : 0,
+      result_source: "editorial_pool",
+      locale,
+    });
   }, [mode, locale]);
 
   return (

@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Locale, defaultLocale } from "@/i18n/config";
+import { track } from "@/lib/track";
 
 const PRESETS = [
   { label: "1 min", seconds: 60 },
@@ -52,34 +53,47 @@ export default function SpeechTimer({ locale = defaultLocale }: { locale?: Local
         if (prev <= 1) {
           setIsRunning(false);
           setIsFinished(true);
+          track("timer_complete", {
+            tool_type: "speech_timer",
+            timer_seconds: totalSeconds,
+            locale,
+          });
           return 0;
         }
         return prev - 1;
       });
     }, 1000);
     return () => clearInterval(interval);
-  }, [isRunning, remaining]);
+  }, [isRunning, remaining, totalSeconds, locale]);
 
   const selectPreset = useCallback((seconds: number) => {
     setTotalSeconds(seconds);
     setRemaining(seconds);
     setIsRunning(false);
     setIsFinished(false);
-  }, []);
+    track("timer_preset_select", { tool_type: "speech_timer", timer_seconds: seconds, locale });
+  }, [locale]);
 
   const toggleRun = useCallback(() => {
+    const restarting = isFinished;
     if (isFinished) {
       setRemaining(totalSeconds);
       setIsFinished(false);
     }
+    track(restarting ? "timer_restart" : isRunning ? "timer_pause" : "timer_start", {
+      tool_type: "speech_timer",
+      timer_seconds: totalSeconds,
+      locale,
+    });
     setIsRunning((prev) => !prev);
-  }, [isFinished, totalSeconds]);
+  }, [isFinished, isRunning, totalSeconds, locale]);
 
   const reset = useCallback(() => {
     setRemaining(totalSeconds);
     setIsRunning(false);
     setIsFinished(false);
-  }, [totalSeconds]);
+    track("timer_reset", { tool_type: "speech_timer", timer_seconds: totalSeconds, locale });
+  }, [totalSeconds, locale]);
 
   const minutes = Math.floor(remaining / 60);
   const seconds = remaining % 60;

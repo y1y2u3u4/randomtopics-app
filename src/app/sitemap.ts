@@ -7,6 +7,7 @@ import {
   SITE_URL,
   localizePath,
   isEnOnly,
+  spanishCounterpartPath,
 } from "@/i18n/config";
 
 // Bilingual sitemap: every route is emitted for both English (root) and Spanish
@@ -99,7 +100,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const e of entries) {
     const enUrl = abs(e.path);
 
-    if (isEnOnly(e.path)) {
+    const customSpanishPath = spanishCounterpartPath(e.path);
+    if (isEnOnly(e.path) && !customSpanishPath) {
       const languages = { en: enUrl, "x-default": enUrl };
       result.push({
         url: enUrl,
@@ -111,7 +113,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       continue;
     }
 
-    const esUrl = abs(localizePath(e.path, "es"));
+    const esUrl = abs(customSpanishPath ?? localizePath(e.path, "es"));
     const languages = { en: enUrl, es: esUrl, "x-default": enUrl };
     // One entry per locale, each advertising both alternates.
     result.push({
@@ -123,7 +125,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
     result.push({
       url: esUrl,
-      ...(e.esLastModified || e.lastModified ? { lastModified: e.esLastModified ?? e.lastModified } : {}),
+      ...(customSpanishPath
+        ? { lastModified: "2026-08-31" }
+        : e.esLastModified || e.lastModified
+          ? { lastModified: e.esLastModified ?? e.lastModified }
+          : {}),
       changeFrequency: e.changeFrequency,
       priority: Math.max(0.1, e.priority - 0.1),
       alternates: { languages },
@@ -140,7 +146,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const url = abs(path);
     result.push({
       url,
-      lastModified: "2026-08-25",
+      lastModified: "2026-08-31",
       changeFrequency: "monthly",
       priority: 0.82,
       alternates: { languages: { es: url, "x-default": url } },

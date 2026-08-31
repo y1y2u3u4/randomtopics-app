@@ -42,7 +42,9 @@ export default function ShareButtons({ topic, locale = defaultLocale }: ShareBut
 
   const copyLink = async () => {
     await navigator.clipboard.writeText(shareUrl);
-    track("share_topic", {
+    track("share_result", {
+      tool_type: "topic_card",
+      result_type: "topic",
       topic_id: topic.id,
       topic_category: topic.category,
       share_method: "copy_link",
@@ -53,7 +55,9 @@ export default function ShareButtons({ topic, locale = defaultLocale }: ShareBut
   };
 
   const trackShare = (method: "x" | "whatsapp") => {
-    track("share_topic", {
+    track("share_result", {
+      tool_type: "topic_card",
+      result_type: "topic",
       topic_id: topic.id,
       topic_category: topic.category,
       share_method: method,

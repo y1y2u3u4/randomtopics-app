@@ -44,6 +44,9 @@ const POPULAR_TOOLS = [
   { emoji: "👉", title: "Quién Es Más Probable", detail: "Preguntas para jugar", href: "/es/most-likely-to" },
   { emoji: "⚖️", title: "Dilemas Éticos", detail: "60 preguntas morales", href: "/es/topics/ethical-dilemma-questions" },
   { emoji: "💬", title: "Conversaciones", detail: "Temas para hablar", href: "/es/conversation" },
+  { emoji: "📊", title: "Temas para Exponer", detail: "Área + nivel + enfoque", href: "/es/generador-de-temas-para-exponer" },
+  { emoji: "🔎", title: "Temas para Investigar", detail: "Pregunta + alcance", href: "/es/generador-de-temas-para-investigar" },
+  { emoji: "🧠", title: "Temas para Estudiar", detail: "Materia + dificultad", href: "/es/generador-de-temas-para-estudiar" },
 ];
 
 const FAQ = [

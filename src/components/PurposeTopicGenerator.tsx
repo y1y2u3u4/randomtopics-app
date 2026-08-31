@@ -18,6 +18,7 @@ function shuffled<T>(items: T[]) {
 }
 
 export default function PurposeTopicGenerator({ config }: { config: PurposeGeneratorConfig }) {
+  const isSpanish = config.locale === "es";
   const categories = useMemo(() => unique(config.prompts.map((prompt) => prompt.category)), [config.prompts]);
   const levels = useMemo(() => unique(config.prompts.map((prompt) => prompt.level)), [config.prompts]);
   const [category, setCategory] = useState("All");
@@ -27,6 +28,15 @@ export default function PurposeTopicGenerator({ config }: { config: PurposeGener
   const [copied, setCopied] = useState<number | null>(null);
 
   function generate() {
+    const eventParams = {
+      tool_type: "purpose_generator",
+      generator_slug: config.slug,
+      generator_category: category.toLowerCase().replaceAll(" ", "_"),
+      generator_level: level.toLowerCase().replaceAll(" ", "_"),
+      requested_count: count,
+      locale: config.locale ?? "en",
+    };
+    track("generate_start", eventParams);
     const matching = config.prompts.filter(
       (prompt) =>
         (category === "All" || prompt.category === category) &&
@@ -36,13 +46,13 @@ export default function PurposeTopicGenerator({ config }: { config: PurposeGener
     const previousFirst = results[0]?.text;
     const fresh = pool.filter((prompt) => prompt.text !== previousFirst);
     const candidates = fresh.length >= Math.min(count, pool.length) ? fresh : pool;
-    setResults(shuffled(candidates).slice(0, Math.min(count, candidates.length)));
+    const nextResults = shuffled(candidates).slice(0, Math.min(count, candidates.length));
+    setResults(nextResults);
     setCopied(null);
-    track("generate_purpose_topics", {
-      generator: config.slug,
-      category: category.toLowerCase().replaceAll(" ", "_"),
-      level: level.toLowerCase(),
-      count,
+    track(nextResults.length > 0 ? "generate_success" : "generate_error", {
+      ...eventParams,
+      result_count: nextResults.length,
+      result_source: "editorial_pool",
     });
   }
 
@@ -50,7 +60,13 @@ export default function PurposeTopicGenerator({ config }: { config: PurposeGener
     try {
       await navigator.clipboard.writeText(`${prompt.text}\nStarting angle: ${prompt.angle}`);
       setCopied(index);
-      track("copy_purpose_topic", { generator: config.slug, category: prompt.category, level: prompt.level });
+      track("copy_result", {
+        tool_type: "purpose_generator",
+        generator_slug: config.slug,
+        result_category: prompt.category,
+        result_level: prompt.level,
+        locale: config.locale ?? "en",
+      });
     } catch {
       setCopied(null);
     }
@@ -61,29 +77,29 @@ export default function PurposeTopicGenerator({ config }: { config: PurposeGener
       <div className="glass-card p-6 sm:p-10 border-[var(--neon-cyan)]/20">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <label className="text-xs font-semibold text-[var(--text-secondary)]">
-            Category
+            {isSpanish ? "Categoría" : "Category"}
             <select
               value={category}
               onChange={(event) => setCategory(event.target.value)}
               className="mt-2 w-full rounded-lg border border-white/10 bg-[#12121f] px-3 py-3 text-sm text-[var(--text-primary)]"
             >
-              <option value="All">Any category</option>
+              <option value="All">{isSpanish ? "Cualquier categoría" : "Any category"}</option>
               {categories.map((value) => <option key={value} value={value}>{value}</option>)}
             </select>
           </label>
           <label className="text-xs font-semibold text-[var(--text-secondary)]">
-            Difficulty / depth
+            {isSpanish ? "Nivel / profundidad" : "Difficulty / depth"}
             <select
               value={level}
               onChange={(event) => setLevel(event.target.value)}
               className="mt-2 w-full rounded-lg border border-white/10 bg-[#12121f] px-3 py-3 text-sm text-[var(--text-primary)]"
             >
-              <option value="All">Any level</option>
+              <option value="All">{isSpanish ? "Cualquier nivel" : "Any level"}</option>
               {levels.map((value) => <option key={value} value={value}>{value}</option>)}
             </select>
           </label>
           <fieldset>
-            <legend className="text-xs font-semibold text-[var(--text-secondary)]">Number of ideas</legend>
+            <legend className="text-xs font-semibold text-[var(--text-secondary)]">{isSpanish ? "Número de ideas" : "Number of ideas"}</legend>
             <div className="mt-2 grid grid-cols-3 gap-2">
               {[1, 3, 5].map((value) => (
                 <button
@@ -106,9 +122,9 @@ export default function PurposeTopicGenerator({ config }: { config: PurposeGener
 
         <div className="text-center">
           <button type="button" onClick={generate} className="btn-generate mt-7">
-            <span aria-hidden="true">{config.emoji}</span> {results.length ? "Generate Again" : config.actionLabel}
+            <span aria-hidden="true">{config.emoji}</span> {results.length ? (isSpanish ? "Generar de nuevo" : "Generate Again") : config.actionLabel}
           </button>
-          <p className="text-xs text-[var(--text-muted)] mt-3">Editor-written ideas · free · no signup</p>
+          <p className="text-xs text-[var(--text-muted)] mt-3">{isSpanish ? "Ideas seleccionadas · gratis · sin registro" : "Editor-written ideas · free · no signup"}</p>
         </div>
 
         {results.length > 0 && (
@@ -122,14 +138,14 @@ export default function PurposeTopicGenerator({ config }: { config: PurposeGener
                 <p className="text-xs uppercase tracking-wider text-[var(--neon-cyan)]">{config.resultLabel}</p>
                 <h2 className="mt-2 text-lg sm:text-xl font-bold text-[var(--text-primary)]">{prompt.text}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
-                  <strong className="text-[var(--text-primary)]">Starting angle:</strong> {prompt.angle}
+                  <strong className="text-[var(--text-primary)]">{isSpanish ? "Punto de partida:" : "Starting angle:"}</strong> {prompt.angle}
                 </p>
                 <button
                   type="button"
                   onClick={() => copyResult(prompt, index)}
                   className="mt-4 text-xs font-semibold text-[var(--neon-cyan)] hover:underline"
                 >
-                  {copied === index ? "Copied ✓" : "Copy topic + angle"}
+                  {copied === index ? (isSpanish ? "Copiado ✓" : "Copied ✓") : (isSpanish ? "Copiar tema + enfoque" : "Copy topic + angle")}
                 </button>
               </article>
             ))}

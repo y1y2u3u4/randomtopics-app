@@ -9,6 +9,8 @@ import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PrintButton from "@/components/PrintButton";
+import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
+import SpeechTimer from "@/components/SpeechTimer";
 
 function sectionId(heading: string) {
   return heading
@@ -97,6 +99,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     label: "Try the Generator — It's Free",
     emoji: "🎲",
   };
+  const articleItems = article.sections.flatMap((section) => section.items);
 
   return (
     <>
@@ -133,7 +136,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <div className="mt-5 flex justify-center">
             <PrintButton
               heading={article.heroTitle}
-              items={article.sections.flatMap((section) => section.items)}
+              items={articleItems}
               intro={article.heroSubtitle}
               label="Print or save as PDF"
             />
@@ -208,6 +211,47 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             )}
           </div>
         </section>
+
+        {article.slug === "ethical-dilemma-questions" && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <InlineQuestionGenerator
+              items={articleItems}
+              title="Try a Random Ethical Dilemma"
+              description="Draw one scenario for a class, interview, dinner discussion, or personal reflection — then copy or share it without leaving the page."
+              source="ethical_dilemma_article"
+              actionLabel="Give Me a Dilemma"
+            />
+          </section>
+        )}
+
+        {article.slug === "toastmasters-table-topics" && (
+          <>
+            <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-6">
+              <InlineQuestionGenerator
+                items={articleItems}
+                title="Practice a Random Table Topic"
+                description="Draw a question, take a short breath, and answer for one to two minutes. The timer below keeps the drill meeting-ready."
+                source="toastmasters_article"
+                actionLabel="Draw a Table Topic"
+              />
+            </section>
+            <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+              <SpeechTimer />
+            </section>
+          </>
+        )}
+
+        {article.slug === "presentation-ideas-for-school" && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 text-center">
+              <h2 className="text-xl font-bold text-[var(--text-primary)]">Need a topic matched to your subject and difficulty?</h2>
+              <p className="mt-2 text-sm text-[var(--text-secondary)]">Use the focused generator for a presentation idea plus a slide-ready starting angle.</p>
+              <Link href="/presentation-topic-generator" className="btn-generate inline-flex mt-5 items-center gap-2 text-sm px-6 py-3">
+                <span aria-hidden="true">📊</span> Generate a Presentation Topic
+              </Link>
+            </div>
+          </section>
+        )}
 
         {/* Content sections */}
         {article.sections.reduce<{ elements: React.ReactNode[]; runningCount: number }>(

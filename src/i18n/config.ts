@@ -47,6 +47,20 @@ export function stripLocale(pathname: string): string {
 export const SITE_URL = "https://randomtopics.app";
 
 /**
+ * Search-led Spanish pages whose URL intentionally follows natural Spanish
+ * wording instead of mirroring the English slug.
+ */
+export const CUSTOM_SPANISH_ALTERNATES: Readonly<Record<string, string>> = {
+  "/presentation-topic-generator": "/es/generador-de-temas-para-exponer",
+  "/research-topic-generator": "/es/generador-de-temas-para-investigar",
+  "/random-learning-topic-generator": "/es/generador-de-temas-para-estudiar",
+};
+
+export function spanishCounterpartPath(englishPath: string): string | null {
+  return CUSTOM_SPANISH_ALTERNATES[englishPath] ?? null;
+}
+
+/**
  * Mode/category pages that have demonstrated search demand in GSC and contain
  * enough differentiated copy + real examples to remain standalone landing
  * pages. Keep this deliberately small: new entries should only be added after
@@ -104,6 +118,24 @@ export function isEsOnly(rootPath: string): boolean {
   return ES_ONLY_PATHS.has(rootPath);
 }
 
+/** Resolve a real locale counterpart, including non-mirrored Spanish slugs. */
+export function localeCounterpartPath(pathname: string, target: Locale): string | null {
+  const rootPath = stripLocale(pathname);
+
+  if (target === "es") {
+    const custom = spanishCounterpartPath(rootPath);
+    if (custom) return custom;
+    if (isEnOnly(rootPath)) return null;
+    return localizePath(rootPath, "es");
+  }
+
+  const spanishPath = pathname.startsWith("/es") ? pathname : localizePath(rootPath, "es");
+  const customEnglish = Object.entries(CUSTOM_SPANISH_ALTERNATES).find(([, value]) => value === spanishPath)?.[0];
+  if (customEnglish) return customEnglish;
+  if (isEsOnly(rootPath)) return null;
+  return rootPath;
+}
+
 const MODE_SLUGS: ReadonlySet<string> = new Set(MODES.map((m) => m.slug));
 const CATEGORY_IDS: ReadonlySet<string> = new Set(CATEGORIES.map((c) => c.id));
 
@@ -138,7 +170,8 @@ export function isEnOnly(rootPath: string): boolean {
  */
 export function hreflangAlternates(path: string): Record<string, string> {
   const en = `${SITE_URL}${path === "/" ? "" : path}` || SITE_URL;
-  const es = `${SITE_URL}${localizePath(path, "es")}`;
+  const esPath = spanishCounterpartPath(path) ?? localizePath(path, "es");
+  const es = `${SITE_URL}${esPath}`;
   return {
     en: en || SITE_URL,
     es,

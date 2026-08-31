@@ -33,7 +33,13 @@ export default function PartyGenerator({ questions, title, subtitle, emoji, loca
   }, [activeFilter, filters, questions]);
 
   const generate = useCallback(() => {
-    track("deal_party_question", { deck: title });
+    track("generate_start", {
+      tool_type: "party_question_generator",
+      generator_name: title,
+      generator_filter: activeFilter,
+      requested_count: 1,
+      locale,
+    });
     let pool = activeQuestions.map((_, i) => i).filter((i) => !used.has(i));
     let nextUsed = used;
     if (pool.length === 0) {
@@ -47,14 +53,28 @@ export default function PartyGenerator({ questions, title, subtitle, emoji, loca
     setUsed(s);
     setCurrent(activeQuestions[idx]);
     setCopied(false);
-  }, [activeQuestions, title, used]);
+    track("generate_success", {
+      tool_type: "party_question_generator",
+      generator_name: title,
+      generator_filter: activeFilter,
+      result_count: 1,
+      result_source: "editorial_pool",
+      locale,
+    });
+  }, [activeQuestions, title, used, activeFilter, locale]);
 
   function changeFilter(id: string) {
     setActiveFilter(id);
     setCurrent(null);
     setUsed(new Set());
     setCopied(false);
-    track("filter_party_questions", { deck: title, filter: id });
+    track("filter_select", {
+      tool_type: "party_question_generator",
+      generator_name: title,
+      filter_name: "question_type",
+      filter_value: id,
+      locale,
+    });
   }
 
   const copy = useCallback(async () => {
@@ -63,10 +83,16 @@ export default function PartyGenerator({ questions, title, subtitle, emoji, loca
       await navigator.clipboard.writeText(current);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
+      track("copy_result", {
+        tool_type: "party_question_generator",
+        generator_name: title,
+        generator_filter: activeFilter,
+        locale,
+      });
     } catch {
       /* clipboard unavailable */
     }
-  }, [current]);
+  }, [current, title, activeFilter, locale]);
 
   return (
     <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20">

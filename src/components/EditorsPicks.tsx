@@ -39,7 +39,9 @@ export default function EditorsPicks({ topics, heading, intro }: EditorsPicksPro
 
   const toggleSave = (topic: Topic) => {
     const added = toggleFavoriteTopic(topic);
-    track(added ? "save_topic" : "remove_saved_topic", {
+    track(added ? "save_result" : "remove_saved_result", {
+      tool_type: "editors_picks",
+      result_type: "topic",
       topic_id: topic.id,
       topic_category: topic.category,
       save_surface: "editors_picks",
@@ -51,7 +53,13 @@ export default function EditorsPicks({ topics, heading, intro }: EditorsPicksPro
     const text = `${t.text}\n${t.talkingPoints.map((p) => `• ${p}`).join("\n")}`;
     try {
       await navigator.clipboard.writeText(text);
-      track("copy_topic", { topic_id: t.id, topic_category: t.category });
+      track("copy_result", {
+        tool_type: "editors_picks",
+        result_type: "topic_with_talking_points",
+        topic_id: t.id,
+        topic_category: t.category,
+        topic_locale: "en",
+      });
       setCopiedId(t.id);
       setTimeout(() => setCopiedId(null), 1500);
     } catch {

@@ -1666,7 +1666,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
       "Realistic moral dilemma examples with no easy answers, organized for discussion, classrooms, interviews, and self-reflection.",
     intro: "A moral or ethical dilemma is a situation where every option involves some moral cost -- there is no perfectly right answer. These moral dilemma scenarios force you to examine your values, weigh competing principles, and explain why you believe what you believe. Unlike simple moral questions with obvious answers, true dilemmas expose tensions between values such as honesty and kindness, individual rights and collective good, or justice and mercy. Whether you need ethical dilemma examples for a classroom, moral dilemma questions for adults to discuss over dinner, interview practice, or a structured group conversation, this collection has you covered. The 65+ questions below span technology and AI, medicine, everyday life, workplace ethics, society, and the environment, followed by quick moral dilemmas for shorter discussions.",
     publishDate: "2026-04-01",
-    lastModified: "2026-08-25",
+    lastModified: "2026-08-31",
     sections: [
       {
         heading: "Technology and AI Ethics",
@@ -2568,15 +2568,15 @@ export const SEO_ARTICLES: SeoArticle[] = [
   {
     slug: "toastmasters-table-topics",
     title: "120 Table Topics Questions for Toastmasters (Funny, Work & Family)",
-    metaTitle: "120 Toastmasters Table Topics Questions (Printable) | Random Topics",
+    metaTitle: "120 Toastmasters Table Topics Questions + Random Timer",
     metaDescription:
-      "120 Toastmasters Table Topics questions: funny, reflective, work and family prompts. Read, copy or print the complete list for your next meeting.",
+      "Draw a random Toastmasters Table Topic, practice with a 1–5 minute timer, or copy and print all 120 funny, reflective, work and family questions.",
     heroTitle: "120 Table Topics Questions for Toastmasters",
     heroSubtitle:
       "A ready-to-use list of impromptu speaking questions — classic, funny, work, and family — to sharpen thinking on your feet.",
     intro: "Table Topics is the part of every Toastmasters meeting that tests your ability to think on your feet. You get a question, and you have one to two minutes to deliver a coherent, engaging response with zero preparation. It is terrifying and exhilarating in equal measure -- and the best way to get better is to practice with a wide variety of questions. This list of 120 Table Topics questions covers everything you need: classic opinion prompts, imaginative hypotheticals, personal reflection, funny table topics questions to keep the energy high, work and business questions for professional clubs, and family gathering questions for use at home. Read them here, copy the ones you like, or print the whole list to run Table Topics at your next meeting.",
     publishDate: "2026-04-05",
-    lastModified: "2026-07-14",
+    lastModified: "2026-08-31",
     sections: [
       {
         heading: "Classic Opinion Questions",

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { CATEGORIES, MODES } from "@/data/types";
 import { SEO_ARTICLES } from "@/data/seoContent";
-import { INDEXABLE_MODE_CATEGORY_PATHS, isEnOnly } from "@/i18n/config";
+import { INDEXABLE_MODE_CATEGORY_PATHS, isEnOnly, spanishCounterpartPath } from "@/i18n/config";
 
 const INDEXNOW_KEY = "randomtopics2026";
 const HOST = "randomtopics.app";
@@ -69,7 +69,10 @@ function getAllUrls(): string[] {
   for (const p of getPaths()) {
     urls.push(p === "/" ? base : `${base}${p}`);
     // Never ping a /es URL that is missing or noindexed (see isEnOnly).
-    if (!isEnOnly(p)) {
+    const customSpanishPath = spanishCounterpartPath(p);
+    if (customSpanishPath) {
+      urls.push(`${base}${customSpanishPath}`);
+    } else if (!isEnOnly(p)) {
       urls.push(p === "/" ? `${base}/es` : `${base}/es${p}`);
     }
   }

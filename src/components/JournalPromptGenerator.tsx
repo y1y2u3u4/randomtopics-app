@@ -8,6 +8,7 @@ import {
   JOURNAL_CATEGORIES,
   JournalCategory,
 } from "@/data/journalPrompts";
+import { track } from "@/lib/track";
 
 export default function JournalPromptGenerator() {
   const [category, setCategory] = useState<JournalCategory | "all">("all");
@@ -22,6 +23,12 @@ export default function JournalPromptGenerator() {
 
   const deal = useCallback(() => {
     if (pool.length === 0) return;
+    track("generate_start", {
+      tool_type: "journal_prompt_generator",
+      generator_category: category,
+      requested_count: 1,
+      locale: "en",
+    });
     let candidates = pool.filter((x) => !used.has(x.p));
     let nextUsed = used;
     if (candidates.length === 0) {
@@ -34,7 +41,26 @@ export default function JournalPromptGenerator() {
     setUsed(s);
     setCurrent(pick);
     setCopied(false);
-  }, [pool, used]);
+    track("generate_success", {
+      tool_type: "journal_prompt_generator",
+      generator_category: category,
+      result_category: pick.c,
+      result_count: 1,
+      result_source: "editorial_pool",
+      locale: "en",
+    });
+  }, [pool, used, category]);
+
+  const changeCategory = useCallback((nextCategory: JournalCategory | "all") => {
+    setCategory(nextCategory);
+    setUsed(new Set());
+    track("filter_select", {
+      tool_type: "journal_prompt_generator",
+      filter_name: "category",
+      filter_value: nextCategory,
+      locale: "en",
+    });
+  }, []);
 
   const copy = useCallback(async () => {
     if (!current) return;
@@ -42,6 +68,11 @@ export default function JournalPromptGenerator() {
       await navigator.clipboard.writeText(current.p);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
+      track("copy_result", {
+        tool_type: "journal_prompt_generator",
+        result_category: current.c,
+        locale: "en",
+      });
     } catch {
       /* clipboard unavailable */
     }
@@ -56,7 +87,7 @@ export default function JournalPromptGenerator() {
         <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-2">Journal style</p>
         <div className="flex flex-wrap gap-2 mb-6">
           <button
-            onClick={() => { setCategory("all"); setUsed(new Set()); }}
+            onClick={() => changeCategory("all")}
             className={`text-sm px-3.5 py-1.5 rounded-lg border transition-all ${
               category === "all"
                 ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]"
@@ -68,7 +99,7 @@ export default function JournalPromptGenerator() {
           {JOURNAL_CATEGORIES.map((c) => (
             <button
               key={c.id}
-              onClick={() => { setCategory(c.id); setUsed(new Set()); }}
+              onClick={() => changeCategory(c.id)}
               className={`text-sm px-3.5 py-1.5 rounded-lg border transition-all ${
                 category === c.id
                   ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]"
