@@ -92,6 +92,7 @@ export default function PremiumPromptTool({
   const [copied, setCopied] = useState(false);
   const [planCopied, setPlanCopied] = useState(false);
   const [shared, setShared] = useState(false);
+  const [manualCopyText, setManualCopyText] = useState<string | null>(null);
   const favorites = JSON.parse(
     useSyncExternalStore(
       subscribeToTopicLibrary,
@@ -130,6 +131,7 @@ export default function PremiumPromptTool({
     setCurrentId(null);
     setPlan([]);
     setUsed(new Set());
+    setManualCopyText(null);
     track("filter_select", {
       tool_type: "premium_prompt_collection",
       content_source: config.source,
@@ -145,6 +147,7 @@ export default function PremiumPromptTool({
     setCurrentId(config.tool.daily ? initialItemId ?? null : null);
     setPlan([]);
     setUsed(new Set());
+    setManualCopyText(null);
     track("filter_clear", {
       tool_type: "premium_prompt_collection",
       content_source: config.source,
@@ -171,6 +174,7 @@ export default function PremiumPromptTool({
     setCurrentId(pick.id);
     setCopied(false);
     setShared(false);
+    setManualCopyText(null);
     recordRecentTopics([toTopic(pick, config)]);
     track("generate_success", {
       tool_type: "premium_prompt_collection",
@@ -203,6 +207,7 @@ export default function PremiumPromptTool({
     if (!current) return;
     try {
       await writeClipboard(itemToText(current, config.tool.copyStyle));
+      setManualCopyText(null);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
       track("copy_result", {
@@ -214,14 +219,16 @@ export default function PremiumPromptTool({
       });
     } catch {
       setCopied(false);
+      setManualCopyText(itemToText(current, config.tool.copyStyle));
     }
   }, [config.slug, config.source, config.tool.copyStyle, current]);
 
   const copyPlan = useCallback(async () => {
     if (plan.length === 0) return;
+    const text = plan.map((item, index) => `${WEEKDAYS[index]}: ${item.prompt}`).join("\n");
     try {
-      const text = plan.map((item, index) => `${WEEKDAYS[index]}: ${item.prompt}`).join("\n");
       await writeClipboard(text);
+      setManualCopyText(null);
       setPlanCopied(true);
       window.setTimeout(() => setPlanCopied(false), 1600);
       track("weekly_plan_copy", {
@@ -233,6 +240,7 @@ export default function PremiumPromptTool({
       });
     } catch {
       setPlanCopied(false);
+      setManualCopyText(text);
     }
   }, [config.slug, config.source, plan]);
 
@@ -260,9 +268,11 @@ export default function PremiumPromptTool({
         });
       }
       setShared(true);
+      setManualCopyText(null);
       window.setTimeout(() => setShared(false), 1600);
     } catch {
       setShared(false);
+      setManualCopyText(`${text}\n${window.location.href}`);
     }
   }, [config, current]);
 
@@ -376,6 +386,20 @@ export default function PremiumPromptTool({
             <button type="button" onClick={() => setCurrentId(initialItemId)} className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50 transition-colors">Back to today&apos;s</button>
           )}
         </div>
+
+        {manualCopyText && (
+          <div role="status" className="mt-4 rounded-xl border border-[var(--neon-pink)]/20 bg-[rgba(255,45,120,0.04)] p-4">
+            <p className="text-xs font-semibold text-[var(--text-secondary)]">Automatic copy is blocked by this browser. Select the text below and copy it manually.</p>
+            <textarea
+              readOnly
+              value={manualCopyText}
+              onFocus={(event) => event.currentTarget.select()}
+              aria-label="Text ready to copy"
+              className="mt-3 h-28 w-full resize-y rounded-lg border border-white/10 bg-[var(--bg-secondary)] p-3 text-xs text-[var(--text-primary)]"
+            />
+            <button type="button" onClick={() => setManualCopyText(null)} className="mt-2 text-xs text-[var(--neon-cyan)] hover:underline">Dismiss copy helper</button>
+          </div>
+        )}
 
         {config.tool.planner && (
           <div className="mt-7 border-t border-white/10 pt-6">
