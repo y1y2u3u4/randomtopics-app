@@ -58,6 +58,28 @@ function pickWithoutRepeats(pool: PremiumPromptItem[], used: Set<string>, count 
   return shuffled.slice(0, Math.min(count, shuffled.length));
 }
 
+async function writeClipboard(text: string) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return;
+  } catch {
+    // Clipboard API can be unavailable in embedded or permission-restricted
+    // browsers. Keep a user-gesture fallback for those environments.
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  textarea.style.pointerEvents = "none";
+  document.body.appendChild(textarea);
+  textarea.select();
+  const copied = document.execCommand("copy");
+  textarea.remove();
+  if (!copied) throw new Error("Clipboard copy was not available");
+}
+
 export default function PremiumPromptTool({
   config,
   initialItemId,
@@ -180,7 +202,7 @@ export default function PremiumPromptTool({
   const copy = useCallback(async () => {
     if (!current) return;
     try {
-      await navigator.clipboard.writeText(itemToText(current, config.tool.copyStyle));
+      await writeClipboard(itemToText(current, config.tool.copyStyle));
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
       track("copy_result", {
@@ -199,7 +221,7 @@ export default function PremiumPromptTool({
     if (plan.length === 0) return;
     try {
       const text = plan.map((item, index) => `${WEEKDAYS[index]}: ${item.prompt}`).join("\n");
-      await navigator.clipboard.writeText(text);
+      await writeClipboard(text);
       setPlanCopied(true);
       window.setTimeout(() => setPlanCopied(false), 1600);
       track("weekly_plan_copy", {
@@ -228,7 +250,7 @@ export default function PremiumPromptTool({
           locale: "en",
         });
       } else {
-        await navigator.clipboard.writeText(`${text}\n${window.location.href}`);
+        await writeClipboard(`${text}\n${window.location.href}`);
         track("share_result", {
           tool_type: "premium_prompt_collection",
           content_source: config.source,
