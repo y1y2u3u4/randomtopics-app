@@ -92,3 +92,27 @@ export function validatePremiumCollection(
     }
   }
 }
+
+export function validateFilterPairCoverage(
+  config: PremiumCollectionConfig,
+  firstKey: PremiumFilter["key"],
+  secondKey: PremiumFilter["key"],
+): void {
+  const first = config.filters.find((filter) => filter.key === firstKey);
+  const second = config.filters.find((filter) => filter.key === secondKey);
+  if (!first || !second) {
+    throw new Error(`${config.slug}: missing filter pair ${firstKey}/${secondKey}`);
+  }
+
+  for (const firstOption of first.options) {
+    for (const secondOption of second.options) {
+      if (!config.items.some((item) =>
+        item[firstKey] === firstOption && item[secondKey] === secondOption
+      )) {
+        throw new Error(
+          `${config.slug}: empty filter pair ${firstKey}=${firstOption}, ${secondKey}=${secondOption}`,
+        );
+      }
+    }
+  }
+}

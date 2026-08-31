@@ -1,4 +1,5 @@
 import {
+  validateFilterPairCoverage,
   validatePremiumCollection,
   type PremiumCollectionConfig,
   type PremiumDepth,
@@ -451,7 +452,10 @@ function buildWorkQuestions(): PremiumPromptItem[] {
         id: `work-qotd-${String(sequence).padStart(3, "0")}`,
         prompt: question,
         category,
-        audience: workAudiences[index % workAudiences.length],
+        // Rotate team setup independently from the two use-case tags. Using
+        // the same modulo for both dimensions made valid pairs such as
+        // Remote Team + Daily Check-In return zero results.
+        audience: workAudiences[Math.floor(index / workUseCases[category].length) % workAudiences.length],
         useCase: workUseCases[category][index % workUseCases[category].length],
         duration,
         depth,
@@ -591,3 +595,4 @@ export const WORK_QOTD_CONFIG: PremiumCollectionConfig = {
 
 validatePremiumCollection(STUDENT_QOTD_CONFIG, 180);
 validatePremiumCollection(WORK_QOTD_CONFIG, 120);
+validateFilterPairCoverage(WORK_QOTD_CONFIG, "audience", "useCase");
