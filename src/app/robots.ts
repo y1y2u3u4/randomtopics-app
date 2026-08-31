@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: ["/internal/", "/api/internal/"],
     },
     sitemap: "https://randomtopics.app/sitemap.xml",
   };

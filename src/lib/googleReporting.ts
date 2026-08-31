@@ -1,0 +1,598 @@
+import "server-only";
+
+import { createSign } from "node:crypto";
+
+const GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token";
+const ANALYTICS_SCOPE = "https://www.googleapis.com/auth/analytics.readonly";
+const SEARCH_CONSOLE_SCOPE =
+  "https://www.googleapis.com/auth/webmasters.readonly";
+const REQUEST_TIMEOUT_MS = 15_000;
+const DASHBOARD_CACHE_MS = 5 * 60 * 1000;
+
+type ServiceAccountCredentials = {
+  client_email: string;
+  private_key: string;
+  project_id?: string;
+  type?: string;
+};
+
+type GoogleTokenResponse = {
+  access_token?: string;
+  expires_in?: number;
+};
+
+type GaRow = {
+  dimensionValues?: Array<{ value?: string }>;
+  metricValues?: Array<{ value?: string }>;
+};
+
+type GaReportResponse = {
+  rows?: GaRow[];
+};
+
+type GscRow = {
+  keys?: string[];
+  clicks?: number;
+  impressions?: number;
+  ctr?: number;
+  position?: number;
+};
+
+type GscResponse = {
+  rows?: GscRow[];
+};
+
+export type GaSummary = {
+  activeUsers: number;
+  sessions: number;
+  screenPageViews: number;
+  eventCount: number;
+  keyEvents: number;
+};
+
+export type GaEventRow = {
+  eventName: string;
+  eventCount: number;
+  keyEvents: number;
+};
+
+export type GaPageRow = {
+  path: string;
+  activeUsers: number;
+  screenPageViews: number;
+  keyEvents: number;
+};
+
+export type GaDailyRow = GaSummary & { date: string };
+
+export type GscSummary = {
+  clicks: number;
+  impressions: number;
+  ctr: number;
+  position: number;
+};
+
+export type GscDimensionRow = GscSummary & { key: string };
+
+export type AnalyticsDashboardData = {
+  generatedAt: string;
+  ga4: {
+    today: GaSummary;
+    yesterday: GaSummary;
+    current7: GaSummary;
+    previous7: GaSummary;
+    current28: GaSummary;
+    previous28: GaSummary;
+    events28: GaEventRow[];
+    pages28: GaPageRow[];
+    daily28: GaDailyRow[];
+  };
+  searchConsole: {
+    latestDate: string;
+    current7Range: { startDate: string; endDate: string };
+    previous7Range: { startDate: string; endDate: string };
+    current28Range: { startDate: string; endDate: string };
+    previous28Range: { startDate: string; endDate: string };
+    current7: GscSummary;
+    previous7: GscSummary;
+    current28: GscSummary;
+    previous28: GscSummary;
+    pages28: GscDimensionRow[];
+    queries28: GscDimensionRow[];
+    daily28: GscDimensionRow[];
+  };
+};
+
+class ReportingError extends Error {
+  constructor(public readonly code: string) {
+    super(code);
+    this.name = "ReportingError";
+  }
+}
+let cachedToken: { value: string; expiresAt: number } | null = null;
+let cachedDashboard:
+  | { value: AnalyticsDashboardData; expiresAt: number }
+  | null = null;
+
+function base64Url(value: string): string {
+  return Buffer.from(value).toString("base64url");
+}
+
+function parseCredentials(): ServiceAccountCredentials {
+  const encoded = process.env.GOOGLE_SERVICE_ACCOUNT_JSON_BASE64?.trim();
+  if (!encoded) throw new ReportingError("service_account_not_configured");
+
+  try {
+    const parsed = JSON.parse(
+      Buffer.from(encoded, "base64").toString("utf8")
+    ) as ServiceAccountCredentials;
+
+    if (
+      parsed.type !== "service_account" ||
+      !parsed.client_email?.endsWith(".iam.gserviceaccount.com") ||
+      !parsed.private_key?.includes("BEGIN PRIVATE KEY")
+    ) {
+      throw new Error("invalid_service_account_shape");
+    }
+
+    return parsed;
+  } catch {
+    throw new ReportingError("service_account_invalid");
+  }
+}
+
+function requiredEnv(name: "GA4_PROPERTY_ID" | "GSC_SITE_URL"): string {
+  const value = process.env[name]?.trim();
+  if (!value) throw new ReportingError(`${name.toLowerCase()}_not_configured`);
+  return value;
+}
+
+async function getAccessToken(forceRefresh = false): Promise<string> {
+  if (
+    !forceRefresh &&
+    cachedToken &&
+    cachedToken.expiresAt > Date.now() + 60_000
+  ) {
+    return cachedToken.value;
+  }
+
+  const credentials = parseCredentials();
+  const issuedAt = Math.floor(Date.now() / 1000);
+  const header = base64Url(JSON.stringify({ alg: "RS256", typ: "JWT" }));
+  const payload = base64Url(
+    JSON.stringify({
+      iss: credentials.client_email,
+      scope: `${ANALYTICS_SCOPE} ${SEARCH_CONSOLE_SCOPE}`,
+      aud: GOOGLE_TOKEN_URL,
+      iat: issuedAt,
+      exp: issuedAt + 3600,
+    })
+  );
+  const unsignedJwt = `${header}.${payload}`;
+  const signer = createSign("RSA-SHA256");
+  signer.update(unsignedJwt);
+  signer.end();
+  const assertion = `${unsignedJwt}.${signer
+    .sign(credentials.private_key)
+    .toString("base64url")}`;
+
+  const response = await fetch(GOOGLE_TOKEN_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+      assertion,
+    }),
+    cache: "no-store",
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+  });
+
+  if (!response.ok) throw new ReportingError("google_token_exchange_failed");
+  const body = (await response.json()) as GoogleTokenResponse;
+  if (!body.access_token) throw new ReportingError("google_token_missing");
+
+  cachedToken = {
+    value: body.access_token,
+    expiresAt: Date.now() + (body.expires_in ?? 3600) * 1000,
+  };
+  return body.access_token;
+}
+
+async function postGoogleJson<T>(
+  url: string,
+  body: unknown,
+  errorCode: string
+): Promise<T> {
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const token = await getAccessToken(attempt > 0);
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+      cache: "no-store",
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    });
+
+    if (response.status === 401 && attempt === 0) {
+      cachedToken = null;
+      continue;
+    }
+    if (!response.ok) throw new ReportingError(`${errorCode}_${response.status}`);
+    return (await response.json()) as T;
+  }
+
+  throw new ReportingError(errorCode);
+}
+
+async function runGaReport(input: {
+  startDate: string;
+  endDate: string;
+  dimensions?: string[];
+  metrics: string[];
+  dimensionFilter?: unknown;
+  orderBys?: unknown[];
+  limit?: number;
+}): Promise<GaReportResponse> {
+  const propertyId = requiredEnv("GA4_PROPERTY_ID");
+  if (!/^\d+$/.test(propertyId)) {
+    throw new ReportingError("ga4_property_id_invalid");
+  }
+
+  return postGoogleJson<GaReportResponse>(
+    `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`,
+    {
+      dateRanges: [{ startDate: input.startDate, endDate: input.endDate }],
+      dimensions: input.dimensions?.map((name) => ({ name })),
+      metrics: input.metrics.map((name) => ({ name })),
+      dimensionFilter: input.dimensionFilter,
+      orderBys: input.orderBys,
+      limit: input.limit,
+      keepEmptyRows: false,
+    },
+    "ga4_report_failed"
+  );
+}
+
+async function querySearchConsole(input: {
+  startDate: string;
+  endDate: string;
+  dimensions?: string[];
+  rowLimit?: number;
+}): Promise<GscResponse> {
+  const siteUrl = requiredEnv("GSC_SITE_URL");
+  return postGoogleJson<GscResponse>(
+    `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(
+      siteUrl
+    )}/searchAnalytics/query`,
+    {
+      startDate: input.startDate,
+      endDate: input.endDate,
+      dimensions: input.dimensions,
+      rowLimit: input.rowLimit ?? 25_000,
+      aggregationType: "auto",
+    },
+    "gsc_query_failed"
+  );
+}
+
+function metricValue(row: GaRow | undefined, index: number): number {
+  const value = Number(row?.metricValues?.[index]?.value ?? 0);
+  return Number.isFinite(value) ? value : 0;
+}
+
+async function getGaSummary(
+  startDate: string,
+  endDate: string
+): Promise<GaSummary> {
+  const response = await runGaReport({
+    startDate,
+    endDate,
+    metrics: [
+      "activeUsers",
+      "sessions",
+      "screenPageViews",
+      "eventCount",
+      "keyEvents",
+    ],
+  });
+  const row = response.rows?.[0];
+  return {
+    activeUsers: metricValue(row, 0),
+    sessions: metricValue(row, 1),
+    screenPageViews: metricValue(row, 2),
+    eventCount: metricValue(row, 3),
+    keyEvents: metricValue(row, 4),
+  };
+}
+
+async function getGaEvents(): Promise<GaEventRow[]> {
+  const trackedEvents = [
+    "generate_start",
+    "generate_success",
+    "generate_topic",
+    "generate_error",
+    "copy_result",
+    "save_result",
+    "remove_saved_result",
+    "share_result",
+    "print_content",
+    "timer_start",
+    "timer_complete",
+    "spin_success",
+  ];
+  const response = await runGaReport({
+    startDate: "28daysAgo",
+    endDate: "today",
+    dimensions: ["eventName"],
+    metrics: ["eventCount", "keyEvents"],
+    dimensionFilter: {
+      filter: {
+        fieldName: "eventName",
+        inListFilter: { values: trackedEvents, caseSensitive: true },
+      },
+    },
+    orderBys: [{ metric: { metricName: "eventCount" }, desc: true }],
+    limit: trackedEvents.length,
+  });
+
+  return (response.rows ?? []).map((row) => ({
+    eventName: row.dimensionValues?.[0]?.value ?? "unknown",
+    eventCount: metricValue(row, 0),
+    keyEvents: metricValue(row, 1),
+  }));
+}
+
+async function getGaPages(): Promise<GaPageRow[]> {
+  const response = await runGaReport({
+    startDate: "28daysAgo",
+    endDate: "today",
+    dimensions: ["pagePathPlusQueryString"],
+    metrics: ["activeUsers", "screenPageViews", "keyEvents"],
+    orderBys: [{ metric: { metricName: "screenPageViews" }, desc: true }],
+    limit: 20,
+  });
+
+  return (response.rows ?? []).map((row) => ({
+    path: row.dimensionValues?.[0]?.value ?? "(not set)",
+    activeUsers: metricValue(row, 0),
+    screenPageViews: metricValue(row, 1),
+    keyEvents: metricValue(row, 2),
+  }));
+}
+
+async function getGaDaily(): Promise<GaDailyRow[]> {
+  const response = await runGaReport({
+    startDate: "28daysAgo",
+    endDate: "yesterday",
+    dimensions: ["date"],
+    metrics: [
+      "activeUsers",
+      "sessions",
+      "screenPageViews",
+      "eventCount",
+      "keyEvents",
+    ],
+    orderBys: [{ dimension: { dimensionName: "date" }, desc: false }],
+    limit: 40,
+  });
+
+  return (response.rows ?? []).map((row) => ({
+    date: row.dimensionValues?.[0]?.value ?? "",
+    activeUsers: metricValue(row, 0),
+    sessions: metricValue(row, 1),
+    screenPageViews: metricValue(row, 2),
+    eventCount: metricValue(row, 3),
+    keyEvents: metricValue(row, 4),
+  }));
+}
+
+function toIsoDate(date: Date): string {
+  return date.toISOString().slice(0, 10);
+}
+
+function offsetDate(dateString: string, days: number): string {
+  const date = new Date(`${dateString}T00:00:00Z`);
+  date.setUTCDate(date.getUTCDate() + days);
+  return toIsoDate(date);
+}
+
+function gscSummary(row?: GscRow): GscSummary {
+  return {
+    clicks: Number(row?.clicks ?? 0),
+    impressions: Number(row?.impressions ?? 0),
+    ctr: Number(row?.ctr ?? 0),
+    position: Number(row?.position ?? 0),
+  };
+}
+
+async function getLatestGscDate(): Promise<string> {
+  const yesterday = new Date();
+  yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+  const endDate = toIsoDate(yesterday);
+  const startDate = offsetDate(endDate, -13);
+  const response = await querySearchConsole({
+    startDate,
+    endDate,
+    dimensions: ["date"],
+    rowLimit: 20,
+  });
+  const dates = (response.rows ?? [])
+    .map((row) => row.keys?.[0])
+    .filter((date): date is string => Boolean(date))
+    .sort();
+  return dates.at(-1) ?? offsetDate(endDate, -2);
+}
+
+async function getGscSummary(
+  startDate: string,
+  endDate: string
+): Promise<GscSummary> {
+  const response = await querySearchConsole({ startDate, endDate, rowLimit: 1 });
+  return gscSummary(response.rows?.[0]);
+}
+
+async function getGscDimension(
+  startDate: string,
+  endDate: string,
+  dimension: "page" | "query" | "date",
+  rowLimit: number
+): Promise<GscDimensionRow[]> {
+  const response = await querySearchConsole({
+    startDate,
+    endDate,
+    dimensions: [dimension],
+    rowLimit,
+  });
+  return (response.rows ?? []).map((row) => ({
+    key: row.keys?.[0] ?? "(not set)",
+    ...gscSummary(row),
+  }));
+}
+
+export function reportingConfigurationStatus() {
+  return {
+    credentials: Boolean(process.env.GOOGLE_SERVICE_ACCOUNT_JSON_BASE64?.trim()),
+    ga4Property: Boolean(process.env.GA4_PROPERTY_ID?.trim()),
+    searchConsoleProperty: Boolean(process.env.GSC_SITE_URL?.trim()),
+  };
+}
+
+function errorCode(error: unknown): string {
+  return error instanceof ReportingError ? error.code : "unexpected_error";
+}
+
+export async function probeReportingAccess() {
+  const [ga4, searchConsole] = await Promise.allSettled([
+    getGaSummary("7daysAgo", "yesterday"),
+    getLatestGscDate(),
+  ]);
+
+  return {
+    checkedAt: new Date().toISOString(),
+    configured: reportingConfigurationStatus(),
+    ga4:
+      ga4.status === "fulfilled"
+        ? { ok: true as const }
+        : { ok: false as const, code: errorCode(ga4.reason) },
+    searchConsole:
+      searchConsole.status === "fulfilled"
+        ? { ok: true as const, latestCompleteDate: searchConsole.value }
+        : { ok: false as const, code: errorCode(searchConsole.reason) },
+  };
+}
+
+export async function getAnalyticsDashboardData(
+  forceRefresh = false
+): Promise<AnalyticsDashboardData> {
+  if (
+    !forceRefresh &&
+    cachedDashboard &&
+    cachedDashboard.expiresAt > Date.now()
+  ) {
+    return cachedDashboard.value;
+  }
+
+  const latestDate = await getLatestGscDate();
+  const current7Range = {
+    startDate: offsetDate(latestDate, -6),
+    endDate: latestDate,
+  };
+  const previous7Range = {
+    startDate: offsetDate(latestDate, -13),
+    endDate: offsetDate(latestDate, -7),
+  };
+  const current28Range = {
+    startDate: offsetDate(latestDate, -27),
+    endDate: latestDate,
+  };
+  const previous28Range = {
+    startDate: offsetDate(latestDate, -55),
+    endDate: offsetDate(latestDate, -28),
+  };
+
+  const [
+    gaToday,
+    gaYesterday,
+    gaCurrent7,
+    gaPrevious7,
+    gaCurrent28,
+    gaPrevious28,
+    gaEvents,
+    gaPages,
+    gaDaily,
+    gscCurrent7,
+    gscPrevious7,
+    gscCurrent28,
+    gscPrevious28,
+    gscPages,
+    gscQueries,
+    gscDaily,
+  ] = await Promise.all([
+    getGaSummary("today", "today"),
+    getGaSummary("yesterday", "yesterday"),
+    getGaSummary("7daysAgo", "yesterday"),
+    getGaSummary("14daysAgo", "8daysAgo"),
+    getGaSummary("28daysAgo", "yesterday"),
+    getGaSummary("56daysAgo", "29daysAgo"),
+    getGaEvents(),
+    getGaPages(),
+    getGaDaily(),
+    getGscSummary(current7Range.startDate, current7Range.endDate),
+    getGscSummary(previous7Range.startDate, previous7Range.endDate),
+    getGscSummary(current28Range.startDate, current28Range.endDate),
+    getGscSummary(previous28Range.startDate, previous28Range.endDate),
+    getGscDimension(
+      current28Range.startDate,
+      current28Range.endDate,
+      "page",
+      20
+    ),
+    getGscDimension(
+      current28Range.startDate,
+      current28Range.endDate,
+      "query",
+      30
+    ),
+    getGscDimension(
+      current28Range.startDate,
+      current28Range.endDate,
+      "date",
+      40
+    ),
+  ]);
+
+  const value: AnalyticsDashboardData = {
+    generatedAt: new Date().toISOString(),
+    ga4: {
+      today: gaToday,
+      yesterday: gaYesterday,
+      current7: gaCurrent7,
+      previous7: gaPrevious7,
+      current28: gaCurrent28,
+      previous28: gaPrevious28,
+      events28: gaEvents,
+      pages28: gaPages,
+      daily28: gaDaily,
+    },
+    searchConsole: {
+      latestDate,
+      current7Range,
+      previous7Range,
+      current28Range,
+      previous28Range,
+      current7: gscCurrent7,
+      previous7: gscPrevious7,
+      current28: gscCurrent28,
+      previous28: gscPrevious28,
+      pages28: gscPages,
+      queries28: gscQueries,
+      daily28: gscDaily,
+    },
+  };
+
+  cachedDashboard = { value, expiresAt: Date.now() + DASHBOARD_CACHE_MS };
+  return value;
+}
