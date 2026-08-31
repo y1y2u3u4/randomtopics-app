@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
   return NextResponse.json(result, {
     status: ok ? 200 : 503,
     headers: {
-      "Cache-Control": "public, s-maxage=300, stale-while-revalidate=60",
+      "Cache-Control": "no-store",
       "X-Robots-Tag": "noindex, nofollow",
     },
   });
