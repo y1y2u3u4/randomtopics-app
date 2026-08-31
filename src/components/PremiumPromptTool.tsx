@@ -112,6 +112,19 @@ export default function PremiumPromptTool({
     });
   }, [config.slug, config.source]);
 
+  const clearFilters = useCallback(() => {
+    setFilters({});
+    setCurrentId(config.tool.daily ? initialItemId ?? null : null);
+    setPlan([]);
+    setUsed(new Set());
+    track("filter_clear", {
+      tool_type: "premium_prompt_collection",
+      content_source: config.source,
+      collection_slug: config.slug,
+      locale: "en",
+    });
+  }, [config.slug, config.source, config.tool.daily, initialItemId]);
+
   const generate = useCallback(() => {
     if (pool.length === 0) return;
     track("generate_start", {
@@ -268,9 +281,16 @@ export default function PremiumPromptTool({
           ))}
         </div>
 
-        <p className="mt-3 text-center text-xs text-[var(--text-muted)]">
-          {pool.length} matching {config.promptNoun}{pool.length === 1 ? "" : "s"} · no repeats until the matching set is complete
-        </p>
+        <div className="mt-3 text-center text-xs text-[var(--text-muted)]">
+          {pool.length > 0 ? (
+            <p>{pool.length} matching {config.promptNoun}{pool.length === 1 ? "" : "s"} · no repeats until the matching set is complete</p>
+          ) : (
+            <p role="status" className="text-[var(--neon-pink)]">No exact matches. Clear one filter or reset all filters.</p>
+          )}
+          {Object.values(filters).some(Boolean) && (
+            <button type="button" onClick={clearFilters} className="mt-2 text-[var(--neon-cyan)] hover:underline">Clear all filters</button>
+          )}
+        </div>
 
         <div className="mt-5 min-h-[16rem] rounded-2xl border border-white/10 bg-black/10 px-5 py-7 sm:px-8 flex items-center justify-center" aria-live="polite">
           {current ? (
@@ -306,8 +326,8 @@ export default function PremiumPromptTool({
         </div>
 
         <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
-          <button type="button" onClick={generate} className="btn-generate">
-            <span aria-hidden="true">🎲</span> {current ? `Next ${config.promptNoun}` : config.tool.actionLabel}
+          <button type="button" onClick={generate} disabled={pool.length === 0} className="btn-generate disabled:cursor-not-allowed disabled:opacity-40">
+            <span aria-hidden="true">🎲</span> {pool.length === 0 ? "No matching results" : current ? `Next ${config.promptNoun}` : config.tool.actionLabel}
           </button>
           {current && (
             <>
@@ -316,12 +336,14 @@ export default function PremiumPromptTool({
               <button type="button" onClick={share} className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-pink)]/50 transition-colors">{shared ? "Shared ✓" : "Share"}</button>
             </>
           )}
-          <PrintButton
-            heading={config.title}
-            items={printItems}
-            intro={`${pool.length} filtered ${config.promptNoun}${pool.length === 1 ? "" : "s"} from Random Topics.`}
-            label={`Print ${pool.length}`}
-          />
+          {pool.length > 0 && (
+            <PrintButton
+              heading={config.title}
+              items={printItems}
+              intro={`${pool.length} filtered ${config.promptNoun}${pool.length === 1 ? "" : "s"} from Random Topics.`}
+              label={`Print ${pool.length}`}
+            />
+          )}
           {config.tool.daily && currentId !== initialItemId && initialItemId && (
             <button type="button" onClick={() => setCurrentId(initialItemId)} className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50 transition-colors">Back to today&apos;s</button>
           )}
@@ -334,7 +356,7 @@ export default function PremiumPromptTool({
                 <h3 className="font-bold text-[var(--text-primary)]">Build a five-day plan</h3>
                 <p className="text-xs text-[var(--text-muted)] mt-1">Generate one filtered prompt for each weekday, then copy or print the plan.</p>
               </div>
-              <button type="button" onClick={buildPlan} className="px-5 py-2.5 rounded-xl text-sm border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[rgba(0,229,255,0.06)] transition-colors">Build weekly plan</button>
+              <button type="button" onClick={buildPlan} disabled={pool.length === 0} className="px-5 py-2.5 rounded-xl text-sm border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[rgba(0,229,255,0.06)] transition-colors disabled:cursor-not-allowed disabled:opacity-40">Build weekly plan</button>
             </div>
             {plan.length > 0 && (
               <div className="mt-4 space-y-2">
