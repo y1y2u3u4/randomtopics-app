@@ -97,6 +97,7 @@ export function validateFilterPairCoverage(
   config: PremiumCollectionConfig,
   firstKey: PremiumFilter["key"],
   secondKey: PremiumFilter["key"],
+  options: { minimum?: number; firstFallbackValue?: string } = {},
 ): void {
   const first = config.filters.find((filter) => filter.key === firstKey);
   const second = config.filters.find((filter) => filter.key === secondKey);
@@ -106,11 +107,16 @@ export function validateFilterPairCoverage(
 
   for (const firstOption of first.options) {
     for (const secondOption of second.options) {
-      if (!config.items.some((item) =>
-        item[firstKey] === firstOption && item[secondKey] === secondOption
-      )) {
+      const matchingItems = config.items.filter((item) => {
+        const firstMatches = firstOption === options.firstFallbackValue
+          ? true
+          : item[firstKey] === firstOption || item[firstKey] === options.firstFallbackValue;
+        return firstMatches && item[secondKey] === secondOption;
+      });
+      const minimum = options.minimum ?? 1;
+      if (matchingItems.length < minimum) {
         throw new Error(
-          `${config.slug}: empty filter pair ${firstKey}=${firstOption}, ${secondKey}=${secondOption}`,
+          `${config.slug}: filter pair ${firstKey}=${firstOption}, ${secondKey}=${secondOption} has ${matchingItems.length} items; expected at least ${minimum}`,
         );
       }
     }
