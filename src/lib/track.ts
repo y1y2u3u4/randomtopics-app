@@ -16,13 +16,25 @@ declare global {
 export function track(eventName: string, params?: GtagParams): void {
   try {
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
-      window.gtag("event", eventName, {
+      const eventParams = {
         page_path: `${window.location.pathname}${window.location.search}`,
         page_location: window.location.href,
         page_title: document.title,
         page_language: document.documentElement.lang || "en",
         ...params,
-      });
+      };
+
+      window.gtag("event", eventName, eventParams);
+
+      // Keep the existing GA4 key event continuous while the property migrates
+      // to generate_success. The legacy name now fires only after a result was
+      // produced, so it no longer counts unsuccessful button clicks.
+      if (eventName === "generate_success") {
+        window.gtag("event", "generate_topic", {
+          ...eventParams,
+          event_alias: "legacy_key_event",
+        });
+      }
     }
   } catch {
     /* analytics must never break the app */
