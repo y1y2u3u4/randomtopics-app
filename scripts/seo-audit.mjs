@@ -229,7 +229,7 @@ async function checkSitemap() {
   ]) {
     if (!urls.includes(`${canonicalOrigin}${path}`)) fail(`sitemap: missing ${path}`);
   }
-  for (const path of ["/writing/sports", "/es/speech/politics", "/saved-topics", "/embed", "/es/random-learning-topic-generator", "/es/writing-topic-generator", "/es/research-topic-generator", "/es/presentation-topic-generator"]) {
+  for (const path of ["/writing/sports", "/es/speech/politics", "/saved-topics", "/embed", "/internal/analytics", "/es/random-learning-topic-generator", "/es/writing-topic-generator", "/es/research-topic-generator", "/es/presentation-topic-generator"]) {
     if (urls.includes(`${canonicalOrigin}${path}`)) fail(`sitemap: noindex URL included: ${path}`);
   }
   if (!xml.includes('hreflang="es"') || !xml.includes('hreflang="x-default"')) {
@@ -269,6 +269,11 @@ async function checkRobots() {
   const text = await response.text();
   if (!text.includes("Sitemap: https://randomtopics.app/sitemap.xml")) {
     fail("robots.txt: sitemap declaration missing");
+  }
+  for (const path of ["/internal/", "/api/internal/"]) {
+    if (!text.includes(`Disallow: ${path}`)) {
+      fail(`robots.txt: private reporting path is not disallowed: ${path}`);
+    }
   }
 }
 

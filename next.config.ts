@@ -18,6 +18,20 @@ const nextConfig: NextConfig = {
         source: "/es/saved-topics",
         headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }],
       },
+      {
+        source: "/internal/:path*",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+          { key: "Referrer-Policy", value: "no-referrer" },
+        ],
+      },
+      {
+        source: "/api/internal/:path*",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+          { key: "Referrer-Policy", value: "no-referrer" },
+        ],
+      },
     ];
   },
   async redirects() {
