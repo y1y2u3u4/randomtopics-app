@@ -4,6 +4,8 @@
 // 2026-08-31 (older names remain available in GA4 for historical periods):
 //   generate_start   { tool_type, generator_*, requested_count, locale }
 //   generate_success { tool_type, generator_*, result_count, result_source, locale }
+//   generate_topic   { same params, event_alias: "legacy_key_event" }
+//                    Temporary key-event compatibility alias; fires only after success.
 //   copy_result      { tool_type, result_type / content_source, locale }
 //   save_result      { tool_type, result_type, locale }
 //   share_result     { tool_type, share_method, locale }
