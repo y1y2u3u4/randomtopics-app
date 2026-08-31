@@ -14,14 +14,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: { absolute: "Question of the Day — New QOTD for Today | Random Topics" },
   description:
-    "Answer today's question of the day, then browse 120 QOTD ideas for classrooms, work teams, kids and families. New daily question, free and no signup.",
+    "Answer today's question of the day, then browse 120 general QOTD ideas by mood. One shared daily prompt plus a no-repeat random generator, free and no signup.",
   keywords: [
     "question of the day",
     "question of the day ideas",
     "random question of the day",
     "qotd",
-    "question of the day for students",
-    "question of the day for work",
     "question of the day for kids",
     "daily question",
     "icebreaker question of the day",
@@ -139,6 +137,21 @@ export default function QuestionOfTheDayPage() {
         </section>
 
         <QuestionOfTheDay initialIdx={initialIdx} initialDateLabel={initialDateLabel} />
+
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link href="/question-of-the-day-for-students" className="glass-card p-6 border-[var(--neon-cyan)]/20 hover:border-[var(--neon-cyan)]/40 transition-colors">
+              <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-cyan)]">For classrooms</p>
+              <h2 className="mt-2 text-lg font-bold text-[var(--text-primary)]">Question of the Day for Students</h2>
+              <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">180 grade-aware prompts, classroom filters, facilitation notes, and printable five-day plans.</p>
+            </Link>
+            <Link href="/question-of-the-day-for-work" className="glass-card p-6 border-[var(--neon-pink)]/20 hover:border-[var(--neon-pink)]/40 transition-colors">
+              <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-pink)]">For teams</p>
+              <h2 className="mt-2 text-lg font-bold text-[var(--text-primary)]">Question of the Day for Work</h2>
+              <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">120 professional prompts for remote, hybrid, onboarding, meetings, and retrospectives.</p>
+            </Link>
+          </div>
+        </section>
 
         {/* Crawlable samples by audience */}
         {QOTD_CATEGORIES.map((cat) => (

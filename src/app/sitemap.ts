@@ -40,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Standalone keyword tool pages
+  const premiumPaths = new Set([
+    "question-of-the-day-for-students",
+    "question-of-the-day-for-work",
+    "topics/ethical-dilemmas-for-students",
+    "topics/workplace-ethical-dilemmas",
+  ]);
   for (const p of [
     "argument-generator",
     "table-topics-generator",
@@ -64,6 +70,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "hot-seat-questions",
     "group-discussion-topics",
     "question-of-the-day",
+    "question-of-the-day-for-students",
+    "question-of-the-day-for-work",
+    "topics/ethical-dilemmas-for-students",
+    "topics/workplace-ethical-dilemmas",
     "paranoia-questions",
     "question-generator",
     "would-you-rather",
@@ -74,7 +84,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "most-likely-to",
     "two-truths-and-a-lie",
   ]) {
-    entries.push({ path: `/${p}`, changeFrequency: "weekly", priority: 0.85 });
+    entries.push({
+      path: `/${p}`,
+      changeFrequency: "weekly",
+      priority: premiumPaths.has(p) ? 0.88 : 0.85,
+      ...(premiumPaths.has(p) ? { lastModified: "2026-08-31" } : {}),
+    });
   }
 
   for (const mode of MODES) entries.push({ path: `/${mode.slug}`, changeFrequency: "weekly", priority: 0.9 });

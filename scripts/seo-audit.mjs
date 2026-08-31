@@ -13,6 +13,8 @@ const checks = [
   { path: "/es", index: true, canonical: "/es", titleMax: 70, titleHas: "Generador de Temas Aleatorios", es: true, hreflang: true },
   { path: "/debate", index: true, canonical: "/debate", titleMax: 70, titleHas: "Debate Topic Generator", hreflang: true },
   { path: "/question-of-the-day", index: true, canonical: "/question-of-the-day", titleMax: 70, titleHas: "Question of the Day" },
+  { path: "/question-of-the-day-for-students", index: true, canonical: "/question-of-the-day-for-students", titleMax: 60, titleHas: "Question of the Day for Students", enOnlyHreflang: true, bodyHas: ["180", "Today's Classroom Question", "Build a five-day plan", "Build weekly plan", "Save ☆", '"@type":"WebApplication"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'class="rounded-xl border border-white/10 p-4 sm:p-5"', exact: 180 }] },
+  { path: "/question-of-the-day-for-work", index: true, canonical: "/question-of-the-day-for-work", titleMax: 60, titleHas: "Question of the Day for Work", enOnlyHreflang: true, bodyHas: ["120", "Today's Team Question", "Copy for Slack / Teams", "Build a five-day plan", "Save ☆", '"@type":"WebApplication"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'class="rounded-xl border border-white/10 p-4 sm:p-5"', exact: 120 }] },
   { path: "/icebreaker", index: true, canonical: "/icebreaker", titleMax: 70, titleHas: "Icebreaker Question Generator", hreflang: true },
   { path: "/writing", index: true, canonical: "/writing", titleMax: 76, titleHas: "Random Topics to Write About", hreflang: true },
   { path: "/conversation", index: true, canonical: "/conversation", titleMax: 65, titleHas: "Conversation Topic Generator", hreflang: true, bodyHas: ["Popular Conversation Starter Collections"], bodyOccurrences: [{ needle: 'href="/topics/', min: 6 }] },
@@ -37,6 +39,8 @@ const checks = [
   { path: "/saved-topics", index: false, canonical: "/saved-topics", titleHas: "Saved Topics", headerNoindex: true },
   { path: "/es/saved-topics", index: false, canonical: "/es/saved-topics", titleHas: "Temas guardados", es: true, headerNoindex: true },
   { path: "/topics/ethical-dilemma-questions", index: true, canonical: "/topics/ethical-dilemma-questions", titleMax: 65, titleHas: "65+ Moral & Ethical Dilemma Questions", hreflang: true, bodyHas: ["Quick Moral Dilemmas to Discuss", "Try a Random Ethical Dilemma", "Give Me a Dilemma"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 66 }] },
+  { path: "/topics/ethical-dilemmas-for-students", index: true, canonical: "/topics/ethical-dilemmas-for-students", titleMax: 60, titleHas: "50 Ethical Dilemmas for Students", enOnlyHreflang: true, bodyHas: ["Choose a Classroom Ethical Dilemma", "A four-step classroom analysis routine", "How this collection was curated", '"featureList":["Audience filters","No-repeat random prompts","Copy","Save","Share","Print"]', '"@type":"WebApplication"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'class="rounded-xl border border-white/10 p-4 sm:p-5"', exact: 50 }] },
+  { path: "/topics/workplace-ethical-dilemmas", index: true, canonical: "/topics/workplace-ethical-dilemmas", titleMax: 60, titleHas: "45 Workplace Ethical Dilemmas", enOnlyHreflang: true, bodyHas: ["Choose a Workplace Ethics Case", "A practical decision canvas for workplace cases", "For training and discussion only", '"featureList":["Audience filters","No-repeat random prompts","Copy","Save","Share","Print"]', '"@type":"WebApplication"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'class="rounded-xl border border-white/10 p-4 sm:p-5"', exact: 45 }] },
   { path: "/topics/toastmasters-table-topics", index: true, canonical: "/topics/toastmasters-table-topics", titleMax: 60, titleHas: "Toastmasters Table Topics", bodyHas: ["Updated:", "Practice a Random Table Topic", "Speech Timer", "Draw a Table Topic"] },
   { path: "/es/most-likely-to", index: true, canonical: "/es/most-likely-to", titleMax: 76, titleHas: "Quién Es Más Probable", es: true, hreflang: true },
   { path: "/es/topics/most-likely-to-questions", index: true, canonical: "/es/topics/most-likely-to-questions", titleMax: 65, titleHas: "100 Preguntas de Quién Es Más Probable", es: true, hreflang: true, bodyHas: ["Preguntas fuertes de Quién es más probable para amigos", "Juega a Quién Es Más Probable", "Sacar una pregunta"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 100 }] },
@@ -167,8 +171,19 @@ async function checkPage(check) {
       fail(`${check.path}: missing reciprocal en/es hreflang links`);
     }
   }
+  if (check.enOnlyHreflang) {
+    if (!/hreflang=["']en["']/i.test(html) || !/hreflang=["']x-default["']/i.test(html)) {
+      fail(`${check.path}: missing en/x-default hreflang links`);
+    }
+    if (/hreflang=["']es["']/i.test(html)) {
+      fail(`${check.path}: advertises a nonexistent Spanish alternate`);
+    }
+  }
   for (const needle of check.bodyHas || []) {
     if (!html.includes(needle)) fail(`${check.path}: missing expected content “${needle}”`);
+  }
+  for (const needle of check.bodyNotHas || []) {
+    if (html.includes(needle)) fail(`${check.path}: unexpectedly contains “${needle}”`);
   }
   for (const occurrence of check.bodyOccurrences || []) {
     const actual = html.split(occurrence.needle).length - 1;
@@ -226,10 +241,14 @@ async function checkSitemap() {
     "/es/topics/quien-es-mas-probable-parejas",
     "/es/topics/quien-es-mas-probable-preguntas-fuertes",
     "/es/topics/quien-es-mas-probable-amigos",
+    "/question-of-the-day-for-students",
+    "/question-of-the-day-for-work",
+    "/topics/ethical-dilemmas-for-students",
+    "/topics/workplace-ethical-dilemmas",
   ]) {
     if (!urls.includes(`${canonicalOrigin}${path}`)) fail(`sitemap: missing ${path}`);
   }
-  for (const path of ["/writing/sports", "/es/speech/politics", "/saved-topics", "/embed", "/internal/analytics", "/es/random-learning-topic-generator", "/es/writing-topic-generator", "/es/research-topic-generator", "/es/presentation-topic-generator"]) {
+  for (const path of ["/writing/sports", "/es/speech/politics", "/saved-topics", "/embed", "/internal/analytics", "/es/random-learning-topic-generator", "/es/writing-topic-generator", "/es/research-topic-generator", "/es/presentation-topic-generator", "/es/question-of-the-day-for-students", "/es/question-of-the-day-for-work", "/es/topics/ethical-dilemmas-for-students", "/es/topics/workplace-ethical-dilemmas"]) {
     if (urls.includes(`${canonicalOrigin}${path}`)) fail(`sitemap: noindex URL included: ${path}`);
   }
   if (!xml.includes('hreflang="es"') || !xml.includes('hreflang="x-default"')) {
@@ -255,6 +274,10 @@ async function checkSitemap() {
     "/es/topics/quien-es-mas-probable-parejas",
     "/es/topics/quien-es-mas-probable-preguntas-fuertes",
     "/es/topics/quien-es-mas-probable-amigos",
+    "/question-of-the-day-for-students",
+    "/question-of-the-day-for-work",
+    "/topics/ethical-dilemmas-for-students",
+    "/topics/workplace-ethical-dilemmas",
   ]) {
     const marker = `<loc>${canonicalOrigin}${path}</loc>`;
     const entryTail = xml.split(marker)[1]?.split("</url>")[0] || "";

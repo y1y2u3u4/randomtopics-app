@@ -3,7 +3,16 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import { SEO_ARTICLES } from "@/data/seoContent";
+import { STUDENT_ETHICS_CONFIG, WORKPLACE_ETHICS_CONFIG } from "@/data/premiumEthics";
+import { STUDENT_QOTD_CONFIG, WORK_QOTD_CONFIG } from "@/data/premiumQotd";
 import type { Metadata } from "next";
+
+const GUIDED_COLLECTIONS = [
+  STUDENT_ETHICS_CONFIG,
+  WORKPLACE_ETHICS_CONFIG,
+  STUDENT_QOTD_CONFIG,
+  WORK_QOTD_CONFIG,
+];
 
 export const metadata: Metadata = {
   title: "Topic Lists & Guides - Curated Collections for Every Occasion",
@@ -43,7 +52,31 @@ export default function TopicsIndexPage() {
           </p>
         </div>
 
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5">
+            <div>
+              <h2 className="text-2xl font-bold text-[var(--text-primary)]">Guided collections</h2>
+              <p className="text-sm text-[var(--text-muted)] mt-1">Filterable, printable collections with built-in classroom and team workflows.</p>
+            </div>
+            <Link href="/how-we-curate" className="text-sm text-[var(--neon-cyan)] hover:underline">How we curate →</Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {GUIDED_COLLECTIONS.map((collection) => (
+              <Link
+                key={collection.slug}
+                href={collection.path}
+                className="glass-card p-6 border-[var(--neon-cyan)]/20 transition-all duration-300 hover:translate-y-[-3px] hover:border-[var(--neon-cyan)]/40 hover:shadow-[0_0_20px_rgba(0,229,255,0.12)]"
+              >
+                <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-cyan)]">{collection.items.length} original prompts · {collection.filters.length} filters</p>
+                <h3 className="text-lg font-bold mt-2 text-[var(--text-primary)]">{collection.title}</h3>
+                <p className="text-xs text-[var(--text-muted)] leading-relaxed mt-2 line-clamp-2">{collection.metaDescription}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
+          <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-5">All topic lists and guides</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {SEO_ARTICLES.map((article) => (
               <Link
