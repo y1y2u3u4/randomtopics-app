@@ -312,12 +312,23 @@ async function checkRobots() {
   }
 }
 
+async function checkIndexNowCount(sitemapUrls) {
+  if (buildDir) return;
+  const response = await fetch(`${baseUrl}/api/indexnow`);
+  if (!response.ok) fail(`IndexNow inventory: received ${response.status}`);
+  const payload = await response.json();
+  if (payload.urls !== sitemapUrls) {
+    fail(`IndexNow inventory: ${payload.urls} URLs, expected sitemap parity at ${sitemapUrls}`);
+  }
+}
+
 try {
   const results = [];
   for (const check of checks) results.push(await checkPage(check));
   await checkRedirect();
   const sitemapUrls = await checkSitemap();
   await checkRobots();
+  await checkIndexNowCount(sitemapUrls);
 
   console.table(results);
   const source = buildDir ? `build artifacts in ${buildDir}` : baseUrl;

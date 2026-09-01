@@ -50,6 +50,8 @@ function getPaths(): string[] {
     "/question-of-the-day-for-work",
     "/topics/ethical-dilemmas-for-students",
     "/topics/workplace-ethical-dilemmas",
+    "/topics/ethical-dilemmas-for-adults",
+    "/deep-conversation-question-generator",
     "/paranoia-questions",
     "/question-generator",
     "/would-you-rather",
