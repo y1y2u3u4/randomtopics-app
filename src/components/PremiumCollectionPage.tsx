@@ -35,6 +35,11 @@ export default function PremiumCollectionPage({ config }: { config: PremiumColle
     })
     : undefined;
   const absoluteUrl = `${SITE_URL}${config.path}`;
+  const breadcrumbParent = config.path.startsWith("/topics/")
+    ? { label: "Topics", href: "/topics" }
+    : config.path.startsWith("/question-of-the-day")
+      ? { label: "Question of the Day", href: "/question-of-the-day" }
+      : config.parentLink;
 
   return (
     <>
@@ -42,7 +47,7 @@ export default function PremiumCollectionPage({ config }: { config: PremiumColle
       <main className="flex-1">
         <Breadcrumb items={[
           { label: "Home", href: "/" },
-          { label: config.path.startsWith("/topics/") ? "Topics" : "Question of the Day", href: config.path.startsWith("/topics/") ? "/topics" : "/question-of-the-day" },
+          breadcrumbParent,
           { label: config.title },
         ]} />
 
@@ -77,7 +82,7 @@ export default function PremiumCollectionPage({ config }: { config: PremiumColle
               "@type": "BreadcrumbList",
               itemListElement: [
                 { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-                { "@type": "ListItem", position: 2, name: config.path.startsWith("/topics/") ? "Topics" : "Question of the Day", item: `${SITE_URL}${config.path.startsWith("/topics/") ? "/topics" : "/question-of-the-day"}` },
+                { "@type": "ListItem", position: 2, name: breadcrumbParent.label, item: `${SITE_URL}${breadcrumbParent.href}` },
                 { "@type": "ListItem", position: 3, name: config.title, item: absoluteUrl },
               ],
             }),

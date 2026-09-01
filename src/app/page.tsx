@@ -81,7 +81,7 @@ export default function Home() {
               { emoji: "🎡", label: "Topic Wheel", detail: "Spin for a topic", href: "/spin-the-wheel" },
               { emoji: "⚔️", label: "Debate Generator", detail: "Topics with both sides", href: "/debate" },
               { emoji: "✨", label: "Question of the Day", detail: "A fresh daily prompt", href: "/question-of-the-day" },
-              { emoji: "⚖️", label: "Moral Dilemmas", detail: "60 ethical questions", href: "/topics/ethical-dilemma-questions" },
+              { emoji: "⚖️", label: "Moral Dilemmas", detail: "65+ ethical questions", href: "/topics/ethical-dilemma-questions" },
             ].map((tool) => (
               <Link
                 key={tool.href}
@@ -201,6 +201,8 @@ export default function Home() {
             {[
               { title: "75 Best Debate Topics for Students", href: "/topics/debate-topics-for-students" },
               { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
+              { title: "50 Ethical Dilemmas for Adults", href: "/topics/ethical-dilemmas-for-adults" },
+              { title: "Deep Conversation Question Generator", href: "/deep-conversation-question-generator" },
               { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
               { title: "120 Toastmasters Table Topics", href: "/topics/toastmasters-table-topics" },
               { title: "60 Deep Questions for Your Partner", href: "/topics/deep-questions-to-ask-your-partner" },

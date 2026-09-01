@@ -45,6 +45,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "question-of-the-day-for-work",
     "topics/ethical-dilemmas-for-students",
     "topics/workplace-ethical-dilemmas",
+    "topics/ethical-dilemmas-for-adults",
+    "deep-conversation-question-generator",
+  ]);
+  const septemberPremiumPaths = new Set([
+    "topics/ethical-dilemmas-for-adults",
+    "deep-conversation-question-generator",
   ]);
   for (const p of [
     "argument-generator",
@@ -74,6 +80,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "question-of-the-day-for-work",
     "topics/ethical-dilemmas-for-students",
     "topics/workplace-ethical-dilemmas",
+    "topics/ethical-dilemmas-for-adults",
+    "deep-conversation-question-generator",
     "paranoia-questions",
     "question-generator",
     "would-you-rather",
@@ -88,7 +96,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: `/${p}`,
       changeFrequency: "weekly",
       priority: premiumPaths.has(p) ? 0.88 : 0.85,
-      ...(premiumPaths.has(p) ? { lastModified: "2026-08-31" } : {}),
+      ...(premiumPaths.has(p)
+        ? { lastModified: septemberPremiumPaths.has(p) ? "2026-09-01" : "2026-08-31" }
+        : {}),
     });
   }
 

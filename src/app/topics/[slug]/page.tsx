@@ -50,6 +50,12 @@ const ARTICLE_CTA: Record<string, { href: string; text: string; label: string; e
   },
 };
 
+const ETHICAL_COLLECTIONS = [
+  { title: "Ethical Dilemmas for Adults", detail: "50 original scenarios for relationships, money, family, privacy, and community", href: "/topics/ethical-dilemmas-for-adults" },
+  { title: "Ethical Dilemmas for Students", detail: "50 classroom-ready cases with grade, activity, and time filters", href: "/topics/ethical-dilemmas-for-students" },
+  { title: "Workplace Ethical Dilemmas", detail: "45 fictional cases for employees, managers, and team training", href: "/topics/workplace-ethical-dilemmas" },
+] as const;
+
 export function generateStaticParams() {
   return SEO_ARTICLES.map((article) => ({
     slug: article.slug,
@@ -229,6 +235,24 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             )}
           </div>
         </section>
+
+        {article.slug === "ethical-dilemma-questions" && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--neon-cyan)]">Choose the right ethical collection</p>
+              <h2 className="mt-2 text-xl sm:text-2xl font-bold text-[var(--text-primary)]">Ethical dilemmas by audience</h2>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">Use the broad list below for quick ideas, or open a focused collection for original scenarios, filters, follow-ups, and a guided discussion workflow.</p>
+              <div className="mt-5 grid grid-cols-1 gap-3">
+                {ETHICAL_COLLECTIONS.map((collection) => (
+                  <Link key={collection.href} href={collection.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
+                    <span className="block text-sm font-semibold text-[var(--text-primary)]">{collection.title} →</span>
+                    <span className="block mt-1 text-xs text-[var(--text-muted)]">{collection.detail}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {article.slug === "ethical-dilemma-questions" && (
           <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">

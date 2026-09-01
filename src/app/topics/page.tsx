@@ -5,6 +5,8 @@ import Link from "next/link";
 import { SEO_ARTICLES } from "@/data/seoContent";
 import { STUDENT_ETHICS_CONFIG, WORKPLACE_ETHICS_CONFIG } from "@/data/premiumEthics";
 import { STUDENT_QOTD_CONFIG, WORK_QOTD_CONFIG } from "@/data/premiumQotd";
+import { ADULT_ETHICS_CONFIG } from "@/data/premiumAdultEthics";
+import { DEEP_CONVERSATION_CONFIG } from "@/data/premiumDeepConversation";
 import type { Metadata } from "next";
 
 const GUIDED_COLLECTIONS = [
@@ -12,6 +14,8 @@ const GUIDED_COLLECTIONS = [
   WORKPLACE_ETHICS_CONFIG,
   STUDENT_QOTD_CONFIG,
   WORK_QOTD_CONFIG,
+  ADULT_ETHICS_CONFIG,
+  DEEP_CONVERSATION_CONFIG,
 ];
 
 export const metadata: Metadata = {
@@ -56,7 +60,7 @@ export default function TopicsIndexPage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5">
             <div>
               <h2 className="text-2xl font-bold text-[var(--text-primary)]">Guided collections</h2>
-              <p className="text-sm text-[var(--text-muted)] mt-1">Filterable, printable collections with built-in classroom and team workflows.</p>
+              <p className="text-sm text-[var(--text-muted)] mt-1">Filterable, printable collections with original prompts and built-in workflows.</p>
             </div>
             <Link href="/how-we-curate" className="text-sm text-[var(--neon-cyan)] hover:underline">How we curate →</Link>
           </div>

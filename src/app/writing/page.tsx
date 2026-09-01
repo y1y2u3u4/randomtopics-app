@@ -107,6 +107,26 @@ export default function WritingPage() {
           </div>
         </section>
 
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
+          <div className="glass-card p-6 sm:p-8">
+            <h2 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]">Choose the right writing tool</h2>
+            <p className="mt-2 text-sm text-[var(--text-muted)]">This page is the broad writing hub. Use a focused tool when your output already has a format.</p>
+            <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                { title: "Writing Topic Generator", detail: "Filter for essay, journal, fiction, or blog", href: "/writing-topic-generator" },
+                { title: "Essay Topic Generator", detail: "Academic, persuasive, and personal essay angles", href: "/essay-topic-generator" },
+                { title: "Journal Prompt Generator", detail: "Reflection prompts with a guided writing flow", href: "/journal-prompts" },
+                { title: "Writing Prompts for Kids", detail: "Age-appropriate story starters for younger writers", href: "/topics/writing-prompts-for-kids" },
+              ].map((item) => (
+                <Link key={item.href} href={item.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
+                  <span className="block text-sm font-semibold text-[var(--text-primary)]">{item.title}</span>
+                  <span className="block mt-1 text-xs text-[var(--text-muted)]">{item.detail}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">

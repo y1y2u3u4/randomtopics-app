@@ -15,10 +15,12 @@ export const categoryToArticles: Record<string, { title: string; href: string }[
   ],
   philosophy: [
     { title: "50 Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
+    { title: "50 Ethical Dilemmas for Adults", href: "/topics/ethical-dilemmas-for-adults" },
     { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
     { title: "55 Controversial Topics to Discuss", href: "/topics/controversial-topics-to-discuss" },
   ],
   psychology: [
+    { title: "Deep Conversation Question Generator", href: "/deep-conversation-question-generator" },
     { title: "60 Deep Questions for Your Partner", href: "/topics/deep-questions-to-ask-your-partner" },
     { title: "50 Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
     { title: "65 Get to Know You Questions", href: "/topics/get-to-know-you-questions-for-adults" },
@@ -39,6 +41,7 @@ export const categoryToArticles: Record<string, { title: string; href: string }[
     { title: "65 Get to Know You Questions", href: "/topics/get-to-know-you-questions-for-adults" },
   ],
   relationships: [
+    { title: "Deep Conversation Question Generator", href: "/deep-conversation-question-generator" },
     { title: "60 Conversation Starters for Couples", href: "/topics/conversation-starters-for-couples" },
     { title: "60 Deep Questions for Your Partner", href: "/topics/deep-questions-to-ask-your-partner" },
     { title: "70 Random Questions to Ask Friends", href: "/topics/random-questions-to-ask-friends" },
