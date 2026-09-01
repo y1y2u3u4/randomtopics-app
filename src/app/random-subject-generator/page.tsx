@@ -116,6 +116,26 @@ export default function RandomSubjectGeneratorPage() {
           </div>
         </section>
 
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
+          <div className="glass-card p-6 sm:p-8">
+            <h2 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]">Turn a subject into a usable topic</h2>
+            <p className="mt-2 text-sm text-[var(--text-muted)]">Pick the job you need to complete, then use the focused generator for a narrower result.</p>
+            <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                { title: "Learn something new", detail: "A focused topic plus a curiosity angle", href: "/random-learning-topic-generator" },
+                { title: "Research a question", detail: "Researchable ideas by level and subject", href: "/research-topic-generator" },
+                { title: "Build a presentation", detail: "Presentation topics with a slide-ready angle", href: "/presentation-topic-generator" },
+                { title: "Write about it", detail: "Essay, journal, fiction, and blog directions", href: "/writing-topic-generator" },
+              ].map((item) => (
+                <Link key={item.href} href={item.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
+                  <span className="block text-sm font-semibold text-[var(--text-primary)]">{item.title}</span>
+                  <span className="block mt-1 text-xs text-[var(--text-muted)]">{item.detail}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">

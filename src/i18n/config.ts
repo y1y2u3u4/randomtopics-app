@@ -109,6 +109,8 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/paranoia-questions",
   "/topics/ethical-dilemmas-for-students",
   "/topics/workplace-ethical-dilemmas",
+  "/topics/ethical-dilemmas-for-adults",
+  "/deep-conversation-question-generator",
 ]);
 
 /** Spanish-only editorial pages with no honest one-to-one English alternate. */

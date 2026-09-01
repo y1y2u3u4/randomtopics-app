@@ -39,6 +39,7 @@ export const metadata: Metadata = {
 };
 
 const CONVERSATION_COLLECTIONS = [
+  { title: "Deep Conversation Question Generator", detail: "50 original questions with relationship and setting filters", href: "/deep-conversation-question-generator" },
   { title: "Conversation Starters for Couples", detail: "Questions for dates and relationships", href: "/topics/conversation-starters-for-couples" },
   { title: "Conversation Topics for Teens", detail: "School-friendly prompts that feel natural", href: "/topics/conversation-topics-for-teens" },
   { title: "ESL Conversation Topics", detail: "Speaking practice by level and situation", href: "/topics/esl-conversation-topics" },

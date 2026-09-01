@@ -457,7 +457,7 @@ export default async function AnalyticsPage({
           <EventTable rows={ga.events28} />
         </Section>
 
-        <Section title="精品页增长记分板" subtitle={`固定跟踪 12 个目标页；GA4 为最近 7 个完整自然日，GSC 为 ${gsc.current7Range.startDate} 至 ${gsc.current7Range.endDate}。Success / actions = 成功生成 / 复制、收藏、分享事件。`}>
+        <Section title="精品页增长记分板" subtitle={`固定跟踪 ${data.growthPages.length} 个目标页；GA4 为最近 7 个完整自然日，GSC 为 ${gsc.current7Range.startDate} 至 ${gsc.current7Range.endDate}。Success / actions = 成功生成 / 复制、收藏、分享事件。`}>
           <GrowthPagesTable rows={data.growthPages} />
         </Section>
 

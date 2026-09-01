@@ -58,6 +58,12 @@ const ARTICLE_CTA_ES: Record<string, { href: string; text: string; label: string
   },
 };
 
+const MOST_LIKELY_COLLECTIONS_ES = [
+  { title: "Para amigos", detail: "45 preguntas de aventuras, hábitos y amistad", href: "/es/topics/quien-es-mas-probable-amigos" },
+  { title: "Para parejas", detail: "45 preguntas románticas y de complicidad", href: "/es/topics/quien-es-mas-probable-parejas" },
+  { title: "Preguntas fuertes", detail: "45 preguntas intensas para grupos con confianza", href: "/es/topics/quien-es-mas-probable-preguntas-fuertes" },
+] as const;
+
 export function generateStaticParams() {
   return SEO_ARTICLES_ES.map((article) => ({ slug: article.slug }));
 }
@@ -188,6 +194,24 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
             )}
           </div>
         </section>
+
+        {article.slug === "most-likely-to-questions" && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--neon-cyan)]">Elige según el grupo</p>
+              <h2 className="mt-2 text-xl sm:text-2xl font-bold text-[var(--text-primary)]">Colecciones de Quién es más probable</h2>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">Usa la lista completa para mezclar estilos, o abre una colección de 45 preguntas escrita específicamente para tu grupo.</p>
+              <div className="mt-5 grid grid-cols-1 gap-3">
+                {MOST_LIKELY_COLLECTIONS_ES.map((collection) => (
+                  <Link key={collection.href} href={collection.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
+                    <span className="block text-sm font-semibold text-[var(--text-primary)]">{collection.title} →</span>
+                    <span className="block mt-1 text-xs text-[var(--text-muted)]">{collection.detail}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {article.slug === "most-likely-to-questions" && (
           <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">

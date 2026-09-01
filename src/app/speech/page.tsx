@@ -150,6 +150,7 @@ export default function SpeechPage() {
               { title: "100+ Informative Speech Topics", href: "/speech/informative" },
               { title: "Impromptu Speech Topics with Timer", href: "/impromptu-speech-topics" },
               { title: "Toastmasters Table Topics Generator", href: "/table-topics-generator" },
+              { title: "120 Toastmasters Table Topics + Practice Drill", href: "/topics/toastmasters-table-topics" },
               { title: "75 Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
               { title: "60 Public Speaking Topics for Beginners", href: "/topics/public-speaking-topics-for-beginners" },
               { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
