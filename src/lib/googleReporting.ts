@@ -54,6 +54,8 @@ export type GaEventRow = {
   eventName: string;
   eventCount: number;
   keyEvents: number;
+  totalUsers: number;
+  sessions: number;
 };
 
 export type GaPageRow = {
@@ -61,6 +63,32 @@ export type GaPageRow = {
   activeUsers: number;
   screenPageViews: number;
   keyEvents: number;
+};
+
+export type GrowthPageFunnel = {
+  starts: number;
+  successes: number;
+  errors: number;
+  copies: number;
+  saves: number;
+  shares: number;
+  timerStarts: number;
+  timerCompletes: number;
+};
+
+export type GrowthPageRow = {
+  label: string;
+  path: string;
+  launchedRecently: boolean;
+  ga4: {
+    current7: Pick<GaSummary, "activeUsers" | "sessions" | "screenPageViews">;
+    previous7: Pick<GaSummary, "activeUsers" | "sessions" | "screenPageViews">;
+    funnel7: GrowthPageFunnel;
+  };
+  searchConsole: {
+    current7: GscSummary;
+    previous7: GscSummary;
+  };
 };
 
 export type GaDailyRow = GaSummary & { date: string };
@@ -83,6 +111,8 @@ export type AnalyticsDashboardData = {
     previous7: GaSummary;
     current28: GaSummary;
     previous28: GaSummary;
+    events7: GaEventRow[];
+    previousEvents7: GaEventRow[];
     events28: GaEventRow[];
     pages28: GaPageRow[];
     daily28: GaDailyRow[];
@@ -101,7 +131,34 @@ export type AnalyticsDashboardData = {
     queries28: GscDimensionRow[];
     daily28: GscDimensionRow[];
   };
+  growthPages: GrowthPageRow[];
 };
+
+const MONITORED_GROWTH_PAGES = [
+  { label: "QOTD · Students", path: "/question-of-the-day-for-students", launchedRecently: true },
+  { label: "QOTD · Work", path: "/question-of-the-day-for-work", launchedRecently: true },
+  { label: "Ethical · Students", path: "/topics/ethical-dilemmas-for-students", launchedRecently: true },
+  { label: "Ethical · Workplace", path: "/topics/workplace-ethical-dilemmas", launchedRecently: true },
+  { label: "Ethical hub", path: "/topics/ethical-dilemma-questions", launchedRecently: false },
+  { label: "Question of the Day", path: "/question-of-the-day", launchedRecently: false },
+  { label: "Toastmasters", path: "/topics/toastmasters-table-topics", launchedRecently: false },
+  { label: "Spanish Most Likely To", path: "/es/topics/most-likely-to-questions", launchedRecently: false },
+  { label: "Conversation", path: "/conversation", launchedRecently: false },
+  { label: "Writing", path: "/writing", launchedRecently: false },
+  { label: "Speech", path: "/speech", launchedRecently: false },
+  { label: "Random Subject", path: "/random-subject-generator", launchedRecently: false },
+] as const;
+
+const FUNNEL_EVENT_NAMES = [
+  "generate_start",
+  "generate_success",
+  "generate_error",
+  "copy_result",
+  "save_result",
+  "share_result",
+  "timer_start",
+  "timer_complete",
+] as const;
 
 class ReportingError extends Error {
   constructor(public readonly code: string) {
@@ -332,26 +389,32 @@ async function getGaSummary(
   };
 }
 
-async function getGaEvents(): Promise<GaEventRow[]> {
+async function getGaEvents(
+  startDate: string,
+  endDate: string
+): Promise<GaEventRow[]> {
   const trackedEvents = [
     "generate_start",
     "generate_success",
     "generate_topic",
     "generate_error",
+    "repeat_generate",
     "copy_result",
+    "copy_error",
     "save_result",
     "remove_saved_result",
     "share_result",
+    "share_error",
     "print_content",
     "timer_start",
     "timer_complete",
     "spin_success",
   ];
   const response = await runGaReport({
-    startDate: "28daysAgo",
-    endDate: "today",
+    startDate,
+    endDate,
     dimensions: ["eventName"],
-    metrics: ["eventCount", "keyEvents"],
+    metrics: ["eventCount", "keyEvents", "totalUsers", "sessions"],
     dimensionFilter: {
       filter: {
         fieldName: "eventName",
@@ -366,7 +429,134 @@ async function getGaEvents(): Promise<GaEventRow[]> {
     eventName: row.dimensionValues?.[0]?.value ?? "unknown",
     eventCount: metricValue(row, 0),
     keyEvents: metricValue(row, 1),
+    totalUsers: metricValue(row, 2),
+    sessions: metricValue(row, 3),
   }));
+}
+
+async function getGaEventWindows(): Promise<{
+  current7: GaEventRow[];
+  previous7: GaEventRow[];
+  current28: GaEventRow[];
+}> {
+  // Keep these sequential so one dashboard refresh stays below the GA Data
+  // API's concurrent-request quota for a property.
+  const current7 = await getGaEvents("7daysAgo", "yesterday");
+  const previous7 = await getGaEvents("14daysAgo", "8daysAgo");
+  const current28 = await getGaEvents("28daysAgo", "yesterday");
+  return { current7, previous7, current28 };
+}
+
+type GrowthGaPeriod = Pick<GaSummary, "activeUsers" | "sessions" | "screenPageViews">;
+
+function emptyGaPeriod(): GrowthGaPeriod {
+  return { activeUsers: 0, sessions: 0, screenPageViews: 0 };
+}
+
+function emptyGrowthFunnel(): GrowthPageFunnel {
+  return {
+    starts: 0,
+    successes: 0,
+    errors: 0,
+    copies: 0,
+    saves: 0,
+    shares: 0,
+    timerStarts: 0,
+    timerCompletes: 0,
+  };
+}
+
+function monitoredPathFilter() {
+  return {
+    filter: {
+      fieldName: "pagePath",
+      inListFilter: {
+        values: MONITORED_GROWTH_PAGES.map((page) => page.path),
+        caseSensitive: true,
+      },
+    },
+  };
+}
+
+async function getGaGrowthPagePeriod(
+  startDate: string,
+  endDate: string
+): Promise<Map<string, GrowthGaPeriod>> {
+  const response = await runGaReport({
+    startDate,
+    endDate,
+    dimensions: ["pagePath"],
+    metrics: ["activeUsers", "sessions", "screenPageViews"],
+    dimensionFilter: monitoredPathFilter(),
+    limit: MONITORED_GROWTH_PAGES.length,
+  });
+
+  return new Map(
+    (response.rows ?? []).map((row) => [
+      row.dimensionValues?.[0]?.value ?? "",
+      {
+        activeUsers: metricValue(row, 0),
+        sessions: metricValue(row, 1),
+        screenPageViews: metricValue(row, 2),
+      },
+    ])
+  );
+}
+
+async function getGaGrowthPageFunnel(): Promise<Map<string, GrowthPageFunnel>> {
+  const response = await runGaReport({
+    startDate: "7daysAgo",
+    endDate: "yesterday",
+    dimensions: ["pagePath", "eventName"],
+    metrics: ["eventCount"],
+    dimensionFilter: {
+      andGroup: {
+        expressions: [
+          monitoredPathFilter(),
+          {
+            filter: {
+              fieldName: "eventName",
+              inListFilter: {
+                values: [...FUNNEL_EVENT_NAMES],
+                caseSensitive: true,
+              },
+            },
+          },
+        ],
+      },
+    },
+    limit: MONITORED_GROWTH_PAGES.length * FUNNEL_EVENT_NAMES.length,
+  });
+
+  const result = new Map<string, GrowthPageFunnel>();
+  for (const row of response.rows ?? []) {
+    const path = row.dimensionValues?.[0]?.value ?? "";
+    const event = row.dimensionValues?.[1]?.value ?? "";
+    const funnel = result.get(path) ?? emptyGrowthFunnel();
+    const value = metricValue(row, 0);
+    if (event === "generate_start") funnel.starts = value;
+    if (event === "generate_success") funnel.successes = value;
+    if (event === "generate_error") funnel.errors = value;
+    if (event === "copy_result") funnel.copies = value;
+    if (event === "save_result") funnel.saves = value;
+    if (event === "share_result") funnel.shares = value;
+    if (event === "timer_start") funnel.timerStarts = value;
+    if (event === "timer_complete") funnel.timerCompletes = value;
+    result.set(path, funnel);
+  }
+  return result;
+}
+
+async function getGaGrowthPages(): Promise<{
+  current7: Map<string, GrowthGaPeriod>;
+  previous7: Map<string, GrowthGaPeriod>;
+  funnels: Map<string, GrowthPageFunnel>;
+}> {
+  // Run sequentially to preserve reporting API concurrency headroom.
+  const current7 = await getGaGrowthPagePeriod("7daysAgo", "yesterday");
+  const previous7 = await getGaGrowthPagePeriod("14daysAgo", "8daysAgo");
+  const funnels = await getGaGrowthPageFunnel();
+  return { current7, previous7, funnels };
 }
 
 async function getGaPages(): Promise<GaPageRow[]> {
@@ -476,6 +666,53 @@ async function getGscDimension(
   }));
 }
 
+async function getGscGrowthPages(
+  current7Range: { startDate: string; endDate: string },
+  previous7Range: { startDate: string; endDate: string }
+): Promise<{
+  current7: Map<string, GscSummary>;
+  previous7: Map<string, GscSummary>;
+}> {
+  const mapRows = (rows: GscDimensionRow[]) => {
+    const result = new Map<string, GscSummary>();
+    for (const row of rows) {
+      try {
+        const url = new URL(row.key);
+        result.set(url.pathname, {
+          clicks: row.clicks,
+          impressions: row.impressions,
+          ctr: row.ctr,
+          position: row.position,
+        });
+      } catch {
+        // Ignore malformed page keys instead of failing the entire dashboard.
+      }
+    }
+    return result;
+  };
+
+  // The property has fewer than 200 indexable URLs, so reading the page
+  // dimension once per period is cheaper and more reliable than one request
+  // per monitored page. Missing rows are intentionally represented as zero.
+  const current7Rows = await getGscDimension(
+    current7Range.startDate,
+    current7Range.endDate,
+    "page",
+    1_000
+  );
+  const previous7Rows = await getGscDimension(
+    previous7Range.startDate,
+    previous7Range.endDate,
+    "page",
+    1_000
+  );
+  return { current7: mapRows(current7Rows), previous7: mapRows(previous7Rows) };
+}
+
+function emptyGscSummary(): GscSummary {
+  return { clicks: 0, impressions: 0, ctr: 0, position: 0 };
+}
+
 export function reportingConfigurationStatus() {
   return {
     credentials: Boolean(process.env.GOOGLE_SERVICE_ACCOUNT_JSON_BASE64?.trim()),
@@ -544,9 +781,10 @@ export async function getAnalyticsDashboardData(
     gaPrevious7,
     gaCurrent28,
     gaPrevious28,
-    gaEvents,
+    gaEventWindows,
     gaPages,
     gaDaily,
+    gaGrowthPages,
     gscCurrent7,
     gscPrevious7,
     gscCurrent28,
@@ -554,6 +792,7 @@ export async function getAnalyticsDashboardData(
     gscPages,
     gscQueries,
     gscDaily,
+    gscGrowthPages,
   ] = await Promise.all([
     getGaSummary("today", "today"),
     getGaSummary("yesterday", "yesterday"),
@@ -561,9 +800,10 @@ export async function getAnalyticsDashboardData(
     getGaSummary("14daysAgo", "8daysAgo"),
     getGaSummary("28daysAgo", "yesterday"),
     getGaSummary("56daysAgo", "29daysAgo"),
-    getGaEvents(),
+    getGaEventWindows(),
     getGaPages(),
     getGaDaily(),
+    getGaGrowthPages(),
     getGscSummary(current7Range.startDate, current7Range.endDate),
     getGscSummary(previous7Range.startDate, previous7Range.endDate),
     getGscSummary(current28Range.startDate, current28Range.endDate),
@@ -586,7 +826,21 @@ export async function getAnalyticsDashboardData(
       "date",
       40
     ),
+    getGscGrowthPages(current7Range, previous7Range),
   ]);
+
+  const growthPages: GrowthPageRow[] = MONITORED_GROWTH_PAGES.map((page) => ({
+    ...page,
+    ga4: {
+      current7: gaGrowthPages.current7.get(page.path) ?? emptyGaPeriod(),
+      previous7: gaGrowthPages.previous7.get(page.path) ?? emptyGaPeriod(),
+      funnel7: gaGrowthPages.funnels.get(page.path) ?? emptyGrowthFunnel(),
+    },
+    searchConsole: {
+      current7: gscGrowthPages.current7.get(page.path) ?? emptyGscSummary(),
+      previous7: gscGrowthPages.previous7.get(page.path) ?? emptyGscSummary(),
+    },
+  }));
 
   const value: AnalyticsDashboardData = {
     generatedAt: new Date().toISOString(),
@@ -597,7 +851,9 @@ export async function getAnalyticsDashboardData(
       previous7: gaPrevious7,
       current28: gaCurrent28,
       previous28: gaPrevious28,
-      events28: gaEvents,
+      events7: gaEventWindows.current7,
+      previousEvents7: gaEventWindows.previous7,
+      events28: gaEventWindows.current28,
       pages28: gaPages,
       daily28: gaDaily,
     },
@@ -615,6 +871,7 @@ export async function getAnalyticsDashboardData(
       queries28: gscQueries,
       daily28: gscDaily,
     },
+    growthPages,
   };
 
   cachedDashboard = { value, expiresAt: Date.now() + DASHBOARD_CACHE_MS };

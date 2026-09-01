@@ -6,6 +6,7 @@ import {
   getAnalyticsDashboardData,
   type GaEventRow,
   type GaPageRow,
+  type GrowthPageRow,
   type GscDimensionRow,
 } from "@/lib/googleReporting";
 
@@ -25,6 +26,20 @@ const decimal = new Intl.NumberFormat("en-US", {
 
 function formatPercent(value: number): string {
   return `${decimal.format(value * 100)}%`;
+}
+
+function ratio(numerator: number, denominator: number): number {
+  return denominator > 0 ? numerator / denominator : 0;
+}
+
+function eventByName(rows: GaEventRow[], name: string): GaEventRow {
+  return rows.find((row) => row.eventName === name) ?? {
+    eventName: name,
+    eventCount: 0,
+    keyEvents: 0,
+    totalUsers: 0,
+    sessions: 0,
+  };
 }
 function changePercent(
   current: number,
@@ -109,10 +124,12 @@ function Section({ title, subtitle, children }: { title: string; subtitle: strin
 function EventTable({ rows }: { rows: GaEventRow[] }) {
   return (
     <div className="glass-card overflow-x-auto">
-      <table className="w-full min-w-[520px] text-left text-sm">
+      <table className="w-full min-w-[760px] text-left text-sm">
         <thead className="border-b border-white/10 text-[var(--text-muted)]">
           <tr>
             <th className="px-5 py-3 font-medium">Event</th>
+            <th className="px-5 py-3 text-right font-medium">Users</th>
+            <th className="px-5 py-3 text-right font-medium">Sessions</th>
             <th className="px-5 py-3 text-right font-medium">Events</th>
             <th className="px-5 py-3 text-right font-medium">Key events</th>
           </tr>
@@ -121,18 +138,95 @@ function EventTable({ rows }: { rows: GaEventRow[] }) {
           {rows.length ? (
             rows.map((row) => (
               <tr key={row.eventName} className="border-b border-white/5 last:border-0">
-                <td className="px-5 py-3 font-mono text-xs text-cyan-200">{row.eventName}</td>
+                <td className="px-5 py-3 font-mono text-xs text-cyan-200">
+                  {row.eventName}
+                  {row.eventName === "generate_topic" ? (
+                    <span className="ml-2 rounded-full bg-amber-300/10 px-2 py-0.5 font-sans text-[10px] text-amber-200">
+                      legacy · retired
+                    </span>
+                  ) : null}
+                </td>
+                <td className="px-5 py-3 text-right text-white">{integer.format(row.totalUsers)}</td>
+                <td className="px-5 py-3 text-right text-white">{integer.format(row.sessions)}</td>
                 <td className="px-5 py-3 text-right text-white">{integer.format(row.eventCount)}</td>
                 <td className="px-5 py-3 text-right text-white">{integer.format(row.keyEvents)}</td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan={3} className="px-5 py-8 text-center text-[var(--text-muted)]">
+              <td colSpan={5} className="px-5 py-8 text-center text-[var(--text-muted)]">
                 These events have not appeared in the selected period yet.
               </td>
             </tr>
           )}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function GrowthPagesTable({ rows }: { rows: GrowthPageRow[] }) {
+  return (
+    <div className="glass-card overflow-x-auto">
+      <table className="w-full min-w-[1240px] text-left text-sm">
+        <thead className="border-b border-white/10 text-[var(--text-muted)]">
+          <tr>
+            <th className="px-4 py-3 font-medium">Growth page</th>
+            <th className="px-4 py-3 text-right font-medium">GA users</th>
+            <th className="px-4 py-3 text-right font-medium">vs prior 7d</th>
+            <th className="px-4 py-3 text-right font-medium">Views</th>
+            <th className="px-4 py-3 text-right font-medium">Success / actions</th>
+            <th className="px-4 py-3 text-right font-medium">GSC clicks</th>
+            <th className="px-4 py-3 text-right font-medium">Impressions</th>
+            <th className="px-4 py-3 text-right font-medium">CTR</th>
+            <th className="px-4 py-3 text-right font-medium">Position</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => {
+            const actions = row.ga4.funnel7.copies + row.ga4.funnel7.saves + row.ga4.funnel7.shares;
+            return (
+              <tr key={row.path} className="border-b border-white/5 last:border-0">
+                <td className="px-4 py-3">
+                  <Link href={row.path} className="font-semibold text-cyan-100 hover:text-cyan-300">
+                    {row.label}
+                  </Link>
+                  {row.launchedRecently ? (
+                    <span className="ml-2 rounded-full bg-violet-400/10 px-2 py-0.5 text-[10px] text-violet-200">
+                      new premium
+                    </span>
+                  ) : null}
+                  <p className="mt-1 max-w-xs truncate font-mono text-[10px] text-[var(--text-muted)]" title={row.path}>
+                    {row.path}
+                  </p>
+                </td>
+                <td className="px-4 py-3 text-right text-white">{integer.format(row.ga4.current7.activeUsers)}</td>
+                <td className="px-4 py-3 text-right">
+                  <ChangePill current={row.ga4.current7.activeUsers} previous={row.ga4.previous7.activeUsers} />
+                </td>
+                <td className="px-4 py-3 text-right">{integer.format(row.ga4.current7.screenPageViews)}</td>
+                <td className="px-4 py-3 text-right">
+                  {integer.format(row.ga4.funnel7.successes)} / {integer.format(actions)}
+                </td>
+                <td className="px-4 py-3 text-right">
+                  <div>{integer.format(row.searchConsole.current7.clicks)}</div>
+                  <div className="mt-1">
+                    <ChangePill
+                      current={row.searchConsole.current7.clicks}
+                      previous={row.searchConsole.previous7.clicks}
+                    />
+                  </div>
+                </td>
+                <td className="px-4 py-3 text-right">{integer.format(row.searchConsole.current7.impressions)}</td>
+                <td className="px-4 py-3 text-right">{formatPercent(row.searchConsole.current7.ctr)}</td>
+                <td className="px-4 py-3 text-right">
+                  {row.searchConsole.current7.impressions > 0
+                    ? decimal.format(row.searchConsole.current7.position)
+                    : "—"}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
@@ -280,6 +374,16 @@ export default async function AnalyticsPage({
   const ga = data.ga4;
   const gsc = data.searchConsole;
   const configured = isAnalyticsAuthConfigured();
+  const currentStart = eventByName(ga.events7, "generate_start");
+  const previousStart = eventByName(ga.previousEvents7, "generate_start");
+  const currentSuccess = eventByName(ga.events7, "generate_success");
+  const previousSuccess = eventByName(ga.previousEvents7, "generate_success");
+  const currentError = eventByName(ga.events7, "generate_error");
+  const currentCopy = eventByName(ga.events7, "copy_result");
+  const previousCopy = eventByName(ga.previousEvents7, "copy_result");
+  const currentSave = eventByName(ga.events7, "save_result");
+  const previousSave = eventByName(ga.previousEvents7, "save_result");
+  const currentShare = eventByName(ga.events7, "share_result");
 
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:py-12">
@@ -312,12 +416,49 @@ export default async function AnalyticsPage({
             <MetricCard label="Active users" value={integer.format(ga.current7.activeUsers)} current={ga.current7.activeUsers} previous={ga.previous7.activeUsers} note={`Today ${integer.format(ga.today.activeUsers)} · Yesterday ${integer.format(ga.yesterday.activeUsers)}`} />
             <MetricCard label="Sessions" value={integer.format(ga.current7.sessions)} current={ga.current7.sessions} previous={ga.previous7.sessions} note={`Today ${integer.format(ga.today.sessions)} · Yesterday ${integer.format(ga.yesterday.sessions)}`} />
             <MetricCard label="Page views" value={integer.format(ga.current7.screenPageViews)} current={ga.current7.screenPageViews} previous={ga.previous7.screenPageViews} note={`28 days ${integer.format(ga.current28.screenPageViews)}`} />
-            <MetricCard label="Key events" value={integer.format(ga.current7.keyEvents)} current={ga.current7.keyEvents} previous={ga.previous7.keyEvents} note={`28 days ${integer.format(ga.current28.keyEvents)}`} />
+            <MetricCard label="Successful generations" value={integer.format(currentSuccess.eventCount)} current={currentSuccess.eventCount} previous={previousSuccess.eventCount} note={`${integer.format(currentSuccess.totalUsers)} users · legacy key event excluded`} />
           </div>
         </Section>
 
-        <Section title="GA4 · 转化事件" subtitle="最近 28 天；新成功事件与旧关键事件兼容别名会分别展示。">
+        <Section title="GA4 · 有效转化漏斗" subtitle="最近 7 个完整自然日；用户与会话去重后计算，不再把重复生成次数当作独立转化。">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <MetricCard
+              label="Users who generated"
+              value={integer.format(currentSuccess.totalUsers)}
+              current={currentSuccess.totalUsers}
+              previous={previousSuccess.totalUsers}
+              note={`${integer.format(currentSuccess.sessions)} sessions · ${integer.format(currentSuccess.eventCount)} successful results`}
+            />
+            <MetricCard
+              label="Technical success rate"
+              value={formatPercent(ratio(currentSuccess.eventCount, currentStart.eventCount))}
+              current={ratio(currentSuccess.eventCount, currentStart.eventCount)}
+              previous={ratio(previousSuccess.eventCount, previousStart.eventCount)}
+              note={`${integer.format(currentError.eventCount)} errors · based on start/success events`}
+            />
+            <MetricCard
+              label="Copy user conversion"
+              value={formatPercent(ratio(currentCopy.totalUsers, currentSuccess.totalUsers))}
+              current={ratio(currentCopy.totalUsers, currentSuccess.totalUsers)}
+              previous={ratio(previousCopy.totalUsers, previousSuccess.totalUsers)}
+              note={`${integer.format(currentCopy.totalUsers)} users · ${integer.format(currentCopy.sessions)} sessions copied`}
+            />
+            <MetricCard
+              label="Save user conversion"
+              value={formatPercent(ratio(currentSave.totalUsers, currentSuccess.totalUsers))}
+              current={ratio(currentSave.totalUsers, currentSuccess.totalUsers)}
+              previous={ratio(previousSave.totalUsers, previousSuccess.totalUsers)}
+              note={`${integer.format(currentSave.totalUsers)} saved · ${integer.format(currentShare.totalUsers)} shared`}
+            />
+          </div>
+        </Section>
+
+        <Section title="GA4 · 事件明细" subtitle="最近 28 个完整自然日；generate_topic 已停用，只保留历史参考，业务 KPI 使用 generate_success。">
           <EventTable rows={ga.events28} />
+        </Section>
+
+        <Section title="精品页增长记分板" subtitle={`固定跟踪 12 个目标页；GA4 为最近 7 个完整自然日，GSC 为 ${gsc.current7Range.startDate} 至 ${gsc.current7Range.endDate}。Success / actions = 成功生成 / 复制、收藏、分享事件。`}>
+          <GrowthPagesTable rows={data.growthPages} />
         </Section>
 
         <Section title="GA4 · 页面表现" subtitle="最近 28 天，按页面浏览量排序。">

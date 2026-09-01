@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Topic } from "@/data/types";
 import { Locale, defaultLocale } from "@/i18n/config";
+import { copyText } from "@/lib/clipboard";
 import { track } from "@/lib/track";
 
 interface ShareButtonsProps {
@@ -31,6 +32,7 @@ function topicShareUrl(topic: Topic, locale: Locale): string {
 
 export default function ShareButtons({ topic, locale = defaultLocale }: ShareButtonsProps) {
   const [linkCopied, setLinkCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
 
   const shareText = `${topic.text} — via randomtopics.app`;
   const shareUrl = topicShareUrl(topic, locale);
@@ -41,7 +43,18 @@ export default function ShareButtons({ topic, locale = defaultLocale }: ShareBut
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText + " " + shareUrl)}`;
 
   const copyLink = async () => {
-    await navigator.clipboard.writeText(shareUrl);
+    const copied = await copyText(shareUrl);
+    if (!copied) {
+      setCopyFailed(true);
+      track("copy_error", {
+        tool_type: "topic_card",
+        result_type: "share_link",
+        topic_id: topic.id,
+        topic_category: topic.category,
+        topic_locale: locale,
+      });
+      return;
+    }
     track("share_result", {
       tool_type: "topic_card",
       result_type: "topic",
@@ -50,6 +63,7 @@ export default function ShareButtons({ topic, locale = defaultLocale }: ShareBut
       share_method: "copy_link",
       topic_locale: locale,
     });
+    setCopyFailed(false);
     setLinkCopied(true);
     setTimeout(() => setLinkCopied(false), 2000);
   };
@@ -69,7 +83,8 @@ export default function ShareButtons({ topic, locale = defaultLocale }: ShareBut
     "p-1.5 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[rgba(255,255,255,0.04)] hover:border-[rgba(255,255,255,0.12)] transition-all";
 
   return (
-    <div className="flex items-center gap-1.5">
+    <div className="flex flex-col items-end gap-2">
+      <div className="flex items-center gap-1.5">
       <a
         href={twitterUrl}
         target="_blank"
@@ -110,6 +125,16 @@ export default function ShareButtons({ topic, locale = defaultLocale }: ShareBut
           </svg>
         )}
       </button>
+      </div>
+      {copyFailed ? (
+        <input
+          readOnly
+          value={shareUrl}
+          aria-label={locale === "es" ? "Enlace para copiar manualmente" : "Link to copy manually"}
+          onFocus={(event) => event.currentTarget.select()}
+          className="w-44 rounded-lg border border-amber-300/20 bg-black/20 px-2 py-1 text-[10px] text-amber-100 outline-none focus:border-amber-300/50 sm:w-56"
+        />
+      ) : null}
     </div>
   );
 }

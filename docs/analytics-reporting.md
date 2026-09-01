@@ -21,3 +21,13 @@ Never commit the service-account JSON, its private key, or decoded credentials. 
 - Internal pages and APIs are excluded by both robots rules and `X-Robots-Tag` headers.
 
 After changing production environment variables, trigger a production deployment and verify the health endpoint. Rotate the service-account key immediately if it is ever exposed, then replace the production secret and redeploy.
+
+## Conversion definitions
+
+- `generate_start` records an attempt.
+- `generate_success` is the primary generation outcome and the only generation event used in current conversion reporting.
+- `generate_topic` is a retired historical event. It stopped emitting on 2026-09-01 and must not be added to current-period conversion totals.
+- Copy, save, and share conversion cards use unique event users and sessions rather than raw event counts. This prevents one visitor repeatedly generating topics from being counted as many converted visitors.
+- Technical success rate is the ratio of `generate_success` events to `generate_start` events. User conversion is intentionally calculated separately.
+
+The growth scorecard always returns every monitored URL, including zero-data rows. Its page list covers the four premium collections plus the highest-opportunity parent pages, so newly launched pages do not disappear merely because they have not entered a top-pages report yet.
