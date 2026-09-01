@@ -6,6 +6,7 @@ import { Topic, CATEGORIES } from "@/data/types";
 import ShareButtons from "./ShareButtons";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { getDict, CATEGORY_LABELS } from "@/i18n/dictionaries";
+import { copyText } from "@/lib/clipboard";
 import { track } from "@/lib/track";
 import {
   getEmptyTopicLibrarySnapshot,
@@ -40,6 +41,7 @@ const depthColors = {
 
 export default function TopicCard({ topic, index = 0, locale = defaultLocale }: TopicCardProps) {
   const [copied, setCopied] = useState(false);
+  const [manualCopyText, setManualCopyText] = useState<string | null>(null);
   const t = getDict(locale);
   const categoryEmoji = CATEGORIES.find((c) => c.id === topic.category)?.emoji;
   const categoryLabel = CATEGORY_LABELS[locale][topic.category]?.label;
@@ -53,7 +55,18 @@ export default function TopicCard({ topic, index = 0, locale = defaultLocale }: 
   const isFav = (JSON.parse(favoriteSnapshot) as Topic[]).some((saved) => saved.id === topic.id);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(topic.text);
+    const copiedSuccessfully = await copyText(topic.text);
+    if (!copiedSuccessfully) {
+      setManualCopyText(topic.text);
+      track("copy_error", {
+        tool_type: "topic_card",
+        result_type: "topic",
+        topic_id: topic.id,
+        copy_surface: "generated_card",
+        topic_locale: locale,
+      });
+      return;
+    }
     track("copy_result", {
       tool_type: "topic_card",
       result_type: "topic",
@@ -62,6 +75,7 @@ export default function TopicCard({ topic, index = 0, locale = defaultLocale }: 
       copy_surface: "generated_card",
       topic_locale: locale,
     });
+    setManualCopyText(null);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -132,78 +146,6 @@ export default function TopicCard({ topic, index = 0, locale = defaultLocale }: 
           </span>
         </div>
 
-        {/* Favorite + Copy buttons */}
-        <div className="flex items-center gap-1.5">
-        <button
-          onClick={handleFavorite}
-          title={isFav ? t.card.removeFav : t.card.saveFav}
-          style={{
-            flexShrink: 0,
-            padding: "8px",
-            borderRadius: "10px",
-            border: "1px solid rgba(255,255,255,0.06)",
-            background: isFav ? "rgba(255, 45, 120, 0.1)" : "transparent",
-            color: isFav ? "var(--neon-pink)" : "var(--text-muted)",
-            cursor: "pointer",
-            transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill={isFav ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-          </svg>
-        </button>
-        <button
-          onClick={handleCopy}
-          title={t.card.copy}
-          style={{
-            flexShrink: 0,
-            padding: "8px",
-            borderRadius: "10px",
-            border: "1px solid rgba(255,255,255,0.06)",
-            background: "transparent",
-            color: copied ? "var(--neon-green)" : "var(--text-muted)",
-            cursor: "pointer",
-            transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
-          onMouseEnter={(e) => {
-            const el = e.currentTarget;
-            el.style.color = "var(--neon-cyan)";
-            el.style.borderColor = "rgba(0, 229, 255, 0.3)";
-            el.style.background = "rgba(0, 229, 255, 0.08)";
-            el.style.boxShadow = "0 0 16px rgba(0, 229, 255, 0.2)";
-          }}
-          onMouseLeave={(e) => {
-            const el = e.currentTarget;
-            el.style.color = copied ? "var(--neon-green)" : "var(--text-muted)";
-            el.style.borderColor = "rgba(255,255,255,0.06)";
-            el.style.background = "transparent";
-            el.style.boxShadow = "none";
-          }}
-        >
-          {copied ? (
-            <svg
-              width="18"
-              height="18"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M5 9l3 3 5-5" />
-            </svg>
-          ) : (
-            <svg
-              width="18"
-              height="18"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <rect x="6" y="6" width="10" height="10" rx="2" />
-              <path d="M4 12V4a2 2 0 012-2h8" />
-            </svg>
-          )}
-        </button>
-        </div>
       </div>
 
       {/* Topic heading */}
@@ -263,6 +205,50 @@ export default function TopicCard({ topic, index = 0, locale = defaultLocale }: 
         </ul>
       )}
 
+      <div
+        className="mt-5 flex flex-wrap gap-2"
+        style={{ position: "relative", zIndex: 1 }}
+        aria-label={locale === "es" ? "Acciones del tema" : "Topic actions"}
+      >
+        <button
+          type="button"
+          onClick={handleCopy}
+          className="inline-flex items-center gap-2 rounded-xl border border-[var(--neon-cyan)]/30 bg-[var(--neon-cyan)]/10 px-4 py-2.5 text-sm font-semibold text-[var(--neon-cyan)] transition-colors hover:bg-[var(--neon-cyan)]/15"
+        >
+          <span aria-hidden="true">{copied ? "✓" : "⧉"}</span>
+          {copied ? (locale === "es" ? "Copiado" : "Copied") : t.card.copy}
+        </button>
+        <button
+          type="button"
+          onClick={handleFavorite}
+          className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition-colors ${
+            isFav
+              ? "border-[var(--neon-pink)]/40 bg-[var(--neon-pink)]/10 text-[var(--neon-pink)]"
+              : "border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-pink)]/30"
+          }`}
+        >
+          <span aria-hidden="true">{isFav ? "♥" : "♡"}</span>
+          {isFav ? t.card.removeFav : t.card.saveFav}
+        </button>
+      </div>
+
+      {manualCopyText ? (
+        <div className="mt-3 rounded-xl border border-amber-300/20 bg-amber-300/5 p-3" style={{ position: "relative", zIndex: 1 }}>
+          <label className="text-xs text-amber-100" htmlFor={`manual-copy-${topic.id}`}>
+            {locale === "es"
+              ? "Tu navegador bloqueó la copia automática. Selecciona el texto:"
+              : "Your browser blocked automatic copying. Select the text below:"}
+          </label>
+          <input
+            id={`manual-copy-${topic.id}`}
+            readOnly
+            value={manualCopyText}
+            onFocus={(event) => event.currentTarget.select()}
+            className="mt-2 w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-white outline-none focus:border-amber-300/40"
+          />
+        </div>
+      ) : null}
+
       {/* Mode tags + share buttons */}
       <div
         className="flex items-center justify-between gap-3 mt-4 pt-4"
@@ -292,7 +278,10 @@ export default function TopicCard({ topic, index = 0, locale = defaultLocale }: 
             </span>
           ))}
         </div>
-        <ShareButtons topic={topic} locale={locale} />
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-[var(--text-muted)]">{locale === "es" ? "Compartir" : "Share"}</span>
+          <ShareButtons topic={topic} locale={locale} />
+        </div>
       </div>
     </motion.div>
   );

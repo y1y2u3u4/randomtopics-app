@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Topic, Mode, Category, Depth, CATEGORIES, MODES, DEPTHS } from "@/data/types";
 import { getLocalizedTopics } from "@/data/topics.es";
 import TopicCard from "./TopicCard";
+import { copyText } from "@/lib/clipboard";
 import { track } from "@/lib/track";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { getDict, MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
@@ -40,6 +41,8 @@ export default function TopicGenerator({
   const [generatedTopics, setGeneratedTopics] = useState<Topic[]>([]);
   const [isSpinning, setIsSpinning] = useState(false);
   const [hasGenerated, setHasGenerated] = useState(false);
+  const [copiedAll, setCopiedAll] = useState(false);
+  const [manualCopyText, setManualCopyText] = useState<string | null>(null);
 
   const generateFromStatic = useCallback(() => {
     let pool = [...getLocalizedTopics(locale)];
@@ -55,6 +58,8 @@ export default function TopicGenerator({
     recordRecentTopics(nextTopics);
     setIsSpinning(false);
     setHasGenerated(true);
+    setCopiedAll(false);
+    setManualCopyText(null);
     track(nextTopics.length > 0 ? "generate_success" : "generate_error", {
       tool_type: "topic_generator",
       generator_mode: selectedMode ?? "any",
@@ -114,6 +119,47 @@ export default function TopicGenerator({
       finishGeneration(generateFromStatic(), "static_fallback");
     }
   }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, finishGeneration, locale]);
+
+  const generateAgain = useCallback(() => {
+    track("repeat_generate", {
+      tool_type: "topic_generator",
+      generator_mode: selectedMode ?? "any",
+      generator_category: selectedCategory ?? "any",
+      generator_depth: selectedDepth ?? "any",
+      requested_count: count,
+      locale,
+    });
+    void generate();
+  }, [count, generate, locale, selectedCategory, selectedDepth, selectedMode]);
+
+  const copyAllGenerated = useCallback(async () => {
+    if (generatedTopics.length === 0) return;
+    const text = generatedTopics
+      .map((topic, index) => `${index + 1}. ${topic.text}`)
+      .join("\n");
+    const copiedSuccessfully = await copyText(text);
+    if (!copiedSuccessfully) {
+      setManualCopyText(text);
+      track("copy_error", {
+        tool_type: "topic_generator",
+        result_type: "topic_batch",
+        result_count: generatedTopics.length,
+        copy_surface: "results_action_bar",
+        locale,
+      });
+      return;
+    }
+    setManualCopyText(null);
+    setCopiedAll(true);
+    window.setTimeout(() => setCopiedAll(false), 1800);
+    track("copy_result", {
+      tool_type: "topic_generator",
+      result_type: "topic_batch",
+      result_count: generatedTopics.length,
+      copy_surface: "results_action_bar",
+      locale,
+    });
+  }, [generatedTopics, locale]);
 
   const showModeSelector = !initialMode;
   const showCategorySelector = !initialCategory;
@@ -276,6 +322,51 @@ export default function TopicGenerator({
                 {generatedTopics.map((topic, i) => (
                   <TopicCard key={topic.id} topic={topic} index={i} locale={locale} />
                 ))}
+                <div className="glass-card border-[var(--neon-cyan)]/20 p-5 sm:p-6">
+                  <p className="text-center text-sm font-semibold text-[var(--text-primary)]">
+                    {locale === "es" ? "¿Quieres otra opción?" : "Want another option?"}
+                  </p>
+                  <div className="mt-4 flex flex-col justify-center gap-3 sm:flex-row">
+                    <button
+                      type="button"
+                      onClick={generateAgain}
+                      disabled={isSpinning}
+                      className="btn-generate inline-flex items-center justify-center gap-2 disabled:opacity-70"
+                    >
+                      <span aria-hidden="true">🎲</span>
+                      {isSpinning
+                        ? (locale === "es" ? "Generando…" : "Generating…")
+                        : (locale === "es" ? "Generar otros temas" : "Generate next topics")}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={copyAllGenerated}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 px-5 py-2.5 text-sm font-semibold text-[var(--text-secondary)] transition-colors hover:border-[var(--neon-cyan)]/40 hover:text-[var(--neon-cyan)]"
+                    >
+                      <span aria-hidden="true">{copiedAll ? "✓" : "⧉"}</span>
+                      {copiedAll
+                        ? (locale === "es" ? "Copiados" : "Copied")
+                        : (locale === "es" ? "Copiar resultados" : "Copy results")}
+                    </button>
+                  </div>
+                  {manualCopyText ? (
+                    <div className="mx-auto mt-4 max-w-2xl rounded-xl border border-amber-300/20 bg-amber-300/5 p-3">
+                      <label className="text-xs text-amber-100" htmlFor="manual-copy-generated-topics">
+                        {locale === "es"
+                          ? "La copia automática está bloqueada. Selecciona los resultados:"
+                          : "Automatic copying is blocked. Select the results below:"}
+                      </label>
+                      <textarea
+                        id="manual-copy-generated-topics"
+                        readOnly
+                        value={manualCopyText}
+                        rows={Math.min(6, generatedTopics.length + 1)}
+                        onFocus={(event) => event.currentTarget.select()}
+                        className="mt-2 w-full resize-none rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-white outline-none focus:border-amber-300/40"
+                      />
+                    </div>
+                  ) : null}
+                </div>
                 <div className="glass-card p-5 sm:p-6">
                   <p className="text-sm font-semibold text-[var(--text-primary)] mb-3">
                     {locale === "es" ? "Guarda tus favoritos o sigue explorando" : "Save your favorites or keep exploring"}

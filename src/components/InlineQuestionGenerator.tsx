@@ -3,6 +3,7 @@
 import { useCallback, useState } from "react";
 import { track } from "@/lib/track";
 import type { Locale } from "@/i18n/config";
+import { copyText } from "@/lib/clipboard";
 
 interface InlineQuestionGeneratorProps {
   items: string[];
@@ -26,6 +27,7 @@ export default function InlineQuestionGenerator({
   const [used, setUsed] = useState<Set<number>>(new Set());
   const [copied, setCopied] = useState(false);
   const [shared, setShared] = useState(false);
+  const [manualCopyText, setManualCopyText] = useState<string | null>(null);
 
   const current = currentIndex === null ? null : items[currentIndex];
 
@@ -51,6 +53,7 @@ export default function InlineQuestionGenerator({
     setCurrentIndex(nextIndex);
     setCopied(false);
     setShared(false);
+    setManualCopyText(null);
     track("generate_success", {
       tool_type: "inline_question_generator",
       content_source: source,
@@ -62,18 +65,25 @@ export default function InlineQuestionGenerator({
 
   const copy = useCallback(async () => {
     if (!current) return;
-    try {
-      await navigator.clipboard.writeText(current);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1600);
-      track("copy_result", {
+    const copiedSuccessfully = await copyText(current);
+    if (!copiedSuccessfully) {
+      setCopied(false);
+      setManualCopyText(current);
+      track("copy_error", {
         tool_type: "inline_question_generator",
         content_source: source,
         locale,
       });
-    } catch {
-      setCopied(false);
+      return;
     }
+    setManualCopyText(null);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1600);
+    track("copy_result", {
+      tool_type: "inline_question_generator",
+      content_source: source,
+      locale,
+    });
   }, [current, locale, source]);
 
   const share = useCallback(async () => {
@@ -88,7 +98,18 @@ export default function InlineQuestionGenerator({
           locale,
         });
       } else {
-        await navigator.clipboard.writeText(`${current}\n${window.location.href}`);
+        const shareText = `${current}\n${window.location.href}`;
+        const copiedSuccessfully = await copyText(shareText);
+        if (!copiedSuccessfully) {
+          setManualCopyText(shareText);
+          track("share_error", {
+            tool_type: "inline_question_generator",
+            content_source: source,
+            share_method: "clipboard",
+            locale,
+          });
+          return;
+        }
         track("share_result", {
           tool_type: "inline_question_generator",
           content_source: source,
@@ -96,6 +117,7 @@ export default function InlineQuestionGenerator({
           locale,
         });
       }
+      setManualCopyText(null);
       setShared(true);
       window.setTimeout(() => setShared(false), 1600);
     } catch {
@@ -136,6 +158,23 @@ export default function InlineQuestionGenerator({
           </>
         )}
       </div>
+      {manualCopyText ? (
+        <div className="mx-auto mt-4 max-w-xl rounded-xl border border-amber-300/20 bg-amber-300/5 p-3 text-left">
+          <label className="text-xs text-amber-100" htmlFor={`manual-copy-${source}`}>
+            {isSpanish
+              ? "La copia automática está bloqueada. Selecciona el texto:"
+              : "Automatic copying is blocked. Select the text below:"}
+          </label>
+          <textarea
+            id={`manual-copy-${source}`}
+            readOnly
+            value={manualCopyText}
+            rows={3}
+            onFocus={(event) => event.currentTarget.select()}
+            className="mt-2 w-full resize-none rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-white outline-none focus:border-amber-300/40"
+          />
+        </div>
+      ) : null}
       <p className="mt-4 text-center text-xs text-[var(--text-muted)]">
         {items.length} {isSpanish ? "opciones · sin repeticiones hasta completar la lista" : "prompts · no repeats until the collection is complete"}
       </p>

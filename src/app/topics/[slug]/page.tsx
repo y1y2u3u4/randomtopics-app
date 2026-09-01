@@ -253,8 +253,40 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 actionLabel="Draw a Table Topic"
               />
             </section>
+            <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-6">
+              <div className="glass-card p-6 sm:p-8">
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--neon-pink)]">Meeting-ready practice</p>
+                <h2 className="mt-2 text-xl sm:text-2xl font-bold text-[var(--text-primary)]">Run a Complete Table Topics Drill</h2>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+                  Use one repeatable round so every prompt becomes useful speaking practice, not just another question list.
+                </p>
+                <ol className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {[
+                    ["1", "Draw", "Pick one prompt above without previewing the list."],
+                    ["2", "Think", "Take 15 seconds to choose one clear message and example."],
+                    ["3", "Speak", "Start the timer and answer for one to two minutes."],
+                    ["4", "Review", "Check your opening, structure, example, and final sentence."],
+                  ].map(([number, heading, text]) => (
+                    <li key={number} className="rounded-xl border border-white/10 bg-black/10 p-4">
+                      <div className="flex items-start gap-3">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--neon-cyan)]/10 text-xs font-bold text-[var(--neon-cyan)]">{number}</span>
+                        <div>
+                          <h3 className="font-semibold text-[var(--text-primary)]">{heading}</h3>
+                          <p className="mt-1 text-xs leading-5 text-[var(--text-muted)]">{text}</p>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </section>
             <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
               <SpeechTimer />
+              <div className="mt-4 flex flex-wrap justify-center gap-2 text-xs">
+                <Link href="/table-topics-generator" className="mode-chip">Open the focused generator</Link>
+                <Link href="/impromptu-speech-topics" className="mode-chip">More impromptu practice</Link>
+                <Link href="/speech" className="mode-chip">Speech practice hub</Link>
+              </div>
             </section>
           </>
         )}
