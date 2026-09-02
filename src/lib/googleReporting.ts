@@ -141,6 +141,8 @@ const MONITORED_GROWTH_PAGES = [
   { label: "Ethical · Workplace", path: "/topics/workplace-ethical-dilemmas", launchedRecently: true },
   { label: "Ethical · Adults", path: "/topics/ethical-dilemmas-for-adults", launchedRecently: true },
   { label: "Deep Conversation", path: "/deep-conversation-question-generator", launchedRecently: true },
+  { label: "Speech · 5 Minute", path: "/5-minute-speech-topics", launchedRecently: true },
+  { label: "QOTD · Funny", path: "/funny-question-of-the-day", launchedRecently: true },
   { label: "Ethical hub", path: "/topics/ethical-dilemma-questions", launchedRecently: false },
   { label: "Question of the Day", path: "/question-of-the-day", launchedRecently: false },
   { label: "Toastmasters", path: "/topics/toastmasters-table-topics", launchedRecently: false },

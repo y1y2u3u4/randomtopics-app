@@ -106,9 +106,17 @@ export const articleToPages: Record<
   "conversation-starters-for-couples": { modes: ["conversation", "icebreaker"], categories: ["relationships", "psychology"] },
   "icebreaker-questions-for-work": { modes: ["icebreaker"], categories: ["business"] },
   "writing-prompts-for-kids": { modes: ["writing"], categories: ["education", "art-culture"] },
-  "funny-conversation-topics": { modes: ["conversation"], categories: ["weird-fun", "entertainment"] },
+  "funny-conversation-topics": {
+    modes: ["conversation"],
+    categories: ["weird-fun", "entertainment"],
+    tools: [{ emoji: "😄", label: "Funny Question of the Day", href: "/funny-question-of-the-day" }],
+  },
   "deep-philosophical-questions": { modes: ["conversation", "debate"], categories: ["philosophy"] },
-  "speech-topics-for-college-students": { modes: ["speech"], categories: ["education", "politics"] },
+  "speech-topics-for-college-students": {
+    modes: ["speech"],
+    categories: ["education", "politics"],
+    tools: [{ emoji: "5️⃣", label: "Five-Minute Speech Topics", href: "/5-minute-speech-topics" }],
+  },
   "would-you-rather-questions": { modes: ["icebreaker", "conversation"], categories: ["weird-fun", "entertainment"] },
   "controversial-topics-to-discuss": { modes: ["debate", "conversation"], categories: ["politics", "philosophy"] },
   "esl-conversation-topics": { modes: ["conversation"], categories: ["education"] },
@@ -127,6 +135,7 @@ export const articleToPages: Record<
     categories: ["education", "science"],
     tools: [
       { emoji: "📊", label: "Presentation Topic Generator", href: "/presentation-topic-generator" },
+      { emoji: "5️⃣", label: "Five-Minute Speech Topics", href: "/5-minute-speech-topics" },
       { emoji: "⏱️", label: "Impromptu Speech Timer", href: "/impromptu-speech-topics" },
     ],
   },
@@ -143,6 +152,7 @@ export const articleToPages: Record<
     categories: ["business", "education"],
     tools: [
       { emoji: "🎙️", label: "Table Topics Generator", href: "/table-topics-generator" },
+      { emoji: "5️⃣", label: "Five-Minute Speech Topics", href: "/5-minute-speech-topics" },
       { emoji: "⏱️", label: "Impromptu Speech Timer", href: "/impromptu-speech-topics" },
     ],
   },
@@ -155,7 +165,10 @@ export const articleToPages: Record<
   "public-speaking-topics-for-beginners": {
     modes: ["speech"],
     categories: ["education"],
-    tools: [{ emoji: "⏱️", label: "Impromptu Speech Timer", href: "/impromptu-speech-topics" }],
+    tools: [
+      { emoji: "5️⃣", label: "Five-Minute Speech Topics", href: "/5-minute-speech-topics" },
+      { emoji: "⏱️", label: "Impromptu Speech Timer", href: "/impromptu-speech-topics" },
+    ],
   },
   "conversation-topics-for-teens": { modes: ["conversation"], categories: ["education", "relationships"] },
   "couples-game-night-questions": { modes: ["conversation", "icebreaker"], categories: ["relationships", "entertainment"] },

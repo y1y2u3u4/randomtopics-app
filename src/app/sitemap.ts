@@ -47,10 +47,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "topics/workplace-ethical-dilemmas",
     "topics/ethical-dilemmas-for-adults",
     "deep-conversation-question-generator",
+    "5-minute-speech-topics",
+    "funny-question-of-the-day",
   ]);
   const septemberPremiumPaths = new Set([
     "topics/ethical-dilemmas-for-adults",
     "deep-conversation-question-generator",
+    "5-minute-speech-topics",
+    "funny-question-of-the-day",
   ]);
   for (const p of [
     "argument-generator",
@@ -82,6 +86,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "topics/workplace-ethical-dilemmas",
     "topics/ethical-dilemmas-for-adults",
     "deep-conversation-question-generator",
+    "5-minute-speech-topics",
+    "funny-question-of-the-day",
     "paranoia-questions",
     "question-generator",
     "would-you-rather",

@@ -126,7 +126,8 @@ export default function ImpromptuSpeechPage() {
               <p>
                 Preparing a full presentation instead? Browse
                 our <Link href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> for
-                prepared speech ideas, or grab ready-made lists
+                prepared speech ideas, practice a complete timed talk with the{" "}
+                <Link href="/5-minute-speech-topics" className="text-[var(--neon-cyan)] hover:underline">five-minute speech topics and timer</Link>, or grab ready-made lists
                 like <Link href="/topics/presentation-ideas-for-school" className="text-[var(--neon-cyan)] hover:underline">presentation ideas for school</Link>.
               </p>
 

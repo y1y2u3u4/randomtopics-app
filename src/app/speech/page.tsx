@@ -146,6 +146,7 @@ export default function SpeechPage() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
+              { title: "80 Five-Minute Speech Topics + Timer", href: "/5-minute-speech-topics" },
               { title: "100+ Persuasive Speech Topics", href: "/speech/persuasive" },
               { title: "100+ Informative Speech Topics", href: "/speech/informative" },
               { title: "Impromptu Speech Topics with Timer", href: "/impromptu-speech-topics" },

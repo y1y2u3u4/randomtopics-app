@@ -62,6 +62,17 @@ export default function FunnyPage() {
           subtitle="Hilarious, weird, and wonderfully bizarre topics that'll make everyone crack up."
         />
 
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-4">
+          <Link href="/funny-question-of-the-day" className="glass-card p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-yellow)]/20 hover:border-[var(--neon-yellow)]/40 transition-colors">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-yellow)]">A repeatable daily ritual</p>
+              <h2 className="mt-2 text-lg font-bold text-[var(--text-primary)]">100 Funny Questions of the Day</h2>
+              <p className="mt-1 text-sm text-[var(--text-muted)]">Choose an audience-safe daily question, filter the complete bank, or build a printable five-day plan.</p>
+            </div>
+            <span className="text-sm font-semibold text-[var(--neon-cyan)] whitespace-nowrap">Open the funny QOTD →</span>
+          </Link>
+        </section>
+
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
