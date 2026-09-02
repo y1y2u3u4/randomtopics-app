@@ -32,11 +32,18 @@ function itemToText(item: PremiumPromptItem, style: PremiumCollectionConfig["too
     ? "Classroom question of the day"
     : style === "work"
       ? "💬 Question of the day"
-      : "Discussion prompt";
+      : style === "speech"
+        ? "Five-minute speech topic"
+        : style === "qotd"
+          ? "😄 Funny question of the day"
+          : "Discussion prompt";
   const lines = [`${prefix}: ${item.prompt}`];
   if (item.choices) lines.push(`Option A: ${item.choices[0]}`, `Option B: ${item.choices[1]}`);
   if (item.values?.length) lines.push(`Values in tension: ${item.values.join(" vs. ")}`);
-  if (item.followUps.length) lines.push(`Follow-up: ${item.followUps.join(" · ")}`);
+  if (item.followUps.length) {
+    const supportLabel = style === "speech" ? "Five-minute outline" : "Follow-up";
+    lines.push(`${supportLabel}: ${item.followUps.join(" · ")}`);
+  }
   return lines.join("\n");
 }
 
@@ -350,7 +357,7 @@ export default function PremiumPromptTool({
               ) : null}
               {current.followUps.length > 0 && (
                 <div className="mt-5 text-left rounded-xl border border-white/10 p-4">
-                  <p className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">Follow-up prompts</p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">{config.tool.supportLabel ?? "Follow-up prompts"}</p>
                   <ul className="mt-2 space-y-1.5 text-sm text-[var(--text-secondary)] list-disc pl-5">
                     {current.followUps.map((followUp) => <li key={followUp}>{followUp}</li>)}
                   </ul>

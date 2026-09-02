@@ -39,10 +39,19 @@ const STRINGS: Record<Locale, { timer: React.ReactNode; done: string; restart: s
   },
 };
 
-export default function SpeechTimer({ locale = defaultLocale }: { locale?: Locale }) {
+export default function SpeechTimer({
+  locale = defaultLocale,
+  defaultSeconds = 60,
+  contentSource = "speech_hub",
+}: {
+  locale?: Locale;
+  defaultSeconds?: number;
+  contentSource?: string;
+}) {
   const t = STRINGS[locale] || STRINGS.en;
-  const [totalSeconds, setTotalSeconds] = useState(60);
-  const [remaining, setRemaining] = useState(60);
+  const initialSeconds = PRESETS.some((preset) => preset.seconds === defaultSeconds) ? defaultSeconds : 60;
+  const [totalSeconds, setTotalSeconds] = useState(initialSeconds);
+  const [remaining, setRemaining] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
 
@@ -55,6 +64,7 @@ export default function SpeechTimer({ locale = defaultLocale }: { locale?: Local
           setIsFinished(true);
           track("timer_complete", {
             tool_type: "speech_timer",
+            content_source: contentSource,
             timer_seconds: totalSeconds,
             locale,
           });
@@ -64,15 +74,15 @@ export default function SpeechTimer({ locale = defaultLocale }: { locale?: Local
       });
     }, 1000);
     return () => clearInterval(interval);
-  }, [isRunning, remaining, totalSeconds, locale]);
+  }, [isRunning, remaining, totalSeconds, locale, contentSource]);
 
   const selectPreset = useCallback((seconds: number) => {
     setTotalSeconds(seconds);
     setRemaining(seconds);
     setIsRunning(false);
     setIsFinished(false);
-    track("timer_preset_select", { tool_type: "speech_timer", timer_seconds: seconds, locale });
-  }, [locale]);
+    track("timer_preset_select", { tool_type: "speech_timer", content_source: contentSource, timer_seconds: seconds, locale });
+  }, [locale, contentSource]);
 
   const toggleRun = useCallback(() => {
     const restarting = isFinished;
@@ -82,18 +92,19 @@ export default function SpeechTimer({ locale = defaultLocale }: { locale?: Local
     }
     track(restarting ? "timer_restart" : isRunning ? "timer_pause" : "timer_start", {
       tool_type: "speech_timer",
+      content_source: contentSource,
       timer_seconds: totalSeconds,
       locale,
     });
     setIsRunning((prev) => !prev);
-  }, [isFinished, isRunning, totalSeconds, locale]);
+  }, [isFinished, isRunning, totalSeconds, locale, contentSource]);
 
   const reset = useCallback(() => {
     setRemaining(totalSeconds);
     setIsRunning(false);
     setIsFinished(false);
-    track("timer_reset", { tool_type: "speech_timer", timer_seconds: totalSeconds, locale });
-  }, [totalSeconds, locale]);
+    track("timer_reset", { tool_type: "speech_timer", content_source: contentSource, timer_seconds: totalSeconds, locale });
+  }, [totalSeconds, locale, contentSource]);
 
   const minutes = Math.floor(remaining / 60);
   const seconds = remaining % 60;

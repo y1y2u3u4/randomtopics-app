@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PremiumPromptTool from "@/components/PremiumPromptTool";
+import SpeechTimer from "@/components/SpeechTimer";
 import type { PremiumCollectionConfig } from "@/data/premiumTypes";
 import { SITE_URL } from "@/i18n/config";
 
@@ -69,7 +70,16 @@ export default function PremiumCollectionPage({ config }: { config: PremiumColle
                 applicationCategory: config.library.category === "business" ? "BusinessApplication" : "EducationalApplication",
                 operatingSystem: "Any",
                 offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-                featureList: ["Audience filters", "No-repeat random prompts", "Copy", "Save", "Share", "Print"],
+                featureList: [
+                  "Audience filters",
+                  "No-repeat random prompts",
+                  "Copy",
+                  "Save",
+                  "Share",
+                  "Print",
+                  ...(config.tool.planner ? ["Five-day prompt planner"] : []),
+                  ...(config.tool.timer ? ["Five-minute speech timer", "Timed speech outlines"] : []),
+                ],
               },
             }),
           }}
@@ -121,6 +131,17 @@ export default function PremiumCollectionPage({ config }: { config: PremiumColle
         </section>
 
         <PremiumPromptTool config={config} initialItemId={initialItem?.id} initialDateLabel={initialDateLabel} />
+
+        {config.tool.timer && (
+          <section className="max-w-md mx-auto px-4 sm:px-6 pt-10" aria-labelledby="five-minute-practice-timer">
+            <div className="mb-4 text-center">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--neon-cyan)]">Practice the topic now</p>
+              <h2 id="five-minute-practice-timer" className="mt-2 text-2xl font-bold text-[var(--text-primary)]">Built-in 5-Minute Speech Timer</h2>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">Choose a topic above, take 30 seconds to outline it, then deliver the full speech without leaving the page.</p>
+            </div>
+            <SpeechTimer defaultSeconds={300} contentSource={config.source} />
+          </section>
+        )}
 
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-10">
           <div className="glass-card p-7 sm:p-9">

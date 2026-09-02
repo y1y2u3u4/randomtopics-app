@@ -203,6 +203,8 @@ export default function Home() {
               { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
               { title: "50 Ethical Dilemmas for Adults", href: "/topics/ethical-dilemmas-for-adults" },
               { title: "Deep Conversation Question Generator", href: "/deep-conversation-question-generator" },
+              { title: "80 Five-Minute Speech Topics + Timer", href: "/5-minute-speech-topics" },
+              { title: "100 Funny Questions of the Day", href: "/funny-question-of-the-day" },
               { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
               { title: "120 Toastmasters Table Topics", href: "/topics/toastmasters-table-topics" },
               { title: "60 Deep Questions for Your Partner", href: "/topics/deep-questions-to-ask-your-partner" },

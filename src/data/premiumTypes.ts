@@ -42,7 +42,9 @@ export interface PremiumCollectionConfig {
     description: string;
     actionLabel: string;
     emptyLabel: string;
-    copyStyle: "plain" | "classroom" | "work";
+    copyStyle: "plain" | "classroom" | "work" | "speech" | "qotd";
+    supportLabel?: string;
+    timer?: boolean;
     daily: boolean;
     planner: boolean;
   };
@@ -58,7 +60,7 @@ export interface PremiumCollectionConfig {
   faq: { question: string; answer: string }[];
   library: {
     category: "education" | "business" | "philosophy";
-    modes: ("conversation" | "debate" | "icebreaker")[];
+    modes: ("conversation" | "debate" | "icebreaker" | "speech")[];
   };
 }
 

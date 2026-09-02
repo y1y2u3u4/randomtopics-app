@@ -139,7 +139,7 @@ export default function QuestionOfTheDayPage() {
         <QuestionOfTheDay initialIdx={initialIdx} initialDateLabel={initialDateLabel} />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Link href="/question-of-the-day-for-students" className="glass-card p-6 border-[var(--neon-cyan)]/20 hover:border-[var(--neon-cyan)]/40 transition-colors">
               <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-cyan)]">For classrooms</p>
               <h2 className="mt-2 text-lg font-bold text-[var(--text-primary)]">Question of the Day for Students</h2>
@@ -149,6 +149,11 @@ export default function QuestionOfTheDayPage() {
               <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-pink)]">For teams</p>
               <h2 className="mt-2 text-lg font-bold text-[var(--text-primary)]">Question of the Day for Work</h2>
               <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">120 professional prompts for remote, hybrid, onboarding, meetings, and retrospectives.</p>
+            </Link>
+            <Link href="/funny-question-of-the-day" className="glass-card p-6 border-[var(--neon-yellow)]/20 hover:border-[var(--neon-yellow)]/40 transition-colors">
+              <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-yellow)]">For an easy laugh</p>
+              <h2 className="mt-2 text-lg font-bold text-[var(--text-primary)]">Funny Question of the Day</h2>
+              <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">100 audience-safe funny prompts, daily rotation, filters, and printable five-day plans.</p>
             </Link>
           </div>
         </section>
