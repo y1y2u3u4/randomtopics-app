@@ -6,6 +6,7 @@ const GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token";
 const ANALYTICS_SCOPE = "https://www.googleapis.com/auth/analytics.readonly";
 const SEARCH_CONSOLE_SCOPE =
   "https://www.googleapis.com/auth/webmasters.readonly";
+const SHEETS_SCOPE = "https://www.googleapis.com/auth/spreadsheets";
 const REQUEST_TIMEOUT_MS = 15_000;
 const DASHBOARD_CACHE_MS = 5 * 60 * 1000;
 
@@ -46,6 +47,8 @@ export type GaSummary = {
   activeUsers: number;
   sessions: number;
   screenPageViews: number;
+  engagedSessions: number;
+  userEngagementDuration: number;
   eventCount: number;
   keyEvents: number;
 };
@@ -68,10 +71,15 @@ export type GaPageRow = {
 export type GrowthPageFunnel = {
   starts: number;
   successes: number;
+  successUsers: number;
+  successSessions: number;
   errors: number;
   copies: number;
+  copyUsers: number;
   saves: number;
+  saveUsers: number;
   shares: number;
+  shareUsers: number;
   timerStarts: number;
   timerCompletes: number;
 };
@@ -101,6 +109,26 @@ export type GscSummary = {
 };
 
 export type GscDimensionRow = GscSummary & { key: string };
+
+export type GscQueryPageRow = GscSummary & {
+  query: string;
+  page: string;
+};
+
+export type AnalyticsSheetSnapshot = {
+  generatedAt: string;
+  reportDate: string;
+  ga4: {
+    yesterday: GaSummary;
+    eventsYesterday: GaEventRow[];
+  };
+  searchConsole: {
+    latestDate: string;
+    latestDay: GscSummary;
+    queryPages28: GscQueryPageRow[];
+  };
+  growthPages: GrowthPageRow[];
+};
 
 export type AnalyticsDashboardData = {
   generatedAt: string;
@@ -232,7 +260,9 @@ function requiredEnv(name: "GA4_PROPERTY_ID" | "GSC_SITE_URL"): string {
   return value;
 }
 
-async function getAccessToken(forceRefresh = false): Promise<string> {
+export async function getGoogleReportingAccessToken(
+  forceRefresh = false
+): Promise<string> {
   if (
     !forceRefresh &&
     cachedToken &&
@@ -247,7 +277,7 @@ async function getAccessToken(forceRefresh = false): Promise<string> {
   const payload = base64Url(
     JSON.stringify({
       iss: credentials.client_email,
-      scope: `${ANALYTICS_SCOPE} ${SEARCH_CONSOLE_SCOPE}`,
+      scope: `${ANALYTICS_SCOPE} ${SEARCH_CONSOLE_SCOPE} ${SHEETS_SCOPE}`,
       aud: GOOGLE_TOKEN_URL,
       iat: issuedAt,
       exp: issuedAt + 3600,
@@ -289,7 +319,7 @@ async function postGoogleJson<T>(
   errorCode: string
 ): Promise<T> {
   for (let attempt = 0; attempt < 2; attempt += 1) {
-    const token = await getAccessToken(attempt > 0);
+    const token = await getGoogleReportingAccessToken(attempt > 0);
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -379,6 +409,8 @@ async function getGaSummary(
       "activeUsers",
       "sessions",
       "screenPageViews",
+      "engagedSessions",
+      "userEngagementDuration",
       "eventCount",
       "keyEvents",
     ],
@@ -388,8 +420,10 @@ async function getGaSummary(
     activeUsers: metricValue(row, 0),
     sessions: metricValue(row, 1),
     screenPageViews: metricValue(row, 2),
-    eventCount: metricValue(row, 3),
-    keyEvents: metricValue(row, 4),
+    engagedSessions: metricValue(row, 3),
+    userEngagementDuration: metricValue(row, 4),
+    eventCount: metricValue(row, 5),
+    keyEvents: metricValue(row, 6),
   };
 }
 
@@ -461,10 +495,15 @@ function emptyGrowthFunnel(): GrowthPageFunnel {
   return {
     starts: 0,
     successes: 0,
+    successUsers: 0,
+    successSessions: 0,
     errors: 0,
     copies: 0,
+    copyUsers: 0,
     saves: 0,
+    saveUsers: 0,
     shares: 0,
+    shareUsers: 0,
     timerStarts: 0,
     timerCompletes: 0,
   };
@@ -512,7 +551,7 @@ async function getGaGrowthPageFunnel(): Promise<Map<string, GrowthPageFunnel>> {
     startDate: "7daysAgo",
     endDate: "yesterday",
     dimensions: ["pagePath", "eventName"],
-    metrics: ["eventCount"],
+    metrics: ["eventCount", "totalUsers", "sessions"],
     dimensionFilter: {
       andGroup: {
         expressions: [
@@ -539,11 +578,24 @@ async function getGaGrowthPageFunnel(): Promise<Map<string, GrowthPageFunnel>> {
     const funnel = result.get(path) ?? emptyGrowthFunnel();
     const value = metricValue(row, 0);
     if (event === "generate_start") funnel.starts = value;
-    if (event === "generate_success") funnel.successes = value;
+    if (event === "generate_success") {
+      funnel.successes = value;
+      funnel.successUsers = metricValue(row, 1);
+      funnel.successSessions = metricValue(row, 2);
+    }
     if (event === "generate_error") funnel.errors = value;
-    if (event === "copy_result") funnel.copies = value;
-    if (event === "save_result") funnel.saves = value;
-    if (event === "share_result") funnel.shares = value;
+    if (event === "copy_result") {
+      funnel.copies = value;
+      funnel.copyUsers = metricValue(row, 1);
+    }
+    if (event === "save_result") {
+      funnel.saves = value;
+      funnel.saveUsers = metricValue(row, 1);
+    }
+    if (event === "share_result") {
+      funnel.shares = value;
+      funnel.shareUsers = metricValue(row, 1);
+    }
     if (event === "timer_start") funnel.timerStarts = value;
     if (event === "timer_complete") funnel.timerCompletes = value;
     result.set(path, funnel);
@@ -590,6 +642,8 @@ async function getGaDaily(): Promise<GaDailyRow[]> {
       "activeUsers",
       "sessions",
       "screenPageViews",
+      "engagedSessions",
+      "userEngagementDuration",
       "eventCount",
       "keyEvents",
     ],
@@ -602,8 +656,10 @@ async function getGaDaily(): Promise<GaDailyRow[]> {
     activeUsers: metricValue(row, 0),
     sessions: metricValue(row, 1),
     screenPageViews: metricValue(row, 2),
-    eventCount: metricValue(row, 3),
-    keyEvents: metricValue(row, 4),
+    engagedSessions: metricValue(row, 3),
+    userEngagementDuration: metricValue(row, 4),
+    eventCount: metricValue(row, 5),
+    keyEvents: metricValue(row, 6),
   }));
 }
 
@@ -670,6 +726,24 @@ async function getGscDimension(
   }));
 }
 
+async function getGscQueryPages(
+  startDate: string,
+  endDate: string
+): Promise<GscQueryPageRow[]> {
+  const response = await querySearchConsole({
+    startDate,
+    endDate,
+    dimensions: ["query", "page"],
+    rowLimit: 25_000,
+  });
+
+  return (response.rows ?? []).map((row) => ({
+    query: row.keys?.[0] ?? "(not set)",
+    page: row.keys?.[1] ?? "(not set)",
+    ...gscSummary(row),
+  }));
+}
+
 async function getGscGrowthPages(
   current7Range: { startDate: string; endDate: string },
   previous7Range: { startDate: string; endDate: string }
@@ -722,6 +796,7 @@ export function reportingConfigurationStatus() {
     credentials: Boolean(process.env.GOOGLE_SERVICE_ACCOUNT_JSON_BASE64?.trim()),
     ga4Property: Boolean(process.env.GA4_PROPERTY_ID?.trim()),
     searchConsoleProperty: Boolean(process.env.GSC_SITE_URL?.trim()),
+    reportSheet: Boolean(process.env.ANALYTICS_REPORT_SHEET_ID?.trim()),
   };
 }
 
@@ -880,4 +955,43 @@ export async function getAnalyticsDashboardData(
 
   cachedDashboard = { value, expiresAt: Date.now() + DASHBOARD_CACHE_MS };
   return value;
+}
+
+function gaDateToIso(value?: string): string {
+  if (value && /^\d{8}$/.test(value)) {
+    return `${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}`;
+  }
+  const yesterday = new Date();
+  yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+  return toIsoDate(yesterday);
+}
+
+export async function getAnalyticsSheetSnapshot(
+  forceRefresh = true
+): Promise<AnalyticsSheetSnapshot> {
+  const dashboard = await getAnalyticsDashboardData(forceRefresh);
+  const current28Range = dashboard.searchConsole.current28Range;
+  const [eventsYesterday, latestDay, queryPages28] = await Promise.all([
+    getGaEvents("yesterday", "yesterday"),
+    getGscSummary(
+      dashboard.searchConsole.latestDate,
+      dashboard.searchConsole.latestDate
+    ),
+    getGscQueryPages(current28Range.startDate, current28Range.endDate),
+  ]);
+
+  return {
+    generatedAt: new Date().toISOString(),
+    reportDate: gaDateToIso(dashboard.ga4.daily28.at(-1)?.date),
+    ga4: {
+      yesterday: dashboard.ga4.yesterday,
+      eventsYesterday,
+    },
+    searchConsole: {
+      latestDate: dashboard.searchConsole.latestDate,
+      latestDay,
+      queryPages28,
+    },
+    growthPages: dashboard.growthPages,
+  };
 }
