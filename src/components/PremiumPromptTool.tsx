@@ -194,6 +194,23 @@ export default function PremiumPromptTool({
       result_source: "editorial_pool",
       locale: "en",
     });
+    track("post_generate_actions_view", {
+      tool_type: "premium_prompt_collection",
+      content_source: config.source,
+      collection_slug: config.slug,
+      result_category: pick.category,
+      action_surface: "result_action_bar",
+      locale: "en",
+    });
+    if (used.size > 0) {
+      track("repeat_generate", {
+        tool_type: "premium_prompt_collection",
+        content_source: config.source,
+        collection_slug: config.slug,
+        result_count: 1,
+        locale: "en",
+      });
+    }
   }, [config, pool, used]);
 
   const buildPlan = useCallback(() => {
@@ -224,11 +241,28 @@ export default function PremiumPromptTool({
         result_category: current.category,
         locale: "en",
       });
+      if (used.has(current.id)) {
+        track("post_generate_copy", {
+          tool_type: "premium_prompt_collection",
+          content_source: config.source,
+          collection_slug: config.slug,
+          result_category: current.category,
+          action_surface: "result_action_bar",
+          locale: "en",
+        });
+      }
     } catch {
       setCopied(false);
       setManualCopyText(itemToText(current, config.tool.copyStyle));
+      track("copy_error", {
+        tool_type: "premium_prompt_collection",
+        content_source: config.source,
+        collection_slug: config.slug,
+        result_category: current.category,
+        locale: "en",
+      });
     }
-  }, [config.slug, config.source, config.tool.copyStyle, current]);
+  }, [config.slug, config.source, config.tool.copyStyle, current, used]);
 
   const copyPlan = useCallback(async () => {
     if (plan.length === 0) return;
@@ -254,9 +288,10 @@ export default function PremiumPromptTool({
   const share = useCallback(async () => {
     if (!current) return;
     const text = itemToText(current, config.tool.copyStyle);
+    const url = `${window.location.origin}${window.location.pathname}`;
     try {
       if (typeof navigator.share === "function") {
-        await navigator.share({ title: config.title, text, url: window.location.href });
+        await navigator.share({ title: config.title, text, url });
         track("share_result", {
           tool_type: "premium_prompt_collection",
           content_source: config.source,
@@ -265,7 +300,7 @@ export default function PremiumPromptTool({
           locale: "en",
         });
       } else {
-        await writeClipboard(`${text}\n${window.location.href}`);
+        await writeClipboard(`${text}\n${url}`);
         track("share_result", {
           tool_type: "premium_prompt_collection",
           content_source: config.source,
@@ -277,23 +312,61 @@ export default function PremiumPromptTool({
       setShared(true);
       setManualCopyText(null);
       window.setTimeout(() => setShared(false), 1600);
-    } catch {
+      if (used.has(current.id)) {
+        track("post_generate_share", {
+          tool_type: "premium_prompt_collection",
+          content_source: config.source,
+          collection_slug: config.slug,
+          result_category: current.category,
+          action_surface: "result_action_bar",
+          locale: "en",
+        });
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
       setShared(false);
-      setManualCopyText(`${text}\n${window.location.href}`);
+      setManualCopyText(`${text}\n${url}`);
+      track("share_error", {
+        tool_type: "premium_prompt_collection",
+        content_source: config.source,
+        collection_slug: config.slug,
+        result_category: current.category,
+        locale: "en",
+      });
     }
-  }, [config, current]);
+  }, [config, current, used]);
 
   const save = useCallback(() => {
     if (!current) return;
-    const isNowSaved = toggleFavoriteTopic(toTopic(current, config));
-    track(isNowSaved ? "save_result" : "unsave_result", {
+    const result = toggleFavoriteTopic(toTopic(current, config));
+    if (!result.persisted) {
+      track("save_error", {
+        tool_type: "premium_prompt_collection",
+        content_source: config.source,
+        collection_slug: config.slug,
+        result_category: current.category,
+        locale: "en",
+      });
+      return;
+    }
+    track(result.saved ? "save_result" : "remove_saved_result", {
       tool_type: "premium_prompt_collection",
       content_source: config.source,
       collection_slug: config.slug,
       result_category: current.category,
       locale: "en",
     });
-  }, [config, current]);
+    if (result.saved && used.has(current.id)) {
+      track("post_generate_save", {
+        tool_type: "premium_prompt_collection",
+        content_source: config.source,
+        collection_slug: config.slug,
+        result_category: current.category,
+        action_surface: "result_action_bar",
+        locale: "en",
+      });
+    }
+  }, [config, current, used]);
 
   const printItems = pool.map((item) => itemToText(item, config.tool.copyStyle));
 

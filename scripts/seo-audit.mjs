@@ -9,7 +9,7 @@ const routesManifest = buildDir
   : null;
 
 const checks = [
-  { path: "/", index: true, canonical: "/", titleMax: 70, titleHas: "Random Topic Generator" },
+  { path: "/", index: true, canonical: "/", titleMax: 70, titleHas: "Random Topic Generator", bodyHas: ["Writing Topic Generator", 'href="/writing-topic-generator"'] },
   { path: "/es", index: true, canonical: "/es", titleMax: 70, titleHas: "Generador de Temas Aleatorios", es: true, hreflang: true },
   { path: "/debate", index: true, canonical: "/debate", titleMax: 70, titleHas: "Debate Topic Generator", hreflang: true },
   { path: "/question-of-the-day", index: true, canonical: "/question-of-the-day", titleMax: 70, titleHas: "Question of the Day", bodyHas: ["Funny Question of the Day", "100 audience-safe funny prompts"] },
@@ -17,17 +17,19 @@ const checks = [
   { path: "/question-of-the-day-for-work", index: true, canonical: "/question-of-the-day-for-work", titleMax: 60, titleHas: "Question of the Day for Work", enOnlyHreflang: true, bodyHas: ["120", "Today's Team Question", "Copy for Slack / Teams", "Build a five-day plan", "Save ☆", '"@type":"WebApplication"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'class="rounded-xl border border-white/10 p-4 sm:p-5"', exact: 120 }] },
   { path: "/funny-question-of-the-day", index: true, canonical: "/funny-question-of-the-day", titleMax: 60, titleHas: "100 Funny Questions of the Day", enOnlyHreflang: true, bodyHas: ["Today's Funny Question", "Build a five-day plan", "Keep the laughs going", "How to make a funny QOTD land well", '"@type":"WebApplication"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'class="rounded-xl border border-white/10 p-4 sm:p-5"', exact: 100 }] },
   { path: "/icebreaker", index: true, canonical: "/icebreaker", titleMax: 70, titleHas: "Icebreaker Question Generator", hreflang: true },
-  { path: "/writing", index: true, canonical: "/writing", titleMax: 76, titleHas: "Random Topics to Write About", hreflang: true, bodyHas: ["Choose the right writing tool", "Essay Topic Generator", "Journal Prompt Generator"] },
+  { path: "/writing", index: true, canonical: "/writing", titleMax: 76, titleHas: "Random Topics to Write About", hreflang: true, bodyHas: ["Choose the right writing tool", "Writing Topic Generator", 'href="/writing-topic-generator"', "Essay Topic Generator", "Journal Prompt Generator"] },
   { path: "/conversation", index: true, canonical: "/conversation", titleMax: 65, titleHas: "Conversation Topic Generator", hreflang: true, bodyHas: ["Popular Conversation Starter Collections", "Deep Conversation Question Generator"], bodyOccurrences: [{ needle: 'href="/topics/', min: 6 }] },
   { path: "/random-subject-generator", index: true, canonical: "/random-subject-generator", titleMax: 65, titleHas: "Random Subject Generator", bodyHas: ["Get a Random Subject in One Click", "Pick a Random Subject", "Turn a subject into a usable topic", '"@type":"WebApplication"'] },
   { path: "/random-learning-topic-generator", index: true, canonical: "/random-learning-topic-generator", titleMax: 65, titleHas: "Random Learning Topic Generator", bodyHas: ["Give Me a Topic to Learn", "Example topics by category", "Daily curiosity", '"@type":"WebApplication"'] },
-  { path: "/writing-topic-generator", index: true, canonical: "/writing-topic-generator", titleMax: 65, titleHas: "Writing Topic Generator", bodyHas: ["Generate Writing Topics", "Essay, Journal, Fiction, or Blog", "Example topics by category", '"@type":"WebApplication"'] },
+  { path: "/writing-topic-generator", index: true, canonical: "/writing-topic-generator", titleMax: 65, titleHas: "Writing Topic Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["Writing Prompts", "Generate Writing Topics", "Essay, Journal, Fiction, or Blog", "Example topics by category", '"@type":"WebApplication"'] },
   { path: "/research-topic-generator", index: true, canonical: "/research-topic-generator", titleMax: 65, titleHas: "Research Topic Generator", bodyHas: ["Generate Research Ideas", "Research papers", "Example topics by category", '"@type":"WebApplication"'] },
   { path: "/presentation-topic-generator", index: true, canonical: "/presentation-topic-generator", titleMax: 65, titleHas: "Presentation Topic Generator", bodyHas: ["Generate Presentation Ideas", "School presentations", "Example topics by category", '"@type":"WebApplication"'] },
   { path: "/es/generador-de-temas-para-exponer", index: true, canonical: "/es/generador-de-temas-para-exponer", titleMax: 65, titleHas: "Generador de Temas para Exponer", es: true, hreflang: true, bodyHas: ["Generar un tema para exponer", "Ejemplos de temas por categoría", "Exposición escolar", '"@type":"WebApplication"'] },
   { path: "/es/generador-de-temas-para-investigar", index: true, canonical: "/es/generador-de-temas-para-investigar", titleMax: 65, titleHas: "Generador de Temas para Investigar", es: true, hreflang: true, bodyHas: ["Generar un tema de investigación", "Ejemplos de temas por categoría", "Proyecto escolar", '"@type":"WebApplication"'] },
   { path: "/es/generador-de-temas-para-estudiar", index: true, canonical: "/es/generador-de-temas-para-estudiar", titleMax: 65, titleHas: "Generador de Temas para Estudiar", es: true, hreflang: true, bodyHas: ["Dame un tema para estudiar", "Ejemplos de temas por categoría", "Aprendizaje diario", '"@type":"WebApplication"'] },
-  { path: "/speech", index: true, canonical: "/speech", titleMax: 60, titleHas: "Speech Topic Generator & Practice Timer", hreflang: true, bodyHas: ["random subject generator", "80 Five-Minute Speech Topics + Timer", "75 Presentation Topics for School", "120 Toastmasters Table Topics + Practice Drill"] },
+  { path: "/speech", index: true, canonical: "/speech", titleMax: 60, titleHas: "Speech Topic Generator & Practice Timer", hreflang: true, webApplicationCanonical: true, bodyHas: ["Pick the Right Speech Practice Path", "Toastmasters Table Topics practice", "Three Fast Speech Frameworks", "Past–Present–Future", "Problem–Cause–Solution", 'href="/writing-topic-generator"', "80 Five-Minute Speech Topics + Timer", "75 Presentation Topics for School", "Frequently Asked Questions", "How long should an impromptu speech be?", '"@type":"WebApplication"'] },
+  { path: "/table-topics-generator", index: true, canonical: "/table-topics-generator", titleMax: 80, titleHas: "Table Topics Generator", bodyHas: ["Speech Topics", "Toastmasters timing cues", "Green 1:00", "Yellow 1:30", "Red 2:00", "A Simple Structure That Always Works"] },
+  { path: "/impromptu-speech-topics", index: true, canonical: "/impromptu-speech-topics", titleMax: 85, titleHas: "Impromptu Speech Topics Generator", bodyHas: ["Speech Topics", "The 30-Second Prep Routine", "Weekly Practice Plan"] },
   { path: "/5-minute-speech-topics", index: true, canonical: "/5-minute-speech-topics", titleMax: 60, titleHas: "80 Five-Minute Speech Topics", enOnlyHreflang: true, bodyHas: ["Generate a Five-Minute Speech Topic", "Built-in 5-Minute Speech Timer", "Five-minute outline", "A repeatable five-minute speech routine", '"@type":"WebApplication"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'class="rounded-xl border border-white/10 p-4 sm:p-5"', exact: 80 }] },
   { path: "/group-discussion-topics", index: true, canonical: "/group-discussion-topics", titleMax: 60, titleHas: "100+ Group Discussion Topics for 2026", bodyHas: ["Situation-Based Questions", "Updated August 15, 2026"], bodyOccurrences: [{ needle: 'class="text-[var(--neon-cyan)] font-bold shrink-0"', exact: 103 }] },
   { path: "/topics/presentation-ideas-for-school", index: true, canonical: "/topics/presentation-ideas-for-school", titleMax: 60, titleHas: "75 Unique Presentation Topics for School", hreflang: true, bodyHas: ["Easy 5-Minute Presentation Topics", "Open the Presentation Topic Generator"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 75 }] },
@@ -40,12 +42,12 @@ const checks = [
   { path: "/this-or-that", index: true, canonical: "/this-or-that", titleMax: 65, titleHas: "This or That Generator", bodyHas: ["More Party Game Generators", "All 38 This or That Questions"] },
   { path: "/saved-topics", index: false, canonical: "/saved-topics", titleHas: "Saved Topics", headerNoindex: true },
   { path: "/es/saved-topics", index: false, canonical: "/es/saved-topics", titleHas: "Temas guardados", es: true, headerNoindex: true },
-  { path: "/topics/ethical-dilemma-questions", index: true, canonical: "/topics/ethical-dilemma-questions", titleMax: 65, titleHas: "65+ Moral & Ethical Dilemma Questions", hreflang: true, bodyHas: ["Quick Moral Dilemmas to Discuss", "Ethical dilemmas by audience", "Ethical Dilemmas for Adults", "Try a Random Ethical Dilemma", "Give Me a Dilemma"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 66 }] },
+  { path: "/topics/ethical-dilemma-questions", index: true, canonical: "/topics/ethical-dilemma-questions", titleMax: 65, titleHas: "65+ Moral & Ethical Dilemma Questions", hreflang: true, webApplicationCanonical: true, bodyHas: ["Updated:", "September 4, 2026", "Quick Moral Dilemmas to Discuss", "Technology and AI Ethics", "Environmental and Global Ethics", "How to Debate Ethical Dilemmas Fairly", "Four-step debate lens", "Ethical dilemmas by audience", "Ethical Dilemmas for Adults", "Try a Random Ethical Dilemma", "Give Me a Dilemma", '"@type":"WebApplication"', '"Save"', '"Share"'], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 66 }] },
   { path: "/topics/ethical-dilemmas-for-students", index: true, canonical: "/topics/ethical-dilemmas-for-students", titleMax: 60, titleHas: "50 Ethical Dilemmas for Students", enOnlyHreflang: true, bodyHas: ["Choose a Classroom Ethical Dilemma", "A four-step classroom analysis routine", "How this collection was curated", '"featureList":["Audience filters","No-repeat random prompts","Copy","Save","Share","Print"]', '"@type":"WebApplication"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'class="rounded-xl border border-white/10 p-4 sm:p-5"', exact: 50 }] },
   { path: "/topics/workplace-ethical-dilemmas", index: true, canonical: "/topics/workplace-ethical-dilemmas", titleMax: 60, titleHas: "45 Workplace Ethical Dilemmas", enOnlyHreflang: true, bodyHas: ["Choose a Workplace Ethics Case", "A practical decision canvas for workplace cases", "For training and discussion only", '"featureList":["Audience filters","No-repeat random prompts","Copy","Save","Share","Print"]', '"@type":"WebApplication"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'class="rounded-xl border border-white/10 p-4 sm:p-5"', exact: 45 }] },
   { path: "/topics/ethical-dilemmas-for-adults", index: true, canonical: "/topics/ethical-dilemmas-for-adults", titleMax: 60, titleHas: "50 Ethical Dilemmas for Adults", enOnlyHreflang: true, bodyHas: ["Choose an Ethical Dilemma for Adults", "A four-step way to discuss a moral dilemma", "How this collection was curated", '"featureList":["Audience filters","No-repeat random prompts","Copy","Save","Share","Print"]', '"@type":"WebApplication"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'class="rounded-xl border border-white/10 p-4 sm:p-5"', exact: 50 }] },
   { path: "/deep-conversation-question-generator", index: true, canonical: "/deep-conversation-question-generator", titleMax: 60, titleHas: "50 Deep Conversation Questions", enOnlyHreflang: true, bodyHas: ["Generate a Deep Conversation Question", "How to make a deep question feel natural", "How this collection was curated", '"featureList":["Audience filters","No-repeat random prompts","Copy","Save","Share","Print"]', '"@type":"WebApplication"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'class="rounded-xl border border-white/10 p-4 sm:p-5"', exact: 50 }] },
-  { path: "/topics/toastmasters-table-topics", index: true, canonical: "/topics/toastmasters-table-topics", titleMax: 60, titleHas: "Toastmasters Table Topics", bodyHas: ["Updated:", "Practice a Random Table Topic", "Speech Timer", "Draw a Table Topic", "Run a Complete Table Topics Drill", "Open the focused generator"] },
+  { path: "/topics/toastmasters-table-topics", index: true, canonical: "/topics/toastmasters-table-topics", titleMax: 60, titleHas: "Toastmasters Table Topics", bodyHas: ["Updated:", "September 4, 2026", "Practice a Random Table Topic", "PREP response structure", "Speech Timer", "Draw a Table Topic", "Run a Complete Table Topics Drill", "Open the Table Topics Generator + Timer", "Run live rounds with the focused generator", "Green 1:00", "Yellow 1:30", "Red 2:00"] },
   { path: "/es/most-likely-to", index: true, canonical: "/es/most-likely-to", titleMax: 76, titleHas: "Quién Es Más Probable", es: true, hreflang: true },
   { path: "/es/topics/most-likely-to-questions", index: true, canonical: "/es/topics/most-likely-to-questions", titleMax: 65, titleHas: "100 Preguntas de Quién Es Más Probable", es: true, hreflang: true, bodyHas: ["Preguntas fuertes de Quién es más probable para amigos", "Colecciones de Quién es más probable", "Juega a Quién Es Más Probable", "Sacar una pregunta"], bodyOccurrences: [{ needle: 'class="flex items-start gap-3"', exact: 100 }] },
   { path: "/es/spin-the-wheel", index: true, canonical: "/es/spin-the-wheel", titleMax: 65, titleHas: "Ruleta de Temas Aleatorios", es: true, hreflang: true, bodyHas: ["Ruleta de Temas Aleatorios", "más de 500 temas"] },
@@ -73,6 +75,28 @@ function decodeHtml(value = "") {
     .replaceAll("&#39;", "'")
     .replaceAll("&lt;", "<")
     .replaceAll("&gt;", ">");
+}
+
+function structuredDataEntries(html) {
+  const entries = [];
+  const visit = (value) => {
+    if (Array.isArray(value)) {
+      value.forEach(visit);
+      return;
+    }
+    if (!value || typeof value !== "object") return;
+    entries.push(value);
+    if (Array.isArray(value["@graph"])) value["@graph"].forEach(visit);
+  };
+
+  for (const match of html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      visit(JSON.parse(match[1]));
+    } catch {
+      fail("structured data: invalid JSON-LD payload");
+    }
+  }
+  return entries;
 }
 
 function tagWith(html, tagName, attribute, value) {
@@ -186,6 +210,15 @@ async function checkPage(check) {
   for (const needle of check.bodyHas || []) {
     if (!html.includes(needle)) fail(`${check.path}: missing expected content “${needle}”`);
   }
+  if (check.webApplicationCanonical) {
+    const matchingApp = structuredDataEntries(html).find((entry) => {
+      const types = Array.isArray(entry["@type"]) ? entry["@type"] : [entry["@type"]];
+      return types.includes("WebApplication") && entry.url === expectedCanonical;
+    });
+    if (!matchingApp) {
+      fail(`${check.path}: missing WebApplication JSON-LD whose URL matches the canonical`);
+    }
+  }
   for (const needle of check.bodyNotHas || []) {
     if (html.includes(needle)) fail(`${check.path}: unexpectedly contains “${needle}”`);
   }
@@ -239,6 +272,8 @@ async function checkSitemap() {
     "/writing-topic-generator",
     "/research-topic-generator",
     "/presentation-topic-generator",
+    "/table-topics-generator",
+    "/impromptu-speech-topics",
     "/es/generador-de-temas-para-exponer",
     "/es/generador-de-temas-para-investigar",
     "/es/generador-de-temas-para-estudiar",
@@ -270,8 +305,6 @@ async function checkSitemap() {
     if (!entryTail.includes("<lastmod>2026-08-15")) fail(`sitemap: stale lastmod for ${path}`);
   }
   for (const path of [
-    "/topics/ethical-dilemma-questions",
-    "/topics/toastmasters-table-topics",
     "/es/topics/controversial-topics-to-discuss",
     "/es/topics/most-likely-to-questions",
     "/es/generador-de-temas-para-exponer",
@@ -288,6 +321,14 @@ async function checkSitemap() {
     const marker = `<loc>${canonicalOrigin}${path}</loc>`;
     const entryTail = xml.split(marker)[1]?.split("</url>")[0] || "";
     if (!entryTail.includes("<lastmod>2026-08-31")) fail(`sitemap: stale lastmod for ${path}`);
+  }
+  for (const path of [
+    "/topics/ethical-dilemma-questions",
+    "/topics/toastmasters-table-topics",
+  ]) {
+    const marker = `<loc>${canonicalOrigin}${path}</loc>`;
+    const entryTail = xml.split(marker)[1]?.split("</url>")[0] || "";
+    if (!entryTail.includes("<lastmod>2026-09-04")) fail(`sitemap: stale lastmod for ${path}`);
   }
   for (const path of [
     "/topics/ethical-dilemmas-for-adults",

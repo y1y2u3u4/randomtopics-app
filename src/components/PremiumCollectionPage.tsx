@@ -108,8 +108,8 @@ export default function PremiumCollectionPage({ config }: { config: PremiumColle
             {config.subtitle}
           </p>
           <p className="mt-4 text-xs text-[var(--text-muted)]">
-            Published {new Date(config.published).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-            {config.updated !== config.published ? <> · Reviewed {new Date(config.updated).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</> : null}
+            Published {new Date(config.published).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })}
+            {config.updated !== config.published ? <> · Reviewed {new Date(config.updated).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })}</> : null}
           </p>
         </header>
 

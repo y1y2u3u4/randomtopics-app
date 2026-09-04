@@ -1,3 +1,5 @@
+import type { Category, Mode } from "@/data/types";
+
 export interface PurposePrompt {
   text: string;
   category: string;
@@ -24,6 +26,8 @@ export interface PurposeGeneratorConfig {
   steps: string[];
   faq: { question: string; answer: string }[];
   relatedLinks: { label: string; href: string; emoji: string }[];
+  parentLink?: { label: string; href: string };
+  library?: { category: Category; modes: Mode[] };
 }
 
 export const PURPOSE_GENERATORS = {
@@ -92,6 +96,7 @@ export const PURPOSE_GENERATORS = {
       { emoji: "🔬", label: "Science Topics", href: "/categories/science" },
       { emoji: "📚", label: "Education Topics", href: "/categories/education" },
     ],
+    library: { category: "education", modes: ["writing"] },
   },
   writing: {
     slug: "writing-topic-generator",
@@ -152,6 +157,8 @@ export const PURPOSE_GENERATORS = {
       { emoji: "🎓", label: "Essay Topic Generator", href: "/essay-topic-generator" },
       { emoji: "📓", label: "Journal Prompts", href: "/journal-prompts" },
     ],
+    parentLink: { label: "Writing Prompts", href: "/writing" },
+    library: { category: "art-culture", modes: ["writing"] },
   },
   research: {
     slug: "research-topic-generator",
@@ -212,6 +219,7 @@ export const PURPOSE_GENERATORS = {
       { emoji: "🧪", label: "Random Subject Generator", href: "/random-subject-generator" },
       { emoji: "🎓", label: "College Essay Topics", href: "/topics/random-essay-topics-for-college" },
     ],
+    library: { category: "education", modes: ["writing"] },
   },
   presentation: {
     slug: "presentation-topic-generator",
@@ -272,6 +280,7 @@ export const PURPOSE_GENERATORS = {
       { emoji: "🏫", label: "75 School Presentation Topics", href: "/topics/presentation-ideas-for-school" },
       { emoji: "⏱️", label: "Impromptu Speech Topics", href: "/impromptu-speech-topics" },
     ],
+    library: { category: "education", modes: ["speech"] },
   },
 } satisfies Record<string, PurposeGeneratorConfig>;
 

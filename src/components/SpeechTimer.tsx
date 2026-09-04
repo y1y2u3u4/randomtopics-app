@@ -12,7 +12,19 @@ const PRESETS = [
   { label: "5 min", seconds: 300 },
 ];
 
-const STRINGS: Record<Locale, { timer: React.ReactNode; done: string; restart: string; pause: string; start: string; reset: string }> = {
+const STRINGS: Record<Locale, {
+  timer: React.ReactNode;
+  done: string;
+  restart: string;
+  pause: string;
+  start: string;
+  reset: string;
+  toastmastersCues: string;
+  beforeGreen: string;
+  greenCue: string;
+  yellowCue: string;
+  redCue: string;
+}> = {
   en: {
     timer: (
       <>
@@ -24,6 +36,11 @@ const STRINGS: Record<Locale, { timer: React.ReactNode; done: string; restart: s
     pause: "⏸ Pause",
     start: "▶ Start",
     reset: "↺ Reset",
+    toastmastersCues: "Toastmasters timing cues",
+    beforeGreen: "Build your answer · green at 1:00",
+    greenCue: "Green · 1:00 reached",
+    yellowCue: "Yellow · 1:30 reached",
+    redCue: "Red · 2:00 reached",
   },
   es: {
     timer: (
@@ -36,6 +53,11 @@ const STRINGS: Record<Locale, { timer: React.ReactNode; done: string; restart: s
     pause: "⏸ Pausar",
     start: "▶ Iniciar",
     reset: "↺ Restablecer",
+    toastmastersCues: "Señales de tiempo de Toastmasters",
+    beforeGreen: "Desarrolla tu respuesta · verde al 1:00",
+    greenCue: "Verde · alcanzado 1:00",
+    yellowCue: "Amarillo · alcanzado 1:30",
+    redCue: "Rojo · alcanzado 2:00",
   },
 };
 
@@ -43,10 +65,12 @@ export default function SpeechTimer({
   locale = defaultLocale,
   defaultSeconds = 60,
   contentSource = "speech_hub",
+  toastmastersCues = false,
 }: {
   locale?: Locale;
   defaultSeconds?: number;
   contentSource?: string;
+  toastmastersCues?: boolean;
 }) {
   const t = STRINGS[locale] || STRINGS.en;
   const initialSeconds = PRESETS.some((preset) => preset.seconds === defaultSeconds) ? defaultSeconds : 60;
@@ -109,6 +133,17 @@ export default function SpeechTimer({
   const minutes = Math.floor(remaining / 60);
   const seconds = remaining % 60;
   const progress = totalSeconds > 0 ? remaining / totalSeconds : 1;
+  const toastmastersTimingActive = toastmastersCues && totalSeconds === 120;
+  const elapsed = totalSeconds - remaining;
+  const toastmastersCue = !toastmastersTimingActive
+    ? null
+    : elapsed >= 120
+      ? { label: t.redCue, color: "#ff4d6d", background: "rgba(255,77,109,0.1)" }
+      : elapsed >= 90
+        ? { label: t.yellowCue, color: "var(--neon-yellow)", background: "rgba(255,226,52,0.08)" }
+        : elapsed >= 60
+          ? { label: t.greenCue, color: "var(--neon-green)", background: "rgba(0,255,136,0.08)" }
+          : { label: t.beforeGreen, color: "var(--neon-cyan)", background: "rgba(0,229,255,0.08)" };
   const circumference = 2 * Math.PI * 54;
   const strokeDashoffset = circumference * (1 - progress);
 
@@ -160,7 +195,9 @@ export default function SpeechTimer({
               r="54"
               fill="none"
               stroke={
-                isFinished
+                toastmastersCue
+                  ? toastmastersCue.color
+                  : isFinished
                   ? "var(--neon-pink)"
                   : remaining <= 10 && remaining > 0
                   ? "var(--neon-yellow)"
@@ -215,6 +252,29 @@ export default function SpeechTimer({
           </div>
         </div>
       </div>
+
+      {toastmastersCue && (
+        <div className="mb-6" aria-live="polite">
+          <p className="mb-2 text-center text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--text-muted)]">
+            {t.toastmastersCues}
+          </p>
+          <p
+            className="rounded-lg border px-3 py-2 text-center text-xs font-bold"
+            style={{
+              color: toastmastersCue.color,
+              background: toastmastersCue.background,
+              borderColor: toastmastersCue.color,
+            }}
+          >
+            {toastmastersCue.label}
+          </p>
+          <div className="mt-2 grid grid-cols-3 gap-2 text-center text-[10px] font-semibold">
+            <span className="rounded-md border border-[var(--neon-green)]/30 px-2 py-1 text-[var(--neon-green)]">Green 1:00</span>
+            <span className="rounded-md border border-[var(--neon-yellow)]/30 px-2 py-1 text-[var(--neon-yellow)]">Yellow 1:30</span>
+            <span className="rounded-md border border-[#ff4d6d]/30 px-2 py-1 text-[#ff4d6d]">Red 2:00</span>
+          </div>
+        </div>
+      )}
 
       {/* Controls */}
       <div className="flex justify-center gap-3">

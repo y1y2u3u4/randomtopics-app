@@ -38,8 +38,18 @@ export default function EditorsPicks({ topics, heading, intro }: EditorsPicksPro
   const savedIds = (JSON.parse(favoriteSnapshot) as Topic[]).map((topic) => topic.id);
 
   const toggleSave = (topic: Topic) => {
-    const added = toggleFavoriteTopic(topic);
-    track(added ? "save_result" : "remove_saved_result", {
+    const result = toggleFavoriteTopic(topic);
+    if (!result.persisted) {
+      track("save_error", {
+        tool_type: "editors_pick",
+        result_type: "topic",
+        topic_id: topic.id,
+        topic_category: topic.category,
+        save_surface: "editors_pick",
+      });
+      return;
+    }
+    track(result.saved ? "save_result" : "remove_saved_result", {
       tool_type: "editors_picks",
       result_type: "topic",
       topic_id: topic.id,

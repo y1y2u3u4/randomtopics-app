@@ -1666,7 +1666,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
       "Realistic moral dilemma examples with no easy answers, organized for discussion, classrooms, interviews, and self-reflection.",
     intro: "A moral or ethical dilemma is a situation where every option involves some moral cost -- there is no perfectly right answer. These moral dilemma scenarios force you to examine your values, weigh competing principles, and explain why you believe what you believe. Unlike simple moral questions with obvious answers, true dilemmas expose tensions between values such as honesty and kindness, individual rights and collective good, or justice and mercy. Whether you need ethical dilemma examples for a classroom, moral dilemma questions for adults to discuss over dinner, interview practice, or a structured group conversation, this collection has you covered. The 65+ questions below span technology and AI, medicine, everyday life, workplace ethics, society, and the environment, followed by quick moral dilemmas for shorter discussions.",
     publishDate: "2026-04-01",
-    lastModified: "2026-08-31",
+    lastModified: "2026-09-04",
     sections: [
       {
         heading: "Technology and AI Ethics",
@@ -1761,7 +1761,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
           "An endangered species is destroying crops that a local community depends on for survival. The community wants to cull the animals. Conservationists object. Who is right?",
           "Should companies be allowed to offset their carbon emissions by buying credits, or does this just give wealthy polluters permission to keep polluting?",
           "A new dam would provide clean energy and water to millions but would flood an indigenous community's ancestral homeland. They refuse to relocate. What should happen?",
-          "A self-driving car must choose between hitting an elderly pedestrian or swerving into a wall, likely killing the passenger. How should it be programmed, and who is responsible for the outcome?",
+          "A nation can begin a solar geoengineering trial that may cool the planet, but it could shift rainfall and harm countries that never consented. Should one government be allowed to proceed?",
         ],
       },
       {
@@ -2579,7 +2579,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
       "A ready-to-use list of impromptu speaking questions — classic, funny, work, and family — to sharpen thinking on your feet.",
     intro: "Table Topics is the part of every Toastmasters meeting that tests your ability to think on your feet. You get a question, and you have one to two minutes to deliver a coherent, engaging response with zero preparation. It is terrifying and exhilarating in equal measure -- and the best way to get better is to practice with a wide variety of questions. This list of 120 Table Topics questions covers everything you need: classic opinion prompts, imaginative hypotheticals, personal reflection, funny table topics questions to keep the energy high, work and business questions for professional clubs, and family gathering questions for use at home. Read them here, copy the ones you like, or print the whole list to run Table Topics at your next meeting.",
     publishDate: "2026-04-05",
-    lastModified: "2026-08-31",
+    lastModified: "2026-09-04",
     sections: [
       {
         heading: "Classic Opinion Questions",

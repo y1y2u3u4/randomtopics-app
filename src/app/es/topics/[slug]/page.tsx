@@ -125,9 +125,9 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
             {article.heroSubtitle}
           </p>
           <p className="text-xs text-[var(--text-muted)] mt-3">
-            Publicado: {new Date(article.publishDate).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}
+            Publicado: {new Date(article.publishDate).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })}
             {article.lastModified !== article.publishDate && (
-              <> · Actualizado: {new Date(article.lastModified).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}</>
+              <> · Actualizado: {new Date(article.lastModified).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })}</>
             )}
           </p>
           <div className="mt-5 flex justify-center">
