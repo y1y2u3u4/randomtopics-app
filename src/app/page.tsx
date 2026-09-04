@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Navbar />
       <main className="flex-1">
-        <TopicGenerator />
+        <TopicGenerator contentSource="homepage" />
 
         {/* High-intent handoff: helps the dedicated subject page own its query
             instead of forcing Google to route "random subject generator" to /. */}
@@ -39,7 +39,7 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               { emoji: "🧠", label: "Learn Something", detail: "Subject + difficulty", href: "/random-learning-topic-generator" },
-              { emoji: "✍️", label: "Write About It", detail: "Essay, journal, fiction", href: "/writing-topic-generator" },
+              { emoji: "✍️", label: "Writing Topic Generator", detail: "Essay, journal, fiction", href: "/writing-topic-generator" },
               { emoji: "🔎", label: "Research It", detail: "Question + scope note", href: "/research-topic-generator" },
               { emoji: "📊", label: "Present It", detail: "Audience + slide angle", href: "/presentation-topic-generator" },
             ].map((tool) => (
@@ -416,6 +416,9 @@ export default function Home() {
                 and spark creativity. Switch to writing mode and generate prompts for essays, blog
                 posts, short stories, journal entries, or creative nonfiction. Each writing topic
                 comes with angle suggestions and talking points to help you develop your piece.
+                Choose Essay, Journal, Fiction, or Blog in the focused{" "}
+                <Link href="/writing-topic-generator" className="text-[var(--neon-cyan)] underline underline-offset-2">Writing Topic Generator</Link>{" "}
+                when you want a usable angle tailored to the format you are producing.
                 Whether you&apos;re a student looking for{" "}
                 <Link href="/essay-topic-generator" className="text-[var(--neon-cyan)] underline underline-offset-2">essay ideas</Link>{" "}
                 or a professional content creator seeking fresh angles, the generator delivers

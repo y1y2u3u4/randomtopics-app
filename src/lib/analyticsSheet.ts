@@ -18,8 +18,27 @@ const REQUIRED_TABS = [
   "Run Log",
 ] as const;
 
+const STRICT_CONVERSION_VERSION = "strict-post-gen-v1";
+const STRICT_CONVERSION_START_DATE = "2026-09-04";
+const DAILY_SUMMARY_COLUMN_COUNT = 29;
+const STRICT_DAILY_HEADERS = [
+  "Conversion Metric Version",
+  "Post-Generate Copy Users",
+  "Post-Generate Copy / Action-Bar User Rate",
+  "Post-Generate Save Users",
+  "Post-Generate Save / Action-Bar User Rate",
+  "Post-Generate Share Users",
+  "Post-Generate Share / Action-Bar User Rate",
+] as const;
+
 type SheetMetadataResponse = {
-  sheets?: Array<{ properties?: { title?: string } }>;
+  sheets?: Array<{
+    properties?: {
+      sheetId?: number;
+      title?: string;
+      gridProperties?: { columnCount?: number };
+    };
+  }>;
 };
 
 type ValueRangeResponse = {
@@ -117,7 +136,7 @@ async function writeRanges(
 
 async function assertExpectedTabs(sheetId: string): Promise<void> {
   const metadata = await sheetsRequest<SheetMetadataResponse>(
-    `${sheetId}?fields=sheets.properties.title`,
+    `${sheetId}?fields=sheets.properties(sheetId,title,gridProperties.columnCount)`,
     { method: "GET" },
     "sheet_metadata_failed"
   );
@@ -129,6 +148,32 @@ async function assertExpectedTabs(sheetId: string): Promise<void> {
   const missing = REQUIRED_TABS.filter((title) => !existing.has(title));
   if (missing.length > 0) {
     throw new AnalyticsSheetError("report_sheet_tabs_missing");
+  }
+
+  const dailySummary = (metadata.sheets ?? []).find(
+    (sheet) => sheet.properties?.title === "Daily Summary"
+  )?.properties;
+  const columnCount = dailySummary?.gridProperties?.columnCount ?? 0;
+  if (dailySummary?.sheetId === undefined || columnCount === 0) {
+    throw new AnalyticsSheetError("daily_summary_grid_missing");
+  }
+  if (columnCount < DAILY_SUMMARY_COLUMN_COUNT) {
+    await sheetsRequest(
+      `${sheetId}:batchUpdate`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          requests: [{
+            appendDimension: {
+              sheetId: dailySummary.sheetId,
+              dimension: "COLUMNS",
+              length: DAILY_SUMMARY_COLUMN_COUNT - columnCount,
+            },
+          }],
+        }),
+      },
+      "daily_summary_expand_failed"
+    );
   }
 }
 
@@ -228,9 +273,9 @@ function landingPageRows(
     page.ga4.current7.activeUsers,
     page.ga4.current7.sessions,
     page.ga4.funnel7.successUsers,
-    page.ga4.funnel7.copyUsers,
-    page.ga4.funnel7.saveUsers,
-    page.ga4.funnel7.shareUsers,
+    page.ga4.funnel7.postGenerateCopyUsers,
+    page.ga4.funnel7.postGenerateSaveUsers,
+    page.ga4.funnel7.postGenerateShareUsers,
     safeRate(page.ga4.funnel7.successSessions, page.ga4.current7.sessions),
     page.searchConsole.current7.clicks,
     page.searchConsole.current7.impressions,
@@ -271,7 +316,29 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
   const copy = eventByName(snapshot.ga4.eventsYesterday, "copy_result");
   const save = eventByName(snapshot.ga4.eventsYesterday, "save_result");
   const share = eventByName(snapshot.ga4.eventsYesterday, "share_result");
+  const postGenerateActionView = eventByName(
+    snapshot.ga4.eventsYesterday,
+    "post_generate_actions_view"
+  );
+  const postGenerateCopy = eventByName(
+    snapshot.ga4.eventsYesterday,
+    "post_generate_copy"
+  );
+  const postGenerateSave = eventByName(
+    snapshot.ga4.eventsYesterday,
+    "post_generate_save"
+  );
+  const postGenerateShare = eventByName(
+    snapshot.ga4.eventsYesterday,
+    "post_generate_share"
+  );
   const users = snapshot.ga4.yesterday.activeUsers;
+  const strictVersion = snapshot.reportDate < STRICT_CONVERSION_START_DATE
+    ? ""
+    : snapshot.reportDate === STRICT_CONVERSION_START_DATE
+      ? `${STRICT_CONVERSION_VERSION}-partial-cutover`
+      : STRICT_CONVERSION_VERSION;
+  const strictValue = (value: number) => strictVersion ? value : "";
   const dailyRow = [
     snapshot.reportDate,
     snapshot.generatedAt,
@@ -295,6 +362,13 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     snapshot.searchConsole.latestDay.ctr,
     snapshot.searchConsole.latestDay.position,
     "Complete",
+    strictVersion,
+    strictValue(postGenerateCopy.totalUsers),
+    strictValue(safeRate(postGenerateCopy.totalUsers, postGenerateActionView.totalUsers)),
+    strictValue(postGenerateSave.totalUsers),
+    strictValue(safeRate(postGenerateSave.totalUsers, postGenerateActionView.totalUsers)),
+    strictValue(postGenerateShare.totalUsers),
+    strictValue(safeRate(postGenerateShare.totalUsers, postGenerateActionView.totalUsers)),
   ];
 
   const pageRows = landingPageRows(
@@ -314,7 +388,15 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
   ]);
   await writeRanges(sheetId, [
     {
-      range: `'Daily Summary'!A${dailyTargetRow}:V${dailyTargetRow}`,
+      range: "'Daily Summary'!W1:AC1",
+      values: [[...STRICT_DAILY_HEADERS]],
+    },
+    {
+      range: "'Landing Pages'!F1:I1",
+      values: [["Generated Users", "Strict Post-Generate Copy Users", "Strict Post-Generate Save Users", "Strict Post-Generate Share Users"]],
+    },
+    {
+      range: `'Daily Summary'!A${dailyTargetRow}:AC${dailyTargetRow}`,
       values: [dailyRow],
     },
     {

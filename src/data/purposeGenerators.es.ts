@@ -52,6 +52,7 @@ export const PURPOSE_GENERATORS_ES: Record<"presentation" | "research" | "study"
       { emoji: "🏫", label: "Ideas de presentación escolar", href: "/es/topics/presentation-ideas-for-school" },
       { emoji: "🔎", label: "Temas para investigar", href: "/es/generador-de-temas-para-investigar" },
     ],
+    library: { category: "education", modes: ["speech"] },
   },
   research: {
     slug: "generador-de-temas-para-investigar",
@@ -104,6 +105,7 @@ export const PURPOSE_GENERATORS_ES: Record<"presentation" | "research" | "study"
       { emoji: "📊", label: "Temas para exponer", href: "/es/generador-de-temas-para-exponer" },
       { emoji: "🧪", label: "Temas de ciencia", href: "/es/categories/science" },
     ],
+    library: { category: "education", modes: ["writing"] },
   },
   study: {
     slug: "generador-de-temas-para-estudiar",
@@ -156,5 +158,6 @@ export const PURPOSE_GENERATORS_ES: Record<"presentation" | "research" | "study"
       { emoji: "📊", label: "Temas para exponer", href: "/es/generador-de-temas-para-exponer" },
       { emoji: "📚", label: "Temas de educación", href: "/es/categories/education" },
     ],
+    library: { category: "education", modes: ["writing"] },
   },
 };

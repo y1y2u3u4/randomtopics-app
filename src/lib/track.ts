@@ -17,11 +17,13 @@ export function track(eventName: string, params?: GtagParams): void {
   try {
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
       const eventParams = {
-        page_path: `${window.location.pathname}${window.location.search}`,
-        page_location: window.location.href,
+        ...params,
+        // Query strings on /share may contain user-selected topic text. Keep
+        // analytics useful without sending that content to GA4.
+        page_path: window.location.pathname,
+        page_location: `${window.location.origin}${window.location.pathname}`,
         page_title: document.title,
         page_language: document.documentElement.lang || "en",
-        ...params,
       };
 
       window.gtag("event", eventName, eventParams);
@@ -39,8 +41,8 @@ export function trackPageView(): boolean {
   try {
     if (typeof window === "undefined" || typeof window.gtag !== "function") return false;
     window.gtag("event", "page_view", {
-      page_path: `${window.location.pathname}${window.location.search}`,
-      page_location: window.location.href,
+      page_path: window.location.pathname,
+      page_location: `${window.location.origin}${window.location.pathname}`,
       page_title: document.title,
       page_language: document.documentElement.lang || "en",
     });

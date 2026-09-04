@@ -10,7 +10,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Impromptu Speech Topics Generator — Practice With a Timer",
   description:
-    "Generate random impromptu speech topics and practice against a built-in timer. Free tool for speech class, forensics, Toastmasters and interview prep — 500+ topics, no signup.",
+    "Generate random impromptu speech topics and practice against a built-in timer. Nearly 300 curated speech prompts for class, forensics, Toastmasters, and interview prep — free, no signup.",
   keywords: [
     "impromptu speech topics",
     "impromptu speech topics generator",
@@ -46,7 +46,7 @@ const FAQ_ITEMS = [
   {
     question: "Is this impromptu speech generator free?",
     answer:
-      "Yes — 500+ curated topics, category and depth filters, unlimited AI generation, and the practice timer are all free with no signup and no ads.",
+      "Yes — nearly 300 curated speech prompts, category and depth filters, fresh AI prompts when available, and the practice timer are all free with no signup and no ads.",
   },
 ];
 
@@ -59,18 +59,20 @@ export default function ImpromptuSpeechPage() {
         <Breadcrumb
           items={[
             { label: "Home", href: "/" },
+            { label: "Speech Topics", href: "/speech" },
             { label: "Impromptu Speech Topics" },
           ]}
         />
         <TopicGenerator
           initialMode="speech"
+          contentSource="impromptu_speech_generator"
           title="Impromptu Speech Topics Generator"
           subtitle="Get a surprise topic, start the timer, and practice speaking on your feet — the way it happens in class, contests, and interviews."
         />
 
         {/* Speech Timer */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
-          <SpeechTimer />
+          <SpeechTimer defaultSeconds={120} contentSource="impromptu_speech_generator" />
         </section>
 
         {/* SEO Content */}

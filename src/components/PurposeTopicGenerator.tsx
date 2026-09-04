@@ -2,6 +2,9 @@
 
 import { useMemo, useState } from "react";
 import type { PurposeGeneratorConfig, PurposePrompt } from "@/data/purposeGenerators";
+import type { Topic } from "@/data/types";
+import GeneratedResultActions from "@/components/GeneratedResultActions";
+import { recordRecentTopics } from "@/lib/topicLibrary";
 import { track } from "@/lib/track";
 
 function unique(values: string[]) {
@@ -25,17 +28,36 @@ export default function PurposeTopicGenerator({ config }: { config: PurposeGener
   const [level, setLevel] = useState("All");
   const [count, setCount] = useState(1);
   const [results, setResults] = useState<PurposePrompt[]>([]);
-  const [copied, setCopied] = useState<number | null>(null);
+
+  function toTopic(prompt: PurposePrompt): Topic | undefined {
+    if (!config.library) return undefined;
+    const sourceIndex = config.prompts.findIndex((candidate) => candidate.text === prompt.text);
+    const normalizedLevel = prompt.level.toLowerCase();
+    return {
+      id: `purpose-${config.slug}-${sourceIndex}`,
+      text: prompt.text,
+      category: config.library.category,
+      modes: config.library.modes,
+      depth: normalizedLevel.includes("deep") || normalizedLevel.includes("avanz")
+        ? "deep"
+        : normalizedLevel.includes("quick") || normalizedLevel.includes("fácil") || normalizedLevel.includes("básic")
+          ? "light"
+          : "medium",
+      talkingPoints: [prompt.angle],
+    };
+  }
 
   function generate() {
     const eventParams = {
       tool_type: "purpose_generator",
+      content_source: config.slug,
       generator_slug: config.slug,
       generator_category: category.toLowerCase().replaceAll(" ", "_"),
       generator_level: level.toLowerCase().replaceAll(" ", "_"),
       requested_count: count,
       locale: config.locale ?? "en",
     };
+    if (results.length > 0) track("repeat_generate", eventParams);
     track("generate_start", eventParams);
     const matching = config.prompts.filter(
       (prompt) =>
@@ -48,28 +70,12 @@ export default function PurposeTopicGenerator({ config }: { config: PurposeGener
     const candidates = fresh.length >= Math.min(count, pool.length) ? fresh : pool;
     const nextResults = shuffled(candidates).slice(0, Math.min(count, candidates.length));
     setResults(nextResults);
-    setCopied(null);
+    recordRecentTopics(nextResults.map(toTopic).filter((topic): topic is Topic => Boolean(topic)));
     track(nextResults.length > 0 ? "generate_success" : "generate_error", {
       ...eventParams,
       result_count: nextResults.length,
       result_source: "editorial_pool",
     });
-  }
-
-  async function copyResult(prompt: PurposePrompt, index: number) {
-    try {
-      await navigator.clipboard.writeText(`${prompt.text}\nStarting angle: ${prompt.angle}`);
-      setCopied(index);
-      track("copy_result", {
-        tool_type: "purpose_generator",
-        generator_slug: config.slug,
-        result_category: prompt.category,
-        result_level: prompt.level,
-        locale: config.locale ?? "en",
-      });
-    } catch {
-      setCopied(null);
-    }
   }
 
   return (
@@ -140,13 +146,20 @@ export default function PurposeTopicGenerator({ config }: { config: PurposeGener
                 <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
                   <strong className="text-[var(--text-primary)]">{isSpanish ? "Punto de partida:" : "Starting angle:"}</strong> {prompt.angle}
                 </p>
-                <button
-                  type="button"
-                  onClick={() => copyResult(prompt, index)}
-                  className="mt-4 text-xs font-semibold text-[var(--neon-cyan)] hover:underline"
-                >
-                  {copied === index ? (isSpanish ? "Copiado ✓" : "Copied ✓") : (isSpanish ? "Copiar tema + enfoque" : "Copy topic + angle")}
-                </button>
+                <div className="mt-5">
+                  <GeneratedResultActions
+                    text={prompt.text}
+                    copyValue={`${prompt.text}\n${isSpanish ? "Punto de partida" : "Starting angle"}: ${prompt.angle}`}
+                    shareTitle={config.title}
+                    saveTopic={toTopic(prompt)}
+                    locale={config.locale ?? "en"}
+                    toolType="purpose_generator"
+                    contentSource={config.slug}
+                    actionSurface={`purpose_result_${index + 1}`}
+                    isPostGenerate
+                    compact
+                  />
+                </div>
               </article>
             ))}
           </div>

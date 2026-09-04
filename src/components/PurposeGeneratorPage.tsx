@@ -17,7 +17,11 @@ export default function PurposeGeneratorPage({ config }: { config: PurposeGenera
       <FaqSchema items={config.faq} />
       <Navbar />
       <main className="flex-1" lang={isSpanish ? "es" : "en"}>
-        <Breadcrumb items={[{ label: isSpanish ? "Inicio" : "Home", href: isSpanish ? "/es" : "/" }, { label: config.name }]} />
+        <Breadcrumb items={[
+          { label: isSpanish ? "Inicio" : "Home", href: isSpanish ? "/es" : "/" },
+          ...(config.parentLink ? [config.parentLink] : []),
+          { label: config.name },
+        ]} />
 
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-10 text-center">
           <p className="text-4xl mb-4" aria-hidden="true">{config.emoji}</p>

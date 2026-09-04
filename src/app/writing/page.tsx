@@ -91,6 +91,7 @@ export default function WritingPage() {
         <ModeIllustration mode="writing" />
         <TopicGenerator
           initialMode="writing"
+          contentSource="writing_hub"
           title="Writing Prompt Generator"
           subtitle="Need a random topic to write about? Spark your creativity with random writing prompts across every genre and subject — one click, no signup."
         />

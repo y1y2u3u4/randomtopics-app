@@ -1,24 +1,17 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 import { Topic, CATEGORIES } from "@/data/types";
-import ShareButtons from "./ShareButtons";
 import { Locale, defaultLocale } from "@/i18n/config";
-import { getDict, CATEGORY_LABELS } from "@/i18n/dictionaries";
-import { copyText } from "@/lib/clipboard";
-import { track } from "@/lib/track";
-import {
-  getEmptyTopicLibrarySnapshot,
-  getFavoriteTopicsSnapshot,
-  subscribeToTopicLibrary,
-  toggleFavoriteTopic,
-} from "@/lib/topicLibrary";
+import { CATEGORY_LABELS } from "@/i18n/dictionaries";
+import GeneratedResultActions from "@/components/GeneratedResultActions";
 
 interface TopicCardProps {
   topic: Topic;
   index?: number;
   locale?: Locale;
+  contentSource?: string;
+  actionContext?: "generated_result" | "editorial_card" | "saved_library";
 }
 
 const depthColors = {
@@ -39,58 +32,16 @@ const depthColors = {
   },
 };
 
-export default function TopicCard({ topic, index = 0, locale = defaultLocale }: TopicCardProps) {
-  const [copied, setCopied] = useState(false);
-  const [manualCopyText, setManualCopyText] = useState<string | null>(null);
-  const t = getDict(locale);
+export default function TopicCard({
+  topic,
+  index = 0,
+  locale = defaultLocale,
+  contentSource = "topic_card",
+  actionContext = "editorial_card",
+}: TopicCardProps) {
   const categoryEmoji = CATEGORIES.find((c) => c.id === topic.category)?.emoji;
   const categoryLabel = CATEGORY_LABELS[locale][topic.category]?.label;
   const depth = depthColors[topic.depth] || depthColors.light;
-
-  const favoriteSnapshot = useSyncExternalStore(
-    subscribeToTopicLibrary,
-    getFavoriteTopicsSnapshot,
-    getEmptyTopicLibrarySnapshot
-  );
-  const isFav = (JSON.parse(favoriteSnapshot) as Topic[]).some((saved) => saved.id === topic.id);
-
-  const handleCopy = async () => {
-    const copiedSuccessfully = await copyText(topic.text);
-    if (!copiedSuccessfully) {
-      setManualCopyText(topic.text);
-      track("copy_error", {
-        tool_type: "topic_card",
-        result_type: "topic",
-        topic_id: topic.id,
-        copy_surface: "generated_card",
-        topic_locale: locale,
-      });
-      return;
-    }
-    track("copy_result", {
-      tool_type: "topic_card",
-      result_type: "topic",
-      topic_id: topic.id,
-      topic_category: topic.category,
-      copy_surface: "generated_card",
-      topic_locale: locale,
-    });
-    setManualCopyText(null);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleFavorite = () => {
-    const added = toggleFavoriteTopic(topic);
-    track(added ? "save_result" : "remove_saved_result", {
-      tool_type: "topic_card",
-      result_type: "topic",
-      topic_id: topic.id,
-      topic_category: topic.category,
-      save_surface: "generated_card",
-      topic_locale: locale,
-    });
-  };
 
   return (
     <motion.div
@@ -205,53 +156,24 @@ export default function TopicCard({ topic, index = 0, locale = defaultLocale }: 
         </ul>
       )}
 
-      <div
-        className="mt-5 flex flex-wrap gap-2"
-        style={{ position: "relative", zIndex: 1 }}
-        aria-label={locale === "es" ? "Acciones del tema" : "Topic actions"}
-      >
-        <button
-          type="button"
-          onClick={handleCopy}
-          className="inline-flex items-center gap-2 rounded-xl border border-[var(--neon-cyan)]/30 bg-[var(--neon-cyan)]/10 px-4 py-2.5 text-sm font-semibold text-[var(--neon-cyan)] transition-colors hover:bg-[var(--neon-cyan)]/15"
-        >
-          <span aria-hidden="true">{copied ? "✓" : "⧉"}</span>
-          {copied ? (locale === "es" ? "Copiado" : "Copied") : t.card.copy}
-        </button>
-        <button
-          type="button"
-          onClick={handleFavorite}
-          className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition-colors ${
-            isFav
-              ? "border-[var(--neon-pink)]/40 bg-[var(--neon-pink)]/10 text-[var(--neon-pink)]"
-              : "border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-pink)]/30"
-          }`}
-        >
-          <span aria-hidden="true">{isFav ? "♥" : "♡"}</span>
-          {isFav ? t.card.removeFav : t.card.saveFav}
-        </button>
+      <div className="mt-5" style={{ position: "relative", zIndex: 1 }}>
+        <GeneratedResultActions
+          text={topic.text}
+          copyValue={[topic.text, ...topic.talkingPoints.map((point) => `• ${point}`)].join("\n")}
+          shareTitle={locale === "es" ? "Tema de Random Topics" : "Topic from Random Topics"}
+          saveTopic={topic}
+          locale={locale}
+          toolType="topic_card"
+          contentSource={contentSource}
+          actionSurface={actionContext}
+          isPostGenerate={actionContext === "generated_result"}
+          compact
+        />
       </div>
 
-      {manualCopyText ? (
-        <div className="mt-3 rounded-xl border border-amber-300/20 bg-amber-300/5 p-3" style={{ position: "relative", zIndex: 1 }}>
-          <label className="text-xs text-amber-100" htmlFor={`manual-copy-${topic.id}`}>
-            {locale === "es"
-              ? "Tu navegador bloqueó la copia automática. Selecciona el texto:"
-              : "Your browser blocked automatic copying. Select the text below:"}
-          </label>
-          <input
-            id={`manual-copy-${topic.id}`}
-            readOnly
-            value={manualCopyText}
-            onFocus={(event) => event.currentTarget.select()}
-            className="mt-2 w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-white outline-none focus:border-amber-300/40"
-          />
-        </div>
-      ) : null}
-
-      {/* Mode tags + share buttons */}
+      {/* Mode tags */}
       <div
-        className="flex items-center justify-between gap-3 mt-4 pt-4"
+        className="flex items-center gap-3 mt-4 pt-4"
         style={{
           borderTop: "1px solid rgba(255, 255, 255, 0.04)",
           position: "relative",
@@ -277,10 +199,6 @@ export default function TopicCard({ topic, index = 0, locale = defaultLocale }: 
               {mode}
             </span>
           ))}
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-[var(--text-muted)]">{locale === "es" ? "Compartir" : "Share"}</span>
-          <ShareButtons topic={topic} locale={locale} />
         </div>
       </div>
     </motion.div>

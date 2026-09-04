@@ -288,7 +288,7 @@ export const FIVE_MINUTE_SPEECH_CONFIG: PremiumCollectionConfig = {
   relatedLinks: [
     { label: "Impromptu speech topics", href: "/impromptu-speech-topics", description: "Practice faster one- and two-minute responses." },
     { label: "Speech topics for college students", href: "/topics/speech-topics-for-college-students", description: "Browse a college-focused long-form collection." },
-    { label: "Toastmasters Table Topics", href: "/topics/toastmasters-table-topics", description: "Run a club-style speaking drill with timed feedback." },
+    { label: "120 Toastmasters Table Topics (1–2 minutes)", href: "/topics/toastmasters-table-topics", description: "Run a club-style speaking drill with timed feedback." },
   ],
   faq: [
     { question: "How many words fit in a five-minute speech?", answer: "Most speakers deliver roughly 600 to 750 words in five minutes, but a practice speech should be planned in ideas rather than filled to a word target. Pauses, examples, and audience response all change the pace." },

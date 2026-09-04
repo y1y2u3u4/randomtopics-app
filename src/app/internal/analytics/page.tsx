@@ -175,7 +175,7 @@ function GrowthPagesTable({ rows }: { rows: GrowthPageRow[] }) {
             <th className="px-4 py-3 text-right font-medium">GA users</th>
             <th className="px-4 py-3 text-right font-medium">vs prior 7d</th>
             <th className="px-4 py-3 text-right font-medium">Views</th>
-            <th className="px-4 py-3 text-right font-medium">Success / actions</th>
+            <th className="px-4 py-3 text-right font-medium">Action users / strict actions</th>
             <th className="px-4 py-3 text-right font-medium">GSC clicks</th>
             <th className="px-4 py-3 text-right font-medium">Impressions</th>
             <th className="px-4 py-3 text-right font-medium">CTR</th>
@@ -184,7 +184,10 @@ function GrowthPagesTable({ rows }: { rows: GrowthPageRow[] }) {
         </thead>
         <tbody>
           {rows.map((row) => {
-            const actions = row.ga4.funnel7.copies + row.ga4.funnel7.saves + row.ga4.funnel7.shares;
+            const actions =
+              row.ga4.funnel7.postGenerateCopies
+              + row.ga4.funnel7.postGenerateSaves
+              + row.ga4.funnel7.postGenerateShares;
             return (
               <tr key={row.path} className="border-b border-white/5 last:border-0">
                 <td className="px-4 py-3">
@@ -206,7 +209,7 @@ function GrowthPagesTable({ rows }: { rows: GrowthPageRow[] }) {
                 </td>
                 <td className="px-4 py-3 text-right">{integer.format(row.ga4.current7.screenPageViews)}</td>
                 <td className="px-4 py-3 text-right">
-                  {integer.format(row.ga4.funnel7.successes)} / {integer.format(actions)}
+                  {integer.format(row.ga4.funnel7.postGenerateActionUsers)} / {integer.format(actions)}
                 </td>
                 <td className="px-4 py-3 text-right">
                   <div>{integer.format(row.searchConsole.current7.clicks)}</div>
@@ -380,10 +383,16 @@ export default async function AnalyticsPage({
   const previousSuccess = eventByName(ga.previousEvents7, "generate_success");
   const currentError = eventByName(ga.events7, "generate_error");
   const currentCopy = eventByName(ga.events7, "copy_result");
-  const previousCopy = eventByName(ga.previousEvents7, "copy_result");
   const currentSave = eventByName(ga.events7, "save_result");
-  const previousSave = eventByName(ga.previousEvents7, "save_result");
   const currentShare = eventByName(ga.events7, "share_result");
+  const currentPostGenerateActionView = eventByName(ga.events7, "post_generate_actions_view");
+  const previousPostGenerateActionView = eventByName(ga.previousEvents7, "post_generate_actions_view");
+  const currentPostGenerateCopy = eventByName(ga.events7, "post_generate_copy");
+  const previousPostGenerateCopy = eventByName(ga.previousEvents7, "post_generate_copy");
+  const currentPostGenerateSave = eventByName(ga.events7, "post_generate_save");
+  const previousPostGenerateSave = eventByName(ga.previousEvents7, "post_generate_save");
+  const currentPostGenerateShare = eventByName(ga.events7, "post_generate_share");
+  const previousPostGenerateShare = eventByName(ga.previousEvents7, "post_generate_share");
 
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:py-12">
@@ -420,14 +429,14 @@ export default async function AnalyticsPage({
           </div>
         </Section>
 
-        <Section title="GA4 · 有效转化漏斗" subtitle="最近 7 个完整自然日；用户与会话去重后计算，不再把重复生成次数当作独立转化。">
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <Section title="GA4 · 严格生成后转化漏斗" subtitle="最近 7 个完整自然日；分母仅包含真正看到生成后操作栏的用户。严格事件自 2026-09-04 起积累，历史全场景事件继续保留在事件明细中。">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
             <MetricCard
-              label="Users who generated"
-              value={integer.format(currentSuccess.totalUsers)}
-              current={currentSuccess.totalUsers}
-              previous={previousSuccess.totalUsers}
-              note={`${integer.format(currentSuccess.sessions)} sessions · ${integer.format(currentSuccess.eventCount)} successful results`}
+              label="Users shown result actions"
+              value={integer.format(currentPostGenerateActionView.totalUsers)}
+              current={currentPostGenerateActionView.totalUsers}
+              previous={previousPostGenerateActionView.totalUsers}
+              note={`${integer.format(currentPostGenerateActionView.eventCount)} action-bar views · eligible strict denominator`}
             />
             <MetricCard
               label="Technical success rate"
@@ -437,18 +446,25 @@ export default async function AnalyticsPage({
               note={`${integer.format(currentError.eventCount)} errors · based on start/success events`}
             />
             <MetricCard
-              label="Copy user conversion"
-              value={formatPercent(ratio(currentCopy.totalUsers, currentSuccess.totalUsers))}
-              current={ratio(currentCopy.totalUsers, currentSuccess.totalUsers)}
-              previous={ratio(previousCopy.totalUsers, previousSuccess.totalUsers)}
-              note={`${integer.format(currentCopy.totalUsers)} users · ${integer.format(currentCopy.sessions)} sessions copied`}
+              label="Post-gen copy conversion"
+              value={formatPercent(ratio(currentPostGenerateCopy.totalUsers, currentPostGenerateActionView.totalUsers))}
+              current={ratio(currentPostGenerateCopy.totalUsers, currentPostGenerateActionView.totalUsers)}
+              previous={ratio(previousPostGenerateCopy.totalUsers, previousPostGenerateActionView.totalUsers)}
+              note={`${integer.format(currentPostGenerateCopy.totalUsers)} strict users · ${integer.format(currentCopy.totalUsers)} all-surface copy users`}
             />
             <MetricCard
-              label="Save user conversion"
-              value={formatPercent(ratio(currentSave.totalUsers, currentSuccess.totalUsers))}
-              current={ratio(currentSave.totalUsers, currentSuccess.totalUsers)}
-              previous={ratio(previousSave.totalUsers, previousSuccess.totalUsers)}
-              note={`${integer.format(currentSave.totalUsers)} saved · ${integer.format(currentShare.totalUsers)} shared`}
+              label="Post-gen save conversion"
+              value={formatPercent(ratio(currentPostGenerateSave.totalUsers, currentPostGenerateActionView.totalUsers))}
+              current={ratio(currentPostGenerateSave.totalUsers, currentPostGenerateActionView.totalUsers)}
+              previous={ratio(previousPostGenerateSave.totalUsers, previousPostGenerateActionView.totalUsers)}
+              note={`${integer.format(currentPostGenerateSave.totalUsers)} strict users · ${integer.format(currentSave.totalUsers)} all-surface save users`}
+            />
+            <MetricCard
+              label="Post-gen share conversion"
+              value={formatPercent(ratio(currentPostGenerateShare.totalUsers, currentPostGenerateActionView.totalUsers))}
+              current={ratio(currentPostGenerateShare.totalUsers, currentPostGenerateActionView.totalUsers)}
+              previous={ratio(previousPostGenerateShare.totalUsers, previousPostGenerateActionView.totalUsers)}
+              note={`${integer.format(currentPostGenerateShare.totalUsers)} strict users · ${integer.format(currentShare.totalUsers)} all-surface share users`}
             />
           </div>
         </Section>
@@ -457,7 +473,7 @@ export default async function AnalyticsPage({
           <EventTable rows={ga.events28} />
         </Section>
 
-        <Section title="精品页增长记分板" subtitle={`固定跟踪 ${data.growthPages.length} 个目标页；GA4 为最近 7 个完整自然日，GSC 为 ${gsc.current7Range.startDate} 至 ${gsc.current7Range.endDate}。Success / actions = 成功生成 / 复制、收藏、分享事件。`}>
+        <Section title="精品页增长记分板" subtitle={`固定跟踪 ${data.growthPages.length} 个目标页；GA4 为最近 7 个完整自然日，GSC 为 ${gsc.current7Range.startDate} 至 ${gsc.current7Range.endDate}。Action users / strict actions = 看到生成后操作栏的用户 / 复制、收藏、分享事件。`}>
           <GrowthPagesTable rows={data.growthPages} />
         </Section>
 

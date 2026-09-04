@@ -46,7 +46,7 @@ const FAQ_ITEMS = [
   {
     question: "Is this Table Topics generator free?",
     answer:
-      "Completely free, with no signup and no ads. It includes 500+ curated questions, category and depth filters, an AI mode for unlimited fresh questions, and the built-in practice timer.",
+      "Completely free, with no signup and no ads. It draws from nearly 300 curated speech prompts, offers category and depth filters, supports fresh AI prompts when available, and includes the built-in practice timer.",
   },
 ];
 
@@ -59,18 +59,20 @@ export default function TableTopicsPage() {
         <Breadcrumb
           items={[
             { label: "Home", href: "/" },
+            { label: "Speech Topics", href: "/speech" },
             { label: "Table Topics Generator" },
           ]}
         />
         <TopicGenerator
           initialMode="speech"
+          contentSource="table_topics_generator"
           title="Table Topics Generator"
           subtitle="Random impromptu speaking questions for Toastmasters — generate a question, hit the timer, and practice thinking on your feet."
         />
 
         {/* Speech Timer */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
-          <SpeechTimer />
+          <SpeechTimer defaultSeconds={120} contentSource="table_topics_generator" toastmastersCues />
         </section>
 
         {/* SEO Content */}

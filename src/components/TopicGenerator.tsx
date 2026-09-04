@@ -18,6 +18,7 @@ interface TopicGeneratorProps {
   title?: string;
   subtitle?: string;
   locale?: Locale;
+  contentSource?: string;
 }
 
 const DEPTH_KEYS: Record<Depth, "depthLight" | "depthMedium" | "depthDeep"> = {
@@ -32,6 +33,7 @@ export default function TopicGenerator({
   title,
   subtitle,
   locale = defaultLocale,
+  contentSource = "topic_generator",
 }: TopicGeneratorProps) {
   const t = getDict(locale);
   const [selectedMode, setSelectedMode] = useState<Mode | null>(initialMode);
@@ -68,9 +70,10 @@ export default function TopicGenerator({
       requested_count: count,
       result_count: nextTopics.length,
       result_source: resultSource,
+      content_source: contentSource,
       locale,
     });
-  }, [selectedMode, selectedCategory, selectedDepth, count, locale]);
+  }, [selectedMode, selectedCategory, selectedDepth, count, contentSource, locale]);
 
   const generate = useCallback(async () => {
     setIsSpinning(true);
@@ -81,6 +84,7 @@ export default function TopicGenerator({
       generator_category: selectedCategory ?? "any",
       generator_depth: selectedDepth ?? "any",
       requested_count: count,
+      content_source: contentSource,
       locale,
     });
 
@@ -118,7 +122,7 @@ export default function TopicGenerator({
       // Fallback to static database on any error
       finishGeneration(generateFromStatic(), "static_fallback");
     }
-  }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, finishGeneration, locale]);
+  }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, finishGeneration, contentSource, locale]);
 
   const generateAgain = useCallback(() => {
     track("repeat_generate", {
@@ -127,10 +131,11 @@ export default function TopicGenerator({
       generator_category: selectedCategory ?? "any",
       generator_depth: selectedDepth ?? "any",
       requested_count: count,
+      content_source: contentSource,
       locale,
     });
     void generate();
-  }, [count, generate, locale, selectedCategory, selectedDepth, selectedMode]);
+  }, [contentSource, count, generate, locale, selectedCategory, selectedDepth, selectedMode]);
 
   const copyAllGenerated = useCallback(async () => {
     if (generatedTopics.length === 0) return;
@@ -145,6 +150,7 @@ export default function TopicGenerator({
         result_type: "topic_batch",
         result_count: generatedTopics.length,
         copy_surface: "results_action_bar",
+        content_source: contentSource,
         locale,
       });
       return;
@@ -157,9 +163,18 @@ export default function TopicGenerator({
       result_type: "topic_batch",
       result_count: generatedTopics.length,
       copy_surface: "results_action_bar",
+      content_source: contentSource,
       locale,
     });
-  }, [generatedTopics, locale]);
+    track("post_generate_copy", {
+      tool_type: "topic_generator",
+      result_type: "topic_batch",
+      result_count: generatedTopics.length,
+      action_surface: "results_action_bar",
+      content_source: contentSource,
+      locale,
+    });
+  }, [contentSource, generatedTopics, locale]);
 
   const showModeSelector = !initialMode;
   const showCategorySelector = !initialCategory;
@@ -320,7 +335,14 @@ export default function TopicGenerator({
             {generatedTopics.length > 0 ? (
               <>
                 {generatedTopics.map((topic, i) => (
-                  <TopicCard key={topic.id} topic={topic} index={i} locale={locale} />
+                  <TopicCard
+                    key={topic.id}
+                    topic={topic}
+                    index={i}
+                    locale={locale}
+                    contentSource={contentSource}
+                    actionContext="generated_result"
+                  />
                 ))}
                 <div className="glass-card border-[var(--neon-cyan)]/20 p-5 sm:p-6">
                   <p className="text-center text-sm font-semibold text-[var(--text-primary)]">

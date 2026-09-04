@@ -35,13 +35,15 @@ function readTopicArray(key: string): Topic[] {
   return Array.isArray(value) ? value.filter(isTopic) : [];
 }
 
-function writeTopicArray(key: string, value: Topic[]): void {
-  if (typeof window === "undefined") return;
+function writeTopicArray(key: string, value: Topic[]): boolean {
+  if (typeof window === "undefined") return false;
   try {
     localStorage.setItem(key, JSON.stringify(value));
     window.dispatchEvent(new CustomEvent(LIBRARY_EVENT));
+    return true;
   } catch {
     // Private browsing and strict storage policies can reject localStorage.
+    return false;
   }
 }
 
@@ -79,22 +81,31 @@ function dedupeTopics(value: Topic[], limit: number): Topic[] {
 }
 
 export function getFavoriteTopics(): Topic[] {
-  const saved = readTopicArray(FAVORITES_KEY);
-  return saved.length > 0 ? saved : migrateLegacyFavorites();
+  if (typeof window === "undefined") return [];
+  try {
+    if (localStorage.getItem(FAVORITES_KEY) !== null) {
+      return readTopicArray(FAVORITES_KEY);
+    }
+  } catch {
+    return [];
+  }
+  return migrateLegacyFavorites();
 }
 
 export function isFavoriteTopic(topicId: string): boolean {
   return getFavoriteTopics().some((topic) => topic.id === topicId);
 }
 
-export function toggleFavoriteTopic(topic: Topic): boolean {
+export type FavoriteToggleResult = { saved: boolean; persisted: boolean };
+
+export function toggleFavoriteTopic(topic: Topic): FavoriteToggleResult {
   const current = getFavoriteTopics();
   const exists = current.some((saved) => saved.id === topic.id);
   const next = exists
     ? current.filter((saved) => saved.id !== topic.id)
     : dedupeTopics([topic, ...current], 100);
-  writeTopicArray(FAVORITES_KEY, next);
-  return !exists;
+  const persisted = writeTopicArray(FAVORITES_KEY, next);
+  return { saved: persisted ? !exists : exists, persisted };
 }
 
 export function getRecentTopics(): Topic[] {

@@ -74,12 +74,20 @@ export type GrowthPageFunnel = {
   successUsers: number;
   successSessions: number;
   errors: number;
+  postGenerateActionViews: number;
+  postGenerateActionUsers: number;
   copies: number;
   copyUsers: number;
   saves: number;
   saveUsers: number;
   shares: number;
   shareUsers: number;
+  postGenerateCopies: number;
+  postGenerateCopyUsers: number;
+  postGenerateSaves: number;
+  postGenerateSaveUsers: number;
+  postGenerateShares: number;
+  postGenerateShareUsers: number;
   timerStarts: number;
   timerCompletes: number;
 };
@@ -177,7 +185,9 @@ const MONITORED_GROWTH_PAGES = [
   { label: "Spanish Most Likely To", path: "/es/topics/most-likely-to-questions", launchedRecently: false },
   { label: "Conversation", path: "/conversation", launchedRecently: false },
   { label: "Writing", path: "/writing", launchedRecently: false },
+  { label: "Writing Topic Generator", path: "/writing-topic-generator", launchedRecently: false },
   { label: "Speech", path: "/speech", launchedRecently: false },
+  { label: "Table Topics Generator", path: "/table-topics-generator", launchedRecently: false },
   { label: "Random Subject", path: "/random-subject-generator", launchedRecently: false },
 ] as const;
 
@@ -185,9 +195,13 @@ const FUNNEL_EVENT_NAMES = [
   "generate_start",
   "generate_success",
   "generate_error",
+  "post_generate_actions_view",
   "copy_result",
   "save_result",
   "share_result",
+  "post_generate_copy",
+  "post_generate_save",
+  "post_generate_share",
   "timer_start",
   "timer_complete",
 ] as const;
@@ -439,10 +453,17 @@ async function getGaEvents(
     "repeat_generate",
     "copy_result",
     "copy_error",
+    "post_generate_actions_view",
+    "post_generate_copy",
     "save_result",
+    "save_error",
     "remove_saved_result",
+    "unsave_result",
+    "post_generate_save",
     "share_result",
     "share_error",
+    "post_generate_share",
+    "print_open",
     "print_content",
     "timer_start",
     "timer_complete",
@@ -498,12 +519,20 @@ function emptyGrowthFunnel(): GrowthPageFunnel {
     successUsers: 0,
     successSessions: 0,
     errors: 0,
+    postGenerateActionViews: 0,
+    postGenerateActionUsers: 0,
     copies: 0,
     copyUsers: 0,
     saves: 0,
     saveUsers: 0,
     shares: 0,
     shareUsers: 0,
+    postGenerateCopies: 0,
+    postGenerateCopyUsers: 0,
+    postGenerateSaves: 0,
+    postGenerateSaveUsers: 0,
+    postGenerateShares: 0,
+    postGenerateShareUsers: 0,
     timerStarts: 0,
     timerCompletes: 0,
   };
@@ -584,6 +613,10 @@ async function getGaGrowthPageFunnel(): Promise<Map<string, GrowthPageFunnel>> {
       funnel.successSessions = metricValue(row, 2);
     }
     if (event === "generate_error") funnel.errors = value;
+    if (event === "post_generate_actions_view") {
+      funnel.postGenerateActionViews = value;
+      funnel.postGenerateActionUsers = metricValue(row, 1);
+    }
     if (event === "copy_result") {
       funnel.copies = value;
       funnel.copyUsers = metricValue(row, 1);
@@ -595,6 +628,18 @@ async function getGaGrowthPageFunnel(): Promise<Map<string, GrowthPageFunnel>> {
     if (event === "share_result") {
       funnel.shares = value;
       funnel.shareUsers = metricValue(row, 1);
+    }
+    if (event === "post_generate_copy") {
+      funnel.postGenerateCopies = value;
+      funnel.postGenerateCopyUsers = metricValue(row, 1);
+    }
+    if (event === "post_generate_save") {
+      funnel.postGenerateSaves = value;
+      funnel.postGenerateSaveUsers = metricValue(row, 1);
+    }
+    if (event === "post_generate_share") {
+      funnel.postGenerateShares = value;
+      funnel.postGenerateShareUsers = metricValue(row, 1);
     }
     if (event === "timer_start") funnel.timerStarts = value;
     if (event === "timer_complete") funnel.timerCompletes = value;
@@ -619,7 +664,7 @@ async function getGaPages(): Promise<GaPageRow[]> {
   const response = await runGaReport({
     startDate: "28daysAgo",
     endDate: "today",
-    dimensions: ["pagePathPlusQueryString"],
+    dimensions: ["pagePath"],
     metrics: ["activeUsers", "screenPageViews", "keyEvents"],
     orderBys: [{ metric: { metricName: "screenPageViews" }, desc: true }],
     limit: 20,

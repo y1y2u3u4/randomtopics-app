@@ -9,7 +9,7 @@ import SpeechTimer from "@/components/SpeechTimer";
 import Link from "next/link";
 import type { Metadata } from "next";
 import FaqSchema from "@/components/FaqSchema";
-import { hreflangAlternates } from "@/i18n/config";
+import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 
 export const metadata: Metadata = {
   title: { absolute: "Speech Topic Generator & Practice Timer | Random Topics" },
@@ -58,6 +58,32 @@ export default function SpeechPage() {
   return (
     <>
       <FaqSchema items={FAQ_ITEMS} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "Speech Topic Generator & Practice Timer",
+            url: `${SITE_URL}/speech`,
+            description: metadata.description,
+            applicationCategory: "EducationalApplication",
+            operatingSystem: "Any",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+            },
+            featureList: [
+              "Speech topics filtered by category and depth",
+              "One to ten generated prompts",
+              "Three-point speaking outlines",
+              "One to five minute practice timer",
+              "Copy, save, and share actions",
+            ],
+          }),
+        }}
+      />
       <Navbar />
       <main className="flex-1">
         <Breadcrumb
@@ -71,17 +97,58 @@ export default function SpeechPage() {
           initialMode="speech"
           title="Speech Topic Generator"
           subtitle="Generate a focused prompt for an impromptu speech, presentation, Toastmasters round, or public speaking practice."
+          contentSource="speech_hub"
         />
 
-        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
-          <div className="glass-card p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-cyan)]/20">
-            <div>
-              <p className="text-sm font-bold text-[var(--text-primary)]">Building slides instead of an impromptu speech?</p>
-              <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1">Generate a presentation idea by audience and difficulty, with a ready-made slide angle.</p>
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4" aria-labelledby="speech-practice-paths">
+          <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20">
+            <p className="text-xs font-bold uppercase tracking-widest text-[var(--neon-cyan)]">Choose by speaking task</p>
+            <h2 id="speech-practice-paths" className="mt-2 text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
+              Pick the Right Speech Practice Path
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
+              Start with the format you need, then use its focused prompts, timing, and practice guidance.
+            </p>
+            <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                {
+                  title: "Toastmasters Table Topics",
+                  detail: "Draw from 120 meeting-ready questions and run a complete one-to-two-minute drill.",
+                  href: "/topics/toastmasters-table-topics",
+                },
+                {
+                  title: "Five-Minute Speech",
+                  detail: "Choose a developed topic with a five-part outline and a five-minute timer.",
+                  href: "/5-minute-speech-topics",
+                },
+                {
+                  title: "Impromptu Practice",
+                  detail: "Train fast thinking with short prompts, a simple structure, and timed delivery.",
+                  href: "/impromptu-speech-topics",
+                },
+                {
+                  title: "Presentation Planning",
+                  detail: "Generate a presentation idea by audience and difficulty with a slide-ready angle.",
+                  href: "/presentation-topic-generator",
+                },
+              ].map((path) => (
+                <Link
+                  key={path.href}
+                  href={path.href}
+                  className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors"
+                >
+                  <span className="block text-sm font-semibold text-[var(--text-primary)]">{path.title} →</span>
+                  <span className="block mt-1 text-xs leading-5 text-[var(--text-muted)]">{path.detail}</span>
+                </Link>
+              ))}
             </div>
-            <Link href="/presentation-topic-generator" className="text-sm font-semibold text-[var(--neon-cyan)] whitespace-nowrap hover:underline">
-              Presentation Topic Generator →
-            </Link>
+            <p className="mt-4 text-xs text-[var(--text-muted)]">
+              Running a club round? Use the focused{" "}
+              <Link href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">
+                Table Topics generator
+              </Link>{" "}
+              to draw prompts without browsing the full list.
+            </p>
           </div>
         </section>
 
@@ -100,8 +167,11 @@ export default function SpeechPage() {
               <p>
                 Our built-in <strong>speech practice timer</strong> helps you develop impromptu speaking skills.
                 Generate a speech topic, start the timer, and practice delivering a 1, 2, 3, or 5-minute
-                speech on the spot. This is the same technique used by Toastmasters Table Topics and speech
-                competitions worldwide.
+                speech on the spot. This is the same technique used in{" "}
+                <Link href="/topics/toastmasters-table-topics" className="text-[var(--neon-cyan)] hover:underline">
+                  Toastmasters Table Topics practice
+                </Link>{" "}
+                and speech competitions worldwide.
               </p>
               <p>
                 Regular impromptu speaking practice builds confidence, improves your ability to organize thoughts
@@ -123,13 +193,43 @@ export default function SpeechPage() {
                 <li>Deliver your speech until the timer runs out</li>
                 <li>Gradually increase the duration as you improve</li>
               </ol>
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-3"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Three Fast Speech Frameworks
+              </h3>
+              <p>
+                Choose one framework before the timer starts. A simple structure makes an improvised answer easier
+                to follow and keeps you from filling time without a clear point.
+              </p>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div className="rounded-xl border border-white/10 p-4">
+                  <h4 className="font-semibold text-[var(--text-primary)]">PREP</h4>
+                  <p className="mt-1 text-xs leading-5 text-[var(--text-muted)]">
+                    State your Point, give a Reason, add an Example, then repeat the Point as your close.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-white/10 p-4">
+                  <h4 className="font-semibold text-[var(--text-primary)]">Past–Present–Future</h4>
+                  <p className="mt-1 text-xs leading-5 text-[var(--text-muted)]">
+                    Explain how the topic began, what it means now, and what you expect or recommend next.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-white/10 p-4">
+                  <h4 className="font-semibold text-[var(--text-primary)]">Problem–Cause–Solution</h4>
+                  <p className="mt-1 text-xs leading-5 text-[var(--text-muted)]">
+                    Define one problem, name its main cause, and finish with one practical response.
+                  </p>
+                </div>
+              </div>
               <p>
                 Looking for a broader starting point before choosing a speaking angle? Use the dedicated{" "}
                 <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">
                   random subject generator
                 </Link>{" "}
                 to pick a field first. For writing prompts, use the{" "}
-                <Link href="/writing" className="text-[var(--neon-cyan)] hover:underline">writing generator</Link>
+                <Link href="/writing-topic-generator" className="text-[var(--neon-cyan)] hover:underline">writing topic generator</Link>
                 {" "}instead.
               </p>
             </div>
@@ -173,6 +273,21 @@ export default function SpeechPage() {
           intro="Eight picks from the speech pool across every depth. The talking points double as a three-beat speech skeleton — copy one and you have your structure before you stand up."
           topics={pickModeTopics("speech")}
         />
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="section-heading text-2xl sm:text-3xl text-[var(--text-primary)]">
+              Frequently Asked Questions
+            </h2>
+            <div className="mt-6 space-y-6">
+              {FAQ_ITEMS.map((item) => (
+                <div key={item.question}>
+                  <h3 className="text-base font-semibold text-[var(--text-primary)]">{item.question}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

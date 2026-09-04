@@ -48,12 +48,32 @@ const ARTICLE_CTA: Record<string, { href: string; text: string; label: string; e
     label: "Open the Conversation Generator",
     emoji: "💬",
   },
+  "toastmasters-table-topics": {
+    href: "/table-topics-generator",
+    text: "Ready to run a live round? Draw questions without repeats and keep every response inside the 1–2 minute meeting window.",
+    label: "Open the Table Topics Generator + Timer",
+    emoji: "🎙️",
+  },
 };
 
 const ETHICAL_COLLECTIONS = [
   { title: "Ethical Dilemmas for Adults", detail: "50 original scenarios for relationships, money, family, privacy, and community", href: "/topics/ethical-dilemmas-for-adults" },
   { title: "Ethical Dilemmas for Students", detail: "50 classroom-ready cases with grade, activity, and time filters", href: "/topics/ethical-dilemmas-for-students" },
   { title: "Workplace Ethical Dilemmas", detail: "45 fictional cases for employees, managers, and team training", href: "/topics/workplace-ethical-dilemmas" },
+] as const;
+
+const ETHICAL_DEBATE_STEPS = [
+  "Name every person or group affected by the decision.",
+  "Identify the values in tension instead of reducing the case to right versus wrong.",
+  "State the strongest argument for the choice you initially oppose.",
+  "Choose a decision, then explain how you would reduce its remaining harm.",
+] as const;
+
+const TOASTMASTERS_PREP_STEPS = [
+  "Point: answer the question in one clear sentence.",
+  "Reason: give the strongest reason behind that answer.",
+  "Example: add one brief story or concrete detail.",
+  "Point: return to the opening idea for a deliberate close.",
 ] as const;
 
 export function generateStaticParams() {
@@ -149,11 +169,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </p>
           <p className="text-xs text-[var(--text-muted)] mt-3">
             Published: {new Date(article.publishDate).toLocaleDateString("en-US", {
-              year: "numeric", month: "long", day: "numeric",
+              year: "numeric", month: "long", day: "numeric", timeZone: "UTC",
             })}
             {article.lastModified !== article.publishDate && (
               <> · Updated: {new Date(article.lastModified).toLocaleDateString("en-US", {
-                year: "numeric", month: "long", day: "numeric",
+                year: "numeric", month: "long", day: "numeric", timeZone: "UTC",
               })}</>
             )}
           </p>
@@ -237,33 +257,68 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </section>
 
         {article.slug === "ethical-dilemma-questions" && (
-          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
-            <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20">
-              <p className="text-xs font-bold uppercase tracking-widest text-[var(--neon-cyan)]">Choose the right ethical collection</p>
-              <h2 className="mt-2 text-xl sm:text-2xl font-bold text-[var(--text-primary)]">Ethical dilemmas by audience</h2>
-              <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">Use the broad list below for quick ideas, or open a focused collection for original scenarios, filters, follow-ups, and a guided discussion workflow.</p>
-              <div className="mt-5 grid grid-cols-1 gap-3">
-                {ETHICAL_COLLECTIONS.map((collection) => (
-                  <Link key={collection.href} href={collection.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
-                    <span className="block text-sm font-semibold text-[var(--text-primary)]">{collection.title} →</span>
-                    <span className="block mt-1 text-xs text-[var(--text-muted)]">{collection.detail}</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
+          <>
+            <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+              <InlineQuestionGenerator
+                items={articleItems}
+                groups={article.sections.map((section) => ({ label: section.heading, items: section.items }))}
+                title="Try a Random Ethical Dilemma"
+                description="Filter all 66 scenarios by type, draw without repeats, then copy, save, or share a complete discussion prompt."
+                source="ethical_dilemma_article"
+                actionLabel="Give Me a Dilemma"
+                library={{ category: "philosophy", modes: ["debate", "conversation"], depth: "deep" }}
+                support={{ title: "Four-step debate lens", items: [...ETHICAL_DEBATE_STEPS] }}
+              />
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "WebApplication",
+                    name: "Random Ethical Dilemma Generator",
+                    url: "https://randomtopics.app/topics/ethical-dilemma-questions",
+                    applicationCategory: "EducationalApplication",
+                    operatingSystem: "Any",
+                    isAccessibleForFree: true,
+                    featureList: ["Category filters", "No-repeat prompts", "Debate framework", "Copy", "Save", "Share", "Print"],
+                  }),
+                }}
+              />
+            </section>
 
-        {article.slug === "ethical-dilemma-questions" && (
-          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
-            <InlineQuestionGenerator
-              items={articleItems}
-              title="Try a Random Ethical Dilemma"
-              description="Draw one scenario for a class, interview, dinner discussion, or personal reflection — then copy or share it without leaving the page."
-              source="ethical_dilemma_article"
-              actionLabel="Give Me a Dilemma"
-            />
-          </section>
+            <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+              <div className="glass-card p-6 sm:p-8 border-[var(--neon-pink)]/20">
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--neon-pink)]">Discussion method</p>
+                <h2 className="mt-2 text-xl sm:text-2xl font-bold text-[var(--text-primary)]">How to Debate Ethical Dilemmas Fairly</h2>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
+                  A useful ethics discussion tests competing duties instead of racing to the most popular answer. Apply this same four-step lens to any dilemma above.
+                </p>
+                <ol className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {ETHICAL_DEBATE_STEPS.map((step, index) => (
+                    <li key={step} className="rounded-xl border border-white/10 bg-black/10 p-4 text-sm leading-relaxed text-[var(--text-secondary)]">
+                      <span className="mr-2 font-bold text-[var(--neon-pink)]">{index + 1}.</span>{step}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </section>
+
+            <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+              <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20">
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--neon-cyan)]">Choose the right ethical collection</p>
+                <h2 className="mt-2 text-xl sm:text-2xl font-bold text-[var(--text-primary)]">Ethical dilemmas by audience</h2>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">Use this broad hub for quick moral dilemmas, or open a focused collection for original scenarios and audience-specific follow-ups.</p>
+                <div className="mt-5 grid grid-cols-1 gap-3">
+                  {ETHICAL_COLLECTIONS.map((collection) => (
+                    <Link key={collection.href} href={collection.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
+                      <span className="block text-sm font-semibold text-[var(--text-primary)]">{collection.title} →</span>
+                      <span className="block mt-1 text-xs text-[var(--text-muted)]">{collection.detail}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </>
         )}
 
         {article.slug === "toastmasters-table-topics" && (
@@ -271,10 +326,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-6">
               <InlineQuestionGenerator
                 items={articleItems}
+                groups={article.sections.map((section) => ({ label: section.heading, items: section.items }))}
                 title="Practice a Random Table Topic"
                 description="Draw a question, take a short breath, and answer for one to two minutes. The timer below keeps the drill meeting-ready."
                 source="toastmasters_article"
                 actionLabel="Draw a Table Topic"
+                library={{ category: "business", modes: ["speech"], depth: "medium" }}
+                support={{ title: "PREP response structure", items: [...TOASTMASTERS_PREP_STEPS] }}
               />
             </section>
             <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-6">
@@ -302,10 +360,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     </li>
                   ))}
                 </ol>
+                <div className="mt-5 flex flex-wrap gap-2 text-xs">
+                  <Link href="/table-topics-generator" className="mode-chip">Run live rounds with the focused generator</Link>
+                  <Link href="/5-minute-speech-topics" className="mode-chip">Practice a longer prepared talk</Link>
+                </div>
               </div>
             </section>
             <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
-              <SpeechTimer />
+              <SpeechTimer defaultSeconds={120} contentSource="toastmasters_article" toastmastersCues />
               <div className="mt-4 flex flex-wrap justify-center gap-2 text-xs">
                 <Link href="/table-topics-generator" className="mode-chip">Open the focused generator</Link>
                 <Link href="/impromptu-speech-topics" className="mode-chip">More impromptu practice</Link>
