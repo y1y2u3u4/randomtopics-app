@@ -11,6 +11,7 @@ import {
   toggleFavoriteTopic,
 } from "@/lib/topicLibrary";
 import { track } from "@/lib/track";
+import Link from "next/link";
 
 interface GeneratedResultActionsProps {
   text: string;
@@ -24,6 +25,7 @@ interface GeneratedResultActionsProps {
   actionSurface?: string;
   isPostGenerate?: boolean;
   compact?: boolean;
+  showMessageCopy?: boolean;
 }
 
 export default function GeneratedResultActions({
@@ -38,9 +40,11 @@ export default function GeneratedResultActions({
   actionSurface = "result_action_bar",
   isPostGenerate = true,
   compact = false,
+  showMessageCopy = false,
 }: GeneratedResultActionsProps) {
   const isSpanish = locale === "es";
   const [copied, setCopied] = useState(false);
+  const [messageCopied, setMessageCopied] = useState(false);
   const [shared, setShared] = useState<"native" | "clipboard" | null>(null);
   const [saveError, setSaveError] = useState(false);
   const [manualCopyText, setManualCopyText] = useState<string | null>(null);
@@ -101,6 +105,21 @@ export default function GeneratedResultActions({
     track(result.saved ? "save_result" : "remove_saved_result", eventParams);
     if (result.saved) recordPostGenerate("save");
   }, [eventParams, recordPostGenerate, saveTopic]);
+
+  const handleMessageCopy = useCallback(async () => {
+    const message = `${copyValue}\n${window.location.origin}${window.location.pathname}`;
+    const params = { ...eventParams, copy_format: "group_message" };
+    if (!(await copyText(message))) {
+      setManualCopyText(message);
+      track("copy_error", params);
+      return;
+    }
+    setManualCopyText(null);
+    setMessageCopied(true);
+    track("copy_result", params);
+    if (isPostGenerate) track("post_generate_copy", params);
+    window.setTimeout(() => setMessageCopied(false), 1800);
+  }, [copyValue, eventParams, isPostGenerate]);
 
   const handleShare = useCallback(async () => {
     const result = await shareText({
@@ -168,6 +187,26 @@ export default function GeneratedResultActions({
             ? (isSpanish ? "Guardado en este navegador; no hace falta una cuenta." : "Saved in this browser; no account needed.")
             : ""}
       </p>
+
+      {saved && isPostGenerate ? (
+        <p className="mt-1 text-center text-xs">
+          <Link href={isSpanish ? "/es/saved-topics" : "/saved-topics"}
+            onClick={() => track("open_saved_topics", eventParams)}
+            className="inline-flex min-h-11 items-center text-[var(--neon-cyan)] underline underline-offset-4">
+            {isSpanish ? "Abrir mis preguntas guardadas →" : "Open my saved topics →"}
+          </Link>
+        </p>
+      ) : null}
+      {showMessageCopy ? (
+        <div className="mt-2 text-center">
+          <button type="button" onClick={handleMessageCopy} className={`${buttonClass} text-xs`}>
+            {messageCopied ? (isSpanish ? "Mensaje copiado ✓" : "Message copied ✓") : (isSpanish ? "Copiar para el chat del grupo" : "Copy for group chat")}
+          </button>
+          <p className="mt-1 text-[11px] text-[var(--text-muted)]">
+            {isSpanish ? "Pregunta + enlace, listos para pegar en WhatsApp o tu chat." : "Prompt + link, ready to paste into WhatsApp, Slack, or your class chat."}
+          </p>
+        </div>
+      ) : null}
 
       {manualCopyText ? (
         <div className="mx-auto mt-3 max-w-2xl rounded-xl border border-amber-300/20 bg-amber-300/5 p-3 text-left" role="status">

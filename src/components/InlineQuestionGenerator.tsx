@@ -109,7 +109,7 @@ export default function InlineQuestionGenerator({
   }, [locale, source]);
 
   return (
-    <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 bg-gradient-to-br from-[rgba(0,229,255,0.05)] to-[rgba(255,45,120,0.04)]">
+    <div id={`generator-${source}`} className="glass-card scroll-mt-24 p-6 sm:p-8 border-[var(--neon-cyan)]/20 bg-gradient-to-br from-[rgba(0,229,255,0.05)] to-[rgba(255,45,120,0.04)]">
       <div className="text-center">
         <p className="text-xs font-bold uppercase tracking-widest text-[var(--neon-cyan)]">
           {isSpanish ? "Generador incluido" : "Built-in generator"}
@@ -121,7 +121,16 @@ export default function InlineQuestionGenerator({
       {groups.length > 1 ? (
         <fieldset className="mt-6">
           <legend className="sr-only">{isSpanish ? "Filtrar por categoría" : "Filter by category"}</legend>
-          <div className="flex flex-wrap justify-center gap-2">
+          {groups.length > 5 ? (
+            <label className="mx-auto block max-w-xl text-sm text-[var(--text-secondary)]">
+              {isSpanish ? "Elige una categoría" : "Choose a category"}
+              <select value={activeGroup} onChange={(event) => changeGroup(event.target.value)}
+                className="mt-2 block min-h-11 w-full min-w-0 max-w-full rounded-xl border border-white/20 bg-[#11111f] px-3 py-3 text-sm text-[var(--text-primary)] focus:outline-2 focus:outline-[var(--neon-cyan)]">
+                <option value="all">{isSpanish ? "Todas las categorías" : "All categories"}</option>
+                {groups.map((group) => <option key={group.label} value={group.label}>{group.label}</option>)}
+              </select>
+            </label>
+          ) : <div className="flex flex-wrap justify-center gap-2">
             {[{ label: "all", items }, ...groups].map((group) => (
               <button
                 key={group.label}
@@ -137,7 +146,7 @@ export default function InlineQuestionGenerator({
                 {group.label === "all" ? (isSpanish ? "Todas" : "All") : group.label}
               </button>
             ))}
-          </div>
+          </div>}
         </fieldset>
       ) : null}
 
@@ -159,7 +168,7 @@ export default function InlineQuestionGenerator({
       </div>
 
       <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
-        <button type="button" onClick={generate} className="btn-generate">
+        <button type="button" data-generate-button onClick={generate} disabled={!pool.length} className="btn-generate">
           <span aria-hidden="true">🎲</span> {current
             ? (isSpanish ? "Siguiente pregunta" : "Next Prompt")
             : (actionLabel ?? (isSpanish ? "Sacar una pregunta" : "Pick a Random Prompt"))}
@@ -180,6 +189,7 @@ export default function InlineQuestionGenerator({
             toolType="inline_question_generator"
             contentSource={source}
             actionSurface="article_inline_result"
+            showMessageCopy
             isPostGenerate
           />
         </div>

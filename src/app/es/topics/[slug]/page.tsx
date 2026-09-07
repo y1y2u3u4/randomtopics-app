@@ -11,6 +11,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PrintButton from "@/components/PrintButton";
 import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
+import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 
 function sectionId(heading: string) {
   return heading
@@ -173,6 +174,21 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           }}
         />
 
+        {article.slug === "most-likely-to-questions" && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <InlineQuestionGenerator
+              items={articleItems}
+              groups={article.sections.map((section) => ({ label: section.heading, items: section.items }))}
+              library={{ category: "relationships", modes: ["icebreaker", "conversation"], depth: "light" }}
+              title="Juega a Quién Es Más Probable"
+              description="Saca una pregunta al azar de la lista completa, voten todos a la vez y pasa a la siguiente sin leerlas en orden."
+              source="es_most_likely_article"
+              locale="es"
+              actionLabel="Sacar una pregunta"
+            />
+          </section>
+        )}
+
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
           <div className="glass-card p-8 sm:p-10">
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{article.intro}</p>
@@ -213,18 +229,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           </section>
         )}
 
-        {article.slug === "most-likely-to-questions" && (
-          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
-            <InlineQuestionGenerator
-              items={articleItems}
-              title="Juega a Quién Es Más Probable"
-              description="Saca una pregunta al azar de la lista completa, voten todos a la vez y pasa a la siguiente sin leerlas en orden."
-              source="es_most_likely_article"
-              locale="es"
-              actionLabel="Sacar una pregunta"
-            />
-          </section>
-        )}
+
 
         {article.slug === "presentation-ideas-for-school" && (
           <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
@@ -262,6 +267,16 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
               </section>
             );
             acc.runningCount = startNum + section.items.length;
+
+            if (article.slug === "most-likely-to-questions" &&
+                (sIdx === Math.floor(article.sections.length / 2) - 1 || sIdx === article.sections.length - 1)) {
+              acc.elements.push(
+                <section key={`generator-entry-${sIdx}`} className="max-w-3xl mx-auto px-4 sm:px-6">
+                  <ArticleGeneratorEntry source="es_most_likely_article" locale="es"
+                    surface={sIdx === article.sections.length - 1 ? "article_end" : "article_middle"} />
+                </section>
+              );
+            }
 
             if (sIdx === Math.floor(article.sections.length / 2) - 1) {
               acc.elements.push(

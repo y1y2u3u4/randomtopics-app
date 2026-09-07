@@ -5,7 +5,7 @@
 export const categoryToArticles: Record<string, { title: string; href: string }[]> = {
   science: [
     { title: "40 Fascinating Science Discussion Topics", href: "/topics/science-discussion-topics" },
-    { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
+    { title: "65+ Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
     { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
   ],
   technology: [
@@ -16,7 +16,7 @@ export const categoryToArticles: Record<string, { title: string; href: string }[
   philosophy: [
     { title: "50 Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
     { title: "50 Ethical Dilemmas for Adults", href: "/topics/ethical-dilemmas-for-adults" },
-    { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
+    { title: "65+ Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
     { title: "55 Controversial Topics to Discuss", href: "/topics/controversial-topics-to-discuss" },
   ],
   psychology: [
@@ -58,7 +58,7 @@ export const categoryToArticles: Record<string, { title: string; href: string }[
   politics: [
     { title: "55 Controversial Topics to Discuss", href: "/topics/controversial-topics-to-discuss" },
     { title: "75 Debate Topics for Students", href: "/topics/debate-topics-for-students" },
-    { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
+    { title: "65+ Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
   ],
   entertainment: [
     { title: "65 Funny Conversation Topics", href: "/topics/funny-conversation-topics" },
@@ -79,7 +79,7 @@ export const categoryToArticles: Record<string, { title: string; href: string }[
   ],
   nature: [
     { title: "40 Science Discussion Topics", href: "/topics/science-discussion-topics" },
-    { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
+    { title: "65+ Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
     { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
   ],
   health: [
