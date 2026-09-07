@@ -44,8 +44,10 @@ const events = [
 ].map(([eventName, eventCount, totalUsers]) => ({ eventName, eventCount, totalUsers, sessions: totalUsers, keyEvents: 0 }));
 const page = {
   path: "/speech", launchedRecently: false,
-  ga4: { current7: { activeUsers: 50, sessions: 60 }, previous7: { activeUsers: 25, sessions: 30 }, funnel7: {
-    successUsers: 28, successSessions: 30, postGenerateActionUsers: 20,
+  ga4: { current7: { activeUsers: 50, sessions: 60, screenPageViews: 75 }, previous7: { activeUsers: 25, sessions: 30, screenPageViews: 40 }, funnel7: {
+    starts: 40, successes: 38, errors: 2, successUsers: 28, successSessions: 30, postGenerateActionUsers: 20,
+    copies: 8, copyUsers: 6, saves: 3, saveUsers: 3, shares: 2, shareUsers: 2,
+    weeklyPlanGenerates: 7, weeklyPlanUsers: 5, weeklyPlanCopies: 4, weeklyPlanCopyUsers: 3,
     postGenerateCopyUsers: 4, postGenerateSaveUsers: 2, postGenerateShareUsers: 1,
   } },
   searchConsole: { current7: { clicks: 5, impressions: 200, ctr: 0.025, position: 8 }, previous7: { clicks: 3, impressions: 100, ctr: 0.03, position: 10 } },
@@ -79,12 +81,13 @@ const daily = write.body.data.find((d) => d.range === "'Daily Summary'!A2:AD2").
 assert.equal(daily.length, 30);
 assert.equal(daily[29], 20);
 assert.equal(daily[24], 0.2);
-const landing = write.body.data.find((d) => d.range === "'Landing Pages'!A2:AC2").values[0];
-assert.equal(landing.length, 29);
+const landing = write.body.data.find((d) => d.range === "'Landing Pages'!A2:AS2").values[0];
+assert.equal(landing.length, 45);
 assert.equal(landing[9], 0.5);
 assert.equal(landing[20], 0.2);
 assert.deepEqual(landing.slice(15, 19), ["2026-08-30", "2026-09-05", "2026-08-29", "2026-09-04"]);
-assert.deepEqual(landing.slice(23), [25, 30, 3, 100, 0.03, 10]);
+assert.deepEqual(landing.slice(23, 29), [25, 30, 3, 100, 0.03, 10]);
+assert.deepEqual(landing.slice(29, 45), [75, 40, 38, 2, 0.95, 8, 6, 3, 3, 2, 2, 7, 5, 4, 3, 40]);
 const queryRows = write.body.data.find((d) => d.range.startsWith("'Query Opportunities'!A2")).values;
 assert.equal(queryRows.length, 1);
 assert.equal(queryRows[0].length, 17);

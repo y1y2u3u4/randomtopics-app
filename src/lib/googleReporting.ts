@@ -90,6 +90,10 @@ export type GrowthPageFunnel = {
   postGenerateShareUsers: number;
   timerStarts: number;
   timerCompletes: number;
+  weeklyPlanGenerates: number;
+  weeklyPlanUsers: number;
+  weeklyPlanCopies: number;
+  weeklyPlanCopyUsers: number;
 };
 
 export type GrowthPageRow = {
@@ -213,6 +217,8 @@ const FUNNEL_EVENT_NAMES = [
   "post_generate_share",
   "timer_start",
   "timer_complete",
+  "weekly_plan_generate",
+  "weekly_plan_copy",
 ] as const;
 
 class ReportingError extends Error {
@@ -546,6 +552,10 @@ function emptyGrowthFunnel(): GrowthPageFunnel {
     postGenerateShareUsers: 0,
     timerStarts: 0,
     timerCompletes: 0,
+    weeklyPlanGenerates: 0,
+    weeklyPlanUsers: 0,
+    weeklyPlanCopies: 0,
+    weeklyPlanCopyUsers: 0,
   };
 }
 
@@ -654,6 +664,14 @@ async function getGaGrowthPageFunnel(): Promise<Map<string, GrowthPageFunnel>> {
     }
     if (event === "timer_start") funnel.timerStarts = value;
     if (event === "timer_complete") funnel.timerCompletes = value;
+    if (event === "weekly_plan_generate") {
+      funnel.weeklyPlanGenerates = value;
+      funnel.weeklyPlanUsers = metricValue(row, 1);
+    }
+    if (event === "weekly_plan_copy") {
+      funnel.weeklyPlanCopies = value;
+      funnel.weeklyPlanCopyUsers = metricValue(row, 1);
+    }
     result.set(path, funnel);
   }
   return result;
