@@ -188,7 +188,7 @@ export default function GeneratedResultActions({
             : ""}
       </p>
 
-      {saved ? (
+      {saved && isPostGenerate ? (
         <p className="mt-1 text-center text-xs">
           <Link href={isSpanish ? "/es/saved-topics" : "/saved-topics"}
             onClick={() => track("open_saved_topics", eventParams)}

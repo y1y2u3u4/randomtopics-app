@@ -121,7 +121,16 @@ export default function InlineQuestionGenerator({
       {groups.length > 1 ? (
         <fieldset className="mt-6">
           <legend className="sr-only">{isSpanish ? "Filtrar por categoría" : "Filter by category"}</legend>
-          <div className="flex flex-wrap justify-center gap-2">
+          {groups.length > 5 ? (
+            <label className="mx-auto block max-w-xl text-sm text-[var(--text-secondary)]">
+              {isSpanish ? "Elige una categoría" : "Choose a category"}
+              <select value={activeGroup} onChange={(event) => changeGroup(event.target.value)}
+                className="mt-2 block min-h-11 w-full min-w-0 max-w-full rounded-xl border border-white/20 bg-[#11111f] px-3 py-3 text-sm text-[var(--text-primary)] focus:outline-2 focus:outline-[var(--neon-cyan)]">
+                <option value="all">{isSpanish ? "Todas las categorías" : "All categories"}</option>
+                {groups.map((group) => <option key={group.label} value={group.label}>{group.label}</option>)}
+              </select>
+            </label>
+          ) : <div className="flex flex-wrap justify-center gap-2">
             {[{ label: "all", items }, ...groups].map((group) => (
               <button
                 key={group.label}
@@ -137,7 +146,7 @@ export default function InlineQuestionGenerator({
                 {group.label === "all" ? (isSpanish ? "Todas" : "All") : group.label}
               </button>
             ))}
-          </div>
+          </div>}
         </fieldset>
       ) : null}
 
