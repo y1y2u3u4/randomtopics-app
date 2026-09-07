@@ -4,9 +4,11 @@ import {
   getAnalyticsSheetSnapshot,
   getGoogleReportingAccessToken,
   type GaEventRow,
-  type GscQueryPageRow,
+  type AnalyticsSheetSnapshot,
   type GrowthPageRow,
 } from "@/lib/googleReporting";
+
+import { buildQueryOpportunities, inObservationWindow } from "@/lib/growthOpportunities";
 
 const SHEETS_API_BASE = "https://sheets.googleapis.com/v4/spreadsheets";
 const REQUEST_TIMEOUT_MS = 25_000;
@@ -20,7 +22,7 @@ const REQUIRED_TABS = [
 
 const STRICT_CONVERSION_VERSION = "strict-post-gen-v1";
 const STRICT_CONVERSION_START_DATE = "2026-09-04";
-const DAILY_SUMMARY_COLUMN_COUNT = 29;
+const REPORT_WIDTHS: Record<string, number> = { "Daily Summary": 30, "Landing Pages": 29, "Query Opportunities": 17 };
 const STRICT_DAILY_HEADERS = [
   "Conversion Metric Version",
   "Post-Generate Copy Users",
@@ -29,6 +31,7 @@ const STRICT_DAILY_HEADERS = [
   "Post-Generate Save / Action-Bar User Rate",
   "Post-Generate Share Users",
   "Post-Generate Share / Action-Bar User Rate",
+  "Post-Generate Action-Bar Users",
 ] as const;
 
 type SheetMetadataResponse = {
@@ -150,31 +153,16 @@ async function assertExpectedTabs(sheetId: string): Promise<void> {
     throw new AnalyticsSheetError("report_sheet_tabs_missing");
   }
 
-  const dailySummary = (metadata.sheets ?? []).find(
-    (sheet) => sheet.properties?.title === "Daily Summary"
-  )?.properties;
-  const columnCount = dailySummary?.gridProperties?.columnCount ?? 0;
-  if (dailySummary?.sheetId === undefined || columnCount === 0) {
-    throw new AnalyticsSheetError("daily_summary_grid_missing");
+  const requests = [];
+  for (const [title, requiredWidth] of Object.entries(REPORT_WIDTHS)) {
+    const properties = metadata.sheets?.find((sheet) => sheet.properties?.title === title)?.properties;
+    const columns = properties?.gridProperties?.columnCount ?? 0;
+    if (properties?.sheetId === undefined || !columns) throw new AnalyticsSheetError("report_grid_missing");
+    if (columns < requiredWidth) requests.push({ appendDimension: { sheetId: properties.sheetId, dimension: "COLUMNS", length: requiredWidth - columns } });
   }
-  if (columnCount < DAILY_SUMMARY_COLUMN_COUNT) {
-    await sheetsRequest(
-      `${sheetId}:batchUpdate`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          requests: [{
-            appendDimension: {
-              sheetId: dailySummary.sheetId,
-              dimension: "COLUMNS",
-              length: DAILY_SUMMARY_COLUMN_COUNT - columnCount,
-            },
-          }],
-        }),
-      },
-      "daily_summary_expand_failed"
-    );
-  }
+  if (requests.length) await sheetsRequest(`${sheetId}:batchUpdate`, {
+    method: "POST", body: JSON.stringify({ requests }),
+  }, "report_grid_expand_failed");
 }
 
 function safeRate(numerator: number, denominator: number): number {
@@ -193,15 +181,8 @@ function eventByName(events: GaEventRow[], name: string): GaEventRow {
   );
 }
 
-function normalizePage(value: string): string {
-  try {
-    return new URL(value).pathname;
-  } catch {
-    return value;
-  }
-}
-
-function pageDecision(page: GrowthPageRow): string {
+function pageDecision(page: GrowthPageRow, snapshotDate: string): string {
+  if (inObservationWindow(page.path, snapshotDate)) return "Observe recent release";
   const search = page.searchConsole.current7;
   if (page.launchedRecently && search.impressions < 30) return "Observe";
   if (
@@ -213,62 +194,18 @@ function pageDecision(page: GrowthPageRow): string {
     return "Improve";
   }
   if (search.impressions >= 50 && search.position <= 10 && search.ctr >= 0.05) {
-    return "Scale";
+    return "Maintain; review distinct sub-intents";
   }
   return search.impressions >= 100 ? "Improve" : "Observe";
 }
 
-function queryOpportunityScore(row: GscQueryPageRow): number {
-  const clickGap = Math.max(0, 0.05 - row.ctr);
-  const positionFactor = Math.max(0.2, (21 - row.position) / 16);
-  return Math.round(row.impressions * clickGap * positionFactor * 100) / 100;
-}
-
-function queryOpportunities(
-  rows: GscQueryPageRow[],
-  snapshotDate: string
-): unknown[][] {
-  const candidates = rows
-    .filter(
-      (row) =>
-        row.impressions >= 50 &&
-        row.position >= 5 &&
-        row.position <= 20 &&
-        row.ctr < 0.05
-    )
-    .map((row) => ({ row, score: queryOpportunityScore(row) }))
-    .sort((left, right) => right.score - left.score)
-    .slice(0, 200);
-
-  if (candidates.length === 0) {
-    return [[snapshotDate, "No qualifying query", null, 0, 0, 0, 0, 0, "Review", "Observe until more data accrues", "Observe", "No query met the configured opportunity threshold."]];
-  }
-
-  return candidates.map(({ row, score }) => [
-    snapshotDate,
-    row.query,
-    normalizePage(row.page),
-    row.clicks,
-    row.impressions,
-    row.ctr,
-    row.position,
-    score,
-    "Review",
-    normalizePage(row.page) === "/"
-      ? "Assess independent use case; build only if intent is distinct"
-      : "Improve the owning page, snippet, and internal links",
-    "Candidate",
-    "High impressions, position 5–20, and CTR below 5%.",
-  ]);
-}
-
 function landingPageRows(
   pages: GrowthPageRow[],
-  snapshotDate: string
+  snapshot: AnalyticsSheetSnapshot
 ): unknown[][] {
   return pages.map((page) => [
-    snapshotDate,
-    "Last complete 7 days",
+    snapshot.searchConsole.latestDate,
+    "Last complete 7 days (GA4 / GSC dates differ)",
     page.path,
     page.ga4.current7.activeUsers,
     page.ga4.current7.sessions,
@@ -281,7 +218,21 @@ function landingPageRows(
     page.searchConsole.current7.impressions,
     page.searchConsole.current7.ctr,
     page.searchConsole.current7.position,
-    pageDecision(page),
+    pageDecision(page, snapshot.searchConsole.latestDate),
+    snapshot.ga4.current7Range.startDate,
+    snapshot.ga4.current7Range.endDate,
+    snapshot.searchConsole.current7Range.startDate,
+    snapshot.searchConsole.current7Range.endDate,
+    page.ga4.funnel7.postGenerateActionUsers,
+    safeRate(page.ga4.funnel7.postGenerateCopyUsers, page.ga4.funnel7.postGenerateActionUsers),
+    safeRate(page.ga4.funnel7.postGenerateSaveUsers, page.ga4.funnel7.postGenerateActionUsers),
+    safeRate(page.ga4.funnel7.postGenerateShareUsers, page.ga4.funnel7.postGenerateActionUsers),
+    page.ga4.previous7.activeUsers,
+    page.ga4.previous7.sessions,
+    page.searchConsole.previous7.clicks,
+    page.searchConsole.previous7.impressions,
+    page.searchConsole.previous7.ctr,
+    page.searchConsole.previous7.position,
   ]);
 }
 
@@ -369,26 +320,37 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     strictValue(safeRate(postGenerateSave.totalUsers, postGenerateActionView.totalUsers)),
     strictValue(postGenerateShare.totalUsers),
     strictValue(safeRate(postGenerateShare.totalUsers, postGenerateActionView.totalUsers)),
+    strictValue(postGenerateActionView.totalUsers),
   ];
 
   const pageRows = landingPageRows(
     snapshot.growthPages,
-    snapshot.searchConsole.latestDate
+    snapshot
   );
-  const opportunityRows = queryOpportunities(
+  const opportunities = buildQueryOpportunities(
     snapshot.searchConsole.queryPages28,
-    snapshot.searchConsole.latestDate
+    snapshot.searchConsole.current28Range
   );
+  const opportunityRows = opportunities.values;
   const dailyTargetRow = nextRowForDate(dailyDates, snapshot.reportDate);
   const runTargetRow = nextRunLogRow(runLog);
 
   await clearRanges(sheetId, [
-    "'Landing Pages'!A2:O1000",
-    "'Query Opportunities'!A2:L1000",
+    "'Landing Pages'!A2:AC1000",
+    "'Query Opportunities'!A2:Q1000",
   ]);
   await writeRanges(sheetId, [
+    { range: "'Landing Pages'!C1:C1", values: [["Visited Page (GA4 pagePath)"]] },
     {
-      range: "'Daily Summary'!W1:AC1",
+      range: "'Landing Pages'!P1:AC1",
+      values: [["GA4 Window Start", "GA4 Window End", "GSC Window Start", "GSC Window End", "Action-Bar Users", "Strict Copy / Action-Bar User Rate", "Strict Save / Action-Bar User Rate", "Strict Share / Action-Bar User Rate", "Previous 7d GA4 Active Users", "Previous 7d GA4 Sessions", "Previous 7d GSC Clicks", "Previous 7d GSC Impressions", "Previous 7d GSC CTR", "Previous 7d GSC Position"]],
+    },
+    {
+      range: "'Query Opportunities'!M1:Q1",
+      values: [["Window", "Window Start", "Window End", "Intended Canonical Owner", "Ownership Review"]],
+    },
+    {
+      range: "'Daily Summary'!W1:AD1",
       values: [[...STRICT_DAILY_HEADERS]],
     },
     {
@@ -396,15 +358,15 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
       values: [["Generated Users", "Strict Post-Generate Copy Users", "Strict Post-Generate Save Users", "Strict Post-Generate Share Users"]],
     },
     {
-      range: `'Daily Summary'!A${dailyTargetRow}:AC${dailyTargetRow}`,
+      range: `'Daily Summary'!A${dailyTargetRow}:AD${dailyTargetRow}`,
       values: [dailyRow],
     },
     {
-      range: `'Landing Pages'!A2:O${pageRows.length + 1}`,
+      range: `'Landing Pages'!A2:AC${pageRows.length + 1}`,
       values: pageRows,
     },
     {
-      range: `'Query Opportunities'!A2:L${opportunityRows.length + 1}`,
+      range: `'Query Opportunities'!A2:Q${opportunityRows.length + 1}`,
       values: opportunityRows,
     },
     {
@@ -417,7 +379,7 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
         1,
         pageRows.length,
         opportunityRows.length,
-        "GA4, Search Console, and opportunity data synchronized.",
+        `Synchronized. Filtered ${opportunities.excludedRows} noisy query/page rows. Query window: 28 days; page window: 7 days.`,
       ]],
     },
   ]);

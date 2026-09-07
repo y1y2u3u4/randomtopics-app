@@ -129,11 +129,14 @@ export type AnalyticsSheetSnapshot = {
   ga4: {
     yesterday: GaSummary;
     eventsYesterday: GaEventRow[];
+    current7Range: { startDate: string; endDate: string };
   };
   searchConsole: {
     latestDate: string;
     latestDay: GscSummary;
     queryPages28: GscQueryPageRow[];
+    current7Range: { startDate: string; endDate: string };
+    current28Range: { startDate: string; endDate: string };
   };
   growthPages: GrowthPageRow[];
 };
@@ -189,6 +192,12 @@ const MONITORED_GROWTH_PAGES = [
   { label: "Speech", path: "/speech", launchedRecently: false },
   { label: "Table Topics Generator", path: "/table-topics-generator", launchedRecently: false },
   { label: "Random Subject", path: "/random-subject-generator", launchedRecently: false },
+  { label: "Random Questions", path: "/question-generator", launchedRecently: false },
+  { label: "Hot Seat", path: "/hot-seat-questions", launchedRecently: false },
+  { label: "Two Truths Ideas", path: "/topics/two-truths-and-a-lie-ideas", launchedRecently: false },
+  { label: "Technology Debates", path: "/debate/technology", launchedRecently: false },
+  { label: "Spanish Conversation", path: "/es/conversation", launchedRecently: false },
+  { label: "Spanish Controversial Topics", path: "/es/topics/controversial-topics-to-discuss", launchedRecently: false },
 ] as const;
 
 const FUNNEL_EVENT_NAMES = [
@@ -451,6 +460,8 @@ async function getGaEvents(
     "generate_topic",
     "generate_error",
     "repeat_generate",
+    "article_generate_entry",
+    "open_saved_topics",
     "copy_result",
     "copy_error",
     "post_generate_actions_view",
@@ -1016,6 +1027,7 @@ export async function getAnalyticsSheetSnapshot(
 ): Promise<AnalyticsSheetSnapshot> {
   const dashboard = await getAnalyticsDashboardData(forceRefresh);
   const current28Range = dashboard.searchConsole.current28Range;
+  const reportDate = gaDateToIso(dashboard.ga4.daily28.at(-1)?.date);
   const [eventsYesterday, latestDay, queryPages28] = await Promise.all([
     getGaEvents("yesterday", "yesterday"),
     getGscSummary(
@@ -1027,15 +1039,18 @@ export async function getAnalyticsSheetSnapshot(
 
   return {
     generatedAt: new Date().toISOString(),
-    reportDate: gaDateToIso(dashboard.ga4.daily28.at(-1)?.date),
+    reportDate,
     ga4: {
       yesterday: dashboard.ga4.yesterday,
       eventsYesterday,
+      current7Range: { startDate: offsetDate(reportDate, -6), endDate: reportDate },
     },
     searchConsole: {
       latestDate: dashboard.searchConsole.latestDate,
       latestDay,
       queryPages28,
+      current28Range,
+      current7Range: dashboard.searchConsole.current7Range,
     },
     growthPages: dashboard.growthPages,
   };

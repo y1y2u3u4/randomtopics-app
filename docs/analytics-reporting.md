@@ -51,11 +51,26 @@ The destination spreadsheet must contain these tabs:
 
 Share only this spreadsheet with the reporting service account as an editor. The account keeps read-only GA4 and Search Console permissions; spreadsheet editor access applies only to the selected report file.
 
-`Daily Summary` is upserted by GA4 report date, so a retry does not duplicate the same day. Columns A:V retain their original definitions, including the all-visitor action rates in the legacy copy/save/share columns. Columns W:AC append the versioned strict conversion series:
+`Daily Summary` is upserted by GA4 report date, so a retry does not duplicate the same day. Columns A:V retain their original definitions, including the all-visitor action rates in the legacy copy/save/share columns. Columns W:AD append the versioned strict conversion series:
 
 - W: conversion metric version (`strict-post-gen-v1`; the 2026-09-04 deployment day is explicitly marked `partial-cutover`)
 - X:Y: strict post-generate copy users and copy users / action-bar users
 - Z:AA: strict post-generate save users and save users / action-bar users
 - AB:AC: strict post-generate share users and share users / action-bar users
 
-The reporting job expands `Daily Summary` to at least 29 columns before writing W:AC. The strict series begins at its deployment cutover and is not backfilled by reinterpreting older broad events. `Landing Pages` is a refreshed snapshot and its Copy / Save / Share user columns also use the strict post-generate events; `Query Opportunities` is refreshed while `Run Log` records each successful sync. Query opportunities follow the growth rule: at least 50 impressions, average position 5–20, and CTR below 5%. They remain review candidates until their search intent is judged independent.
+The reporting job expands `Daily Summary` to at least 30 columns before writing W:AD. The strict series begins at its deployment cutover and is not backfilled by reinterpreting older broad events. `Landing Pages` is a refreshed snapshot and its Copy / Save / Share user columns also use the strict post-generate events; `Query Opportunities` is refreshed while `Run Log` records each successful sync. Query opportunities follow the growth rule: at least 50 impressions, average position 5–20, and CTR below 5%. They remain review candidates until their search intent is judged independent.
+
+
+## Opportunity quality and comparable windows
+
+- Query Opportunities uses the last **28 complete GSC days**; M:Q records the window, exact dates, intended canonical owner, and ownership review. It must not be compared directly with the 7-day page snapshot.
+- Exclude empty, control-character, oversized (over 240 characters or 40 words), and instruction-style queries before scoring. Ordinary questions, multilingual queries, and AI-related topics remain eligible. The Run Log includes the excluded query/page row count.
+- Multiple URLs appearing for one query is a review signal, including possible sitelinks, not proof of cannibalization. Scores are per query/page candidates and are not additive click forecasts.
+- Existing intents route to existing pages. Unassigned queries require editorial intent review; a threshold never authorizes automatic page creation.
+- The report observes recently revised owners for 14 days from the recorded revision date, using the complete GSC date. High CTR is labeled Maintain rather than automatically Scale.
+- Landing Pages retains its tab name for compatibility, but GA4 metrics use **pagePath** (visited pages), not session landing-page attribution. Session conversion is generation-success sessions on the page divided by sessions visiting that page.
+- Landing Pages P:S records independent GA4/GSC 7-day windows. T:W records eligible action-bar users and strict copy/save/share rates. X:AC records the previous non-overlapping 7-day users, sessions, clicks, impressions, CTR, and position. Do not interpret adjacent rolling snapshots as independent weekly comparisons.
+- Daily Summary AD stores the strict eligible-user denominator; old days remain blank until a real eligible-user count is available.
+- Group-chat copying emits `copy_result` and `post_generate_copy` with `copy_format=group_message`. Copying a message is not reported as a sent share. `article_generate_entry` identifies middle/end reading entries and reuses the primary generator's start/success events. `open_saved_topics` records the next step after saving. No prompt text or query-string data is sent with those events.
+
+Validation: `npm run growth:test` (Node 22.18+), `npm run lint`, TypeScript, production build, and `npm run seo:audit`.

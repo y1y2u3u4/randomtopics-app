@@ -7,6 +7,7 @@ import FaqSchema from "@/components/FaqSchema";
 import type { SpanishMostLikelyConfig } from "@/data/mostLikelySpanishClusters";
 import { SITE_URL } from "@/i18n/config";
 import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
+import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 
 function sectionId(heading: string) {
   return heading
@@ -68,6 +69,8 @@ export default function SpanishMostLikelyCollectionPage({ config }: { config: Sp
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
           <InlineQuestionGenerator
             items={questions}
+            groups={config.sections.map((section) => ({ label: section.heading, items: section.items }))}
+            library={{ category: "relationships", modes: ["icebreaker", "conversation"], depth: "light" }}
             title="Juega directamente desde esta lista"
             description="Saca una pregunta al azar, voten todos a la vez y continúa sin repetir hasta completar la colección."
             source={`es_most_likely_${config.slug}`}
@@ -91,6 +94,9 @@ export default function SpanishMostLikelyCollectionPage({ config }: { config: Sp
                   </li>
                 ))}
               </ol>
+              {sectionIndex === config.sections.length - 1 ? (
+                <ArticleGeneratorEntry source={`es_most_likely_${config.slug}`} locale="es" surface="article_end" />
+              ) : null}
             </div>
           </section>
         ))}

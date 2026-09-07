@@ -11,6 +11,7 @@ import { notFound } from "next/navigation";
 import PrintButton from "@/components/PrintButton";
 import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
 import SpeechTimer from "@/components/SpeechTimer";
+import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 
 function sectionId(heading: string) {
   return heading
@@ -421,6 +422,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </section>
             );
             acc.runningCount = startNum + section.items.length;
+
+            if ((article.slug === "ethical-dilemma-questions" || article.slug === "toastmasters-table-topics") &&
+                (sIdx === Math.floor(article.sections.length / 2) - 1 || sIdx === article.sections.length - 1)) {
+              acc.elements.push(
+                <section key={`generator-entry-${sIdx}`} className="max-w-3xl mx-auto px-4 sm:px-6">
+                  <ArticleGeneratorEntry
+                    source={article.slug === "ethical-dilemma-questions" ? "ethical_dilemma_article" : "toastmasters_article"}
+                    surface={sIdx === article.sections.length - 1 ? "article_end" : "article_middle"}
+                  />
+                </section>
+              );
+            }
 
             {/* Mid-content CTA after the middle section */}
             if (sIdx === Math.floor(article.sections.length / 2) - 1) {

@@ -109,7 +109,7 @@ export default function InlineQuestionGenerator({
   }, [locale, source]);
 
   return (
-    <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 bg-gradient-to-br from-[rgba(0,229,255,0.05)] to-[rgba(255,45,120,0.04)]">
+    <div id={`generator-${source}`} className="glass-card scroll-mt-24 p-6 sm:p-8 border-[var(--neon-cyan)]/20 bg-gradient-to-br from-[rgba(0,229,255,0.05)] to-[rgba(255,45,120,0.04)]">
       <div className="text-center">
         <p className="text-xs font-bold uppercase tracking-widest text-[var(--neon-cyan)]">
           {isSpanish ? "Generador incluido" : "Built-in generator"}
@@ -159,7 +159,7 @@ export default function InlineQuestionGenerator({
       </div>
 
       <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
-        <button type="button" onClick={generate} className="btn-generate">
+        <button type="button" data-generate-button onClick={generate} disabled={!pool.length} className="btn-generate">
           <span aria-hidden="true">🎲</span> {current
             ? (isSpanish ? "Siguiente pregunta" : "Next Prompt")
             : (actionLabel ?? (isSpanish ? "Sacar una pregunta" : "Pick a Random Prompt"))}
@@ -180,6 +180,7 @@ export default function InlineQuestionGenerator({
             toolType="inline_question_generator"
             contentSource={source}
             actionSurface="article_inline_result"
+            showMessageCopy
             isPostGenerate
           />
         </div>
