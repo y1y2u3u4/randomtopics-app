@@ -22,7 +22,7 @@ const REQUIRED_TABS = [
 
 const STRICT_CONVERSION_VERSION = "strict-post-gen-v1";
 const STRICT_CONVERSION_START_DATE = "2026-09-04";
-const REPORT_WIDTHS: Record<string, number> = { "Daily Summary": 30, "Landing Pages": 29, "Query Opportunities": 17 };
+const REPORT_WIDTHS: Record<string, number> = { "Daily Summary": 30, "Landing Pages": 45, "Query Opportunities": 17 };
 const STRICT_DAILY_HEADERS = [
   "Conversion Metric Version",
   "Post-Generate Copy Users",
@@ -233,6 +233,22 @@ function landingPageRows(
     page.searchConsole.previous7.impressions,
     page.searchConsole.previous7.ctr,
     page.searchConsole.previous7.position,
+    page.ga4.current7.screenPageViews,
+    page.ga4.funnel7.starts,
+    page.ga4.funnel7.successes,
+    page.ga4.funnel7.errors,
+    safeRate(page.ga4.funnel7.successes, page.ga4.funnel7.starts),
+    page.ga4.funnel7.copies,
+    page.ga4.funnel7.copyUsers,
+    page.ga4.funnel7.saves,
+    page.ga4.funnel7.saveUsers,
+    page.ga4.funnel7.shares,
+    page.ga4.funnel7.shareUsers,
+    page.ga4.funnel7.weeklyPlanGenerates,
+    page.ga4.funnel7.weeklyPlanUsers,
+    page.ga4.funnel7.weeklyPlanCopies,
+    page.ga4.funnel7.weeklyPlanCopyUsers,
+    page.ga4.previous7.screenPageViews,
   ]);
 }
 
@@ -336,7 +352,7 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
   const runTargetRow = nextRunLogRow(runLog);
 
   await clearRanges(sheetId, [
-    "'Landing Pages'!A2:AC1000",
+    "'Landing Pages'!A2:AS1000",
     "'Query Opportunities'!A2:Q1000",
   ]);
   await writeRanges(sheetId, [
@@ -344,6 +360,10 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     {
       range: "'Landing Pages'!P1:AC1",
       values: [["GA4 Window Start", "GA4 Window End", "GSC Window Start", "GSC Window End", "Action-Bar Users", "Strict Copy / Action-Bar User Rate", "Strict Save / Action-Bar User Rate", "Strict Share / Action-Bar User Rate", "Previous 7d GA4 Active Users", "Previous 7d GA4 Sessions", "Previous 7d GSC Clicks", "Previous 7d GSC Impressions", "Previous 7d GSC CTR", "Previous 7d GSC Position"]],
+    },
+    {
+      range: "'Landing Pages'!AD1:AS1",
+      values: [["GA4 Page Views", "Generate Start Events", "Generate Success Events", "Generate Error Events", "Technical Generate Success Rate", "Copy Events", "Copy Users", "Save Events", "Save Users", "Share Events", "Share Users", "Weekly Plan Generate Events", "Weekly Plan Users", "Weekly Plan Copy Events", "Weekly Plan Copy Users", "Previous 7d GA4 Page Views"]],
     },
     {
       range: "'Query Opportunities'!M1:Q1",
@@ -362,7 +382,7 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
       values: [dailyRow],
     },
     {
-      range: `'Landing Pages'!A2:AC${pageRows.length + 1}`,
+      range: `'Landing Pages'!A2:AS${pageRows.length + 1}`,
       values: pageRows,
     },
     {
