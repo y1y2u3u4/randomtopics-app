@@ -5,13 +5,19 @@
  * textarea fallback. The caller decides how to present a manual fallback.
  */
 export async function copyText(text: string): Promise<boolean> {
+  let deadline: ReturnType<typeof setTimeout> | undefined;
   try {
     if (navigator.clipboard?.writeText) {
-      await navigator.clipboard.writeText(text);
-      return true;
+      const copied = await Promise.race([
+        navigator.clipboard.writeText(text).then(() => true),
+        new Promise<boolean>((resolve) => { deadline = setTimeout(() => resolve(false), 1500); }),
+      ]);
+      if (copied) return true;
     }
   } catch {
     // Continue to the user-gesture fallback below.
+  } finally {
+    if (deadline !== undefined) clearTimeout(deadline);
   }
 
   try {

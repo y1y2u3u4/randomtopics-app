@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Topic, CATEGORIES } from "@/data/types";
 import { Locale, defaultLocale } from "@/i18n/config";
-import { CATEGORY_LABELS } from "@/i18n/dictionaries";
+import { CATEGORY_LABELS, MODE_LABELS } from "@/i18n/dictionaries";
 import GeneratedResultActions from "@/components/GeneratedResultActions";
 
 interface TopicCardProps {
@@ -75,7 +75,7 @@ export default function TopicCard({
         className="flex items-start justify-between gap-4 mb-4"
         style={{ position: "relative", zIndex: 1 }}
       >
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <span className="text-lg">{categoryEmoji}</span>
           <span className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-wider">
             {categoryLabel}
@@ -93,7 +93,7 @@ export default function TopicCard({
               textTransform: "uppercase",
             }}
           >
-            {topic.depth}
+            {locale === "es" ? { light: "Ligero", medium: "Medio", deep: "Profundo" }[topic.depth] : topic.depth}
           </span>
         </div>
 
@@ -196,7 +196,7 @@ export default function TopicCard({
                 transition: "all 0.2s",
               }}
             >
-              {mode}
+              {locale === "es" ? MODE_LABELS.es[mode].short : mode}
             </span>
           ))}
         </div>
