@@ -170,7 +170,7 @@ export const seoArticlesEsPart2: SeoArticle[] = [
       "Preguntas actuales que cuestionan suposiciones, encienden debates respetuosos y exigen argumentos en lugar de respuestas rápidas.",
     intro: "En gran parte de Latinoamérica se buscan como temas controversiales; en otros países se habla de temas polémicos o controvertidos. Los tres términos describen preguntas donde personas informadas pueden discrepar por sus valores, prioridades o interpretación de la evidencia. Debatirlas no consiste en ganar a cualquier precio, sino en comprender puntos de vista opuestos y defender una postura con razones. Estos 55 temas están organizados por área y elegidos porque permiten construir argumentos sólidos en ambos lados.",
     publishDate: "2026-03-28",
-    lastModified: "2026-08-31",
+    lastModified: "2026-09-12",
     sections: [
       {
         heading: "Tecnología y privacidad",

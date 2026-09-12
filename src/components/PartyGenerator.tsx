@@ -4,6 +4,8 @@ import { useCallback, useMemo, useState } from "react";
 import { track } from "@/lib/track";
 import { motion, AnimatePresence } from "framer-motion";
 import PrintButton from "./PrintButton";
+import GeneratedResultActions from "./GeneratedResultActions";
+import { drawUnseen } from "@/lib/topicPool";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 
@@ -23,8 +25,8 @@ interface PartyGeneratorProps {
 export default function PartyGenerator({ questions, title, subtitle, emoji, locale = defaultLocale, filters = [] }: PartyGeneratorProps) {
   const t = getDict(locale);
   const [current, setCurrent] = useState<string | null>(null);
-  const [used, setUsed] = useState<Set<number>>(new Set());
-  const [copied, setCopied] = useState(false);
+  const [used, setUsed] = useState<Set<string>>(new Set());
+  const source = `party_${title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "")}`;
   const [activeFilter, setActiveFilter] = useState("all");
   const activeQuestions = useMemo(() => {
     if (activeFilter === "all") return questions;
@@ -33,66 +35,42 @@ export default function PartyGenerator({ questions, title, subtitle, emoji, loca
   }, [activeFilter, filters, questions]);
 
   const generate = useCallback(() => {
+    if (!activeQuestions.length) return;
+    if (current) track("repeat_generate", { tool_type: "party_question_generator", content_source: source, locale });
     track("generate_start", {
       tool_type: "party_question_generator",
+      content_source: source,
       generator_name: title,
       generator_filter: activeFilter,
       requested_count: 1,
       locale,
     });
-    let pool = activeQuestions.map((_, i) => i).filter((i) => !used.has(i));
-    let nextUsed = used;
-    if (pool.length === 0) {
-      // all used — reset the cycle
-      nextUsed = new Set();
-      pool = activeQuestions.map((_, i) => i);
-    }
-    const idx = pool[Math.floor(Math.random() * pool.length)];
-    const s = new Set(nextUsed);
-    s.add(idx);
-    setUsed(s);
-    setCurrent(activeQuestions[idx]);
-    setCopied(false);
+    const draw = drawUnseen(activeQuestions, used, (question) => question);
+    setUsed(draw.used);
+    setCurrent(draw.picked[0]);
     track("generate_success", {
       tool_type: "party_question_generator",
+      content_source: source,
       generator_name: title,
       generator_filter: activeFilter,
       result_count: 1,
       result_source: "editorial_pool",
       locale,
     });
-  }, [activeQuestions, title, used, activeFilter, locale]);
+  }, [activeQuestions, title, used, activeFilter, locale, current, source]);
 
   function changeFilter(id: string) {
     setActiveFilter(id);
     setCurrent(null);
-    setUsed(new Set());
-    setCopied(false);
     track("filter_select", {
       tool_type: "party_question_generator",
+      content_source: source,
       generator_name: title,
       filter_name: "question_type",
       filter_value: id,
       locale,
     });
   }
-
-  const copy = useCallback(async () => {
-    if (!current) return;
-    try {
-      await navigator.clipboard.writeText(current);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-      track("copy_result", {
-        tool_type: "party_question_generator",
-        generator_name: title,
-        generator_filter: activeFilter,
-        locale,
-      });
-    } catch {
-      /* clipboard unavailable */
-    }
-  }, [current, title, activeFilter, locale]);
 
   return (
     <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20">
@@ -115,7 +93,7 @@ export default function PartyGenerator({ questions, title, subtitle, emoji, loca
                 type="button"
                 onClick={() => changeFilter(filter.id)}
                 aria-pressed={activeFilter === filter.id}
-                className={`text-xs font-semibold px-4 py-2 rounded-full border transition-all ${
+                className={`min-h-11 text-xs font-semibold px-4 py-2 rounded-full border transition-all ${
                   activeFilter === filter.id
                     ? "border-[var(--neon-cyan)]/50 bg-[rgba(0,229,255,0.1)] text-[var(--neon-cyan)]"
                     : "border-white/10 text-[var(--text-muted)] hover:border-white/20 hover:text-[var(--text-primary)]"
@@ -147,17 +125,9 @@ export default function PartyGenerator({ questions, title, subtitle, emoji, loca
         </AnimatePresence>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
-          <button onClick={generate} className="btn-generate">
+          <button onClick={generate} disabled={!activeQuestions.length} className="btn-generate disabled:opacity-50">
             <span>{emoji}</span> {current ? t.party.next : t.party.generate}
           </button>
-          {current && (
-            <button
-              onClick={copy}
-              className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50 transition-colors"
-            >
-              {copied ? t.party.copied : t.party.copy}
-            </button>
-          )}
           <PrintButton
             heading={title}
             items={activeQuestions}
@@ -166,6 +136,11 @@ export default function PartyGenerator({ questions, title, subtitle, emoji, loca
             locale={locale}
           />
         </div>
+        {current ? <div className="mt-4">
+          <GeneratedResultActions key={current} text={current} copyLabel={t.party.copy} shareTitle={title}
+            saveTopic={{ id: `${locale}-${source}-${questions.indexOf(current)}`, text: current, category: "relationships", modes: ["icebreaker", "conversation"], depth: "light", talkingPoints: [] }}
+            locale={locale} toolType="party_question_generator" contentSource={source} isPostGenerate showMessageCopy />
+        </div> : null}
         <p className="text-xs text-[var(--text-muted)] mt-4">
           {activeQuestions.length} {t.party.deckInfo}
         </p>

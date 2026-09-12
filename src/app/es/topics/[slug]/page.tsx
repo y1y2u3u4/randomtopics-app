@@ -12,6 +12,7 @@ import { notFound } from "next/navigation";
 import PrintButton from "@/components/PrintButton";
 import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
 import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
+import { ES_CONTROVERSIAL_SUPPORT } from "@/data/controversialDiscussion.es";
 
 function sectionId(heading: string) {
   return heading
@@ -105,6 +106,9 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
     emoji: "🎲",
   };
   const articleItems = article.sections.flatMap((section) => section.items);
+  const isControversial = article.slug === "controversial-topics-to-discuss";
+  const discussionByPrompt = new Map(ES_CONTROVERSIAL_SUPPORT.map((item) => [item.prompt, item]));
+  const printableItems = isControversial ? articleItems.map((prompt) => `${prompt}\n${discussionByPrompt.get(prompt)?.items.join("\n") ?? ""}`) : articleItems;
 
   return (
     <>
@@ -118,7 +122,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           ]}
         />
 
-        <div className="text-center pt-12 sm:pt-20 pb-8 sm:pb-12 max-w-4xl mx-auto px-4 sm:px-6">
+        <div className={`text-center ${isControversial || article.slug === "most-likely-to-questions" ? "pt-8 sm:pt-12 pb-6" : "pt-12 sm:pt-20 pb-8 sm:pb-12"} max-w-4xl mx-auto px-4 sm:px-6`}>
           <h1 className="section-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-[1.15] tracking-tight">
             {article.heroTitle}
           </h1>
@@ -134,7 +138,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           <div className="mt-5 flex justify-center">
             <PrintButton
               heading={article.heroTitle}
-              items={articleItems}
+              items={printableItems}
               intro={article.heroSubtitle}
               label="Imprimir o guardar como PDF"
               locale="es"
@@ -174,6 +178,20 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           }}
         />
 
+        {isControversial && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+            <InlineQuestionGenerator items={articleItems}
+              groups={article.sections.map((section) => ({ label: section.heading, items: section.items }))}
+              itemSupport={ES_CONTROVERSIAL_SUPPORT}
+              title="Prepara un debate con dos perspectivas"
+              description="Elige un tema, explora dos perspectivas y una pregunta de seguimiento. Copia la ficha completa o guárdala para tu grupo."
+              source="es_controversial_article" locale="es" actionLabel="Elegir un tema de debate"
+              library={{ category: "philosophy", modes: ["debate", "conversation"], depth: "deep" }} />
+            <p className="mt-4 text-sm leading-relaxed text-[var(--text-muted)]">Las perspectivas son puntos de partida para razonar, no hechos demostrados ni recomendaciones. Comprueba las afirmaciones con fuentes, adapta el tema a la edad del grupo y permite pasar. Las 55 fichas están disponibles en la lista y en la versión para imprimir.</p>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "WebApplication", name: "Generador de temas controversiales", url: `${SITE_URL}/es/topics/${article.slug}`, inLanguage: "es", applicationCategory: "EducationalApplication", operatingSystem: "Any", isAccessibleForFree: true, featureList: ["55 fichas de debate", "Filtros por tema", "Dos perspectivas y seguimiento", "Sin repeticiones", "Copiar", "Guardar", "Compartir", "Imprimir"] }) }} />
+          </section>
+        )}
+
         {article.slug === "most-likely-to-questions" && (
           <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
             <InlineQuestionGenerator
@@ -200,7 +218,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
                     <a
                       key={section.heading}
                       href={`#${sectionId(section.heading)}`}
-                      className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-colors"
+                      className="inline-flex min-h-11 items-center text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-colors"
                     >
                       {section.heading}
                     </a>
@@ -253,13 +271,19 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
                     {section.heading}
                   </h2>
                   {section.description && <p className="text-[var(--text-muted)] text-sm mb-5">{section.description}</p>}
-                  <ol className="space-y-3">
+                  <ol start={startNum + 1} className="space-y-3">
                     {section.items.map((item, iIdx) => (
-                      <li key={iIdx} className="flex items-start gap-3">
+                      <li key={iIdx} data-discussion-card={isControversial ? "true" : undefined} className="flex items-start gap-3">
                         <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--neon-pink)]/10 text-[var(--neon-pink)] text-xs font-bold flex items-center justify-center mt-0.5">
                           {startNum + iIdx + 1}
                         </span>
-                        <span className="text-sm text-[var(--text-secondary)] leading-relaxed">{item}</span>
+                        <div className="min-w-0 flex-1 text-sm text-[var(--text-secondary)] leading-relaxed">
+                          <p>{item}</p>
+                          {isControversial ? <details className="mt-2 rounded-xl border border-white/10 px-4 py-2">
+                            <summary className="min-h-11 cursor-pointer py-3 font-semibold text-[var(--neon-cyan)]">Ver perspectivas y seguimiento</summary>
+                            <ul className="space-y-3 pb-3">{discussionByPrompt.get(item)?.items.map((point) => <li key={point}>{point}</li>)}</ul>
+                          </details> : null}
+                        </div>
                       </li>
                     ))}
                   </ol>
@@ -268,11 +292,13 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
             );
             acc.runningCount = startNum + section.items.length;
 
-            if (article.slug === "most-likely-to-questions" &&
+            if ((article.slug === "most-likely-to-questions" || isControversial) &&
                 (sIdx === Math.floor(article.sections.length / 2) - 1 || sIdx === article.sections.length - 1)) {
               acc.elements.push(
                 <section key={`generator-entry-${sIdx}`} className="max-w-3xl mx-auto px-4 sm:px-6">
-                  <ArticleGeneratorEntry source="es_most_likely_article" locale="es"
+                  <ArticleGeneratorEntry source={isControversial ? "es_controversial_article" : "es_most_likely_article"} locale="es"
+                    generateOnClick={false} actionLabel="Volver al generador"
+                    description="Vuelve a tu pregunta actual para copiarla o guardarla; después puedes sacar otra."
                     surface={sIdx === article.sections.length - 1 ? "article_end" : "article_middle"} />
                 </section>
               );

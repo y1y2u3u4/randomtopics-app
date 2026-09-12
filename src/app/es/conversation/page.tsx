@@ -65,7 +65,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Cuántos iniciadores de conversación tiene este generador?",
     answer:
-      "Nuestra base de datos incluye más de 300 temas de conversación seleccionados a mano en más de 15 categorías, y añadimos nuevos con regularidad. También puedes activar la generación con IA para conseguir temas únicos prácticamente ilimitados.",
+      "La colección incluye 320 temas de conversación en español en 16 categorías. El generador muestra cuántos temas quedan disponibles con tus filtros, desactiva las profundidades vacías y evita repetir hasta agotar la selección. Si pides más resultados de los disponibles, muestra únicamente los que existen.",
   },
   {
     question: "¿Puedo usarlos para practicar idiomas o clases de español como lengua extranjera?",
@@ -134,7 +134,7 @@ export default function ConversationPageEs() {
                 Las buenas conversaciones no surgen por casualidad. Empiezan con la pregunta adecuada en el
                 momento adecuado. Un <strong>tema de discusión</strong> bien elegido puede transformar un silencio
                 incómodo en un intercambio memorable. Por eso creamos esta herramienta gratuita: para darte un
-                suministro infinito de cosas interesantes de qué hablar, sea cual sea la ocasión.
+                conjunto variado de ideas en español para distintas ocasiones.
               </p>
               <p>
                 ¿Necesitas otro tipo de propuesta? Prueba nuestro <Link href="/es/writing" className="text-[var(--neon-cyan)] hover:underline">generador de ideas para escribir</Link>,
@@ -231,8 +231,8 @@ export default function ConversationPageEs() {
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">¿Cuántos iniciadores de conversación tiene este generador?</h4>
               <p>
                 Nuestra base de datos incluye más de 300 temas de conversación seleccionados a mano en más de 15
-                categorías, y añadimos nuevos con regularidad. También puedes activar la generación con IA para
-                conseguir temas únicos prácticamente ilimitados.
+                categorías. El contador muestra cuántos coinciden con tus filtros. Las profundidades sin temas
+                están desactivadas y los resultados no se repiten hasta agotar la selección disponible.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">¿Puedo usarlos para practicar idiomas o clases de español como lengua extranjera?</h4>

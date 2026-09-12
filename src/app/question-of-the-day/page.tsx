@@ -31,7 +31,7 @@ const FAQ_ITEMS = [
   {
     question: "What is a question of the day?",
     answer:
-      "A question of the day (QOTD) is a single, thoughtful question posed once a day to spark conversation — in classroom morning meetings, team Slack channels, family dinners, or journals. The ritual matters as much as the question: same time, one question, everyone answers. Our page shows one question that's the same for every visitor and rotates automatically at midnight, so a class or team can rely on it as their daily source.",
+      "A question of the day (QOTD) is a single, thoughtful question posed once a day to spark conversation — in classroom morning meetings, team Slack channels, family dinners, or journals. The ritual matters as much as the question: same time, one question, everyone answers. Our page shows one question that's the same for visitors on the same local date and rotates at midnight, so a class or team can rely on it as their daily source.",
   },
   {
     question: "What are good question of the day ideas?",
@@ -41,7 +41,7 @@ const FAQ_ITEMS = [
   {
     question: "How do teachers use a question of the day?",
     answer:
-      "The classic pattern is the morning meeting: project the question, give students a minute to think, then share in pairs before a few answer aloud. It builds speaking confidence and community in under five minutes. Teachers also use QOTDs as journal warm-ups, exit tickets, or early-finisher prompts. Every classroom question in our bank is school-appropriate and discussion-tested.",
+      "The classic pattern is the morning meeting: project the question, give students a minute to think, then share in pairs before a few answer aloud. It builds speaking confidence and community in under five minutes. Teachers also use QOTDs as journal warm-ups, exit tickets, or early-finisher prompts. Every classroom question in our bank is written for classroom discussion; teachers should check suitability for their group.",
   },
   {
     question: "How do teams use a question of the day at work?",
@@ -51,54 +51,11 @@ const FAQ_ITEMS = [
   {
     question: "Does the question of the day change automatically?",
     answer:
-      "Yes — the featured question is chosen deterministically from the bank based on the date, so it's identical for every visitor and switches at midnight in your local timezone. If today's doesn't fit your group, hit Random Question and filter by category; the generator never repeats a question until you've seen the whole set.",
+      "Yes — the featured question is chosen deterministically from the bank based on the date, so it's identical for the same local date and switches at midnight in your local timezone. If today's doesn't fit your group, hit Random Question and filter by category; the generator never repeats a question until you've seen the whole set.",
   },
 ];
 
-// Crawlable themed samples (the interactive bank lives in the component).
-const SAMPLES: Record<string, string[]> = {
-  classroom: [
-    "If you could instantly master one school subject, which would you pick and why?",
-    "What's one question you wish teachers asked more often?",
-    "What's something hard you can do now that you couldn't do a year ago?",
-    "If you were principal for a week, what's your first new rule?",
-    "Which historical figure would be the most interesting substitute teacher?",
-    "What's one small thing someone did that made your week better?",
-  ],
-  work: [
-    "What's a small win from this week that nobody clapped for?",
-    "If your job had an honest tagline, what would it be?",
-    "What's a 'boring' skill that has quietly paid off the most?",
-    "If you had a fully paid month to learn anything, what would you study?",
-    "Describe your work style in exactly three words.",
-    "What's one meeting you'd delete from every calendar forever?",
-  ],
-  kids: [
-    "If your pet could talk for one day, what's the first thing it would say?",
-    "What animal would make the funniest school teacher?",
-    "If our family had a flag, what would be on it?",
-    "What's something grown-ups do that makes no sense to you?",
-    "Would you rather have a dragon or be a dragon?",
-    "If bedtime were cancelled tonight, what's your plan?",
-  ],
-  deep: [
-    "What's something you believe that most people around you don't?",
-    "If your life had chapters, what would this one be titled?",
-    "When did you last change your mind about something important?",
-    "What does 'enough' look like for you?",
-    "What are you slowly getting better at that nobody notices?",
-    "Which word do you hope people use when they describe you?",
-  ],
-  funny: [
-    "What's the most ridiculous fact you know off the top of your head?",
-    "What would be the worst superpower to have?",
-    "If you had a warning label, what would it say?",
-    "What's a hill you'll die on that absolutely does not matter?",
-    "If Monday were a person, what would you say to them?",
-    "If you were a kitchen appliance, which one are you and why?",
-  ],
-};
-
+// The complete question bank is rendered below for reading and printing.
 export default function QuestionOfTheDayPage() {
   // Server-side (UTC) pick so the question is part of the crawlable HTML; the
   // client component re-checks against the visitor's local date after mount.
@@ -131,7 +88,7 @@ export default function QuestionOfTheDayPage() {
             Question <span className="gradient-text">of the Day</span>
           </h1>
           <p className="text-[var(--text-muted)] max-w-xl mx-auto">
-            One thoughtful question, every day — the same for everyone, rotating at midnight.
+            One thoughtful question for each local date, changing at midnight.
             Built for classroom morning meetings, team channels, and dinner tables.
           </p>
         </section>
@@ -169,8 +126,8 @@ export default function QuestionOfTheDayPage() {
                 {cat.emoji} Question of the Day Ideas: {cat.label}
               </h2>
               <ul className="space-y-2 mt-4">
-                {(SAMPLES[cat.id] || []).map((q) => (
-                  <li key={q} className="flex gap-3 items-start text-sm text-[var(--text-secondary)] leading-relaxed">
+                {QOTD_QUESTIONS.filter((item) => item.c === cat.id).map(({ q }) => (
+                  <li key={q} data-qotd-question="true" className="flex gap-3 items-start text-sm text-[var(--text-secondary)] leading-relaxed">
                     <span className="text-[var(--neon-cyan)] shrink-0">•</span>
                     <span>{q}</span>
                   </li>
