@@ -6,6 +6,7 @@ import type { Locale } from "@/i18n/config";
 import type { Category, Depth, Mode, Topic } from "@/data/types";
 import GeneratedResultActions from "@/components/GeneratedResultActions";
 import { recordRecentTopics } from "@/lib/topicLibrary";
+import { drawUnseen } from "@/lib/topicPool";
 
 interface InlineQuestionGeneratorProps {
   items: string[];
@@ -17,6 +18,7 @@ interface InlineQuestionGeneratorProps {
   groups?: { label: string; items: string[] }[];
   library?: { category: Category; modes: Mode[]; depth?: Depth };
   support?: { title: string; items: string[] };
+  itemSupport?: { prompt: string; title: string; items: string[] }[];
 }
 
 export default function InlineQuestionGenerator({
@@ -29,11 +31,14 @@ export default function InlineQuestionGenerator({
   groups = [],
   library,
   support,
+  itemSupport = [],
 }: InlineQuestionGeneratorProps) {
   const isSpanish = locale === "es";
   const [activeGroup, setActiveGroup] = useState("all");
   const [current, setCurrent] = useState<string | null>(null);
   const [used, setUsed] = useState<Set<string>>(new Set());
+  const supportByItem = useMemo(() => new Map(itemSupport.map((item) => [item.prompt, item])), [itemSupport]);
+  const currentSupport = (current ? supportByItem.get(current) : undefined) ?? support;
   const pool = useMemo(
     () => activeGroup === "all"
       ? items
@@ -50,7 +55,7 @@ export default function InlineQuestionGenerator({
         category: library.category,
         modes: library.modes,
         depth: library.depth ?? "medium",
-        talkingPoints: support?.items ?? [],
+        talkingPoints: currentSupport?.items ?? [],
       }
     : undefined;
 
@@ -66,16 +71,10 @@ export default function InlineQuestionGenerator({
     if (current) track("repeat_generate", eventParams);
     track("generate_start", eventParams);
 
-    let candidates = pool.filter((item) => !used.has(item));
-    let nextUsed = used;
-    if (candidates.length === 0) {
-      nextUsed = new Set();
-      candidates = pool;
-    }
-    const nextItem = candidates[Math.floor(Math.random() * candidates.length)];
-    const nextSet = new Set(nextUsed);
-    nextSet.add(nextItem);
-    setUsed(nextSet);
+    const draw = drawUnseen(pool, used, (item) => item);
+    const nextItem = draw.picked[0];
+    const nextSupport = supportByItem.get(nextItem) ?? support;
+    setUsed(draw.used);
     setCurrent(nextItem);
     if (library) {
       recordRecentTopics([{
@@ -84,7 +83,7 @@ export default function InlineQuestionGenerator({
         category: library.category,
         modes: library.modes,
         depth: library.depth ?? "medium",
-        talkingPoints: support?.items ?? [],
+        talkingPoints: nextSupport?.items ?? [],
       }]);
     }
     track("generate_success", {
@@ -93,12 +92,11 @@ export default function InlineQuestionGenerator({
       result_source: "article_collection",
       result_category: groups.find((group) => group.items.includes(nextItem))?.label ?? "all",
     });
-  }, [activeGroup, current, groups, items, library, locale, pool, source, support?.items, used]);
+  }, [activeGroup, current, groups, items, library, locale, pool, source, support, supportByItem, used]);
 
   const changeGroup = useCallback((group: string) => {
     setActiveGroup(group);
     setCurrent(null);
-    setUsed(new Set());
     track("filter_select", {
       tool_type: "inline_question_generator",
       content_source: source,
@@ -157,11 +155,11 @@ export default function InlineQuestionGenerator({
             {current ?? (isSpanish ? "Pulsa el botón para sacar una pregunta al azar." : "Choose a random prompt from the complete collection.")}
           </p>
         </div>
-        {current && support ? (
+        {current && currentSupport ? (
           <div className="mx-auto mt-5 max-w-xl rounded-xl border border-white/10 p-4 text-left">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">{support.title}</h3>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">{currentSupport.title}</h3>
             <ol className="mt-2 space-y-1.5 pl-5 text-sm text-[var(--text-secondary)] list-decimal">
-              {support.items.map((item) => <li key={item}>{item}</li>)}
+              {currentSupport.items.map((item) => <li key={item}>{item}</li>)}
             </ol>
           </div>
         ) : null}
@@ -179,8 +177,8 @@ export default function InlineQuestionGenerator({
           <GeneratedResultActions
             key={current}
             text={current}
-            copyValue={support ? `${current}\n${support.title}:\n${support.items.map((item, index) => `${index + 1}. ${item}`).join("\n")}` : current}
-            copyLabel={support
+            copyValue={currentSupport ? `${current}\n${currentSupport.title}:\n${currentSupport.items.map((item, index) => `${index + 1}. ${item}`).join("\n")}` : current}
+            copyLabel={currentSupport
               ? (isSpanish ? "Copiar pregunta + guía" : "Copy prompt + framework")
               : (isSpanish ? "Copiar pregunta" : "Copy prompt")}
             shareTitle={title}

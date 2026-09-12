@@ -5,7 +5,6 @@ import TopicGenerator from "@/components/TopicGenerator";
 import EditorsPicks from "@/components/EditorsPicks";
 import { ModeIllustration } from "@/components/CategoryIllustration";
 import { pickModeTopics } from "@/lib/editorial";
-import SpeechTimer from "@/components/SpeechTimer";
 import Link from "next/link";
 import type { Metadata } from "next";
 import FaqSchema from "@/components/FaqSchema";
@@ -98,6 +97,7 @@ export default function SpeechPage() {
           title="Speech Topic Generator"
           subtitle="Generate a focused prompt for an impromptu speech, presentation, Toastmasters round, or public speaking practice."
           contentSource="speech_hub"
+          speechPractice
         />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4" aria-labelledby="speech-practice-paths">
@@ -150,11 +150,6 @@ export default function SpeechPage() {
               to draw prompts without browsing the full list.
             </p>
           </div>
-        </section>
-
-        {/* Speech Timer Section */}
-        <section className="max-w-md mx-auto px-4 sm:px-6 py-10">
-          <SpeechTimer />
         </section>
 
         {/* SEO Content */}

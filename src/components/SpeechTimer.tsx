@@ -82,20 +82,17 @@ export default function SpeechTimer({
   useEffect(() => {
     if (!isRunning || remaining <= 0) return;
     const interval = setInterval(() => {
-      setRemaining((prev) => {
-        if (prev <= 1) {
-          setIsRunning(false);
-          setIsFinished(true);
-          track("timer_complete", {
-            tool_type: "speech_timer",
-            content_source: contentSource,
-            timer_seconds: totalSeconds,
-            locale,
-          });
-          return 0;
-        }
-        return prev - 1;
-      });
+      if (remaining <= 1) {
+        setIsRunning(false);
+        setIsFinished(true);
+        track("timer_complete", {
+          tool_type: "speech_timer",
+          content_source: contentSource,
+          timer_seconds: totalSeconds,
+          locale,
+        });
+      }
+      setRemaining(Math.max(0, remaining - 1));
     }, 1000);
     return () => clearInterval(interval);
   }, [isRunning, remaining, totalSeconds, locale, contentSource]);
@@ -148,7 +145,7 @@ export default function SpeechTimer({
   const strokeDashoffset = circumference * (1 - progress);
 
   return (
-    <div className="glass-card p-6 sm:p-8">
+    <div className="glass-card p-6 sm:p-8" role="group" aria-label={locale === "es" ? "Cronómetro de discurso" : "Speech timer"}>
       <h3
         className="text-lg font-bold mb-5 text-center"
         style={{ fontFamily: "var(--font-display)" }}
@@ -163,7 +160,8 @@ export default function SpeechTimer({
           <button
             key={p.seconds}
             onClick={() => selectPreset(p.seconds)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+            aria-pressed={totalSeconds === p.seconds}
+            className={`min-h-11 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               totalSeconds === p.seconds && !isRunning
                 ? "bg-[rgba(0,229,255,0.12)] border border-[var(--neon-cyan)] text-[var(--neon-cyan)] shadow-[0_0_10px_rgba(0,229,255,0.1)]"
                 : "border border-[rgba(255,255,255,0.06)] text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[rgba(255,255,255,0.04)]"

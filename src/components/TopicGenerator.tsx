@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
 import { Topic, Mode, Category, Depth, CATEGORIES, MODES, DEPTHS } from "@/data/types";
 import { getLocalizedTopics } from "@/data/topics.es";
@@ -11,6 +12,9 @@ import { track } from "@/lib/track";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { getDict, MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
 import { recordRecentTopics } from "@/lib/topicLibrary";
+import { drawUnseen, filterTopicPool } from "@/lib/topicPool";
+
+const SpeechPracticePanel = dynamic(() => import("./SpeechPracticePanel"));
 
 interface TopicGeneratorProps {
   initialMode?: Mode | null;
@@ -19,6 +23,7 @@ interface TopicGeneratorProps {
   subtitle?: string;
   locale?: Locale;
   contentSource?: string;
+  speechPractice?: boolean;
 }
 
 const DEPTH_KEYS: Record<Depth, "depthLight" | "depthMedium" | "depthDeep"> = {
@@ -34,6 +39,7 @@ export default function TopicGenerator({
   subtitle,
   locale = defaultLocale,
   contentSource = "topic_generator",
+  speechPractice = false,
 }: TopicGeneratorProps) {
   const t = getDict(locale);
   const [selectedMode, setSelectedMode] = useState<Mode | null>(initialMode);
@@ -45,15 +51,42 @@ export default function TopicGenerator({
   const [hasGenerated, setHasGenerated] = useState(false);
   const [copiedAll, setCopiedAll] = useState(false);
   const [manualCopyText, setManualCopyText] = useState<string | null>(null);
+  const [usedStatic, setUsedStatic] = useState<Set<string>>(new Set());
+  const [filterNotice, setFilterNotice] = useState("");
+  const localizedTopics = useMemo(() => getLocalizedTopics(locale), [locale]);
+  const staticPool = useMemo(() => filterTopicPool(localizedTopics, {
+    mode: selectedMode, category: selectedCategory, depth: selectedDepth,
+  }), [localizedTopics, selectedMode, selectedCategory, selectedDepth]);
+
+  const chooseCategory = (category: Category | null) => {
+    setSelectedCategory(category);
+    const clearDepth = locale === "es" && !filterTopicPool(localizedTopics, { mode: selectedMode, category, depth: selectedDepth }).length;
+    if (clearDepth) setSelectedDepth(null);
+    setFilterNotice(clearDepth ? "Profundidad restablecida a Cualquiera para mostrar temas de esta categoría." : "");
+    track("filter_select", { tool_type: "topic_generator", content_source: contentSource, filter_name: "category", filter_value: category ?? "all", locale });
+  };
+
+  const chooseMode = (mode: Mode | null) => {
+    setSelectedMode(mode);
+    const category = locale === "es" && !filterTopicPool(localizedTopics, { mode, category: selectedCategory }).length ? null : selectedCategory;
+    if (category !== selectedCategory) setSelectedCategory(category);
+    const clearDepth = locale === "es" && !filterTopicPool(localizedTopics, { mode, category, depth: selectedDepth }).length;
+    if (clearDepth) setSelectedDepth(null);
+    setFilterNotice(category !== selectedCategory || clearDepth ? "Filtros ajustados para mostrar temas del modo seleccionado." : "");
+    track("filter_select", { tool_type: "topic_generator", content_source: contentSource, filter_name: "mode", filter_value: mode ?? "all", locale });
+  };
+
+  const chooseDepth = (depth: Depth | null) => {
+    setSelectedDepth(depth);
+    setFilterNotice("");
+    track("filter_select", { tool_type: "topic_generator", content_source: contentSource, filter_name: "depth", filter_value: depth ?? "all", locale });
+  };
 
   const generateFromStatic = useCallback(() => {
-    let pool = [...getLocalizedTopics(locale)];
-    if (selectedMode) pool = pool.filter((t) => t.modes.includes(selectedMode));
-    if (selectedCategory) pool = pool.filter((t) => t.category === selectedCategory);
-    if (selectedDepth) pool = pool.filter((t) => t.depth === selectedDepth);
-    const shuffled = pool.sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, Math.min(count, shuffled.length));
-  }, [selectedMode, selectedCategory, selectedDepth, count, locale]);
+    const draw = drawUnseen(staticPool, usedStatic, (topic) => topic.id, count);
+    setUsedStatic(draw.used);
+    return draw.picked;
+  }, [staticPool, usedStatic, count]);
 
   const finishGeneration = useCallback((nextTopics: Topic[], resultSource: "ai" | "localized_pool" | "static_fallback") => {
     setGeneratedTopics(nextTopics);
@@ -70,12 +103,14 @@ export default function TopicGenerator({
       requested_count: count,
       result_count: nextTopics.length,
       result_source: resultSource,
+      ...(nextTopics.length === 0 ? { error_code: "empty_filtered_pool" } : {}),
       content_source: contentSource,
       locale,
     });
   }, [selectedMode, selectedCategory, selectedDepth, count, contentSource, locale]);
 
   const generate = useCallback(async () => {
+    if (isSpinning || (locale === "es" && !staticPool.length)) return;
     setIsSpinning(true);
 
     track("generate_start", {
@@ -122,7 +157,7 @@ export default function TopicGenerator({
       // Fallback to static database on any error
       finishGeneration(generateFromStatic(), "static_fallback");
     }
-  }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, finishGeneration, contentSource, locale]);
+  }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, finishGeneration, contentSource, locale, isSpinning, staticPool.length]);
 
   const generateAgain = useCallback(() => {
     track("repeat_generate", {
@@ -207,7 +242,8 @@ export default function TopicGenerator({
             <label className="control-label mb-3 block">{t.generator.mode}</label>
             <div className="flex flex-wrap gap-2">
               <button
-                onClick={() => setSelectedMode(null)}
+                onClick={() => chooseMode(null)}
+                aria-pressed={selectedMode === null}
                 className={`mode-chip ${selectedMode === null ? "active" : ""}`}
               >
                 🎲 {t.generator.all}
@@ -216,8 +252,9 @@ export default function TopicGenerator({
                 <button
                   key={mode.id}
                   onClick={() =>
-                    setSelectedMode(selectedMode === mode.id ? null : mode.id)
+                    chooseMode(selectedMode === mode.id ? null : mode.id)
                   }
+                  aria-pressed={selectedMode === mode.id}
                   className={`mode-chip ${selectedMode === mode.id ? "active" : ""}`}
                 >
                   {mode.emoji} {MODE_LABELS[locale][mode.id].short}
@@ -233,7 +270,8 @@ export default function TopicGenerator({
             <label className="control-label mb-3 block">{t.generator.category}</label>
             <div className="flex flex-wrap gap-2">
               <button
-                onClick={() => setSelectedCategory(null)}
+                onClick={() => chooseCategory(null)}
+                aria-pressed={selectedCategory === null}
                 className={`category-tag ${selectedCategory === null ? "active" : ""}`}
               >
                 {t.generator.allCategory}
@@ -242,11 +280,13 @@ export default function TopicGenerator({
                 <button
                   key={cat.id}
                   onClick={() =>
-                    setSelectedCategory(
+                    chooseCategory(
                       selectedCategory === cat.id ? null : cat.id
                     )
                   }
-                  className={`category-tag ${selectedCategory === cat.id ? "active" : ""}`}
+                  aria-pressed={selectedCategory === cat.id}
+                  disabled={locale === "es" && !filterTopicPool(localizedTopics, { mode: selectedMode, category: cat.id }).length}
+                  className={`category-tag min-h-11 disabled:opacity-40 ${selectedCategory === cat.id ? "active" : ""}`}
                 >
                   {cat.emoji} {CATEGORY_LABELS[locale][cat.id].label}
                 </button>
@@ -261,8 +301,9 @@ export default function TopicGenerator({
             <label className="control-label mb-2 block">{t.generator.depth}</label>
             <div className="flex gap-1.5">
               <button
-                onClick={() => setSelectedDepth(null)}
-                className={`depth-btn ${selectedDepth === null ? "active" : ""}`}
+                onClick={() => chooseDepth(null)}
+                aria-pressed={selectedDepth === null}
+                className={`depth-btn min-h-11 ${selectedDepth === null ? "active" : ""}`}
               >
                 {t.generator.any}
               </button>
@@ -270,9 +311,12 @@ export default function TopicGenerator({
                 <button
                   key={d.id}
                   onClick={() =>
-                    setSelectedDepth(selectedDepth === d.id ? null : d.id)
+                    chooseDepth(selectedDepth === d.id ? null : d.id)
                   }
-                  className={`depth-btn ${selectedDepth === d.id ? "active" : ""}`}
+                  aria-pressed={selectedDepth === d.id}
+                  disabled={locale === "es" && !filterTopicPool(localizedTopics, { mode: selectedMode, category: selectedCategory, depth: d.id }).length}
+                  title={locale === "es" ? `${filterTopicPool(localizedTopics, { mode: selectedMode, category: selectedCategory, depth: d.id }).length} temas disponibles` : undefined}
+                  className={`depth-btn min-h-11 disabled:cursor-not-allowed disabled:opacity-40 ${selectedDepth === d.id ? "active" : ""}`}
                 >
                   {t.generator[DEPTH_KEYS[d.id]]}
                 </button>
@@ -299,7 +343,7 @@ export default function TopicGenerator({
           <div className="flex sm:justify-end justify-center col-span-1 sm:col-span-1">
             <button
               onClick={generate}
-              disabled={isSpinning}
+              disabled={isSpinning || (locale === "es" && !staticPool.length)}
               className="btn-generate animate-pulse-glow disabled:opacity-70 w-full sm:w-auto text-lg px-10 py-4"
             >
               <motion.span
@@ -320,6 +364,13 @@ export default function TopicGenerator({
             </button>
           </div>
         </div>
+        {locale === "es" ? (
+          <div className="text-center text-sm text-[var(--text-muted)]" role="status">
+            <p>{`${staticPool.length} temas disponibles · se mostrarán hasta ${Math.min(count, staticPool.length)} · sin repetir hasta agotar este filtro.`}</p>
+            <p className="mt-1 text-xs">Las profundidades sin temas están desactivadas. Los resultados proceden de nuestra colección en español.</p>
+            {filterNotice ? <p className="mt-2 text-[var(--neon-cyan)]">{filterNotice}</p> : null}
+          </div>
+        ) : null}
       </div>
 
       {/* Results */}
@@ -461,8 +512,10 @@ export default function TopicGenerator({
         )}
       </AnimatePresence>
 
+      {speechPractice ? <SpeechPracticePanel topics={generatedTopics} contentSource={contentSource} /> : null}
+
       {/* Pre-generate prompt */}
-      {!hasGenerated && (
+      {!hasGenerated && !speechPractice && (
         <motion.div
           className="text-center py-20"
           initial={{ opacity: 0, y: 20 }}

@@ -95,3 +95,4 @@ assert.equal(queryRows.length, 1);
 assert.equal(queryRows[0].length, 17);
 console.log("PASS: query quality, intent ownership, observation windows, Sheets grid migration, upsert, date windows, strict denominators, and previous-period data.");
 await import("./two-truths-regression.mjs");
+await import("./usage-loops-regression.mjs");

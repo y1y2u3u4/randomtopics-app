@@ -3,6 +3,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import PrintButton from "./PrintButton";
+import Link from "next/link";
+import GeneratedResultActions from "./GeneratedResultActions";
+import { drawUnseen } from "@/lib/topicPool";
 import {
   QOTD_QUESTIONS,
   QOTD_CATEGORIES,
@@ -24,8 +27,6 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
   // for timezones on the other side of midnight.
   const [todayIdx, setTodayIdx] = useState<number>(initialIdx);
   const [dateLabel, setDateLabel] = useState(initialDateLabel);
-  const [copied, setCopied] = useState(false);
-  const [shared, setShared] = useState(false);
 
   // Random-mode state
   const [category, setCategory] = useState<QotdCategory | "all">("all");
@@ -33,14 +34,16 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
   const [used, setUsed] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    const timeout = window.setTimeout(() => {
+    const refreshDate = () => {
       const now = new Date();
       setTodayIdx(qotdIndexForDate(now));
       setDateLabel(
         now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })
       );
-    }, 0);
-    return () => window.clearTimeout(timeout);
+    };
+    const timeout = window.setTimeout(refreshDate, 0);
+    const interval = window.setInterval(refreshDate, 60_000);
+    return () => { window.clearTimeout(timeout); window.clearInterval(interval); };
   }, []);
 
   const pool = useMemo(
@@ -50,38 +53,34 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
 
   const deal = useCallback(() => {
     if (pool.length === 0) return;
+    if (randomQ) track("repeat_generate", { tool_type: "question_of_the_day", content_source: "qotd_hub", locale: "en" });
     track("generate_start", {
       tool_type: "question_of_the_day",
+      content_source: "qotd_hub",
       generator_category: category,
       requested_count: 1,
       locale: "en",
     });
-    let candidates = pool.filter((x) => !used.has(x.q));
-    let nextUsed = used;
-    if (candidates.length === 0) {
-      nextUsed = new Set();
-      candidates = pool;
-    }
-    const pick = candidates[Math.floor(Math.random() * candidates.length)];
-    const s = new Set(nextUsed);
-    s.add(pick.q);
-    setUsed(s);
+    const draw = drawUnseen(pool, new Set([...used, QOTD_QUESTIONS[todayIdx].q]), (item) => item.q);
+    const pick = draw.picked[0];
+    setUsed(draw.used);
     setRandomQ(pick);
     track("generate_success", {
       tool_type: "question_of_the_day",
+      content_source: "qotd_hub",
       generator_category: category,
       result_category: pick.c,
       result_count: 1,
       result_source: "editorial_pool",
       locale: "en",
     });
-  }, [pool, used, category]);
+  }, [pool, used, category, randomQ, todayIdx]);
 
   const changeCategory = useCallback((nextCategory: QotdCategory | "all") => {
     setCategory(nextCategory);
-    setUsed(new Set());
     track("filter_select", {
       tool_type: "question_of_the_day",
+      content_source: "qotd_hub",
       filter_name: "category",
       filter_value: nextCategory,
       locale: "en",
@@ -92,55 +91,13 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
   const catMeta = shown ? QOTD_CATEGORIES.find((c) => c.id === shown.c) : null;
   const isToday = randomQ === null;
 
-  const copy = useCallback(async () => {
-    if (!shown) return;
-    try {
-      await navigator.clipboard.writeText(shown.q);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-      track("copy_result", {
-        tool_type: "question_of_the_day",
-        result_category: shown.c,
-        locale: "en",
-      });
-    } catch {
-      /* clipboard unavailable */
-    }
-  }, [shown]);
-
-  const share = useCallback(async () => {
-    if (!shown) return;
-    try {
-      if (typeof navigator.share === "function") {
-        await navigator.share({
-          title: "Question of the Day",
-          text: shown.q,
-          url: window.location.href,
-        });
-        track("share_result", {
-          tool_type: "question_of_the_day",
-          result_category: shown.c,
-          share_method: "native",
-          locale: "en",
-        });
-      } else {
-        await navigator.clipboard.writeText(`${shown.q}\n${window.location.href}`);
-        track("share_result", {
-          tool_type: "question_of_the_day",
-          result_category: shown.c,
-          share_method: "clipboard",
-          locale: "en",
-        });
-      }
-      setShared(true);
-      window.setTimeout(() => setShared(false), 1500);
-    } catch {
-      setShared(false);
-    }
-  }, [shown]);
+  const planLinks = [
+    { href: "/question-of-the-day-for-students", label: "Plan 5 classroom questions", audience: "classroom" },
+    { href: "/question-of-the-day-for-work", label: "Plan 5 team questions", audience: "work" },
+  ];
 
   return (
-    <section className="max-w-3xl mx-auto px-4 sm:px-6">
+    <section id="qotd-generator" aria-label="Daily and random question generator" className="max-w-3xl mx-auto px-4 sm:px-6 scroll-mt-24">
       <div className="glass-card p-6 sm:p-8">
         {/* Question card */}
         <div
@@ -182,24 +139,12 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
           </button>
           {randomQ && (
             <button
-              onClick={() => setRandomQ(null)}
+              onClick={() => { setRandomQ(null); track("qotd_return_today", { tool_type: "question_of_the_day", content_source: "qotd_hub", locale: "en" }); }}
               className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50 transition-colors"
             >
               ✨ Back to today&apos;s
             </button>
           )}
-          <button
-            onClick={copy}
-            className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50 transition-colors"
-          >
-            {copied ? "Copied ✓" : "Copy"}
-          </button>
-          <button
-            onClick={share}
-            className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-pink)]/50 transition-colors"
-          >
-            {shared ? "Shared ✓" : "Share"}
-          </button>
           <PrintButton
             heading="Questions of the Day"
             items={pool.map((x) => x.q)}
@@ -208,11 +153,27 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
           />
         </div>
 
+        {shown ? <div className="mt-5">
+          <GeneratedResultActions
+            key={`${isToday ? "today" : "random"}-${shown.q}`}
+            text={shown.q}
+            copyValue={`💬 ${isToday ? `Question of the day · ${dateLabel}` : "A question for the group"}\n${shown.q}\nEveryone is welcome to answer or pass.`}
+            copyLabel="Copy for group chat"
+            copyAsGroupMessage
+            shareTitle="Question of the Day"
+            saveTopic={{ id: `qotd-${QOTD_QUESTIONS.findIndex((item) => item.q === shown.q)}`, text: shown.q, category: "relationships", modes: ["conversation", "icebreaker"], depth: shown.c === "deep" ? "deep" : "light", talkingPoints: [] }}
+            toolType="question_of_the_day"
+            contentSource="qotd_hub"
+            isPostGenerate={!isToday}
+          />
+        </div> : null}
+
         {/* Category filter for random mode */}
         <div className="flex flex-wrap justify-center gap-2 mt-5">
           <button
             onClick={() => changeCategory("all")}
-            className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+            aria-pressed={category === "all"}
+            className={`min-h-11 text-xs px-3 py-1.5 rounded-full border transition-all ${
               category === "all"
                 ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]"
                 : "border-[rgba(255,255,255,0.08)] text-[var(--text-muted)] hover:border-[var(--neon-cyan)]/40"
@@ -224,7 +185,8 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
             <button
               key={c.id}
               onClick={() => changeCategory(c.id)}
-              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+              aria-pressed={category === c.id}
+              className={`min-h-11 text-xs px-3 py-1.5 rounded-full border transition-all ${
                 category === c.id
                   ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]"
                   : "border-[rgba(255,255,255,0.08)] text-[var(--text-muted)] hover:border-[var(--neon-cyan)]/40"
@@ -235,8 +197,15 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
           ))}
         </div>
         <p className="text-xs text-[var(--text-muted)] text-center mt-4">
-          Today&apos;s question is the same for everyone and changes at midnight · {QOTD_QUESTIONS.length} questions in rotation
+          {pool.length} questions in this filter. Filters apply to your next random draw; your current question stays visible.
         </p>
+        <p className="text-xs text-[var(--text-muted)] text-center mt-2">Today&apos;s question follows your local date and changes at midnight · {QOTD_QUESTIONS.length} questions in rotation.</p>
+        <div className="mt-6 border-t border-white/10 pt-5">
+          <p className="text-center text-sm font-semibold">Ready for next week?</p>
+          <div className="mt-3 flex flex-wrap justify-center gap-3">
+            {planLinks.map((link) => <Link key={link.href} href={link.href} onClick={() => track("weekly_plan_entry", { tool_type: "question_of_the_day", content_source: "qotd_hub", plan_audience: link.audience, locale: "en" })} className="inline-flex min-h-11 items-center rounded-xl border border-[var(--neon-cyan)]/30 px-4 py-2 text-sm text-[var(--neon-cyan)]">{link.label} →</Link>)}
+          </div>
+        </div>
       </div>
     </section>
   );

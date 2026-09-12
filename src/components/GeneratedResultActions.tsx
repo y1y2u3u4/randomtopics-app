@@ -28,6 +28,7 @@ interface GeneratedResultActionsProps {
   actionViewIdentity?: string;
   compact?: boolean;
   showMessageCopy?: boolean;
+  copyAsGroupMessage?: boolean;
 }
 
 export default function GeneratedResultActions({
@@ -44,6 +45,7 @@ export default function GeneratedResultActions({
   actionViewIdentity,
   compact = false,
   showMessageCopy = false,
+  copyAsGroupMessage = false,
 }: GeneratedResultActionsProps) {
   const isSpanish = locale === "es";
   const [copied, setCopied] = useState(false);
@@ -83,18 +85,20 @@ export default function GeneratedResultActions({
   }, [eventParams, isPostGenerate, resultIdentity]);
 
   const handleCopy = useCallback(async () => {
-    if (!(await copyText(copyValue))) {
+    const value = copyAsGroupMessage ? `${copyValue}\n${window.location.origin}${window.location.pathname}` : copyValue;
+    const params = copyAsGroupMessage ? { ...eventParams, copy_format: "group_message" } : eventParams;
+    if (!(await copyText(value))) {
       setCopied(false);
-      setManualCopyText(copyValue);
-      track("copy_error", eventParams);
+      setManualCopyText(value);
+      track("copy_error", params);
       return;
     }
     setManualCopyText(null);
     setCopied(true);
-    track("copy_result", eventParams);
-    recordPostGenerate("copy");
+    track("copy_result", params);
+    if (isPostGenerate) track("post_generate_copy", params);
     window.setTimeout(() => setCopied(false), 1800);
-  }, [copyValue, eventParams, recordPostGenerate]);
+  }, [copyAsGroupMessage, copyValue, eventParams, isPostGenerate]);
 
   const handleSave = useCallback(() => {
     if (!saveTopic) return;

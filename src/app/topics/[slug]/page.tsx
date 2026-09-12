@@ -170,7 +170,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         />
 
         {/* Hero */}
-        <div className={`text-center ${isTwoTruths ? "pt-8 sm:pt-12 pb-8" : "pt-12 sm:pt-20 pb-8 sm:pb-12"} max-w-4xl mx-auto px-4 sm:px-6`}>
+        <div className={`text-center ${isTwoTruths || article.slug === "ethical-dilemma-questions" ? "pt-8 sm:pt-12 pb-8" : "pt-12 sm:pt-20 pb-8 sm:pb-12"} max-w-4xl mx-auto px-4 sm:px-6`}>
           <h1
             className="section-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-[1.15] tracking-tight"
           >
@@ -261,6 +261,36 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </section>
         ) : null}
 
+        {article.slug === "ethical-dilemma-questions" ? (
+            <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+              <InlineQuestionGenerator
+                items={articleItems}
+                groups={article.sections.map((section) => ({ label: section.heading, items: section.items }))}
+                title="Try a Random Ethical Dilemma"
+                description="Filter all 66 scenarios by type, draw without repeats, then copy, save, or share a complete discussion prompt."
+                source="ethical_dilemma_article"
+                actionLabel="Give Me a Dilemma"
+                library={{ category: "philosophy", modes: ["debate", "conversation"], depth: "deep" }}
+                support={{ title: "Four-step debate lens", items: [...ETHICAL_DEBATE_STEPS] }}
+              />
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "WebApplication",
+                    name: "Random Ethical Dilemma Generator",
+                    url: "https://randomtopics.app/topics/ethical-dilemma-questions",
+                    applicationCategory: "EducationalApplication",
+                    operatingSystem: "Any",
+                    isAccessibleForFree: true,
+                    featureList: ["Category filters", "No-repeat prompts", "Debate framework", "Copy", "Save", "Share", "Print"],
+                  }),
+                }}
+              />
+            </section>
+        ) : null}
+
         {/* Intro */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
           <div className="glass-card p-8 sm:p-10">
@@ -291,33 +321,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         {article.slug === "ethical-dilemma-questions" && (
           <>
-            <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
-              <InlineQuestionGenerator
-                items={articleItems}
-                groups={article.sections.map((section) => ({ label: section.heading, items: section.items }))}
-                title="Try a Random Ethical Dilemma"
-                description="Filter all 66 scenarios by type, draw without repeats, then copy, save, or share a complete discussion prompt."
-                source="ethical_dilemma_article"
-                actionLabel="Give Me a Dilemma"
-                library={{ category: "philosophy", modes: ["debate", "conversation"], depth: "deep" }}
-                support={{ title: "Four-step debate lens", items: [...ETHICAL_DEBATE_STEPS] }}
-              />
-              <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                  __html: JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "WebApplication",
-                    name: "Random Ethical Dilemma Generator",
-                    url: "https://randomtopics.app/topics/ethical-dilemma-questions",
-                    applicationCategory: "EducationalApplication",
-                    operatingSystem: "Any",
-                    isAccessibleForFree: true,
-                    featureList: ["Category filters", "No-repeat prompts", "Debate framework", "Copy", "Save", "Share", "Print"],
-                  }),
-                }}
-              />
-            </section>
+
 
             <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
               <div className="glass-card p-6 sm:p-8 border-[var(--neon-pink)]/20">
