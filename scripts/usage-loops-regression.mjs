@@ -162,6 +162,25 @@ assert.equal(action.events.filter((event) => event.name === "post_generate_copy"
 assert.equal(copiedValue.includes("?"), false);
 assert.equal(JSON.stringify(action.events).includes("Private"), false);
 
+// A browser may leave writeText pending indefinitely instead of rejecting it.
+// The actual helper must finish and allow the UI to expose its manual fallback.
+for (const [nativeResult, legacyResult, expected] of [
+  ["success", false, true], ["reject", true, true],
+  ["pending", true, true], ["pending", false, false], ["reject", false, false],
+]) {
+  let removed = false;
+  const helper = load("src/lib/clipboard.ts", {}, {
+    navigator: { clipboard: { writeText: () => nativeResult === "success" ? Promise.resolve() : nativeResult === "reject" ? Promise.reject(new Error("blocked")) : new Promise(() => {}) } },
+    document: {
+      createElement: () => ({ value: "", style: {}, setAttribute() {}, select() {}, remove() { removed = true; } }),
+      body: { appendChild() {} }, execCommand: () => legacyResult,
+    },
+    setTimeout: (fn) => setTimeout(fn, 5), clearTimeout,
+  });
+  assert.equal(await helper.copyText("Example"), expected, `Clipboard ${nativeResult}/${legacyResult}`);
+  assert.equal(removed, nativeResult !== "success");
+}
+
 // Practice card carries the chosen generated topic and keeps notes out of analytics.
 const practice = harness("src/components/SpeechPracticePanel.tsx", { topics: topics.slice(0, 2), contentSource: "speech_hub" });
 const firstRound = practice.render().find((node) => typeof node.type === "function");

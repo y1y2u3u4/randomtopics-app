@@ -296,10 +296,10 @@ export default function TopicGenerator({
         )}
 
         {/* Depth + Count + Generate */}
-        <div className="grid grid-cols-1 sm:grid-cols-[auto_auto_1fr] items-end gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[auto_auto_1fr] items-end gap-6">
           <div>
             <label className="control-label mb-2 block">{t.generator.depth}</label>
-            <div className="flex gap-1.5">
+            <div className="flex flex-wrap gap-1.5">
               <button
                 onClick={() => chooseDepth(null)}
                 aria-pressed={selectedDepth === null}
@@ -326,7 +326,7 @@ export default function TopicGenerator({
 
           <div>
             <label className="control-label mb-2 block">{t.generator.count}</label>
-            <div className="flex gap-1.5">
+            <div className="flex flex-wrap gap-1.5">
               {[1, 3, 5, 10].map((n) => (
                 <button
                   key={n}
