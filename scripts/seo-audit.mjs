@@ -9,6 +9,8 @@ const routesManifest = buildDir
   : null;
 
 const checks = [
+  { path: "/topics/two-truths-and-a-lie-ideas", index: true, canonical: "/topics/two-truths-and-a-lie-ideas", titleHas: "120 Two Truths and a Lie Ideas — Good Examples for Work & Fun", hreflang: true, webApplicationCanonical: true, bodyHas: ["Build your round", "Draw 3 ideas", "Example round", "All 120 statement ideas", "How to make a believable round", "Return to your round", 'id="generator-two_truths_ideas_article"', 'href="#generator-two_truths_ideas_article"', 'href="/two-truths-and-a-lie"'], bodyOccurrences: [{ needle: 'data-statement-idea="true"', exact: 120 }] },
+  { path: "/two-truths-and-a-lie", index: true, canonical: "/two-truths-and-a-lie", titleHas: "Two Truths and a Lie", bodyHas: ["All 30 Prompt Ideas for Two Truths and a Lie", 'href="/topics/two-truths-and-a-lie-ideas"', "This page draws themes for writing your own."] },
   { path: "/", index: true, canonical: "/", titleMax: 70, titleHas: "Random Topic Generator", bodyHas: ["Writing Topic Generator", 'href="/writing-topic-generator"'] },
   { path: "/es", index: true, canonical: "/es", titleMax: 70, titleHas: "Generador de Temas Aleatorios", es: true, hreflang: true },
   { path: "/debate", index: true, canonical: "/debate", titleMax: 70, titleHas: "Debate Topic Generator", hreflang: true },

@@ -1,3 +1,5 @@
+import { TWO_TRUTHS_IDEA_GROUPS } from "./twoTruthsIdeas";
+
 export interface SeoArticle {
   slug: string;
   title: string;
@@ -4399,127 +4401,54 @@ export const SEO_ARTICLES: SeoArticle[] = [
   ],
 },
 
-// 34. Two Truths and a Lie Ideas  → companion to the /two-truths-and-a-lie generator
+// 34. Statement examples complement (not replace) the separate themed generator.
 {
   slug: "two-truths-and-a-lie-ideas",
   title: "120 Two Truths and a Lie Ideas (Good Examples for Work & Fun)",
   metaTitle: "120 Two Truths and a Lie Ideas — Good Examples for Work & Fun | RandomTopics",
   metaDescription:
-    "120 two truths and a lie ideas and examples for work icebreakers, students, and parties — plus tips for a lie no one can spot. Free list and random generator. No signup.",
+    "120 two truths and a lie ideas for work, students, and friends. Pick a category, edit three statements, choose your lie, and copy a round. Free printable list.",
   heroTitle: "120 Two Truths and a Lie Ideas",
   heroSubtitle:
-    "Ready-to-use examples, work-friendly prompts, and tips for a convincing lie — the classic get-to-know-you game made easy.",
+    "30 ideas each for work, students, funny moments, and everyday life. Make two true for you and one false, then copy your round without revealing the answer.",
   intro:
-    "Two Truths and a Lie is the icebreaker everyone knows: you say three statements about yourself — two true, one false — and the group guesses which is the lie. The catch is coming up with good statements on the spot. This page gives you 120 ideas and ready-made examples for work, school, and parties, plus a few tricks for making your lie impossible to spot. Steal a prompt, or use our generator when you draw a blank.",
+    "Two Truths and a Lie is a get-to-know-you game: share three statements about yourself, with two true and one false, and ask the group to spot the lie. Below are 120 individual statement ideas, not 120 pre-made rounds or claims about your life. Use the builder to draw three starting points, or browse the four lists and choose your own. Edit them honestly so exactly two describe you and one does not. There is no need for an unusual life story: small skills, ordinary preferences, and funny moments work well.",
   publishDate: "2026-07-06",
-  lastModified: "2026-07-06",
-  sections: [
-    {
-      heading: "How to Play Two Truths and a Lie",
-      description: "The 30-second rules before you start.",
-      items: [
-        "Each person prepares three statements about themselves: two true, one false.",
-        "Say all three out loud in any order, with a straight face.",
-        "The group discusses and votes on which statement is the lie.",
-        "Reveal the lie — points or laughs for anyone who guessed right.",
-        "The best lies are believable and the best truths are surprising, so mix them up.",
-      ],
-    },
-    {
-      heading: "Good Two Truths and a Lie Prompts (Fill in the Blank)",
-      description: "Prompt starters you can complete about yourself.",
-      items: [
-        "I have visited ___ countries.",
-        "I once met ___ (a celebrity or notable person).",
-        "I can ___ (a surprising skill).",
-        "As a kid, I wanted to be a ___.",
-        "I have never ___ (a common experience).",
-        "My hidden talent is ___.",
-        "The strangest job I've had was ___.",
-        "I'm secretly afraid of ___.",
-        "I've broken ___ bones.",
-        "My first concert was ___.",
-        "I can speak a little ___ (language).",
-        "I once ate ___ on a dare.",
-      ],
-    },
-    {
-      heading: "Two Truths and a Lie Examples for Work",
-      description: "Office-safe, ready-to-use statement sets.",
-      items: [
-        "I've worked in three different countries / I once presented to 500 people / I can't drive.",
-        "I started coding at age 10 / I've run a marathon / I hate coffee.",
-        "I've met the CEO twice / I speak two languages / I've never had a cavity.",
-        "I used to be a barista / I collect vintage keyboards / I'm afraid of heights.",
-        "I once fixed a bug at 3 a.m. before a launch / I've never missed a deadline / I can juggle.",
-        "I interned at a startup that failed / I've written a newsletter for years / I hate pizza.",
-        "I can name every US state capital / I've given a TED-style talk / I've never flown first class.",
-        "I've onboarded 20 new hires / I bake sourdough / I've never used a spreadsheet formula.",
-      ],
-    },
-    {
-      heading: "Two Truths and a Lie Ideas for Students",
-      description: "School-friendly statement ideas.",
-      items: [
-        "I've read the same book five times / I've won a spelling bee / I hate ice cream.",
-        "I can solve a Rubik's cube / I've been to Disney World / I have a twin.",
-        "I play two instruments / I've never broken a bone / I once fainted at a science fair.",
-        "I've met my favorite author / I can whistle with two fingers / I'm scared of butterflies.",
-        "I skipped a grade / I've been camping ten times / I can't swim.",
-        "I've written a short story / I've never eaten sushi / I can do a backflip.",
-        "My family has three pets / I've been on TV once / I hate chocolate.",
-        "I can name 50 dinosaurs / I've climbed a real mountain / I've never lost a tooth on time.",
-      ],
-    },
-    {
-      heading: "Funny Two Truths and a Lie Ideas",
-      description: "Statements built to get a laugh and a wrong guess.",
-      items: [
-        "I've fallen asleep standing up / I once named a pet after a snack / I can touch my nose with my tongue.",
-        "I've eaten a bug on purpose / I've never watched a Star Wars movie / I talk in my sleep.",
-        "I got lost in my own neighborhood / I can burp the alphabet / I've never ridden a bike.",
-        "I once wore two different shoes all day / I've met a llama / I hate weekends.",
-        "I've cried at a commercial / I can wiggle my ears / I've never been to a birthday party.",
-        "I named my car / I've eaten cereal for dinner all week / I'm allergic to Mondays.",
-      ],
-    },
-    {
-      heading: "Tips for a Convincing Lie",
-      description: "How to make your lie impossible to spot.",
-      items: [
-        "Make the lie boring and believable — wild lies are easy to catch.",
-        "Make at least one truth sound unbelievable so the group second-guesses it.",
-        "Keep your tone identical for all three statements — no nervous laughing on the lie.",
-        "Add a small specific detail to your lie (a place, a number) to make it feel real.",
-        "Avoid statements the group could easily fact-check about you.",
-        "Practice your three statements once in your head so you don't hesitate on the lie.",
-      ],
-    },
-  ],
+  lastModified: "2026-09-11",
+  sections: TWO_TRUTHS_IDEA_GROUPS.map((group) => ({
+    heading: group.heading,
+    description: group.description,
+    items: [...group.items],
+  })),
   faq: [
     {
       question: "What are good two truths and a lie ideas?",
       answer:
-        "Good ideas mix a surprising truth with a believable lie — for example, 'I've visited 12 countries / I once met a famous author / I can't ride a bike.' The trick is making your truths sound unlikely and your lie sound ordinary. This page has 120 ready examples for work, school, and parties.",
+        "Choose specific statements about hobbies, everyday skills, small surprises, or funny mishaps. For example, you could adapt ideas about keeping a favorite mug, teaching a colleague a shortcut, and having an outdoor first job. Only you can decide which two are true about you and which one is false.",
     },
     {
       question: "What is a good lie for two truths and a lie?",
       answer:
-        "The best lie is small, specific, and boring enough to be believable — like 'I have a twin' or 'I can't swim.' Avoid dramatic lies; they stand out. Keep your delivery identical to your truths so nothing gives it away.",
+        "Start with an ordinary statement that is false for you, such as keeping a handwritten list when you always use an app. Give all three statements a similar amount of detail. Avoid private or sensitive claims, and do not assume that the most dramatic statement must be the lie.",
     },
     {
-      question: "Is two truths and a lie good for work icebreakers?",
+      question: "How do you play Two Truths and a Lie at work or school?",
       answer:
-        "Yes — it is one of the most popular team icebreakers because it helps coworkers learn surprising things about each other in a low-pressure way. Use the 'Examples for Work' section above for office-safe statement sets.",
+        "Invite each person to prepare two true statements and one false statement, then let the group vote before the person reveals the answer. Use the Work or Students category for starting points, let everyone pass, and avoid confidential work details or sensitive personal information.",
     },
     {
       question: "How many two truths and a lie ideas are here?",
       answer:
-        "This page has 120 ideas and examples across work, students, funny, and fill-in-the-blank prompts, plus tips for a convincing lie. Use the generator for endless fresh prompts.",
+        "There are exactly 120 individual statement ideas: 30 for work, 30 for students, 30 funny ideas, and 30 about everyday life. All 120 are visible below and included in the printable list. The round builder draws three at a time; it does not invent personal facts or decide your lie.",
+    },
+    {
+      question: "Will copying, sharing, or saving a round reveal my lie?",
+      answer:
+        "No. These actions include only the three statements. Choose Reveal answer after voting to display your selected lie on this page. Saving keeps the statements locally in this browser, without the answer; avoid entering anything you would not want to share with your group.",
     },
   ],
   relatedLinks: [
-    { label: "Two Truths and a Lie Generator", href: "/two-truths-and-a-lie" },
+    { label: "Two Truths and a Lie Themed Prompt Generator", href: "/two-truths-and-a-lie" },
     { label: "Icebreaker Questions for Work", href: "/topics/icebreaker-questions-for-work" },
     { label: "Get to Know You Questions for Adults", href: "/topics/get-to-know-you-questions-for-adults" },
     { label: "Team Building Questions", href: "/topics/team-building-questions" },

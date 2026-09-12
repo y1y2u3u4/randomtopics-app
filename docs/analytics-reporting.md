@@ -35,6 +35,15 @@ After changing production environment variables, trigger a production deployment
 - `save_error` records a failed persistence attempt. `print_open` is the current successful print-dialog event; the legacy `print_content` event remains readable for historical continuity.
 - Technical success rate is the ratio of `generate_success` events to `generate_start` events. User conversion is intentionally calculated separately.
 
+### GA4 key-event settings and editable rounds
+
+- Mark `generate_success` and `copy_result` as key events in the GA4 property. This is a property setting, not a source-code event rename. The second remains a broad all-surface usage outcome, not the strict post-generation copy rate.
+- A key-event setting change does not change historical data; record the actual configuration cutover in private reporting and avoid comparing the generic key-event total across that cutover. See [Google's key-event documentation](https://support.google.com/analytics/answer/13128484?hl=en).
+- The Two Truths ideas builder emits generation start/success for drawing three suggestions, not for viewing the initial example or selecting a lie. `round_lie_select` and `round_reveal` describe explicit controls, not inferred personal truths.
+- Actions on the initial example are excluded from strict post-generation events. After a draw, the action bar becomes eligible only when the round has three distinct non-empty statements and the user has chosen a lie.
+- Editable results can supply a local `actionViewIdentity` so each keystroke does not become a new action-view identity. This ID, edited statements, and the selected answer are never included in action-event parameters. The selected statement number is sent only on the explicit `round_lie_select` control event; no statement text accompanies it.
+- Saved rounds contain only player-facing statements, without the answer. Middle/end return links scroll to the existing editor without drawing again or emitting generation success.
+
 The growth scorecard always returns every monitored URL, including zero-data rows. Its page list covers the premium collections, focused generators, and highest-opportunity parent pages, so newly launched pages do not disappear merely because they have not entered a top-pages report yet.
 
 ## Durable daily report
