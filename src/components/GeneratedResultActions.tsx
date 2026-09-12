@@ -24,6 +24,8 @@ interface GeneratedResultActionsProps {
   contentSource: string;
   actionSurface?: string;
   isPostGenerate?: boolean;
+  /** Local-only identity for an editable result; never sent to analytics. */
+  actionViewIdentity?: string;
   compact?: boolean;
   showMessageCopy?: boolean;
 }
@@ -39,6 +41,7 @@ export default function GeneratedResultActions({
   contentSource,
   actionSurface = "result_action_bar",
   isPostGenerate = true,
+  actionViewIdentity,
   compact = false,
   showMessageCopy = false,
 }: GeneratedResultActionsProps) {
@@ -63,7 +66,7 @@ export default function GeneratedResultActions({
     action_surface: actionSurface,
     locale,
   }), [actionSurface, contentSource, locale, toolType]);
-  const resultIdentity = saveTopic?.id ?? copyValue;
+  const resultIdentity = actionViewIdentity ?? saveTopic?.id ?? copyValue;
   const manualCopyId = useId();
   const buttonClass = compact
     ? "inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white/10 px-4 py-2.5 text-xs font-semibold text-[var(--text-secondary)] transition-colors hover:border-[var(--neon-cyan)]/40 hover:text-[var(--neon-cyan)]"

@@ -7,11 +7,13 @@ export const INTENT_OWNERS = [
   { match: /^(random subject generator|give me a random subject)$/, path: "/random-subject-generator" },
   { match: /^(dilemmas|ethical dilemmas|moral dilemma|moral questions|ethical questions|debating ethical dilemmas)$/, path: "/topics/ethical-dilemma-questions" },
   { match: /^(preguntas )?quien es mas probable( que)?$/, path: "/es/topics/most-likely-to-questions" },
+  { match: /^(good |funny )?(two|2) truths? and (a |1 )?lie (ideas|examples)( for (work|students|friends))?$/, path: "/topics/two-truths-and-a-lie-ideas" },
   { match: /^(random topic generator|give me (a )?(random )?topic|free topic)$/, path: "/" },
 ] as const;
 
 // Editorial observation dates protect recent releases from repeated rewrites.
 const RECENT_REVISIONS: Record<string, string> = {
+  "/topics/two-truths-and-a-lie-ideas": "2026-09-12",
   "/speech": "2026-09-04",
   "/writing": "2026-09-04",
   "/writing-topic-generator": "2026-09-04",

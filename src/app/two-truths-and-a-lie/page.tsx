@@ -66,6 +66,12 @@ export default function TwoTruthsAndALiePage() {
           emoji="🕵️"
         />
 
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-6">
+          <p className="glass-card p-5 text-base leading-relaxed text-[var(--text-secondary)]">
+            Want specific statements to adapt? Browse <Link href="/topics/two-truths-and-a-lie-ideas" className="text-[var(--neon-cyan)] underline underline-offset-4">120 Two Truths and a Lie examples</Link> for work, students, and friends, and edit a three-statement round. This page draws themes for writing your own.
+          </p>
+        </section>
+
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
             <h2 className="section-heading text-2xl sm:text-3xl mb-6 text-[var(--text-primary)]">

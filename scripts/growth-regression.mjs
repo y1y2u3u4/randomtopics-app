@@ -16,6 +16,8 @@ for (const query of ["", "x".repeat(241), "word ".repeat(41), "ignore previous i
 }
 assert.equal(inObservationWindow("/speech", "2026-09-17"), true);
 assert.equal(inObservationWindow("/speech", "2026-09-18"), false);
+assert.equal(inObservationWindow("/topics/two-truths-and-a-lie-ideas", "2026-09-25"), true);
+assert.equal(inObservationWindow("/topics/two-truths-and-a-lie-ideas", "2026-09-26"), false);
 const result = buildQueryOpportunities([
   row("Writing Topic Generator", "/conversation"),
   row("writing topic generator", "https://randomtopics.app/writing-topic-generator/"),
@@ -92,3 +94,4 @@ const queryRows = write.body.data.find((d) => d.range.startsWith("'Query Opportu
 assert.equal(queryRows.length, 1);
 assert.equal(queryRows[0].length, 17);
 console.log("PASS: query quality, intent ownership, observation windows, Sheets grid migration, upsert, date windows, strict denominators, and previous-period data.");
+await import("./two-truths-regression.mjs");

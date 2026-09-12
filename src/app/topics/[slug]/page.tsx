@@ -12,6 +12,7 @@ import PrintButton from "@/components/PrintButton";
 import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
 import SpeechTimer from "@/components/SpeechTimer";
 import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
+import TwoTruthsRoundBuilder from "@/components/TwoTruthsRoundBuilder";
 
 function sectionId(heading: string) {
   return heading
@@ -25,6 +26,12 @@ interface ArticlePageProps {
 }
 
 const ARTICLE_CTA: Record<string, { href: string; text: string; label: string; emoji: string }> = {
+  "two-truths-and-a-lie-ideas": {
+    href: "/two-truths-and-a-lie",
+    text: "Prefer to write from scratch? Draw a themed prompt, then create your own two truths and one lie.",
+    label: "Explore 30 Themed Prompts",
+    emoji: "🎲",
+  },
   "ethical-dilemma-questions": {
     href: "/argument-generator",
     text: "Ready to turn a dilemma into a structured discussion? Generate a claim and practice both sides.",
@@ -127,6 +134,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     emoji: "🎲",
   };
   const articleItems = article.sections.flatMap((section) => section.items);
+  const isTwoTruths = article.slug === "two-truths-and-a-lie-ideas";
+  const articleGeneratorSource = isTwoTruths ? "two_truths_ideas_article"
+    : article.slug === "ethical-dilemma-questions" ? "ethical_dilemma_article"
+      : article.slug === "toastmasters-table-topics" ? "toastmasters_article" : null;
   const currentRouting = articleToPages[article.slug];
   const explicitRelated = new Set(article.relatedLinks.map((link) => link.href));
   const contextualCollections = SEO_ARTICLES
@@ -159,7 +170,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         />
 
         {/* Hero */}
-        <div className="text-center pt-12 sm:pt-20 pb-8 sm:pb-12 max-w-4xl mx-auto px-4 sm:px-6">
+        <div className={`text-center ${isTwoTruths ? "pt-8 sm:pt-12 pb-8" : "pt-12 sm:pt-20 pb-8 sm:pb-12"} max-w-4xl mx-auto px-4 sm:px-6`}>
           <h1
             className="section-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-[1.15] tracking-tight"
           >
@@ -232,9 +243,30 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           }}
         />
 
+        {isTwoTruths ? (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10" aria-label="Build a two truths and a lie round">
+            <TwoTruthsRoundBuilder />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebApplication",
+                name: "Two Truths and a Lie Round Builder",
+                url: "https://randomtopics.app/topics/two-truths-and-a-lie-ideas",
+                applicationCategory: "EntertainmentApplication",
+                operatingSystem: "Any",
+                isAccessibleForFree: true,
+                featureList: ["Audience filters", "No-repeat statement ideas", "Edit three statements", "Choose and reveal your lie", "Copy without the answer", "Local saving", "Share", "Print 120 ideas"],
+              }),
+            }} />
+          </section>
+        ) : null}
+
         {/* Intro */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
           <div className="glass-card p-8 sm:p-10">
+            {isTwoTruths ? (
+              <h2 id="two-truths-collection" className="mb-3 scroll-mt-24 text-2xl font-bold">{`All ${articleItems.length} statement ideas`}</h2>
+            ) : null}
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
               {article.intro}
             </p>
@@ -246,7 +278,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     <a
                       key={section.heading}
                       href={`#${sectionId(section.heading)}`}
-                      className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-colors"
+                      className="inline-flex min-h-11 items-center text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-colors"
                     >
                       {section.heading}
                     </a>
@@ -406,13 +438,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   {section.description && (
                     <p className="text-[var(--text-muted)] text-sm mb-5">{section.description}</p>
                   )}
-                  <ol className="space-y-3">
+                  <ol className="space-y-3" start={startNum + 1}>
                     {section.items.map((item, iIdx) => (
-                      <li key={iIdx} className="flex items-start gap-3">
-                        <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--neon-pink)]/10 text-[var(--neon-pink)] text-xs font-bold flex items-center justify-center mt-0.5">
+                      <li key={iIdx} data-statement-idea={isTwoTruths ? "true" : undefined} className="flex items-start gap-3">
+                        <span aria-hidden="true" className="flex-shrink-0 min-w-6 h-6 px-1 rounded-full bg-[var(--neon-pink)]/10 text-[var(--neon-pink)] text-xs font-bold flex items-center justify-center mt-0.5">
                           {startNum + iIdx + 1}
                         </span>
-                        <span className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                        <span className={`${isTwoTruths ? "text-base" : "text-sm"} text-[var(--text-secondary)] leading-relaxed`}>
                           {item}
                         </span>
                       </li>
@@ -423,20 +455,23 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             );
             acc.runningCount = startNum + section.items.length;
 
-            if ((article.slug === "ethical-dilemma-questions" || article.slug === "toastmasters-table-topics") &&
+            if (articleGeneratorSource &&
                 (sIdx === Math.floor(article.sections.length / 2) - 1 || sIdx === article.sections.length - 1)) {
               acc.elements.push(
                 <section key={`generator-entry-${sIdx}`} className="max-w-3xl mx-auto px-4 sm:px-6">
                   <ArticleGeneratorEntry
-                    source={article.slug === "ethical-dilemma-questions" ? "ethical_dilemma_article" : "toastmasters_article"}
+                    source={articleGeneratorSource}
                     surface={sIdx === article.sections.length - 1 ? "article_end" : "article_middle"}
+                    description={isTwoTruths ? "Found an idea you like? Return to the builder to edit and copy your three statements. Your current round stays intact." : undefined}
+                    actionLabel={isTwoTruths ? "Return to your round" : undefined}
+                    generateOnClick={!isTwoTruths}
                   />
                 </section>
               );
             }
 
             {/* Mid-content CTA after the middle section */}
-            if (sIdx === Math.floor(article.sections.length / 2) - 1) {
+            if (!isTwoTruths && sIdx === Math.floor(article.sections.length / 2) - 1) {
               acc.elements.push(
                 <section key="mid-cta" className="max-w-3xl mx-auto px-4 sm:px-6 pb-10 text-center">
                   <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 bg-gradient-to-r from-[rgba(0,229,255,0.04)] to-[rgba(255,45,120,0.04)]">
@@ -458,6 +493,23 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           },
           { elements: [], runningCount: 0 }
         ).elements}
+
+        {isTwoTruths ? (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <div className="glass-card p-6 sm:p-8">
+              <h2 className="text-xl sm:text-2xl font-bold">How to make a believable round</h2>
+              <ol className="mt-4 space-y-3 text-base leading-relaxed text-[var(--text-secondary)] list-decimal pl-5">
+                <li>Choose two ideas you can honestly adapt to your life. Add one small, specific detail to each.</li>
+                <li>Make the third statement false for you, but keep its length and tone similar to the truths.</li>
+                <li>Read all three in any order, let the group discuss, and ask everyone to vote before you reveal the answer.</li>
+                <li>Keep it comfortable: anyone can pass. Avoid passwords, confidential work details, or sensitive personal stories.</li>
+              </ol>
+              <p className="mt-4 text-base leading-relaxed text-[var(--text-secondary)]">For example, a real habit of making tea can become a believable false claim about making coffee. The builder cannot know your biography: you choose the lie. Keep the editor private, share the copied statements, and reveal your answer after voting.</p>
+              <p className="mt-4 text-sm text-[var(--text-muted)]">These original starting points are grouped for work, school, light humor, and everyday conversation. They are suggestions to personalize, not facts to repeat unchanged.</p>
+              <Link href="/two-truths-and-a-lie" className="mt-3 inline-flex min-h-11 items-center text-base text-[var(--neon-cyan)] underline underline-offset-4">Need a theme instead of a statement? Explore the 30-prompt generator.</Link>
+            </div>
+          </section>
+        ) : null}
 
         {/* FAQ Section with Schema */}
         {article.faq.length > 0 && (
