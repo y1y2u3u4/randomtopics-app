@@ -1,5 +1,6 @@
 /** Editorial routing rules, not proof that multiple search results compete. */
 export const INTENT_OWNERS = [
+  { match: /^(temas? de conversacion|temas para hablar|generador de temas de conversacion)$/, path: "/es/conversation" },
   { match: /^(random )?writing topic generator$|^random topic generator to write about$/, path: "/writing-topic-generator" },
   { match: /^(random )?(speech|speak) topic (gen|generator)$/, path: "/speech" },
   { match: /^(qotd|question of the day|what is the question of the day|topic of the day)$/, path: "/question-of-the-day" },
@@ -13,6 +14,7 @@ export const INTENT_OWNERS = [
 
 // Editorial observation dates protect recent releases from repeated rewrites.
 const RECENT_REVISIONS: Record<string, string> = {
+  "/es/conversation": "2026-09-14",
   "/topics/two-truths-and-a-lie-ideas": "2026-09-12",
   "/speech": "2026-09-04",
   "/writing": "2026-09-04",

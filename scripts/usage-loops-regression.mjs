@@ -146,6 +146,22 @@ assert.equal(new Set(support.flatMap((item) => item.items)).size, 165);
 assert.ok(support.every((item) => item.items.length === 3 && item.items[0].startsWith("Perspectiva A:") && item.items[2].startsWith("Para profundizar:")));
 
 // Actual action handlers: success, failure, initial-card exclusion, and URL privacy.
+const examples = load("src/data/conversationExamples.es.ts").conversationExamplesEs;
+assert.equal(examples.length, 12);
+assert.equal(new Set(examples.map((item) => item.id)).size, 12);
+assert.equal(new Set(examples.flatMap((item) => [item.text, ...item.talkingPoints])).size, 36);
+assert.ok(examples.every((item) => item.talkingPoints.length === 2));
+const ExamplesComponent = load("src/components/ConversationExamplesEs.tsx", {
+  "@/components/GeneratedResultActions": { default: Actions },
+}).default;
+const exampleActions = descendants(ExamplesComponent()).filter((node) => node.type === Actions);
+assert.equal(exampleActions.length, 12);
+for (const [index, node] of exampleActions.entries()) {
+  assert.equal(node.props.isPostGenerate, false, "Editorial examples cannot inflate generated-action rates");
+  assert.equal(node.props.saveTopic.id, examples[index].id);
+  assert.ok(examples[index].talkingPoints.every((point) => node.props.copyValue.includes(point)));
+}
+
 let copiedValue = "";
 let copySucceeds = false;
 const actionProps = { text: "Private question", copyValue: "Private group text", shareTitle: "Question", toolType: "question_of_the_day", contentSource: "qotd_hub", isPostGenerate: false, copyAsGroupMessage: true };
