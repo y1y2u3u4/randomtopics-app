@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import FaqSchema from "@/components/FaqSchema";
+import ConversationExamplesEs from "@/components/ConversationExamplesEs";
 import Link from "next/link";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
@@ -10,7 +11,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: { absolute: "Generador de Temas de Conversación: 300+ Ideas | RandomTopics" },
   description:
-    "Generador de temas de conversación gratis con más de 300 ideas para citas, amigos, trabajo, fiestas y clases. Elige una categoría y recibe un tema al instante.",
+    "¿No sabes de qué hablar? Prueba 12 preguntas con repreguntas o genera entre 320 temas en español. Copia, guarda y elige una colección para tu grupo. Gratis.",
   keywords: [
     "iniciadores de conversación",
     "temas de conversación",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Generador de Temas de Conversación: Más de 300 Ideas Gratis",
     description:
-      "Genera al instante temas de conversación para citas, amigos, trabajo, fiestas y clases. Más de 300 ideas seleccionadas, sin registro.",
+      "12 preguntas listas para conversar con repreguntas y un generador de 320 temas en español. Copia, guarda o comparte sin registro.",
     url: `${SITE_URL}/es/conversation`,
     siteName: "Random Topics",
     locale: "es_ES",
@@ -90,10 +91,18 @@ export default function ConversationPageEs() {
           initialMode="conversation"
           locale="es"
           title="Generador de Temas de Conversación"
-          subtitle="Genera temas de conversación al azar para romper el hielo y mantener la charla fluida."
+          subtitle="¿No sabes de qué hablar? Elige entre 320 temas en español o empieza con una pregunta lista para usar. Copia el tema y sigue la conversación con una repregunta."
+          heroLinks={
+            <nav aria-label="Empieza a conversar" className="mt-5 flex flex-wrap justify-center gap-3 text-sm">
+              <a href="#preguntas-para-conversar" className="inline-flex min-h-11 items-center rounded-xl border border-white/10 px-4 text-[var(--neon-cyan)] hover:underline">Ver 12 preguntas y repreguntas</a>
+              <a href="#colecciones-conversacion" className="inline-flex min-h-11 items-center rounded-xl border border-white/10 px-4 text-[var(--text-secondary)] hover:underline">Elegir según mi grupo</a>
+            </nav>
+          }
         />
 
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-4">
+        <ConversationExamplesEs />
+
+        <section id="colecciones-conversacion" className="max-w-4xl mx-auto px-4 sm:px-6 pb-4 scroll-mt-24">
           <div className="glass-card p-6 sm:p-8">
             <h2 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
               Colecciones populares de conversación

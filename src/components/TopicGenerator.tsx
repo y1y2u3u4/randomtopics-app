@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useMemo } from "react";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
@@ -24,6 +25,7 @@ interface TopicGeneratorProps {
   locale?: Locale;
   contentSource?: string;
   speechPractice?: boolean;
+  heroLinks?: ReactNode;
 }
 
 const DEPTH_KEYS: Record<Depth, "depthLight" | "depthMedium" | "depthDeep"> = {
@@ -40,6 +42,7 @@ export default function TopicGenerator({
   locale = defaultLocale,
   contentSource = "topic_generator",
   speechPractice = false,
+  heroLinks,
 }: TopicGeneratorProps) {
   const t = getDict(locale);
   const [selectedMode, setSelectedMode] = useState<Mode | null>(initialMode);
@@ -232,6 +235,7 @@ export default function TopicGenerator({
         <p className="text-base sm:text-lg text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed opacity-80">
           {subtitle || t.generator.heroSubtitle}
         </p>
+        {heroLinks}
       </div>
 
       {/* Controls */}

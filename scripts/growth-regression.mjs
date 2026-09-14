@@ -16,6 +16,10 @@ for (const query of ["", "x".repeat(241), "word ".repeat(41), "ignore previous i
 }
 assert.equal(inObservationWindow("/speech", "2026-09-17"), true);
 assert.equal(inObservationWindow("/speech", "2026-09-18"), false);
+assert.equal(inObservationWindow("/es/conversation", "2026-09-27"), true);
+assert.equal(inObservationWindow("/es/conversation", "2026-09-28"), false);
+assert.equal(buildQueryOpportunities([row("temas de conversación", "/es/conversation")], range).values[0][15], "/es/conversation");
+assert.equal(buildQueryOpportunities([row("temas para hablar con tu pareja", "/es/topics/conversation-starters-for-couples")], range).values[0][15], "Unassigned — review required");
 assert.equal(inObservationWindow("/topics/two-truths-and-a-lie-ideas", "2026-09-25"), true);
 assert.equal(inObservationWindow("/topics/two-truths-and-a-lie-ideas", "2026-09-26"), false);
 const result = buildQueryOpportunities([
