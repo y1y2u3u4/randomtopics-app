@@ -1,3 +1,4 @@
+import { aggregateGscPageRows } from "@/lib/gscPageAggregation";
 import "server-only";
 
 import { createSign } from "node:crypto";
@@ -825,23 +826,7 @@ async function getGscGrowthPages(
   current7: Map<string, GscSummary>;
   previous7: Map<string, GscSummary>;
 }> {
-  const mapRows = (rows: GscDimensionRow[]) => {
-    const result = new Map<string, GscSummary>();
-    for (const row of rows) {
-      try {
-        const url = new URL(row.key);
-        result.set(url.pathname, {
-          clicks: row.clicks,
-          impressions: row.impressions,
-          ctr: row.ctr,
-          position: row.position,
-        });
-      } catch {
-        // Ignore malformed page keys instead of failing the entire dashboard.
-      }
-    }
-    return result;
-  };
+
 
   // The property has fewer than 200 indexable URLs, so reading the page
   // dimension once per period is cheaper and more reliable than one request
@@ -858,7 +843,7 @@ async function getGscGrowthPages(
     "page",
     1_000
   );
-  return { current7: mapRows(current7Rows), previous7: mapRows(previous7Rows) };
+  return { current7: aggregateGscPageRows(current7Rows), previous7: aggregateGscPageRows(previous7Rows) };
 }
 
 function emptyGscSummary(): GscSummary {
