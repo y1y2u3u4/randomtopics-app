@@ -50,6 +50,7 @@ export default function TopicGenerator({
   const [selectedDepth, setSelectedDepth] = useState<Depth | null>(null);
   const [count, setCount] = useState(1);
   const [generatedTopics, setGeneratedTopics] = useState<Topic[]>([]);
+  const [practiceBatch, setPracticeBatch] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
   const [hasGenerated, setHasGenerated] = useState(false);
   const [copiedAll, setCopiedAll] = useState(false);
@@ -93,6 +94,7 @@ export default function TopicGenerator({
 
   const finishGeneration = useCallback((nextTopics: Topic[], resultSource: "ai" | "localized_pool" | "static_fallback") => {
     setGeneratedTopics(nextTopics);
+    setPracticeBatch((batch) => batch + 1);
     recordRecentTopics(nextTopics);
     setIsSpinning(false);
     setHasGenerated(true);
@@ -516,7 +518,7 @@ export default function TopicGenerator({
         )}
       </AnimatePresence>
 
-      {speechPractice ? <SpeechPracticePanel topics={generatedTopics} contentSource={contentSource} /> : null}
+      {speechPractice ? <SpeechPracticePanel key={practiceBatch} topics={generatedTopics} contentSource={contentSource} /> : null}
 
       {/* Pre-generate prompt */}
       {!hasGenerated && !speechPractice && (

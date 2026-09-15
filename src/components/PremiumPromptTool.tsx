@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useState, useSyncExternalStore } from "react";
 import PrintButton from "@/components/PrintButton";
+import WeeklyQuestionPlanner from "@/components/WeeklyQuestionPlanner";
 import type {
   PremiumCollectionConfig,
   PremiumFilter,
@@ -16,6 +17,7 @@ import {
   toggleFavoriteTopic,
 } from "@/lib/topicLibrary";
 import { track } from "@/lib/track";
+import { copyText } from "@/lib/clipboard";
 
 type FilterState = Partial<Record<PremiumFilter["key"], string>>;
 
@@ -24,8 +26,6 @@ interface PremiumPromptToolProps {
   initialItemId?: string;
   initialDateLabel?: string;
 }
-
-const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 function itemToText(item: PremiumPromptItem, style: PremiumCollectionConfig["tool"]["copyStyle"]) {
   const prefix = style === "classroom"
@@ -66,25 +66,7 @@ function pickWithoutRepeats(pool: PremiumPromptItem[], used: Set<string>, count 
 }
 
 async function writeClipboard(text: string) {
-  try {
-    await navigator.clipboard.writeText(text);
-    return;
-  } catch {
-    // Clipboard API can be unavailable in embedded or permission-restricted
-    // browsers. Keep a user-gesture fallback for those environments.
-  }
-
-  const textarea = document.createElement("textarea");
-  textarea.value = text;
-  textarea.setAttribute("readonly", "");
-  textarea.style.position = "fixed";
-  textarea.style.opacity = "0";
-  textarea.style.pointerEvents = "none";
-  document.body.appendChild(textarea);
-  textarea.select();
-  const copied = document.execCommand("copy");
-  textarea.remove();
-  if (!copied) throw new Error("Clipboard copy was not available");
+  if (!(await copyText(text))) throw new Error("Clipboard copy was not available");
 }
 
 export default function PremiumPromptTool({
@@ -94,10 +76,9 @@ export default function PremiumPromptTool({
 }: PremiumPromptToolProps) {
   const [filters, setFilters] = useState<FilterState>({});
   const [currentId, setCurrentId] = useState<string | null>(initialItemId ?? null);
+  const [currentWasGenerated, setCurrentWasGenerated] = useState(false);
   const [used, setUsed] = useState<Set<string>>(new Set());
-  const [plan, setPlan] = useState<PremiumPromptItem[]>([]);
   const [copied, setCopied] = useState(false);
-  const [planCopied, setPlanCopied] = useState(false);
   const [shared, setShared] = useState(false);
   const [manualCopyText, setManualCopyText] = useState<string | null>(null);
   const favorites = JSON.parse(
@@ -136,7 +117,7 @@ export default function PremiumPromptTool({
   const changeFilter = useCallback((filter: PremiumFilter, value: string) => {
     setFilters((previous) => ({ ...previous, [filter.key]: value || undefined }));
     setCurrentId(null);
-    setPlan([]);
+    setCurrentWasGenerated(false);
     setUsed(new Set());
     setManualCopyText(null);
     track("filter_select", {
@@ -152,7 +133,7 @@ export default function PremiumPromptTool({
   const clearFilters = useCallback(() => {
     setFilters({});
     setCurrentId(config.tool.daily ? initialItemId ?? null : null);
-    setPlan([]);
+    setCurrentWasGenerated(false);
     setUsed(new Set());
     setManualCopyText(null);
     track("filter_clear", {
@@ -179,6 +160,7 @@ export default function PremiumPromptTool({
     nextUsed.add(pick.id);
     setUsed(nextUsed);
     setCurrentId(pick.id);
+    setCurrentWasGenerated(true);
     setCopied(false);
     setShared(false);
     setManualCopyText(null);
@@ -213,20 +195,6 @@ export default function PremiumPromptTool({
     }
   }, [config, pool, used]);
 
-  const buildPlan = useCallback(() => {
-    if (pool.length === 0) return;
-    const picks = pickWithoutRepeats(pool, new Set(), 5);
-    setPlan(picks);
-    track("weekly_plan_generate", {
-      tool_type: "premium_prompt_collection",
-      content_source: config.source,
-      collection_slug: config.slug,
-      result_count: picks.length,
-      filtered_pool_size: pool.length,
-      locale: "en",
-    });
-  }, [config.slug, config.source, pool]);
-
   const copy = useCallback(async () => {
     if (!current) return;
     try {
@@ -241,7 +209,7 @@ export default function PremiumPromptTool({
         result_category: current.category,
         locale: "en",
       });
-      if (used.has(current.id)) {
+      if (currentWasGenerated) {
         track("post_generate_copy", {
           tool_type: "premium_prompt_collection",
           content_source: config.source,
@@ -262,28 +230,7 @@ export default function PremiumPromptTool({
         locale: "en",
       });
     }
-  }, [config.slug, config.source, config.tool.copyStyle, current, used]);
-
-  const copyPlan = useCallback(async () => {
-    if (plan.length === 0) return;
-    const text = plan.map((item, index) => `${WEEKDAYS[index]}: ${item.prompt}`).join("\n");
-    try {
-      await writeClipboard(text);
-      setManualCopyText(null);
-      setPlanCopied(true);
-      window.setTimeout(() => setPlanCopied(false), 1600);
-      track("weekly_plan_copy", {
-        tool_type: "premium_prompt_collection",
-        content_source: config.source,
-        collection_slug: config.slug,
-        result_count: plan.length,
-        locale: "en",
-      });
-    } catch {
-      setPlanCopied(false);
-      setManualCopyText(text);
-    }
-  }, [config.slug, config.source, plan]);
+  }, [config.slug, config.source, config.tool.copyStyle, current, currentWasGenerated]);
 
   const share = useCallback(async () => {
     if (!current) return;
@@ -312,7 +259,7 @@ export default function PremiumPromptTool({
       setShared(true);
       setManualCopyText(null);
       window.setTimeout(() => setShared(false), 1600);
-      if (used.has(current.id)) {
+      if (currentWasGenerated) {
         track("post_generate_share", {
           tool_type: "premium_prompt_collection",
           content_source: config.source,
@@ -334,7 +281,7 @@ export default function PremiumPromptTool({
         locale: "en",
       });
     }
-  }, [config, current, used]);
+  }, [config, current, currentWasGenerated]);
 
   const save = useCallback(() => {
     if (!current) return;
@@ -356,7 +303,7 @@ export default function PremiumPromptTool({
       result_category: current.category,
       locale: "en",
     });
-    if (result.saved && used.has(current.id)) {
+    if (result.saved && currentWasGenerated) {
       track("post_generate_save", {
         tool_type: "premium_prompt_collection",
         content_source: config.source,
@@ -366,7 +313,7 @@ export default function PremiumPromptTool({
         locale: "en",
       });
     }
-  }, [config, current, used]);
+  }, [config, current, currentWasGenerated]);
 
   const printItems = pool.map((item) => itemToText(item, config.tool.copyStyle));
 
@@ -383,7 +330,7 @@ export default function PremiumPromptTool({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-7">
+        <div id={config.tool.planner ? "weekly-plan-filters" : undefined} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-7 scroll-mt-24">
           {config.filters.map((filter) => (
             <label key={filter.key} className="text-xs font-semibold text-[var(--text-muted)]">
               {filter.label}
@@ -414,7 +361,7 @@ export default function PremiumPromptTool({
           {current ? (
             <div className="w-full max-w-2xl text-center">
               <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-cyan)]">
-                {config.tool.daily && current.id === initialItemId
+                {config.tool.daily && !currentWasGenerated && current.id === initialItemId
                   ? `Today's prompt${initialDateLabel ? ` · ${initialDateLabel}` : ""}`
                   : `${current.category} · ${current.audience}`}
               </p>
@@ -462,8 +409,8 @@ export default function PremiumPromptTool({
               label={`Print ${pool.length}`}
             />
           )}
-          {config.tool.daily && currentId !== initialItemId && initialItemId && (
-            <button type="button" onClick={() => setCurrentId(initialItemId)} className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50 transition-colors">Back to today&apos;s</button>
+          {config.tool.daily && (currentWasGenerated || currentId !== initialItemId) && initialItemId && (
+            <button type="button" onClick={() => { setCurrentId(initialItemId); setCurrentWasGenerated(false); setCopied(false); setShared(false); setManualCopyText(null); }} className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50 transition-colors">Back to today&apos;s</button>
           )}
         </div>
 
@@ -482,28 +429,7 @@ export default function PremiumPromptTool({
         )}
 
         {config.tool.planner && (
-          <div className="mt-7 border-t border-white/10 pt-6">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-              <div>
-                <h3 className="font-bold text-[var(--text-primary)]">Build a five-day plan</h3>
-                <p className="text-xs text-[var(--text-muted)] mt-1">Generate one filtered prompt for each weekday, then copy or print the plan.</p>
-              </div>
-              <button type="button" onClick={buildPlan} disabled={pool.length === 0} className="px-5 py-2.5 rounded-xl text-sm border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[rgba(0,229,255,0.06)] transition-colors disabled:cursor-not-allowed disabled:opacity-40">Build weekly plan</button>
-            </div>
-            {plan.length > 0 && (
-              <div className="mt-4 space-y-2">
-                {plan.map((item, index) => (
-                  <div key={item.id} className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[var(--text-secondary)]">
-                    <strong className="text-[var(--text-primary)]">{WEEKDAYS[index]}:</strong> {item.prompt}
-                  </div>
-                ))}
-                <div className="flex flex-wrap gap-3 pt-2">
-                  <button type="button" onClick={copyPlan} className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50 transition-colors">{planCopied ? "Plan copied ✓" : "Copy weekly plan"}</button>
-                  <PrintButton heading={`${config.title} — Weekly Plan`} items={plan.map((item, index) => `${WEEKDAYS[index]}: ${item.prompt}`)} label="Print weekly plan" />
-                </div>
-              </div>
-            )}
-          </div>
+          <WeeklyQuestionPlanner key={JSON.stringify(filters)} config={config} pool={pool} current={current} />
         )}
       </div>
     </section>

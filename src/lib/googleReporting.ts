@@ -91,6 +91,14 @@ export type GrowthPageFunnel = {
   postGenerateShareUsers: number;
   timerStarts: number;
   timerCompletes: number;
+  practiceDraftStarts: number;
+  practiceDraftUsers: number;
+  practiceOutlinesReady: number;
+  practiceOutlineUsers: number;
+  partyRoundCompletes: number;
+  partyRoundUsers: number;
+  partyRoundSkips: number;
+  weeklyPlanReplacements: number;
   weeklyPlanGenerates: number;
   weeklyPlanUsers: number;
   weeklyPlanCopies: number;
@@ -220,6 +228,11 @@ const FUNNEL_EVENT_NAMES = [
   "timer_complete",
   "weekly_plan_generate",
   "weekly_plan_copy",
+  "practice_draft_start",
+  "practice_outline_ready",
+  "party_round_complete",
+  "party_round_skip",
+  "weekly_plan_replace",
 ] as const;
 
 class ReportingError extends Error {
@@ -553,6 +566,14 @@ function emptyGrowthFunnel(): GrowthPageFunnel {
     postGenerateShareUsers: 0,
     timerStarts: 0,
     timerCompletes: 0,
+    practiceDraftStarts: 0,
+    practiceDraftUsers: 0,
+    practiceOutlinesReady: 0,
+    practiceOutlineUsers: 0,
+    partyRoundCompletes: 0,
+    partyRoundUsers: 0,
+    partyRoundSkips: 0,
+    weeklyPlanReplacements: 0,
     weeklyPlanGenerates: 0,
     weeklyPlanUsers: 0,
     weeklyPlanCopies: 0,
@@ -665,6 +686,20 @@ async function getGaGrowthPageFunnel(): Promise<Map<string, GrowthPageFunnel>> {
     }
     if (event === "timer_start") funnel.timerStarts = value;
     if (event === "timer_complete") funnel.timerCompletes = value;
+    if (event === "practice_draft_start") {
+      funnel.practiceDraftStarts = value;
+      funnel.practiceDraftUsers = metricValue(row, 1);
+    }
+    if (event === "practice_outline_ready") {
+      funnel.practiceOutlinesReady = value;
+      funnel.practiceOutlineUsers = metricValue(row, 1);
+    }
+    if (event === "party_round_complete") {
+      funnel.partyRoundCompletes = value;
+      funnel.partyRoundUsers = metricValue(row, 1);
+    }
+    if (event === "party_round_skip") funnel.partyRoundSkips = value;
+    if (event === "weekly_plan_replace") funnel.weeklyPlanReplacements = value;
     if (event === "weekly_plan_generate") {
       funnel.weeklyPlanGenerates = value;
       funnel.weeklyPlanUsers = metricValue(row, 1);

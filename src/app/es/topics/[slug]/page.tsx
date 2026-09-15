@@ -13,6 +13,7 @@ import PrintButton from "@/components/PrintButton";
 import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
 import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 import { ES_CONTROVERSIAL_SUPPORT } from "@/data/controversialDiscussion.es";
+import SpanishPartyRound from "@/components/SpanishPartyRound";
 
 function sectionId(heading: string) {
   return heading
@@ -194,15 +195,8 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
 
         {article.slug === "most-likely-to-questions" && (
           <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
-            <InlineQuestionGenerator
-              items={articleItems}
+            <SpanishPartyRound
               groups={article.sections.map((section) => ({ label: section.heading, items: section.items }))}
-              library={{ category: "relationships", modes: ["icebreaker", "conversation"], depth: "light" }}
-              title="Juega a Quién Es Más Probable"
-              description="Saca una pregunta al azar de la lista completa, voten todos a la vez y pasa a la siguiente sin leerlas en orden."
-              source="es_most_likely_article"
-              locale="es"
-              actionLabel="Sacar una pregunta"
             />
           </section>
         )}
@@ -298,7 +292,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
                 <section key={`generator-entry-${sIdx}`} className="max-w-3xl mx-auto px-4 sm:px-6">
                   <ArticleGeneratorEntry source={isControversial ? "es_controversial_article" : "es_most_likely_article"} locale="es"
                     generateOnClick={false} actionLabel="Volver al generador"
-                    description="Vuelve a tu pregunta actual para copiarla o guardarla; después puedes sacar otra."
+                    description={isControversial ? "Vuelve a tu pregunta actual para copiarla o guardarla; después puedes sacar otra." : "Vuelve a tu ronda para seguir jugando, copiar las preguntas o guardarlas."}
                     surface={sIdx === article.sections.length - 1 ? "article_end" : "article_middle"} />
                 </section>
               );

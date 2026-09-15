@@ -22,7 +22,7 @@ const REQUIRED_TABS = [
 
 const STRICT_CONVERSION_VERSION = "strict-post-gen-v1";
 const STRICT_CONVERSION_START_DATE = "2026-09-04";
-const REPORT_WIDTHS: Record<string, number> = { "Daily Summary": 30, "Landing Pages": 45, "Query Opportunities": 17 };
+const REPORT_WIDTHS: Record<string, number> = { "Daily Summary": 30, "Landing Pages": 55, "Query Opportunities": 17 };
 const STRICT_DAILY_HEADERS = [
   "Conversion Metric Version",
   "Post-Generate Copy Users",
@@ -249,6 +249,16 @@ function landingPageRows(
     page.ga4.funnel7.weeklyPlanCopies,
     page.ga4.funnel7.weeklyPlanCopyUsers,
     page.ga4.previous7.screenPageViews,
+    page.ga4.funnel7.timerStarts,
+    page.ga4.funnel7.timerCompletes,
+    page.ga4.funnel7.practiceDraftStarts,
+    page.ga4.funnel7.practiceDraftUsers,
+    page.ga4.funnel7.practiceOutlinesReady,
+    page.ga4.funnel7.practiceOutlineUsers,
+    page.ga4.funnel7.partyRoundCompletes,
+    page.ga4.funnel7.partyRoundUsers,
+    page.ga4.funnel7.partyRoundSkips,
+    page.ga4.funnel7.weeklyPlanReplacements,
   ]);
 }
 
@@ -352,7 +362,7 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
   const runTargetRow = nextRunLogRow(runLog);
 
   await clearRanges(sheetId, [
-    "'Landing Pages'!A2:AS1000",
+    "'Landing Pages'!A2:BC1000",
     "'Query Opportunities'!A2:Q1000",
   ]);
   await writeRanges(sheetId, [
@@ -364,6 +374,10 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     {
       range: "'Landing Pages'!AD1:AS1",
       values: [["GA4 Page Views", "Generate Start Events", "Generate Success Events", "Generate Error Events", "Technical Generate Success Rate", "Copy Events", "Copy Users", "Save Events", "Save Users", "Share Events", "Share Users", "Weekly Plan Generate Events", "Weekly Plan Users", "Weekly Plan Copy Events", "Weekly Plan Copy Users", "Previous 7d GA4 Page Views"]],
+    },
+    {
+      range: "'Landing Pages'!AT1:BC1",
+      values: [["Timer Start Events", "Timer Complete Events", "Practice Draft Start Events", "Practice Draft Users", "Practice Outline Ready Events", "Practice Outline Ready Users", "Party Round Complete Events", "Party Round Complete Users", "Party Round Skip Events", "Weekly Plan Replace Events"]],
     },
     {
       range: "'Query Opportunities'!M1:Q1",
@@ -382,7 +396,7 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
       values: [dailyRow],
     },
     {
-      range: `'Landing Pages'!A2:AS${pageRows.length + 1}`,
+      range: `'Landing Pages'!A2:BC${pageRows.length + 1}`,
       values: pageRows,
     },
     {
