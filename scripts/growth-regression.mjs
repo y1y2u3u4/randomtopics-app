@@ -53,6 +53,7 @@ const page = {
   ga4: { current7: { activeUsers: 50, sessions: 60, screenPageViews: 75 }, previous7: { activeUsers: 25, sessions: 30, screenPageViews: 40 }, funnel7: {
     starts: 40, successes: 38, errors: 2, successUsers: 28, successSessions: 30, postGenerateActionUsers: 20,
     copies: 8, copyUsers: 6, saves: 3, saveUsers: 3, shares: 2, shareUsers: 2,
+    timerStarts: 12, timerCompletes: 6, practiceDraftStarts: 9, practiceDraftUsers: 7, practiceOutlinesReady: 4, practiceOutlineUsers: 3, partyRoundCompletes: 8, partyRoundUsers: 6, partyRoundSkips: 2, weeklyPlanReplacements: 5,
     weeklyPlanGenerates: 7, weeklyPlanUsers: 5, weeklyPlanCopies: 4, weeklyPlanCopyUsers: 3,
     postGenerateCopyUsers: 4, postGenerateSaveUsers: 2, postGenerateShareUsers: 1,
   } },
@@ -87,8 +88,10 @@ const daily = write.body.data.find((d) => d.range === "'Daily Summary'!A2:AD2").
 assert.equal(daily.length, 30);
 assert.equal(daily[29], 20);
 assert.equal(daily[24], 0.2);
-const landing = write.body.data.find((d) => d.range === "'Landing Pages'!A2:AS2").values[0];
-assert.equal(landing.length, 45);
+const landing = write.body.data.find((d) => d.range === "'Landing Pages'!A2:BC2").values[0];
+assert.equal(landing.length, 55);
+assert.deepEqual(landing.slice(45), [12, 6, 9, 7, 4, 3, 8, 6, 2, 5]);
+assert.equal(write.body.data.find((d) => d.range === "'Landing Pages'!AT1:BC1").values[0].length, 10);
 assert.equal(landing[9], 0.5);
 assert.equal(landing[20], 0.2);
 assert.deepEqual(landing.slice(15, 19), ["2026-08-30", "2026-09-05", "2026-08-29", "2026-09-04"]);
@@ -102,3 +105,8 @@ await import("./two-truths-regression.mjs");
 await import("./usage-loops-regression.mjs");
 
 await import("./gsc-page-regression.mjs");
+
+await import("./speech-practice-regression.mjs");
+await import("./spanish-party-round-regression.mjs");
+await import("./practice-metrics-regression.mjs");
+await import("./weekly-plan-regression.mjs");

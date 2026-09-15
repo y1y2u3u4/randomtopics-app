@@ -92,8 +92,8 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
   const isToday = randomQ === null;
 
   const planLinks = [
-    { href: "/question-of-the-day-for-students", label: "Plan 5 classroom questions", audience: "classroom" },
-    { href: "/question-of-the-day-for-work", label: "Plan 5 team questions", audience: "work" },
+    { href: "/question-of-the-day-for-students#weekly-plan", label: "Plan 5 classroom questions", audience: "classroom" },
+    { href: "/question-of-the-day-for-work#weekly-plan", label: "Plan 5 team questions", audience: "work" },
   ];
 
   return (
@@ -202,6 +202,7 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
         <p className="text-xs text-[var(--text-muted)] text-center mt-2">Today&apos;s question follows your local date and changes at midnight · {QOTD_QUESTIONS.length} questions in rotation.</p>
         <div className="mt-6 border-t border-white/10 pt-5">
           <p className="text-center text-sm font-semibold">Ready for next week?</p>
+          <p className="mt-2 text-center text-xs leading-relaxed text-[var(--text-muted)]">Choose questions written for your class or team, keep a favorite for Monday, and copy a five-day plan with follow-ups.</p>
           <div className="mt-3 flex flex-wrap justify-center gap-3">
             {planLinks.map((link) => <Link key={link.href} href={link.href} onClick={() => track("weekly_plan_entry", { tool_type: "question_of_the_day", content_source: "qotd_hub", plan_audience: link.audience, locale: "en" })} className="inline-flex min-h-11 items-center rounded-xl border border-[var(--neon-cyan)]/30 px-4 py-2 text-sm text-[var(--neon-cyan)]">{link.label} →</Link>)}
           </div>

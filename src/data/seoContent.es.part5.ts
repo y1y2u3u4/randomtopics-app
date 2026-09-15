@@ -468,9 +468,9 @@ export const seoArticlesEsPart5: SeoArticle[] = [
     heroSubtitle:
       "Preguntas divertidas, fuertes y aptas para distintos grupos: amigos, parejas, fiestas, familia, clases y equipos.",
     intro:
-      "'Quién es más probable' es el juego de grupo donde todos señalan a la persona con más probabilidades de hacer algo, y el resultado suele ser más gracioso de lo esperado. Funciona en una fiesta, un viaje, una clase, una reunión familiar o como rompehielos de equipo. Aquí tienes exactamente 100 preguntas de '¿Quién es más probable que...?' organizadas por grupo e intensidad: para amigos, divertidas, parejas, trabajo, adolescentes, fuertes, fiestas y familia. Lee una pregunta y cuenta los votos, imprime la lista o usa el generador gratuito para seguir jugando sin preparar nada.",
+      "'Quién es más probable' es el juego de grupo donde todos señalan a la persona con más probabilidades de hacer algo, y el resultado suele ser más gracioso de lo esperado. Funciona en una fiesta, un viaje, una clase, una reunión familiar o como rompehielos de equipo. Aquí tienes exactamente 100 preguntas de '¿Quién es más probable que...?' organizadas por grupo e intensidad: para amigos, divertidas, parejas, trabajo, adolescentes, fuertes, fiestas y familia. Prepara una ronda de 5 o 10 preguntas, voten a la cuenta de tres y salten cualquier pregunta que no encaje. Copia la selección para el grupo, guárdala en este navegador o imprime la lista completa.",
     publishDate: "2026-07-06",
-    lastModified: "2026-08-31",
+    lastModified: "2026-09-15",
     sections: [
       {
         heading: "Preguntas de Quién es más probable para amigos",
@@ -631,7 +631,7 @@ export const seoArticlesEsPart5: SeoArticle[] = [
       {
         question: "¿Cuáles son buenas preguntas limpias de Quién es más probable?",
         answer:
-          "Los buenos prompts limpios se centran en rasgos divertidos e inofensivos: más probable de hacerse famoso, de olvidar su cumpleaños o de sobrevivir a un apocalipsis zombi. Cada prompt de esta página es apto para la familia, con secciones para adolescentes, parejas y equipos de trabajo.",
+          "Las preguntas ligeras se centran en rasgos divertidos e inofensivos: hacerse famoso, olvidar un cumpleaños o sobrevivir a un apocalipsis zombi. Elige familia, adolescentes o trabajo para esos grupos. La categoría de preguntas fuertes toca decisiones y relaciones personales: resérvala para personas con confianza y permite siempre pasar.",
       },
       {
         question: "¿Quién es más probable sirve para formar equipo?",
@@ -642,6 +642,11 @@ export const seoArticlesEsPart5: SeoArticle[] = [
         question: "¿Cuántas preguntas de Quién es más probable hay aquí?",
         answer:
           "Esta lista tiene exactamente 100 preguntas para amigos, parejas, fiestas, familia, trabajo y clase, incluidas opciones divertidas y fuertes. Para seguir jugando, usa el generador aleatorio gratuito.",
+      },
+      {
+        question: "¿Cómo preparo y comparto una ronda?",
+        answer:
+          "Elige una categoría, selecciona 5 o 10 preguntas y pulsa Preparar ronda. Avanza después de cada votación o salta una pregunta para quitarla de la selección. Copiar ronda para el grupo incluye las preguntas jugadas y pendientes, las instrucciones y el enlace. Puedes guardarla en este navegador; prepara otra ronda solo después de copiar o guardar la actual.",
       },
     ],
     relatedLinks: [
