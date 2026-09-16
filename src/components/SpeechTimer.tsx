@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { track } from "@/lib/track";
@@ -78,26 +78,45 @@ export default function SpeechTimer({
   const [remaining, setRemaining] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
+  const deadline = useRef<number | null>(null);
+  const pausedMilliseconds = useRef(initialSeconds * 1000);
+
+  const complete = useCallback(() => {
+    if (deadline.current === null) return;
+    deadline.current = null;
+    pausedMilliseconds.current = 0;
+    setRemaining(0);
+    setIsRunning(false);
+    setIsFinished(true);
+    track("timer_complete", {
+      tool_type: "speech_timer",
+      content_source: contentSource,
+      timer_seconds: totalSeconds,
+      locale,
+    });
+  }, [contentSource, totalSeconds, locale]);
 
   useEffect(() => {
-    if (!isRunning || remaining <= 0) return;
-    const interval = setInterval(() => {
-      if (remaining <= 1) {
-        setIsRunning(false);
-        setIsFinished(true);
-        track("timer_complete", {
-          tool_type: "speech_timer",
-          content_source: contentSource,
-          timer_seconds: totalSeconds,
-          locale,
-        });
-      }
-      setRemaining(Math.max(0, remaining - 1));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [isRunning, remaining, totalSeconds, locale, contentSource]);
+    if (!isRunning) return;
+    // Browser callbacks can be delayed in background tabs. Measure elapsed
+    // time instead of counting callbacks; catch up when the page returns.
+    const refresh = () => {
+      if (deadline.current === null) return;
+      const milliseconds = Math.max(0, deadline.current - Date.now());
+      if (milliseconds === 0) complete();
+      else setRemaining(Math.ceil(milliseconds / 1000));
+    };
+    const interval = setInterval(refresh, 250);
+    document.addEventListener("visibilitychange", refresh);
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("visibilitychange", refresh);
+    };
+  }, [isRunning, complete]);
 
   const selectPreset = useCallback((seconds: number) => {
+    deadline.current = null;
+    pausedMilliseconds.current = seconds * 1000;
     setTotalSeconds(seconds);
     setRemaining(seconds);
     setIsRunning(false);
@@ -107,6 +126,19 @@ export default function SpeechTimer({
 
   const toggleRun = useCallback(() => {
     const restarting = isFinished;
+    if (isRunning) {
+      const milliseconds = Math.max(0, (deadline.current ?? Date.now()) - Date.now());
+      if (milliseconds === 0) {
+        complete();
+        return;
+      }
+      pausedMilliseconds.current = milliseconds;
+      deadline.current = null;
+      setRemaining(Math.ceil(milliseconds / 1000));
+    } else {
+      if (restarting) pausedMilliseconds.current = totalSeconds * 1000;
+      deadline.current = Date.now() + pausedMilliseconds.current;
+    }
     if (isFinished) {
       setRemaining(totalSeconds);
       setIsFinished(false);
@@ -118,9 +150,11 @@ export default function SpeechTimer({
       locale,
     });
     setIsRunning((prev) => !prev);
-  }, [isFinished, isRunning, totalSeconds, locale, contentSource]);
+  }, [isFinished, isRunning, totalSeconds, locale, contentSource, complete]);
 
   const reset = useCallback(() => {
+    deadline.current = null;
+    pausedMilliseconds.current = totalSeconds * 1000;
     setRemaining(totalSeconds);
     setIsRunning(false);
     setIsFinished(false);
