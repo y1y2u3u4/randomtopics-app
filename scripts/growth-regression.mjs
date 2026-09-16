@@ -107,6 +107,7 @@ await import("./usage-loops-regression.mjs");
 await import("./gsc-page-regression.mjs");
 
 await import("./speech-practice-regression.mjs");
+await import("./speech-timer-regression.mjs");
 await import("./spanish-party-round-regression.mjs");
 await import("./practice-metrics-regression.mjs");
 await import("./weekly-plan-regression.mjs");
