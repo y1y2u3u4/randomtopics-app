@@ -14,6 +14,7 @@ export const INTENT_OWNERS = [
 
 // Editorial observation dates protect recent releases from repeated rewrites.
 const RECENT_REVISIONS: Record<string, string> = {
+  "/question-of-the-day": "2026-09-17",
   "/es/conversation": "2026-09-14",
   "/topics/two-truths-and-a-lie-ideas": "2026-09-12",
   "/speech": "2026-09-04",

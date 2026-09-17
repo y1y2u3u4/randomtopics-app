@@ -101,20 +101,20 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
       <div className="glass-card p-6 sm:p-8">
         {/* Question card */}
         <div
-          className="rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] p-8 sm:p-12 text-center min-h-[11rem] flex flex-col items-center justify-center"
+          className="rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] p-6 sm:p-8 text-center min-h-[11rem] flex flex-col items-center justify-center"
           aria-live="polite"
         >
           {shown ? (
             <motion.div
               key={shown.q + (isToday ? "-t" : "-r")}
-              initial={{ opacity: 0, y: 12 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.22 }}
               className="flex flex-col items-center gap-4"
             >
-              <span className="text-xs uppercase tracking-widest text-[var(--neon-cyan)]">
+              <h2 className="text-xs uppercase tracking-widest text-[var(--neon-cyan)]">
                 {isToday ? `✨ Today's Question · ${dateLabel}` : "🎲 Random Question"}
-              </span>
+              </h2>
               <p
                 className="text-xl sm:text-3xl font-semibold text-[var(--text-primary)] leading-snug max-w-xl"
                 style={{ fontFamily: "var(--font-display)" }}
@@ -132,27 +132,6 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
           )}
         </div>
 
-        {/* Controls */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
-          <button onClick={deal} className="btn-generate">
-            <span>🎲</span> Random Question
-          </button>
-          {randomQ && (
-            <button
-              onClick={() => { setRandomQ(null); track("qotd_return_today", { tool_type: "question_of_the_day", content_source: "qotd_hub", locale: "en" }); }}
-              className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50 transition-colors"
-            >
-              ✨ Back to today&apos;s
-            </button>
-          )}
-          <PrintButton
-            heading="Questions of the Day"
-            items={pool.map((x) => x.q)}
-            intro={`${pool.length} questions — print for a month of daily prompts.`}
-            label="Print questions"
-          />
-        </div>
-
         {shown ? <div className="mt-5">
           <GeneratedResultActions
             key={`${isToday ? "today" : "random"}-${shown.q}`}
@@ -168,6 +147,9 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
           />
         </div> : null}
 
+        <p className="mt-3 text-center text-xs text-[var(--text-muted)]">Copy includes the question and an invitation to answer or pass. No signup needed.</p>
+
+        <p className="mt-5 text-center text-sm font-semibold">Want a different question? Choose a category for your next draw.</p>
         {/* Category filter for random mode */}
         <div className="flex flex-wrap justify-center gap-2 mt-5">
           <button
@@ -196,9 +178,31 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
             </button>
           ))}
         </div>
+        {/* Controls for choosing a different question */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
+          <button onClick={deal} className="btn-generate">
+            <span>🎲</span> Random Question
+          </button>
+          {randomQ && (
+            <button
+              onClick={() => { setRandomQ(null); track("qotd_return_today", { tool_type: "question_of_the_day", content_source: "qotd_hub", locale: "en" }); }}
+              className="px-5 py-2.5 rounded-xl text-sm border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50 transition-colors"
+            >
+              ✨ Back to today&apos;s
+            </button>
+          )}
+          <PrintButton
+            heading="Questions of the Day"
+            items={pool.map((x) => x.q)}
+            intro={`${pool.length} questions — print for a month of daily prompts.`}
+            label="Print questions"
+          />
+        </div>
+
         <p className="text-xs text-[var(--text-muted)] text-center mt-4">
           {pool.length} questions in this filter. Filters apply to your next random draw; your current question stays visible.
         </p>
+        <p className="mt-4 text-center"><a href="#question-ideas" className="inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Browse all {QOTD_QUESTIONS.length} question ideas by category ↓</a></p>
         <p className="text-xs text-[var(--text-muted)] text-center mt-2">Today&apos;s question follows your local date and changes at midnight · {QOTD_QUESTIONS.length} questions in rotation.</p>
         <div className="mt-6 border-t border-white/10 pt-5">
           <p className="text-center text-sm font-semibold">Ready for next week?</p>

@@ -14,7 +14,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: { absolute: "Question of the Day — New QOTD for Today | Random Topics" },
   description:
-    "Answer today's question of the day, then browse 120 general QOTD ideas by mood. One shared daily prompt plus a no-repeat random generator, free and no signup.",
+    "Get today's question of the day and copy it for your group chat. Browse 120 QOTD ideas for work, classrooms, family, or fun. Free, no signup.",
   keywords: [
     "question of the day",
     "question of the day ideas",
@@ -80,7 +80,7 @@ export default function QuestionOfTheDayPage() {
         />
 
         {/* Hero */}
-        <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-8 text-center">
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 pb-6 text-center">
           <h1
             className="section-heading text-4xl sm:text-6xl font-extrabold mb-4"
             style={{ fontFamily: "var(--font-display)" }}
@@ -88,8 +88,7 @@ export default function QuestionOfTheDayPage() {
             Question <span className="gradient-text">of the Day</span>
           </h1>
           <p className="text-[var(--text-muted)] max-w-xl mx-auto">
-            One thoughtful question for each local date, changing at midnight.
-            Built for classroom morning meetings, team channels, and dinner tables.
+            Today’s question is ready below. Copy it for your group chat, or choose another from 120 question ideas. Free, with no signup.
           </p>
         </section>
 
@@ -115,9 +114,17 @@ export default function QuestionOfTheDayPage() {
           </div>
         </section>
 
-        {/* Crawlable samples by audience */}
+        <nav id="question-ideas" aria-label="Browse question ideas by category" className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 scroll-mt-24">
+          <h2 className="text-xl font-bold">Browse all {QOTD_QUESTIONS.length} question-of-the-day ideas</h2>
+          <p className="mt-2 text-sm text-[var(--text-muted)]">Jump to a category to read its questions. The filters above choose your next random draw.</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {QOTD_CATEGORIES.map((cat) => <a key={cat.id} href={`#ideas-${cat.id}`} className="inline-flex min-h-11 items-center rounded-xl border border-white/10 px-3 py-2 text-sm text-[var(--neon-cyan)]">{cat.emoji} {cat.label} · {QOTD_QUESTIONS.filter((item) => item.c === cat.id).length}</a>)}
+          </div>
+        </nav>
+
+        {/* Complete crawlable question bank by audience */}
         {QOTD_CATEGORIES.map((cat) => (
-          <section key={cat.id} className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">
+          <section key={cat.id} id={`ideas-${cat.id}`} className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 scroll-mt-24">
             <div className="glass-card p-8 sm:p-10">
               <h2
                 className="text-xl sm:text-2xl font-bold mb-2 text-[var(--text-primary)]"
@@ -134,7 +141,7 @@ export default function QuestionOfTheDayPage() {
                 ))}
               </ul>
               <p className="text-xs text-[var(--text-muted)] mt-4">
-                {QOTD_QUESTIONS.filter((x) => x.c === cat.id).length} {cat.label.toLowerCase()} questions in the daily rotation — use the generator above to browse them all.
+                {QOTD_QUESTIONS.filter((x) => x.c === cat.id).length} {cat.label.toLowerCase()} questions in the daily rotation. <a href="#qotd-generator" className="text-[var(--neon-cyan)] underline underline-offset-4">Back to today’s question and generator ↑</a>
               </p>
             </div>
           </section>
