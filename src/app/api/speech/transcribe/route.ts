@@ -138,12 +138,16 @@ export async function POST(request: Request) {
         status: "transcribed",
       });
     } catch (error) {
-      await db
+      const { error: releaseError } = await db
         .from("speech_attempts")
         .update({ status: "failed", updated_at: new Date().toISOString() })
         .eq("id", body.id)
         .eq("user_id", user.id);
-      throw error;
+      const failed = failure(error);
+      return response(
+        { ...(await failed.json()), retryWithNewId: !releaseError },
+        failed.status,
+      );
     }
   } catch (error) {
     return failure(error);

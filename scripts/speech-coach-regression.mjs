@@ -160,6 +160,40 @@ const invalid = await transcribe.POST(
 assert.equal(invalid.status, 400);
 assert.equal(calls, 0, "Bad audio must not consume quota or model calls");
 
+// A failed transcription must release its reservation before allowing a new ID.
+const wav = Buffer.alloc(44 + 6 * 24000);
+wav.write("RIFF"); wav.writeUInt32LE(wav.length - 8, 4);
+wav.write("WAVEfmt ", 8); wav.writeUInt32LE(16, 16);
+wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22);
+wav.writeUInt32LE(12000, 24); wav.writeUInt32LE(24000, 28);
+wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34);
+wav.write("data", 36); wav.writeUInt32LE(wav.length - 44, 40);
+for (const releaseFails of [false, true]) {
+  const updates = [];
+  const failedChain = {
+    update(value) { updates.push(value); return this; },
+    eq() { return this; },
+    then(resolve) { resolve({ error: releaseFails ? new Error("database unavailable") : null }); },
+  };
+  const silentRoute = load("src/app/api/speech/transcribe/route.ts", {
+    "@/lib/speech/server": {
+      ...server,
+      actor: async () => ({ user: { id: "owner" }, db: {
+        rpc: async () => ({ data: true, error: null }),
+        from: () => failedChain,
+      } }),
+      networkHash: () => "test-network",
+      modelCall: async () => ({ value: { transcript: "" }, usage: {}, model: "test" }),
+    },
+  });
+  const result = await silentRoute.POST(new Request("https://example.test/api/speech/transcribe", {
+    method: "POST", body: JSON.stringify({ id, topic: "Practice", previousId: null, audio: wav.toString("base64") }),
+  }));
+  assert.equal(result.status, 422);
+  assert.equal((await result.json()).retryWithNewId, !releaseFails);
+  assert.equal(updates[0].status, "failed");
+}
+
 const clauses = [];
 const chain = {
   select() {

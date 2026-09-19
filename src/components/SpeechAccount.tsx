@@ -211,12 +211,46 @@ export default function SpeechAccount() {
                   <summary className="cursor-pointer py-2 text-sm">
                     Feedback and transcript
                   </summary>
+                  <h4 className="mt-3 font-semibold">What worked</h4>
+                  <p className="my-3">{attempt.feedback.strength.observation}</p>
+                  <blockquote className="my-3 border-l-2 border-[var(--neon-cyan)] pl-3">
+                    {attempt.feedback.strength.quote}
+                  </blockquote>
+                  <h4 className="font-semibold">Focus for your next attempt</h4>
                   <p className="my-3">
                     {attempt.feedback.priority.observation}
                   </p>
                   <blockquote className="my-3 border-l-2 border-[var(--neon-cyan)] pl-3">
                     {attempt.feedback.priority.quote}
                   </blockquote>
+                  <dl className="my-4 space-y-2 text-sm">
+                    {Object.entries(attempt.feedback.structure).map(([name, note]) => (
+                      <div key={name}>
+                        <dt className="font-semibold capitalize">{name}</dt>
+                        <dd>{note}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  {attempt.feedback.comparison.outcome !== "first_attempt" && (
+                    <section className="my-4 space-y-3">
+                      <h4 className="font-semibold">Compared with your previous attempt</h4>
+                      <p className="capitalize">{attempt.feedback.comparison.outcome.replaceAll("_", " ")}</p>
+                      {attempt.feedback.comparison.beforeQuote && (
+                        <blockquote className="border-l-2 border-white/20 pl-3">
+                          <span className="block text-sm">Before</span>
+                          {attempt.feedback.comparison.beforeQuote}
+                        </blockquote>
+                      )}
+                      {attempt.feedback.comparison.afterQuote && (
+                        <blockquote className="border-l-2 border-[var(--neon-cyan)] pl-3">
+                          <span className="block text-sm">After</span>
+                          {attempt.feedback.comparison.afterQuote}
+                        </blockquote>
+                      )}
+                      <p>{attempt.feedback.comparison.explanation}</p>
+                    </section>
+                  )}
+                  <h4 className="mb-2 font-semibold">Transcript</h4>
                   <p className="whitespace-pre-wrap text-sm">
                     {attempt.transcript}
                   </p>
