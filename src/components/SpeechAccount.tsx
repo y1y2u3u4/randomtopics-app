@@ -1,0 +1,343 @@
+"use client";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { practiceFetch, speechClient } from "@/lib/speech/client";
+import type { SpeechFeedback } from "@/lib/speech/schema";
+type Attempt = {
+  id: string;
+  topic: string;
+  transcript: string | null;
+  duration: number;
+  status: string;
+  feedback: SpeechFeedback | null;
+  created_at: string;
+};
+const button =
+  "min-h-11 rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold disabled:opacity-50";
+export default function SpeechAccount() {
+  const [attempts, setAttempts] = useState<Attempt[]>([]);
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [anonymous, setAnonymous] = useState(true);
+  const [billing, setBilling] = useState(false);
+  useEffect(() => {
+    let active = true;
+    const id = new URLSearchParams(window.location.search).get("attempt");
+    practiceFetch(id ? `history?id=${encodeURIComponent(id)}` : "history")
+      .then((data) => {
+        if (!active) return;
+        setAttempts(data.attempts);
+        setAnonymous(data.anonymous);
+        setBilling(data.billingAvailable);
+        setLoaded(true);
+      })
+      .catch((error) => {
+        if (active)
+          setMessage(
+            error instanceof Error ? error.message : "Could not load history.",
+          );
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+  async function run(action: () => Promise<void>) {
+    setBusy(true);
+    setMessage("");
+    try {
+      await action();
+    } catch (e) {
+      setMessage(e instanceof Error ? e.message : "Please try again.");
+    } finally {
+      setBusy(false);
+    }
+  }
+  async function load() {
+    const data = await practiceFetch("history");
+    setAttempts(data.attempts);
+    setAnonymous(data.anonymous);
+    setBilling(data.billingAvailable);
+    setLoaded(true);
+  }
+  async function emailLink(existing: boolean) {
+    const auth = (await speechClient()).auth;
+    const redirect = `${window.location.origin}/speech/account`;
+    const {
+      data: { session },
+    } = await auth.getSession();
+    if (!existing && !session) {
+      const result = await auth.signInAnonymously();
+      if (result.error) throw result.error;
+    }
+    const result = existing
+      ? await auth.signInWithOtp({
+          email,
+          options: { shouldCreateUser: false, emailRedirectTo: redirect },
+        })
+      : await auth.updateUser({ email }, { emailRedirectTo: redirect });
+    if (result.error)
+      throw new Error(
+        existing
+          ? "Could not send a sign-in link. Please check your email and try again later."
+          : "Could not link this email. If you already have an account, use the sign-in option.",
+      );
+    setMessage(
+      "Check your email to confirm. Then return here and refresh your history.",
+    );
+  }
+  return (
+    <div className="space-y-7">
+      <Link href="/speech" className="text-sm underline">
+        Back to speech topics
+      </Link>
+      <h1 className="text-3xl font-bold">Your speech practice</h1>
+      <p className="text-[var(--text-secondary)]">
+        Review your feedback, keep your progress, and choose what to practice
+        next.
+      </p>
+      <section className="glass-card space-y-4 p-5">
+        <h2 className="text-xl font-semibold">
+          Keep your practice across devices
+        </h2>
+        <p className="text-sm text-[var(--text-muted)]">
+          Free practice works without an email. Link an email before clearing
+          browser data or switching devices so you can recover your saved
+          feedback.
+        </p>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            void run(() => emailLink(false));
+          }}
+          className="space-y-3"
+        >
+          <label className="block text-sm">
+            Email address
+            <input
+              type="email"
+              required
+              autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mt-2 w-full rounded-xl border border-white/15 bg-black/20 p-3 text-base"
+            />
+          </label>
+          <div className="flex flex-wrap gap-2">
+            <button className={button} disabled={busy}>
+              Link my email
+            </button>
+            <button
+              type="button"
+              className={button}
+              disabled={busy || !email.includes("@")}
+              onClick={() => run(() => emailLink(true))}
+            >
+              Sign in to an existing account
+            </button>
+          </div>
+        </form>
+        <p className="text-sm text-[var(--text-muted)]">
+          Signing in to another account opens that account’s history; guest
+          attempts are not automatically transferred.{" "}
+          <Link href="/privacy" className="underline">
+            Privacy
+          </Link>{" "}
+          ·{" "}
+          <Link href="/terms" className="underline">
+            Terms
+          </Link>
+        </p>
+      </section>
+      <section className="space-y-4">
+        <div className="flex flex-wrap justify-between gap-3">
+          <h2 className="text-xl font-semibold">Practice history</h2>
+          <button className={button} disabled={busy} onClick={() => run(load)}>
+            {loaded ? "Refresh history" : "Load my history"}
+          </button>
+        </div>
+        {loaded && !attempts.length && (
+          <p>
+            No saved attempts yet. Start with a topic and a short recording.
+          </p>
+        )}
+        {attempts.map((attempt) => (
+          <article
+            key={attempt.id}
+            id={`attempt-${attempt.id}`}
+            className="glass-card space-y-3 p-5"
+          >
+            <div className="flex flex-wrap justify-between gap-2">
+              <h3 className="font-semibold">{attempt.topic}</h3>
+              <span className="text-sm text-[var(--text-muted)]">
+                {new Date(attempt.created_at).toLocaleDateString()} ·{" "}
+                {attempt.duration}s
+              </span>
+            </div>
+            <p className="text-sm">
+              {attempt.status === "complete"
+                ? "Feedback ready"
+                : attempt.status === "failed"
+                  ? "Could not complete — allowance released"
+                  : attempt.status === "transcribed"
+                    ? "Transcript saved — ready for feedback"
+                    : "Processing — refresh in a moment"}
+            </p>
+            {attempt.feedback && (
+              <>
+                <p>
+                  <strong>Next practice: </strong>
+                  {attempt.feedback.priority.nextStep}
+                </p>
+                <details>
+                  <summary className="cursor-pointer py-2 text-sm">
+                    Feedback and transcript
+                  </summary>
+                  <p className="my-3">
+                    {attempt.feedback.priority.observation}
+                  </p>
+                  <blockquote className="my-3 border-l-2 border-[var(--neon-cyan)] pl-3">
+                    {attempt.feedback.priority.quote}
+                  </blockquote>
+                  <p className="whitespace-pre-wrap text-sm">
+                    {attempt.transcript}
+                  </p>
+                </details>
+              </>
+            )}
+            {attempt.status === "transcribed" && attempt.transcript && (
+              <>
+                <p className="whitespace-pre-wrap text-sm">
+                  {attempt.transcript}
+                </p>
+                <button
+                  className={button}
+                  disabled={busy}
+                  onClick={() =>
+                    run(async () => {
+                      await practiceFetch("feedback", {
+                        id: attempt.id,
+                        transcript: attempt.transcript,
+                      });
+                      await load();
+                    })
+                  }
+                >
+                  Get feedback on this transcript
+                </button>
+              </>
+            )}
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={`/speech/account?attempt=${attempt.id}`}
+                className="min-h-11 py-2 text-sm underline"
+              >
+                Link to this practice
+              </a>
+              <button
+                className={button}
+                disabled={
+                  busy ||
+                  ["processing", "transcribing"].includes(attempt.status)
+                }
+                onClick={() => {
+                  if (
+                    window.confirm(
+                      "Delete this transcript and feedback? This cannot be undone. Your allowance will not reset.",
+                    )
+                  )
+                    void run(async () => {
+                      await practiceFetch(
+                        "history",
+                        { id: attempt.id },
+                        "DELETE",
+                      );
+                      await load();
+                    });
+                }}
+              >
+                Delete practice content
+              </button>
+            </div>
+          </article>
+        ))}
+      </section>
+      {loaded && billing && (
+        <section className="glass-card space-y-4 p-5">
+          <h2 className="text-xl font-semibold">Keep practicing · $12/month</h2>
+          <p>
+            40 recorded attempts per billing month, including retries. Each
+            attempt includes transcription and feedback, up to two minutes.
+            Unused attempts do not roll over.
+          </p>
+          <p className="text-sm text-[var(--text-muted)]">
+            Renews monthly until canceled. Cancel through Manage subscription.
+            Access continues to the end of your paid period.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <button
+              className={button}
+              disabled={busy || anonymous}
+              onClick={() =>
+                run(async () => {
+                  const data = await practiceFetch("checkout", {});
+                  window.location.assign(data.url);
+                })
+              }
+            >
+              Subscribe for $12/month
+            </button>
+            <button
+              className={button}
+              disabled={busy || anonymous}
+              onClick={() =>
+                run(async () => {
+                  const data = await practiceFetch("portal", {});
+                  window.location.assign(data.url);
+                })
+              }
+            >
+              Manage subscription
+            </button>
+          </div>
+          {anonymous && (
+            <p className="text-sm">
+              Verify your email above before subscribing.
+            </p>
+          )}
+        </section>
+      )}
+      {loaded && !billing && (
+        <p className="text-sm text-[var(--text-muted)]">
+          Subscriptions are not open yet. Your first two recorded attempts are
+          free.
+        </p>
+      )}
+      {loaded && !anonymous && (
+        <button
+          className={button}
+          disabled={busy}
+          onClick={() =>
+            run(async () => {
+              await (await speechClient()).auth.signOut();
+              setAttempts([]);
+              setLoaded(false);
+              setMessage("Signed out.");
+            })
+          }
+        >
+          Sign out
+        </button>
+      )}
+      {message && (
+        <p
+          role="status"
+          className="rounded-xl border border-white/20 p-4 text-sm"
+        >
+          {message}
+        </p>
+      )}
+    </div>
+  );
+}

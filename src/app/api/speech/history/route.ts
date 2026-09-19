@@ -1,0 +1,67 @@
+import {
+  actor,
+  failure,
+  readJson,
+  response,
+  SpeechError,
+} from "@/lib/speech/server";
+import { z } from "zod";
+import { billingReady } from "@/lib/speech/billing";
+export async function GET(request: Request) {
+  try {
+    const { db, user } = await actor(request);
+    const requestedId = new URL(request.url).searchParams.get("id");
+    if (requestedId && !z.uuid().safeParse(requestedId).success)
+      throw new SpeechError(400, "Invalid practice link.");
+    let query = db
+      .from("speech_attempts")
+      .select(
+        "id,topic,transcript,duration,feedback,status,previous_id,created_at",
+      )
+      .eq("user_id", user.id)
+      .is("deleted_at", null)
+      .order("created_at", { ascending: false })
+      .limit(50);
+    if (requestedId) query = query.eq("id", requestedId);
+    const { data, error } = await query;
+    if (error) throw error;
+    return response({
+      attempts: data,
+      anonymous: user.is_anonymous === true,
+      billingAvailable: billingReady(),
+    });
+  } catch (error) {
+    return failure(error);
+  }
+}
+export async function DELETE(request: Request) {
+  try {
+    const { db, user } = await actor(request);
+    const parsed = z
+      .object({ id: z.uuid() })
+      .safeParse(await readJson(request));
+    if (!parsed.success) throw new SpeechError(400, "Invalid practice.");
+    // Remove content, preserve minimal quota ledger so deletion cannot reset allowance.
+    const { data, error } = await db
+      .from("speech_attempts")
+      .update({
+        transcript: null,
+        feedback: null,
+        topic: "Deleted practice",
+        deleted_at: new Date().toISOString(),
+      })
+      .eq("id", parsed.data.id)
+      .eq("user_id", user.id)
+      .not("status", "in", "(transcribing,processing)")
+      .select("id");
+    if (error) throw error;
+    if (!data?.length)
+      throw new SpeechError(
+        409,
+        "Practice is processing or no longer available. Refresh and try again.",
+      );
+    return response({ deleted: true });
+  } catch (error) {
+    return failure(error);
+  }
+}
