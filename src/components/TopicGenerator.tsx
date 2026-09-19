@@ -16,6 +16,7 @@ import { recordRecentTopics } from "@/lib/topicLibrary";
 import { drawUnseen, filterTopicPool } from "@/lib/topicPool";
 
 const SpeechPracticePanel = dynamic(() => import("./SpeechPracticePanel"));
+const SpeechCoachEntry = dynamic(() => import("./SpeechCoachEntry"));
 
 interface TopicGeneratorProps {
   initialMode?: Mode | null;
@@ -518,6 +519,7 @@ export default function TopicGenerator({
         )}
       </AnimatePresence>
 
+      {speechPractice && locale === "en" ? <SpeechCoachEntry topics={generatedTopics} contentSource={contentSource} /> : null}
       {speechPractice ? <SpeechPracticePanel key={practiceBatch} topics={generatedTopics} contentSource={contentSource} /> : null}
 
       {/* Pre-generate prompt */}

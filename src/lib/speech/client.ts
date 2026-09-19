@@ -1,0 +1,61 @@
+"use client";
+import { createClient } from "@supabase/supabase-js";
+import type { Session } from "@supabase/supabase-js";
+let client: ReturnType<typeof createClient> | undefined;
+let guestSession: Promise<Session> | undefined;
+export class PracticeRequestError extends Error {
+  constructor(
+    message: string,
+    public retryWithNewId = false,
+  ) {
+    super(message);
+  }
+}
+export async function speechClient() {
+  if (client) return client;
+  const res = await fetch("/api/speech/config", { cache: "no-store" });
+  const config = await res.json();
+  if (!res.ok || !config.url || !config.key)
+    throw new Error("Practice feedback is not available yet.");
+  return (client ??= createClient(config.url, config.key));
+}
+export async function practiceFetch(
+  path: string,
+  body?: unknown,
+  method?: string,
+) {
+  const auth = (await speechClient()).auth;
+  let {
+    data: { session },
+  } = await auth.getSession();
+  if (!session) {
+    guestSession ??= auth
+      .signInAnonymously()
+      .then((result) => {
+        if (result.error || !result.data.session)
+          throw new Error(
+            "We could not start your free session. Please try again later.",
+          );
+        return result.data.session;
+      })
+      .finally(() => {
+        guestSession = undefined;
+      });
+    session = await guestSession;
+  }
+  const res = await fetch(`/api/speech/${path}`, {
+    method: method ?? (body ? "POST" : "GET"),
+    headers: {
+      Authorization: `Bearer ${session.access_token}`,
+      "Content-Type": "application/json",
+    },
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  const result = await res.json();
+  if (!res.ok)
+    throw new PracticeRequestError(
+      result.error || "Please try again.",
+      result.retryWithNewId === true,
+    );
+  return result;
+}

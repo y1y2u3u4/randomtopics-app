@@ -26,7 +26,7 @@ export default function TermsPage() {
               Terms of <span className="gradient-text">Service</span>
             </h1>
             <p className="text-sm text-[var(--text-muted)]">
-              Last updated: April 2026
+              Last updated: September 19, 2026
             </p>
           </section>
 
@@ -93,6 +93,35 @@ export default function TermsPage() {
               occasionally be inaccurate, repetitive, or inappropriate. We are
               not responsible for any consequences arising from the use of
               AI-generated topics.
+            </p>
+          </section>
+
+          <section className="glass-card p-8 space-y-4">
+            <h2 className="text-2xl font-semibold text-[var(--text-primary)]">Optional Speech Coaching</h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              Speech coaching provides AI transcription and suggestions about your
+              words and structure. Review the transcript before requesting feedback.
+              Suggestions may be wrong and do not guarantee improved speaking or
+              assess pronunciation, accent or confidence. Upload only recordings you
+              have permission to process. Recording and account features are for
+              users aged 13 or older.
+            </p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              The introductory allowance includes two recorded attempts. When paid
+              subscriptions are available, the displayed offer is $12 USD per month
+              for 40 attempts per billing month, including retries, with a maximum
+              of two minutes per attempt. Unused attempts do not roll over. The
+              checkout displays the actual charge before you confirm. Subscriptions
+              renew until canceled through Manage subscription; access continues
+              through the paid period. A confirmed email is required to subscribe.
+              Subscriptions remain unavailable until checkout is enabled.
+            </p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              Keep your account access secure. Guest history may become inaccessible
+              if browser storage is cleared. Deleting a completed attempt does not
+              restore its allowance. Processing failures and interrupted requests
+              can be reviewed in practice history. Contact us through the contact
+              page for billing errors, refund requests or account assistance.
             </p>
           </section>
 
