@@ -29,6 +29,7 @@ export async function GET(request: Request) {
       attempts: data,
       anonymous: user.is_anonymous === true,
       billingAvailable: billingReady(),
+      emailAvailable: process.env.SPEECH_EMAIL_ENABLED === "true",
     });
   } catch (error) {
     return failure(error);

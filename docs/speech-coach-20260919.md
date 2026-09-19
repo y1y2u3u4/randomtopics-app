@@ -35,6 +35,7 @@ delivery needs a configured mail provider; default Supabase email has restrictio
 | `SUPABASE_ANON_KEY` | Public authentication key |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server-only private database access |
 | `SPEECH_BILLING_ENABLED=true` | Enable configured Stripe checkout |
+| `SPEECH_EMAIL_ENABLED=true` | Show email linking after SMTP and exact callback URLs are verified |
 | `STRIPE_SECRET_KEY` | Use sandbox `sk_test_` key during verification |
 | `STRIPE_WEBHOOK_SECRET` | Signature for `/api/speech/webhook` |
 | `SPEECH_STRIPE_PRICE_ID` | Dedicated $12 monthly price, not another app's price |
@@ -74,3 +75,16 @@ retention is validated by this implementation. During the beta, the global cost
 limit can temporarily stop new requests; tune it from actual usage before scaling.
 
 Production feature flags remain off until external-service verification completes.
+
+## Preview evidence (September 19)
+
+- PR #34, initial deployment `1328214`: Vercel Ready, 57-second cloud build.
+- Browser: topic generation opens the optional practice panel; existing PREP and
+  timer remain available. Guest authentication and API-backed private history load.
+- SMTP is not configured; hide email recovery until a mail provider is verified.
+- Stripe native sandbox setup reaches **Accept and Create** (binding terms and
+  account metadata sharing). This action has not been accepted.
+- Automatic approval review blocked a combined action that would add preview
+  auth callbacks and start microphone recording. Neither was performed; these
+  need user confirmation before live browser recording verification continues.
+- No real audio, model feedback or payment has been verified end to end yet.

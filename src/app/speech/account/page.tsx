@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <Navbar />
+      <Navbar showLocaleSwitcher={false} />
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
         <SpeechAccount />
       </main>

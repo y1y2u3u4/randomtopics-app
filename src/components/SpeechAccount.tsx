@@ -22,6 +22,7 @@ export default function SpeechAccount() {
   const [loaded, setLoaded] = useState(false);
   const [anonymous, setAnonymous] = useState(true);
   const [billing, setBilling] = useState(false);
+  const [emailAvailable, setEmailAvailable] = useState(false);
   useEffect(() => {
     let active = true;
     const id = new URLSearchParams(window.location.search).get("attempt");
@@ -31,6 +32,7 @@ export default function SpeechAccount() {
         setAttempts(data.attempts);
         setAnonymous(data.anonymous);
         setBilling(data.billingAvailable);
+        setEmailAvailable(data.emailAvailable);
         setLoaded(true);
       })
       .catch((error) => {
@@ -59,6 +61,7 @@ export default function SpeechAccount() {
     setAttempts(data.attempts);
     setAnonymous(data.anonymous);
     setBilling(data.billingAvailable);
+    setEmailAvailable(data.emailAvailable);
     setLoaded(true);
   }
   async function emailLink(existing: boolean) {
@@ -97,59 +100,73 @@ export default function SpeechAccount() {
         Review your feedback, keep your progress, and choose what to practice
         next.
       </p>
-      <section className="glass-card space-y-4 p-5">
-        <h2 className="text-xl font-semibold">
-          Keep your practice across devices
-        </h2>
-        <p className="text-sm text-[var(--text-muted)]">
-          Free practice works without an email. Link an email before clearing
-          browser data or switching devices so you can recover your saved
-          feedback.
-        </p>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            void run(() => emailLink(false));
-          }}
-          className="space-y-3"
-        >
-          <label className="block text-sm">
-            Email address
-            <input
-              type="email"
-              required
-              autoComplete="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="mt-2 w-full rounded-xl border border-white/15 bg-black/20 p-3 text-base"
-            />
-          </label>
-          <div className="flex flex-wrap gap-2">
-            <button className={button} disabled={busy}>
-              Link my email
-            </button>
-            <button
-              type="button"
-              className={button}
-              disabled={busy || !email.includes("@")}
-              onClick={() => run(() => emailLink(true))}
-            >
-              Sign in to an existing account
-            </button>
-          </div>
-        </form>
-        <p className="text-sm text-[var(--text-muted)]">
-          Signing in to another account opens that account’s history; guest
-          attempts are not automatically transferred.{" "}
-          <Link href="/privacy" className="underline">
-            Privacy
-          </Link>{" "}
-          ·{" "}
-          <Link href="/terms" className="underline">
-            Terms
-          </Link>
-        </p>
-      </section>
+      {emailAvailable ? (
+        <section className="glass-card space-y-4 p-5">
+          <h2 className="text-xl font-semibold">
+            Keep your practice across devices
+          </h2>
+          <p className="text-sm text-[var(--text-muted)]">
+            Free practice works without an email. Link an email before clearing
+            browser data or switching devices so you can recover your saved
+            feedback.
+          </p>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              void run(() => emailLink(false));
+            }}
+            className="space-y-3"
+          >
+            <label className="block text-sm">
+              Email address
+              <input
+                type="email"
+                required
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="mt-2 w-full rounded-xl border border-white/15 bg-black/20 p-3 text-base"
+              />
+            </label>
+            <div className="flex flex-wrap gap-2">
+              <button className={button} disabled={busy}>
+                Link my email
+              </button>
+              <button
+                type="button"
+                className={button}
+                disabled={busy || !email.includes("@")}
+                onClick={() => run(() => emailLink(true))}
+              >
+                Sign in to an existing account
+              </button>
+            </div>
+          </form>
+          <p className="text-sm text-[var(--text-muted)]">
+            Signing in to another account opens that account’s history; guest
+            attempts are not automatically transferred.{" "}
+            <Link href="/privacy" className="underline">
+              Privacy
+            </Link>{" "}
+            ·{" "}
+            <Link href="/terms" className="underline">
+              Terms
+            </Link>
+          </p>
+        </section>
+      ) : (
+        <section className="glass-card space-y-3 p-5">
+          <h2 className="text-xl font-semibold">
+            Your private practice session
+          </h2>
+          <p className="text-sm text-[var(--text-muted)]">
+            Your saved feedback is available in this browser. Email recovery is
+            not open yet, so keep this browser’s site data to retain access. You
+            can download your recording from the practice panel before leaving
+            the page.
+          </p>
+        </section>
+      )}
       <section className="space-y-4">
         <div className="flex flex-wrap justify-between gap-3">
           <h2 className="text-xl font-semibold">Practice history</h2>
