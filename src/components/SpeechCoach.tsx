@@ -170,9 +170,13 @@ export default function SpeechCoach({
         setError(
           e instanceof DOMException && e.name === "NotAllowedError"
             ? "Microphone access was not granted. You can allow it in your browser settings, or keep using the timer."
-            : e instanceof Error
-              ? e.message
-              : "Could not start recording.",
+            : e instanceof DOMException && e.name === "NotFoundError"
+              ? "No microphone was found. Connect one or upload an existing recording below. Your topics and timer are still available."
+              : e instanceof DOMException && e.name === "NotReadableError"
+                ? "Your microphone is busy or unavailable. Close other recording apps, or upload an existing recording."
+                : e instanceof Error
+                  ? e.message
+                  : "Could not start recording.",
         );
         emit("speech_record_error");
       }
@@ -245,6 +249,24 @@ export default function SpeechCoach({
     setStage("ready");
     urls.current.forEach(URL.revokeObjectURL);
     urls.current.length = 0;
+  }
+  function upload(file: File | undefined) {
+    if (!file) return;
+    if (!file.size || file.size > 8_000_000) {
+      setError(
+        "Choose an audio file smaller than 8 MB, between 5 seconds and two minutes.",
+      );
+      return;
+    }
+    const url = URL.createObjectURL(file);
+    urls.current.push(url);
+    setBlob(file);
+    setAudioUrl(url);
+    setSeconds(0);
+    setId(crypto.randomUUID());
+    setError("");
+    setStage("recorded");
+    emit("speech_audio_selected");
   }
   const working = [
     "permission",
@@ -355,22 +377,48 @@ export default function SpeechCoach({
       {audioUrl && (
         <div className="space-y-3">
           <p className="text-sm font-semibold">
-            Listen to your {seconds}-second answer
+            Listen to your {seconds > 0 ? `${seconds}-second ` : ""}answer
           </p>
           <audio
             controls
             src={audioUrl}
             className="w-full"
             preload="metadata"
+            onLoadedMetadata={(e) => {
+              const duration = e.currentTarget.duration;
+              if (Number.isFinite(duration)) setSeconds(Math.ceil(duration));
+            }}
           />
           <a
             className="inline-block min-h-11 py-2 text-sm underline"
             href={audioUrl}
-            download={`speech-practice.${blob?.type.includes("mp4") ? "m4a" : "webm"}`}
+            download={
+              blob instanceof File
+                ? blob.name
+                : `speech-practice.${blob?.type.includes("mp4") ? "m4a" : "webm"}`
+            }
           >
             Download recording
           </a>
         </div>
+      )}
+      {stage === "ready" && (
+        <label className="block rounded-xl border border-white/15 p-4 text-sm">
+          <span className="font-semibold">Or upload an existing recording</span>
+          <span className="mt-1 block text-[var(--text-muted)]">
+            5 seconds–2 minutes · up to 8 MB. Nothing is sent until you choose
+            to transcribe.
+          </span>
+          <input
+            type="file"
+            accept="audio/*,.m4a,.wav,.mp3,.webm"
+            className="mt-3 block max-w-full text-sm"
+            onChange={(e) => {
+              upload(e.target.files?.[0]);
+              e.target.value = "";
+            }}
+          />
+        </label>
       )}
       {stage === "recorded" && (
         <div className="space-y-3">
