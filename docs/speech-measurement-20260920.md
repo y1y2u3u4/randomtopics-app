@@ -48,3 +48,16 @@ local tests do not establish third-party receipt.
 Billing and email recovery remain disabled; payment uses the owner's separate
 chain. Real microphone capture on mobile Safari remains a manual verification
 limitation of the cloud browser, which has no microphone device.
+
+## Deployment evidence
+
+PR #34 was merged as `2ee446d3c75f673b7e75f09a6acf2c39ec1174c2`;
+Vercel reported the production deployment Ready. Clarity's public project ID is
+configured in Production and Preview. Production speech-coach switches remain
+off: automatic approval rejected expanding the analytics task to opening
+AI-backed practice to real users. No production Supabase connection was added.
+The preview verified page arrival, entry exposure, coach opening, first-attempt
+intent and the no-device error with private-safe local payloads. The upload QA
+browser connection stalled, so no new end-to-end upload result is claimed here.
+Actual Clarity replay receipt and authenticated GA4 report retrieval remain to be
+verified; deployment/build success does not establish those outcomes.
