@@ -1,4 +1,6 @@
 import { aggregateGscPageRows } from "@/lib/gscPageAggregation";
+import { SPEECH_EVENTS, SPEECH_FUNNELS } from "@/lib/speech/events";
+import { funnelRequest, funnelCounts, productionFilter, type FunnelRows } from "@/lib/speech/report";
 import "server-only";
 
 import { createSign } from "node:crypto";
@@ -475,6 +477,7 @@ async function getGaEvents(
   endDate: string
 ): Promise<GaEventRow[]> {
   const trackedEvents = [
+    ...SPEECH_EVENTS,
     "generate_start",
     "generate_success",
     "generate_topic",
@@ -505,12 +508,9 @@ async function getGaEvents(
     endDate,
     dimensions: ["eventName"],
     metrics: ["eventCount", "keyEvents", "totalUsers", "sessions"],
-    dimensionFilter: {
-      filter: {
-        fieldName: "eventName",
-        inListFilter: { values: trackedEvents, caseSensitive: true },
-      },
-    },
+    dimensionFilter: { andGroup: { expressions: [productionFilter, {
+      filter: { fieldName: "eventName", inListFilter: { values: trackedEvents, caseSensitive: true } },
+    }] } },
     orderBys: [{ metric: { metricName: "eventCount" }, desc: true }],
     limit: trackedEvents.length,
   });
@@ -535,6 +535,56 @@ async function getGaEventWindows(): Promise<{
   const previous7 = await getGaEvents("14daysAgo", "8daysAgo");
   const current28 = await getGaEvents("28daysAgo", "yesterday");
   return { current7, previous7, current28 };
+}
+
+export type SpeechReport = {
+  generatedAt: string;
+  days: number;
+  events: GaEventRow[];
+  devices: { device: string; event: string; users: number }[];
+  sources: { source: string; event: string; users: number }[];
+  funnels: { key: string; title: string; rows: { label: string; users: number }[]; available: boolean; qualified: boolean }[];
+};
+const speechCache = new Map<number, { expires: number; value: SpeechReport }>();
+export async function getSpeechReport(days = 7, force = false): Promise<SpeechReport> {
+  if (![7, 28].includes(days)) days = 7;
+  const cached = speechCache.get(days);
+  if (!force && cached && cached.expires > Date.now()) return cached.value;
+  const filter = { andGroup: { expressions: [productionFilter, {
+    filter: { fieldName: "eventName", inListFilter: { values: [...SPEECH_EVENTS] } },
+  }] } };
+  const base = { startDate: `${days}daysAgo`, endDate: "yesterday", dimensionFilter: filter };
+  // Sequential requests preserve the property's concurrent-request allowance.
+  const events = await runGaReport({ ...base, dimensions: ["eventName"], metrics: ["eventCount", "totalUsers", "sessions"], limit: 100 });
+  const devices = await runGaReport({ ...base, dimensions: ["deviceCategory", "eventName"], metrics: ["totalUsers"], limit: 500 });
+  const sources = await runGaReport({ ...base, dimensions: ["sessionSourceMedium", "eventName"], metrics: ["totalUsers"], limit: 1000 });
+  const propertyId = requiredEnv("GA4_PROPERTY_ID");
+  if (!/^\d+$/.test(propertyId)) throw new ReportingError("ga4_property_id_invalid");
+  const funnels: SpeechReport["funnels"] = [];
+  for (const definition of SPEECH_FUNNELS) {
+    try {
+      const result = await postGoogleJson<{ funnelTable?: FunnelRows }>(
+        `https://analyticsdata.googleapis.com/v1alpha/properties/${propertyId}:runFunnelReport`,
+        funnelRequest(definition, days), "speech_funnel_failed",
+      );
+      if (!result.funnelTable) throw new Error("missing_funnel_table");
+      funnels.push({ key: definition.key, title: definition.title, available: true,
+        qualified: Boolean(result.funnelTable.metadata?.samplingMetadatas?.length || result.funnelTable.metadata?.subjectToThresholding),
+        rows: funnelCounts(result.funnelTable, definition.steps.map(([label]) => label)),
+      });
+    } catch {
+      // An unavailable API must never look like a zero-conversion funnel.
+      funnels.push({ key: definition.key, title: definition.title, available: false, qualified: false, rows: [] });
+    }
+  }
+  const value: SpeechReport = {
+    generatedAt: new Date().toISOString(), days, funnels,
+    events: (events.rows ?? []).map((row) => ({ eventName: row.dimensionValues?.[0]?.value ?? "", eventCount: metricValue(row, 0), totalUsers: metricValue(row, 1), sessions: metricValue(row, 2), keyEvents: 0 })),
+    devices: (devices.rows ?? []).map((row) => ({ device: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0) })),
+    sources: (sources.rows ?? []).map((row) => ({ source: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0) })),
+  };
+  speechCache.set(days, { expires: Date.now() + DASHBOARD_CACHE_MS, value });
+  return value;
 }
 
 type GrowthGaPeriod = Pick<GaSummary, "activeUsers" | "sessions" | "screenPageViews">;

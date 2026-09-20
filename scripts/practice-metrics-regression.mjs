@@ -22,6 +22,8 @@ let request;
 new Function("require", "module", "exports", "testReport", `${compiled}\nrunGaReport = testReport; module.exports.testFunnel = getGaGrowthPageFunnel;`)((id) => {
   if (id === "server-only") return {};
   if (id === "@/lib/gscPageAggregation") return { aggregateGscPageRows };
+  if (id === "@/lib/speech/events") return {};
+  if (id === "@/lib/speech/report") return {};
   return require(id);
 }, target, target.exports, async (options) => { request = options; return { rows }; });
 const pages = await target.exports.testFunnel();

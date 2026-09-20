@@ -2,7 +2,9 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { Topic } from "@/data/types";
-import { track } from "@/lib/track";
+import { trackSpeech, speechErrorCode } from "@/lib/speech/telemetry";
+import type { SpeechEvent } from "@/lib/speech/events";
+import SpeechInterest from "./SpeechInterest";
 import { practiceFetch, PracticeRequestError } from "@/lib/speech/client";
 import { recordingToWav } from "@/lib/speech/audio";
 import type { SpeechFeedback } from "@/lib/speech/schema";
@@ -57,15 +59,40 @@ export default function SpeechCoach({
   const started = useRef(0);
   const urls = useRef<string[]>([]);
   const busy = useRef(false);
+  const inputMethod = useRef<"microphone" | "upload">("microphone");
+  const beganAttempt = useRef(false);
+  const originalTranscript = useRef("");
+  const resultPanel = useRef<HTMLDivElement>(null);
+  const seenResults = useRef(new Set<string>());
+  useEffect(() => {
+    if (!result || !visible || !resultPanel.current || seenResults.current.has(result.id)) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry?.isIntersecting || seenResults.current.has(result.id)) return;
+      seenResults.current.add(result.id);
+      const properties = { content_source: contentSource, attempt: previous ? 2 : 1, input_method: inputMethod.current };
+      trackSpeech("speech_feedback_view", properties);
+      trackSpeech(previous ? "speech_retry_feedback_view" : "speech_first_feedback_view", properties);
+      if (previous) trackSpeech("speech_comparison_view", { ...properties, outcome: result.feedback.comparison.outcome });
+      observer.disconnect();
+    }, { threshold: 0.15 });
+    observer.observe(resultPanel.current);
+    return () => observer.disconnect();
+  }, [result, visible, previous, contentSource]);
   const emit = (
-    event: string,
-    extra: Record<string, string | number | boolean> = {},
+    event: SpeechEvent,
+    extra: Partial<Parameters<typeof trackSpeech>[1]> = {},
   ) =>
-    track(event, {
+    trackSpeech(event, {
       content_source: contentSource,
       attempt: previous ? 2 : 1,
+      input_method: inputMethod.current,
       ...extra,
     });
+  function beginAttempt() {
+    if (beganAttempt.current) return;
+    beganAttempt.current = true;
+    emit(previous ? "speech_retry_attempt_start" : "speech_first_attempt_start");
+  }
   const stop = () => {
     if (recorder.current?.state === "recording") recorder.current.stop();
     stream.current?.getTracks().forEach((t) => t.stop());
@@ -93,6 +120,9 @@ export default function SpeechCoach({
   }, [visible]);
   async function start() {
     if (busy.current) return;
+    inputMethod.current = "microphone";
+    beginAttempt();
+    emit("speech_record_request");
     busy.current = true;
     setError("");
     setStage("permission");
@@ -125,6 +155,7 @@ export default function SpeechCoach({
         if (e.data.size) chunks.push(e.data);
       };
       recording.onerror = () => {
+        emit("speech_record_error", { error_code: "recording_interrupted" });
         stop();
         if (mounted.current) {
           setError(
@@ -139,6 +170,7 @@ export default function SpeechCoach({
         if (!mounted.current) return;
         const file = new Blob(chunks, { type: recording.mimeType });
         if (!file.size) {
+          emit("speech_record_error", { error_code: "empty_audio" });
           setStage("ready");
           setError("No audio was captured. Please try again.");
           return;
@@ -150,7 +182,9 @@ export default function SpeechCoach({
         setId(crypto.randomUUID());
         setSeconds(Math.round((performance.now() - started.current) / 1000));
         setStage("recorded");
-        emit("speech_record_complete");
+        const duration = Math.round((performance.now() - started.current) / 1000);
+        emit("speech_record_complete", { duration_seconds: duration });
+        emit("speech_audio_ready", { duration_seconds: duration });
       };
       recording.start(250);
       started.current = performance.now();
@@ -178,7 +212,7 @@ export default function SpeechCoach({
                   ? e.message
                   : "Could not start recording.",
         );
-        emit("speech_record_error");
+        emit("speech_record_error", { error_code: speechErrorCode(e) });
       }
     } finally {
       busy.current = false;
@@ -189,6 +223,8 @@ export default function SpeechCoach({
     busy.current = true;
     setError("");
     setStage("transcribing");
+    const requestedAt = performance.now();
+    emit("speech_transcribe_start", { duration_seconds: seconds });
     try {
       const audio = await recordingToWav(blob);
       const data = await practiceFetch("transcribe", {
@@ -199,11 +235,16 @@ export default function SpeechCoach({
       });
       if (mounted.current) {
         setTranscript(data.transcript);
+        originalTranscript.current = data.transcript;
         setSeconds(data.duration);
         setStage("review");
-        emit("speech_transcript_ready");
+        const elapsed = Math.round(performance.now() - requestedAt);
+        emit("speech_transcript_ready", { elapsed_ms: elapsed, duration_seconds: data.duration });
+        if (elapsed > 15000) emit("speech_transcribe_slow");
       }
     } catch (e) {
+      emit("speech_transcribe_error", { error_code: speechErrorCode(e), elapsed_ms: Math.round(performance.now() - requestedAt) });
+      if (e instanceof PracticeRequestError && e.status === 402) emit("speech_quota_hit");
       if (mounted.current) {
         if (e instanceof PracticeRequestError && e.retryWithNewId)
           setId(crypto.randomUUID());
@@ -219,15 +260,28 @@ export default function SpeechCoach({
     busy.current = true;
     setError("");
     setStage("analyzing");
+    const requestedAt = performance.now();
+    emit("speech_feedback_start", { transcript_edited: transcript !== originalTranscript.current });
     try {
       const data = await practiceFetch("feedback", { id, transcript });
       if (mounted.current) {
         setResult(data);
         setHelpful(null);
         setStage("complete");
-        emit("speech_feedback_view");
+        const elapsed = Math.round(performance.now() - requestedAt);
+        emit("speech_feedback_ready", { elapsed_ms: elapsed });
+        if (elapsed > 15000) emit("speech_feedback_slow");
+        if (previous) {
+          const outcome = data.feedback.comparison.outcome;
+          const comparisonEvents: Record<string, SpeechEvent> = {
+            improved: "speech_compare_improved", similar: "speech_compare_similar",
+            mixed: "speech_compare_mixed", insufficient_evidence: "speech_compare_insufficient",
+          };
+          if (comparisonEvents[outcome]) emit(comparisonEvents[outcome]);
+        }
       }
     } catch (e) {
+      emit("speech_feedback_error", { error_code: speechErrorCode(e), elapsed_ms: Math.round(performance.now() - requestedAt) });
       if (mounted.current) {
         setError(
           e instanceof Error ? e.message : "Could not generate feedback.",
@@ -252,7 +306,10 @@ export default function SpeechCoach({
   }
   function upload(file: File | undefined) {
     if (!file) return;
+    inputMethod.current = "upload";
+    beginAttempt();
     if (!file.size || file.size > 8_000_000) {
+      emit("speech_record_error", { error_code: "invalid_file_size" });
       setError(
         "Choose an audio file smaller than 8 MB, between 5 seconds and two minutes.",
       );
@@ -267,6 +324,7 @@ export default function SpeechCoach({
     setError("");
     setStage("recorded");
     emit("speech_audio_selected");
+    emit("speech_audio_ready");
   }
   const working = [
     "permission",
@@ -287,6 +345,7 @@ export default function SpeechCoach({
         </div>
         <Link
           href="/speech/account"
+          onClick={() => emit("speech_history_open")}
           className="min-h-11 py-2 text-sm underline"
         >
           Practice history & account
@@ -315,7 +374,7 @@ export default function SpeechCoach({
         </label>
       )}
       {previous && (
-        <aside className="rounded-xl border border-[var(--neon-cyan)]/25 p-4">
+        <aside data-clarity-mask="true" className="rounded-xl border border-[var(--neon-cyan)]/25 p-4">
           <p className="text-sm font-semibold">Focus on this one change</p>
           <p className="mt-2">{previous.feedback.priority.nextStep}</p>
         </aside>
@@ -375,11 +434,12 @@ export default function SpeechCoach({
         </div>
       )}
       {audioUrl && (
-        <div className="space-y-3">
+        <div data-clarity-mask="true" className="space-y-3">
           <p className="text-sm font-semibold">
             Listen to your {seconds > 0 ? `${seconds}-second ` : ""}answer
           </p>
           <audio
+            data-clarity-mask="true"
             controls
             src={audioUrl}
             className="w-full"
@@ -390,6 +450,7 @@ export default function SpeechCoach({
             }}
           />
           <a
+            onClick={() => emit("speech_recording_download")}
             className="inline-block min-h-11 py-2 text-sm underline"
             href={audioUrl}
             download={
@@ -450,6 +511,7 @@ export default function SpeechCoach({
             original words so the comparison is useful.
           </p>
           <textarea
+            data-clarity-mask="true"
             id="speech-transcript"
             value={transcript}
             onChange={(e) => setTranscript(e.target.value)}
@@ -478,12 +540,12 @@ export default function SpeechCoach({
         </p>
       )}
       {stage === "complete" && result && (
-        <div className="space-y-4">
+        <div ref={resultPanel} className="space-y-4">
           <p className="text-sm text-[var(--text-muted)]">
             Feedback on your words and structure. This does not assess your
             voice or accent.
           </p>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div data-clarity-mask="true" className="grid gap-4 md:grid-cols-2">
             <FeedbackCard
               title="Keep doing this"
               {...result.feedback.strength}
@@ -493,13 +555,13 @@ export default function SpeechCoach({
               {...result.feedback.priority}
             />
           </div>
-          <div className="rounded-xl border border-[var(--neon-cyan)]/30 bg-[var(--neon-cyan)]/5 p-5">
+          <div data-clarity-mask="true" className="rounded-xl border border-[var(--neon-cyan)]/30 bg-[var(--neon-cyan)]/5 p-5">
             <h4 className="font-semibold">Your next attempt</h4>
             <p className="mt-2 leading-relaxed">
               {result.feedback.priority.nextStep}
             </p>
           </div>
-          <details className="rounded-xl border border-white/10 p-4">
+          <details data-clarity-mask="true" className="rounded-xl border border-white/10 p-4">
             <summary className="cursor-pointer font-semibold">
               Your point, example and ending
             </summary>
@@ -516,7 +578,7 @@ export default function SpeechCoach({
             </p>
           </details>
           {previous && (
-            <div className="rounded-xl border border-white/15 p-5">
+            <div data-clarity-mask="true" className="rounded-xl border border-white/15 p-5">
               <h4 className="font-semibold">
                 What changed:{" "}
                 {result.feedback.comparison.outcome.replaceAll("_", " ")}
@@ -550,7 +612,7 @@ export default function SpeechCoach({
                   className={button}
                   onClick={() => {
                     setHelpful(value);
-                    emit("speech_feedback_helpful", { helpful: value });
+                    emit(value ? "speech_feedback_yes" : "speech_feedback_no");
                   }}
                 >
                   {value ? "Yes" : "Not yet"}
@@ -567,18 +629,20 @@ export default function SpeechCoach({
               type="button"
               className={primary}
               onClick={() => {
+                emit("speech_retry_start", { attempt: 2 });
+                beganAttempt.current = false;
                 setPrevious(result);
                 reset();
-                emit("speech_retry_start");
               }}
             >
               Try this topic again
             </button>
           ) : (
-            <Link href="/speech/account" className={`${button} inline-block`}>
+            <Link href="/speech/account" onClick={() => emit("speech_history_open")} className={`${button} inline-block`}>
               Continue practicing · See your options
             </Link>
           )}
+          <SpeechInterest key={result.id} attempt={previous ? 2 : 1} contentSource={contentSource} visible={visible} />
         </div>
       )}
       {error && (

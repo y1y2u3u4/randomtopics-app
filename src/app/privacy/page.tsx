@@ -25,7 +25,7 @@ export default function PrivacyPage() {
               Privacy <span className="gradient-text">Policy</span>
             </h1>
             <p className="text-sm text-[var(--text-muted)]">
-              Last updated: September 19, 2026
+              Last updated: September 20, 2026
             </p>
           </section>
 
@@ -64,6 +64,28 @@ export default function PrivacyPage() {
           </section>
 
           {/* Cookies */}
+          <section className="glass-card p-8 space-y-4">
+            <h2 className="text-2xl font-semibold">Optional session replay</h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              On the English speech page, adults can choose to allow Microsoft
+              Clarity to record page interactions such as clicks, scrolling and
+              navigation. This is a reconstruction of website interactions, not
+              microphone audio or a recording of other applications. We mask
+              speech transcripts, generated feedback and email fields. We do not
+              send your speech content or account identifiers as replay tags.
+              Replay is not loaded on student pages, account pages or internal reports.
+            </p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              Replay stays off unless you confirm you are 18 or older and allow it.
+              You can withdraw through “Session replay · Change” on the speech page;
+              practice remains available. Clarity uses cookies after permission,
+              and advertising consent remains denied. See the{" "}
+              <a href="https://privacy.microsoft.com/privacystatement" className="underline">Microsoft Privacy Statement</a>.
+              We record practice actions, optional helpfulness ratings and stated
+              interest in future paid practice to understand where the experience
+              helps or fails. An interest response is not a purchase.
+            </p>
+          </section>
           <section className="glass-card p-8 space-y-4">
             <h2
               className="text-2xl font-semibold text-[var(--text-primary)]"

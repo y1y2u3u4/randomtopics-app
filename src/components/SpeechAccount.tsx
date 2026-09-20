@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { practiceFetch, speechClient } from "@/lib/speech/client";
 import type { SpeechFeedback } from "@/lib/speech/schema";
+import { trackSpeech } from "@/lib/speech/telemetry";
 type Attempt = {
   id: string;
   topic: string;
@@ -49,6 +50,7 @@ export default function SpeechAccount() {
               : "Your subscription is not confirmed yet. If you completed payment, refresh in a moment. Do not pay again while confirmation is pending.",
           );
         setLoaded(true);
+        trackSpeech("speech_history_view", { content_source: "speech_account" });
       })
       .catch((error) => {
         if (active)
@@ -113,7 +115,7 @@ export default function SpeechAccount() {
     );
   }
   return (
-    <div className="space-y-7">
+    <div data-clarity-mask="true" className="space-y-7">
       <Link href="/speech" className="text-sm underline">
         Back to speech topics
       </Link>
@@ -300,6 +302,7 @@ export default function SpeechAccount() {
                   disabled={busy}
                   onClick={() =>
                     run(async () => {
+                      trackSpeech("speech_history_resume", { content_source: "speech_account" });
                       await practiceFetch("feedback", {
                         id: attempt.id,
                         transcript: attempt.transcript,
