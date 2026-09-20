@@ -13,8 +13,11 @@ verified. Receiving is disabled. Before using login links, disable click/open
 tracking so the authentication URL is not rewritten.
 
 Authoritative DNS is Cloudflare (`daisy.ns.cloudflare.com` and
-`titan.ns.cloudflare.com`), not Vercel. The Cloudflare login page is open for the
-owner. Do not change nameservers or the website's existing records.
+`titan.ns.cloudflare.com`), not Vercel. The owner has logged into Cloudflare.
+Zone `c5d3283ede3349de2591b1a5177ae98c` currently has root/www A records and a
+Google verification TXT only. The DKIM record below is drafted but unsaved;
+confirmation for the scoped DNS sending delegation and SMTP credential has
+been requested. Do not change nameservers or the website's existing records.
 
 Resend's current setup page requests these three new records, relative to the
 `randomtopics.app` zone, all with automatic TTL. Re-read the current setup page

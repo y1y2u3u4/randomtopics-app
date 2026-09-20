@@ -182,19 +182,25 @@ only in Vercel Production. The live webhook
 `https://randomtopics.app/api/speech/webhook`, with only the three subscription
 events and API version `2026-08-26.dahlia`. Its dedicated signing secret is saved
 as a Secret in Vercel Production only; the sandbox signing secret is unchanged.
-There is still no live runtime API key and no live billing flag has been enabled.
-The owner approved creating and saving the six-permission restricted live key
-`RandomTopics Speech — Production`. Stripe stopped the creation with an email
-identity-verification challenge; the verification email was sent and the modal
-is open for the owner. Do not ask for key-creation approval again after verification.
+The owner completed Stripe's email identity verification. The approved live
+restricted key `RandomTopics Speech — Production` was created and saved as
+`SPEECH_STRIPE_SECRET_KEY`, using Vercel's Secret type in Production only.
+The saved Stripe key summary was reopened and confirmed exactly three read
+permissions (Products, Prices, Subscriptions) and three write permissions
+(Customers, Customer Portal, Checkout Sessions). Vercel's environment listing
+confirms encrypted Production storage. The one-time key dialog was closed and
+the transfer variables were cleared without printing or persisting the key.
+No live billing flag has been enabled.
 No successful live webhook delivery or live payment has been established.
 
 The dedicated Supabase project's SMTP dashboard confirms custom SMTP is
 disabled. The exact payment-preview `/speech/account` callback has been added,
 preserving the three existing callback URLs. The owner has logged into Resend.
 A sending-domain setup for `auth.randomtopics.app` is prepared with its exact
-DNS records, but Cloudflare requires the owner's login before those records
-can be configured. No Resend API key has been created, and email delivery has
+DNS records. The owner has now logged into Cloudflare; the RandomTopics zone
+contains only its root/www website records and Google verification TXT. The
+first new mail record is prepared but unsaved, pending the requested scoped
+email authorization. No Resend API key has been created, and email delivery has
 not been verified. See `docs/speech-email-setup-20260920.md`. A confirmed synthetic account was used
 for payment QA; generating its test sign-in link does not establish that a real
 customer can receive recovery email.
@@ -254,9 +260,8 @@ after verification. The browser was signed out of the QA account, and the
 temporary local sign-in helper was stopped. Stripe sandbox records remain as
 an audit trail; the test subscription is canceled.
 
-Before enabling sales, verify actual email delivery and account recovery, finish
-the approved live runtime key after Stripe identity verification, and verify
-production configuration. Production currently also lacks the speech Supabase
+Before enabling sales, verify actual email delivery and account recovery, and
+verify production configuration. Production currently also lacks the speech Supabase
 connection and speech-coach switches; the existing Supabase Marketplace
 connection is scoped to pre-production. These must be intentionally configured
 before launch, with test/live billing records kept from overwriting one another.
