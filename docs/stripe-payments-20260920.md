@@ -27,8 +27,13 @@ Official references:
 
 ## Dashboard setup
 
-Use the account verified as belonging to RandomTopics. Begin in a dedicated
-sandbox. Live and test resources and keys must be configured separately.
+Use a NEW, separate Stripe account for RandomTopics, as explicitly required by
+the owner. Do not use the FlashcardMaker account even with a new restricted key.
+Choose "Create a separate account", not an organization that shares data with
+FlashcardMaker. The owner must personally complete the financial-account
+creation and verify its operating country and business information. Begin in
+that account's dedicated sandbox. Live and test resources and keys must be
+configured separately.
 
 1. Create **RandomTopics Speech Coach** with the description above. Add product
    metadata `product=randomtopics_speech`. Add a flat recurring USD 12.00 monthly
@@ -89,15 +94,67 @@ Run `npm run billing:test`, `npm run speech:test`, `npm run growth:test`,
 `npm run lint`, and `npx tsc --noEmit`. Tests use synthetic keys and mocked
 Stripe/Supabase responses; they do not establish a successful Stripe payment.
 
-As of September 20, the requested Chrome extension is installed, but browser
-discovery in this task returns only the in-app browser and selecting Chrome
-returns unavailable. No Stripe product, price, API key, portal configuration or
-webhook has been created during this task. No FlashcardMaker key has been read
-or reused. RandomTopics's configured preview environment contains no Stripe
-credential and no enabled email recovery flag. Existing documentation records
-SMTP as unconfigured; delivery has not been verified in this task.
+As of September 20, Chrome is connected and the owner has signed into Stripe.
+The signed-in account is named `flashcardmaker` (`acct_1T8KebRoDWT36vrx`).
+The following resources were created in its **test mode** before the owner
+clarified that an entirely separate Stripe account is required. They are
+**unused and must not be configured in RandomTopics**:
 
-Before enabling sales, finish Chrome connection and Dashboard setup, configure
+- Product: `prod_VIGrzHwEI2zFyQ` (RandomTopics Speech Coach).
+- Price: `price_1UHgK8RoDWT36vrxa54iObNp` (USD 12.00 monthly).
+- Product metadata: `product=randomtopics_speech`.
+- Subscription statement descriptor: `RANDOMTOPICS`.
+
+The old-account restricted-key draft has been cancelled. No API key, portal
+configuration or webhook was created in that account by this task, no
+FlashcardMaker credential has been copied or reused, and none of the above IDs
+has been stored in Vercel.
+The earlier request to approve a key in the old account is superseded.
+
+The owner completed creation of a separate `RandomTopics` Stripe account:
+`acct_1UHgTpRGH4CTejf9`. Its dedicated `RandomTopics 沙盒` uses
+`acct_1UHgTxEXV3G3z9Pt`. Both are different from the FlashcardMaker account.
+The initial website/business-description onboarding is complete, with recurring
+subscriptions selected. All new product, price, restricted-key, portal and
+webhook work must now take place in this RandomTopics sandbox. The live account
+still requires the owner's business verification before accepting real payments.
+The live onboarding business type is explicitly **Individual**, based in Hong
+Kong. The owner reused the existing personal legal entity. This is separate
+from API credentials and does not merge the two Stripe accounts. Do not change
+shared identity details; Stripe warns these synchronize between accounts.
+Stripe's legal-entity-sharing documentation distinguishes copied business
+profile/support details from shared legal-entity details. The live draft now uses
+`https://randomtopics.app`, statement descriptor `RANDOMTOPICS` and prefix
+`RNDMTOPICS`, plus a RandomTopics speech-software service description. A separate
+read-only check confirmed FlashcardMaker still displays its own website and
+statement descriptor. The RandomTopics draft uses included Radar Lite and opts
+out of the optional Tax service and Climate revenue donation. The owner must
+review personal/bank details and perform the final account activation; this task
+has not accepted the agreement or submitted the application.
+
+Created and verified in the dedicated RandomTopics sandbox:
+
+- Product `prod_VIH4VEqdqHLB8Q`, with the description/metadata above.
+- Monthly USD 12 price `price_1UHgWbEXV3G3z9Ptg7GFOynC`.
+- Portal configuration `bpc_1UHgYREXV3G3z9PtHSueij2Y`, with invoice history,
+  payment-method updates and cancellation at period end; no plan/quantity
+  switching or retention coupons.
+- Portal title: `Manage your RandomTopics Speech Coach subscription`.
+
+Those three resource IDs and `SPEECH_SITE_URL` have been saved only in Vercel
+Preview for branch `codex/randomtopics-stripe-20260920`. The trusted origin is
+`https://randomtopics-git-codex-randomtopics-s-f41608-y1y2u3u4s-projects.vercel.app`;
+the portal returns to `/speech/account`. A redeploy is still needed after all
+configuration is complete. The restricted-key permission draft awaits approval
+of its final creation; no dedicated secret or webhook exists yet.
+
+RandomTopics's configured preview environment contains no Stripe credential and
+no enabled email recovery flag. Existing documentation records SMTP as
+unconfigured; delivery has not been verified in this task. The Vercel preview is
+protected, so the webhook's public delivery route also needs to be resolved
+before end-to-end testing.
+
+Before enabling sales, finish Dashboard setup, configure
 and verify email recovery, then exercise real sandbox Checkout (success,
 decline, 3DS, cancel), confirmed access/40-attempt quota, owner isolation,
 renewal/failure, cancellation, and replayed/out-of-order webhook deliveries.
