@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import AnalyticsPageView from "@/components/AnalyticsPageView";
+import ClarityReplay from "@/components/ClarityReplay";
+import AnalyticsDiagnostics from "@/components/AnalyticsDiagnostics";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -93,27 +95,26 @@ export default function RootLayout({
         <Script id="document-language" strategy="beforeInteractive">
           {`document.documentElement.lang = location.pathname === '/es' || location.pathname.startsWith('/es/') ? 'es' : 'en';`}
         </Script>
-        <Script
-          src="https://analytics.flashcardmaker.me/script.js"
-          data-website-id="15509cd4-881c-4ed8-8dd6-bb64822993ee"
-          strategy="lazyOnload"
-        />
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-C23RTYX4QS"
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="beforeInteractive">
           {`
+            if (['randomtopics.app','www.randomtopics.app'].includes(location.hostname) && !location.pathname.startsWith('/internal')) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
             gtag('js', new Date());
             gtag('config', 'G-C23RTYX4QS', { send_page_view: false });
+            var ga = document.createElement('script'); ga.async = true;
+            ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-C23RTYX4QS'; document.head.appendChild(ga);
+            var usage = document.createElement('script'); usage.async = true;
+            usage.src = 'https://analytics.flashcardmaker.me/script.js'; usage.setAttribute('data-website-id','15509cd4-881c-4ed8-8dd6-bb64822993ee'); document.head.appendChild(usage);
+            }
           `}
         </Script>
       </head>
       <body className="antialiased min-h-screen flex flex-col">
         <AnalyticsPageView />
+        <AnalyticsDiagnostics />
+        <ClarityReplay />
         {/* Structured data — Organization + WebSite + WebApplication.
             Bing reads these for rich results and entity understanding. */}
         <script

@@ -9,6 +9,7 @@ import {
 } from "@/lib/googleReporting";
 
 import { buildQueryOpportunities, inObservationWindow } from "@/lib/growthOpportunities";
+import { SPEECH_EVENTS } from "@/lib/speech/events";
 
 const SHEETS_API_BASE = "https://sheets.googleapis.com/v4/spreadsheets";
 const REQUEST_TIMEOUT_MS = 25_000;
@@ -22,7 +23,7 @@ const REQUIRED_TABS = [
 
 const STRICT_CONVERSION_VERSION = "strict-post-gen-v1";
 const STRICT_CONVERSION_START_DATE = "2026-09-04";
-const REPORT_WIDTHS: Record<string, number> = { "Daily Summary": 30, "Landing Pages": 55, "Query Opportunities": 17 };
+const REPORT_WIDTHS: Record<string, number> = { "Daily Summary": 30, "Landing Pages": 55, "Query Opportunities": 17, "Speech Daily": 2 + SPEECH_EVENTS.length * 2 };
 const STRICT_DAILY_HEADERS = [
   "Conversion Metric Version",
   "Post-Generate Copy Users",
@@ -154,7 +155,9 @@ async function assertExpectedTabs(sheetId: string): Promise<void> {
   }
 
   const requests = [];
+  if (!existing.has("Speech Daily")) requests.push({ addSheet: { properties: { title: "Speech Daily", gridProperties: { columnCount: 2 + SPEECH_EVENTS.length * 2 } } } });
   for (const [title, requiredWidth] of Object.entries(REPORT_WIDTHS)) {
+    if (title === "Speech Daily" && !existing.has(title)) continue;
     const properties = metadata.sheets?.find((sheet) => sheet.properties?.title === title)?.properties;
     const columns = properties?.gridProperties?.columnCount ?? 0;
     if (properties?.sheetId === undefined || !columns) throw new AnalyticsSheetError("report_grid_missing");
@@ -287,6 +290,13 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     getValues(sheetId, "'Daily Summary'!A2:A1000"),
     getValues(sheetId, "'Run Log'!A2:B1000"),
   ]);
+  const speechDates = await getValues(sheetId, "'Speech Daily'!A2:A1000");
+  const speechTargetRow = nextRowForDate(speechDates, snapshot.reportDate);
+  const speechHeaders = ["Report date", "Measurement version · independent event counts/users, not an ordered funnel", ...SPEECH_EVENTS.flatMap((event) => [`${event} events`, `${event} users`])];
+  const speechValues = [snapshot.reportDate, "speech-v2", ...SPEECH_EVENTS.flatMap((event) => {
+    const row = eventByName(snapshot.ga4.eventsYesterday, event);
+    return [row.eventCount, row.totalUsers];
+  })];
 
   const start = eventByName(snapshot.ga4.eventsYesterday, "generate_start");
   const success = eventByName(snapshot.ga4.eventsYesterday, "generate_success");
@@ -366,6 +376,8 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     "'Query Opportunities'!A2:Q1000",
   ]);
   await writeRanges(sheetId, [
+    { range: "'Speech Daily'!A1", values: [speechHeaders] },
+    { range: `'Speech Daily'!A${speechTargetRow}`, values: [speechValues] },
     { range: "'Landing Pages'!C1:C1", values: [["Visited Page (GA4 pagePath)"]] },
     {
       range: "'Landing Pages'!P1:AC1",

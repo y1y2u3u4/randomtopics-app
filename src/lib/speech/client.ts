@@ -7,6 +7,7 @@ export class PracticeRequestError extends Error {
   constructor(
     message: string,
     public retryWithNewId = false,
+    public status = 0,
   ) {
     super(message);
   }
@@ -56,6 +57,7 @@ export async function practiceFetch(
     throw new PracticeRequestError(
       result.error || "Please try again.",
       result.retryWithNewId === true,
+      res.status,
     );
   return result;
 }
