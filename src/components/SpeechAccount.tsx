@@ -172,6 +172,19 @@ export default function SpeechAccount() {
         <section className="glass-card space-y-3 p-5">
           <h2 className="text-xl font-semibold">Your email is verified</h2>
           <p className="text-sm text-[var(--text-muted)]">Your practice and subscription are linked to your account. You can sign in with this email on another device.</p>
+          <button
+            type="button"
+            className={button}
+            disabled={busy}
+            onClick={() => run(async () => {
+              const { error } = await (await speechClient()).auth.signOut({ scope: "local" });
+              if (error) throw new Error("Could not sign out. Please try again.");
+              try { sessionStorage.removeItem("rt_speech_checkout_pending"); } catch { /* optional measurement */ }
+              window.location.assign("/speech/account");
+            })}
+          >
+            Sign out on this device
+          </button>
         </section>
       ) : emailAvailable ? (
         <section className="glass-card space-y-4 p-5">
