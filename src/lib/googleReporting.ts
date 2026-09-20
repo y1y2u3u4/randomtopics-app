@@ -543,21 +543,23 @@ export type SpeechReport = {
   events: GaEventRow[];
   devices: { device: string; event: string; users: number }[];
   sources: { source: string; event: string; users: number }[];
+  landings: { landing: string; event: string; users: number }[];
   funnels: { key: string; title: string; rows: { label: string; users: number }[]; available: boolean; qualified: boolean }[];
 };
 const speechCache = new Map<number, { expires: number; value: SpeechReport }>();
 export async function getSpeechReport(days = 7, force = false): Promise<SpeechReport> {
-  if (![7, 28].includes(days)) days = 7;
+  if (![0, 1, 7, 28].includes(days)) days = 7;
   const cached = speechCache.get(days);
   if (!force && cached && cached.expires > Date.now()) return cached.value;
   const filter = { andGroup: { expressions: [productionFilter, {
     filter: { fieldName: "eventName", inListFilter: { values: [...SPEECH_EVENTS] } },
   }] } };
-  const base = { startDate: `${days}daysAgo`, endDate: "yesterday", dimensionFilter: filter };
+  const base = { startDate: days === 0 ? "today" : `${days}daysAgo`, endDate: days === 0 ? "today" : "yesterday", dimensionFilter: filter };
   // Sequential requests preserve the property's concurrent-request allowance.
   const events = await runGaReport({ ...base, dimensions: ["eventName"], metrics: ["eventCount", "totalUsers", "sessions"], limit: 100 });
   const devices = await runGaReport({ ...base, dimensions: ["deviceCategory", "eventName"], metrics: ["totalUsers"], limit: 500 });
   const sources = await runGaReport({ ...base, dimensions: ["sessionSourceMedium", "eventName"], metrics: ["totalUsers"], limit: 1000 });
+  const landings = await runGaReport({ ...base, dimensions: ["landingPage", "eventName"], metrics: ["totalUsers"], limit: 1000 });
   const propertyId = requiredEnv("GA4_PROPERTY_ID");
   if (!/^\d+$/.test(propertyId)) throw new ReportingError("ga4_property_id_invalid");
   const funnels: SpeechReport["funnels"] = [];
@@ -582,6 +584,7 @@ export async function getSpeechReport(days = 7, force = false): Promise<SpeechRe
     events: (events.rows ?? []).map((row) => ({ eventName: row.dimensionValues?.[0]?.value ?? "", eventCount: metricValue(row, 0), totalUsers: metricValue(row, 1), sessions: metricValue(row, 2), keyEvents: 0 })),
     devices: (devices.rows ?? []).map((row) => ({ device: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0) })),
     sources: (sources.rows ?? []).map((row) => ({ source: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0) })),
+    landings: (landings.rows ?? []).map((row) => ({ landing: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0) })),
   };
   speechCache.set(days, { expires: Date.now() + DASHBOARD_CACHE_MS, value });
   return value;

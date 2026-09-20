@@ -1,23 +1,22 @@
 # RandomTopics login email setup
 
-The owner has signed into Resend. No API key has been generated or custom SMTP
-enabled yet. The dedicated Supabase project is `randomtopics-speech`
+The owner approved the scoped sending delegation and SMTP key. Resend domain
+verification and encrypted Supabase custom SMTP setup are complete. The dedicated Supabase project is `randomtopics-speech`
 (`ubqmwhrylrhxlquszvze`). Its email confirmation remains enabled.
 
 ## Prepared sending domain
 
 Use `auth.randomtopics.app` for login mail, with sender
-`RandomTopics <noreply@auth.randomtopics.app>`. The domain setup is open in
-Resend's manual DNS step, using its North Virginia region. It has not yet been
-verified. Receiving is disabled. Before using login links, disable click/open
-tracking so the authentication URL is not rewritten.
+`RandomTopics <noreply@auth.randomtopics.app>`. The domain is verified in Resend's North Virginia region. Receiving is disabled.
+No tracking subdomain is configured: the tracking screen offers a new setup,
+which was left uncreated so auth links are not rewritten.
 
 Authoritative DNS is Cloudflare (`daisy.ns.cloudflare.com` and
 `titan.ns.cloudflare.com`), not Vercel. The owner has logged into Cloudflare.
-Zone `c5d3283ede3349de2591b1a5177ae98c` currently has root/www A records and a
-Google verification TXT only. The DKIM record below is drafted but unsaved;
-confirmation for the scoped DNS sending delegation and SMTP credential has
-been requested. Do not change nameservers or the website's existing records.
+Zone `c5d3283ede3349de2591b1a5177ae98c` preserves the original website and Google
+verification records. The three required records below are saved and were also
+verified through public DNS. Resend reported DNS verified at 23:12 and domain
+verified at 23:13 China time on September 20.
 
 Resend's current setup page requests these three new records, relative to the
 `randomtopics.app` zone, all with automatic TTL. Re-read the current setup page
@@ -36,15 +35,15 @@ p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKMasUzLiiojP74Xs1+PnBp8Z60RhdOQorVyihiL
 ```
 
 The optional root `_dmarc` suggestion must not overwrite an existing policy.
-Only the three required records above are currently planned.
+Only the three required records above were added; root DMARC was unchanged.
 
 ## SMTP configuration after domain verification
 
-Create a new key named `RandomTopics Auth SMTP` with **Sending access**, scoped
-only to `auth.randomtopics.app`. The current key form offered only All domains
-while the domain setup was incomplete, so that draft was canceled without
-creating a broader credential. Obtain confirmation for the new scoped sending
-credential at creation time and store it in the dedicated Supabase SMTP settings.
+The approved `RandomTopics Auth SMTP` key has **Sending access**, scoped only
+to `auth.randomtopics.app`. Its key ID is `4c43f62c-751d-4a44-bda4-63b3c9a31630`.
+It was transferred in browser memory to Supabase SMTP and saved encrypted.
+Reloading Supabase confirms SMTP enabled with the provider settings below.
+The key value was not printed, committed or saved in a temporary file.
 
 The official Resend Supabase SMTP guide specifies:
 
@@ -59,8 +58,11 @@ The official Resend Supabase SMTP guide specifies:
 
 Reference: https://resend.com/docs/send-with-supabase-smtp
 
-Verify delivery and the complete website email-link/recovery flow before
-enabling `SPEECH_EMAIL_ENABLED`. A synthetic confirmed account or an admin
+Actual delivery and the complete website email-link/recovery flow are still
+pending owner test-email consent. The payment branch has `SPEECH_EMAIL_ENABLED=true`
+for verification only, while billing remains disabled. Preview deployment
+`dpl_6P9y3E6WwWLrFhWGVHHtttpMdcrd` is Ready and shows the real link-email form.
+Do not enable production email/sales until the complete flow passes. A synthetic confirmed account or an admin
 generated link does not verify email delivery. Production additionally needs
 its speech database connection, explicit speech flags, and separate live
 billing configuration before sales can open.

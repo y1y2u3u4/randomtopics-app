@@ -55,3 +55,23 @@ export function speechErrorCode(error: unknown): string {
   }
   return "client_or_network";
 }
+
+export function trackConfirmedSpeechPurchase(purchase: unknown) {
+  const p = purchase as { transactionId?: string; value?: number; currency?: string } | null;
+  if (!p || !/^[a-f0-9]{64}$/.test(p.transactionId || "") || p.value !== 12 || p.currency !== "USD") return;
+  try {
+    // Tie the Stripe-confirmed receipt to this browser's actual Checkout launch.
+    // A copied return URL, a historical purchase or a different device cannot create this event.
+    if (sessionStorage.getItem("rt_speech_checkout_pending") !== p.transactionId) return;
+    const key = `rt_speech_paid_${p.transactionId}`;
+    if (localStorage.getItem(key)) return;
+    trackSpeech("speech_payment_confirmed", { content_source: "speech_account" });
+    track("purchase", {
+      transaction_id: p.transactionId, value: p.value, currency: p.currency,
+      measurement_version: "speech-v2",
+      items: [{ item_id: "randomtopics_speech_monthly", item_name: "RandomTopics Speech Coach", price: 12, quantity: 1 }],
+    });
+    localStorage.setItem(key, "1");
+    sessionStorage.removeItem("rt_speech_checkout_pending");
+  } catch { /* Storage restrictions and analytics failures never affect access. */ }
+}

@@ -5,7 +5,7 @@
 //
 // Safe no-op when gtag is absent (adblock, SSR, tests). Never throws.
 
-export type GtagParams = Record<string, string | number | boolean | null | undefined>;
+export type GtagParams = Record<string, string | number | boolean | null | undefined | Record<string, string | number>[]>;
 import { isProductionHost } from "./analyticsEnvironment";
 
 declare global {

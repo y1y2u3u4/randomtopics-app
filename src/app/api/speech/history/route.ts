@@ -7,6 +7,7 @@ import {
 } from "@/lib/speech/server";
 import { z } from "zod";
 import { billingManagementReady, billingReady } from "@/lib/speech/billing";
+import { latestSpeechPurchase } from "@/lib/speech/purchases";
 export async function GET(request: Request) {
   try {
     const { db, user } = await actor(request);
@@ -37,9 +38,16 @@ export async function GET(request: Request) {
         new Date(account.period_start).getTime() <= now &&
         new Date(account.period_end).getTime() > now,
     );
+    const verified = !user.is_anonymous && Boolean(user.email_confirmed_at);
+    // Analytics/provider availability must not prevent access to saved practice.
+    const purchase = verified && account?.customer_id
+      ? await latestSpeechPurchase(account.customer_id, user.id).catch(() => null)
+      : null;
     return response({
       attempts: data,
       anonymous: user.is_anonymous === true,
+      emailVerified: verified,
+      purchase,
       billingAvailable: billingReady(),
       emailAvailable: process.env.SPEECH_EMAIL_ENABLED === "true",
       subscription: {

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { practiceFetch, speechClient } from "@/lib/speech/client";
 import type { SpeechFeedback } from "@/lib/speech/schema";
-import { speechErrorCode, trackSpeech } from "@/lib/speech/telemetry";
+import { speechErrorCode, trackSpeech, trackConfirmedSpeechPurchase } from "@/lib/speech/telemetry";
 type Attempt = {
   id: string;
   topic: string;
@@ -24,6 +24,7 @@ export default function SpeechAccount() {
   const [anonymous, setAnonymous] = useState(true);
   const [billing, setBilling] = useState(false);
   const [emailAvailable, setEmailAvailable] = useState(false);
+  const [emailVerified, setEmailVerified] = useState(false);
   const [subscription, setSubscription] = useState({
     active: false,
     periodEnd: null as string | null,
@@ -48,6 +49,9 @@ export default function SpeechAccount() {
     trackSpeech(`speech_${destination}_start`, { content_source: "speech_account" });
     try {
       const data = await practiceFetch(destination, {});
+      if (destination === "checkout" && /^[a-f0-9]{64}$/.test(data.transactionId || "")) {
+        try { sessionStorage.setItem("rt_speech_checkout_pending", data.transactionId); } catch { /* optional measurement */ }
+      }
       trackSpeech(`speech_${destination}_redirect`, { content_source: "speech_account" });
       window.location.assign(data.url);
     } catch (error) {
@@ -68,6 +72,9 @@ export default function SpeechAccount() {
         setAnonymous(data.anonymous);
         setBilling(data.billingAvailable);
         setEmailAvailable(data.emailAvailable);
+        setEmailVerified(data.emailVerified);
+        trackConfirmedSpeechPurchase(data.purchase);
+        if (data.emailVerified) trackSpeech("speech_email_verified", { content_source: "speech_account" });
         setSubscription(data.subscription);
         if (
           new URLSearchParams(window.location.search).get("payment") ===
@@ -108,6 +115,9 @@ export default function SpeechAccount() {
     setAnonymous(data.anonymous);
     setBilling(data.billingAvailable);
     setEmailAvailable(data.emailAvailable);
+    setEmailVerified(data.emailVerified);
+    trackConfirmedSpeechPurchase(data.purchase);
+    if (data.emailVerified) trackSpeech("speech_email_verified", { content_source: "speech_account" });
     setSubscription(data.subscription);
     if (new URLSearchParams(window.location.search).get("payment") === "return")
       setMessage(
@@ -118,6 +128,8 @@ export default function SpeechAccount() {
     setLoaded(true);
   }
   async function emailLink(existing: boolean) {
+    const event = existing ? "speech_recovery" : "speech_email_link";
+    trackSpeech(`${event}_start`, { content_source: "speech_account" });
     const auth = (await speechClient()).auth;
     const redirect = `${window.location.origin}/speech/account`;
     const {
@@ -133,12 +145,15 @@ export default function SpeechAccount() {
           options: { shouldCreateUser: false, emailRedirectTo: redirect },
         })
       : await auth.updateUser({ email }, { emailRedirectTo: redirect });
-    if (result.error)
+    if (result.error) {
+      trackSpeech(`${event}_error`, { content_source: "speech_account", error_code: "service" });
       throw new Error(
         existing
           ? "Could not send a sign-in link. Please check your email and try again later."
           : "Could not link this email. If you already have an account, use the sign-in option.",
       );
+    }
+    trackSpeech(`${event}_sent`, { content_source: "speech_account" });
     setMessage(
       "Check your email to confirm. Then return here and refresh your history.",
     );
@@ -153,7 +168,12 @@ export default function SpeechAccount() {
         Review your feedback, keep your progress, and choose what to practice
         next.
       </p>
-      {emailAvailable ? (
+      {emailVerified ? (
+        <section className="glass-card space-y-3 p-5">
+          <h2 className="text-xl font-semibold">Your email is verified</h2>
+          <p className="text-sm text-[var(--text-muted)]">Your practice and subscription are linked to your account. You can sign in with this email on another device.</p>
+        </section>
+      ) : emailAvailable ? (
         <section className="glass-card space-y-4 p-5">
           <h2 className="text-xl font-semibold">
             Keep your practice across devices

@@ -27,6 +27,7 @@ assert.equal(request.funnel.isOpenFunnel, false);
 assert.equal(request.funnel.steps[1].withinDurationFromPriorStep, "86400s");
 assert.deepEqual(request.dimensionFilter.filter.inListFilter.values, ["randomtopics.app", "www.randomtopics.app"]);
 assert.equal(request.funnel.steps[0].filterExpression.funnelEventFilter.funnelParameterFilterExpression.funnelParameterFilter.stringFilter.value, "speech-v2");
+assert.deepEqual(funnelRequest(SPEECH_FUNNELS[0],0).dateRanges,[{startDate:'today',endDate:'today'}]);
 const report = {
   dimensionHeaders: [{ name: "funnelStepName" }],
   metricHeaders: [{ name: "funnelStepAbandonments" }, { name: "activeUsers" }],
@@ -55,6 +56,23 @@ telemetry.trackSpeech("speech_checkout_redirect", {
 assert.deepEqual(events.at(-1), ["speech_checkout_redirect", {
   measurement_version: "speech-v2", content_source: "speech_account",
 }]);
+
+const stored = new Map(); const pending = new Map(); const paidEvents = [];
+const purchaseTelemetry = load('src/lib/speech/telemetry.ts', {'@/lib/track':{track:(...args)=>paidEvents.push(args)}}, {
+  window: {}, localStorage:{getItem:k=>stored.get(k),setItem:(k,v)=>stored.set(k,v)},
+  sessionStorage:{getItem:k=>pending.get(k),removeItem:k=>pending.delete(k)},
+});
+const receipt = {transactionId:'a'.repeat(64),value:12,currency:'USD'};
+purchaseTelemetry.trackConfirmedSpeechPurchase(receipt);
+assert.equal(paidEvents.length,0,'historical payment without this browser checkout must not be attributed');
+pending.set('rt_speech_checkout_pending',receipt.transactionId);
+purchaseTelemetry.trackConfirmedSpeechPurchase({...receipt,value:0});
+assert.equal(paidEvents.length,0);
+purchaseTelemetry.trackConfirmedSpeechPurchase(receipt);
+purchaseTelemetry.trackConfirmedSpeechPurchase(receipt);
+assert.deepEqual(paidEvents.map(e=>e[0]),['speech_payment_confirmed','purchase']);
+assert.equal(paidEvents[1][1].transaction_id,receipt.transactionId);
+assert.equal(paidEvents[1][1].items[0].price,12);
 
 const sent = []; const local = [];
 const fakeWindow = { location: { hostname: "preview.vercel.app", pathname: "/speech", origin: "https://preview.vercel.app" }, gtag: (...args) => sent.push(args), dispatchEvent: (event) => local.push(event) };

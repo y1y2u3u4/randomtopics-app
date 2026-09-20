@@ -1,4 +1,5 @@
 import { actor, failure, response, SpeechError } from "@/lib/speech/server";
+import { purchaseTransactionId } from "@/lib/speech/purchases";
 import {
   siteUrl,
   stripe,
@@ -84,7 +85,7 @@ export async function POST(request: Request) {
         s.metadata?.price_id === price.id &&
         s.success_url === `${siteUrl()}/speech/account?payment=return`,
     );
-    if (existing?.url) return response({ url: existing.url });
+    if (existing?.url) return response({ url: existing.url, transactionId: purchaseTransactionId(existing.id) });
     const session = await api.checkout.sessions.create(
       {
         customer,
@@ -112,7 +113,7 @@ export async function POST(request: Request) {
         503,
         "Checkout is temporarily unavailable. Please try again.",
       );
-    return response({ url: session.url });
+    return response({ url: session.url, transactionId: purchaseTransactionId(session.id) });
   } catch (error) {
     return failure(error);
   }

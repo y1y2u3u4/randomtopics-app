@@ -174,7 +174,7 @@ const api = {
       list: async () => ({ data: sessions }),
       create: async (...args) => {
         calls.checkout.push(args);
-        return { url: "https://checkout.stripe.com/fixture" };
+        return { id: "cs_test_fixture", url: "https://checkout.stripe.com/fixture" };
       },
     },
   },
@@ -238,7 +238,7 @@ assert.deepEqual(params.line_items, [{ price: "price_speech", quantity: 1 }]);
 assert.equal(params.customer, "cus_speech");
 assert.equal(params.metadata.product, "randomtopics_speech");
 assert.match(options.idempotencyKey, /price_speech/);
-sessions = [{ ...params, url: "https://checkout.stripe.com/reuse" }];
+sessions = [{ ...params, id: "cs_test_reuse", url: "https://checkout.stripe.com/reuse" }];
 assert.equal(
   (await (await checkout.POST(request())).json()).url,
   sessions[0].url,

@@ -18,6 +18,8 @@ export const SPEECH_EVENTS = [
   "speech_compare_insufficient", "speech_replay_allowed", "speech_replay_declined",
   "speech_checkout_offer_view", "speech_checkout_start", "speech_checkout_redirect",
   "speech_checkout_error", "speech_portal_start", "speech_portal_redirect", "speech_portal_error",
+  "speech_email_link_start", "speech_email_link_sent", "speech_email_link_error", "speech_email_verified",
+  "speech_recovery_start", "speech_recovery_sent", "speech_recovery_error", "speech_payment_confirmed",
 ] as const;
 export type SpeechEvent = typeof SPEECH_EVENTS[number];
 export const SPEECH_FUNNELS = [
@@ -39,5 +41,15 @@ export const SPEECH_FUNNELS = [
     ["看到每月 $12 套餐", "speech_checkout_offer_view"],
     ["点击订阅", "speech_checkout_start"],
     ["取得收银台链接并跳转", "speech_checkout_redirect"],
+  ] },
+  { key: "email", title: "关联邮箱 → 验证完成", steps: [
+    ["开始关联邮箱", "speech_email_link_start"], ["验证邮件已发出", "speech_email_link_sent"],
+    ["账号已验证", "speech_email_verified"],
+  ] },
+  { key: "purchase", title: "访问 → 练习 → 实付确认", steps: [
+    ["进入练习页面", "speech_page_view"], ["打开练习", "speech_coach_open"],
+    ["看到首次反馈", "speech_first_feedback_view"], ["看到每月 $12 套餐", "speech_checkout_offer_view"],
+    ["点击订阅", "speech_checkout_start"], ["前往收银台", "speech_checkout_redirect"],
+    ["返回网站且 Stripe 确认已付款", "speech_payment_confirmed"],
   ] },
 ] as const;
