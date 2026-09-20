@@ -1,5 +1,11 @@
 import { actor, failure, response, SpeechError } from "@/lib/speech/server";
-import { siteUrl, stripe } from "@/lib/speech/billing";
+import {
+  siteUrl,
+  stripe,
+  speechPrice,
+  verifySpeechCustomer,
+  SPEECH_PRODUCT,
+} from "@/lib/speech/billing";
 export async function POST(request: Request) {
   try {
     const { db, user } = await actor(request);
@@ -9,23 +15,14 @@ export async function POST(request: Request) {
         "Verify your email before subscribing so you can recover your purchases.",
       );
     const api = stripe();
-    const price = await api.prices.retrieve(
-      process.env.SPEECH_STRIPE_PRICE_ID!,
-    );
-    if (
-      !price.active ||
-      price.currency !== "usd" ||
-      price.unit_amount !== 1200 ||
-      price.recurring?.interval !== "month" ||
-      price.recurring.interval_count !== 1
-    )
-      throw new SpeechError(503, "Subscriptions are not configured correctly.");
-    await db
+    const price = await speechPrice(api);
+    const created = await db
       .from("speech_accounts")
       .upsert(
         { user_id: user.id },
         { onConflict: "user_id", ignoreDuplicates: true },
       );
+    if (created.error) throw created.error;
     const account = await db
       .from("speech_accounts")
       .select("customer_id,subscription_id,subscription_active,period_end")
@@ -47,11 +44,12 @@ export async function POST(request: Request) {
         await api.customers.create(
           {
             email: user.email,
-            metadata: { product: "randomtopics_speech", user_id: user.id },
+            metadata: { product: SPEECH_PRODUCT, user_id: user.id },
           },
           { idempotencyKey: `randomtopics-customer-${user.id}` },
         )
       ).id;
+    await verifySpeechCustomer(api, customer, user.id);
     const saved = await db
       .from("speech_accounts")
       .update({ customer_id: customer })
@@ -65,7 +63,7 @@ export async function POST(request: Request) {
     if (
       subscriptions.data.some(
         (s) =>
-          s.metadata.product === "randomtopics_speech" &&
+          s.metadata.product === SPEECH_PRODUCT &&
           !["canceled", "incomplete_expired"].includes(s.status),
       )
     )
@@ -79,7 +77,12 @@ export async function POST(request: Request) {
       limit: 100,
     });
     const existing = openSessions.data.find(
-      (s) => s.client_reference_id === user.id && s.mode === "subscription",
+      (s) =>
+        s.client_reference_id === user.id &&
+        s.mode === "subscription" &&
+        s.metadata?.product === SPEECH_PRODUCT &&
+        s.metadata?.price_id === price.id &&
+        s.success_url === `${siteUrl()}/speech/account?payment=return`,
     );
     if (existing?.url) return response({ url: existing.url });
     const session = await api.checkout.sessions.create(
@@ -88,17 +91,27 @@ export async function POST(request: Request) {
         mode: "subscription",
         line_items: [{ price: price.id, quantity: 1 }],
         client_reference_id: user.id,
+        metadata: {
+          product: SPEECH_PRODUCT,
+          user_id: user.id,
+          price_id: price.id,
+        },
         subscription_data: {
-          metadata: { product: "randomtopics_speech", user_id: user.id },
+          metadata: { product: SPEECH_PRODUCT, user_id: user.id },
         },
         success_url: `${siteUrl()}/speech/account?payment=return`,
         cancel_url: `${siteUrl()}/speech/account`,
         allow_promotion_codes: false,
       },
       {
-        idempotencyKey: `randomtopics-checkout-${user.id}-${Math.floor(Date.now() / 1800000)}`,
+        idempotencyKey: `randomtopics-checkout-v2-${user.id}-${price.id}-${Math.floor(Date.now() / 1800000)}`,
       },
     );
+    if (!session.url)
+      throw new SpeechError(
+        503,
+        "Checkout is temporarily unavailable. Please try again.",
+      );
     return response({ url: session.url });
   } catch (error) {
     return failure(error);

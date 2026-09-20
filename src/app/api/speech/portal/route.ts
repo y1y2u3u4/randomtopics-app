@@ -1,5 +1,10 @@
 import { actor, failure, response, SpeechError } from "@/lib/speech/server";
-import { siteUrl, stripe } from "@/lib/speech/billing";
+import {
+  billingConfiguration,
+  siteUrl,
+  stripe,
+  verifySpeechCustomer,
+} from "@/lib/speech/billing";
 export async function POST(request: Request) {
   try {
     const { db, user } = await actor(request);
@@ -12,8 +17,11 @@ export async function POST(request: Request) {
       .single();
     if (error || !data?.customer_id)
       throw new SpeechError(404, "No billing account found.");
-    const session = await stripe().billingPortal.sessions.create({
+    const api = stripe(false);
+    await verifySpeechCustomer(api, data.customer_id, user.id);
+    const session = await api.billingPortal.sessions.create({
       customer: data.customer_id,
+      configuration: billingConfiguration().portalConfiguration,
       return_url: `${siteUrl()}/speech/account`,
     });
     return response({ url: session.url });

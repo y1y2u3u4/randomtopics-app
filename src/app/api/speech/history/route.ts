@@ -6,7 +6,7 @@ import {
   SpeechError,
 } from "@/lib/speech/server";
 import { z } from "zod";
-import { billingReady } from "@/lib/speech/billing";
+import { billingManagementReady, billingReady } from "@/lib/speech/billing";
 export async function GET(request: Request) {
   try {
     const { db, user } = await actor(request);
@@ -25,11 +25,32 @@ export async function GET(request: Request) {
     if (requestedId) query = query.eq("id", requestedId);
     const { data, error } = await query;
     if (error) throw error;
+    const { data: account, error: accountError } = await db
+      .from("speech_accounts")
+      .select("customer_id,subscription_active,period_start,period_end")
+      .eq("user_id", user.id)
+      .maybeSingle();
+    if (accountError) throw accountError;
+    const now = Date.now();
+    const active = Boolean(
+      account?.subscription_active &&
+        new Date(account.period_start).getTime() <= now &&
+        new Date(account.period_end).getTime() > now,
+    );
     return response({
       attempts: data,
       anonymous: user.is_anonymous === true,
       billingAvailable: billingReady(),
       emailAvailable: process.env.SPEECH_EMAIL_ENABLED === "true",
+      subscription: {
+        active,
+        periodEnd: active ? (account?.period_end ?? null) : null,
+        manageable: Boolean(
+          account?.customer_id &&
+            !user.is_anonymous &&
+            billingManagementReady(),
+        ),
+      },
     });
   } catch (error) {
     return failure(error);

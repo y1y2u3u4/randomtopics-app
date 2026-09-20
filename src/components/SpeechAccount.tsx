@@ -23,6 +23,11 @@ export default function SpeechAccount() {
   const [anonymous, setAnonymous] = useState(true);
   const [billing, setBilling] = useState(false);
   const [emailAvailable, setEmailAvailable] = useState(false);
+  const [subscription, setSubscription] = useState({
+    active: false,
+    periodEnd: null as string | null,
+    manageable: false,
+  });
   useEffect(() => {
     let active = true;
     const id = new URLSearchParams(window.location.search).get("attempt");
@@ -33,6 +38,16 @@ export default function SpeechAccount() {
         setAnonymous(data.anonymous);
         setBilling(data.billingAvailable);
         setEmailAvailable(data.emailAvailable);
+        setSubscription(data.subscription);
+        if (
+          new URLSearchParams(window.location.search).get("payment") ===
+          "return"
+        )
+          setMessage(
+            data.subscription.active
+              ? "Your subscription is active. You can continue practicing."
+              : "Your subscription is not confirmed yet. If you completed payment, refresh in a moment. Do not pay again while confirmation is pending.",
+          );
         setLoaded(true);
       })
       .catch((error) => {
@@ -62,6 +77,13 @@ export default function SpeechAccount() {
     setAnonymous(data.anonymous);
     setBilling(data.billingAvailable);
     setEmailAvailable(data.emailAvailable);
+    setSubscription(data.subscription);
+    if (new URLSearchParams(window.location.search).get("payment") === "return")
+      setMessage(
+        data.subscription.active
+          ? "Your subscription is active. You can continue practicing."
+          : "Your subscription is not confirmed yet. If you completed payment, refresh in a moment. Do not pay again while confirmation is pending.",
+      );
     setLoaded(true);
   }
   async function emailLink(existing: boolean) {
@@ -212,7 +234,9 @@ export default function SpeechAccount() {
                     Feedback and transcript
                   </summary>
                   <h4 className="mt-3 font-semibold">What worked</h4>
-                  <p className="my-3">{attempt.feedback.strength.observation}</p>
+                  <p className="my-3">
+                    {attempt.feedback.strength.observation}
+                  </p>
                   <blockquote className="my-3 border-l-2 border-[var(--neon-cyan)] pl-3">
                     {attempt.feedback.strength.quote}
                   </blockquote>
@@ -224,17 +248,26 @@ export default function SpeechAccount() {
                     {attempt.feedback.priority.quote}
                   </blockquote>
                   <dl className="my-4 space-y-2 text-sm">
-                    {Object.entries(attempt.feedback.structure).map(([name, note]) => (
-                      <div key={name}>
-                        <dt className="font-semibold capitalize">{name}</dt>
-                        <dd>{note}</dd>
-                      </div>
-                    ))}
+                    {Object.entries(attempt.feedback.structure).map(
+                      ([name, note]) => (
+                        <div key={name}>
+                          <dt className="font-semibold capitalize">{name}</dt>
+                          <dd>{note}</dd>
+                        </div>
+                      ),
+                    )}
                   </dl>
                   {attempt.feedback.comparison.outcome !== "first_attempt" && (
                     <section className="my-4 space-y-3">
-                      <h4 className="font-semibold">Compared with your previous attempt</h4>
-                      <p className="capitalize">{attempt.feedback.comparison.outcome.replaceAll("_", " ")}</p>
+                      <h4 className="font-semibold">
+                        Compared with your previous attempt
+                      </h4>
+                      <p className="capitalize">
+                        {attempt.feedback.comparison.outcome.replaceAll(
+                          "_",
+                          " ",
+                        )}
+                      </p>
                       {attempt.feedback.comparison.beforeQuote && (
                         <blockquote className="border-l-2 border-white/20 pl-3">
                           <span className="block text-sm">Before</span>
@@ -314,9 +347,19 @@ export default function SpeechAccount() {
           </article>
         ))}
       </section>
-      {loaded && billing && (
+      {loaded && (billing || subscription.manageable) && (
         <section className="glass-card space-y-4 p-5">
-          <h2 className="text-xl font-semibold">Keep practicing · $12/month</h2>
+          <h2 className="text-xl font-semibold">
+            {subscription.active
+              ? "Your speech subscription"
+              : "Keep practicing · $12/month"}
+          </h2>
+          {subscription.active && subscription.periodEnd && (
+            <p role="status">
+              Active · access through{" "}
+              {new Date(subscription.periodEnd).toLocaleDateString()}.
+            </p>
+          )}
           <p>
             40 recorded attempts per billing month, including retries. Each
             attempt includes transcription and feedback, up to two minutes.
@@ -327,30 +370,34 @@ export default function SpeechAccount() {
             Access continues to the end of your paid period.
           </p>
           <div className="flex flex-wrap gap-3">
-            <button
-              className={button}
-              disabled={busy || anonymous}
-              onClick={() =>
-                run(async () => {
-                  const data = await practiceFetch("checkout", {});
-                  window.location.assign(data.url);
-                })
-              }
-            >
-              Subscribe for $12/month
-            </button>
-            <button
-              className={button}
-              disabled={busy || anonymous}
-              onClick={() =>
-                run(async () => {
-                  const data = await practiceFetch("portal", {});
-                  window.location.assign(data.url);
-                })
-              }
-            >
-              Manage subscription
-            </button>
+            {billing && !subscription.active && (
+              <button
+                className={button}
+                disabled={busy || anonymous}
+                onClick={() =>
+                  run(async () => {
+                    const data = await practiceFetch("checkout", {});
+                    window.location.assign(data.url);
+                  })
+                }
+              >
+                Subscribe for $12/month
+              </button>
+            )}
+            {subscription.manageable && (
+              <button
+                className={button}
+                disabled={busy || anonymous}
+                onClick={() =>
+                  run(async () => {
+                    const data = await practiceFetch("portal", {});
+                    window.location.assign(data.url);
+                  })
+                }
+              >
+                Manage subscription
+              </button>
+            )}
           </div>
           {anonymous && (
             <p className="text-sm">
@@ -359,7 +406,7 @@ export default function SpeechAccount() {
           )}
         </section>
       )}
-      {loaded && !billing && (
+      {loaded && !billing && !subscription.manageable && (
         <p className="text-sm text-[var(--text-muted)]">
           Subscriptions are not open yet. Your first two recorded attempts are
           free.

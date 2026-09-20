@@ -9,7 +9,8 @@
     "lint": "eslint",
     "seo:audit": "node scripts/seo-audit.mjs",
     "growth:test": "node scripts/growth-regression.mjs",
-    "speech:test": "node scripts/speech-coach-regression.mjs"
+    "speech:test": "node scripts/speech-coach-regression.mjs",
+    "billing:test": "node scripts/speech-billing-regression.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.116.0",
