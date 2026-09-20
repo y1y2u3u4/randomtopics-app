@@ -193,15 +193,14 @@ the transfer variables were cleared without printing or persisting the key.
 No live billing flag has been enabled.
 No successful live webhook delivery or live payment has been established.
 
-The dedicated Supabase project's SMTP dashboard confirms custom SMTP is
-disabled. The exact payment-preview `/speech/account` callback has been added,
-preserving the three existing callback URLs. The owner has logged into Resend.
-A sending-domain setup for `auth.randomtopics.app` is prepared with its exact
-DNS records. The owner has now logged into Cloudflare; the RandomTopics zone
-contains only its root/www website records and Google verification TXT. The
-first new mail record is prepared but unsaved, pending the requested scoped
-email authorization. No Resend API key has been created, and email delivery has
-not been verified. See `docs/speech-email-setup-20260920.md`. A confirmed synthetic account was used
+The owner approved the sending delegation and domain-only SMTP key. The three
+Cloudflare records are saved, public DNS resolves them, and Resend has verified
+`auth.randomtopics.app`. The new `RandomTopics Auth SMTP` key has Sending access
+only for that domain. Custom SMTP is enabled in Supabase and persisted settings
+were verified after reloading. The exact payment-preview `/speech/account`
+callback preserves the three existing callbacks. Actual recipient delivery and
+account recovery remain pending owner test-email consent. See
+`docs/speech-email-setup-20260920.md`. A confirmed synthetic account was used
 for payment QA; generating its test sign-in link does not establish that a real
 customer can receive recovery email.
 
@@ -260,11 +259,34 @@ after verification. The browser was signed out of the QA account, and the
 temporary local sign-in helper was stopped. Stripe sandbox records remain as
 an audit trail; the test subscription is canceled.
 
+## Production preparation and conversion reporting, September 20
+
+The sandbox webhook is now **disabled**, and its dedicated Vercel automation
+bypass was revoked after QA. Vercel Standard Protection remains enabled. The
+other, pre-existing system bypass was not changed.
+
+Before moving the dedicated database connection, a read-only audit found zero
+linked billing customers, zero active billing accounts and five existing speech
+practice rows. The Supabase Marketplace connection now targets **Production
+only**, with Sensitive storage selected. Development and Preview no longer
+receive this database in new deployments. This promotes the existing dedicated
+database; it does not create a physically separate database. Older immutable
+protected previews retain their build-time connection. Keep their billing off;
+future payment QA needs a separate test database and an intentionally restored
+sandbox workflow.
+
+Production now has explicit coach switches enabled and email, billing and live
+billing switches set false. Deploy the code with these gates before opening
+sales. The temporary protected email-verification preview remains
+`dpl_8ne9BDHsaBLvN5BtbBNz1KHWQJJ2`; its email switch is on and billing is off.
+
+Server-confirmed paid Checkout receipts, GA4 purchase deduplication, email and
+recovery events, current-day/yesterday funnel reports and a separate protected
+Stripe checkout-cohort report are implemented. All billing, speech/measurement,
+growth, lint and TypeScript checks passed. See
+`docs/speech-payment-measurement-20260920.md` for measurement limits and the
+September 21 follow-up.
+
 Before enabling sales, verify actual email delivery and account recovery, and
-verify production configuration. Production currently also lacks the speech Supabase
-connection and speech-coach switches; the existing Supabase Marketplace
-connection is scoped to pre-production. These must be intentionally configured
-before launch, with test/live billing records kept from overwriting one another.
-Keep live sales off
-until these external checks pass; sandbox success alone does not establish a
-live payment or reliable mail delivery.
+the deployed production configuration. Sandbox success alone does not establish
+a live payment or reliable mail delivery. No real card was charged.
