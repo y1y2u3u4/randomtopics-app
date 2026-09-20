@@ -73,10 +73,10 @@ export function billingManagementReady() {
 }
 
 // Turning off new sales must not stop signed updates or existing users' cancellation.
-export function stripe(acceptingPayment = true) {
+export function stripe(acceptingPayment = true, options?: Stripe.StripeConfig) {
   if (acceptingPayment && !billingReady())
     throw new SpeechError(503, "Subscriptions are not open yet.");
-  return new Stripe(billingConfiguration().key);
+  return new Stripe(billingConfiguration().key, options);
 }
 
 export function siteUrl() {

@@ -21,7 +21,7 @@ export function isPaidSpeechCheckout(session: Stripe.Checkout.Session) {
 // A return URL is never evidence of payment. Read this owner's paid session from Stripe.
 export async function latestSpeechPurchase(customer: string, userId: string) {
   if (!billingManagementReady()) return null;
-  const sessions = await stripe(false).checkout.sessions.list({ customer, status: "complete", limit: 100 });
+  const sessions = await stripe(false, { timeout: 5000, maxNetworkRetries: 0 }).checkout.sessions.list({ customer, status: "complete", limit: 100 });
   const paid = sessions.data.find(s => isPaidSpeechCheckout(s) && s.client_reference_id === userId);
   if (!paid) return null;
   return {
@@ -51,12 +51,13 @@ export async function checkoutConversionReport(days = 1): Promise<CheckoutConver
     firstPaidCustomers: 0, repeatPaidCheckouts: 0, open: 0, expired: 0, unpaidComplete: 0, grossUsd: 0,
   };
   if (!billingManagementReady()) return result;
-  const api = stripe(false);
+  const api = stripe(false, { timeout: 5000, maxNetworkRetries: 0 });
   result.live = billingConfiguration().livemode;
   const sessions: Stripe.Checkout.Session[] = [];
   let after: string | undefined;
   // Full history is needed to distinguish a first purchase from a return purchase.
   for (let page = 0; page < 100; page++) {
+    if (Date.now() - now > 15000) break;
     const batch = await api.checkout.sessions.list({ limit: 100, ...(after ? { starting_after: after } : {}) });
     sessions.push(...batch.data.filter(isSpeechCheckout));
     if (!batch.has_more) { result.complete = true; break; }
