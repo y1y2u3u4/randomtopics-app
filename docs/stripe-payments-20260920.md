@@ -116,8 +116,8 @@ The owner completed creation of a separate `RandomTopics` Stripe account:
 `acct_1UHgTxEXV3G3z9Pt`. Both are different from the FlashcardMaker account.
 The initial website/business-description onboarding is complete, with recurring
 subscriptions selected. All new product, price, restricted-key, portal and
-webhook work must now take place in this RandomTopics sandbox. The live account
-still requires the owner's business verification before accepting real payments.
+webhook work must now take place in this RandomTopics sandbox. The owner has now completed live activation. The account-status page shows
+Payments and Payouts active, with no pending tasks.
 The live onboarding business type is explicitly **Individual**, based in Hong
 Kong. The owner reused the existing personal legal entity. This is separate
 from API credentials and does not merge the two Stripe accounts. Do not change
@@ -128,9 +128,8 @@ profile/support details from shared legal-entity details. The live draft now use
 `RNDMTOPICS`, plus a RandomTopics speech-software service description. A separate
 read-only check confirmed FlashcardMaker still displays its own website and
 statement descriptor. The RandomTopics draft uses included Radar Lite and opts
-out of the optional Tax service and Climate revenue donation. The owner must
-review personal/bank details and perform the final account activation; this task
-has not accepted the agreement or submitted the application.
+out of the optional Tax service and Climate revenue donation. The owner personally completed final account activation. This task did not
+accept the agreement or submit the application.
 
 Created and verified in the dedicated RandomTopics sandbox:
 
@@ -145,12 +144,37 @@ Those three resource IDs and `SPEECH_SITE_URL` have been saved only in Vercel
 Preview for branch `codex/randomtopics-stripe-20260920`. The trusted origin is
 `https://randomtopics-git-codex-randomtopics-s-f41608-y1y2u3u4s-projects.vercel.app`;
 the portal returns to `/speech/account`. A redeploy is still needed after all
-configuration is complete. The restricted-key permission draft awaits approval
-of its final creation; no dedicated secret or webhook exists yet.
+configuration is complete. After explicit owner confirmation, the dedicated
+restricted sandbox key was created with exactly the six permissions listed
+above and stored through Chrome as a Vercel Secret (`type=sensitive`), only in
+Preview for `codex/randomtopics-stripe-20260920`. The full key was not printed,
+committed, copied to another project, or stored in Production.
 
-RandomTopics's configured preview environment contains no Stripe credential and
-no enabled email recovery flag. Existing documentation records SMTP as
-unconfigured; delivery has not been verified in this task. The Vercel preview is
+The webhook draft is `randomtopics-speech-preview`, with the three subscription
+events above and API version `2026-08-26.dahlia` (matching stripe-node). Creation
+is pending approval for a dedicated Vercel automation bypass token so Stripe can
+reach the protected preview. No webhook signing secret has been created yet.
+
+Created in the activated, independent RandomTopics **live** account:
+
+- Product `prod_VIHW7H83g7LygR`.
+- Monthly USD 12 price `price_1UHgx2RGH4CTejf9rqvnlV7i`.
+- Portal `bpc_1UHgz8RGH4CTejf9DcCx4zZ3`, period-end cancellation and payment-method
+  updates enabled; plan and quantity changes disabled; no retention coupon.
+- Portal title `Manage your RandomTopics Speech Coach subscription`, returning
+  to `https://randomtopics.app/speech/account`.
+
+The corresponding product, price, portal IDs and `SPEECH_SITE_URL` are stored
+only in Vercel Production. There is still no live API key or webhook credential,
+and no live billing flag has been enabled. Production email recovery and all
+required sandbox verification remain gates before launch.
+
+RandomTopics's configured preview environment now contains its dedicated
+restricted Stripe secret but no webhook signing secret or enabled email recovery flag. Existing documentation records SMTP as
+unconfigured; the dedicated Supabase project's SMTP dashboard also confirms
+custom SMTP is disabled. The exact payment-preview `/speech/account` callback
+has been added, preserving the three existing callback URLs. Email delivery
+has not been verified in this task. The Vercel preview is
 protected, so the webhook's public delivery route also needs to be resolved
 before end-to-end testing.
 
