@@ -6,16 +6,20 @@
 // Safe no-op when gtag is absent (adblock, SSR, tests). Never throws.
 
 export type GtagParams = Record<string, string | number | boolean | null | undefined>;
+import { isProductionHost } from "./analyticsEnvironment";
 
 declare global {
   interface Window {
     gtag?: (command: "event", eventName: string, params?: GtagParams) => void;
+    dataLayer?: unknown[];
+    clarity?: ((...args: unknown[]) => void) & { q?: unknown[][] };
+    __rtReplayActive?: boolean;
   }
 }
 
 export function track(eventName: string, params?: GtagParams): void {
   try {
-    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    if (typeof window !== "undefined") {
       const eventParams = {
         ...params,
         // Query strings on /share may contain user-selected topic text. Keep
@@ -26,6 +30,16 @@ export function track(eventName: string, params?: GtagParams): void {
         page_language: document.documentElement.lang || "en",
       };
 
+      // Preview QA stays local; never send test sessions to the production property.
+      if (!isProductionHost(window.location.hostname)) {
+        window.dispatchEvent(new CustomEvent("rt:analytics", { detail: { event: eventName, params: eventParams } }));
+        return;
+      }
+      if (window.location.pathname.startsWith("/internal")) return;
+      if (!window.gtag) {
+        window.dataLayer ??= [];
+        window.gtag = (...args) => { window.dataLayer!.push(args); };
+      }
       window.gtag("event", eventName, eventParams);
     }
   } catch {
@@ -39,8 +53,8 @@ export function track(eventName: string, params?: GtagParams): void {
  */
 export function trackPageView(): boolean {
   try {
-    if (typeof window === "undefined" || typeof window.gtag !== "function") return false;
-    window.gtag("event", "page_view", {
+    if (typeof window === "undefined") return false;
+    track("page_view", {
       page_path: window.location.pathname,
       page_location: `${window.location.origin}${window.location.pathname}`,
       page_title: document.title,

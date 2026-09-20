@@ -4,6 +4,14 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/speech/account",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }],
+      },
+      {
+        source: "/api/speech/:path*",
+        headers: [{ key: "Cache-Control", value: "private, no-store" }, { key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      {
         source: "/es/:path*",
         headers: [{ key: "Content-Language", value: "es" }],
       },

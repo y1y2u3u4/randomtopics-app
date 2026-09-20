@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import ts from "typescript";
 import * as opportunities from "../src/lib/growthOpportunities.ts";
+import * as speechEvents from "../src/lib/speech/events.ts";
 
 const { buildQueryOpportunities, queryNoiseReason, inObservationWindow } = opportunities;
 const range = { startDate: "2026-08-09", endDate: "2026-09-05" };
@@ -79,11 +80,12 @@ const fakeFetch = async (url, init) => {
 const code = ts.transpileModule(readFileSync(new URL("../src/lib/analyticsSheet.ts", import.meta.url), "utf8"), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
 const testModule = { exports: {} };
 const require = createRequire(import.meta.url);
-const stubRequire = (id) => id === "server-only" ? {} : id === "@/lib/growthOpportunities" ? opportunities : id === "@/lib/googleReporting" ? { getAnalyticsSheetSnapshot: async () => snapshot, getGoogleReportingAccessToken: async () => "test-only-token" } : require(id);
+const stubRequire = (id) => id === "@/lib/speech/events" ? speechEvents : id === "server-only" ? {} : id === "@/lib/growthOpportunities" ? opportunities : id === "@/lib/googleReporting" ? { getAnalyticsSheetSnapshot: async () => snapshot, getGoogleReportingAccessToken: async () => "test-only-token" } : require(id);
 new Function("require", "module", "exports", "fetch", "process", code)(stubRequire, testModule, testModule.exports, fakeFetch, { env: { ANALYTICS_REPORT_SHEET_ID: "test_only_sheet_identifier" } });
 await testModule.exports.syncAnalyticsReportToSheet();
 const expansion = calls.find((c) => c.body?.requests)?.body.requests;
-assert.equal(expansion.length, 3);
+assert.equal(expansion.filter((r) => r.appendDimension).length, 3);
+assert.equal(expansion.find((r) => r.addSheet)?.addSheet.properties.title, "Speech Daily");
 const write = calls.find((c) => c.body?.valueInputOption);
 assert.equal(write.body.valueInputOption, "RAW");
 const daily = write.body.data.find((d) => d.range === "'Daily Summary'!A2:AD2").values[0];

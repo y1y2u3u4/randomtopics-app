@@ -25,7 +25,7 @@ export default function PrivacyPage() {
               Privacy <span className="gradient-text">Policy</span>
             </h1>
             <p className="text-sm text-[var(--text-muted)]">
-              Last updated: July 2026
+              Last updated: September 20, 2026
             </p>
           </section>
 
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
             <p className="text-[var(--text-secondary)] leading-relaxed">
               At <strong className="text-[var(--text-primary)]">randomtopics.app</strong>,
               your privacy matters. This policy explains what data we collect
-              (spoiler: very little), how we use it, and what choices you
+              when you use our tools, how we use it, and what choices you
               have.
             </p>
           </section>
@@ -48,18 +48,44 @@ export default function PrivacyPage() {
               Information We Collect
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              We do <strong className="text-[var(--text-primary)]">not</strong> collect
-              any personal information. There are no user accounts, no
-              registration forms, and no email collection on this website.
+              Topic generation does not require an account. If you choose speech
+              coaching, we create a guest account to keep your attempts private and
+              track your allowance. You may add an email to recover your history.
+              Submitted topics, transcripts, feedback, attempt duration and service
+              usage are stored with that account. Subscription records, when
+              subscriptions are available, include payment-provider identifiers and status.
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              The only data we gather is anonymous, aggregated usage
-              analytics through Google Analytics (see below). This helps us
-              understand how people use the tool so we can make it better.
+              We collect website usage analytics through Google Analytics. Speech
+              interaction events describe actions such as starting practice; we do
+              not include your recording, transcript or email in those events.
+              A keyed network-address hash helps limit abuse and excessive AI usage.
             </p>
           </section>
 
           {/* Cookies */}
+          <section className="glass-card p-8 space-y-4">
+            <h2 className="text-2xl font-semibold">Optional session replay</h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              On the English speech page, adults can choose to allow Microsoft
+              Clarity to record page interactions such as clicks, scrolling and
+              navigation. This is a reconstruction of website interactions, not
+              microphone audio or a recording of other applications. We mask
+              speech transcripts, generated feedback and email fields. We do not
+              send your speech content or account identifiers as replay tags.
+              Replay is not loaded on student pages, account pages or internal reports.
+            </p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              Replay stays off unless you confirm you are 18 or older and allow it.
+              You can withdraw through “Session replay · Change” on the speech page;
+              practice remains available. Clarity uses cookies after permission,
+              and advertising consent remains denied. See the{" "}
+              <a href="https://privacy.microsoft.com/privacystatement" className="underline">Microsoft Privacy Statement</a>.
+              We record practice actions, optional helpfulness ratings and stated
+              interest in future paid practice to understand where the experience
+              helps or fails. An interest response is not a purchase.
+            </p>
+          </section>
           <section className="glass-card p-8 space-y-4">
             <h2
               className="text-2xl font-semibold text-[var(--text-primary)]"
@@ -68,7 +94,7 @@ export default function PrivacyPage() {
               Cookies
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              We use cookies only through third-party services:
+              Third-party services may use cookies:
             </p>
             <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)]">
               <li>
@@ -102,6 +128,12 @@ export default function PrivacyPage() {
               device &mdash; it is never sent to our servers or shared with
               anyone. You can clear it at any time through your browser
               settings.
+            </p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              Speech coaching also stores a sign-in session in your browser. This
+              session accesses private records on our servers. Clearing it can make
+              guest practice unrecoverable unless you have verified an email first.
+              Recordings stay in browser memory until you choose to submit them.
             </p>
           </section>
 
@@ -150,13 +182,26 @@ export default function PrivacyPage() {
               className="text-2xl font-semibold text-[var(--text-primary)]"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              No Personal Data Collection
+              Speech Recordings and Your Choices
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              To be clear: we do not collect, store, or process any personal
-              data. There are no user accounts, no login systems, no email
-              lists, and no contact forms that collect personal information.
-              We have no database of user data.
+              Microphone access starts only after you choose to record. Submitting
+              sends your audio through our server to OpenRouter and its selected
+              model provider for transcription. Feedback uses your topic and reviewed
+              transcript; comparison also uses the earlier attempt. Our application
+              does not persist the raw audio. Provider processing is subject to their
+              policies; we do not promise zero provider retention. Avoid including
+              sensitive or third-party personal information in recordings.
+            </p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              Supabase provides authentication and private record storage; Vercel
+              hosts the application. Stripe processes payments when enabled, and
+              we do not receive your full card details. Your practice content is
+              retained until you delete it from your history or request deletion.
+              Deleting practice removes its topic, transcript and feedback from the
+              active database; minimal attempt and usage records remain to enforce
+              allowances. Service backups may retain earlier copies temporarily.
+              Contact us below for account deletion or other data requests.
             </p>
           </section>
 
@@ -169,7 +214,7 @@ export default function PrivacyPage() {
               Advertising
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              randomtopics.app is free to use, and advertising is what pays for it.
+              Our topic tools are free. Advertising and optional paid features support the service.
             </p>
             <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)]">
               <li>
@@ -222,8 +267,8 @@ export default function PrivacyPage() {
               consent, which you may withdraw at any time through your browser or the
               advertising controls above. You have the right to access, correct, delete
               or restrict processing of personal data relating to you, and to complain to
-              your local supervisory authority. Because we operate no accounts and store
-              no personal records, in most cases we simply hold nothing to return.
+              your local supervisory authority. For speech practice records or account
+              requests, use the history controls or contact us below.
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
               <strong className="text-[var(--text-primary)]">
@@ -248,9 +293,9 @@ export default function PrivacyPage() {
               Our topics and party questions are written to be classroom- and
               family-friendly, and teachers use them with students. The site is intended
               for a general audience and is not directed at children under 13, and we do
-              not knowingly collect personal information from anyone — there are no
-              accounts, forms or sign-ups anywhere on the site. If you believe a child
-              has somehow provided personal information to us, contact us and we will
+              not knowingly collect personal information from children under 13.
+              Children under 13 should not use recording, account or payment features.
+              If you believe a child has provided personal information to us, contact us and we will
               delete it.
             </p>
           </section>

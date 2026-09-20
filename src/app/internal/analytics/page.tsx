@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import SpeechAnalytics from "@/components/SpeechAnalytics";
 import { hasAnalyticsSession, isAnalyticsAuthConfigured } from "@/lib/analyticsAuth";
 import {
   getAnalyticsDashboardData,
@@ -11,6 +12,7 @@ import {
 } from "@/lib/googleReporting";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 120;
 
 export const metadata: Metadata = {
   title: { absolute: "Internal Analytics | RandomTopics" },
@@ -395,7 +397,7 @@ export default async function AnalyticsPage({
   const previousPostGenerateShare = eventByName(ga.previousEvents7, "post_generate_share");
 
   return (
-    <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:py-12">
+    <main data-clarity-mask="true" className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:py-12">
       <header className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300">Private reporting</p>
@@ -412,6 +414,7 @@ export default async function AnalyticsPage({
           </form>
         </div>
       </header>
+      <div className="mb-10"><SpeechAnalytics days={params.speech_days === "28" ? 28 : 7} refresh={params.refresh === "1"} /></div>
 
       {!configured ? (
         <p className="mb-8 rounded-xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-100">
