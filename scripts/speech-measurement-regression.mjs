@@ -46,6 +46,15 @@ assert.equal(events[1][0], "speech_issue_service");
 assert.equal(JSON.stringify(events).includes("PRIVATE"), false);
 assert.equal(JSON.stringify(events).includes("private@example"), false);
 assert.equal(telemetry.speechErrorCode({ status: 402 }), "quota");
+telemetry.trackSpeech("speech_checkout_redirect", {
+  content_source: "speech_account",
+  url: "https://checkout.stripe.com/c/pay/SECRET_SESSION",
+  customer_id: "cus_PRIVATE",
+  email: "private@example.test",
+});
+assert.deepEqual(events.at(-1), ["speech_checkout_redirect", {
+  measurement_version: "speech-v2", content_source: "speech_account",
+}]);
 
 const sent = []; const local = [];
 const fakeWindow = { location: { hostname: "preview.vercel.app", pathname: "/speech", origin: "https://preview.vercel.app" }, gtag: (...args) => sent.push(args), dispatchEvent: (event) => local.push(event) };

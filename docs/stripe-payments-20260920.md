@@ -87,6 +87,10 @@ rejected in a Vercel Preview deployment, even when copied with live flags.
   `payment=return` URL never grants access. Refresh loads persisted webhook state.
 - Closing new sales does not stop fulfillment or cancellation for existing
   customers while the dedicated billing configuration remains present.
+- The existing speech analytics and consented Clarity integration are preserved.
+  A visible-price/subscribe/Checkout-redirect funnel measures progress to Stripe,
+  explicitly not payment success. Checkout/portal failures use sanitized issue
+  categories; no checkout URL, customer ID, email or credential enters analytics.
 
 ## Verification and current external blockers
 
@@ -163,6 +167,8 @@ Created in the activated, independent RandomTopics **live** account:
   updates enabled; plan and quantity changes disabled; no retention coupon.
 - Portal title `Manage your RandomTopics Speech Coach subscription`, returning
   to `https://randomtopics.app/speech/account`.
+- Live public support, privacy and terms URLs point to `/contact`, `/privacy`
+  and `/terms` on `https://randomtopics.app`; saved values were re-opened and verified.
 
 The corresponding product, price, portal IDs and `SPEECH_SITE_URL` are stored
 only in Vercel Production. There is still no live API key or webhook credential,

@@ -39,6 +39,8 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
       ["付费兴趣：不确定", String(count("speech_paid_interest_unsure")), "需要更多价值证明"],
       ["只想免费使用", String(count("speech_paid_interest_no")), "与未回答用户分开"],
       ["超过 15 秒的请求", `${count("speech_transcribe_slow")} / ${count("speech_feedback_slow")}`, "转写 / 反馈成功请求中的慢请求"],
+      ["收银台跳转", String(count("speech_checkout_redirect")), "取得 Stripe 链接并发起跳转，不代表付款成功"],
+      ["发起订阅失败", String(count("speech_checkout_error")), "创建或跳转收银台失败，可在失败原因中排查"],
     ].map(([label, value, note]) => <article key={label} className="glass-card p-4"><h3 className="text-sm">{label}</h3><p className="my-2 text-2xl font-bold">{value}</p><p className="text-xs text-[var(--text-muted)]">{note}</p></article>)}</div>
     {["device", "source"].map((kind) => {
       const rows = kind === "device" ? report.devices.map((r) => ({ ...r, key: r.device })) : report.sources.map((r) => ({ ...r, key: r.source }));
@@ -50,6 +52,6 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
     })}
     <details className="glass-card p-5"><summary className="cursor-pointer">全部练习事件 · 用于核对接收</summary><div className="overflow-x-auto"><table className="mt-3 w-full text-left text-sm"><thead><tr><th>事件</th><th>次数</th><th>用户</th></tr></thead><tbody>{report.events.map((r) => <tr key={r.eventName}><td className="py-1">{r.eventName}</td><td>{r.eventCount}</td><td>{r.totalUsers}</td></tr>)}</tbody></table></div></details>
     <details className="glass-card p-5"><summary className="cursor-pointer">失败原因 · 权限、设备、静音、额度、服务</summary><ul className="mt-3 space-y-2 text-sm">{report.events.filter((r) => r.eventName.startsWith("speech_issue_")).map((r) => <li key={r.eventName}>{r.eventName.replace("speech_issue_", "")}：{r.eventCount} 次 / {r.totalUsers} 人</li>)}</ul></details>
-    <p className="text-xs text-[var(--text-muted)]">回放仅覆盖已同意的成人演讲页访客，因此回放数不是全部用户数。付费兴趣问卷未指定价格，不证明支付意愿或收入。</p>
+    <p className="text-xs text-[var(--text-muted)]">回放仅覆盖已同意的成人演讲页访客，因此回放数不是全部用户数。付费兴趣问卷未指定价格，不证明支付意愿或收入。收银台跳转也不代表付款；实际订阅以 Stripe 签名通知确认，收入请在 RandomTopics 独立 Stripe 账户查看。</p>
   </section>;
 }

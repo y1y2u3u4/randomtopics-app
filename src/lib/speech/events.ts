@@ -16,6 +16,8 @@ export const SPEECH_EVENTS = [
   "speech_recording_download", "speech_transcribe_slow", "speech_feedback_slow",
   "speech_compare_improved", "speech_compare_similar", "speech_compare_mixed",
   "speech_compare_insufficient", "speech_replay_allowed", "speech_replay_declined",
+  "speech_checkout_offer_view", "speech_checkout_start", "speech_checkout_redirect",
+  "speech_checkout_error", "speech_portal_start", "speech_portal_redirect", "speech_portal_error",
 ] as const;
 export type SpeechEvent = typeof SPEECH_EVENTS[number];
 export const SPEECH_FUNNELS = [
@@ -32,5 +34,10 @@ export const SPEECH_FUNNELS = [
   { key: "intent", title: "反馈 → 付费兴趣（非付款）", steps: [
     ["看到反馈", "speech_feedback_view"], ["看到付费意愿问题", "speech_offer_view"],
     ["明确表示有付费兴趣", "speech_paid_interest_yes"],
+  ] },
+  { key: "checkout", title: "$12 套餐 → 前往收银台（非付款）", steps: [
+    ["看到每月 $12 套餐", "speech_checkout_offer_view"],
+    ["点击订阅", "speech_checkout_start"],
+    ["取得收银台链接并跳转", "speech_checkout_redirect"],
   ] },
 ] as const;

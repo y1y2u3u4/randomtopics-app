@@ -1,9 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { practiceFetch, speechClient } from "@/lib/speech/client";
 import type { SpeechFeedback } from "@/lib/speech/schema";
-import { trackSpeech } from "@/lib/speech/telemetry";
+import { speechErrorCode, trackSpeech } from "@/lib/speech/telemetry";
 type Attempt = {
   id: string;
   topic: string;
@@ -29,6 +29,35 @@ export default function SpeechAccount() {
     periodEnd: null as string | null,
     manageable: false,
   });
+  const offer = useRef<HTMLElement>(null);
+  const offerSeen = useRef(false);
+  useEffect(() => {
+    if (!loaded || !billing || subscription.active || !offer.current || offerSeen.current)
+      return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting || offerSeen.current) return;
+      offerSeen.current = true;
+      trackSpeech("speech_checkout_offer_view", { content_source: "speech_account" });
+      observer.disconnect();
+    }, { threshold: 0.25 });
+    observer.observe(offer.current);
+    return () => observer.disconnect();
+  }, [loaded, billing, subscription.active]);
+
+  async function openBilling(destination: "checkout" | "portal") {
+    trackSpeech(`speech_${destination}_start`, { content_source: "speech_account" });
+    try {
+      const data = await practiceFetch(destination, {});
+      trackSpeech(`speech_${destination}_redirect`, { content_source: "speech_account" });
+      window.location.assign(data.url);
+    } catch (error) {
+      trackSpeech(`speech_${destination}_error`, {
+        content_source: "speech_account",
+        error_code: speechErrorCode(error),
+      });
+      throw error;
+    }
+  }
   useEffect(() => {
     let active = true;
     const id = new URLSearchParams(window.location.search).get("attempt");
@@ -351,7 +380,7 @@ export default function SpeechAccount() {
         ))}
       </section>
       {loaded && (billing || subscription.manageable) && (
-        <section className="glass-card space-y-4 p-5">
+        <section ref={offer} className="glass-card space-y-4 p-5">
           <h2 className="text-xl font-semibold">
             {subscription.active
               ? "Your speech subscription"
@@ -378,10 +407,7 @@ export default function SpeechAccount() {
                 className={button}
                 disabled={busy || anonymous}
                 onClick={() =>
-                  run(async () => {
-                    const data = await practiceFetch("checkout", {});
-                    window.location.assign(data.url);
-                  })
+                  run(() => openBilling("checkout"))
                 }
               >
                 Subscribe for $12/month
@@ -392,10 +418,7 @@ export default function SpeechAccount() {
                 className={button}
                 disabled={busy || anonymous}
                 onClick={() =>
-                  run(async () => {
-                    const data = await practiceFetch("portal", {});
-                    window.location.assign(data.url);
-                  })
+                  run(() => openBilling("portal"))
                 }
               >
                 Manage subscription
