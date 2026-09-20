@@ -10,7 +10,7 @@ export const productionFilter = {
 };
 export function funnelRequest(definition: typeof SPEECH_FUNNELS[number], days: number) {
   return {
-    dateRanges: [{ startDate: `${days}daysAgo`, endDate: "yesterday" }],
+    dateRanges: [{ startDate: days === 0 ? "today" : `${days}daysAgo`, endDate: days === 0 ? "today" : "yesterday" }],
     dimensionFilter: productionFilter,
     funnel: { isOpenFunnel: false, steps: definition.steps.map(([name, eventName], index) => ({
       name,

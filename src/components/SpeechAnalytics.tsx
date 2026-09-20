@@ -10,14 +10,14 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
   const count = (event: string) => report.events.find((r) => r.eventName === event)?.eventCount ?? 0;
   const yes = count("speech_feedback_yes");
   const no = count("speech_feedback_no");
-  const breakdownEvents = ["speech_entry_view", "speech_first_feedback_view", "speech_retry_feedback_view", "speech_paid_interest_yes"];
-  const labels = ["入口曝光人数", "首次反馈人数", "重练反馈人数", "有付费兴趣人数"];
+  const breakdownEvents = ["speech_entry_view", "speech_first_feedback_view", "speech_retry_feedback_view", "speech_checkout_offer_view", "speech_checkout_redirect", "speech_payment_confirmed"];
+  const labels = ["入口曝光人数", "首次反馈人数", "重练反馈人数", "套餐曝光人数", "结账跳转人数", "网站收到实付确认人数"];
   const clarity = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
   return <section id="speech-analytics" className="space-y-5">
     {process.env.NEXT_PUBLIC_SPEECH_COACH_ENABLED !== "true" && <p role="status" className="rounded-xl border border-amber-300/30 p-4 text-sm text-amber-100">正式练习入口尚未开放。统计已部署，但目前不能用练习漏斗的零值判断用户是否愿意练习或付费。</p>}
     <div className="flex flex-wrap items-center justify-between gap-3">
-      <div><h2 className="text-2xl font-bold">演讲练习 · 从流量到价值</h2><p className="mt-2 text-sm text-[var(--text-muted)]">最近 {report.days} 个完整日（GA4 属性时区）· 仅正式域名 · speech-v2</p></div>
-      <div className="flex gap-3"><Link className="underline" href="?speech_days=7#speech-analytics">7 天</Link><Link className="underline" href="?speech_days=28#speech-analytics">28 天</Link>
+      <div><h2 className="text-2xl font-bold">演讲练习 · 从流量到价值</h2><p className="mt-2 text-sm text-[var(--text-muted)]">{report.days === 0 ? "今日截至目前，数据仍在处理" : `最近 ${report.days} 个完整日`}（GA4 属性时区）· 仅正式域名 · speech-v2</p></div>
+      <div className="flex gap-3"><Link className="underline" href="?speech_days=0#speech-analytics">今日</Link><Link className="underline" href="?speech_days=1#speech-analytics">昨日</Link><Link className="underline" href="?speech_days=7#speech-analytics">7 天</Link><Link className="underline" href="?speech_days=28#speech-analytics">28 天</Link>
         {clarity && <a className="underline" href={`https://clarity.microsoft.com/projects/view/${clarity}/recordings`} target="_blank" rel="noreferrer">Clarity 回放</a>}</div>
     </div>
     <p className="text-sm text-[var(--text-secondary)]">有序漏斗按 GA4 用户去重，必须按顺序完成，每相邻步骤不超过 24 小时。可跨会话，不保证是同一条录音；清除 Cookie、换设备及拦截统计会影响识别。数据未成熟时先看人数。</p>
@@ -39,17 +39,19 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
       ["付费兴趣：不确定", String(count("speech_paid_interest_unsure")), "需要更多价值证明"],
       ["只想免费使用", String(count("speech_paid_interest_no")), "与未回答用户分开"],
       ["超过 15 秒的请求", `${count("speech_transcribe_slow")} / ${count("speech_feedback_slow")}`, "转写 / 反馈成功请求中的慢请求"],
+      ["收银台跳转", String(count("speech_checkout_redirect")), "取得 Stripe 链接并发起跳转，不代表付款成功"],
+      ["发起订阅失败", String(count("speech_checkout_error")), "创建或跳转收银台失败，可在失败原因中排查"],
     ].map(([label, value, note]) => <article key={label} className="glass-card p-4"><h3 className="text-sm">{label}</h3><p className="my-2 text-2xl font-bold">{value}</p><p className="text-xs text-[var(--text-muted)]">{note}</p></article>)}</div>
-    {["device", "source"].map((kind) => {
-      const rows = kind === "device" ? report.devices.map((r) => ({ ...r, key: r.device })) : report.sources.map((r) => ({ ...r, key: r.source }));
+    {["device", "source", "landing"].map((kind) => {
+      const rows = kind === "device" ? report.devices.map((r) => ({ ...r, key: r.device })) : kind === "source" ? report.sources.map((r) => ({ ...r, key: r.source })) : report.landings.map((r) => ({ ...r, key: r.landing }));
       const keys = [...new Set(rows.map((r) => r.key))];
-      return <details key={kind} className="glass-card p-5" open={kind === "device"}><summary className="cursor-pointer font-semibold">{kind === "device" ? "设备" : "会话来源 / 媒介"}拆解 · 各事件独立人数</summary>
+      return <details key={kind} className="glass-card p-5" open={kind === "device"}><summary className="cursor-pointer font-semibold">{kind === "device" ? "设备" : kind === "source" ? "会话来源 / 媒介" : "会话落地页"}拆解 · 各事件独立人数</summary>
         <div className="overflow-x-auto"><table className="mt-4 w-full min-w-[620px] text-left text-sm"><thead><tr><th>分组</th>{labels.map((label) => <th key={label}>{label}</th>)}</tr></thead><tbody>{keys.map((key) => <tr key={key} className="border-t border-white/10"><td className="py-3">{key}</td>{breakdownEvents.map((event) => <td key={event}>{number.format(rows.find((r) => r.key === key && r.event === event)?.users ?? 0)}</td>)}</tr>)}</tbody></table></div>
         {!keys.length && <p className="mt-3 text-sm">暂无正式流量数据。</p>}
       </details>;
     })}
     <details className="glass-card p-5"><summary className="cursor-pointer">全部练习事件 · 用于核对接收</summary><div className="overflow-x-auto"><table className="mt-3 w-full text-left text-sm"><thead><tr><th>事件</th><th>次数</th><th>用户</th></tr></thead><tbody>{report.events.map((r) => <tr key={r.eventName}><td className="py-1">{r.eventName}</td><td>{r.eventCount}</td><td>{r.totalUsers}</td></tr>)}</tbody></table></div></details>
     <details className="glass-card p-5"><summary className="cursor-pointer">失败原因 · 权限、设备、静音、额度、服务</summary><ul className="mt-3 space-y-2 text-sm">{report.events.filter((r) => r.eventName.startsWith("speech_issue_")).map((r) => <li key={r.eventName}>{r.eventName.replace("speech_issue_", "")}：{r.eventCount} 次 / {r.totalUsers} 人</li>)}</ul></details>
-    <p className="text-xs text-[var(--text-muted)]">回放仅覆盖已同意的成人演讲页访客，因此回放数不是全部用户数。付费兴趣问卷未指定价格，不证明支付意愿或收入。</p>
+    <p className="text-xs text-[var(--text-muted)]">回放仅覆盖已同意的成人演讲页访客。网站实付事件要求同一浏览器曾发起结账、返回后经服务端向 Stripe 核实已付 USD 12，并按订单去重；未返回、跨设备或拦截统计会缺失。因此需同时看 Stripe 实付核对，不把兴趣问卷或跳转当付款，不把分组独立人数直接相除当有序漏斗。</p>
   </section>;
 }

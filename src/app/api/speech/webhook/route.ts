@@ -1,8 +1,14 @@
 import { database, response } from "@/lib/speech/server";
-import { stripe } from "@/lib/speech/billing";
+import {
+  billingConfiguration,
+  matchesSpeechPrice,
+  stripe,
+  SPEECH_PRODUCT,
+} from "@/lib/speech/billing";
 export async function POST(request: Request) {
   try {
-    const api = stripe();
+    const api = stripe(false);
+    const config = billingConfiguration();
     const body = await request.text();
     if (body.length > 1_000_000) return response({ error: "Too large" }, 413);
     let event;
@@ -10,11 +16,13 @@ export async function POST(request: Request) {
       event = api.webhooks.constructEvent(
         body,
         request.headers.get("stripe-signature") || "",
-        process.env.STRIPE_WEBHOOK_SECRET!,
+        config.webhookSecret,
       );
     } catch {
       return response({ error: "Invalid signature" }, 400);
     }
+    if (event.livemode !== config.livemode)
+      return response({ error: "Wrong billing environment" }, 400);
     if (
       ![
         "customer.subscription.created",
@@ -23,14 +31,23 @@ export async function POST(request: Request) {
       ].includes(event.type)
     )
       return response({ received: true });
-    const object = event.data.object as { id: string };
+    const object = event.data.object as {
+      id: string;
+      metadata?: Record<string, string>;
+    };
+    // Filter the signed snapshot before fetching any other application's objects.
+    if (object.metadata?.product !== SPEECH_PRODUCT)
+      return response({ received: true });
     // Re-read provider state: do not trust an old webhook's plan or metadata snapshot.
     const subscription = await api.subscriptions.retrieve(object.id);
-    if (subscription.metadata.product !== "randomtopics_speech")
+    if (
+      subscription.metadata.product !== SPEECH_PRODUCT ||
+      subscription.livemode !== config.livemode
+    )
       return response({ received: true });
     const userId = subscription.metadata.user_id;
     const item = subscription.items.data.find(
-      (item) => item.price.id === process.env.SPEECH_STRIPE_PRICE_ID,
+      (item) => item.quantity === 1 && matchesSpeechPrice(item.price),
     );
     const customer =
       typeof subscription.customer === "string"

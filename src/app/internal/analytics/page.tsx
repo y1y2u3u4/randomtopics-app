@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import SpeechAnalytics from "@/components/SpeechAnalytics";
+import SpeechPayments from "@/components/SpeechPayments";
 import { hasAnalyticsSession, isAnalyticsAuthConfigured } from "@/lib/analyticsAuth";
 import {
   getAnalyticsDashboardData,
@@ -414,7 +415,8 @@ export default async function AnalyticsPage({
           </form>
         </div>
       </header>
-      <div className="mb-10"><SpeechAnalytics days={params.speech_days === "28" ? 28 : 7} refresh={params.refresh === "1"} /></div>
+      <div className="mb-10"><SpeechPayments /></div>
+      <div className="mb-10"><SpeechAnalytics days={Number(params.speech_days ?? "7")} refresh={params.refresh === "1"} /></div>
 
       {!configured ? (
         <p className="mb-8 rounded-xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-100">

@@ -1,9 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { practiceFetch, speechClient } from "@/lib/speech/client";
 import type { SpeechFeedback } from "@/lib/speech/schema";
-import { trackSpeech } from "@/lib/speech/telemetry";
+import { speechErrorCode, trackSpeech, trackConfirmedSpeechPurchase } from "@/lib/speech/telemetry";
 type Attempt = {
   id: string;
   topic: string;
@@ -24,6 +24,44 @@ export default function SpeechAccount() {
   const [anonymous, setAnonymous] = useState(true);
   const [billing, setBilling] = useState(false);
   const [emailAvailable, setEmailAvailable] = useState(false);
+  const [emailVerified, setEmailVerified] = useState(false);
+  const [subscription, setSubscription] = useState({
+    active: false,
+    periodEnd: null as string | null,
+    manageable: false,
+  });
+  const offer = useRef<HTMLElement>(null);
+  const offerSeen = useRef(false);
+  useEffect(() => {
+    if (!loaded || !billing || subscription.active || !offer.current || offerSeen.current)
+      return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting || offerSeen.current) return;
+      offerSeen.current = true;
+      trackSpeech("speech_checkout_offer_view", { content_source: "speech_account" });
+      observer.disconnect();
+    }, { threshold: 0.25 });
+    observer.observe(offer.current);
+    return () => observer.disconnect();
+  }, [loaded, billing, subscription.active]);
+
+  async function openBilling(destination: "checkout" | "portal") {
+    trackSpeech(`speech_${destination}_start`, { content_source: "speech_account" });
+    try {
+      const data = await practiceFetch(destination, {});
+      if (destination === "checkout" && /^[a-f0-9]{64}$/.test(data.transactionId || "")) {
+        try { sessionStorage.setItem("rt_speech_checkout_pending", data.transactionId); } catch { /* optional measurement */ }
+      }
+      trackSpeech(`speech_${destination}_redirect`, { content_source: "speech_account" });
+      window.location.assign(data.url);
+    } catch (error) {
+      trackSpeech(`speech_${destination}_error`, {
+        content_source: "speech_account",
+        error_code: speechErrorCode(error),
+      });
+      throw error;
+    }
+  }
   useEffect(() => {
     let active = true;
     const id = new URLSearchParams(window.location.search).get("attempt");
@@ -34,6 +72,19 @@ export default function SpeechAccount() {
         setAnonymous(data.anonymous);
         setBilling(data.billingAvailable);
         setEmailAvailable(data.emailAvailable);
+        setEmailVerified(data.emailVerified);
+        trackConfirmedSpeechPurchase(data.purchase);
+        if (data.emailVerified) trackSpeech("speech_email_verified", { content_source: "speech_account" });
+        setSubscription(data.subscription);
+        if (
+          new URLSearchParams(window.location.search).get("payment") ===
+          "return"
+        )
+          setMessage(
+            data.subscription.active
+              ? "Your subscription is active. You can continue practicing."
+              : "Your subscription is not confirmed yet. If you completed payment, refresh in a moment. Do not pay again while confirmation is pending.",
+          );
         setLoaded(true);
         trackSpeech("speech_history_view", { content_source: "speech_account" });
       })
@@ -64,9 +115,21 @@ export default function SpeechAccount() {
     setAnonymous(data.anonymous);
     setBilling(data.billingAvailable);
     setEmailAvailable(data.emailAvailable);
+    setEmailVerified(data.emailVerified);
+    trackConfirmedSpeechPurchase(data.purchase);
+    if (data.emailVerified) trackSpeech("speech_email_verified", { content_source: "speech_account" });
+    setSubscription(data.subscription);
+    if (new URLSearchParams(window.location.search).get("payment") === "return")
+      setMessage(
+        data.subscription.active
+          ? "Your subscription is active. You can continue practicing."
+          : "Your subscription is not confirmed yet. If you completed payment, refresh in a moment. Do not pay again while confirmation is pending.",
+      );
     setLoaded(true);
   }
   async function emailLink(existing: boolean) {
+    const event = existing ? "speech_recovery" : "speech_email_link";
+    trackSpeech(`${event}_start`, { content_source: "speech_account" });
     const auth = (await speechClient()).auth;
     const redirect = `${window.location.origin}/speech/account`;
     const {
@@ -82,12 +145,15 @@ export default function SpeechAccount() {
           options: { shouldCreateUser: false, emailRedirectTo: redirect },
         })
       : await auth.updateUser({ email }, { emailRedirectTo: redirect });
-    if (result.error)
+    if (result.error) {
+      trackSpeech(`${event}_error`, { content_source: "speech_account", error_code: "service" });
       throw new Error(
         existing
           ? "Could not send a sign-in link. Please check your email and try again later."
           : "Could not link this email. If you already have an account, use the sign-in option.",
       );
+    }
+    trackSpeech(`${event}_sent`, { content_source: "speech_account" });
     setMessage(
       "Check your email to confirm. Then return here and refresh your history.",
     );
@@ -102,7 +168,25 @@ export default function SpeechAccount() {
         Review your feedback, keep your progress, and choose what to practice
         next.
       </p>
-      {emailAvailable ? (
+      {emailVerified ? (
+        <section className="glass-card space-y-3 p-5">
+          <h2 className="text-xl font-semibold">Your email is verified</h2>
+          <p className="text-sm text-[var(--text-muted)]">Your practice and subscription are linked to your account. You can sign in with this email on another device.</p>
+          <button
+            type="button"
+            className={button}
+            disabled={busy}
+            onClick={() => run(async () => {
+              const { error } = await (await speechClient()).auth.signOut({ scope: "local" });
+              if (error) throw new Error("Could not sign out. Please try again.");
+              try { sessionStorage.removeItem("rt_speech_checkout_pending"); } catch { /* optional measurement */ }
+              window.location.assign("/speech/account");
+            })}
+          >
+            Sign out on this device
+          </button>
+        </section>
+      ) : emailAvailable ? (
         <section className="glass-card space-y-4 p-5">
           <h2 className="text-xl font-semibold">
             Keep your practice across devices
@@ -214,7 +298,9 @@ export default function SpeechAccount() {
                     Feedback and transcript
                   </summary>
                   <h4 className="mt-3 font-semibold">What worked</h4>
-                  <p className="my-3">{attempt.feedback.strength.observation}</p>
+                  <p className="my-3">
+                    {attempt.feedback.strength.observation}
+                  </p>
                   <blockquote className="my-3 border-l-2 border-[var(--neon-cyan)] pl-3">
                     {attempt.feedback.strength.quote}
                   </blockquote>
@@ -226,17 +312,26 @@ export default function SpeechAccount() {
                     {attempt.feedback.priority.quote}
                   </blockquote>
                   <dl className="my-4 space-y-2 text-sm">
-                    {Object.entries(attempt.feedback.structure).map(([name, note]) => (
-                      <div key={name}>
-                        <dt className="font-semibold capitalize">{name}</dt>
-                        <dd>{note}</dd>
-                      </div>
-                    ))}
+                    {Object.entries(attempt.feedback.structure).map(
+                      ([name, note]) => (
+                        <div key={name}>
+                          <dt className="font-semibold capitalize">{name}</dt>
+                          <dd>{note}</dd>
+                        </div>
+                      ),
+                    )}
                   </dl>
                   {attempt.feedback.comparison.outcome !== "first_attempt" && (
                     <section className="my-4 space-y-3">
-                      <h4 className="font-semibold">Compared with your previous attempt</h4>
-                      <p className="capitalize">{attempt.feedback.comparison.outcome.replaceAll("_", " ")}</p>
+                      <h4 className="font-semibold">
+                        Compared with your previous attempt
+                      </h4>
+                      <p className="capitalize">
+                        {attempt.feedback.comparison.outcome.replaceAll(
+                          "_",
+                          " ",
+                        )}
+                      </p>
                       {attempt.feedback.comparison.beforeQuote && (
                         <blockquote className="border-l-2 border-white/20 pl-3">
                           <span className="block text-sm">Before</span>
@@ -317,9 +412,19 @@ export default function SpeechAccount() {
           </article>
         ))}
       </section>
-      {loaded && billing && (
-        <section className="glass-card space-y-4 p-5">
-          <h2 className="text-xl font-semibold">Keep practicing · $12/month</h2>
+      {loaded && (billing || subscription.manageable) && (
+        <section ref={offer} className="glass-card space-y-4 p-5">
+          <h2 className="text-xl font-semibold">
+            {subscription.active
+              ? "Your speech subscription"
+              : "Keep practicing · $12/month"}
+          </h2>
+          {subscription.active && subscription.periodEnd && (
+            <p role="status">
+              Active · access through{" "}
+              {new Date(subscription.periodEnd).toLocaleDateString()}.
+            </p>
+          )}
           <p>
             40 recorded attempts per billing month, including retries. Each
             attempt includes transcription and feedback, up to two minutes.
@@ -330,30 +435,28 @@ export default function SpeechAccount() {
             Access continues to the end of your paid period.
           </p>
           <div className="flex flex-wrap gap-3">
-            <button
-              className={button}
-              disabled={busy || anonymous}
-              onClick={() =>
-                run(async () => {
-                  const data = await practiceFetch("checkout", {});
-                  window.location.assign(data.url);
-                })
-              }
-            >
-              Subscribe for $12/month
-            </button>
-            <button
-              className={button}
-              disabled={busy || anonymous}
-              onClick={() =>
-                run(async () => {
-                  const data = await practiceFetch("portal", {});
-                  window.location.assign(data.url);
-                })
-              }
-            >
-              Manage subscription
-            </button>
+            {billing && !subscription.active && (
+              <button
+                className={button}
+                disabled={busy || anonymous}
+                onClick={() =>
+                  run(() => openBilling("checkout"))
+                }
+              >
+                Subscribe for $12/month
+              </button>
+            )}
+            {subscription.manageable && (
+              <button
+                className={button}
+                disabled={busy || anonymous}
+                onClick={() =>
+                  run(() => openBilling("portal"))
+                }
+              >
+                Manage subscription
+              </button>
+            )}
           </div>
           {anonymous && (
             <p className="text-sm">
@@ -362,7 +465,7 @@ export default function SpeechAccount() {
           )}
         </section>
       )}
-      {loaded && !billing && (
+      {loaded && !billing && !subscription.manageable && (
         <p className="text-sm text-[var(--text-muted)]">
           Subscriptions are not open yet. Your first two recorded attempts are
           free.

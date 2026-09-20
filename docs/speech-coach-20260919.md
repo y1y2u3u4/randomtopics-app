@@ -37,9 +37,11 @@ delivery needs a configured mail provider; default Supabase email has restrictio
 | `SUPABASE_SERVICE_ROLE_KEY` | Server-only private database access |
 | `SPEECH_BILLING_ENABLED=true` | Enable configured Stripe checkout |
 | `SPEECH_EMAIL_ENABLED=true` | Show email linking after SMTP and exact callback URLs are verified |
-| `STRIPE_SECRET_KEY` | Use sandbox `sk_test_` key during verification |
-| `STRIPE_WEBHOOK_SECRET` | Signature for `/api/speech/webhook` |
+| `SPEECH_STRIPE_SECRET_KEY` | NEW dedicated RandomTopics sandbox `rk_test_` key; no generic fallback |
+| `SPEECH_STRIPE_WEBHOOK_SECRET` | Dedicated signature for `/api/speech/webhook` |
+| `SPEECH_STRIPE_PRODUCT_ID` | Dedicated RandomTopics Speech Coach product |
 | `SPEECH_STRIPE_PRICE_ID` | Dedicated $12 monthly price, not another app's price |
+| `SPEECH_STRIPE_PORTAL_CONFIGURATION_ID` | Dedicated RandomTopics customer portal configuration |
 | `SPEECH_SITE_URL` | Exact trusted origin for payment returns |
 | `SPEECH_LIVE_BILLING_ENABLED=true` | Separate explicit live-payment gate |
 
@@ -47,6 +49,11 @@ Subscribe to `customer.subscription.created`, `customer.subscription.updated`,
 and `customer.subscription.deleted`. Enable cancellation in the customer portal.
 Use the stable branch preview for sandbox webhooks and returns. Do not expose
 another product's billing configuration or copy its customer records.
+New sales also require verified email recovery (`SPEECH_EMAIL_ENABLED=true`).
+Product metadata must include `product=randomtopics_speech`. See
+`docs/stripe-payments-20260920.md` for independent credential setup and remaining
+external verification. Disabling new sales preserves webhooks and the customer
+portal for existing subscribers.
 
 ## Verification
 

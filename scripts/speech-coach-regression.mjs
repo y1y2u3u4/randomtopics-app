@@ -1,41 +1,8 @@
 import assert from "node:assert/strict";
-import { readFileSync, existsSync } from "node:fs";
-import { resolve, dirname } from "node:path";
 import { createRequire } from "node:module";
-import ts from "typescript";
+import { load } from "./lib/load-typescript.mjs";
 
 const require = createRequire(import.meta.url);
-const root = resolve(import.meta.dirname, "..");
-function load(file, overrides = {}, cache = new Map()) {
-  file = resolve(root, file);
-  if (cache.has(file)) return cache.get(file).exports;
-  const loaded = { exports: {} };
-  cache.set(file, loaded);
-  const code = ts.transpileModule(readFileSync(file, "utf8"), {
-    compilerOptions: {
-      module: ts.ModuleKind.CommonJS,
-      target: ts.ScriptTarget.ES2022,
-      esModuleInterop: true,
-    },
-  }).outputText;
-  new Function("require", "module", "exports", code)(
-    (id) => {
-      if (Object.hasOwn(overrides, id)) return overrides[id];
-      if (id === "server-only") return {};
-      if (id.startsWith("@/") || id.startsWith(".")) {
-        let path = id.startsWith("@/")
-          ? resolve(root, "src", id.slice(2))
-          : resolve(dirname(file), id);
-        if (!existsSync(path)) path += ".ts";
-        return load(path, overrides, cache);
-      }
-      return require(id);
-    },
-    loaded,
-    loaded.exports,
-  );
-  return loaded.exports;
-}
 const { validateFeedback } = load("src/lib/speech/schema.ts");
 const transcript =
   "Daily practice matters. Yesterday I rehearsed twice and shortened my opening.";
@@ -162,33 +129,63 @@ assert.equal(calls, 0, "Bad audio must not consume quota or model calls");
 
 // A failed transcription must release its reservation before allowing a new ID.
 const wav = Buffer.alloc(44 + 6 * 24000);
-wav.write("RIFF"); wav.writeUInt32LE(wav.length - 8, 4);
-wav.write("WAVEfmt ", 8); wav.writeUInt32LE(16, 16);
-wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22);
-wav.writeUInt32LE(12000, 24); wav.writeUInt32LE(24000, 28);
-wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34);
-wav.write("data", 36); wav.writeUInt32LE(wav.length - 44, 40);
+wav.write("RIFF");
+wav.writeUInt32LE(wav.length - 8, 4);
+wav.write("WAVEfmt ", 8);
+wav.writeUInt32LE(16, 16);
+wav.writeUInt16LE(1, 20);
+wav.writeUInt16LE(1, 22);
+wav.writeUInt32LE(12000, 24);
+wav.writeUInt32LE(24000, 28);
+wav.writeUInt16LE(2, 32);
+wav.writeUInt16LE(16, 34);
+wav.write("data", 36);
+wav.writeUInt32LE(wav.length - 44, 40);
 for (const releaseFails of [false, true]) {
   const updates = [];
   const failedChain = {
-    update(value) { updates.push(value); return this; },
-    eq() { return this; },
-    then(resolve) { resolve({ error: releaseFails ? new Error("database unavailable") : null }); },
+    update(value) {
+      updates.push(value);
+      return this;
+    },
+    eq() {
+      return this;
+    },
+    then(resolve) {
+      resolve({
+        error: releaseFails ? new Error("database unavailable") : null,
+      });
+    },
   };
   const silentRoute = load("src/app/api/speech/transcribe/route.ts", {
     "@/lib/speech/server": {
       ...server,
-      actor: async () => ({ user: { id: "owner" }, db: {
-        rpc: async () => ({ data: true, error: null }),
-        from: () => failedChain,
-      } }),
+      actor: async () => ({
+        user: { id: "owner" },
+        db: {
+          rpc: async () => ({ data: true, error: null }),
+          from: () => failedChain,
+        },
+      }),
       networkHash: () => "test-network",
-      modelCall: async () => ({ value: { transcript: "" }, usage: {}, model: "test" }),
+      modelCall: async () => ({
+        value: { transcript: "" },
+        usage: {},
+        model: "test",
+      }),
     },
   });
-  const result = await silentRoute.POST(new Request("https://example.test/api/speech/transcribe", {
-    method: "POST", body: JSON.stringify({ id, topic: "Practice", previousId: null, audio: wav.toString("base64") }),
-  }));
+  const result = await silentRoute.POST(
+    new Request("https://example.test/api/speech/transcribe", {
+      method: "POST",
+      body: JSON.stringify({
+        id,
+        topic: "Practice",
+        previousId: null,
+        audio: wav.toString("base64"),
+      }),
+    }),
+  );
   assert.equal(result.status, 422);
   assert.equal((await result.json()).retryWithNewId, !releaseFails);
   assert.equal(updates[0].status, "failed");
@@ -212,6 +209,9 @@ const chain = {
   limit() {
     return this;
   },
+  async maybeSingle() {
+    return { data: null, error: null };
+  },
   then(resolve) {
     resolve({ data: [], error: null });
   },
@@ -228,7 +228,10 @@ const history = load("src/app/api/speech/history/route.ts", {
       },
     }),
   },
-  "@/lib/speech/billing": { billingReady: () => false },
+  "@/lib/speech/billing": {
+    billingReady: () => false,
+    billingManagementReady: () => false,
+  },
 });
 const historyResponse = await history.GET(
   new Request(`https://example.test/api/speech/history?id=${id}`),
@@ -245,19 +248,23 @@ assert.equal((await historyResponse.json()).billingAvailable, false);
 
 const billing = load("src/lib/speech/billing.ts");
 process.env.SPEECH_BILLING_ENABLED = "true";
-process.env.STRIPE_SECRET_KEY = "sk_live_not_a_real_key";
-process.env.STRIPE_WEBHOOK_SECRET = "whsec_test";
+process.env.SPEECH_EMAIL_ENABLED = "true";
+process.env.SPEECH_STRIPE_SECRET_KEY = "rk_live_not_a_real_key";
+process.env.SPEECH_STRIPE_WEBHOOK_SECRET = "whsec_test";
+process.env.SPEECH_STRIPE_PRODUCT_ID = "prod_test";
 process.env.SPEECH_STRIPE_PRICE_ID = "price_test";
+process.env.SPEECH_STRIPE_PORTAL_CONFIGURATION_ID = "bpc_test";
+process.env.SPEECH_SITE_URL = "https://example.test";
 delete process.env.SPEECH_LIVE_BILLING_ENABLED;
 assert.equal(billing.billingReady(), false);
 assert.throws(() => billing.stripe(), /not open/);
-process.env.STRIPE_SECRET_KEY = "sk_test_not_a_real_key";
+process.env.SPEECH_STRIPE_SECRET_KEY = "rk_test_not_a_real_key";
 assert.equal(billing.billingReady(), true);
 let writes = 0;
 const Stripe = require("stripe");
-const stripeClient = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripeClient = new Stripe(process.env.SPEECH_STRIPE_SECRET_KEY);
 const webhook = load("src/app/api/speech/webhook/route.ts", {
-  "@/lib/speech/billing": { stripe: () => stripeClient },
+  "@/lib/speech/billing": { ...billing, stripe: () => stripeClient },
   "@/lib/speech/server": {
     ...server,
     database: () => {
@@ -280,12 +287,13 @@ assert.equal(forged.status, 400);
 assert.equal(writes, 0);
 const unrelated = JSON.stringify({
   id: "evt_test",
+  livemode: false,
   type: "customer.created",
   data: { object: { id: "cus_test" } },
 });
 const signature = stripeClient.webhooks.generateTestHeaderString({
   payload: unrelated,
-  secret: process.env.STRIPE_WEBHOOK_SECRET,
+  secret: process.env.SPEECH_STRIPE_WEBHOOK_SECRET,
 });
 const ignored = await webhook.POST(
   new Request("https://example.test/api/speech/webhook", {
