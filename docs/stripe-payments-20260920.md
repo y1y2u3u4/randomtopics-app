@@ -143,6 +143,8 @@ Created and verified in the dedicated RandomTopics sandbox:
   payment-method updates and cancellation at period end; no plan/quantity
   switching or retention coupons.
 - Portal title: `Manage your RandomTopics Speech Coach subscription`.
+- Portal policy links were verified as `https://randomtopics.app/terms` and
+  `https://randomtopics.app/privacy` after updating sandbox public business links.
 
 Those three resource IDs and `SPEECH_SITE_URL` have been saved only in Vercel
 Preview for branch `codex/randomtopics-stripe-20260920`. The trusted origin is
@@ -183,6 +185,14 @@ has been added, preserving the three existing callback URLs. Email delivery
 has not been verified in this task. The Vercel preview is
 protected, so the webhook's public delivery route also needs to be resolved
 before end-to-end testing.
+
+Payment code commit `67e9329` includes the latest `main` speech analytics and
+consented Clarity work. Billing, speech/measurement and growth regression,
+ESLint, TypeScript and diff checks pass. Vercel deployment
+`dpl_8bKShVs5weKzdwurX57PHLRxsQRe` is Ready. Chrome verified that the stable
+preview account page loads its private history, correctly shows subscriptions
+and email recovery as unavailable, and reports no browser warnings/errors.
+This smoke check does not establish a working Checkout, webhook or mail delivery.
 
 Before enabling sales, finish Dashboard setup, configure
 and verify email recovery, then exercise real sandbox Checkout (success,
