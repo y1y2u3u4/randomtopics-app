@@ -14,6 +14,7 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
   const labels = ["入口曝光人数", "首次反馈人数", "重练反馈人数", "有付费兴趣人数"];
   const clarity = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
   return <section id="speech-analytics" className="space-y-5">
+    {process.env.NEXT_PUBLIC_SPEECH_COACH_ENABLED !== "true" && <p role="status" className="rounded-xl border border-amber-300/30 p-4 text-sm text-amber-100">正式练习入口尚未开放。统计已部署，但目前不能用练习漏斗的零值判断用户是否愿意练习或付费。</p>}
     <div className="flex flex-wrap items-center justify-between gap-3">
       <div><h2 className="text-2xl font-bold">演讲练习 · 从流量到价值</h2><p className="mt-2 text-sm text-[var(--text-muted)]">最近 {report.days} 个完整日（GA4 属性时区）· 仅正式域名 · speech-v2</p></div>
       <div className="flex gap-3"><Link className="underline" href="?speech_days=7#speech-analytics">7 天</Link><Link className="underline" href="?speech_days=28#speech-analytics">28 天</Link>
