@@ -149,17 +149,21 @@ Created and verified in the dedicated RandomTopics sandbox:
 Those three resource IDs and `SPEECH_SITE_URL` have been saved only in Vercel
 Preview for branch `codex/randomtopics-stripe-20260920`. The trusted origin is
 `https://randomtopics-git-codex-randomtopics-s-f41608-y1y2u3u4s-projects.vercel.app`;
-the portal returns to `/speech/account`. A redeploy is still needed after all
-configuration is complete. After explicit owner confirmation, the dedicated
+the portal returns to `/speech/account`. After explicit owner confirmation, the dedicated
 restricted sandbox key was created with exactly the six permissions listed
 above and stored through Chrome as a Vercel Secret (`type=sensitive`), only in
 Preview for `codex/randomtopics-stripe-20260920`. The full key was not printed,
 committed, copied to another project, or stored in Production.
 
-The webhook draft is `randomtopics-speech-preview`, with the three subscription
-events above and API version `2026-08-26.dahlia` (matching stripe-node). Creation
-is pending approval for a dedicated Vercel automation bypass token so Stripe can
-reach the protected preview. No webhook signing secret has been created yet.
+The sandbox webhook is `randomtopics-speech-preview`
+(`we_1UHipTEXV3G3z9Pt66Pp862S`), with the three subscription events above and
+API version `2026-08-26.dahlia` (matching stripe-node). Following owner approval,
+a dedicated Vercel automation bypass named
+`RandomTopics Stripe sandbox webhook — payment preview` was created and added
+to this endpoint's URL. Preview deployment protection remains enabled. This is
+a project-scoped bypass, not a route-scoped permission; keep its value secret.
+The endpoint's signing secret is encrypted in Vercel Preview only for the payment
+branch. Neither credential is recorded in this document or source control.
 
 Created in the activated, independent RandomTopics **live** account:
 
@@ -174,29 +178,76 @@ Created in the activated, independent RandomTopics **live** account:
 
 The corresponding product, price, portal IDs and `SPEECH_SITE_URL` are stored
 only in Vercel Production. There is still no live API key or webhook credential,
-and no live billing flag has been enabled. Production email recovery and all
-required sandbox verification remain gates before launch.
+and no live billing flag has been enabled. A six-permission restricted live-key
+draft named `RandomTopics Speech — Production` is prepared in Chrome, awaiting
+owner confirmation before creation. Production email recovery and live
+configuration remain gates before launch.
 
-RandomTopics's configured preview environment now contains its dedicated
-restricted Stripe secret but no webhook signing secret or enabled email recovery flag. Existing documentation records SMTP as
-unconfigured; the dedicated Supabase project's SMTP dashboard also confirms
-custom SMTP is disabled. The exact payment-preview `/speech/account` callback
-has been added, preserving the three existing callback URLs. Email delivery
-has not been verified in this task. The Vercel preview is
-protected, so the webhook's public delivery route also needs to be resolved
-before end-to-end testing.
+The dedicated Supabase project's SMTP dashboard confirms custom SMTP is
+disabled. The exact payment-preview `/speech/account` callback has been added,
+preserving the three existing callback URLs. A Resend login page is open for
+the owner to complete sign-in. No new mail-service agreement was accepted and
+email delivery has not been verified. A confirmed synthetic account was used
+for payment QA; generating its test sign-in link does not establish that a real
+customer can receive recovery email.
 
 Payment code commit `67e9329` includes the latest `main` speech analytics and
 consented Clarity work. Billing, speech/measurement and growth regression,
-ESLint, TypeScript and diff checks pass. Vercel deployment
-`dpl_8bKShVs5weKzdwurX57PHLRxsQRe` is Ready. Chrome verified that the stable
-preview account page loads its private history, correctly shows subscriptions
-and email recovery as unavailable, and reports no browser warnings/errors.
-This smoke check does not establish a working Checkout, webhook or mail delivery.
+ESLint, TypeScript and diff checks pass. Initial deployment smoke checks showed
+no browser warnings/errors. Actual sandbox integration QA subsequently ran on
+Ready deployment `dpl_5gNJPzF37PBnWGwA7tG13ZPgMd2g`, using a synthetic confirmed
+account and temporary branch-only billing/email flags. No real payment card,
+fund transfer or model inference was used.
 
-Before enabling sales, finish Dashboard setup, configure
-and verify email recovery, then exercise real sandbox Checkout (success,
-decline, 3DS, cancel), confirmed access/40-attempt quota, owner isolation,
-renewal/failure, cancellation, and replayed/out-of-order webhook deliveries.
-Verify portal branding and its period-end cancellation setting. Keep live sales
-off until these external checks pass.
+## Actual sandbox verification, September 20
+
+- A signed Stripe fixture event reached the protected webhook and returned
+  HTTP 200. An unsigned request returned HTTP 400 `Invalid signature`.
+- Website Checkout used the dedicated USD 12 monthly plan. Stripe's official
+  decline card was rejected and no subscription entitlement was granted.
+- Stripe's official 3DS card completed its test challenge. The payment returned
+  to the account page, the real subscription webhook updated the database,
+  and the page displayed active access through October 20.
+- A second purchase while subscribed returned HTTP 409. The browser could not
+  select another customer's portal by submitting forged owner identifiers.
+- The actual quota function accepted attempt 40, rejected attempt 41 and did
+  not consume an extra slot for an identical request. Forty previous-period
+  fixtures did not consume the new period's allowance. All practice fixtures
+  were removed; no inference request was sent.
+- A second synthetic user could not read the first user's private attempt or
+  open their portal. Unauthenticated history returned HTTP 401.
+- The actual customer portal showed the dedicated RandomTopics title, correct
+  monthly price, payment method and invoice history. Cancel-at-period-end
+  preserved paid access. Replaying the older subscription-created event did
+  not overwrite the newer account state, extend its period or add usage rows.
+- A Stripe test clock advanced the test customer through a monthly renewal.
+  Invoice `in_1UHjGFEXV3G3z9PtzlklIY3e` was `paid`, for USD 12, with reason
+  `subscription_cycle`; the webhook moved the stored period to October 20–
+  November 20. Stripe's virtual clock does not change the application's clock,
+  so the API correctly did not activate a period whose start is in its future.
+- Switching that synthetic subscription to Stripe's documented
+  `pm_card_chargeCustomerFail` fixture and advancing another month produced
+  `past_due`. The webhook set `subscription_active=false`.
+- The synthetic subscription was finally canceled without proration or a new
+  invoice. Stripe showed `canceled`, and the website retained no paid access.
+
+Audit references (sandbox only): customer `cus_VIJeWxDg18fme8`, subscription
+`sub_1UHj3HEXV3G3z9Ptt38mTHch`, test clock
+`clock_1UHjFpEXV3G3z9PtSpZ8gwv8`. They are not runtime configuration values.
+Temporary branch-only `SPEECH_BILLING_ENABLED=true` and
+`SPEECH_EMAIL_ENABLED=true` overrides were removed after QA. Replacement preview
+`dpl_9dwhx3AennnsicoaqaECzG82yYyA` is Ready and owns the stable branch alias.
+Its actual history API reports both flags unavailable; Checkout returns HTTP
+503 `Subscriptions are not open yet.` Chrome confirmed the customer portal
+still opens with the paid/failed test invoice history when new sales are off.
+Production sales remain disabled.
+The synthetic Supabase QA users and their practice/account rows were removed
+after verification. The browser was signed out of the QA account, and the
+temporary local sign-in helper was stopped. Stripe sandbox records remain as
+an audit trail; the test subscription is canceled.
+
+Before enabling sales, verify actual email delivery and account recovery, then
+create the approved dedicated live runtime key and live webhook, store them
+only in Production and verify production configuration. Keep live sales off
+until these external checks pass; sandbox success alone does not establish a
+live payment or reliable mail delivery.
