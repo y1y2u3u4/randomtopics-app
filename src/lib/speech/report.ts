@@ -1,4 +1,13 @@
-import { SPEECH_FUNNELS } from "./events";
+import { SPEECH_FUNNELS, SPEECH_JOURNEY_STAGES } from "./events";
+export function speechEventCoverage(rows: readonly { event: string; count: number }[] | null, qa = false) {
+  const counts = new Map(rows?.map(row => [row.event, row.count]));
+  return SPEECH_JOURNEY_STAGES.map(([label, event]) => {
+    const eventName = `${qa ? "qa_" : ""}${event}`;
+    const count = rows === null ? null : counts.get(eventName) ?? 0;
+    return { label, event: eventName, count,
+      status: count === null ? "unavailable" as const : count > 0 ? "received" as const : "no_events_in_window" as const };
+  });
+}
 export type FunnelRows = {
   dimensionHeaders?: { name: string }[];
   metricHeaders?: { name: string }[];

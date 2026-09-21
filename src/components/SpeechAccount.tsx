@@ -53,6 +53,7 @@ export default function SpeechAccount() {
   async function openBilling(destination: "checkout" | "portal") {
     trackSpeech(`speech_${destination}_start`, { content_source: "speech_account" });
     try {
+      if (destination === "checkout") trackSpeech("speech_checkout_request", { content_source: "speech_account" });
       const data = await practiceFetch(destination, {});
       if (destination === "checkout" && /^[a-f0-9]{64}$/.test(data.transactionId || "")) {
         try { sessionStorage.setItem("rt_speech_checkout_pending", data.transactionId); } catch { /* optional measurement */ }
@@ -449,6 +450,7 @@ export default function SpeechAccount() {
                 onClick={() => {
                   if (!emailVerified) {
                     trackSpeech("speech_checkout_start", { content_source: "speech_account" });
+                    trackSpeech("speech_checkout_email_required", { content_source: "speech_account" });
                     setMessage("Verify your email above to continue to secure checkout. Your subscription will stay linked to this account.");
                     emailInput.current?.scrollIntoView({ block: "center", behavior: "smooth" });
                     emailInput.current?.focus({ preventScroll: true });

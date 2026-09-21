@@ -1,6 +1,6 @@
 import { aggregateGscPageRows } from "@/lib/gscPageAggregation";
 import { SPEECH_EVENTS, SPEECH_FUNNELS, SPEECH_ENTRY_EVENTS } from "@/lib/speech/events";
-import { funnelRequest, funnelCounts, productionFilter, type FunnelRows } from "@/lib/speech/report";
+import { funnelRequest, funnelCounts, productionFilter, speechEventCoverage, type FunnelRows } from "@/lib/speech/report";
 import "server-only";
 
 import { createSign } from "node:crypto";
@@ -549,6 +549,7 @@ export type SpeechReport = {
   generatedAt: string;
   days: number;
   events: GaEventRow[];
+  coverage: ReturnType<typeof speechEventCoverage>;
   hourly: { available: boolean; timeZone: string; rows: { hour: string; event: string; users: number; count: number }[] };
   devices: { device: string; event: string; users: number }[];
   sources: { source: string; event: string; users: number }[];
@@ -565,11 +566,12 @@ export async function getSpeechRealtime(qa = false) {
       // distinct users and ordered conversions come from the processed reports.
       dimensions: [{ name: "eventName" }], metrics: [{ name: "eventCount" }],
       dimensionFilter: { filter: { fieldName: "eventName", inListFilter: { values: SPEECH_EVENTS.map(event => `${qa ? "qa_" : ""}${event}`) } } },
-      minuteRanges: [{ startMinutesAgo: 29, endMinutesAgo: 0 }], limit: "200",
+      minuteRanges: [{ startMinutesAgo: 29, endMinutesAgo: 0 }], limit: String(SPEECH_EVENTS.length),
     }, "speech_realtime_failed",
   );
+  const events = (data.rows ?? []).map(row => ({ event: row.dimensionValues?.[0]?.value ?? "", count: metricValue(row, 0) }));
   return { generatedAt: new Date().toISOString(), minutes: 30, metric: "eventCount" as const, qa,
-    events: (data.rows ?? []).map(row => ({ event: row.dimensionValues?.[0]?.value ?? "", count: metricValue(row, 0) })) };
+    events, coverage: speechEventCoverage(events, qa) };
 }
 const speechCache = new Map<number, { expires: number; value: SpeechReport }>();
 export async function getSpeechReport(days = 7, force = false, window?: { startDate: string; endDate: string; dimensionFilter: unknown }): Promise<SpeechReport> {
@@ -582,7 +584,7 @@ export async function getSpeechReport(days = 7, force = false, window?: { startD
   }] } };
   const base = { startDate: window?.startDate ?? (days === 0 ? "today" : `${days}daysAgo`), endDate: window?.endDate ?? (days === 0 ? "today" : "yesterday"), dimensionFilter: filter };
   // Sequential requests preserve the property's concurrent-request allowance.
-  const events = await runGaReport({ ...base, dimensions: ["eventName"], metrics: ["eventCount", "totalUsers", "sessions"], limit: 100 });
+  const events = await runGaReport({ ...base, dimensions: ["eventName"], metrics: ["eventCount", "totalUsers", "sessions"], limit: SPEECH_EVENTS.length });
   const devices = await runGaReport({ ...base, dimensions: ["deviceCategory", "eventName"], metrics: ["totalUsers"], limit: 500 });
   const sources = await runGaReport({ ...base, dimensions: ["sessionSourceMedium", "eventName"], metrics: ["totalUsers"], limit: 1000 });
   const landings = await runGaReport({ ...base, dimensions: ["landingPage", "eventName"], metrics: ["totalUsers"], limit: 1000 });
@@ -615,6 +617,7 @@ export async function getSpeechReport(days = 7, force = false, window?: { startD
   }
   const value: SpeechReport = {
     generatedAt: new Date().toISOString(), days, funnels, hourly,
+    coverage: speechEventCoverage((events.rows ?? []).map(row => ({ event: row.dimensionValues?.[0]?.value ?? "", count: metricValue(row, 0) }))),
     events: (events.rows ?? []).map((row) => ({ eventName: row.dimensionValues?.[0]?.value ?? "", eventCount: metricValue(row, 0), totalUsers: metricValue(row, 1), sessions: metricValue(row, 2), keyEvents: 0 })),
     devices: (devices.rows ?? []).map((row) => ({ device: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0) })),
     sources: (sources.rows ?? []).map((row) => ({ source: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0) })),

@@ -61,7 +61,11 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
 
   async function startPractice(surface: "primary" | "example") {
     if (pending.current || busy) return;
-    if (open) { setOpen(false); return; }
+    if (open) {
+      trackSpeech("speech_coach_hide", { content_source: contentSource });
+      setOpen(false);
+      return;
+    }
     pending.current = true;
     setStarting(true);
     setError("");
