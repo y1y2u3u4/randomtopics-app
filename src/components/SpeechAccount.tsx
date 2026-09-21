@@ -31,6 +31,7 @@ export default function SpeechAccount() {
     manageable: false,
   });
   const offer = useRef<HTMLElement>(null);
+  const emailInput = useRef<HTMLInputElement>(null);
   const offerSeen = useRef(false);
   useEffect(() => {
     if (!loaded || !billing || subscription.active || !offer.current || offerSeen.current)
@@ -207,6 +208,7 @@ export default function SpeechAccount() {
               Email address
               <input
                 type="email"
+                ref={emailInput}
                 required
                 autoComplete="email"
                 value={email}
@@ -438,10 +440,17 @@ export default function SpeechAccount() {
             {billing && !subscription.active && (
               <button
                 className={button}
-                disabled={busy || anonymous}
-                onClick={() =>
-                  run(() => openBilling("checkout"))
-                }
+                disabled={busy}
+                onClick={() => {
+                  if (!emailVerified) {
+                    trackSpeech("speech_checkout_start", { content_source: "speech_account" });
+                    setMessage("Verify your email above to continue to secure checkout. Your subscription will stay linked to this account.");
+                    emailInput.current?.scrollIntoView({ block: "center", behavior: "smooth" });
+                    emailInput.current?.focus({ preventScroll: true });
+                    return;
+                  }
+                  void run(() => openBilling("checkout"));
+                }}
               >
                 Subscribe for $12/month
               </button>
@@ -458,7 +467,7 @@ export default function SpeechAccount() {
               </button>
             )}
           </div>
-          {anonymous && (
+          {!emailVerified && (
             <p className="text-sm">
               Verify your email above before subscribing.
             </p>

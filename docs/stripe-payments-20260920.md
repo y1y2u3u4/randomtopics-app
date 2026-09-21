@@ -287,6 +287,18 @@ growth, lint and TypeScript checks passed. See
 `docs/speech-payment-measurement-20260920.md` for measurement limits and the
 September 21 follow-up.
 
-Before enabling sales, verify actual email delivery and account recovery, and
-the deployed production configuration. Sandbox success alone does not establish
-a live payment or reliable mail delivery. No real card was charged.
+## Normal payment launch, September 21
+
+The owner explicitly requested opening normal payments without another owner
+test-email approval. Production email, billing and live-billing switches were
+enabled, and the existing production release redeployed. Customers still need a
+verified email before Checkout so purchases remain recoverable. The owner test
+email is no longer a launch gate. Actual recipient delivery/recovery and an
+actual live charge have not been established; no real card was charged by this
+task. Sandbox success must not be represented as a successful live transaction.
+
+The account subscription button now records a subscription click and directs an
+unverified visitor to the email form instead of being disabled. Verified users
+continue to the server-owned Stripe Checkout. `speech_checkout_start` measures
+button intent for both groups; `speech_checkout_redirect` still requires a real
+Checkout URL, and `speech_payment_confirmed` still requires a paid receipt.

@@ -8,6 +8,12 @@ join the existing 7/28 complete-day reports; current-day data is provisional.
 Source/medium, landing page (without query strings), and device tables contain
 independent event-user counts, not conditional conversion rates.
 
+From the September 21 payment launch, an unverified visitor can click Subscribe;
+the click emits `speech_checkout_start` and focuses email verification. This
+avoids losing purchase intent behind a disabled control. It does not create a
+Stripe session or grant access until the same account verifies its email.
+Distinguish this click from `speech_checkout_redirect` and actual paid receipts.
+
 The server reads completed Checkout sessions using the existing dedicated
 restricted Stripe key. A receipt requires the correct billing mode, product,
 configured price, account owner, complete status, paid payment status, USD and

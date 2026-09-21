@@ -58,12 +58,12 @@ The official Resend Supabase SMTP guide specifies:
 
 Reference: https://resend.com/docs/send-with-supabase-smtp
 
-Actual delivery and the complete website email-link/recovery flow are still
-pending owner test-email consent. The payment branch has `SPEECH_EMAIL_ENABLED=true`
-for verification only, while billing remains disabled. Preview deployment
-`dpl_8ne9BDHsaBLvN5BtbBNz1KHWQJJ2` is Ready and shows the real link-email form.
-Do not enable production email/sales until the complete flow passes. A synthetic confirmed account or an admin
-generated link does not verify email delivery. The dedicated database now
-connects only to new Production deployments; the protected verification preview
-retains its existing connection. Production speech switches are prepared, and
-email/billing/live-billing remain explicitly false pending end-to-end checks.
+On September 21 the owner explicitly requested normal payment launch without
+waiting for a separate owner test-email confirmation. Production email, billing
+and live-billing switches are now true; the sender/domain configuration above is
+unchanged. Customers still verify their own email before Checkout. Actual
+recipient delivery and the complete recovery flow remain unverified and must
+not be described as passed. A synthetic account or an admin-generated link
+does not establish mail delivery. The dedicated database connects only to new
+Production deployments. The old protected email-verification preview retains
+its immutable connection, with its billing switch off.
