@@ -8,9 +8,12 @@ import {
   SpeechError,
 } from "@/lib/speech/server";
 import { feedbackSchema, validateFeedback } from "@/lib/speech/schema";
+import { logSpeechFailure, type SpeechFailureStage } from "@/lib/speech/diagnostics";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 export async function POST(request: Request) {
+  const started = Date.now();
+  let stage: SpeechFailureStage = "actor";
   try {
     const { db, user } = await actor(request);
     const parsed = z
@@ -25,6 +28,7 @@ export async function POST(request: Request) {
         "Please check the transcript before requesting feedback.",
       );
     const { id, transcript } = parsed.data;
+    stage = "load_attempt";
     const { data: attempt, error } = await db
       .from("speech_attempts")
       .select("*")
@@ -57,6 +61,7 @@ export async function POST(request: Request) {
     }
     let previous: { transcript: string; feedback: unknown } | null = null;
     if (attempt.previous_id) {
+      stage = "load_previous";
       const result = await db
         .from("speech_attempts")
         .select("transcript,feedback")
@@ -71,6 +76,7 @@ export async function POST(request: Request) {
         );
       previous = result.data;
     }
+    stage = "claim_feedback";
     const claim = await db.rpc("claim_speech_feedback", {
       p_id: id,
       p_user: user.id,
@@ -82,6 +88,7 @@ export async function POST(request: Request) {
         "This feedback is processing or cannot be retried. Check your history, or start another attempt.",
       );
     try {
+      stage = "model_request";
       const result = await modelCall(
         feedbackSchema,
         "speech_feedback",
@@ -90,11 +97,13 @@ Give one specific strength, one highest-impact opportunity, and one short action
 For comparison, refer to the previous priority and quote evidence from each transcript. Improvements are not guaranteed: similar, mixed or insufficient_evidence are valid. Without a previous attempt use first_attempt and empty beforeQuote/afterQuote. Keep each explanation under 60 words. Return plain text within JSON fields.`,
         JSON.stringify({ topic: attempt.topic, transcript, previous }),
       );
+      stage = "feedback_evidence";
       const feedback = validateFeedback(
         result.value,
         transcript,
         previous?.transcript,
       );
+      stage = "feedback_save";
       const { data, error: saveError } = await db
         .from("speech_attempts")
         .update({
@@ -125,6 +134,10 @@ For comparison, refer to the previous priority and quote evidence from each tran
       throw error;
     }
   } catch (error) {
+    // modelCall logs its own precise failure stage. Keep validation/storage failures
+    // distinguishable without exposing transcript, quotes, account or provider data.
+    if (!stage.startsWith("model_") && (!(error instanceof SpeechError) || error.status >= 500))
+      logSpeechFailure("feedback", stage, Date.now() - started);
     return failure(error);
   }
 }

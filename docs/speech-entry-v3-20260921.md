@@ -66,3 +66,10 @@ sample-collection goal, not a claim of statistical significance.
 Preview `dpl_Fv7SpCLGY5QgsFz3Je8J9gW55udT` built successfully. Chrome extension checks passed at desktop and 390×844: initial enabled CTA, illustrative example, example CTA generates a topic and opens practice, qualified exposure emitted once, regeneration with three topics keeps the active practice, entry follows the first result, hide/continue preserves it, keyboard Enter works, and no console errors were observed. Viewport override reset afterward.
 
 The daily private reporting job also reads natural and `qa_` realtime event aggregates separately, enabling verification of GA ingestion without placing QA events in the natural funnel. Realtime reports use eventCount only: the live API rejects eventName with activeUsers as incompatible. These are occurrences, not distinct people or ordered conversions. Generic site pageviews and topic events are not covered by speech QA isolation.
+
+A production API QA run encountered one feedback 503 without diagnostic details;
+the next run completed both attempts, comparison, private history and the quota
+boundary. The historical cause remains unknown. Future server failures use closed
+operation/stage categories, duration and optional provider HTTP status only—never
+speech, account identifiers, error messages or provider response bodies. This
+diagnostic change does not weaken quote validation or change retry/usage limits.
