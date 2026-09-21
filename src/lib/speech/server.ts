@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { createHmac } from "node:crypto";
 import { z } from "zod";
 import { MODEL } from "./schema";
-import { logSpeechFailure, logSpeechRecovery, speechSchemaIssues, type SpeechFailureStage } from "./diagnostics";
+import { logSpeechFailure, logSpeechRecovery, speechEvidenceIssue, speechSchemaIssues, type SpeechFailureStage } from "./diagnostics";
 
 export class SpeechError extends Error {
   constructor(
@@ -107,12 +107,14 @@ export async function modelCall<T>(
   name: "speech_transcript" | "speech_feedback",
   instruction: string,
   content: unknown,
+  validate?: (value: T) => void,
 ) {
   const started = Date.now();
   // Reserve time for validation, persistence and releasing the feedback claim
   // inside the route's 60-second limit. Transcription keeps its existing limit.
   const budgetMs = name === "speech_feedback" ? 45000 : 55000;
   const usages: unknown[] = [];
+  let recoveryStage: SpeechFailureStage | undefined;
   for (let attempt: 1 | 2 = 1; ; attempt = 2) {
     usages.push(null);
     let stage: SpeechFailureStage = "model_request";
@@ -138,7 +140,9 @@ export async function modelCall<T>(
           provider: { data_collection: "deny", require_parameters: true },
           messages: [
             { role: "system", content: instruction + (attempt === 2
-              ? "\nThe previous response did not satisfy the JSON format. Generate a fresh complete JSON object matching the supplied schema. Include every required field, use non-empty explanatory text, keep within field length limits, and do not add markdown. Preserve exact transcript quotations."
+              ? recoveryStage === "feedback_evidence"
+                ? "\nThe previous response failed evidence validation. Generate a fresh complete JSON object matching the supplied schema. Copy each quote as one exact, contiguous substring from its source transcript; do not paraphrase, alter punctuation or combine separate passages. Current evidence must come from the current transcript, and beforeQuote only from the previous transcript. Every met criterion needs a non-empty supporting quote. For a comparison, include evidence from both answers unless the saved target was missing or the outcome is insufficient_evidence. If evidence is unclear, acknowledge that instead of inventing a quote."
+                : "\nThe previous response did not satisfy the JSON format. Generate a fresh complete JSON object matching the supplied schema. Include every required field, use non-empty explanatory text, keep within field length limits, and do not add markdown. Preserve exact transcript quotations."
               : "") },
             { role: "user", content },
           ],
@@ -168,6 +172,10 @@ export async function modelCall<T>(
       const contentValue = JSON.parse(data.choices?.[0]?.message?.content ?? "null");
       stage = "model_schema";
       const value = schema.parse(contentValue);
+      if (validate) {
+        stage = "feedback_evidence";
+        validate(value);
+      }
       if (attempt === 2) logSpeechRecovery(Date.now() - started);
       return {
         value,
@@ -178,11 +186,13 @@ export async function modelCall<T>(
     } catch (error) {
       if (stage === "model_request" && error instanceof Error &&
         (error.name === "AbortError" || error.name === "TimeoutError")) stage = "model_timeout";
+      const evidenceIssue = stage === "feedback_evidence" ? speechEvidenceIssue(error) : undefined;
       const retrying = name === "speech_feedback" && attempt === 1 && !refusal &&
-        ["response_json", "content_json", "model_schema"].includes(stage) && budgetMs - (Date.now() - started) >= 5000;
+        (["response_json", "content_json", "model_schema"].includes(stage) || Boolean(evidenceIssue)) &&
+        budgetMs - (Date.now() - started) >= 5000;
       logSpeechFailure(name === "speech_transcript" ? "transcribe" : "feedback", stage, Date.now() - started, providerStatus,
-        { attempt, retrying, issues: speechSchemaIssues(error) });
-      if (retrying) continue;
+        { attempt, retrying, issues: speechSchemaIssues(error), evidenceIssue });
+      if (retrying) { recoveryStage = stage; continue; }
       throw error;
     }
   }

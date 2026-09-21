@@ -96,6 +96,10 @@ export async function POST(request: Request) {
     try {
       stage = "model_request";
       const focused = attempt.usage?.context?.practiceMode === "focused" && Boolean(previous?.feedback.drill);
+      const validatedFeedback = (value: CoachingResult) => validateFeedback(
+        assembleFeedback(value, transcript, previous?.feedback, focused),
+        transcript, previous?.transcript, previous?.feedback,
+      );
       const result = await modelCall(
         (focused ? focusedAssessmentSchema : previous ? repeatAssessmentSchema : firstAssessmentSchema) as z.ZodType<CoachingResult>,
         "speech_feedback",
@@ -103,14 +107,10 @@ export async function POST(request: Request) {
         JSON.stringify({ topic: attempt.topic, transcript, previous,
           practiceGoal: previous?.feedback.drill ?? previous?.feedback.priority,
           scope: focused ? "focused" : "full" }),
+        validatedFeedback,
       );
       stage = "feedback_evidence";
-      const feedback = validateFeedback(
-        assembleFeedback(result.value, transcript, previous?.feedback, focused),
-        transcript,
-        previous?.transcript,
-        previous?.feedback,
-      );
+      const feedback = validatedFeedback(result.value);
       stage = "feedback_save";
       const { data, error: saveError } = await db
         .from("speech_attempts")

@@ -17,7 +17,7 @@ Goal: make first feedback trustworthy and easy to reach, make a short second att
 - [x] Measurement captures the short practice funnel and optional reasons for stopping, without speech content or account identifiers.
 - [x] Existing authentication, payment, ownership, quote validation and bounded provider requests remain covered by tests.
 - [x] The actual browser → API → data → rendered result flow is verified; synthetic fixtures are labeled and do not count as customers.
-- [ ] Production release and post-release error/latency checks are verified.
+- [x] Production release and post-release error/latency checks are verified. Continue checking new runtime failures as traffic arrives.
 - [ ] Real user outcomes show improvement in feedback completion and repeated practice without worsening reliability; report sample sizes and uncertainty, then iterate.
 
 ## Scoring (100 total)
@@ -42,8 +42,16 @@ Award points only against recorded evidence. Critical incorrect feedback, broken
 - A separate local UI harness imports copies of the product components, uses synthetic audio rather than a microphone, and keeps fixtures out of the product repository. Its live mode uses the real API routes, model and database with QA tagging. First feedback completed through browser recording → WAV conversion → authenticated API → model → saved result → visible drill; one remaining free attempt was confirmed. Mobile viewport 390×844 showed the next-action button in view. Subsequent verification continues below.
 - React review kept model schemas/prompts out of client imports and added keyboard focus for results and transcript correction. Already-paid accounts are not shown a duplicate subscription prompt.
 
-The release and observed conversion/retention requirements remain open. No 100-point claim is made from software tests alone.
+The observed conversion/retention requirement remains open. No 100-point claim is made from software tests alone.
 
 - Completed mobile UI checks: real focused retry produced a grounded improvement comparison before other content; correcting punctuation regenerated matching feedback without another attempt; history restored the saved correction and showed progress before optional practice; history continuation honored exhausted allowance.
 - Fixture UI checks covered transcription failure/retry, feedback failure/retry without retranscription, optional review before feedback, quota fallback, and separate inaccurate/later reasons. The 390px viewport had no horizontal overflow and the browser warning/error log was empty. All QA events used the `qa_` namespace; both real-model browser attempts were confirmed as QA in the database.
 - Latest local webpack production build, speech/billing suites, TypeScript and focused ESLint checks passed. A previous Turbopack build also passed; after replacing the inherited dependency symlink with a clean installation, the verification harness used its own copied source files to avoid cross-directory development resolution issues.
+
+## Evidence recovery follow-up (2026-09-22)
+
+- PR #54 was released at 2026-09-21 15:58:34 UTC; production synthetic first/repeat practice, history, idempotency and quota checks passed. QA rows and the temporary guest were removed.
+- At 22:10 UTC, two explicitly v5, non-QA first attempts were saved: one complete and one still transcribed, with no submitted repeat. The pending attempt coincides with two HTTP 503 responses at the evidence-validation stage. These are two requests for one attempt, not two failed users. Server submissions do not measure page visits, feedback views or motives for leaving. GA and payment reporting were unavailable in this follow-up.
+- Evidence validation now participates in the existing feedback recovery boundary. A rejected quote, absent required evidence or invalid comparison can trigger one fresh generation, while strict validation still rejects an invalid second response. Format and evidence recovery share at most two provider calls and the same 45-second deadline, with one feedback claim and both successful-recovery calls in the usage ledger. Refusals, arbitrary application errors and insufficient remaining time do not retry.
+- Diagnostics record only closed evidence categories. They exclude transcripts, quotes, account identifiers, provider content and arbitrary error messages.
+- Synthetic live-model checks passed for an invented quote, missing evidence for a met criterion, and a comparison quoting the wrong answer. Each recovered with one real provider request after an injected invalid response. The regression suite also covers exhaustion, the shared format/evidence budget, deadlines, privacy and preserved retryable state. These tests establish bounded recovery behavior, not real-user improvement or guaranteed recovery from every model response.
