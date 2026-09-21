@@ -49,6 +49,23 @@ const report = {
 assert.deepEqual(funnelCounts(report, ["Start", "Finish"]), [{ label: "Start", users: 10 }, { label: "Finish", users: 7 }]);
 assert.throws(() => funnelCounts({}, ["Start"]), /invalid_funnel_headers/);
 
+// A visitor can encounter an entry after their page arrival has fallen outside
+// the report window. The exposure cohort must not require that earlier arrival.
+const exposure = SPEECH_FUNNELS.find(f => f.key === 'exposure_v4');
+const exposureRequest = funnelRequest(exposure, 0);
+assert.equal(exposureRequest.funnel.isOpenFunnel, false);
+assert.deepEqual(exposureRequest.funnel.steps.map(s => s.filterExpression.funnelEventFilter.eventName), ['speech_entry_v4_view', 'speech_entry_v4_click']);
+assert.equal(exposureRequest.funnel.steps[1].withinDurationFromPriorStep, '86400s');
+assert.equal(SPEECH_FUNNELS.find(f => f.key === 'entry_v4').steps[0][1], 'speech_entry_v4_page', 'Keep the full acquisition funnel alongside the exposure cohort');
+assert.equal(SPEECH_FUNNELS.find(f => f.key === 'plan_bridge').steps[0][1], 'speech_plan_view', 'Feedback from before the priced plan launched is not a plan-exposure denominator');
+const rawExposure = {dimensionHeaders:[{name:'funnelStepName'}],metricHeaders:[{name:'activeUsers'},{name:'funnelStepCompletionRate'},{name:'activeUsers'}],rows:[
+  {dimensionValues:[{value:'1. 按钮可见一秒'}],metricValues:[{value:'3'},{value:'0.33333333333333331'}]},
+  {dimensionValues:[{value:'2. 点击免费练习'}],metricValues:[{value:'1'},{value:'1'}]},
+]};
+assert.deepEqual(funnelCounts(rawExposure, exposure.steps.map(s => s[0])).map(r => r.users), [3,1], 'Parse observed GA headers and ordered counts without substituting independent event users');
+assert.deepEqual(funnelCounts({...rawExposure,rows:rawExposure.rows.slice(0,1)}, exposure.steps.map(s => s[0])).map(r => r.users), [3,0], 'GA omits steps with no users');
+console.log('PASS: exposure cohort measures ordered clicks without requiring page arrival, full acquisition is retained, and priced-plan cohorts exclude older feedback.');
+
 const events = [];
 const telemetry = load("src/lib/speech/telemetry.ts", { "@/lib/track": { track: (...args) => events.push(args) } }, { window: { clarity() { throw new Error("replay down"); }, __rtReplayActive: true } });
 telemetry.trackSpeech("speech_feedback_error", { content_source: "speech_hub", attempt: 2, error_code: "service", transcript: "PRIVATE SPEECH", email: "private@example.test", elapsed_ms: 100 });

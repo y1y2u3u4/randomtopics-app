@@ -25,3 +25,9 @@ QA uses `qa_` event names and stays out of the natural funnels. A saved QA flag 
 - New regression tests cover intent expiry/storage failures, auth callback deferral, notification coalescing, identity invalidation, cross-tab signout and cleanup.
 - Chrome extension with actual account/plan components and isolated mocked providers: plan CTA navigation, failed email feedback, existing-account email path, automatic verified-state refresh, selected-plan restoration without query parameters, explicit checkout navigation, one request on double-click, old-account checkout response rejected, old history response ignored after signout, and active-subscriber purchase CTA suppression. No browser console warnings/errors in this controlled check.
 - This controlled check does not establish real email delivery, a live charge, or conversion lift. Production UI and GA receipt are checked after deployment, and natural outcomes require a later observation window.
+
+## Cohort checks after release
+
+The full entry funnel starts at page arrival. A separate closed exposure-to-click funnel starts at qualified button visibility, with the same 24-hour step limit. These answer different questions; an arrival outside the query window, missing arrival event or a different sequence can keep a click out of the full funnel. Do not reinterpret its zero as zero clicks among everyone exposed. Both v4 and the historical v3 compatibility view have this explicit exposure cohort; v3 is still not a control group.
+
+A private raw-GA audit confirmed that the parser preserves a known QA sequence (1 → 1 → 1 → 1). The raw natural full funnel and short exposure funnel can differ; one short response was flagged as sampled, so its 3 → 1 is not a stable conversion benchmark. The result-screen plan funnel now starts with `speech_plan_view`, excluding historical feedback from before the priced card existed. This changes reporting definitions only, not recorded events or the payment flow.
