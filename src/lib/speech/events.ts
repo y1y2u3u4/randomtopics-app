@@ -65,8 +65,11 @@ export const SPEECH_FUNNELS = [
     ["点击免费练习", "speech_entry_v4_click"], ["打开练习", "speech_coach_v4_open"],
     ["开始首次尝试", "speech_first_attempt_start"], ["看到首次反馈", "speech_first_feedback_view"],
   ] },
-  { key: "plan_bridge", title: "反馈 → 月套餐 → 订阅意图", steps: [
-    ["看到反馈", "speech_feedback_view"], ["看到套餐介绍", "speech_plan_view"],
+  { key: "exposure_v4", title: "v4 · 有效曝光 → 练习点击", steps: [
+    ["按钮可见一秒", "speech_entry_v4_view"], ["点击免费练习", "speech_entry_v4_click"],
+  ] },
+  { key: "plan_bridge", title: "结果页月套餐 → 查看 → 订阅意图", steps: [
+    ["看到套餐介绍", "speech_plan_view"],
     ["查看月套餐", "speech_plan_click"], ["账号页套餐可见", "speech_checkout_offer_view"], ["点击订阅", "speech_checkout_start"],
   ] },
   { key: "checkout_recovery", title: "购买时关联 / 登录邮箱 → 恢复结账", steps: [
@@ -78,6 +81,9 @@ export const SPEECH_FUNNELS = [
     ["进入新版页面", "speech_entry_v3_page"], ["按钮可见一秒", "speech_entry_v3_view"],
     ["点击免费练习", "speech_entry_v3_click"], ["打开练习面板", "speech_coach_v3_open"],
     ["开始录音或选文件", "speech_first_attempt_start"], ["看到首次反馈", "speech_first_feedback_view"],
+  ] },
+  { key: "exposure_v3", title: "v3 兼容口径 · 有效曝光 → 点击", steps: [
+    ["按钮可见一秒", "speech_entry_v3_view"], ["点击免费练习", "speech_entry_v3_click"],
   ] },
   { key: "example_v3", title: "新入口 · 示例 → 实际尝试", steps: [
     ["进入新版页面", "speech_entry_v3_page"], ["查看反馈示例", "speech_example_open"],
