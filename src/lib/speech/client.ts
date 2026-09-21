@@ -2,6 +2,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Session } from "@supabase/supabase-js";
 let client: ReturnType<typeof createClient> | undefined;
+let configuration: Promise<{ url: string; key: string; billingAvailable: boolean }> | undefined;
 let guestSession: Promise<Session> | undefined;
 export class PracticeRequestError extends Error {
   constructor(
@@ -14,11 +15,19 @@ export class PracticeRequestError extends Error {
 }
 export async function speechClient() {
   if (client) return client;
-  const res = await fetch("/api/speech/config", { cache: "no-store" });
-  const config = await res.json();
-  if (!res.ok || !config.url || !config.key)
-    throw new Error("Practice feedback is not available yet.");
+  const config = await speechConfiguration();
   return (client ??= createClient(config.url, config.key));
+}
+async function speechConfiguration() {
+  configuration ??= fetch("/api/speech/config", { cache: "no-store" }).then(async res => {
+    const config = await res.json();
+    if (!res.ok || !config.url || !config.key) throw new Error("Practice feedback is not available yet.");
+    return config as { url: string; key: string; billingAvailable: boolean };
+  }).catch(error => { configuration = undefined; throw error; });
+  return configuration;
+}
+export async function speechBillingAvailable() {
+  return (await speechConfiguration()).billingAvailable === true;
 }
 export async function practiceFetch(
   path: string,

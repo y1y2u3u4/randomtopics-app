@@ -3,6 +3,7 @@ export const SPEECH_ISSUE_CODES = ["quota", "daily_limit", "insufficient_speech"
 export const SPEECH_ENTRY_EVENTS = [
   "speech_entry_v3_page", "speech_entry_v3_view", "speech_entry_v3_click", "speech_entry_v3_error",
   "speech_coach_v3_open", "speech_example_open", "speech_example_practice",
+  "speech_entry_v4_page", "speech_entry_v4_view", "speech_entry_v4_click", "speech_coach_v4_open", "speech_entry_v4_example_view",
 ] as const;
 export const SPEECH_EVENTS = [
   ...SPEECH_ISSUE_CODES.map((code) => `speech_issue_${code}` as const),
@@ -24,6 +25,8 @@ export const SPEECH_EVENTS = [
   "speech_compare_insufficient", "speech_replay_allowed", "speech_replay_declined",
   "speech_checkout_offer_view", "speech_checkout_start", "speech_checkout_email_required", "speech_checkout_request", "speech_checkout_redirect",
   "speech_checkout_error", "speech_portal_start", "speech_portal_redirect", "speech_portal_error",
+  "speech_plan_view", "speech_plan_click", "speech_checkout_email_step_view", "speech_checkout_resume_view", "speech_checkout_continue",
+  "speech_checkout_email_start", "speech_checkout_email_sent",
   "speech_email_link_start", "speech_email_link_sent", "speech_email_link_error", "speech_email_verified",
   "speech_recovery_start", "speech_recovery_sent", "speech_recovery_error", "speech_payment_confirmed",
   ...SPEECH_ENTRY_EVENTS,
@@ -31,6 +34,8 @@ export const SPEECH_EVENTS = [
 export type SpeechEvent = typeof SPEECH_EVENTS[number];
 // Independent event counts, not an ordered or user-deduplicated funnel.
 export const SPEECH_JOURNEY_STAGES = [
+  ["v4 页面触达", "speech_entry_v4_page"], ["v4 入口有效曝光", "speech_entry_v4_view"],
+  ["v4 示例有效曝光", "speech_entry_v4_example_view"], ["v4 免费练习点击", "speech_entry_v4_click"], ["v4 首次打开面板", "speech_coach_v4_open"],
   ["新版页面触达", "speech_entry_v3_page"], ["有效曝光", "speech_entry_v3_view"],
   ["免费练习点击", "speech_entry_v3_click"], ["首次打开面板", "speech_coach_v3_open"],
   ["返回已打开的练习", "speech_coach_return"], ["收起练习", "speech_coach_hide"],
@@ -45,14 +50,31 @@ export const SPEECH_JOURNEY_STAGES = [
   ["请求恢复历史反馈", "speech_history_feedback_start"], ["历史反馈恢复完成", "speech_history_feedback_ready"],
   ["历史反馈恢复失败", "speech_history_feedback_error"], ["看到历史反馈", "speech_history_feedback_view"],
   ["看到付费套餐", "speech_checkout_offer_view"], ["点击订阅", "speech_checkout_start"],
+  ["反馈后看到月套餐介绍", "speech_plan_view"], ["反馈后查看月套餐", "speech_plan_click"],
   ["订阅需要验证邮箱", "speech_checkout_email_required"], ["请求创建收银台", "speech_checkout_request"],
+  ["看到购买邮箱步骤", "speech_checkout_email_step_view"], ["已验证并看到继续结账", "speech_checkout_resume_view"], ["已验证账号继续结账", "speech_checkout_continue"],
+  ["购买时请求验证邮件", "speech_checkout_email_start"], ["购买时验证邮件已发出", "speech_checkout_email_sent"],
   ["前往 Stripe", "speech_checkout_redirect"], ["创建收银台或跳转失败", "speech_checkout_error"],
   ["请求关联邮箱", "speech_email_link_start"], ["验证邮件已发出", "speech_email_link_sent"],
   ["发信失败", "speech_email_link_error"], ["账号已验证", "speech_email_verified"],
   ["返回网站并确认实付", "speech_payment_confirmed"],
 ] as const satisfies readonly (readonly [string, SpeechEvent])[];
 export const SPEECH_FUNNELS = [
-  { key: "entry_v3", title: "新入口 · 有效曝光 → 首次反馈", steps: [
+  { key: "entry_v4", title: "v4 · 可见入口 → 首次反馈", steps: [
+    ["进入 v4 页面", "speech_entry_v4_page"], ["按钮可见一秒", "speech_entry_v4_view"],
+    ["点击免费练习", "speech_entry_v4_click"], ["打开练习", "speech_coach_v4_open"],
+    ["开始首次尝试", "speech_first_attempt_start"], ["看到首次反馈", "speech_first_feedback_view"],
+  ] },
+  { key: "plan_bridge", title: "反馈 → 月套餐 → 订阅意图", steps: [
+    ["看到反馈", "speech_feedback_view"], ["看到套餐介绍", "speech_plan_view"],
+    ["查看月套餐", "speech_plan_click"], ["账号页套餐可见", "speech_checkout_offer_view"], ["点击订阅", "speech_checkout_start"],
+  ] },
+  { key: "checkout_recovery", title: "购买时关联 / 登录邮箱 → 恢复结账", steps: [
+    ["购买时请求验证邮件", "speech_checkout_email_start"], ["购买时验证邮件已发出", "speech_checkout_email_sent"],
+    ["已验证并看到继续结账", "speech_checkout_resume_view"],
+    ["继续结账", "speech_checkout_continue"], ["前往 Stripe", "speech_checkout_redirect"],
+  ] },
+  { key: "entry_v3", title: "v3 兼容口径 · 历史参考", steps: [
     ["进入新版页面", "speech_entry_v3_page"], ["按钮可见一秒", "speech_entry_v3_view"],
     ["点击免费练习", "speech_entry_v3_click"], ["打开练习面板", "speech_coach_v3_open"],
     ["开始录音或选文件", "speech_first_attempt_start"], ["看到首次反馈", "speech_first_feedback_view"],
@@ -82,7 +104,7 @@ export const SPEECH_FUNNELS = [
     ["请求恢复历史反馈", "speech_history_feedback_start"], ["历史反馈生成完成", "speech_history_feedback_ready"],
     ["在历史中看到反馈", "speech_history_feedback_view"],
   ] },
-  { key: "intent", title: "反馈 → 付费兴趣（非付款）", steps: [
+  { key: "intent", title: "历史问卷 · 付费兴趣（非付款）", steps: [
     ["看到反馈", "speech_feedback_view"], ["看到付费意愿问题", "speech_offer_view"],
     ["明确表示有付费兴趣", "speech_paid_interest_yes"],
   ] },
