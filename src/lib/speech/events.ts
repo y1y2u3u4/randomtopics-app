@@ -17,6 +17,7 @@ export const SPEECH_EVENTS = [
   "speech_comparison_view", "speech_offer_view", "speech_paid_interest_yes",
   "speech_paid_interest_no", "speech_paid_interest_unsure", "speech_quota_hit",
   "speech_history_view", "speech_history_open", "speech_history_resume",
+  "speech_history_feedback_start", "speech_history_feedback_ready", "speech_history_feedback_error", "speech_history_feedback_view",
   "speech_recording_download", "speech_transcribe_slow", "speech_feedback_slow",
   "speech_compare_improved", "speech_compare_similar", "speech_compare_mixed",
   "speech_compare_insufficient", "speech_replay_allowed", "speech_replay_declined",
@@ -47,6 +48,10 @@ export const SPEECH_FUNNELS = [
   { key: "retry", title: "首次反馈 → 重练完成", steps: [
     ["看到首次反馈", "speech_first_feedback_view"], ["点击重练", "speech_retry_start"],
     ["开始第二次尝试", "speech_retry_attempt_start"], ["看到第二次反馈", "speech_retry_feedback_view"],
+  ] },
+  { key: "history_recovery", title: "历史恢复 → 看到反馈", steps: [
+    ["请求恢复历史反馈", "speech_history_feedback_start"], ["历史反馈生成完成", "speech_history_feedback_ready"],
+    ["在历史中看到反馈", "speech_history_feedback_view"],
   ] },
   { key: "intent", title: "反馈 → 付费兴趣（非付款）", steps: [
     ["看到反馈", "speech_feedback_view"], ["看到付费意愿问题", "speech_offer_view"],

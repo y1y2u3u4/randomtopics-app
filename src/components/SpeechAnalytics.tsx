@@ -40,6 +40,8 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
       ["反馈有用率", rate(yes, yes + no), `${yes} 次有用 / ${yes + no} 次明确评价；不是全部使用者满意度`],
       ["转写失败", String(count("speech_transcribe_error")), `${count("speech_transcribe_start")} 次提交；重试也计一次请求`],
       ["反馈失败", String(count("speech_feedback_error")), `${count("speech_feedback_start")} 次请求；历史恢复请求单独记录`],
+      ["历史恢复失败", String(count("speech_history_feedback_error")), `${count("speech_history_feedback_start")} 次恢复请求 / ${count("speech_history_feedback_ready")} 次完成`],
+      ["历史反馈可见", String(count("speech_history_feedback_view")), "反馈建议在前台至少 50% 可见、连续一秒；包含查看已有结果，不混入首次反馈"],
       ["额度触达", String(count("speech_quota_hit")), "次数；不会自动算成付费意愿"],
       ["付费兴趣：愿意", String(count("speech_paid_interest_yes")), "未展示价格的自报兴趣，非付费转化"],
       ["付费兴趣：不确定", String(count("speech_paid_interest_unsure")), "需要更多价值证明"],
