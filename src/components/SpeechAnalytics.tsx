@@ -24,6 +24,12 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
     </div>
     <p className="text-sm text-[var(--text-secondary)]">新入口单独使用 v3 事件：有效曝光要求可用按钮至少 50% 可见、前台连续一秒。快速点击不会补记曝光；点击独立计数，旧版曝光率不可直接比较。QA 使用独立事件名称，不进入下方漏斗。</p>
     <p className="text-sm text-[var(--text-secondary)]">有序漏斗按 GA4 用户去重，必须按顺序完成，每相邻步骤不超过 24 小时。可跨会话，不保证是同一条录音；清除 Cookie、换设备及拦截统计会影响识别。数据未成熟时先看人数。</p>
+    <details className="glass-card p-5" open><summary className="font-semibold">完整链路 · 埋点与接收状态</summary>
+      <p className="mt-2 text-xs text-[var(--text-muted)]">下列环节均已接入埋点。0 表示所选窗口尚未收到事件，不能据此判断功能未接入或用户没有需求；统计延迟、隐私阈值和拦截可能影响结果。新增事件仅从本次发布起记录，不能补回历史。次数不是去重用户数，也不能直接相除当有序转化率。</p>
+      <div className="overflow-x-auto"><table className="mt-4 w-full text-left text-sm"><thead><tr><th>行为</th><th>事件次数</th><th>窗口接收状态</th></tr></thead>
+        <tbody>{report.coverage.map(row => <tr key={row.event} className="border-t border-white/10"><td className="py-2">{row.label}</td><td>{row.count === null ? "—" : number.format(row.count)}</td><td>{row.status === "received" ? "已收到" : row.status === "unavailable" ? "数据暂不可用" : "本窗口未收到"}</td></tr>)}</tbody>
+      </table></div>
+    </details>
     <div className="grid gap-4 lg:grid-cols-3">{report.funnels.map((funnel) => <article key={funnel.key} className="glass-card p-5">
       <h3 className="font-semibold">{funnel.title}</h3>
       {!funnel.available ? <p className="mt-4 text-sm text-amber-200">有序漏斗接口暂不可用，不能用事件次数相除替代。</p> : <ol className="mt-4 space-y-3">{funnel.rows.map((row, index) => <li key={row.label}>

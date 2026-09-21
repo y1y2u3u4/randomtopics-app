@@ -7,6 +7,7 @@ import type { SpeechEvent } from "@/lib/speech/events";
 import SpeechInterest from "./SpeechInterest";
 import { practiceFetch, PracticeRequestError } from "@/lib/speech/client";
 import { recordingToWav } from "@/lib/speech/audio";
+import { observeVisibleAction } from "@/lib/speech/visibleAction";
 import type { SpeechFeedback } from "@/lib/speech/schema";
 
 type Stage =
@@ -64,6 +65,26 @@ export default function SpeechCoach({
   const originalTranscript = useRef("");
   const resultPanel = useRef<HTMLDivElement>(null);
   const seenResults = useRef(new Set<string>());
+  const recordButton = useRef<HTMLButtonElement>(null);
+  const uploadInput = useRef<HTMLInputElement>(null);
+  const seenControls = useRef(new Set<number>());
+  useEffect(() => {
+    const input = uploadInput.current;
+    if (stage !== "ready" || !input) return;
+    const cancel = () => trackSpeech("speech_upload_cancel", {
+      content_source: contentSource, attempt: previous ? 2 : 1, input_method: "upload",
+    });
+    input.addEventListener("cancel", cancel);
+    return () => input.removeEventListener("cancel", cancel);
+  }, [stage, previous, contentSource]);
+  useEffect(() => {
+    const attempt = previous ? 2 : 1;
+    if (!visible || stage !== "ready" || !recordButton.current || seenControls.current.has(attempt)) return;
+    return observeVisibleAction(recordButton.current, () => {
+      seenControls.current.add(attempt);
+      trackSpeech("speech_record_controls_view", { content_source: contentSource, attempt });
+    });
+  }, [visible, stage, previous, contentSource]);
   useEffect(() => {
     if (!result || !visible || !resultPanel.current || seenResults.current.has(result.id)) return;
     const observer = new IntersectionObserver(([entry]) => {
@@ -417,6 +438,7 @@ export default function SpeechCoach({
                   type="button"
                   className={primary}
                   disabled={stage === "permission"}
+                  ref={recordButton}
                   onClick={start}
                 >
                   {stage === "permission"
@@ -472,8 +494,10 @@ export default function SpeechCoach({
           </span>
           <input
             type="file"
+            ref={uploadInput}
             accept="audio/*,.m4a,.wav,.mp3,.webm"
             className="mt-3 block max-w-full text-sm"
+            onClick={() => emit("speech_upload_open", { input_method: "upload" })}
             onChange={(e) => {
               upload(e.target.files?.[0]);
               e.target.value = "";

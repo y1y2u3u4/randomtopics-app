@@ -20,8 +20,18 @@ function load(path, overrides = {}, globals = {}) {
   }, fixtureModule, fixtureModule.exports, ...Object.values(globals));
   return fixtureModule.exports;
 }
-const { funnelCounts, funnelRequest } = load("src/lib/speech/report.ts");
-const { SPEECH_FUNNELS } = load("src/lib/speech/events.ts");
+const { funnelCounts, funnelRequest, speechEventCoverage } = load("src/lib/speech/report.ts");
+const { SPEECH_FUNNELS, SPEECH_EVENTS, SPEECH_JOURNEY_STAGES } = load("src/lib/speech/events.ts");
+assert.equal(new Set(SPEECH_EVENTS).size, SPEECH_EVENTS.length);
+assert.ok(SPEECH_FUNNELS.every(f => f.steps.length <= 10 && f.steps.every(([,event]) => SPEECH_EVENTS.includes(event))));
+assert.equal(new Set(SPEECH_JOURNEY_STAGES.map(([,event]) => event)).size, SPEECH_JOURNEY_STAGES.length);
+const coverage = speechEventCoverage([{event:'speech_feedback_start',count:2},{event:'qa_speech_feedback_ready',count:9}]);
+assert.equal(coverage.find(r=>r.event==='speech_feedback_start').count,2);
+assert.deepEqual(coverage.find(r=>r.event==='speech_feedback_ready'), {label:'反馈生成完成',event:'speech_feedback_ready',count:0,status:'no_events_in_window'});
+assert.ok(speechEventCoverage(null).every(r=>r.count===null && r.status==='unavailable'), 'An unavailable report is never zero conversions');
+assert.equal(speechEventCoverage([{event:'qa_speech_feedback_ready',count:9},{event:'speech_feedback_start',count:2}],true).find(r=>r.event==='qa_speech_feedback_ready').count,9);
+assert.equal(speechEventCoverage([],true).find(r=>r.event==='qa_speech_first_attempt_start').count,0);
+console.log('PASS: complete event coverage distinguishes received, window zero and unavailable; QA stays separate; all funnel events are registered.');
 const request = funnelRequest(SPEECH_FUNNELS[0], 7);
 assert.equal(request.funnel.isOpenFunnel, false);
 assert.equal(request.funnel.steps[1].withinDurationFromPriorStep, "86400s");

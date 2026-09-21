@@ -6,7 +6,8 @@ export const SPEECH_ENTRY_EVENTS = [
 ] as const;
 export const SPEECH_EVENTS = [
   ...SPEECH_ISSUE_CODES.map((code) => `speech_issue_${code}` as const),
-  "speech_page_view", "speech_entry_view", "speech_coach_open", "speech_coach_return",
+  "speech_page_view", "speech_entry_view", "speech_coach_open", "speech_coach_return", "speech_coach_hide",
+  "speech_record_controls_view", "speech_upload_open", "speech_upload_cancel",
   "speech_first_attempt_start", "speech_retry_attempt_start",
   "speech_record_request", "speech_record_start", "speech_record_complete",
   "speech_record_error", "speech_audio_selected", "speech_audio_ready",
@@ -21,13 +22,35 @@ export const SPEECH_EVENTS = [
   "speech_recording_download", "speech_transcribe_slow", "speech_feedback_slow",
   "speech_compare_improved", "speech_compare_similar", "speech_compare_mixed",
   "speech_compare_insufficient", "speech_replay_allowed", "speech_replay_declined",
-  "speech_checkout_offer_view", "speech_checkout_start", "speech_checkout_redirect",
+  "speech_checkout_offer_view", "speech_checkout_start", "speech_checkout_email_required", "speech_checkout_request", "speech_checkout_redirect",
   "speech_checkout_error", "speech_portal_start", "speech_portal_redirect", "speech_portal_error",
   "speech_email_link_start", "speech_email_link_sent", "speech_email_link_error", "speech_email_verified",
   "speech_recovery_start", "speech_recovery_sent", "speech_recovery_error", "speech_payment_confirmed",
   ...SPEECH_ENTRY_EVENTS,
 ] as const;
 export type SpeechEvent = typeof SPEECH_EVENTS[number];
+// Independent event counts, not an ordered or user-deduplicated funnel.
+export const SPEECH_JOURNEY_STAGES = [
+  ["新版页面触达", "speech_entry_v3_page"], ["有效曝光", "speech_entry_v3_view"],
+  ["免费练习点击", "speech_entry_v3_click"], ["首次打开面板", "speech_coach_v3_open"],
+  ["返回已打开的练习", "speech_coach_return"], ["收起练习", "speech_coach_hide"],
+  ["录音操作可见一秒", "speech_record_controls_view"],
+  ["点击选择文件", "speech_upload_open"], ["取消选择文件", "speech_upload_cancel"],
+  ["开始首次尝试", "speech_first_attempt_start"], ["请求麦克风", "speech_record_request"],
+  ["录音开始", "speech_record_start"], ["录音完成", "speech_record_complete"], ["录音或文件失败", "speech_record_error"],
+  ["选中有效文件", "speech_audio_selected"], ["音频准备完成", "speech_audio_ready"],
+  ["请求转写", "speech_transcribe_start"], ["转写完成", "speech_transcript_ready"], ["转写失败", "speech_transcribe_error"],
+  ["请求反馈", "speech_feedback_start"], ["反馈生成完成", "speech_feedback_ready"], ["反馈失败", "speech_feedback_error"],
+  ["看到首次反馈", "speech_first_feedback_view"], ["开始第二次尝试", "speech_retry_attempt_start"], ["看到第二次反馈", "speech_retry_feedback_view"],
+  ["请求恢复历史反馈", "speech_history_feedback_start"], ["历史反馈恢复完成", "speech_history_feedback_ready"],
+  ["历史反馈恢复失败", "speech_history_feedback_error"], ["看到历史反馈", "speech_history_feedback_view"],
+  ["看到付费套餐", "speech_checkout_offer_view"], ["点击订阅", "speech_checkout_start"],
+  ["订阅需要验证邮箱", "speech_checkout_email_required"], ["请求创建收银台", "speech_checkout_request"],
+  ["前往 Stripe", "speech_checkout_redirect"], ["创建收银台或跳转失败", "speech_checkout_error"],
+  ["请求关联邮箱", "speech_email_link_start"], ["验证邮件已发出", "speech_email_link_sent"],
+  ["发信失败", "speech_email_link_error"], ["账号已验证", "speech_email_verified"],
+  ["返回网站并确认实付", "speech_payment_confirmed"],
+] as const satisfies readonly (readonly [string, SpeechEvent])[];
 export const SPEECH_FUNNELS = [
   { key: "entry_v3", title: "新入口 · 有效曝光 → 首次反馈", steps: [
     ["进入新版页面", "speech_entry_v3_page"], ["按钮可见一秒", "speech_entry_v3_view"],
@@ -49,6 +72,12 @@ export const SPEECH_FUNNELS = [
     ["看到首次反馈", "speech_first_feedback_view"], ["点击重练", "speech_retry_start"],
     ["开始第二次尝试", "speech_retry_attempt_start"], ["看到第二次反馈", "speech_retry_feedback_view"],
   ] },
+  { key: "practice_detail", title: "首次尝试 → 转写 → 反馈详情", steps: [
+    ["开始首次尝试", "speech_first_attempt_start"], ["音频准备完成", "speech_audio_ready"],
+    ["请求转写", "speech_transcribe_start"], ["转写完成", "speech_transcript_ready"],
+    ["请求反馈", "speech_feedback_start"], ["反馈生成完成", "speech_feedback_ready"],
+    ["看到首次反馈", "speech_first_feedback_view"],
+  ] },
   { key: "history_recovery", title: "历史恢复 → 看到反馈", steps: [
     ["请求恢复历史反馈", "speech_history_feedback_start"], ["历史反馈生成完成", "speech_history_feedback_ready"],
     ["在历史中看到反馈", "speech_history_feedback_view"],
@@ -65,6 +94,10 @@ export const SPEECH_FUNNELS = [
   { key: "email", title: "关联邮箱 → 验证完成", steps: [
     ["开始关联邮箱", "speech_email_link_start"], ["验证邮件已发出", "speech_email_link_sent"],
     ["账号已验证", "speech_email_verified"],
+  ] },
+  { key: "checkout_request", title: "点击订阅 → 实际请求 → 收银台", steps: [
+    ["点击订阅", "speech_checkout_start"], ["实际请求创建收银台", "speech_checkout_request"],
+    ["取得收银台链接并跳转", "speech_checkout_redirect"],
   ] },
   { key: "purchase", title: "访问 → 练习 → 实付确认", steps: [
     ["进入练习页面", "speech_page_view"], ["打开练习", "speech_coach_open"],
