@@ -1,289 +1,167 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import PrintButton from "./PrintButton";
-import {
-  CHARADES_WORDS,
-  CHARADES_CATEGORIES,
-  CharadesCategory,
-} from "@/data/charades";
+import { CHARADES_WORDS, CHARADES_CATEGORIES, type CharadesCategory, type CharadesWord } from "@/data/charades";
+import { drawUnseen } from "@/lib/topicPool";
 import { track } from "@/lib/track";
 
-const DIFFICULTIES = [
-  { id: 0, label: "Any" },
-  { id: 1, label: "Easy" },
-  { id: 2, label: "Medium" },
-  { id: 3, label: "Hard" },
-] as const;
-
+const DIFFICULTIES = [{ id: 0, label: "Any" }, { id: 1, label: "Easy" }, { id: 2, label: "Medium" }, { id: 3, label: "Hard" }] as const;
 const TIMER_OPTIONS = [0, 30, 60, 90, 120] as const;
-
-const DIFFICULTY_BADGE: Record<1 | 2 | 3, { label: string; cls: string }> = {
-  1: { label: "Easy", cls: "text-green-400 border-green-400/30" },
-  2: { label: "Medium", cls: "text-yellow-400 border-yellow-400/30" },
-  3: { label: "Hard", cls: "text-pink-400 border-pink-400/30" },
-};
+const eventParams = { tool_type: "charades_generator", content_source: "charades_hub", locale: "en" };
+const buttonClass = "min-h-11 rounded-xl border px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--neon-cyan)]";
+const idleClass = "border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/40";
+const selectedClass = "border-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)] text-[var(--neon-cyan)]";
 
 export default function CharadesGenerator() {
   const [category, setCategory] = useState<CharadesCategory | "all">("all");
   const [difficulty, setDifficulty] = useState<0 | 1 | 2 | 3>(0);
-  const [timerLength, setTimerLength] = useState<number>(60);
-  const [current, setCurrent] = useState<{ w: string; c: CharadesCategory; d: 1 | 2 | 3 } | null>(null);
+  const [timerLength, setTimerLength] = useState(60);
+  const [current, setCurrent] = useState<CharadesWord | null>(null);
+  const [hidden, setHidden] = useState(false);
   const [usedKeys, setUsedKeys] = useState<Set<string>>(new Set());
-  const [secondsLeft, setSecondsLeft] = useState<number | null>(null);
-  const [timeUp, setTimeUp] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [secondsLeft, setSecondsLeft] = useState(60);
+  const [timerState, setTimerState] = useState<"ready" | "running" | "paused" | "complete">("ready");
+  const deadline = useRef<number | null>(null);
+  const remainingMs = useRef(60_000);
+  const interval = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const pool = useMemo(
-    () =>
-      CHARADES_WORDS.filter(
-        (x) => (category === "all" || x.c === category) && (difficulty === 0 || x.d === difficulty)
-      ),
-    [category, difficulty]
-  );
+  const pool = useMemo(() => CHARADES_WORDS.filter((word) =>
+    (category === "all" || word.c === category) && (difficulty === 0 || word.d === difficulty)), [category, difficulty]);
+  const categoryWords = useMemo(() => CHARADES_WORDS.filter((word) => category === "all" || word.c === category), [category]);
 
-  const stopTimer = useCallback(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = null;
-    setSecondsLeft(null);
+  const clearClock = useCallback(() => {
+    if (interval.current !== null) clearInterval(interval.current);
+    interval.current = null;
+    deadline.current = null;
   }, []);
-
-  const startTimer = useCallback(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    if (timerLength === 0) {
-      setSecondsLeft(null);
-      return;
+  const resetTimer = useCallback((seconds: number) => {
+    clearClock();
+    remainingMs.current = seconds * 1000;
+    setSecondsLeft(seconds);
+    setTimerState("ready");
+  }, [clearClock]);
+  const tick = useCallback(() => {
+    if (deadline.current === null) return;
+    remainingMs.current = Math.max(0, deadline.current - Date.now());
+    setSecondsLeft(Math.ceil(remainingMs.current / 1000));
+    if (remainingMs.current === 0) {
+      clearClock();
+      setTimerState("complete");
+      track("timer_complete", { ...eventParams, timer_seconds: timerLength });
     }
-    setTimeUp(false);
-    setSecondsLeft(timerLength);
-    intervalRef.current = setInterval(() => {
-      setSecondsLeft((s) => {
-        if (s === null || s <= 1) {
-          if (intervalRef.current) clearInterval(intervalRef.current);
-          intervalRef.current = null;
-          setTimeUp(true);
-          track("timer_complete", {
-            tool_type: "charades_generator",
-            timer_seconds: timerLength,
-            locale: "en",
-          });
-          return 0;
-        }
-        return s - 1;
-      });
-    }, 1000);
-  }, [timerLength]);
+  }, [clearClock, timerLength]);
+  useEffect(() => {
+    document.addEventListener("visibilitychange", tick);
+    return () => { clearClock(); document.removeEventListener("visibilitychange", tick); };
+  }, [clearClock, tick]);
 
-  useEffect(() => () => stopTimer(), [stopTimer]);
-
-  const deal = useCallback(() => {
-    if (pool.length === 0) return;
-    track("generate_start", {
-      tool_type: "charades_generator",
-      generator_category: category,
-      generator_difficulty: difficulty === 0 ? "any" : difficulty,
-      requested_count: 1,
-      locale: "en",
-    });
-    let candidates = pool.filter((x) => !usedKeys.has(x.w));
-    let nextUsed = usedKeys;
-    if (candidates.length === 0) {
-      nextUsed = new Set();
-      candidates = pool;
-    }
-    const pick = candidates[Math.floor(Math.random() * candidates.length)];
-    const s = new Set(nextUsed);
-    s.add(pick.w);
-    setUsedKeys(s);
+  const startTimer = () => {
+    if (!current || !timerLength || deadline.current !== null) return;
+    if (timerState === "complete") remainingMs.current = timerLength * 1000;
+    deadline.current = Date.now() + remainingMs.current;
+    setSecondsLeft(Math.ceil(remainingMs.current / 1000));
+    setTimerState("running");
+    setHidden(true);
+    interval.current = setInterval(tick, 250);
+    track(timerState === "paused" ? "timer_resume" : "timer_start", { ...eventParams, timer_seconds: timerLength });
+  };
+  const pauseTimer = () => {
+    tick();
+    if (deadline.current === null) return; // An overdue pause completes once.
+    clearClock();
+    setTimerState("paused");
+    track("timer_pause", { ...eventParams, timer_seconds: timerLength });
+  };
+  const changeCategory = (next: CharadesCategory | "all") => {
+    setCategory(next);
+    track("filter_select", { ...eventParams, filter_name: "category", filter_value: next });
+  };
+  const changeDifficulty = (next: 0 | 1 | 2 | 3) => {
+    setDifficulty(next);
+    track("filter_select", { ...eventParams, filter_name: "difficulty", filter_value: next });
+  };
+  const deal = () => {
+    if (!pool.length) return;
+    const params = { ...eventParams, generator_category: category, generator_difficulty: difficulty || "any", requested_count: 1 };
+    track("generate_start", params);
+    if (current) track("repeat_generate", params);
+    const draw = drawUnseen(pool, usedKeys, (word) => word.w);
+    const pick = draw.picked[0];
+    setUsedKeys(draw.used);
     setCurrent(pick);
-    setTimeUp(false);
-    startTimer();
-    track("generate_success", {
-      tool_type: "charades_generator",
-      generator_category: category,
-      generator_difficulty: difficulty === 0 ? "any" : difficulty,
-      result_category: pick.c,
-      result_difficulty: pick.d,
-      result_count: 1,
-      result_source: "editorial_pool",
-      locale: "en",
-    });
-  }, [pool, usedKeys, startTimer, category, difficulty]);
-
-  const catMeta = current ? CHARADES_CATEGORIES.find((c) => c.id === current.c) : null;
-  const remaining = pool.filter((x) => !usedKeys.has(x.w)).length;
-  const timerPct = secondsLeft !== null && timerLength > 0 ? (secondsLeft / timerLength) * 100 : 0;
+    setHidden(false);
+    resetTimer(timerLength);
+    track("generate_success", { ...params, result_category: pick.c, result_difficulty: pick.d, result_count: 1, result_source: "editorial_pool" });
+  };
+  const remaining = pool.filter((word) => !usedKeys.has(word.w)).length;
+  const resultCategory = CHARADES_CATEGORIES.find((item) => item.id === current?.c);
+  const timeUp = timerState === "complete";
 
   return (
-    <section className="max-w-3xl mx-auto px-4 sm:px-6">
-      <div className="glass-card p-6 sm:p-8">
-        {/* Category filter */}
-        <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-2">Category</p>
-        <div className="flex flex-wrap gap-2 mb-5">
-          <button
-            onClick={() => {
-              setCategory("all");
-              setUsedKeys(new Set());
-              track("filter_select", { tool_type: "charades_generator", filter_name: "category", filter_value: "all", locale: "en" });
-            }}
-            className={`text-sm px-3.5 py-1.5 rounded-lg border transition-all ${
-              category === "all"
-                ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]"
-                : "border-[rgba(255,255,255,0.08)] text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/40"
-            }`}
-          >
-            All
-          </button>
-          {CHARADES_CATEGORIES.map((c) => (
-            <button
-              key={c.id}
-              onClick={() => {
-                setCategory(c.id);
-                setUsedKeys(new Set());
-                track("filter_select", { tool_type: "charades_generator", filter_name: "category", filter_value: c.id, locale: "en" });
-              }}
-              className={`text-sm px-3.5 py-1.5 rounded-lg border transition-all ${
-                category === c.id
-                  ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]"
-                  : "border-[rgba(255,255,255,0.08)] text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/40"
-              }`}
-            >
-              {c.emoji} {c.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Difficulty + timer */}
-        <div className="flex flex-col sm:flex-row sm:items-end gap-5 mb-6">
-          <div>
-            <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-2">Difficulty</p>
-            <div className="flex flex-wrap gap-2">
-              {DIFFICULTIES.map((d) => (
-                <button
-                  key={d.id}
-                  onClick={() => {
-                    setDifficulty(d.id as 0 | 1 | 2 | 3);
-                    setUsedKeys(new Set());
-                    track("filter_select", { tool_type: "charades_generator", filter_name: "difficulty", filter_value: d.id, locale: "en" });
-                  }}
-                  className={`text-sm px-3.5 py-1.5 rounded-lg border transition-all ${
-                    difficulty === d.id
-                      ? "border-[var(--neon-pink)] text-[var(--neon-pink)] bg-[rgba(255,45,120,0.08)]"
-                      : "border-[rgba(255,255,255,0.08)] text-[var(--text-secondary)] hover:border-[var(--neon-pink)]/40"
-                  }`}
-                >
-                  {d.label}
-                </button>
-              ))}
-            </div>
+    <section id="charades-generator" aria-label="Charades word generator" className="max-w-3xl mx-auto px-4 sm:px-6 scroll-mt-24">
+      <div className="glass-card p-5 sm:p-8">
+        <fieldset>
+          <legend className="mb-2 text-xs uppercase tracking-widest text-[var(--text-muted)]">Category</legend>
+          <div className="mb-5 flex flex-wrap gap-2">
+            <button type="button" aria-pressed={category === "all"} onClick={() => changeCategory("all")} className={`${buttonClass} ${category === "all" ? selectedClass : idleClass}`}>All</button>
+            {CHARADES_CATEGORIES.map((item) => <button type="button" key={item.id} aria-pressed={category === item.id} onClick={() => changeCategory(item.id)} className={`${buttonClass} ${category === item.id ? selectedClass : idleClass}`}>{item.emoji} {item.label}</button>)}
           </div>
-          <div>
-            <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-2">Round timer</p>
+        </fieldset>
+        <div className="mb-5 flex flex-col gap-4 sm:flex-row">
+          <fieldset>
+            <legend className="mb-2 text-xs uppercase tracking-widest text-[var(--text-muted)]">Difficulty</legend>
             <div className="flex flex-wrap gap-2">
-              {TIMER_OPTIONS.map((t) => (
-                <button
-                  key={t}
-                  onClick={() => {
-                    setTimerLength(t);
-                    stopTimer();
-                    setTimeUp(false);
-                    track("timer_preset_select", { tool_type: "charades_generator", timer_seconds: t, locale: "en" });
-                  }}
-                  className={`text-sm px-3.5 py-1.5 rounded-lg border transition-all ${
-                    timerLength === t
-                      ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]"
-                      : "border-[rgba(255,255,255,0.08)] text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/40"
-                  }`}
-                >
-                  {t === 0 ? "Off" : `${t}s`}
-                </button>
-              ))}
+              {DIFFICULTIES.map((item) => {
+                const count = categoryWords.filter((word) => !item.id || word.d === item.id).length;
+                return <button type="button" key={item.id} aria-pressed={difficulty === item.id} disabled={!count} onClick={() => changeDifficulty(item.id)} className={`${buttonClass} ${difficulty === item.id ? selectedClass : idleClass} disabled:opacity-40 disabled:cursor-not-allowed`}>{item.label}{!count ? " (0)" : ""}</button>;
+              })}
             </div>
+          </fieldset>
+          <fieldset>
+            <legend className="mb-2 text-xs uppercase tracking-widest text-[var(--text-muted)]">Round timer</legend>
+            <div className="flex flex-wrap gap-2">
+              {TIMER_OPTIONS.map((seconds) => <button type="button" key={seconds} aria-pressed={timerLength === seconds} onClick={() => {
+                setTimerLength(seconds); resetTimer(seconds);
+                track("timer_preset_select", { ...eventParams, timer_seconds: seconds });
+              }} className={`${buttonClass} ${timerLength === seconds ? selectedClass : idleClass}`}>{seconds ? `${seconds}s` : "Off"}</button>)}
+            </div>
+          </fieldset>
+        </div>
+        <p className="mb-4 text-xs leading-relaxed text-[var(--text-muted)]">Filters apply to your next word. Changing filters keeps your current word, timer and seen-word history. Unavailable difficulty levels are disabled.</p>
+        {!pool.length && <div role="status" className="mb-4 rounded-xl border border-amber-300/30 bg-amber-300/5 p-4">
+          <p className="text-sm">No words match this category and difficulty. Your current word is unchanged.</p>
+          <button type="button" onClick={() => changeDifficulty(0)} className={`${buttonClass} ${idleClass} mt-3`}>Use any difficulty</button>
+        </div>}
+        <div className={`rounded-2xl border p-6 sm:p-10 text-center ${timeUp ? "border-[var(--neon-pink)]/60 bg-[rgba(255,45,120,0.06)]" : "border-white/10 bg-white/[0.02]"}`}>
+          <div aria-live="polite" className="flex min-h-28 flex-col items-center justify-center gap-3">
+            {current ? <>
+              <p className="text-xs uppercase tracking-widest text-[var(--neon-cyan)]">{hidden ? "Word hidden from the group" : "For the actor only"}</p>
+              <p data-charades-result="true" className="break-words text-3xl sm:text-5xl font-extrabold leading-tight" style={{ fontFamily: "var(--font-display)" }}>{hidden ? "Ready to act?" : current.w}</p>
+              {!hidden && <p className="text-xs text-[var(--text-muted)]">{resultCategory?.emoji} {resultCategory?.label} · {DIFFICULTIES[current.d].label}</p>}
+            </> : <p className="text-lg text-[var(--text-muted)]">Pass the screen to the actor, then deal a word 🎭</p>}
           </div>
-        </div>
-
-        {/* Word card */}
-        <div
-          className={`rounded-2xl border p-8 sm:p-12 text-center transition-colors min-h-[11rem] flex flex-col items-center justify-center ${
-            timeUp
-              ? "border-[var(--neon-pink)]/60 bg-[rgba(255,45,120,0.06)]"
-              : "border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)]"
-          }`}
-          aria-live="polite"
-        >
-          <AnimatePresence mode="wait">
-            {current ? (
-              <motion.div
-                key={current.w}
-                initial={{ opacity: 0, scale: 0.92, y: 10 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                transition={{ duration: 0.22 }}
-                className="flex flex-col items-center gap-3"
-              >
-                <p
-                  className="text-3xl sm:text-5xl font-extrabold text-[var(--text-primary)] leading-tight"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {current.w}
-                </p>
-                <div className="flex items-center gap-2 text-xs">
-                  {catMeta && (
-                    <span className="px-2.5 py-1 rounded-full border border-[rgba(255,255,255,0.1)] text-[var(--text-muted)]">
-                      {catMeta.emoji} {catMeta.label}
-                    </span>
-                  )}
-                  <span className={`px-2.5 py-1 rounded-full border ${DIFFICULTY_BADGE[current.d].cls}`}>
-                    {DIFFICULTY_BADGE[current.d].label}
-                  </span>
-                </div>
-              </motion.div>
-            ) : (
-              <p className="text-lg text-[var(--text-muted)]">
-                Pick your filters, then deal the first word 🎭
-              </p>
-            )}
-          </AnimatePresence>
-
-          {/* Timer bar */}
-          {secondsLeft !== null && (
-            <div className="w-full max-w-sm mt-6">
-              <div className="h-2 rounded-full bg-[rgba(255,255,255,0.06)] overflow-hidden">
-                <div
-                  className={`h-full rounded-full transition-all duration-1000 ease-linear ${
-                    secondsLeft <= 10 ? "bg-[var(--neon-pink)]" : "bg-[var(--neon-cyan)]"
-                  }`}
-                  style={{ width: `${timerPct}%` }}
-                />
-              </div>
-              <p
-                className={`mt-2 text-2xl font-bold tabular-nums ${
-                  timeUp ? "text-[var(--neon-pink)]" : secondsLeft <= 10 ? "text-[var(--neon-pink)]" : "text-[var(--text-secondary)]"
-                }`}
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {timeUp ? "⏰ Time's up!" : `${secondsLeft}s`}
-              </p>
+          {current && <button type="button" aria-pressed={hidden} onClick={() => {
+            setHidden(!hidden); track(hidden ? "charades_word_reveal" : "charades_word_hide", eventParams);
+          }} className={`${buttonClass} ${idleClass} mt-4`}>{hidden ? "Reveal word" : "Hide word"}</button>}
+          {current && timerLength > 0 && <div className="mx-auto mt-5 max-w-sm">
+            <div className="h-2 overflow-hidden rounded-full bg-white/10" aria-hidden="true"><div className={`h-full ${secondsLeft <= 10 ? "bg-[var(--neon-pink)]" : "bg-[var(--neon-cyan)]"}`} style={{ width: `${secondsLeft / timerLength * 100}%` }} /></div>
+            <p role="timer" aria-label="Time remaining" aria-live="off" className="mt-2 text-3xl font-bold tabular-nums">{secondsLeft}s</p>
+            <p role="status" className="mt-1 text-sm text-[var(--text-muted)]">{timeUp ? "Time’s up!" : timerState === "paused" ? "Paused" : timerState === "running" ? "Act silently. Your team guesses." : "Read your word first. Start when ready."}</p>
+            <div className="mt-3 flex flex-wrap justify-center gap-2">
+              {timerState === "running" ? <button type="button" onClick={pauseTimer} className={`${buttonClass} ${selectedClass}`}>Pause timer</button> : <button type="button" onClick={startTimer} className={`${buttonClass} ${selectedClass}`}>{timerState === "paused" ? "Resume timer" : timeUp ? "Restart timer" : "Start round"}</button>}
+              {timerState !== "ready" && <button type="button" onClick={() => { resetTimer(timerLength); track("timer_reset", { ...eventParams, timer_seconds: timerLength }); }} className={`${buttonClass} ${idleClass}`}>Reset timer</button>}
             </div>
-          )}
+            <p className="mt-3 text-xs text-[var(--text-muted)]">Starting hides the word. Reveal it again whenever the actor needs a reminder.</p>
+          </div>}
+          {current && !timerLength && <p className="mt-4 text-sm text-[var(--text-muted)]">Timer off — play at your own pace.</p>}
         </div>
-
-        {/* Controls */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
-          <button onClick={deal} className="btn-generate" disabled={pool.length === 0}>
-            <span>🎭</span> {current ? "Next Word" : "Deal a Word"}
-          </button>
-          <PrintButton
-            heading="Charades Words"
-            items={pool.map((x) => x.w)}
-            intro={`${pool.length} charades words — print and cut into cards for offline play.`}
-            label="Print this deck"
-          />
+        <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <button type="button" onClick={deal} className="btn-generate disabled:opacity-40" disabled={!pool.length}>🎭 {current ? "Next Word" : "Deal a Word"}</button>
+          {pool.length > 0 && <PrintButton heading="Charades Words" items={pool.map((word) => `${word.w} — ${DIFFICULTIES[word.d].label}`)} intro={`${pool.length} words · ${category === "all" ? "All categories" : CHARADES_CATEGORIES.find((item) => item.id === category)?.label} · ${DIFFICULTIES[difficulty].label} difficulty. Print and cut into cards.`} label="Print this deck" />}
         </div>
-        <p className="text-xs text-[var(--text-muted)] text-center mt-4">
-          {pool.length} words in this deck · {remaining} left before reshuffle · no repeats until the deck is done
-        </p>
+        <p className="mt-4 text-center text-xs text-[var(--text-muted)]">{pool.length} words in this deck · {remaining} unseen · {remaining ? "no repeats before reshuffle" : pool.length ? "next draw reshuffles this deck" : "choose another difficulty"}</p>
+        <p className="mt-3 text-center"><a href="#charades-word-bank" className="inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Browse all {CHARADES_WORDS.length} words by category ↓</a></p>
       </div>
     </section>
   );

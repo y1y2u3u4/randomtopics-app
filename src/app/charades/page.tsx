@@ -10,7 +10,7 @@ import { CHARADES_WORDS, CHARADES_CATEGORIES } from "@/data/charades";
 export const metadata: Metadata = {
   title: "Charades Generator — Random Charades Words with Timer & Categories",
   description:
-    "Free charades generator with 490+ words to act out — filter by category (movies, animals, actions, kids) and difficulty, with a built-in round timer, no-repeat deck, and printable word cards. No signup.",
+    "Free charades generator with 528 words, 9 categories and easy-to-hard filters. Hide the word, start your round timer when ready, or print cards. No signup.",
   keywords: [
     "charades generator",
     "charades word generator",
@@ -30,7 +30,7 @@ const FAQ_ITEMS = [
   {
     question: "How do you play charades?",
     answer:
-      "Split into two teams. One player draws a word and acts it out silently — no talking, no mouthing words, no pointing at objects in the room — while their team guesses within the time limit (60 seconds is standard). Score a point for each correct guess, then the other team takes a turn. This generator replaces the paper hat: deal a word, hand the phone to the actor, and the built-in timer runs the round for you.",
+      "Split into two teams. One player draws a word and acts it out silently — no talking, no mouthing words, no pointing at objects in the room — while their team guesses within the time limit (60 seconds is standard). Score a point for each correct guess, then the other team takes a turn. This generator replaces the paper hat: hand the phone to the actor, deal a word, then press Start round when they are ready. Starting hides the answer from the group.",
   },
   {
     question: "What are good words for charades?",
@@ -45,7 +45,7 @@ const FAQ_ITEMS = [
   {
     question: "How does the charades timer work?",
     answer:
-      "Choose 30, 60, 90, or 120 seconds and the timer starts automatically each time you deal a word — the bar counts down, turns red for the final ten seconds, and flashes Time's Up when the round ends. Sixty seconds is the classic default; use 30 for lightning rounds and 120 for hard idioms or younger players. You can also switch it off entirely.",
+      "Choose 30, 60, 90, or 120 seconds. Deal a word and let the actor read it, then press Start round to hide the word and begin the countdown. Pause and resume without losing your remaining time, or reveal the word for a reminder. Next Word resets the timer without starting it. Switch the timer off for untimed play.",
   },
   {
     question: "What are the rules for gestures in charades?",
@@ -59,62 +59,17 @@ const FAQ_ITEMS = [
   },
 ];
 
-// Crawlable sample lists: a taste of each category (the full 490+ deck lives in
-// the interactive generator above).
-const SAMPLE_LISTS: { theme: string; emoji: string; blurb: string; words: string[] }[] = [
-  {
-    theme: "Easy Charades Words for Kids",
-    emoji: "🧸",
-    blurb: "Act-along words young kids can perform and guess — perfect for family game night.",
-    words: [
-      "Snowman", "Tooth fairy", "Dinosaur", "Superman flying", "Blowing bubbles",
-      "Pillow fight", "Teddy bear", "Unicorn", "Freeze dance", "Peekaboo",
-      "Flying a kite", "Ice cream cone", "Tickle monster", "Nap time", "Robot",
-    ],
-  },
-  {
-    theme: "Funny Actions to Act Out",
-    emoji: "🏃",
-    blurb: "Everyday situations that get funnier the more accurately you mime them.",
-    words: [
-      "Trying to fold a fitted sheet", "Stepping on a Lego", "Walking into a spider web",
-      "Untangling headphones", "Parallel parking", "Waking up late for work",
-      "Assembling flat-pack furniture", "Carrying all the groceries in one trip",
-      "Looking for your glasses while wearing them", "Pretending to listen on a video call",
-    ],
-  },
-  {
-    theme: "Movie Charades",
-    emoji: "🎬",
-    blurb: "Titles everyone knows — act the scene, not the poster.",
-    words: [
-      "Titanic", "Jaws", "The Lion King", "Frozen", "Spider-Man", "Rocky",
-      "Harry Potter", "Jurassic Park", "Home Alone", "Finding Nemo",
-      "King Kong", "The Wizard of Oz", "Pirates of the Caribbean", "Toy Story", "Ghostbusters",
-    ],
-  },
-  {
-    theme: "Animal Charades",
-    emoji: "🐘",
-    blurb: "The all-ages classic — from easy elephants to hard-mode chameleons.",
-    words: [
-      "Elephant", "Penguin", "Kangaroo", "T-Rex", "Monkey", "Flamingo",
-      "Crab", "Owl", "Sloth", "Octopus", "Woodpecker", "Wolf howling at the moon",
-      "Deer in headlights", "Seal balancing a ball", "Chameleon",
-    ],
-  },
-  {
-    theme: "Hard Charades: Idioms & Phrases",
-    emoji: "💬",
-    blurb: "The expert deck — multi-word expressions that demand creative acting.",
-    words: [
-      "Break a leg", "Raining cats and dogs", "The elephant in the room",
-      "Barking up the wrong tree", "Once in a blue moon", "Spill the beans",
-      "Butterflies in your stomach", "Kill two birds with one stone",
-      "Needle in a haystack", "When pigs fly", "Walking on eggshells", "Couch potato",
-    ],
-  },
-];
+const CATEGORY_GUIDES: Record<string, string> = {
+  actions: "Start with a familiar movement, then add the awkward detail. For fitted sheets, mime the corners slipping out rather than spelling the word.",
+  animals: "Use posture, pace and a distinctive feature. Try a penguin's short steps or an elephant's trunk; save sound effects for a different game.",
+  movies: "Agree which titles your group knows before playing. Signal a film first, then act the title or a recognizable scene without quoting dialogue.",
+  "tv-books": "Signal a book with open palms or a TV with a rectangle. Pick a character or action your group recognizes; unfamiliar titles can be passed.",
+  objects: "Mime the object's shape and how someone uses it. An umbrella opens above your head; a stapler presses papers together.",
+  "people-jobs": "Act the work rather than imitating someone's appearance. A firefighter handles a hose; a conductor directs an orchestra.",
+  "sports-games": "Show the equipment before the movement. Try an imaginary racket, then a serve. This category has easy and medium words, with no hard-only deck.",
+  "kids-family": "Begin with easy words and let children pass unfamiliar ones. Offer 90 or 120 seconds, or turn the timer off. This category has no hard-only deck.",
+  phrases: "Signal the number of words, then act the expression literally. Agree on a longer timer for idioms and allow a pass if the phrase is unfamiliar.",
+};
 
 export default function CharadesPage() {
   return (
@@ -138,8 +93,7 @@ export default function CharadesPage() {
             Charades <span className="gradient-text">Generator</span>
           </h1>
           <p className="text-[var(--text-muted)] max-w-xl mx-auto">
-            {CHARADES_WORDS.length}+ hand-picked charades words with a built-in round timer. Filter
-            by category and difficulty, deal a word, act it out — no repeats until the deck runs dry.
+            {CHARADES_WORDS.length} charades words across {CHARADES_CATEGORIES.length} categories. Deal a word, let the actor read it, then start the timer and hide the answer. Free, with no signup.
           </p>
         </section>
 
@@ -162,30 +116,26 @@ export default function CharadesPage() {
           </div>
         </section>
 
-        {/* Sample word lists (crawlable) */}
-        {SAMPLE_LISTS.map((list) => (
-          <section key={list.theme} className="max-w-3xl mx-auto px-4 sm:px-6 pb-6">
-            <div className="glass-card p-8 sm:p-10">
-              <h2
-                className="text-xl sm:text-2xl font-bold mb-2 text-[var(--text-primary)]"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {list.emoji} {list.theme}
-              </h2>
-              <p className="text-[var(--text-muted)] text-sm mb-5">{list.blurb}</p>
-              <div className="flex flex-wrap gap-2">
-                {list.words.map((w) => (
-                  <span
-                    key={w}
-                    className="text-sm px-3.5 py-1.5 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)]"
-                  >
-                    {w}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </section>
-        ))}
+        <section id="charades-word-bank" className="max-w-3xl mx-auto px-4 sm:px-6 py-8 scroll-mt-24">
+          <h2 className="text-2xl font-bold">{`All ${CHARADES_WORDS.length} Charades Words by Category`}</h2>
+          <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)]">Browse the complete generator deck below. Each word is labeled Easy, Medium or Hard. Pick a category your group knows; titles and idioms depend on shared familiarity. Difficulty is an editorial guide, not an age guarantee.</p>
+          <p className="mt-2 text-xs text-[var(--text-muted)]">Collection and game guide reviewed September 21, 2026.</p>
+          <nav aria-label="Charades word categories" className="my-5 flex flex-wrap gap-2">
+            {CHARADES_CATEGORIES.map((cat) => <a key={cat.id} href={`#charades-${cat.id}`} className="inline-flex min-h-11 items-center rounded-xl border border-white/10 px-3 py-2 text-sm text-[var(--neon-cyan)]">{cat.emoji} {cat.label} · {CHARADES_WORDS.filter((word) => word.c === cat.id).length}</a>)}
+          </nav>
+          <div className="space-y-4">
+            {CHARADES_CATEGORIES.map((cat) => <details key={cat.id} id={`charades-${cat.id}`} className="glass-card p-5 sm:p-6 scroll-mt-24">
+              <summary className="cursor-pointer text-lg font-semibold">{cat.emoji} {cat.label} — {CHARADES_WORDS.filter((word) => word.c === cat.id).length} words</summary>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)]">{CATEGORY_GUIDES[cat.id]}</p>
+              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                {CHARADES_WORDS.filter((word) => word.c === cat.id).map((word) => <li key={word.w} data-charades-word="true" className="rounded-lg border border-white/10 p-3 text-sm">
+                  <span className="text-[var(--text-secondary)]">{word.w}</span><span className="ml-2 text-xs text-[var(--text-muted)]">· {word.d === 1 ? "Easy" : word.d === 2 ? "Medium" : "Hard"}</span>
+                </li>)}
+              </ul>
+              <a href="#charades-generator" className="mt-4 inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Back to your word and timer ↑</a>
+            </details>)}
+          </div>
+        </section>
 
         {/* SEO content: rules + gestures + FAQ */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-10 pb-16">
@@ -196,7 +146,7 @@ export default function CharadesPage() {
             <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
               <ol className="space-y-2 list-decimal pl-5">
                 <li><strong>Split into two teams</strong> and decide a time limit per round — 60 seconds is the classic.</li>
-                <li><strong>Deal a word</strong> with the generator above and hand the screen to the actor only.</li>
+                <li><strong>Hand the screen to the actor</strong>, deal a word and let them read it. Press Start round to hide the word and begin timing.</li>
                 <li><strong>Act it out silently</strong> — no talking, no mouthing, no pointing at real objects, no spelling in the air.</li>
                 <li><strong>Team guesses</strong> until the timer runs out. A correct guess scores a point.</li>
                 <li><strong>Alternate teams</strong>; first to an agreed score (usually 10) wins.</li>
