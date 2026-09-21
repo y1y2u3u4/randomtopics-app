@@ -4,19 +4,19 @@ Goal: make first feedback trustworthy and easy to reach, make a short second att
 
 ## Requirements and evidence
 
-- [ ] Feedback does not invent a missing point, reject a valid personal example, punish a balanced thesis, or mistake an empty closing phrase for a conclusion. Evidence: semantic review of live model cases, including the observed failures.
-- [ ] Each result separates missing work from optional refinement and offers a concrete short drill with a sentence scaffold and success criterion.
-- [ ] One explicit action submits recorded audio for transcription and feedback; transcript review remains available and errors preserve recoverable work.
-- [ ] Focused retries assess the stated goal, without penalizing a short passage for omitting a complete speech.
-- [ ] Progress comparison is shown first after a retry; the main next action remains visible on mobile.
-- [ ] Recording is not silently uploaded; privacy text matches actual behavior. Consent and quotas remain intact.
-- [ ] Incorrect transcription can be corrected without pretending cached feedback changed.
-- [ ] History supports recovery and continuing a saved practice; legacy results remain readable.
-- [ ] Actual remaining allowance controls any claim that a retry is free; quota errors provide a clear plan path.
-- [ ] QA is excluded in both front-end and server reporting. Exposure, intent, completion and payment remain separate.
-- [ ] Measurement captures the short practice funnel and optional reasons for stopping, without speech content or account identifiers.
-- [ ] Existing authentication, payment, ownership, quote validation and bounded provider requests remain covered by tests.
-- [ ] The actual browser → API → data → rendered result flow is verified; synthetic fixtures are labeled and do not count as customers.
+- [x] Feedback does not invent a missing point, reject a valid personal example, punish a balanced thesis, or mistake an empty closing phrase for a conclusion. Evidence: semantic review of live model cases, including the observed failures.
+- [x] Each result separates missing work from optional refinement and offers a concrete short drill with a sentence scaffold and success criterion.
+- [x] One explicit action submits recorded audio for transcription and feedback; transcript review remains available and errors preserve recoverable work.
+- [x] Focused retries assess the stated goal, without penalizing a short passage for omitting a complete speech.
+- [x] Progress comparison is shown first after a retry; the main next action remains visible on mobile.
+- [x] Recording is not silently uploaded; privacy text matches actual behavior. Consent and quotas remain intact.
+- [x] Incorrect transcription can be corrected without pretending cached feedback changed.
+- [x] History supports recovery and continuing a saved practice; legacy results remain readable.
+- [x] Actual remaining allowance controls any claim that a retry is free; quota errors provide a clear plan path.
+- [x] QA is excluded in both front-end and server reporting. Exposure, intent, completion and payment remain separate.
+- [x] Measurement captures the short practice funnel and optional reasons for stopping, without speech content or account identifiers.
+- [x] Existing authentication, payment, ownership, quote validation and bounded provider requests remain covered by tests.
+- [x] The actual browser → API → data → rendered result flow is verified; synthetic fixtures are labeled and do not count as customers.
 - [ ] Production release and post-release error/latency checks are verified.
 - [ ] Real user outcomes show improvement in feedback completion and repeated practice without worsening reliability; report sample sizes and uncertainty, then iterate.
 
@@ -43,3 +43,7 @@ Award points only against recorded evidence. Critical incorrect feedback, broken
 - React review kept model schemas/prompts out of client imports and added keyboard focus for results and transcript correction. Already-paid accounts are not shown a duplicate subscription prompt.
 
 The release and observed conversion/retention requirements remain open. No 100-point claim is made from software tests alone.
+
+- Completed mobile UI checks: real focused retry produced a grounded improvement comparison before other content; correcting punctuation regenerated matching feedback without another attempt; history restored the saved correction and showed progress before optional practice; history continuation honored exhausted allowance.
+- Fixture UI checks covered transcription failure/retry, feedback failure/retry without retranscription, optional review before feedback, quota fallback, and separate inaccurate/later reasons. The 390px viewport had no horizontal overflow and the browser warning/error log was empty. All QA events used the `qa_` namespace; both real-model browser attempts were confirmed as QA in the database.
+- Latest local webpack production build, speech/billing suites, TypeScript and focused ESLint checks passed. A previous Turbopack build also passed; after replacing the inherited dependency symlink with a clean installation, the verification harness used its own copied source files to avoid cross-directory development resolution issues.
