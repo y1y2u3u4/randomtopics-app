@@ -387,7 +387,7 @@ async function postGoogleJson<T>(
   throw new ReportingError(errorCode);
 }
 
-async function runGaReport(input: {
+export async function runGaReport(input: {
   startDate: string;
   endDate: string;
   dimensions?: string[];
