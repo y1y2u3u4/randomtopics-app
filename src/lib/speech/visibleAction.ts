@@ -1,10 +1,14 @@
 // A qualified impression is distinct from a click and is never synthesized by one.
 export function observeVisibleAction(button: HTMLButtonElement, onView: () => void) {
+  return observeVisibleContent(button, onView, () => !button.disabled);
+}
+
+export function observeVisibleContent(element: HTMLElement, onView: () => void, available = () => true) {
   if (typeof IntersectionObserver === "undefined") return () => {};
   let intersects = false;
   let finished = false;
   let timer: ReturnType<typeof setTimeout> | undefined;
-  const eligible = () => intersects && !button.disabled && button.isConnected &&
+  const eligible = () => intersects && available() && element.isConnected &&
     document.visibilityState === "visible" && document.hasFocus();
   const cancel = () => {
     if (timer !== undefined) clearTimeout(timer);
@@ -25,7 +29,7 @@ export function observeVisibleAction(button: HTMLButtonElement, onView: () => vo
     intersects = Boolean(entry?.isIntersecting && entry.intersectionRatio >= 0.5);
     update();
   }, { threshold: [0, 0.5, 1] });
-  observer.observe(button);
+  observer.observe(element);
   document.addEventListener("visibilitychange", update);
   window.addEventListener("focus", update);
   window.addEventListener("blur", cancel);

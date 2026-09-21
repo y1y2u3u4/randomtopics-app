@@ -104,3 +104,41 @@ assert.equal(qaEvents[0][1].entry_surface,'example');
 assert.equal(JSON.stringify(qaEvents).includes('private@example'),false);
 assert.ok(SPEECH_FUNNELS.every(f=>f.steps.every(([,event])=>!event.startsWith('qa_'))));
 console.log('PASS: production QA namespace persists across navigation, explicit exit, private-field exclusion and natural funnel isolation.');
+
+const historyEvents = [], historyCalls = [];
+let completeHistory;
+let historyResponse;
+const history = load('src/lib/speech/historyFeedback.ts', {
+  './client': { practiceFetch: async (path, body) => {
+    historyCalls.push({path, body});
+    return historyResponse();
+  } },
+  './telemetry': {
+    trackSpeech: (event, properties) => historyEvents.push({event, properties}),
+    speechErrorCode: error => error.status === 503 ? 'service' : 'client_or_network',
+  },
+});
+const savedAttempt = {id:'PRIVATE_ATTEMPT_ID', transcript:'PRIVATE_TRANSCRIPT', previous_id:null};
+const completedAttempt = {...savedAttempt, status:'complete', feedback:{priority:{nextStep:'Add one concrete example.'}}};
+historyResponse = () => new Promise(resolve => { completeHistory = resolve; });
+const pendingHistory = history.resumeHistoryFeedback(savedAttempt);
+assert.deepEqual(historyEvents.map(e=>e.event), ['speech_history_resume','speech_history_feedback_start']);
+completeHistory(completedAttempt);
+assert.equal(await pendingHistory, completedAttempt, 'Return the saved response so rendering does not depend on a second history request');
+assert.deepEqual(historyCalls.map(c=>c.path), ['feedback']);
+assert.equal(historyEvents.at(-1).event, 'speech_history_feedback_ready');
+assert.equal(historyEvents.at(-1).properties.attempt, 1);
+assert.ok(!historyEvents.some(e=>e.event.endsWith('_view')), 'An API success is not a visible result');
+assert.ok(!JSON.stringify(historyEvents).includes('PRIVATE_'), 'History recovery telemetry contains no content or IDs');
+historyEvents.length = 0;
+const serviceError = Object.assign(new Error('unavailable'), {status:503});
+historyResponse = () => {throw serviceError;};
+await assert.rejects(()=>history.resumeHistoryFeedback({...savedAttempt,previous_id:'PRIVATE_PREVIOUS'}), error=>error===serviceError);
+assert.deepEqual(historyEvents.map(e=>e.event), ['speech_history_resume','speech_history_feedback_start','speech_history_feedback_error']);
+assert.equal(historyEvents.at(-1).properties.error_code, 'service');
+assert.equal(historyEvents.at(-1).properties.attempt, 2);
+historyEvents.length = 0;
+historyResponse = () => ({...completedAttempt,status:'processing'});
+await assert.rejects(()=>history.resumeHistoryFeedback(savedAttempt), /not ready/);
+assert.ok(!historyEvents.some(e=>e.event.endsWith('_ready')), 'An incomplete response must not count as recovery');
+console.log('PASS: history recovery starts before completion, counts failures separately, returns saved results without a second request, never fabricates views, and omits private content.');

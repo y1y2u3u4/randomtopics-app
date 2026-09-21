@@ -4,6 +4,8 @@ import Link from "next/link";
 import { practiceFetch, speechClient } from "@/lib/speech/client";
 import type { SpeechFeedback } from "@/lib/speech/schema";
 import { speechErrorCode, trackSpeech, trackConfirmedSpeechPurchase } from "@/lib/speech/telemetry";
+import { resumeHistoryFeedback } from "@/lib/speech/historyFeedback";
+import SpeechHistorySummary from "./SpeechHistorySummary";
 type Attempt = {
   id: string;
   topic: string;
@@ -12,6 +14,7 @@ type Attempt = {
   status: string;
   feedback: SpeechFeedback | null;
   created_at: string;
+  previous_id: string | null;
 };
 const button =
   "min-h-11 rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold disabled:opacity-50";
@@ -20,6 +23,7 @@ export default function SpeechAccount() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
+  const [resumingId, setResumingId] = useState<string | null>(null);
   const [loaded, setLoaded] = useState(false);
   const [anonymous, setAnonymous] = useState(true);
   const [billing, setBilling] = useState(false);
@@ -291,10 +295,7 @@ export default function SpeechAccount() {
             </p>
             {attempt.feedback && (
               <>
-                <p>
-                  <strong>Next practice: </strong>
-                  {attempt.feedback.priority.nextStep}
-                </p>
+                <SpeechHistorySummary nextStep={attempt.feedback.priority.nextStep} repeated={Boolean(attempt.previous_id)} />
                 <details>
                   <summary className="cursor-pointer py-2 text-sm">
                     Feedback and transcript
@@ -358,6 +359,7 @@ export default function SpeechAccount() {
             )}
             {attempt.status === "transcribed" && attempt.transcript && (
               <>
+                <p className="text-sm text-[var(--text-muted)]">Your transcript is saved. Get feedback without recording again.</p>
                 <p className="whitespace-pre-wrap text-sm">
                   {attempt.transcript}
                 </p>
@@ -366,16 +368,19 @@ export default function SpeechAccount() {
                   disabled={busy}
                   onClick={() =>
                     run(async () => {
-                      trackSpeech("speech_history_resume", { content_source: "speech_account" });
-                      await practiceFetch("feedback", {
-                        id: attempt.id,
-                        transcript: attempt.transcript,
-                      });
-                      await load();
+                      setResumingId(attempt.id);
+                      try {
+                        const completed = await resumeHistoryFeedback({ ...attempt, transcript: attempt.transcript! });
+                        // The response is already saved. A second history request
+                        // must not turn a successful recovery into a visible error.
+                        setAttempts(current => current.map(item => item.id === attempt.id ? { ...item, ...completed } : item));
+                      } finally {
+                        setResumingId(null);
+                      }
                     })
                   }
                 >
-                  Get feedback on this transcript
+                  {resumingId === attempt.id ? "Getting your feedback…" : "Get feedback on this transcript"}
                 </button>
               </>
             )}
