@@ -1,5 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
+import { syncSitewideReport } from "@/lib/sitewideReporting";
 import {
   analyticsSheetErrorCode,
   syncAnalyticsReportToSheet,
@@ -7,7 +8,7 @@ import {
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-export const maxDuration = 120;
+export const maxDuration = 300;
 
 const PRIVATE_HEADERS = {
   "Cache-Control": "private, no-store",
@@ -47,7 +48,8 @@ export async function GET(request: NextRequest) {
 
   try {
     const result = await syncAnalyticsReportToSheet();
-    return NextResponse.json(result, { headers: PRIVATE_HEADERS });
+    const sitewide = await syncSitewideReport();
+    return NextResponse.json({ ...result, sitewide }, { headers: PRIVATE_HEADERS });
   } catch (error) {
     return NextResponse.json(
       { error: analyticsSheetErrorCode(error) },
