@@ -61,3 +61,8 @@ Initial small samples are descriptive, not proof of uplift or absent demand.
 The next useful question is whether visitors inspect the example, then begin and
 complete an attempt. A first review target of 100–200 qualified exposures is a
 sample-collection goal, not a claim of statistical significance.
+# Browser verification (2026-09-21)
+
+Preview `dpl_Fv7SpCLGY5QgsFz3Je8J9gW55udT` built successfully. Chrome extension checks passed at desktop and 390×844: initial enabled CTA, illustrative example, example CTA generates a topic and opens practice, qualified exposure emitted once, regeneration with three topics keeps the active practice, entry follows the first result, hide/continue preserves it, keyboard Enter works, and no console errors were observed. Viewport override reset afterward.
+
+The daily private reporting job also reads natural and `qa_` realtime event aggregates separately, enabling verification of GA ingestion without placing QA events in the natural funnel. Generic site pageviews and topic events are not covered by speech QA isolation.

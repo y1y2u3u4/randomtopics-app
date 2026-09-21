@@ -548,6 +548,20 @@ export type SpeechReport = {
   landings: { landing: string; event: string; users: number }[];
   funnels: { key: string; title: string; rows: { label: string; users: number }[]; available: boolean; qualified: boolean }[];
 };
+// Private server job only. QA and natural events use disjoint names.
+export async function getSpeechRealtime(qa = false) {
+  const propertyId = requiredEnv("GA4_PROPERTY_ID");
+  if (!/^\d+$/.test(propertyId)) throw new ReportingError("ga4_property_id_invalid");
+  const data = await postGoogleJson<GaReportResponse>(
+    `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runRealtimeReport`, {
+      dimensions: [{ name: "eventName" }], metrics: [{ name: "activeUsers" }, { name: "eventCount" }],
+      dimensionFilter: { filter: { fieldName: "eventName", inListFilter: { values: SPEECH_EVENTS.map(event => `${qa ? "qa_" : ""}${event}`) } } },
+      minuteRanges: [{ startMinutesAgo: 29, endMinutesAgo: 0 }], limit: 200,
+    }, "speech_realtime_failed",
+  );
+  return { generatedAt: new Date().toISOString(), minutes: 30, qa,
+    events: (data.rows ?? []).map(row => ({ event: row.dimensionValues?.[0]?.value ?? "", users: metricValue(row, 0), count: metricValue(row, 1) })) };
+}
 const speechCache = new Map<number, { expires: number; value: SpeechReport }>();
 export async function getSpeechReport(days = 7, force = false, window?: { startDate: string; endDate: string; dimensionFilter: unknown }): Promise<SpeechReport> {
   if (![0, 1, 7, 28].includes(days)) days = 7;

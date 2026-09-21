@@ -1,5 +1,6 @@
 "use client";
 import { track } from "@/lib/track";
+import { isProductionHost } from "@/lib/analyticsEnvironment";
 import { SPEECH_ISSUE_CODES, type SpeechEvent } from "./events";
 
 type Properties = {
@@ -29,7 +30,7 @@ export function trackSpeech(event: SpeechEvent, properties: Properties) {
   const qa = speechQaSession();
   const eventName = qa ? `qa_${event}` : event;
   track(eventName, safe);
-  if (qa && typeof window !== "undefined") {
+  if (qa && typeof window !== "undefined" && isProductionHost(window.location.hostname)) {
     window.dispatchEvent(new CustomEvent("rt:analytics", { detail: { event: eventName, params: safe } }));
   }
   if (event.endsWith("_error") && SPEECH_ISSUE_CODES.some((code) => code === safe.error_code)) {
