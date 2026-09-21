@@ -13,6 +13,7 @@ import PrintButton from "@/components/PrintButton";
 import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
 import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 import { ES_CONTROVERSIAL_SUPPORT } from "@/data/controversialDiscussion.es";
+import PartyCategoryEntry from "@/components/PartyCategoryEntry";
 import SpanishPartyRound from "@/components/SpanishPartyRound";
 
 function sectionId(heading: string) {
@@ -281,6 +282,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
                       </li>
                     ))}
                   </ol>
+                  {article.slug === "most-likely-to-questions" && <PartyCategoryEntry groupIndex={sIdx} />}
                 </div>
               </section>
             );

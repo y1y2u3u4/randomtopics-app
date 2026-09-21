@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import GeneratedResultActions from "@/components/GeneratedResultActions";
 import { drawUnseen } from "@/lib/topicPool";
 import { track } from "@/lib/track";
@@ -29,6 +29,18 @@ export default function SpanishPartyRound({ groups }: SpanishPartyRoundProps) {
   const [size, setSize] = useState(5);
   const [used, setUsed] = useState<Set<string>>(() => new Set());
   const [round, setRound] = useState<Round | null>(null);
+  const [categoryNotice, setCategoryNotice] = useState("");
+  useEffect(() => {
+    const selectCategory = (event: Event) => {
+      const groupId = (event as CustomEvent<{ groupId?: string }>).detail?.groupId;
+      const index = groups.findIndex((_, index) => `group_${index}` === groupId);
+      if (index < 0) return;
+      setActiveGroup(`group_${index}`);
+      setCategoryNotice(`Categoría elegida: ${groups[index].label}. Pulsa Preparar ronda para usarla. Tu ronda actual se conserva hasta preparar otra.`);
+    };
+    window.addEventListener("rt:party-category", selectCategory);
+    return () => window.removeEventListener("rt:party-category", selectCategory);
+  }, [groups]);
   const selectedGroup = groups.find((_, index) => `group_${index}` === activeGroup);
   const pool = [...new Set(selectedGroup?.items ?? allItems)];
   const roundItems = round?.items.filter((_, index) => !round.skipped.includes(index)) ?? [];
@@ -42,6 +54,7 @@ export default function SpanishPartyRound({ groups }: SpanishPartyRoundProps) {
     const params = { ...eventParams, generator_category: activeGroup, requested_count: size };
     if (round) track("repeat_generate", params);
     track("generate_start", params);
+    setCategoryNotice("");
     const draw = drawUnseen(pool, used, (item) => item, size);
     setUsed(draw.used);
     setRound({ items: draw.picked, groupId: activeGroup, groupLabel: selectedGroup?.label ?? "Todas las categorías", index: 0, skipped: [] });
@@ -70,6 +83,7 @@ export default function SpanishPartyRound({ groups }: SpanishPartyRoundProps) {
         <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">Elige la categoría y prepara 5 o 10 preguntas. Léanlas una a una, pasen las que no encajen y copien la ronda para el chat.</p>
       </div>
 
+      {categoryNotice && <p role="status" className="mt-4 rounded-xl border border-[var(--neon-cyan)]/30 p-3 text-sm text-[var(--neon-cyan)]">{categoryNotice}</p>}
       <div className="mt-6 grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto]">
         <label className="min-w-0 text-sm text-[var(--text-secondary)]">
           {round ? "Categoría para la próxima ronda" : "Elige una categoría"}

@@ -27,6 +27,7 @@ interface GeneratedResultActionsProps {
   /** Local-only identity for an editable result; never sent to analytics. */
   actionViewIdentity?: string;
   compact?: boolean;
+  showSavedLink?: boolean;
   showMessageCopy?: boolean;
   copyAsGroupMessage?: boolean;
 }
@@ -44,6 +45,7 @@ export default function GeneratedResultActions({
   isPostGenerate = true,
   actionViewIdentity,
   compact = false,
+  showSavedLink = false,
   showMessageCopy = false,
   copyAsGroupMessage = false,
 }: GeneratedResultActionsProps) {
@@ -195,7 +197,7 @@ export default function GeneratedResultActions({
             : ""}
       </p>
 
-      {saved && isPostGenerate ? (
+      {saved && (isPostGenerate || showSavedLink) ? (
         <p className="mt-1 text-center text-xs">
           <Link href={isSpanish ? "/es/saved-topics" : "/saved-topics"}
             onClick={() => track("open_saved_topics", eventParams)}

@@ -31,7 +31,7 @@ const FAQ_ITEMS = [
   {
     question: "What is a question of the day?",
     answer:
-      "A question of the day (QOTD) is a single, thoughtful question posed once a day to spark conversation — in classroom morning meetings, team Slack channels, family dinners, or journals. The ritual matters as much as the question: same time, one question, everyone answers. Our page shows one question that's the same for visitors on the same local date and rotates at midnight, so a class or team can rely on it as their daily source.",
+      "A question of the day (QOTD) is a single, thoughtful question posed once a day to spark conversation — in classroom morning meetings, team Slack channels, family dinners, or journals. The ritual matters as much as the question: same time, one question, everyone answers. Choose a daily category for your group. Visitors using the same category and local date see the same question, and the browser can remember that category for tomorrow.",
   },
   {
     question: "What are good question of the day ideas?",
@@ -51,7 +51,7 @@ const FAQ_ITEMS = [
   {
     question: "Does the question of the day change automatically?",
     answer:
-      "Yes — the featured question is chosen deterministically from the bank based on the date, so it's identical for the same local date and switches at midnight in your local timezone. If today's doesn't fit your group, hit Random Question and filter by category; the generator never repeats a question until you've seen the whole set.",
+      "Yes — the featured question is chosen deterministically from the bank based on the date, so it's identical for the same daily category and local date, and switches at midnight in your local timezone. Your daily-category preference is stored only in this browser; if browser storage is blocked, it lasts for this open page. If today's doesn't fit your group, hit Random Question and filter by category; the generator never repeats a question until you've seen the whole set.",
   },
 ];
 

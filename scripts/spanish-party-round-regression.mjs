@@ -5,12 +5,12 @@ import * as React from "react";
 import ts from "typescript";
 
 const require = createRequire(import.meta.url);
-function load(path, overrides = {}) {
+function load(path, overrides = {}, windowMock = {}) {
   const code = ts.transpileModule(readFileSync(new URL(`../${path}`, import.meta.url), "utf8"), {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, jsx: ts.JsxEmit.ReactJSX },
   }).outputText;
   const target = { exports: {} };
-  new Function("require", "module", "exports", code)((id) => overrides[id] ?? require(id), target, target.exports);
+  new Function("require", "module", "exports", "window", code)((id) => overrides[id] ?? require(id), target, target.exports, windowMock);
   return target.exports;
 }
 function nodes(node) {
@@ -24,10 +24,10 @@ function label(node) {
 }
 const Actions = () => null;
 function harness(groups) {
-  const state = [], events = [];
+  const state = [], events = [], listeners = new Map();
   let cursor = 0;
   const Component = load("src/components/SpanishPartyRound.tsx", {
-    react: { ...React, useMemo: (fn) => fn(), useState(initial) {
+    react: { ...React, useEffect: (fn) => fn(), useMemo: (fn) => fn(), useState(initial) {
       const key = cursor++;
       if (!(key in state)) state[key] = typeof initial === "function" ? initial() : initial;
       return [state[key], (value) => { state[key] = typeof value === "function" ? value(state[key]) : value; }];
@@ -35,10 +35,11 @@ function harness(groups) {
     "@/components/GeneratedResultActions": { default: Actions },
     "@/lib/topicPool": load("src/lib/topicPool.ts"),
     "@/lib/track": { track: (name, params) => events.push({ name, params }) },
-  }).default;
+  }, { addEventListener: (name, fn) => listeners.set(name, fn), removeEventListener: (name) => listeners.delete(name) }).default;
   const render = () => { cursor = 0; return nodes(Component({ groups })); };
   return {
     render, events,
+    chooseFromArticle: (groupId) => { render(); listeners.get("rt:party-category")({ detail: { groupId } }); },
     click: (text) => render().find((node) => node.type === "button" && label(node).trim() === text).props.onClick(),
     group: (value) => render().find((node) => node.type === "select").props.onChange({ target: { value } }),
     action: (surface) => render().find((node) => node.type === Actions && node.props.actionSurface === surface)?.props,
@@ -110,3 +111,16 @@ assert.equal(sparse.events.find((event) => event.name === "generate_success").pa
 const empty = harness([]);
 assert.equal(empty.render().find((node) => node.type === "button" && node.props["data-generate-button"]).props.disabled, true);
 console.log("Spanish party round regression passed: real 100-question corpus, category/size preservation, skip/export, completion, sparse pools and private analytics.");
+
+const bridge = harness(groups);
+bridge.click("Preparar ronda");
+const preserved = bridge.action("party_round_collection").copyValue;
+bridge.chooseFromArticle("group_2");
+assert.equal(bridge.action("party_round_collection").copyValue, preserved, "Category entry does not erase an ongoing round");
+assert.equal(bridge.events.filter((event) => event.name === "generate_success").length, 1);
+assert.equal(bridge.render().find((node) => node.type === "select").props.value, "group_2");
+bridge.click("Preparar otra ronda");
+assert.ok(bridge.action("party_round_collection").saveTopic.talkingPoints.slice(1).every((item) => groups[2].items.includes(item)));
+bridge.chooseFromArticle("group_999");
+assert.equal(bridge.render().find((node) => node.type === "select").props.value, "group_2");
+console.log("PASS: article category entry preserves active round until explicit preparation and uses the actual chosen corpus.");
