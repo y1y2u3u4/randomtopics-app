@@ -547,14 +547,15 @@ export type SpeechReport = {
   funnels: { key: string; title: string; rows: { label: string; users: number }[]; available: boolean; qualified: boolean }[];
 };
 const speechCache = new Map<number, { expires: number; value: SpeechReport }>();
-export async function getSpeechReport(days = 7, force = false): Promise<SpeechReport> {
+export async function getSpeechReport(days = 7, force = false, window?: { startDate: string; endDate: string; dimensionFilter: unknown }): Promise<SpeechReport> {
   if (![0, 1, 7, 28].includes(days)) days = 7;
   const cached = speechCache.get(days);
-  if (!force && cached && cached.expires > Date.now()) return cached.value;
-  const filter = { andGroup: { expressions: [productionFilter, {
+  if (!window && !force && cached && cached.expires > Date.now()) return cached.value;
+  const scope = window ? { andGroup: { expressions: [productionFilter, window.dimensionFilter] } } : productionFilter;
+  const filter = { andGroup: { expressions: [scope, {
     filter: { fieldName: "eventName", inListFilter: { values: [...SPEECH_EVENTS] } },
   }] } };
-  const base = { startDate: days === 0 ? "today" : `${days}daysAgo`, endDate: days === 0 ? "today" : "yesterday", dimensionFilter: filter };
+  const base = { startDate: window?.startDate ?? (days === 0 ? "today" : `${days}daysAgo`), endDate: window?.endDate ?? (days === 0 ? "today" : "yesterday"), dimensionFilter: filter };
   // Sequential requests preserve the property's concurrent-request allowance.
   const events = await runGaReport({ ...base, dimensions: ["eventName"], metrics: ["eventCount", "totalUsers", "sessions"], limit: 100 });
   const devices = await runGaReport({ ...base, dimensions: ["deviceCategory", "eventName"], metrics: ["totalUsers"], limit: 500 });
@@ -567,7 +568,7 @@ export async function getSpeechReport(days = 7, force = false): Promise<SpeechRe
     try {
       const result = await postGoogleJson<{ funnelTable?: FunnelRows }>(
         `https://analyticsdata.googleapis.com/v1alpha/properties/${propertyId}:runFunnelReport`,
-        funnelRequest(definition, days), "speech_funnel_failed",
+        { ...funnelRequest(definition, days), dateRanges: [{ startDate: base.startDate, endDate: base.endDate }], dimensionFilter: scope }, "speech_funnel_failed",
       );
       if (!result.funnelTable) throw new Error("missing_funnel_table");
       funnels.push({ key: definition.key, title: definition.title, available: true,
@@ -586,7 +587,7 @@ export async function getSpeechReport(days = 7, force = false): Promise<SpeechRe
     sources: (sources.rows ?? []).map((row) => ({ source: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0) })),
     landings: (landings.rows ?? []).map((row) => ({ landing: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0) })),
   };
-  speechCache.set(days, { expires: Date.now() + DASHBOARD_CACHE_MS, value });
+  if (!window) speechCache.set(days, { expires: Date.now() + DASHBOARD_CACHE_MS, value });
   return value;
 }
 
