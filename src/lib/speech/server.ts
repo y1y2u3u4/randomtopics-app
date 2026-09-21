@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { createHmac } from "node:crypto";
 import { z } from "zod";
 import { MODEL } from "./schema";
+import { logSpeechFailure, type SpeechFailureStage } from "./diagnostics";
 
 export class SpeechError extends Error {
   constructor(
@@ -103,50 +104,66 @@ export async function readJson(request: Request) {
 }
 export async function modelCall<T>(
   schema: z.ZodType<T>,
-  name: string,
+  name: "speech_transcript" | "speech_feedback",
   instruction: string,
   content: unknown,
 ) {
-  const result = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    cache: "no-store",
-    signal: AbortSignal.timeout(55000),
-    headers: {
-      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-      "Content-Type": "application/json",
-      "HTTP-Referer": "https://randomtopics.app",
-      "X-Title": "RandomTopics Speech Practice",
-    },
-    body: JSON.stringify({
-      model: MODEL,
-      temperature: 0.2,
-      max_tokens: 4500,
-      provider: { data_collection: "deny", require_parameters: true },
-      messages: [
-        { role: "system", content: instruction },
-        { role: "user", content },
-      ],
-      response_format: {
-        type: "json_schema",
-        json_schema: {
-          name,
-          strict: true,
-          schema: z.toJSONSchema(schema, { target: "draft-7" }),
-        },
+  const started = Date.now();
+  let stage: SpeechFailureStage = "model_request";
+  let providerStatus: number | undefined;
+  try {
+    const result = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      cache: "no-store",
+      signal: AbortSignal.timeout(55000),
+      headers: {
+        Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://randomtopics.app",
+        "X-Title": "RandomTopics Speech Practice",
       },
-    }),
-  });
-  if (!result.ok)
-    throw new SpeechError(
-      503,
-      "The coach is temporarily unavailable. Please try again.",
-    );
-  const data = await result.json();
-  return {
-    value: schema.parse(
-      JSON.parse(data.choices?.[0]?.message?.content ?? "null"),
-    ),
-    usage: data.usage ?? {},
-    model: data.model ?? MODEL,
-  };
+      body: JSON.stringify({
+        model: MODEL,
+        temperature: 0.2,
+        max_tokens: 4500,
+        provider: { data_collection: "deny", require_parameters: true },
+        messages: [
+          { role: "system", content: instruction },
+          { role: "user", content },
+        ],
+        response_format: {
+          type: "json_schema",
+          json_schema: {
+            name,
+            strict: true,
+            schema: z.toJSONSchema(schema, { target: "draft-7" }),
+          },
+        },
+      }),
+    });
+    providerStatus = result.status;
+    if (!result.ok) {
+      stage = "model_http";
+      throw new SpeechError(
+        503,
+        "The coach is temporarily unavailable. Please try again.",
+      );
+    }
+    stage = "response_json";
+    const data = await result.json();
+    stage = "content_json";
+    const contentValue = JSON.parse(data.choices?.[0]?.message?.content ?? "null");
+    stage = "model_schema";
+    const value = schema.parse(contentValue);
+    return {
+      value,
+      usage: data.usage ?? {},
+      model: data.model ?? MODEL,
+    };
+  } catch (error) {
+    if (stage === "model_request" && error instanceof Error &&
+      (error.name === "AbortError" || error.name === "TimeoutError")) stage = "model_timeout";
+    logSpeechFailure(name === "speech_transcript" ? "transcribe" : "feedback", stage, Date.now() - started, providerStatus);
+    throw error;
+  }
 }
