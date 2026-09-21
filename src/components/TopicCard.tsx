@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { ReactNode } from "react";
 import { Topic, CATEGORIES } from "@/data/types";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { CATEGORY_LABELS, MODE_LABELS } from "@/i18n/dictionaries";
@@ -12,6 +13,7 @@ interface TopicCardProps {
   locale?: Locale;
   contentSource?: string;
   actionContext?: "generated_result" | "editorial_card" | "saved_library";
+  afterTitle?: ReactNode;
 }
 
 const depthColors = {
@@ -38,6 +40,7 @@ export default function TopicCard({
   locale = defaultLocale,
   contentSource = "topic_card",
   actionContext = "editorial_card",
+  afterTitle,
 }: TopicCardProps) {
   const categoryEmoji = CATEGORIES.find((c) => c.id === topic.category)?.emoji;
   const categoryLabel = CATEGORY_LABELS[locale][topic.category]?.label;
@@ -47,7 +50,7 @@ export default function TopicCard({
     <motion.div
       className="topic-card"
       style={{ position: "relative", overflow: "hidden" }}
-      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+      initial={afterTitle ? false : { opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{
         duration: 0.4,
@@ -115,6 +118,8 @@ export default function TopicCard({
       >
         {topic.text}
       </h3>
+
+      {afterTitle}
 
       {/* Talking points with left accent border */}
       {topic.talkingPoints.length > 0 && (

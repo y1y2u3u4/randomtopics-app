@@ -1,6 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import type { Topic } from "@/data/types";
 import { trackSpeech } from "@/lib/speech/telemetry";
 import { observeVisibleAction } from "@/lib/speech/visibleAction";
@@ -9,11 +9,12 @@ const Coach = dynamic(() => import("./SpeechCoach"), {
   loading: () => <p role="status" className="p-4">Opening your practice…</p>,
 });
 
-export default function SpeechCoachEntry({ topics, contentSource, requestTopics, loadingTopics }: {
+export default function SpeechCoachEntry({ topics, contentSource, requestTopics, loadingTopics, renderFirstTopic }: {
   topics: Topic[];
   contentSource: string;
   requestTopics: () => Promise<Topic[]>;
   loadingTopics: boolean;
+  renderFirstTopic?: (actions: ReactNode) => ReactNode;
 }) {
   const [topic, setTopic] = useState<Topic | null>(null);
   const [open, setOpen] = useState(false);
@@ -22,6 +23,7 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
   const [error, setError] = useState("");
   const primary = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
+  const example = useRef<HTMLDivElement>(null);
   const viewed = useRef(false);
   const opened = useRef(false);
   const exampleViewed = useRef(false);
@@ -30,6 +32,8 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
   const id = useId();
   const enabled = process.env.NEXT_PUBLIC_SPEECH_COACH_ENABLED === "true";
   const busy = starting || loadingTopics;
+  const firstTopicId = topics[0]?.id;
+  const inlineActions = Boolean(renderFirstTopic);
   useEffect(() => {
     if (!enabled || landed.current) return;
     landed.current = true;
@@ -42,12 +46,17 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
       viewed.current = true;
       trackSpeech("speech_entry_v3_view", { content_source: contentSource });
     });
-  }, [enabled, busy, open, contentSource]);
+  }, [enabled, busy, open, contentSource, firstTopicId, inlineActions]);
   useEffect(() => {
     if (!open) return;
     panel.current?.focus({ preventScroll: true });
     panel.current?.scrollIntoView({ block: "nearest", behavior: "instant" });
   }, [open]);
+  useEffect(() => {
+    if (!exampleOpen) return;
+    example.current?.focus({ preventScroll: true });
+    example.current?.scrollIntoView({ block: "nearest", behavior: "instant" });
+  }, [exampleOpen]);
 
   async function startPractice(surface: "primary" | "example") {
     if (pending.current || busy) return;
@@ -78,15 +87,9 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
   if (!enabled) return null;
   const buttonLabel = busy ? "Getting your topic…" : open ? "Hide practice" : topic ? "Continue your practice" :
     topics.length ? "Practice this topic free" : "Get a topic & practice free";
-  return (
-    <section className="mb-6 rounded-2xl border border-[var(--neon-cyan)]/40 bg-[var(--neon-cyan)]/5 p-5 sm:p-6"
-      aria-label="Free speech feedback">
-      <p className="text-xs font-bold uppercase tracking-widest text-[var(--neon-cyan)]">Your next step · Free speech feedback</p>
-      <h2 className="mt-2 text-xl font-bold leading-tight sm:text-2xl">Make your next answer clearer.</h2>
-      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--text-secondary)]">
-        Give a 60-second answer. Get one specific suggestion for your point, example or ending — then try it again.
-      </p>
-      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+  const actions = <div className={`relative z-10 ${inlineActions ? "mb-5" : "mt-5"}`}>
+      {inlineActions && <p className="mb-3 text-sm leading-relaxed text-[var(--text-secondary)]">Try a 60-second answer. Get one specific suggestion.</p>}
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <button ref={primary} type="button" disabled={busy} aria-expanded={open} aria-controls={`${id}-practice`}
           onClick={() => void startPractice("primary")}
           className="min-h-12 rounded-xl bg-[var(--neon-cyan)] px-5 py-3 text-sm font-bold text-slate-950 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--neon-cyan)] disabled:opacity-60">
@@ -105,8 +108,19 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
         </button>
       </div>
       <p className="mt-3 text-xs leading-relaxed text-[var(--text-muted)]">Two free attempts. No sign-up or card. Feedback on your words and structure.</p>
+    </div>;
+  return (
+    <section className="mb-6" aria-label="Free speech feedback">
+      {renderFirstTopic ? renderFirstTopic(actions) : <div className="rounded-2xl border border-[var(--neon-cyan)]/40 bg-[var(--neon-cyan)]/5 p-5 sm:p-6">
+        <p className="text-xs font-bold uppercase tracking-widest text-[var(--neon-cyan)]">Your next step · Free speech feedback</p>
+        <h2 className="mt-2 text-xl font-bold leading-tight sm:text-2xl">Make your next answer clearer.</h2>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--text-secondary)]">
+          Give a 60-second answer. Get one specific suggestion for your point, example or ending — then try it again.
+        </p>
+        {actions}
+      </div>}
       {error && <p role="alert" className="mt-3 text-sm text-amber-200">{error}</p>}
-      {exampleOpen && <div id={`${id}-example`} className="mt-5 space-y-4 rounded-xl border border-white/15 bg-black/20 p-4 sm:p-5">
+      {exampleOpen && <div ref={example} tabIndex={-1} id={`${id}-example`} className="mt-5 space-y-4 rounded-xl border border-white/15 bg-black/20 p-4 outline-none sm:p-5">
         <div><h3 className="font-semibold">What your feedback can look like</h3>
           <p className="mt-1 text-xs text-[var(--text-muted)]">Illustrative example, not an assessment of your speech.</p></div>
         <div><p className="text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)]">Example answer</p>
