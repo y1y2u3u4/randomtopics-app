@@ -9,6 +9,7 @@
     "lint": "eslint",
     "seo:audit": "node scripts/seo-audit.mjs",
     "growth:test": "node scripts/growth-regression.mjs",
+    "topics:test": "node scripts/topic-generator-regression.mjs",
     "speech:test": "node scripts/speech-coach-regression.mjs && node scripts/speech-measurement-regression.mjs && node scripts/speech-entry-regression.mjs && node scripts/speech-diagnostics-regression.mjs && node scripts/speech-feedback-regression.mjs",
     "billing:test": "node scripts/speech-billing-regression.mjs && node scripts/speech-purchase-regression.mjs && node scripts/speech-checkout-recovery-regression.mjs"
   },
