@@ -65,7 +65,7 @@ try {
   }
   assert.ok(!JSON.stringify(logs).includes('PRIVATE'));
   assert.ok(!JSON.stringify(logs).includes(id));
-  for (const item of logs) assert.ok(Object.keys(item).every(key=>['event','operation','stage','elapsed_ms','provider_status'].includes(key)));
+  for (const item of logs) assert.ok(Object.keys(item).every(key=>['event','operation','stage','elapsed_ms','provider_status','attempt','retrying','schema_issues'].includes(key)));
   console.error = () => { throw new Error(privateText); };
   assert.doesNotThrow(()=>logSpeechFailure('feedback','feedback_save',1));
 } finally {

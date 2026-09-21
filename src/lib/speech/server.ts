@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { createHmac } from "node:crypto";
 import { z } from "zod";
 import { MODEL } from "./schema";
-import { logSpeechFailure, type SpeechFailureStage } from "./diagnostics";
+import { logSpeechFailure, logSpeechRecovery, speechSchemaIssues, type SpeechFailureStage } from "./diagnostics";
 
 export class SpeechError extends Error {
   constructor(
@@ -109,61 +109,81 @@ export async function modelCall<T>(
   content: unknown,
 ) {
   const started = Date.now();
-  let stage: SpeechFailureStage = "model_request";
-  let providerStatus: number | undefined;
-  try {
-    const result = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      cache: "no-store",
-      signal: AbortSignal.timeout(55000),
-      headers: {
-        Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://randomtopics.app",
-        "X-Title": "RandomTopics Speech Practice",
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        temperature: 0.2,
-        max_tokens: 4500,
-        provider: { data_collection: "deny", require_parameters: true },
-        messages: [
-          { role: "system", content: instruction },
-          { role: "user", content },
-        ],
-        response_format: {
-          type: "json_schema",
-          json_schema: {
-            name,
-            strict: true,
-            schema: z.toJSONSchema(schema, { target: "draft-7" }),
-          },
+  // Reserve time for validation, persistence and releasing the feedback claim
+  // inside the route's 60-second limit. Transcription keeps its existing limit.
+  const budgetMs = name === "speech_feedback" ? 45000 : 55000;
+  const usages: unknown[] = [];
+  for (let attempt: 1 | 2 = 1; ; attempt = 2) {
+    usages.push(null);
+    let stage: SpeechFailureStage = "model_request";
+    let providerStatus: number | undefined;
+    let refusal = false;
+    const remainingMs = budgetMs - (Date.now() - started);
+    try {
+      if (remainingMs <= 0) throw new DOMException("Model deadline exceeded", "TimeoutError");
+      const result = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        cache: "no-store",
+        signal: AbortSignal.timeout(remainingMs),
+        headers: {
+          Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          "Content-Type": "application/json",
+          "HTTP-Referer": "https://randomtopics.app",
+          "X-Title": "RandomTopics Speech Practice",
         },
-      }),
-    });
-    providerStatus = result.status;
-    if (!result.ok) {
-      stage = "model_http";
-      throw new SpeechError(
-        503,
-        "The coach is temporarily unavailable. Please try again.",
-      );
+        body: JSON.stringify({
+          model: MODEL,
+          temperature: 0.2,
+          max_tokens: 4500,
+          provider: { data_collection: "deny", require_parameters: true },
+          messages: [
+            { role: "system", content: instruction + (attempt === 2
+              ? "\nThe previous response did not satisfy the JSON format. Generate a fresh complete JSON object matching the supplied schema. Include every required field, use non-empty explanatory text, keep within field length limits, and do not add markdown. Preserve exact transcript quotations."
+              : "") },
+            { role: "user", content },
+          ],
+          response_format: {
+            type: "json_schema",
+            json_schema: {
+              name,
+              strict: true,
+              schema: z.toJSONSchema(schema, { target: "draft-7" }),
+            },
+          },
+        }),
+      });
+      providerStatus = result.status;
+      if (!result.ok) {
+        stage = "model_http";
+        throw new SpeechError(
+          503,
+          "The coach is temporarily unavailable. Please try again.",
+        );
+      }
+      stage = "response_json";
+      const data = await result.json();
+      usages[attempt - 1] = data.usage ?? null;
+      refusal = data.choices?.[0]?.finish_reason === "content_filter" || Boolean(data.choices?.[0]?.message?.refusal);
+      stage = "content_json";
+      const contentValue = JSON.parse(data.choices?.[0]?.message?.content ?? "null");
+      stage = "model_schema";
+      const value = schema.parse(contentValue);
+      if (attempt === 2) logSpeechRecovery(Date.now() - started);
+      return {
+        value,
+        // Keep both provider calls in the private usage ledger when recovery ran.
+        usage: attempt === 1 ? data.usage ?? {} : { attempts: usages },
+        model: data.model ?? MODEL,
+      };
+    } catch (error) {
+      if (stage === "model_request" && error instanceof Error &&
+        (error.name === "AbortError" || error.name === "TimeoutError")) stage = "model_timeout";
+      const retrying = name === "speech_feedback" && attempt === 1 && !refusal &&
+        ["response_json", "content_json", "model_schema"].includes(stage) && budgetMs - (Date.now() - started) >= 5000;
+      logSpeechFailure(name === "speech_transcript" ? "transcribe" : "feedback", stage, Date.now() - started, providerStatus,
+        { attempt, retrying, issues: speechSchemaIssues(error) });
+      if (retrying) continue;
+      throw error;
     }
-    stage = "response_json";
-    const data = await result.json();
-    stage = "content_json";
-    const contentValue = JSON.parse(data.choices?.[0]?.message?.content ?? "null");
-    stage = "model_schema";
-    const value = schema.parse(contentValue);
-    return {
-      value,
-      usage: data.usage ?? {},
-      model: data.model ?? MODEL,
-    };
-  } catch (error) {
-    if (stage === "model_request" && error instanceof Error &&
-      (error.name === "AbortError" || error.name === "TimeoutError")) stage = "model_timeout";
-    logSpeechFailure(name === "speech_transcript" ? "transcribe" : "feedback", stage, Date.now() - started, providerStatus);
-    throw error;
   }
 }

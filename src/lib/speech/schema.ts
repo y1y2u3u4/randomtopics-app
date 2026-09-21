@@ -23,6 +23,15 @@ export const feedbackSchema = z.object({
   }),
 });
 export type SpeechFeedback = z.infer<typeof feedbackSchema>;
+// A first attempt has no comparison to generate. Keep that bookkeeping out of
+// the model schema, then attach a deterministic first-attempt marker server-side.
+export const firstFeedbackSchema = feedbackSchema.omit({ comparison: true });
+export function firstAttemptFeedback(value: z.infer<typeof firstFeedbackSchema>): SpeechFeedback {
+  return { ...value, comparison: {
+    outcome: "first_attempt", beforeQuote: "", afterQuote: "",
+    explanation: "This is your first attempt. Practice the same topic again to compare.",
+  } };
+}
 export const transcriptSchema = z.object({
   transcript: z.string().trim().max(10000),
 });
