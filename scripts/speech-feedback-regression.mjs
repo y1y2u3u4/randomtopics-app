@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { load } from './lib/load-typescript.mjs';
 const server = load('src/lib/speech/server.ts');
 const { feedbackSchema, firstFeedbackSchema, firstAttemptFeedback, validateFeedback } = load('src/lib/speech/schema.ts');
-const { speechSchemaIssues } = load('src/lib/speech/diagnostics.ts');
+const { speechSchemaIssues, speechEvidenceIssue } = load('src/lib/speech/diagnostics.ts');
 const transcript = 'A quiet walk makes my day better. It gives me time to think before I return to work.';
 const feedback = {
  strength:{quote:'A quiet walk makes my day better.',observation:'Your point is explicit.'},
@@ -23,6 +23,7 @@ assert.throws(()=>validateFeedback({...generatedFirst,strength:{...generatedFirs
 const assessment={relevance:{status:'met',quote:'A quiet walk makes my day better.',explanation:'This addresses the question.'},point:{status:'met',quote:'A quiet walk makes my day better.',explanation:'Your point is clear.'},example:{status:'partial',quote:'It gives me time to think',explanation:'Add a specific moment.'},ending:{status:'met',quote:'before I return to work.',explanation:'You connect the walk to work.'}};
 const privateMarker='PRIVATE_TRANSCRIPT_NEVER_LOG';
 assert.deepEqual(speechSchemaIssues(new z.ZodError([{code:'custom',path:[privateMarker],message:privateMarker}])),[{field:'other',code:'other'}]);
+assert.equal(speechEvidenceIssue(new Error(privateMarker)),undefined,'Only closed evidence categories are exposed');
 
 const original={fetch:globalThis.fetch,error:console.error,info:console.info,now:Date.now,timeout:AbortSignal.timeout};
 const logs=[],recoveries=[],requests=[],timeouts=[];
@@ -64,8 +65,8 @@ try {
  assert.equal(requests.length,1,'Format recovery does not duplicate arbitrary provider failures');
 
  const id='6c9f1062-e17e-41df-a5da-ae87db04336f';
- async function runRoute({previous=false,responses,feedbackCalls=0}) {
-  reset(responses); let claims=0; const updates=[];
+ async function runRoute({previous=false,responses,feedbackCalls=0,elapsed=0}) {
+  reset(responses,elapsed); let claims=0; const updates=[];
   const attempt={id,status:'transcribed',feedback_calls:feedbackCalls,previous_id:previous?'previous':null,topic:'What makes your day better?',usage:{transcribe:{total_tokens:5}},transcript};
   const db={rpc:async()=>{claims++;return{data:true,error:null};},from:()=>({
    writing:null,selected:'',filter:null,
@@ -91,12 +92,38 @@ try {
  result=await runRoute({previous:true,responses:[provider({assessment,comparison:{...compared.comparison,explanation:''}}),provider({assessment,comparison:compared.comparison})]});
  assert.equal(result.status,200); assert.equal(result.body.feedback.comparison.outcome,'similar');
  assert.ok('comparison' in requests[0].response_format.json_schema.schema.properties);
- result=await runRoute({responses:[provider({assessment:{...assessment,point:{...assessment.point,quote:'Invented words'}}})]});
- assert.equal(result.status,503); assert.equal(result.updates.at(-1).status,'transcribed');
- assert.equal(logs.at(-1).stage,'feedback_evidence','Quote validation is preserved');
+ const ungrounded={assessment:{...assessment,point:{...assessment.point,quote:'Invented words'}}};
+ const missingEvidence={assessment:{...assessment,point:{...assessment.point,quote:''}}};
+ for (const [invalid,reason] of [[ungrounded,'ungrounded_quote'],[missingEvidence,'missing_assessment_evidence']]) {
+  result=await runRoute({responses:[provider(invalid),provider({assessment})],elapsed:3000});
+  assert.equal(result.status,200,'Evidence rejection is recovered before returning an error to the user');
+  assert.equal(result.claims,1);assert.equal(requests.length,2);assert.equal(result.updates.length,1);
+  assert.equal(result.updates[0].usage.feedback.attempts.length,2,'Rejected evidence usage remains counted');
+  assert.deepEqual(timeouts,[45000,42000],'Evidence recovery shares the existing deadline');
+  assert.equal(logs[0].stage,'feedback_evidence');assert.equal(logs[0].evidence_issue,reason);assert.equal(logs[0].retrying,true);
+  assert.match(requests[1].messages[0].content,/exact, contiguous substring/);
+  assert.equal(requests[0].messages[1].content,requests[1].messages[1].content);
+  assert.ok(!JSON.stringify(result.body).includes('Invented words'),'Invalid evidence never reaches the saved result');
+ }
+ result=await runRoute({responses:[provider(ungrounded),provider(ungrounded)]});
+ assert.equal(result.status,503);assert.equal(requests.length,2);assert.equal(result.updates.at(-1).status,'transcribed');
+ assert.deepEqual(logs.map(x=>x.retrying),[true,false]);
+ assert.equal(logs.at(-1).stage,'feedback_evidence','Quotes are still rejected after the bounded recovery');
+ result=await runRoute({responses:[provider(ungrounded)],elapsed:41000});
+ assert.equal(result.status,503);assert.equal(requests.length,1,'Do not exceed the recovery deadline for evidence failures');
+ result=await runRoute({responses:[provider(ungrounded,{finish_reason:'content_filter'})]});
+ assert.equal(result.status,503);assert.equal(requests.length,1,'Refusals never trigger evidence recovery');
+ result=await runRoute({responses:[provider(null),provider(ungrounded)]});
+ assert.equal(result.status,503);assert.equal(requests.length,2,'Format and evidence recovery share one two-call budget');
+ result=await runRoute({previous:true,responses:[provider({assessment,comparison:{...compared.comparison,beforeQuote:''}}),provider({assessment,comparison:compared.comparison})]});
+ assert.equal(result.status,200);assert.equal(logs[0].evidence_issue,'missing_comparison_evidence');
+ assert.equal(result.claims,1);
+ reset([provider(feedback)]);
+ await assert.rejects(()=>server.modelCall(firstFeedbackSchema,'speech_feedback','Assess.',transcript,()=>{throw new TypeError(privateMarker);}));
+ assert.equal(requests.length,1,'Unexpected application faults do not spend another model call');
  assert.ok(!JSON.stringify(logs).includes(transcript));
  assert.ok(!JSON.stringify(logs).includes(privateMarker));
 } finally {
  globalThis.fetch=original.fetch;console.error=original.error;console.info=original.info;Date.now=original.now;AbortSignal.timeout=original.timeout;
 }
-console.log('PASS: first-attempt comparison reproduction, bounded format recovery, deadline and usage accounting, one quota claim, retryable state, genuine comparison and quote validation.');
+console.log('PASS: first-attempt comparison, bounded format/evidence recovery, shared deadline and usage accounting, one claim, retryable exhaustion, grounded comparison, refusal and privacy guards.');

@@ -12,6 +12,14 @@ const schemaFields = new Set([
   "comparison", "comparison.outcome", "comparison.beforeQuote", "comparison.afterQuote", "comparison.explanation",
 ]);
 const schemaCodes = new Set(["invalid_type", "invalid_value", "too_small", "too_big", "invalid_format", "unrecognized_keys"]);
+const evidenceIssues = ["ungrounded_quote", "missing_assessment_evidence", "missing_comparison_evidence",
+  "invalid_comparison", "unexpected_comparison_quote", "missing_assessment"] as const;
+type SpeechEvidenceIssue = typeof evidenceIssues[number] | "invalid_feedback_structure";
+export function speechEvidenceIssue(error: unknown): SpeechEvidenceIssue | undefined {
+  if (error instanceof z.ZodError) return "invalid_feedback_structure";
+  return error instanceof Error && evidenceIssues.some(issue => issue === error.message)
+    ? error.message as SpeechEvidenceIssue : undefined;
+}
 export function speechSchemaIssues(error: unknown) {
   if (!(error instanceof z.ZodError)) return [];
   return error.issues.slice(0, 8).map(issue => {
@@ -24,7 +32,7 @@ export function speechSchemaIssues(error: unknown) {
 // Closed categories only: no Error object, content, identifiers or request headers.
 export function logSpeechFailure(operation: "transcribe" | "feedback", stage: SpeechFailureStage,
   elapsedMs: number, providerStatus?: number,
-  details?: { attempt: 1 | 2; retrying: boolean; issues?: ReturnType<typeof speechSchemaIssues> }) {
+  details?: { attempt: 1 | 2; retrying: boolean; issues?: ReturnType<typeof speechSchemaIssues>; evidenceIssue?: SpeechEvidenceIssue }) {
   try {
     console.error(JSON.stringify({
       event: "speech_service_failure", operation, stage,
@@ -32,7 +40,8 @@ export function logSpeechFailure(operation: "transcribe" | "feedback", stage: Sp
       ...(typeof providerStatus === "number" && Number.isInteger(providerStatus) && providerStatus >= 100 && providerStatus <= 599
         ? { provider_status: providerStatus } : {}),
       ...(details ? { attempt: details.attempt, retrying: details.retrying,
-        ...(details.issues?.length ? { schema_issues: details.issues } : {}) } : {}),
+        ...(details.issues?.length ? { schema_issues: details.issues } : {}),
+        ...(details.evidenceIssue ? { evidence_issue: details.evidenceIssue } : {}) } : {}),
     }));
   } catch { /* Diagnostic failures must not alter the customer response. */ }
 }
