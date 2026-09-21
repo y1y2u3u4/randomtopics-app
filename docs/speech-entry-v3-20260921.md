@@ -1,8 +1,13 @@
 # Speech entry v3: concrete feedback and qualified exposure
 
-The first generated topic is immediately followed by the primary free-practice
-action and an illustrative feedback example. Further topics, regeneration and
-exploration follow it. The coach remains mounted outside keyed result animations,
+The first generated topic places its free-practice and example actions directly
+after the question, before its talking points. A 390×844 check of the normal
+Generate path found that placing the entire entry after a long topic card still
+left the practice button off screen. TopicCard accepts an action slot, while the
+practice controller, example and coach remain outside the keyed topic card. The
+action-bearing card has no entrance fade, so the exposure timer observes a
+visible control. Further topics, regeneration and exploration follow it.
+The coach remains mounted outside keyed result animations,
 so generating another batch does not discard existing recording/feedback state.
 Before a topic exists, the primary action generates a topic and opens practice;
 the example is usable without generation. The existing generator fallback remains.

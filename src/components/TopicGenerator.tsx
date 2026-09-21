@@ -384,9 +384,9 @@ export default function TopicGenerator({
       {/* Keep the coach outside keyed result animations so a new topic batch
           never discards an in-progress recording or its feedback. */}
       <AnimatePresence mode="wait">
-        {hasGenerated && <motion.div key={generatedTopics.map((t) => t.id).join(",")}
+        {hasGenerated && (!coachEnabled || generatedTopics.length === 0) && <motion.div key={generatedTopics.map((t) => t.id).join(",")}
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mb-4 space-y-4">
-          {generatedTopics.length > 0 ? (coachEnabled ? generatedTopics.slice(0, 1) : generatedTopics).map((topic, i) => (
+          {generatedTopics.length > 0 ? generatedTopics.map((topic, i) => (
             <TopicCard key={topic.id} topic={topic} index={i} locale={locale} contentSource={contentSource} actionContext="generated_result" />
           )) : (
               <div className="glass-card text-center py-16 px-6">
@@ -407,7 +407,9 @@ export default function TopicGenerator({
           )}
         </motion.div>}
       </AnimatePresence>
-      {coachEnabled ? <SpeechCoachEntry topics={generatedTopics} contentSource={contentSource} requestTopics={generate} loadingTopics={isSpinning} /> : null}
+      {coachEnabled ? <SpeechCoachEntry topics={generatedTopics} contentSource={contentSource} requestTopics={generate} loadingTopics={isSpinning}
+        renderFirstTopic={generatedTopics[0] ? (actions) => <TopicCard key={generatedTopics[0].id} topic={generatedTopics[0]} locale={locale}
+          contentSource={contentSource} actionContext="generated_result" afterTitle={actions} /> : undefined} /> : null}
       {coachEnabled && generatedTopics.length > 1 && <div className="mb-4 space-y-4" aria-label="More generated topics">
         {generatedTopics.slice(1).map((topic, i) => <TopicCard key={topic.id} topic={topic} index={i + 1} locale={locale} contentSource={contentSource} actionContext="generated_result" />)}
       </div>}
