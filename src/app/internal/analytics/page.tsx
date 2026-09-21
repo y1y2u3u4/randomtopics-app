@@ -410,11 +410,16 @@ export default async function AnalyticsPage({
         <div className="flex flex-wrap gap-2">
           <Link href="/internal/analytics?refresh=1" className="mode-chip">↻ Refresh</Link>
           <Link href="/api/internal/analytics/summary" className="mode-chip">JSON</Link>
+          <form action="/api/internal/analytics/sitewide" method="post">
+            <button type="submit" className="mode-chip">同步全站分析到私有表格</button>
+          </form>
           <form action="/api/internal/analytics/logout" method="post">
             <button type="submit" className="mode-chip">Log out</button>
           </form>
         </div>
       </header>
+      {params.sitewide === "success" ? <p className="mb-6 text-emerald-300">全站同步已完成。请在私有表格 Report Coverage 核对统计日期、行数和完整性。</p> : null}
+      {params.sitewide === "failed" ? <p className="mb-6 text-amber-300">全站同步未完成；旧数据可能已过期。仅新的 Report Coverage 完成记录可用于本轮分析。</p> : null}
       <div className="mb-10"><SpeechPayments /></div>
       <div className="mb-10"><SpeechAnalytics days={Number(params.speech_days ?? "7")} refresh={params.refresh === "1"} /></div>
 
