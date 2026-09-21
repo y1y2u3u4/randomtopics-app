@@ -31,6 +31,8 @@ type GaRow = {
 };
 
 type GaReportResponse = {
+  rowCount?: number;
+  metadata?: { timeZone?: string; subjectToThresholding?: boolean; dataLossFromOtherRow?: boolean; samplingMetadatas?: unknown[] };
   rows?: GaRow[];
 };
 
@@ -395,6 +397,7 @@ export async function runGaReport(input: {
   dimensionFilter?: unknown;
   orderBys?: unknown[];
   limit?: number;
+  offset?: number;
 }): Promise<GaReportResponse> {
   const propertyId = requiredEnv("GA4_PROPERTY_ID");
   if (!/^\d+$/.test(propertyId)) {
@@ -410,17 +413,19 @@ export async function runGaReport(input: {
       dimensionFilter: input.dimensionFilter,
       orderBys: input.orderBys,
       limit: input.limit,
+      offset: input.offset,
       keepEmptyRows: false,
     },
     "ga4_report_failed"
   );
 }
 
-async function querySearchConsole(input: {
+export async function querySearchConsole(input: {
   startDate: string;
   endDate: string;
   dimensions?: string[];
   rowLimit?: number;
+  startRow?: number;
 }): Promise<GscResponse> {
   const siteUrl = requiredEnv("GSC_SITE_URL");
   return postGoogleJson<GscResponse>(
@@ -433,6 +438,9 @@ async function querySearchConsole(input: {
       dimensions: input.dimensions,
       rowLimit: input.rowLimit ?? 25_000,
       aggregationType: "auto",
+      type: "web",
+      dataState: "final",
+      startRow: input.startRow ?? 0,
     },
     "gsc_query_failed"
   );
