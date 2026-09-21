@@ -15,11 +15,9 @@ export function funnelRequest(definition: typeof SPEECH_FUNNELS[number], days: n
     funnel: { isOpenFunnel: false, steps: definition.steps.map(([name, eventName], index) => ({
       name,
       ...(index ? { withinDurationFromPriorStep: "86400s" } : {}),
-      filterExpression: { funnelEventFilter: { eventName,
-        funnelParameterFilterExpression: { funnelParameterFilter: {
-          eventParameterName: "measurement_version", stringFilter: { matchType: "EXACT", value: "speech-v2" },
-        } },
-      } },
+      // These event names were introduced by speech-v2. Filtering the unregistered
+      // measurement_version parameter makes GA4 reject the entire funnel.
+      filterExpression: { funnelEventFilter: { eventName } },
     })) },
   };
 }

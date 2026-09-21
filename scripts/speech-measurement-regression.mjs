@@ -26,7 +26,7 @@ const request = funnelRequest(SPEECH_FUNNELS[0], 7);
 assert.equal(request.funnel.isOpenFunnel, false);
 assert.equal(request.funnel.steps[1].withinDurationFromPriorStep, "86400s");
 assert.deepEqual(request.dimensionFilter.filter.inListFilter.values, ["randomtopics.app", "www.randomtopics.app"]);
-assert.equal(request.funnel.steps[0].filterExpression.funnelEventFilter.funnelParameterFilterExpression.funnelParameterFilter.stringFilter.value, "speech-v2");
+assert.deepEqual(request.funnel.steps.map(step => step.filterExpression), SPEECH_FUNNELS[0].steps.map(([,eventName]) => ({funnelEventFilter:{eventName}})), 'core funnels must not require unregistered custom event parameters');
 assert.deepEqual(funnelRequest(SPEECH_FUNNELS[0],0).dateRanges,[{startDate:'today',endDate:'today'}]);
 const report = {
   dimensionHeaders: [{ name: "funnelStepName" }],
@@ -86,4 +86,4 @@ tracker.track("page_view"); assert.equal(sent.length, 1);
 fakeWindow.location.pathname = "/speech";
 delete fakeWindow.gtag;
 tracker.track("speech_coach_open"); assert.equal(fakeWindow.dataLayer[0][1], "speech_coach_open");
-console.log("PASS: ordered funnel headers and unavailable handling, production/version filters, private event allowlist, replay failure isolation, preview exclusion and early-event queue.");
+console.log("PASS: ordered funnel headers, production/event-name filters, private event allowlist, replay failure isolation, preview exclusion and early-event queue.");

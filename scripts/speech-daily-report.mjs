@@ -14,7 +14,8 @@ async function capture(name, fn) {
 const probe = await ga.runGaReport({ startDate: 'today', endDate: 'today', dimensionFilter: productionFilter, metrics: ['totalUsers'] });
 const propertyZone = probe.metadata?.timeZone;
 if (!propertyZone) throw new Error('Reporting time zone unavailable');
-const now = new Date();
+const now = process.env.SPEECH_REPORT_UNTIL ? new Date(process.env.SPEECH_REPORT_UNTIL) : new Date();
+if (!Number.isFinite(now.getTime()) || now.getTime() > Date.now()) throw new Error('Invalid reporting cutoff');
 function parts(date, zone) {
   return Object.fromEntries(new Intl.DateTimeFormat('en-CA', { timeZone: zone, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hourCycle: 'h23' }).formatToParts(date).map(p => [p.type, p.value]));
 }
@@ -29,7 +30,8 @@ const dateFromHour = h => `${h.slice(0, 4)}-${h.slice(4, 6)}-${h.slice(6, 8)}`;
 const window = { startDate: dateFromHour(hours[0]), endDate: dateFromHour(hours.at(-1)), dimensionFilter: { filter: { fieldName: 'dateHour', inListFilter: { values: hours } } } };
 result.window = { reportTimeZone: 'Asia/Shanghai', propertyTimeZone: propertyZone, start: start.toISOString(), end: now.toISOString(), propertyHours: hours };
 const base = { ...window, dimensionFilter: { andGroup: { expressions: [productionFilter, window.dimensionFilter] } } };
-await capture('siteToday', () => ga.runGaReport({ ...base, dimensions: ['date'], metrics: ['activeUsers', 'totalUsers', 'sessions', 'screenPageViews', 'engagedSessions', 'eventCount'] }));
+// One aggregate preserves distinct users across the property's midnight boundary.
+await capture('siteToday', () => ga.runGaReport({ ...base, metrics: ['activeUsers', 'totalUsers', 'sessions', 'screenPageViews', 'engagedSessions', 'eventCount'] }));
 await capture('sourcesToday', () => ga.runGaReport({ ...base, dimensions: ['sessionSourceMedium'], metrics: ['totalUsers', 'sessions', 'engagedSessions'], limit: 20, orderBys: [{ metric: { metricName: 'sessions' }, desc: true }] }));
 await capture('pagesToday', () => ga.runGaReport({ ...base, dimensions: ['pagePath'], metrics: ['totalUsers', 'sessions', 'screenPageViews'], limit: 30, orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }] }));
 await capture('siteEventsToday', () => ga.runGaReport({ ...base, dimensions: ['eventName'], metrics: ['eventCount', 'totalUsers', 'sessions'], limit: 100, orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }] }));
@@ -42,6 +44,7 @@ await capture('liveReadiness', async () => {
   return { ready: billing.billingReady(), live: price.livemode, amount: price.unit_amount, currency: price.currency, interval: price.recurring.interval, portalActive: portal.active, cancellation: portal.features.subscription_cancel.mode, origin: billing.siteUrl() };
 });
 await capture('stripeCheckouts24h', () => load('src/lib/speech/purchases.ts').checkoutConversionReport(1));
-const encoded = JSON.stringify(result);
+// ASCII avoids replacement characters when provider log frames split UTF-8 text.
+const encoded = JSON.stringify(result).replace(/[\u007f-\uffff]/g, char => `\\u${char.charCodeAt(0).toString(16).padStart(4, '0')}`);
 for (let offset = 0; offset < encoded.length; offset += 1800) console.log(`RANDOMTOPICS_REPORT_CHUNK_${offset / 1800}=` + encoded.slice(offset, offset + 1800));
 console.log('RANDOMTOPICS_REPORT_CHUNKS=' + Math.ceil(encoded.length / 1800));
