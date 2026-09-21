@@ -15,6 +15,8 @@ const input = z.object({
   id: z.uuid(),
   topic: z.string().trim().min(1).max(700),
   previousId: z.uuid().nullable(),
+  practiceMode: z.enum(["full", "focused"]).default("full"),
+  qa: z.boolean().default(false),
   audio: z.string().min(60).max(3_900_000),
 });
 export async function POST(request: Request) {
@@ -24,6 +26,8 @@ export async function POST(request: Request) {
     if (!parsed.success)
       throw new SpeechError(400, "Please check the recording and try again.");
     const body = parsed.data;
+    if (body.practiceMode === "focused" && !body.previousId)
+      throw new SpeechError(400, "Choose an earlier answer for this short practice.");
     if (!/^[A-Za-z0-9+/]+={0,2}$/.test(body.audio))
       throw new SpeechError(400, "Invalid audio.");
     const audio = Buffer.from(body.audio, "base64");
@@ -88,7 +92,7 @@ export async function POST(request: Request) {
         return response(
           {
             error:
-              "The previous request failed. Your audio is still here; choose Transcribe again to retry.",
+              "The previous request failed. Your audio is still here; choose Get my feedback to retry.",
             retryWithNewId: true,
           },
           409,
@@ -100,6 +104,12 @@ export async function POST(request: Request) {
       );
     }
     try {
+      const context = { version: "v5", practiceMode: body.practiceMode, qa: body.qa };
+      // Save measurement context before the provider call, so failed or interrupted
+      // requests can be separated from customer outcomes too.
+      const { error: contextError } = await db.from("speech_attempts")
+        .update({ usage: { context } }).eq("id", body.id).eq("user_id", user.id);
+      if (contextError) throw contextError;
       const result = await modelCall(
         transcriptSchema,
         "speech_transcript",
@@ -125,7 +135,7 @@ export async function POST(request: Request) {
           status: "transcribed",
           transcript: result.value.transcript,
           model: result.model,
-          usage: { transcription: result.usage },
+          usage: { transcription: result.usage, context },
           updated_at: new Date().toISOString(),
         })
         .eq("id", body.id)

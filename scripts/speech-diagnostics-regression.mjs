@@ -32,12 +32,8 @@ try {
   assert.equal(logs.length, beforeSuccess, 'Successful requests are not recorded as failures');
 
   const id = '6c9f1062-e17e-41df-a5da-ae87db04336f';
-  const feedback = {
-    strength:{quote:privateText,observation:'Point is present.'},
-    priority:{quote:'',observation:'Add detail.',nextStep:'Add one example.'},
-    structure:{point:'Present',example:'Missing',ending:'Present'},
-    comparison:{outcome:'first_attempt',beforeQuote:'',afterQuote:'',explanation:'First attempt.'},
-  };
+  const criterion = {status:'met',quote:privateText,explanation:'This element is present.'};
+  const assessment = {relevance:criterion,point:criterion,example:criterion,ending:criterion};
   for (const mode of ['feedback_evidence','feedback_save']) {
     const updates = [];
     const db = {
@@ -53,7 +49,7 @@ try {
     };
     const route = load('src/app/api/speech/feedback/route.ts', {
       '@/lib/speech/server':{...server,actor:async()=>({user:{id:'PRIVATE_ACCOUNT'},db}),
-        modelCall:async()=>({value:mode==='feedback_evidence' ? {...feedback,strength:{...feedback.strength,quote:'invented quote'}} : feedback,usage:{},model:'test'})},
+        modelCall:async()=>({value:{assessment:mode==='feedback_evidence' ? {...assessment,point:{...criterion,quote:'invented quote'}} : assessment},usage:{},model:'test'})},
     });
     const result = await route.POST(new Request('https://example.test/api/speech/feedback',{
       method:'POST',body:JSON.stringify({id,transcript:privateText})

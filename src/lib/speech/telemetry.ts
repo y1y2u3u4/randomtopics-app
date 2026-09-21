@@ -14,11 +14,12 @@ type Properties = {
   status_code?: number;
   transcript_edited?: boolean;
   outcome?: string;
+  reason?: string;
 };
 export function trackSpeech(event: SpeechEvent, properties: Properties) {
   // Deliberately no transcript, topic, email, file name, auth ID or attempt UUID.
   const safe: Record<string, string | number | boolean> = { measurement_version: "speech-v2" };
-  for (const key of ["content_source", "entry_surface", "input_method", "error_code", "outcome"] as const) {
+  for (const key of ["content_source", "entry_surface", "input_method", "error_code", "outcome", "reason"] as const) {
     const value = properties[key];
     if (typeof value === "string" && /^[a-z0-9_]{1,80}$/.test(value)) safe[key] = value;
   }

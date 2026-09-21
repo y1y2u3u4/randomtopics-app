@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import SpeechAnalytics from "@/components/SpeechAnalytics";
+import SpeechServerAnalytics from "@/components/SpeechServerAnalytics";
 import SpeechPayments from "@/components/SpeechPayments";
 import SitewideReportSync from "@/components/SitewideReportSync";
 import { hasAnalyticsSession, isAnalyticsAuthConfigured } from "@/lib/analyticsAuth";
@@ -420,6 +421,7 @@ export default async function AnalyticsPage({
       {params.sitewide === "success" ? <p className="mb-6 text-emerald-300">全站同步已完成。请在私有表格 Report Coverage 核对统计日期、行数和完整性。</p> : null}
       {params.sitewide === "failed" ? <p className="mb-6 text-amber-300">全站同步未完成；旧数据可能已过期。仅新的 Report Coverage 完成记录可用于本轮分析。</p> : null}
       <div className="mb-10"><SpeechPayments /></div>
+      <div className="mb-10"><SpeechServerAnalytics /></div>
       <div className="mb-10"><SpeechAnalytics days={Number(params.speech_days ?? "7")} refresh={params.refresh === "1"} /></div>
 
       {!configured ? (

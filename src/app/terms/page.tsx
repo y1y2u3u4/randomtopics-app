@@ -100,7 +100,7 @@ export default function TermsPage() {
             <h2 className="text-2xl font-semibold text-[var(--text-primary)]">Optional Speech Coaching</h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
               Speech coaching provides AI transcription and suggestions about your
-              words and structure. Review the transcript before requesting feedback.
+              words and structure. You can review the transcript first or correct transcription mistakes after receiving feedback.
               Suggestions may be wrong and do not guarantee improved speaking or
               assess pronunciation, accent or confidence. Upload only recordings you
               have permission to process. Recording and account features are for
