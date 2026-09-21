@@ -153,7 +153,7 @@ for (const releaseFails of [false, true]) {
     },
     then(resolve) {
       resolve({
-        error: releaseFails ? new Error("database unavailable") : null,
+        error: releaseFails && updates.at(-1)?.status === "failed" ? new Error("database unavailable") : null,
       });
     },
   };
@@ -188,7 +188,8 @@ for (const releaseFails of [false, true]) {
   );
   assert.equal(result.status, 422);
   assert.equal((await result.json()).retryWithNewId, !releaseFails);
-  assert.equal(updates[0].status, "failed");
+  assert.equal(updates.at(-1).status, "failed");
+  assert.deepEqual(updates[0].usage.context, { version: "v5", practiceMode: "full", qa: false });
 }
 
 const clauses = [];

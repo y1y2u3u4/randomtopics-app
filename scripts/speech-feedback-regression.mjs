@@ -20,6 +20,7 @@ assert.equal(validateFeedback(generatedFirst,transcript).comparison.outcome,'fir
 assert.ok(generatedFirst.comparison.explanation.length>0);
 assert.equal(feedbackSchema.safeParse({...blankFirst,comparison:{...blankFirst.comparison,outcome:'similar'}}).success,false,'A real comparison still requires an explanation');
 assert.throws(()=>validateFeedback({...generatedFirst,strength:{...generatedFirst.strength,quote:'Invented words'}},transcript),/ungrounded_quote/);
+const assessment={relevance:{status:'met',quote:'A quiet walk makes my day better.',explanation:'This addresses the question.'},point:{status:'met',quote:'A quiet walk makes my day better.',explanation:'Your point is clear.'},example:{status:'partial',quote:'It gives me time to think',explanation:'Add a specific moment.'},ending:{status:'met',quote:'before I return to work.',explanation:'You connect the walk to work.'}};
 const privateMarker='PRIVATE_TRANSCRIPT_NEVER_LOG';
 assert.deepEqual(speechSchemaIssues(new z.ZodError([{code:'custom',path:[privateMarker],message:privateMarker}])),[{field:'other',code:'other'}]);
 
@@ -77,7 +78,7 @@ try {
   const response=await route.POST(new Request('https://example.test/api/speech/feedback',{method:'POST',body:JSON.stringify({id,transcript})}));
   return{status:response.status,body:await response.json(),claims,updates};
  }
- let result=await runRoute({responses:[provider(null),provider(blankFirst)]});
+ let result=await runRoute({responses:[provider(null),provider({assessment})]});
  assert.equal(result.status,200); assert.equal(result.claims,1,'Automatic recovery consumes a single feedback claim');
  assert.equal(result.body.status,'complete'); assert.equal(result.body.feedback.comparison.outcome,'first_attempt');
  assert.equal(result.body.feedback.comparison.beforeQuote,''); assert.equal(result.body.feedback.comparison.afterQuote,'');
@@ -87,10 +88,10 @@ try {
  assert.equal(result.status,503); assert.equal(result.updates.at(-1).status,'transcribed','Failure keeps the same transcript retryable');
  assert.equal(result.claims,1);
  const compared={...feedback,comparison:{outcome:'similar',beforeQuote:'Earlier speech',afterQuote:feedback.strength.quote,explanation:'Both state a clear point.'}};
- result=await runRoute({previous:true,responses:[provider({...compared,comparison:{...compared.comparison,explanation:''}}),provider(compared)]});
+ result=await runRoute({previous:true,responses:[provider({assessment,comparison:{...compared.comparison,explanation:''}}),provider({assessment,comparison:compared.comparison})]});
  assert.equal(result.status,200); assert.equal(result.body.feedback.comparison.outcome,'similar');
  assert.ok('comparison' in requests[0].response_format.json_schema.schema.properties);
- result=await runRoute({responses:[provider({...feedback,strength:{...feedback.strength,quote:'Invented words'}})]});
+ result=await runRoute({responses:[provider({assessment:{...assessment,point:{...assessment.point,quote:'Invented words'}}})]});
  assert.equal(result.status,503); assert.equal(result.updates.at(-1).status,'transcribed');
  assert.equal(logs.at(-1).stage,'feedback_evidence','Quote validation is preserved');
  assert.ok(!JSON.stringify(logs).includes(transcript));

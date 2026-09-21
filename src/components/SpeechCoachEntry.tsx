@@ -43,6 +43,7 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
     trackSpeech("speech_page_view", { content_source: contentSource });
     trackSpeech("speech_entry_v3_page", { content_source: contentSource });
     trackSpeech("speech_entry_v4_page", { content_source: contentSource });
+    trackSpeech("speech_entry_v5_page", { content_source: contentSource });
   }, [enabled, contentSource]);
   useEffect(() => {
     if (!enabled || busy || open || viewed.current || !primary.current) return;
@@ -50,6 +51,7 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
       viewed.current = true;
       trackSpeech("speech_entry_v3_view", { content_source: contentSource });
       trackSpeech("speech_entry_v4_view", { content_source: contentSource });
+      trackSpeech("speech_entry_v5_view", { content_source: contentSource });
     });
   }, [enabled, busy, open, contentSource, firstTopicId, inlineActions]);
   useEffect(() => {
@@ -82,6 +84,7 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
     setError("");
     trackSpeech("speech_entry_v3_click", { content_source: contentSource, entry_surface: surface });
     trackSpeech("speech_entry_v4_click", { content_source: contentSource, entry_surface: surface });
+    trackSpeech("speech_entry_v5_click", { content_source: contentSource, entry_surface: surface });
     if (surface === "example") trackSpeech("speech_example_practice", { content_source: contentSource });
     try {
       const chosen = topic ?? topics[0] ?? (await requestTopics())[0];
@@ -128,7 +131,7 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
       {!open && <div ref={preview} className="mt-4 max-w-2xl rounded-xl border border-white/15 bg-black/15 p-3 text-sm leading-relaxed">
         <p className="text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)]">Example feedback · illustrative</p>
         <p className="mt-1">“A short walk helps me feel better.”</p>
-        <p className="mt-1"><span className="font-semibold text-[var(--neon-cyan)]">One change to try:</span> Name one walk and what changed afterward. Use that detail in your next answer.</p>
+        <p className="mt-1"><span className="font-semibold text-[var(--neon-cyan)]">A 20-second change:</span> Name one walk and what changed afterward. Re-record just that example and compare.</p>
       </div>}
       <a href="#speech-practice" onClick={() => track("practice_timer_entry", { tool_type: "speech_practice", content_source: contentSource, locale: "en" })} className="mt-3 inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Practice aloud with the timer · no recording</a>
       <p className="mt-3 text-xs leading-relaxed text-[var(--text-muted)]">Two free attempts. No sign-up or card. Feedback on your words and structure.</p>

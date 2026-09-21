@@ -438,6 +438,7 @@ export default function SpeechAccount() {
         )}
         {attempts.map((attempt) => (
           <article
+            data-clarity-mask="true"
             key={attempt.id}
             id={`attempt-${attempt.id}`}
             className="glass-card space-y-3 p-5"
@@ -460,7 +461,10 @@ export default function SpeechAccount() {
             </p>
             {attempt.feedback && (
               <>
-                <SpeechHistorySummary nextStep={attempt.feedback.priority.nextStep} repeated={Boolean(attempt.previous_id)} />
+                <SpeechHistorySummary nextStep={attempt.feedback.priority.nextStep} repeated={Boolean(attempt.previous_id)}
+                  comparison={attempt.feedback.comparison} optional={attempt.feedback.drill?.kind === "refine"} />
+                <Link className="inline-flex min-h-11 items-center rounded-xl bg-[var(--neon-cyan)] px-4 py-2 text-sm font-semibold text-black"
+                  href={`/speech/practice?attempt=${attempt.id}`}>{attempt.feedback.drill ? "Practice this change in 20 seconds" : "Continue this practice"}</Link>
                 <details>
                   <summary className="cursor-pointer py-2 text-sm">
                     Feedback and transcript

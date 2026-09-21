@@ -1,11 +1,22 @@
 // Versioned names need no GA custom-dimension registration for the core reports.
+export const SPEECH_REASON_EVENTS = {
+  inaccurate: "speech_reason_inaccurate", hard_to_apply: "speech_reason_hard_to_apply",
+  transcription: "speech_reason_transcription", task_complete: "speech_reason_task_complete",
+  later: "speech_reason_later", too_much_work: "speech_reason_too_much_work",
+} as const;
+export type SpeechReason = keyof typeof SPEECH_REASON_EVENTS;
 export const SPEECH_ISSUE_CODES = ["quota", "daily_limit", "insufficient_speech", "session", "conflict", "service", "invalid_audio_or_text", "permission_denied", "no_device", "device_busy", "client_or_network", "recording_interrupted", "empty_audio", "invalid_file_size"] as const;
 export const SPEECH_ENTRY_EVENTS = [
+  "speech_entry_v5_page", "speech_entry_v5_view", "speech_entry_v5_click",
   "speech_entry_v3_page", "speech_entry_v3_view", "speech_entry_v3_click", "speech_entry_v3_error",
   "speech_coach_v3_open", "speech_example_open", "speech_example_practice",
   "speech_entry_v4_page", "speech_entry_v4_view", "speech_entry_v4_click", "speech_coach_v4_open", "speech_entry_v4_example_view",
 ] as const;
 export const SPEECH_EVENTS = [
+  ...Object.values(SPEECH_REASON_EVENTS),
+  "speech_feedback_v5_request", "speech_feedback_v5_view", "speech_retry_action_view", "speech_short_practice_start",
+  "speech_transcript_review", "speech_transcript_corrected", "speech_feedback_reason", "speech_done_for_now", "speech_plan_hint_click",
+  "speech_history_continue", "speech_first_feedback_v5_view", "speech_retry_feedback_v5_view",
   ...SPEECH_ISSUE_CODES.map((code) => `speech_issue_${code}` as const),
   "speech_page_view", "speech_entry_view", "speech_coach_open", "speech_coach_return", "speech_coach_hide",
   "speech_record_controls_view", "speech_upload_open", "speech_upload_cancel",
@@ -34,6 +45,11 @@ export const SPEECH_EVENTS = [
 export type SpeechEvent = typeof SPEECH_EVENTS[number];
 // Independent event counts, not an ordered or user-deduplicated funnel.
 export const SPEECH_JOURNEY_STAGES = [
+  ["v5 页面触达", "speech_entry_v5_page"], ["v5 入口有效曝光", "speech_entry_v5_view"], ["v5 练习点击", "speech_entry_v5_click"],
+  ["主动获取反馈", "speech_feedback_v5_request"], ["v5 首次反馈可见一秒", "speech_first_feedback_v5_view"],
+  ["重练按钮可见一秒", "speech_retry_action_view"], ["开始短重练", "speech_short_practice_start"], ["v5 重练反馈可见一秒", "speech_retry_feedback_v5_view"],
+  ["选择校对文字", "speech_transcript_review"], ["更正文字后反馈完成", "speech_transcript_corrected"], ["暂时结束练习", "speech_done_for_now"],
+  ["反馈或停止原因", "speech_feedback_reason"], ["从历史继续练习", "speech_history_continue"],
   ["v4 页面触达", "speech_entry_v4_page"], ["v4 入口有效曝光", "speech_entry_v4_view"],
   ["v4 示例有效曝光", "speech_entry_v4_example_view"], ["v4 免费练习点击", "speech_entry_v4_click"], ["v4 首次打开面板", "speech_coach_v4_open"],
   ["新版页面触达", "speech_entry_v3_page"], ["有效曝光", "speech_entry_v3_view"],
@@ -60,6 +76,18 @@ export const SPEECH_JOURNEY_STAGES = [
   ["返回网站并确认实付", "speech_payment_confirmed"],
 ] as const satisfies readonly (readonly [string, SpeechEvent])[];
 export const SPEECH_FUNNELS = [
+  { key: "exposure_v5", title: "v5 · 有效曝光 → 点击", steps: [
+    ["按钮可见一秒", "speech_entry_v5_view"], ["点击练习", "speech_entry_v5_click"],
+  ] },
+  { key: "value_v5", title: "v5 · 访问 → 主动提交 → 首次反馈", steps: [
+    ["进入 v5 页面", "speech_entry_v5_page"], ["主动获取反馈", "speech_feedback_v5_request"], ["首次反馈可见一秒", "speech_first_feedback_v5_view"],
+  ] },
+  { key: "retry_v5", title: "v5 · 首次反馈 → 重练反馈", steps: [
+    ["首次反馈可见一秒", "speech_first_feedback_v5_view"], ["点击重练", "speech_retry_start"], ["重练反馈可见一秒", "speech_retry_feedback_v5_view"],
+  ] },
+  { key: "retry_action_v5", title: "v5 · 重练按钮有效曝光 → 点击", steps: [
+    ["重练按钮可见一秒", "speech_retry_action_view"], ["点击重练", "speech_retry_start"],
+  ] },
   { key: "entry_v4", title: "v4 · 可见入口 → 首次反馈", steps: [
     ["进入 v4 页面", "speech_entry_v4_page"], ["按钮可见一秒", "speech_entry_v4_view"],
     ["点击免费练习", "speech_entry_v4_click"], ["打开练习", "speech_coach_v4_open"],

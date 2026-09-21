@@ -2,13 +2,12 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { Topic } from "@/data/types";
-import { trackSpeech, speechErrorCode } from "@/lib/speech/telemetry";
+import { trackSpeech, speechErrorCode, speechQaSession } from "@/lib/speech/telemetry";
 import type { SpeechEvent } from "@/lib/speech/events";
-import SpeechPlanTeaser from "./SpeechPlanTeaser";
 import { practiceFetch, PracticeRequestError } from "@/lib/speech/client";
 import { recordingToWav } from "@/lib/speech/audio";
 import { observeVisibleAction } from "@/lib/speech/visibleAction";
-import type { SpeechFeedback } from "@/lib/speech/schema";
+import SpeechFeedbackResult, { type SpeechResult } from "./SpeechFeedbackResult";
 
 type Stage =
   | "ready"
@@ -19,12 +18,7 @@ type Stage =
   | "review"
   | "analyzing"
   | "complete";
-type Result = {
-  id: string;
-  transcript: string;
-  feedback: SpeechFeedback;
-  duration: number;
-};
+type Result = SpeechResult;
 const button =
   "min-h-11 rounded-xl border border-white/15 px-4 py-2 text-sm font-semibold disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--neon-cyan)]";
 const primary = `${button} bg-[var(--neon-cyan)] text-black`;
@@ -34,24 +28,28 @@ export default function SpeechCoach({
   onTopicChange,
   contentSource,
   visible,
+  initialPrevious,
 }: {
   topic: Topic;
   topics: Topic[];
   onTopicChange: (topic: Topic) => void;
   contentSource: string;
   visible: boolean;
+  initialPrevious?: SpeechResult;
 }) {
   const [stage, setStage] = useState<Stage>("ready");
   const [seconds, setSeconds] = useState(0);
-  const [target, setTarget] = useState(60);
+  const [target, setTarget] = useState(initialPrevious?.feedback.drill ? 20 : 60);
   const [error, setError] = useState("");
   const [blob, setBlob] = useState<Blob | null>(null);
   const [audioUrl, setAudioUrl] = useState("");
   const [transcript, setTranscript] = useState("");
   const [result, setResult] = useState<Result | null>(null);
-  const [previous, setPrevious] = useState<Result | null>(null);
+  const [previous, setPrevious] = useState<Result | null>(initialPrevious ?? null);
   const [id, setId] = useState("");
-  const [helpful, setHelpful] = useState<boolean | null>(null);
+  const [reviewFirst, setReviewFirst] = useState(false);
+  const [correcting, setCorrecting] = useState(false);
+  const [quotaHit, setQuotaHit] = useState(false);
   const recorder = useRef<MediaRecorder | null>(null);
   const stream = useRef<MediaStream | null>(null);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -64,7 +62,8 @@ export default function SpeechCoach({
   const beganAttempt = useRef(false);
   const originalTranscript = useRef("");
   const resultPanel = useRef<HTMLDivElement>(null);
-  const seenResults = useRef(new Set<string>());
+  const feedbackButton = useRef<HTMLButtonElement>(null);
+  const transcriptInput = useRef<HTMLTextAreaElement>(null);
   const recordButton = useRef<HTMLButtonElement>(null);
   const uploadInput = useRef<HTMLInputElement>(null);
   const seenControls = useRef(new Set<number>());
@@ -96,19 +95,21 @@ export default function SpeechCoach({
     });
   }, [visible, stage, previous, contentSource]);
   useEffect(() => {
-    if (!result || !visible || !resultPanel.current || seenResults.current.has(result.id)) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry?.isIntersecting || seenResults.current.has(result.id)) return;
-      seenResults.current.add(result.id);
-      const properties = { content_source: contentSource, attempt: previous ? 2 : 1, input_method: inputMethod.current };
-      trackSpeech("speech_feedback_view", properties);
-      trackSpeech(previous ? "speech_retry_feedback_view" : "speech_first_feedback_view", properties);
-      if (previous) trackSpeech("speech_comparison_view", { ...properties, outcome: result.feedback.comparison.outcome });
-      observer.disconnect();
-    }, { threshold: 0.15 });
-    observer.observe(resultPanel.current);
-    return () => observer.disconnect();
-  }, [result, visible, previous, contentSource]);
+    if (!visible) return;
+    const frame = requestAnimationFrame(() => {
+      if (stage === "recorded") {
+        feedbackButton.current?.focus({ preventScroll: true });
+        feedbackButton.current?.scrollIntoView({ block: "center", behavior: "instant" });
+      } else if (stage === "review") {
+        transcriptInput.current?.focus({ preventScroll: true });
+        transcriptInput.current?.scrollIntoView({ block: "center", behavior: "instant" });
+      } else if (stage === "complete") {
+        resultPanel.current?.querySelector<HTMLElement>("h4")?.focus({ preventScroll: true });
+        resultPanel.current?.scrollIntoView({ block: "start", behavior: "instant" });
+      }
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [visible, stage]);
   const emit = (
     event: SpeechEvent,
     extra: Partial<Parameters<typeof trackSpeech>[1]> = {},
@@ -222,11 +223,12 @@ export default function SpeechCoach({
       setSeconds(0);
       setStage("recording");
       emit("speech_record_start");
+      if (previous?.feedback.drill) emit("speech_short_practice_start");
       // Stop slightly before two minutes to allow for container padding.
       timer.current = setInterval(() => {
         const elapsed = (performance.now() - started.current) / 1000;
         setSeconds(Math.floor(elapsed));
-        if (elapsed >= Math.min(target, 119)) stop();
+        if (elapsed >= 119) stop();
       }, 200);
     } catch (e) {
       stream.current?.getTracks().forEach((t) => t.stop());
@@ -253,81 +255,86 @@ export default function SpeechCoach({
     if (!blob || busy.current) return;
     busy.current = true;
     setError("");
+    setQuotaHit(false);
     setStage("transcribing");
     const requestedAt = performance.now();
+    emit("speech_feedback_v5_request");
     emit("speech_transcribe_start", { duration_seconds: seconds });
     try {
-      const audio = await recordingToWav(blob);
-      const data = await practiceFetch("transcribe", {
-        id,
-        topic: topic.text,
-        previousId: previous?.id ?? null,
-        audio,
-      });
-      if (mounted.current) {
-        setTranscript(data.transcript);
-        originalTranscript.current = data.transcript;
-        setSeconds(data.duration);
+      let data;
+      try {
+        const audio = await recordingToWav(blob);
+        data = await practiceFetch("transcribe", {
+          id, topic: topic.text, previousId: previous?.id ?? null, audio,
+          practiceMode: previous?.feedback.drill ? "focused" : "full", qa: speechQaSession(),
+        });
+      } catch (e) {
+        emit("speech_transcribe_error", { error_code: speechErrorCode(e), elapsed_ms: Math.round(performance.now() - requestedAt) });
+        if (e instanceof PracticeRequestError && e.status === 402) { emit("speech_quota_hit"); setQuotaHit(true); }
+        if (mounted.current) {
+          if (e instanceof PracticeRequestError && e.retryWithNewId) setId(crypto.randomUUID());
+          setError(e instanceof Error ? e.message : "Could not process your recording.");
+          setStage("recorded");
+        }
+        return;
+      }
+      if (!mounted.current) return;
+      setTranscript(data.transcript);
+      originalTranscript.current = data.transcript;
+      setSeconds(data.duration);
+      const elapsed = Math.round(performance.now() - requestedAt);
+      emit("speech_transcript_ready", { elapsed_ms: elapsed, duration_seconds: data.duration });
+      if (elapsed > 15000) emit("speech_transcribe_slow");
+      if (reviewFirst) {
+        emit("speech_transcript_review");
         setStage("review");
-        const elapsed = Math.round(performance.now() - requestedAt);
-        emit("speech_transcript_ready", { elapsed_ms: elapsed, duration_seconds: data.duration });
-        if (elapsed > 15000) emit("speech_transcribe_slow");
-      }
-    } catch (e) {
-      emit("speech_transcribe_error", { error_code: speechErrorCode(e), elapsed_ms: Math.round(performance.now() - requestedAt) });
-      if (e instanceof PracticeRequestError && e.status === 402) emit("speech_quota_hit");
-      if (mounted.current) {
-        if (e instanceof PracticeRequestError && e.retryWithNewId)
-          setId(crypto.randomUUID());
-        setError(e instanceof Error ? e.message : "Could not transcribe.");
-        setStage("recorded");
-      }
-    } finally {
-      busy.current = false;
-    }
+      } else await analyzeText(data.transcript);
+    } finally { busy.current = false; }
   }
-  async function analyze() {
-    if (busy.current) return;
-    busy.current = true;
+  async function analyzeText(text: string, revise = false) {
     setError("");
     setStage("analyzing");
     const requestedAt = performance.now();
-    emit("speech_feedback_start", { transcript_edited: transcript !== originalTranscript.current });
+    emit("speech_feedback_start", { transcript_edited: text !== originalTranscript.current });
     try {
-      const data = await practiceFetch("feedback", { id, transcript });
+      const data = await practiceFetch("feedback", { id, transcript: text, revise });
+      if (!data.feedback || data.status !== "complete" || data.id !== id) throw new Error("Your feedback is not ready yet. Please try again from your saved transcript.");
       if (mounted.current) {
         setResult(data);
-        setHelpful(null);
+        setCorrecting(false);
         setStage("complete");
         const elapsed = Math.round(performance.now() - requestedAt);
         emit("speech_feedback_ready", { elapsed_ms: elapsed });
+        if (revise) emit("speech_transcript_corrected");
         if (elapsed > 15000) emit("speech_feedback_slow");
         if (previous) {
-          const outcome = data.feedback.comparison.outcome;
           const comparisonEvents: Record<string, SpeechEvent> = {
             improved: "speech_compare_improved", similar: "speech_compare_similar",
             mixed: "speech_compare_mixed", insufficient_evidence: "speech_compare_insufficient",
           };
-          if (comparisonEvents[outcome]) emit(comparisonEvents[outcome]);
+          if (comparisonEvents[data.feedback.comparison.outcome]) emit(comparisonEvents[data.feedback.comparison.outcome]);
         }
       }
     } catch (e) {
       emit("speech_feedback_error", { error_code: speechErrorCode(e), elapsed_ms: Math.round(performance.now() - requestedAt) });
       if (mounted.current) {
-        setError(
-          e instanceof Error ? e.message : "Could not generate feedback.",
-        );
+        setError(e instanceof Error ? e.message : "Could not generate feedback. Your transcript is saved.");
         setStage("review");
       }
-    } finally {
-      busy.current = false;
     }
+  }
+  async function analyze() {
+    if (busy.current) return;
+    busy.current = true;
+    try { await analyzeText(transcript, correcting); } finally { busy.current = false; }
   }
   function reset() {
     setBlob(null);
     setAudioUrl("");
     setTranscript("");
     setResult(null);
+    setCorrecting(false);
+    setQuotaHit(false);
     setError("");
     setSeconds(0);
     setId("");
@@ -355,6 +362,7 @@ export default function SpeechCoach({
     setError("");
     setStage("recorded");
     emit("speech_audio_selected");
+    if (previous?.feedback.drill) emit("speech_short_practice_start");
     emit("speech_audio_ready");
   }
   const working = [
@@ -368,7 +376,7 @@ export default function SpeechCoach({
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="mb-1 text-sm text-[var(--neon-cyan)]">
-            {previous ? "Same topic · Second attempt" : "Your first attempt"}
+            {previous?.feedback.drill ? "Same topic · One short practice" : previous ? "Same topic · Another attempt" : "Your first attempt"}
           </p>
           <h3 className="text-xl font-semibold leading-relaxed">
             {topic.text}
@@ -404,7 +412,7 @@ export default function SpeechCoach({
           </select>
         </label>
       )}
-      {previous && (
+      {previous && stage !== "complete" && (
         <aside data-clarity-mask="true" className="rounded-xl border border-[var(--neon-cyan)]/25 p-4">
           <p className="text-sm font-semibold">Focus on this one change</p>
           <p className="mt-2">{previous.feedback.priority.nextStep}</p>
@@ -427,13 +435,14 @@ export default function SpeechCoach({
             <div className="flex flex-wrap gap-2">
               {stage === "ready" && (
                 <label className="text-sm">
-                  Time
+                  Aim for
                   <select
                     aria-label="Recording time"
                     value={target}
                     onChange={(e) => setTarget(Number(e.target.value))}
                     className="ml-2 rounded-lg bg-[var(--bg-primary)] p-3"
                   >
+                    {previous?.feedback.drill && <option value={20}>20 seconds</option>}
                     <option value={60}>1 minute</option>
                     <option value={120}>2 minutes</option>
                   </select>
@@ -441,7 +450,7 @@ export default function SpeechCoach({
               )}
               {stage === "recording" ? (
                 <button type="button" className={primary} onClick={stop}>
-                  Stop & listen
+                  Finish recording
                 </button>
               ) : (
                 <button
@@ -453,23 +462,60 @@ export default function SpeechCoach({
                 >
                   {stage === "permission"
                     ? "Waiting for microphone…"
-                    : "Start recording"}
+                    : previous?.feedback.drill ? "Record this short practice" : "Start recording"}
                 </button>
               )}
             </div>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-[var(--text-muted)]">
-            Start with your point, give one concrete example, then return to
-            your point. No outline required. Recording stops when you leave this
-            tab.
+            {previous?.feedback.drill ? "Record just the part you’re practicing. " : "Start with your point, add an example, then return to your point. "}
+            Finish your thought, then stop. Recording ends after two minutes or when you leave this tab.
           </p>
+          {stage === "recording" && seconds >= target && <p role="status" className="mt-2 text-sm text-[var(--neon-cyan)]">You’ve reached your practice target. Finish your sentence, then stop.</p>}
+        </div>
+      )}
+      {stage === "ready" && (
+        <label className="block rounded-xl border border-white/15 p-4 text-sm">
+          <span className="font-semibold">Or upload an existing recording</span>
+          <span className="mt-1 block text-[var(--text-muted)]">
+            5 seconds–2 minutes · up to 8 MB. Nothing is sent until you choose
+            “Get my feedback”.
+          </span>
+          <input
+            type="file"
+            ref={uploadInput}
+            accept="audio/*,.m4a,.wav,.mp3,.webm"
+            className="mt-3 block max-w-full text-sm"
+            onClick={() => emit("speech_upload_open", { input_method: "upload" })}
+            onChange={(e) => {
+              upload(e.target.files?.[0]);
+              e.target.value = "";
+            }}
+          />
+        </label>
+      )}
+      {stage === "recorded" && (
+        <div className="space-y-3 rounded-xl border border-[var(--neon-cyan)]/30 p-4">
+          <p className="font-semibold">{quotaHit ? "Your included attempts are used. Your recording is still here." : "Your recording is ready. Get one clear next step."}</p>
+          {!quotaHit && <p className="text-sm leading-relaxed text-[var(--text-muted)]">
+            “Get my feedback” sends this recording through OpenRouter to a model provider for transcription and feedback.
+            We save your transcript and feedback privately, not the audio. <Link href="/privacy" className="underline">Privacy details</Link>
+          </p>}
+          <div className="flex flex-wrap gap-2">
+            {quotaHit ? <Link href="/speech/account#speech-plan" className={`${primary} w-full text-center sm:w-auto`}>View allowance and practice plan</Link> :
+              <button ref={feedbackButton} type="button" className={`${primary} w-full sm:w-auto`} onClick={transcribe}>Get my feedback</button>}
+            <button type="button" className={button} onClick={reset}>Record again</button>
+          </div>
+          {!quotaHit && <label className="flex min-h-11 items-center gap-2 text-sm">
+            <input type="checkbox" checked={reviewFirst} onChange={e => setReviewFirst(e.target.checked)} />
+            Let me check the transcript first
+          </label>}
+          <p className="text-xs text-[var(--text-muted)]">{quotaHit ? "You can still listen to and download this recording below." : "You can also correct transcription mistakes after your feedback arrives."}</p>
         </div>
       )}
       {audioUrl && (
-        <div data-clarity-mask="true" className="space-y-3">
-          <p className="text-sm font-semibold">
-            Listen to your {seconds > 0 ? `${seconds}-second ` : ""}answer
-          </p>
+        <details data-clarity-mask="true" className="space-y-3 rounded-xl border border-white/10 p-3">
+          <summary className="cursor-pointer text-sm font-semibold">Listen to or download your {seconds > 0 ? `${seconds}-second ` : ""}recording</summary>
           <audio
             data-clarity-mask="true"
             controls
@@ -493,49 +539,9 @@ export default function SpeechCoach({
           >
             Download recording
           </a>
-        </div>
+        </details>
       )}
-      {stage === "ready" && (
-        <label className="block rounded-xl border border-white/15 p-4 text-sm">
-          <span className="font-semibold">Or upload an existing recording</span>
-          <span className="mt-1 block text-[var(--text-muted)]">
-            5 seconds–2 minutes · up to 8 MB. Nothing is sent until you choose
-            to transcribe.
-          </span>
-          <input
-            type="file"
-            ref={uploadInput}
-            accept="audio/*,.m4a,.wav,.mp3,.webm"
-            className="mt-3 block max-w-full text-sm"
-            onClick={() => emit("speech_upload_open", { input_method: "upload" })}
-            onChange={(e) => {
-              upload(e.target.files?.[0]);
-              e.target.value = "";
-            }}
-          />
-        </label>
-      )}
-      {stage === "recorded" && (
-        <div className="space-y-3">
-          <p className="text-sm leading-relaxed text-[var(--text-muted)]">
-            Your recording stays on this device until you choose “Transcribe my
-            answer”. Then it is sent through OpenRouter to a model provider. We
-            save the transcript and feedback privately, not the audio.{" "}
-            <Link href="/privacy" className="underline">
-              Privacy details
-            </Link>
-          </p>
-          <div className="flex flex-wrap gap-2">
-            <button type="button" className={primary} onClick={transcribe}>
-              Transcribe my answer
-            </button>
-            <button type="button" className={button} onClick={reset}>
-              Record again
-            </button>
-          </div>
-        </div>
-      )}
-      {["review", "analyzing"].includes(stage) && (
+      {stage === "review" && (
         <div>
           <label className="block font-semibold" htmlFor="speech-transcript">
             Check what we heard
@@ -545,23 +551,26 @@ export default function SpeechCoach({
             original words so the comparison is useful.
           </p>
           <textarea
+            ref={transcriptInput}
             data-clarity-mask="true"
             id="speech-transcript"
             value={transcript}
             onChange={(e) => setTranscript(e.target.value)}
             maxLength={10000}
             rows={8}
-            disabled={stage === "analyzing"}
             className="w-full rounded-xl border border-white/15 bg-black/20 p-4 text-base leading-relaxed"
           />
           <button
             type="button"
             className={`${primary} mt-3`}
-            disabled={stage === "analyzing" || transcript.trim().length < 20}
+            disabled={transcript.trim().length < 20}
             onClick={analyze}
           >
-            Get specific feedback
+            {correcting ? "Update feedback from corrected words" : "Get my feedback"}
           </button>
+          {correcting && result && <button type="button" className={`${button} ml-2 mt-3`} onClick={() => {
+            setTranscript(result.transcript); setCorrecting(false); setError(""); setStage("complete");
+          }}>Keep previous feedback</button>}
         </div>
       )}
       {["transcribing", "analyzing"].includes(stage) && (
@@ -569,110 +578,23 @@ export default function SpeechCoach({
           {stage === "transcribing"
             ? "Listening to your answer…"
             : "Finding one useful change for your next attempt…"}{" "}
-          This may take up to a minute. Your saved result will also appear in
-          practice history.
+          {stage === "transcribing" ? "Step 1 of 2: turning your recording into words." : "Step 2 of 2: checking your words and choosing a short practice."}
+          {" "}You can keep this page open; your saved result will also appear in practice history.
         </p>
       )}
       {stage === "complete" && result && (
-        <div ref={resultPanel} className="space-y-4">
-          <p className="text-sm text-[var(--text-muted)]">
-            Feedback on your words and structure. This does not assess your
-            voice or accent.
-          </p>
-          <div data-clarity-mask="true" className="grid gap-4 md:grid-cols-2">
-            <FeedbackCard
-              title="Keep doing this"
-              {...result.feedback.strength}
-            />
-            <FeedbackCard
-              title="Change this next"
-              {...result.feedback.priority}
-            />
-          </div>
-          <div data-clarity-mask="true" className="rounded-xl border border-[var(--neon-cyan)]/30 bg-[var(--neon-cyan)]/5 p-5">
-            <h4 className="font-semibold">Your next attempt</h4>
-            <p className="mt-2 leading-relaxed">
-              {result.feedback.priority.nextStep}
-            </p>
-          </div>
-          <details data-clarity-mask="true" className="rounded-xl border border-white/10 p-4">
-            <summary className="cursor-pointer font-semibold">
-              Your point, example and ending
-            </summary>
-            <dl className="mt-4 space-y-3">
-              {Object.entries(result.feedback.structure).map(([key, value]) => (
-                <div key={key}>
-                  <dt className="font-semibold capitalize">{key}</dt>
-                  <dd className="mt-1 text-[var(--text-secondary)]">{value}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="mt-4 whitespace-pre-wrap text-sm text-[var(--text-muted)]">
-              {result.transcript}
-            </p>
-          </details>
-          {previous && (
-            <div data-clarity-mask="true" className="rounded-xl border border-white/15 p-5">
-              <h4 className="font-semibold">
-                What changed:{" "}
-                {result.feedback.comparison.outcome.replaceAll("_", " ")}
-              </h4>
-              <div className="mt-3 grid gap-3 sm:grid-cols-2">
-                <blockquote className="text-sm">
-                  <span className="block text-[var(--text-muted)]">
-                    First attempt
-                  </span>
-                  {result.feedback.comparison.beforeQuote ||
-                    "Not enough evidence to quote."}
-                </blockquote>
-                <blockquote className="text-sm">
-                  <span className="block text-[var(--text-muted)]">
-                    Second attempt
-                  </span>
-                  {result.feedback.comparison.afterQuote ||
-                    "Not enough evidence to quote."}
-                </blockquote>
-              </div>
-              <p className="mt-3">{result.feedback.comparison.explanation}</p>
-            </div>
-          )}
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-sm">Was this feedback useful?</span>
-            {helpful === null ? (
-              [true, false].map((value) => (
-                <button
-                  type="button"
-                  key={String(value)}
-                  className={button}
-                  onClick={() => {
-                    setHelpful(value);
-                    emit(value ? "speech_feedback_yes" : "speech_feedback_no");
-                  }}
-                >
-                  {value ? "Yes" : "Not yet"}
-                </button>
-              ))
-            ) : (
-              <span role="status" className="text-sm">
-                Thanks for the feedback.
-              </span>
-            )}
-          </div>
-          {!previous ? (
-            <button
-              type="button"
-              className={primary}
-              onClick={() => {
-                emit("speech_retry_start", { attempt: 2 });
-                beganAttempt.current = false;
-                setPrevious(result);
-                reset();
-              }}
-            >
-              Try this topic again
-            </button>
-          ) : null}
-          <SpeechPlanTeaser key={result.id} attempt={previous ? 2 : 1} contentSource={contentSource} visible={visible} />
+        <div ref={resultPanel}>
+          <SpeechFeedbackResult key={`${result.id}-${result.correctionsRemaining}`} result={result} repeated={Boolean(previous)} visible={visible} contentSource={contentSource}
+            onRetry={() => {
+              emit("speech_retry_start", { attempt: 2 });
+              beganAttempt.current = false;
+              setPrevious(result);
+              setTarget(result.feedback.drill ? 20 : 60);
+              reset();
+            }}
+            onCorrect={() => {
+              emit("speech_transcript_review"); setTranscript(result.transcript); setCorrecting(true); setStage("review");
+            }} />
         </div>
       )}
       {error && (
@@ -692,27 +614,6 @@ export default function SpeechCoach({
           Unsubmitted recordings remain only in this open page.
         </p>
       )}
-    </div>
-  );
-}
-function FeedbackCard({
-  title,
-  quote,
-  observation,
-}: {
-  title: string;
-  quote: string;
-  observation: string;
-}) {
-  return (
-    <div className="rounded-xl border border-white/10 bg-black/15 p-5">
-      <h4 className="font-semibold">{title}</h4>
-      {quote && (
-        <blockquote className="my-3 border-l-2 border-[var(--neon-cyan)]/60 pl-3 text-[var(--text-secondary)]">
-          “{quote}”
-        </blockquote>
-      )}
-      <p className="mt-3 leading-relaxed">{observation}</p>
     </div>
   );
 }

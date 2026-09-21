@@ -8,6 +8,7 @@ import {
 import { z } from "zod";
 import { billingManagementReady, billingReady } from "@/lib/speech/billing";
 import { latestSpeechPurchase } from "@/lib/speech/purchases";
+import { speechAllowance } from "@/lib/speech/allowance";
 export async function GET(request: Request) {
   try {
     const { db, user } = await actor(request);
@@ -45,6 +46,7 @@ export async function GET(request: Request) {
       : null;
     return response({
       attempts: data,
+      allowance: await speechAllowance(db, user.id).catch(() => undefined),
       anonymous: user.is_anonymous === true,
       emailVerified: verified,
       purchase,
