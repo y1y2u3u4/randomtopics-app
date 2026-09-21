@@ -39,3 +39,10 @@ Validation before release: speech and billing regression suites, coverage/QA/nul
 report cases, continuous exposure observer cases, TypeScript and lint. Deployment
 and actual browser/GA receipt evidence are recorded in the owner's follow-up
 report, with browser, backend, and prior sandbox results kept distinct.
+
+The production browser check also exposed a lazy-load scroll timing problem:
+the entry scrolled a small loading placeholder into view, then the real recording
+controls mounted below the viewport. The coach now reveals and focuses the actual
+recording action after mounting (or returning to its ready stage), without starting
+the microphone. The animation frame is canceled on hide/unmount. This is a
+reproduced usability issue, not proof of why every earlier visitor left.

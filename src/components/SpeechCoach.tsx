@@ -69,6 +69,16 @@ export default function SpeechCoach({
   const uploadInput = useRef<HTMLInputElement>(null);
   const seenControls = useRef(new Set<number>());
   useEffect(() => {
+    if (!visible || stage !== "ready") return;
+    // The lazy coach can mount after the entry has already scrolled its loader.
+    // Wait until parent effects finish, then reveal the actual next action.
+    const frame = requestAnimationFrame(() => {
+      recordButton.current?.focus({ preventScroll: true });
+      recordButton.current?.scrollIntoView({ block: "center", behavior: "instant" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [visible, stage]);
+  useEffect(() => {
     const input = uploadInput.current;
     if (stage !== "ready" || !input) return;
     const cancel = () => trackSpeech("speech_upload_cancel", {
