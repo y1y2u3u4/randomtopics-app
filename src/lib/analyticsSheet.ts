@@ -293,7 +293,7 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
   const speechDates = await getValues(sheetId, "'Speech Daily'!A2:A1000");
   const speechTargetRow = nextRowForDate(speechDates, snapshot.reportDate);
   const speechHeaders = ["Report date", "Measurement version · independent event counts/users, not an ordered funnel", ...SPEECH_EVENTS.flatMap((event) => [`${event} events`, `${event} users`])];
-  const speechValues = [snapshot.reportDate, "speech-v2", ...SPEECH_EVENTS.flatMap((event) => {
+  const speechValues = [snapshot.reportDate, "speech-v2 + entry-v3 (distinct exposure definitions)", ...SPEECH_EVENTS.flatMap((event) => {
     const row = eventByName(snapshot.ga4.eventsYesterday, event);
     return [row.eventCount, row.totalUsers];
   })];

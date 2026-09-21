@@ -1,5 +1,5 @@
 import { aggregateGscPageRows } from "@/lib/gscPageAggregation";
-import { SPEECH_EVENTS, SPEECH_FUNNELS } from "@/lib/speech/events";
+import { SPEECH_EVENTS, SPEECH_FUNNELS, SPEECH_ENTRY_EVENTS } from "@/lib/speech/events";
 import { funnelRequest, funnelCounts, productionFilter, type FunnelRows } from "@/lib/speech/report";
 import "server-only";
 
@@ -34,6 +34,7 @@ type GaReportResponse = {
   rowCount?: number;
   metadata?: { timeZone?: string; subjectToThresholding?: boolean; dataLossFromOtherRow?: boolean; samplingMetadatas?: unknown[] };
   rows?: GaRow[];
+  metadata?: { timeZone?: string };
 };
 
 type GscRow = {
@@ -549,11 +550,26 @@ export type SpeechReport = {
   generatedAt: string;
   days: number;
   events: GaEventRow[];
+  hourly: { available: boolean; timeZone: string; rows: { hour: string; event: string; users: number; count: number }[] };
   devices: { device: string; event: string; users: number }[];
   sources: { source: string; event: string; users: number }[];
   landings: { landing: string; event: string; users: number }[];
   funnels: { key: string; title: string; rows: { label: string; users: number }[]; available: boolean; qualified: boolean }[];
 };
+// Private server job only. QA and natural events use disjoint names.
+export async function getSpeechRealtime(qa = false) {
+  const propertyId = requiredEnv("GA4_PROPERTY_ID");
+  if (!/^\d+$/.test(propertyId)) throw new ReportingError("ga4_property_id_invalid");
+  const data = await postGoogleJson<GaReportResponse>(
+    `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runRealtimeReport`, {
+      dimensions: [{ name: "eventName" }], metrics: [{ name: "activeUsers" }, { name: "eventCount" }],
+      dimensionFilter: { filter: { fieldName: "eventName", inListFilter: { values: SPEECH_EVENTS.map(event => `${qa ? "qa_" : ""}${event}`) } } },
+      minuteRanges: [{ startMinutesAgo: 29, endMinutesAgo: 0 }], limit: 200,
+    }, "speech_realtime_failed",
+  );
+  return { generatedAt: new Date().toISOString(), minutes: 30, qa,
+    events: (data.rows ?? []).map(row => ({ event: row.dimensionValues?.[0]?.value ?? "", users: metricValue(row, 0), count: metricValue(row, 1) })) };
+}
 const speechCache = new Map<number, { expires: number; value: SpeechReport }>();
 export async function getSpeechReport(days = 7, force = false, window?: { startDate: string; endDate: string; dimensionFilter: unknown }): Promise<SpeechReport> {
   if (![0, 1, 7, 28].includes(days)) days = 7;
@@ -569,6 +585,14 @@ export async function getSpeechReport(days = 7, force = false, window?: { startD
   const devices = await runGaReport({ ...base, dimensions: ["deviceCategory", "eventName"], metrics: ["totalUsers"], limit: 500 });
   const sources = await runGaReport({ ...base, dimensions: ["sessionSourceMedium", "eventName"], metrics: ["totalUsers"], limit: 1000 });
   const landings = await runGaReport({ ...base, dimensions: ["landingPage", "eventName"], metrics: ["totalUsers"], limit: 1000 });
+  let hourly: SpeechReport["hourly"] = { available: false, timeZone: "unknown", rows: [] };
+  try {
+    const data = await runGaReport({ ...base, dimensions: ["dateHour", "eventName"], metrics: ["totalUsers", "eventCount"],
+      dimensionFilter: { andGroup: { expressions: [scope, { filter: { fieldName: "eventName", inListFilter: { values: [...SPEECH_ENTRY_EVENTS] } } }] } },
+      orderBys: [{ dimension: { dimensionName: "dateHour" } }], limit: 10000 });
+    hourly = { available: true, timeZone: data.metadata?.timeZone ?? "unknown",
+      rows: (data.rows ?? []).map(row => ({ hour: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0), count: metricValue(row, 1) })) };
+  } catch { /* A missing hourly report must not erase the working event/funnel report. */ }
   const propertyId = requiredEnv("GA4_PROPERTY_ID");
   if (!/^\d+$/.test(propertyId)) throw new ReportingError("ga4_property_id_invalid");
   const funnels: SpeechReport["funnels"] = [];
@@ -589,7 +613,7 @@ export async function getSpeechReport(days = 7, force = false, window?: { startD
     }
   }
   const value: SpeechReport = {
-    generatedAt: new Date().toISOString(), days, funnels,
+    generatedAt: new Date().toISOString(), days, funnels, hourly,
     events: (events.rows ?? []).map((row) => ({ eventName: row.dimensionValues?.[0]?.value ?? "", eventCount: metricValue(row, 0), totalUsers: metricValue(row, 1), sessions: metricValue(row, 2), keyEvents: 0 })),
     devices: (devices.rows ?? []).map((row) => ({ device: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0) })),
     sources: (sources.rows ?? []).map((row) => ({ source: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0) })),

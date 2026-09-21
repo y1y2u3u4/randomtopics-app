@@ -1,9 +1,11 @@
 "use client";
 import { track } from "@/lib/track";
+import { isProductionHost } from "@/lib/analyticsEnvironment";
 import { SPEECH_ISSUE_CODES, type SpeechEvent } from "./events";
 
 type Properties = {
   content_source: string;
+  entry_surface?: "primary" | "example";
   attempt?: number;
   input_method?: "microphone" | "upload";
   duration_seconds?: number;
@@ -16,7 +18,7 @@ type Properties = {
 export function trackSpeech(event: SpeechEvent, properties: Properties) {
   // Deliberately no transcript, topic, email, file name, auth ID or attempt UUID.
   const safe: Record<string, string | number | boolean> = { measurement_version: "speech-v2" };
-  for (const key of ["content_source", "input_method", "error_code", "outcome"] as const) {
+  for (const key of ["content_source", "entry_surface", "input_method", "error_code", "outcome"] as const) {
     const value = properties[key];
     if (typeof value === "string" && /^[a-z0-9_]{1,80}$/.test(value)) safe[key] = value;
   }
@@ -25,18 +27,33 @@ export function trackSpeech(event: SpeechEvent, properties: Properties) {
     if (typeof value === "number" && Number.isFinite(value) && value >= 0) safe[key] = value;
   }
   if (typeof properties.transcript_edited === "boolean") safe.transcript_edited = properties.transcript_edited;
-  track(event, safe);
+  const qa = speechQaSession();
+  const eventName = qa ? `qa_${event}` : event;
+  track(eventName, safe);
+  if (qa && typeof window !== "undefined" && isProductionHost(window.location.hostname)) {
+    window.dispatchEvent(new CustomEvent("rt:analytics", { detail: { event: eventName, params: safe } }));
+  }
   if (event.endsWith("_error") && SPEECH_ISSUE_CODES.some((code) => code === safe.error_code)) {
-    track(`speech_issue_${safe.error_code}`, safe);
+    track(`${qa ? "qa_" : ""}speech_issue_${safe.error_code}`, safe);
   }
   try {
-  if (typeof window !== "undefined" && window.clarity && window.__rtReplayActive) {
+  if (!qa && typeof window !== "undefined" && window.clarity && window.__rtReplayActive) {
     window.clarity("event", event);
     if (safe.content_source) window.clarity("set", "speech_source", safe.content_source);
     if (properties.attempt) window.clarity("set", "speech_attempt", String(properties.attempt));
     if (safe.error_code) window.clarity("set", "speech_error", safe.error_code);
   }
   } catch { /* Replay must never interrupt practice. */ }
+}
+
+export function speechQaSession() {
+  if (typeof window === "undefined") return false;
+  const choice = new URLSearchParams(window.location?.search || "").get("speech_qa");
+  try {
+    if (choice === "1") sessionStorage.setItem("rt_speech_qa", "1");
+    if (choice === "0") sessionStorage.removeItem("rt_speech_qa");
+    return choice === "1" || sessionStorage.getItem("rt_speech_qa") === "1";
+  } catch { return choice === "1"; }
 }
 
 export function speechErrorCode(error: unknown): string {
@@ -66,7 +83,7 @@ export function trackConfirmedSpeechPurchase(purchase: unknown) {
     const key = `rt_speech_paid_${p.transactionId}`;
     if (localStorage.getItem(key)) return;
     trackSpeech("speech_payment_confirmed", { content_source: "speech_account" });
-    track("purchase", {
+    track(speechQaSession() ? "qa_purchase" : "purchase", {
       transaction_id: p.transactionId, value: p.value, currency: p.currency,
       measurement_version: "speech-v2",
       items: [{ item_id: "randomtopics_speech_monthly", item_name: "RandomTopics Speech Coach", price: 12, quantity: 1 }],

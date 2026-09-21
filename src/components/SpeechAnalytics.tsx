@@ -10,16 +10,19 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
   const count = (event: string) => report.events.find((r) => r.eventName === event)?.eventCount ?? 0;
   const yes = count("speech_feedback_yes");
   const no = count("speech_feedback_no");
-  const breakdownEvents = ["speech_entry_view", "speech_first_feedback_view", "speech_retry_feedback_view", "speech_checkout_offer_view", "speech_checkout_redirect", "speech_payment_confirmed"];
-  const labels = ["入口曝光人数", "首次反馈人数", "重练反馈人数", "套餐曝光人数", "结账跳转人数", "网站收到实付确认人数"];
+  const breakdownEvents = ["speech_entry_v3_view", "speech_example_open", "speech_coach_v3_open", "speech_first_feedback_view", "speech_checkout_redirect", "speech_payment_confirmed"];
+  const labels = ["新入口有效曝光", "查看示例", "打开新版练习", "首次反馈人数", "结账跳转人数", "网站收到实付确认人数"];
+  const hours = [...new Set(report.hourly.rows.map(row => row.hour))];
+  const curveEvents = ["speech_entry_v3_page", "speech_entry_v3_view", "speech_example_open", "speech_entry_v3_click", "speech_coach_v3_open"];
   const clarity = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
   return <section id="speech-analytics" className="space-y-5">
     {process.env.NEXT_PUBLIC_SPEECH_COACH_ENABLED !== "true" && <p role="status" className="rounded-xl border border-amber-300/30 p-4 text-sm text-amber-100">正式练习入口尚未开放。统计已部署，但目前不能用练习漏斗的零值判断用户是否愿意练习或付费。</p>}
     <div className="flex flex-wrap items-center justify-between gap-3">
-      <div><h2 className="text-2xl font-bold">演讲练习 · 从流量到价值</h2><p className="mt-2 text-sm text-[var(--text-muted)]">{report.days === 0 ? "今日截至目前，数据仍在处理" : `最近 ${report.days} 个完整日`}（GA4 属性时区）· 仅正式域名 · speech-v2 事件名称口径</p></div>
+      <div><h2 className="text-2xl font-bold">演讲练习 · 从流量到价值</h2><p className="mt-2 text-sm text-[var(--text-muted)]">{report.days === 0 ? "今日截至目前，数据仍在处理" : `最近 ${report.days} 个完整日`}（GA4 属性时区）· 仅正式域名 · 基础事件 v2 / 新入口 v3</p></div>
       <div className="flex gap-3"><Link className="underline" href="?speech_days=0#speech-analytics">今日</Link><Link className="underline" href="?speech_days=1#speech-analytics">昨日</Link><Link className="underline" href="?speech_days=7#speech-analytics">7 天</Link><Link className="underline" href="?speech_days=28#speech-analytics">28 天</Link>
         {clarity && <a className="underline" href={`https://clarity.microsoft.com/projects/view/${clarity}/recordings`} target="_blank" rel="noreferrer">Clarity 回放</a>}</div>
     </div>
+    <p className="text-sm text-[var(--text-secondary)]">新入口单独使用 v3 事件：有效曝光要求可用按钮至少 50% 可见、前台连续一秒。快速点击不会补记曝光；点击独立计数，旧版曝光率不可直接比较。QA 使用独立事件名称，不进入下方漏斗。</p>
     <p className="text-sm text-[var(--text-secondary)]">有序漏斗按 GA4 用户去重，必须按顺序完成，每相邻步骤不超过 24 小时。可跨会话，不保证是同一条录音；清除 Cookie、换设备及拦截统计会影响识别。数据未成熟时先看人数。</p>
     <div className="grid gap-4 lg:grid-cols-3">{report.funnels.map((funnel) => <article key={funnel.key} className="glass-card p-5">
       <h3 className="font-semibold">{funnel.title}</h3>
@@ -31,6 +34,9 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
       {funnel.qualified && <p className="mt-3 text-xs">GA4 提示此结果受采样或隐私阈值影响。</p>}
     </article>)}</div>
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{[
+      ["新入口练习点击", String(count("speech_entry_v3_click")), "含未满一秒的快速点击；不是有效曝光的简单比率"],
+      ["查看示例", String(count("speech_example_open")), "首次展开示例，表示兴趣，不表示已练习"],
+      ["从示例开始练习", String(count("speech_example_practice")), "区分想先看结果与愿意尝试"],
       ["反馈有用率", rate(yes, yes + no), `${yes} 次有用 / ${yes + no} 次明确评价；不是全部使用者满意度`],
       ["转写失败", String(count("speech_transcribe_error")), `${count("speech_transcribe_start")} 次提交；重试也计一次请求`],
       ["反馈失败", String(count("speech_feedback_error")), `${count("speech_feedback_start")} 次请求；历史恢复请求单独记录`],
@@ -42,6 +48,15 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
       ["收银台跳转", String(count("speech_checkout_redirect")), "取得 Stripe 链接并发起跳转，不代表付款成功"],
       ["发起订阅失败", String(count("speech_checkout_error")), "创建或跳转收银台失败，可在失败原因中排查"],
     ].map(([label, value, note]) => <article key={label} className="glass-card p-4"><h3 className="text-sm">{label}</h3><p className="my-2 text-2xl font-bold">{value}</p><p className="text-xs text-[var(--text-muted)]">{note}</p></article>)}</div>
+    <details className="glass-card p-5" open><summary className="font-semibold">新入口生产曲线 · 每小时独立用户数</summary>
+      <p className="mt-2 text-xs text-[var(--text-muted)]">时区：{report.hourly.timeZone}。小时人数不能相加当作每日去重用户，也不能直接相除当作有序转化率。发布所在小时可能只有部分时间。</p>
+      {!report.hourly.available ? <p className="mt-3">小时数据暂不可用。</p> : !hours.length ? <p className="mt-3">尚未收到新版自然流量数据；不代表没有需求。</p> : <div className="overflow-x-auto"><table className="mt-4 w-full min-w-[620px] text-left text-sm">
+        <thead><tr>{["小时", "新版页面", "有效曝光", "查看示例", "练习点击", "打开练习"].map(label => <th key={label}>{label}</th>)}</tr></thead>
+        <tbody>{hours.map(hour => <tr key={hour} className="border-t border-white/10"><td className="py-3">{hour.slice(0, 4)}-{hour.slice(4, 6)}-{hour.slice(6, 8)} {hour.slice(8)}:00</td>
+          {curveEvents.map(event => <td key={event}>{number.format(report.hourly.rows.find(row => row.hour === hour && row.event === event)?.users ?? 0)}</td>)}
+        </tr>)}</tbody>
+      </table></div>}
+    </details>
     {["device", "source", "landing"].map((kind) => {
       const rows = kind === "device" ? report.devices.map((r) => ({ ...r, key: r.device })) : kind === "source" ? report.sources.map((r) => ({ ...r, key: r.source })) : report.landings.map((r) => ({ ...r, key: r.landing }));
       const keys = [...new Set(rows.map((r) => r.key))];

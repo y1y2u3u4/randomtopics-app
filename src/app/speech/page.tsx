@@ -95,7 +95,7 @@ export default function SpeechPage() {
         <TopicGenerator
           initialMode="speech"
           title="Speech Topic Generator"
-          subtitle="Generate a focused prompt for an impromptu speech, presentation, Toastmasters round, or public speaking practice."
+          subtitle="Find a topic for your next speech. Try a 60-second answer and get one specific suggestion to make it clearer."
           contentSource="speech_hub"
           speechPractice
         />
