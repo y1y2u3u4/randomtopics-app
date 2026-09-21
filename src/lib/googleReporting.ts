@@ -561,13 +561,15 @@ export async function getSpeechRealtime(qa = false) {
   if (!/^\d+$/.test(propertyId)) throw new ReportingError("ga4_property_id_invalid");
   const data = await postGoogleJson<GaReportResponse>(
     `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runRealtimeReport`, {
-      dimensions: [{ name: "eventName" }], metrics: [{ name: "activeUsers" }, { name: "eventCount" }],
+      // Realtime eventName is incompatible with activeUsers. Report occurrences;
+      // distinct users and ordered conversions come from the processed reports.
+      dimensions: [{ name: "eventName" }], metrics: [{ name: "eventCount" }],
       dimensionFilter: { filter: { fieldName: "eventName", inListFilter: { values: SPEECH_EVENTS.map(event => `${qa ? "qa_" : ""}${event}`) } } },
-      minuteRanges: [{ startMinutesAgo: 29, endMinutesAgo: 0 }], limit: 200,
+      minuteRanges: [{ startMinutesAgo: 29, endMinutesAgo: 0 }], limit: "200",
     }, "speech_realtime_failed",
   );
-  return { generatedAt: new Date().toISOString(), minutes: 30, qa,
-    events: (data.rows ?? []).map(row => ({ event: row.dimensionValues?.[0]?.value ?? "", users: metricValue(row, 0), count: metricValue(row, 1) })) };
+  return { generatedAt: new Date().toISOString(), minutes: 30, metric: "eventCount" as const, qa,
+    events: (data.rows ?? []).map(row => ({ event: row.dimensionValues?.[0]?.value ?? "", count: metricValue(row, 0) })) };
 }
 const speechCache = new Map<number, { expires: number; value: SpeechReport }>();
 export async function getSpeechReport(days = 7, force = false, window?: { startDate: string; endDate: string; dimensionFilter: unknown }): Promise<SpeechReport> {
