@@ -113,10 +113,11 @@ export default function TopicGenerator({
       content_source: contentSource,
       locale,
     });
+    return nextTopics;
   }, [selectedMode, selectedCategory, selectedDepth, count, contentSource, locale]);
 
   const generate = useCallback(async () => {
-    if (isSpinning || (locale === "es" && !staticPool.length)) return;
+    if (isSpinning || (locale === "es" && !staticPool.length)) return [];
     setIsSpinning(true);
 
     track("generate_start", {
@@ -132,8 +133,7 @@ export default function TopicGenerator({
     // Spanish serves purely from the localized static database so results are
     // always in Spanish (the AI API returns English only).
     if (locale === "es") {
-      finishGeneration(generateFromStatic(), "localized_pool");
-      return;
+      return finishGeneration(generateFromStatic(), "localized_pool");
     }
 
     try {
@@ -154,14 +154,14 @@ export default function TopicGenerator({
 
       const data = await res.json();
       if (data.topics && data.topics.length > 0) {
-        finishGeneration(data.topics, "ai");
+        return finishGeneration(data.topics, "ai");
       } else {
         // Fallback to static if AI returns empty
-        finishGeneration(generateFromStatic(), "static_fallback");
+        return finishGeneration(generateFromStatic(), "static_fallback");
       }
     } catch {
       // Fallback to static database on any error
-      finishGeneration(generateFromStatic(), "static_fallback");
+      return finishGeneration(generateFromStatic(), "static_fallback");
     }
   }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, finishGeneration, contentSource, locale, isSpinning, staticPool.length]);
 
@@ -217,6 +217,7 @@ export default function TopicGenerator({
     });
   }, [contentSource, generatedTopics, locale]);
 
+  const coachEnabled = speechPractice && locale === "en" && process.env.NEXT_PUBLIC_SPEECH_COACH_ENABLED === "true";
   const showModeSelector = !initialMode;
   const showCategorySelector = !initialCategory;
 
@@ -380,28 +381,37 @@ export default function TopicGenerator({
         ) : null}
       </div>
 
-      {/* Results */}
+      {/* Keep the coach outside keyed result animations so a new topic batch
+          never discards an in-progress recording or its feedback. */}
       <AnimatePresence mode="wait">
-        {hasGenerated && (
-          <motion.div
-            key={generatedTopics.map((t) => t.id).join(",")}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="space-y-4 pb-16"
-          >
-            {generatedTopics.length > 0 ? (
-              <>
-                {generatedTopics.map((topic, i) => (
-                  <TopicCard
-                    key={topic.id}
-                    topic={topic}
-                    index={i}
-                    locale={locale}
-                    contentSource={contentSource}
-                    actionContext="generated_result"
-                  />
-                ))}
+        {hasGenerated && <motion.div key={generatedTopics.map((t) => t.id).join(",")}
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mb-4 space-y-4">
+          {generatedTopics.length > 0 ? (coachEnabled ? generatedTopics.slice(0, 1) : generatedTopics).map((topic, i) => (
+            <TopicCard key={topic.id} topic={topic} index={i} locale={locale} contentSource={contentSource} actionContext="generated_result" />
+          )) : (
+              <div className="glass-card text-center py-16 px-6">
+                <motion.p
+                  className="text-6xl mb-5"
+                  animate={{ rotate: [0, -10, 10, -10, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
+                >
+                  🤷
+                </motion.p>
+                <p className="text-xl font-semibold text-[var(--text-secondary)] mb-2">
+                  {t.generator.noTopicsTitle}
+                </p>
+                <p className="text-[var(--text-muted)] text-sm max-w-md mx-auto">
+                  {t.generator.noTopicsBody}
+                </p>
+              </div>
+          )}
+        </motion.div>}
+      </AnimatePresence>
+      {coachEnabled ? <SpeechCoachEntry topics={generatedTopics} contentSource={contentSource} requestTopics={generate} loadingTopics={isSpinning} /> : null}
+      {coachEnabled && generatedTopics.length > 1 && <div className="mb-4 space-y-4" aria-label="More generated topics">
+        {generatedTopics.slice(1).map((topic, i) => <TopicCard key={topic.id} topic={topic} index={i + 1} locale={locale} contentSource={contentSource} actionContext="generated_result" />)}
+      </div>}
+      {hasGenerated && generatedTopics.length > 0 && <div className="mb-6 space-y-4">
                 <div className="glass-card border-[var(--neon-cyan)]/20 p-5 sm:p-6">
                   <p className="text-center text-sm font-semibold text-[var(--text-primary)]">
                     {locale === "es" ? "¿Quieres otra opción?" : "Want another option?"}
@@ -411,7 +421,7 @@ export default function TopicGenerator({
                       type="button"
                       onClick={generateAgain}
                       disabled={isSpinning}
-                      className="btn-generate inline-flex items-center justify-center gap-2 disabled:opacity-70"
+                      className={coachEnabled ? "inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white/20 px-5 py-2.5 text-sm font-semibold disabled:opacity-70" : "btn-generate inline-flex items-center justify-center gap-2 disabled:opacity-70"}
                     >
                       <span aria-hidden="true">🎲</span>
                       {isSpinning
@@ -497,29 +507,8 @@ export default function TopicGenerator({
                     )}
                   </div>
                 </div>
-              </>
-            ) : (
-              <div className="glass-card text-center py-16 px-6">
-                <motion.p
-                  className="text-6xl mb-5"
-                  animate={{ rotate: [0, -10, 10, -10, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
-                >
-                  🤷
-                </motion.p>
-                <p className="text-xl font-semibold text-[var(--text-secondary)] mb-2">
-                  {t.generator.noTopicsTitle}
-                </p>
-                <p className="text-[var(--text-muted)] text-sm max-w-md mx-auto">
-                  {t.generator.noTopicsBody}
-                </p>
-              </div>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </div>}
 
-      {speechPractice && locale === "en" ? <SpeechCoachEntry topics={generatedTopics} contentSource={contentSource} /> : null}
       {speechPractice ? <SpeechPracticePanel key={practiceBatch} topics={generatedTopics} contentSource={contentSource} /> : null}
 
       {/* Pre-generate prompt */}

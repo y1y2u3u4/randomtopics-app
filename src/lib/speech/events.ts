@@ -1,5 +1,9 @@
 // Versioned names need no GA custom-dimension registration for the core reports.
 export const SPEECH_ISSUE_CODES = ["quota", "daily_limit", "insufficient_speech", "session", "conflict", "service", "invalid_audio_or_text", "permission_denied", "no_device", "device_busy", "client_or_network", "recording_interrupted", "empty_audio", "invalid_file_size"] as const;
+export const SPEECH_ENTRY_EVENTS = [
+  "speech_entry_v3_page", "speech_entry_v3_view", "speech_entry_v3_click", "speech_entry_v3_error",
+  "speech_coach_v3_open", "speech_example_open", "speech_example_practice",
+] as const;
 export const SPEECH_EVENTS = [
   ...SPEECH_ISSUE_CODES.map((code) => `speech_issue_${code}` as const),
   "speech_page_view", "speech_entry_view", "speech_coach_open", "speech_coach_return",
@@ -20,10 +24,21 @@ export const SPEECH_EVENTS = [
   "speech_checkout_error", "speech_portal_start", "speech_portal_redirect", "speech_portal_error",
   "speech_email_link_start", "speech_email_link_sent", "speech_email_link_error", "speech_email_verified",
   "speech_recovery_start", "speech_recovery_sent", "speech_recovery_error", "speech_payment_confirmed",
+  ...SPEECH_ENTRY_EVENTS,
 ] as const;
 export type SpeechEvent = typeof SPEECH_EVENTS[number];
 export const SPEECH_FUNNELS = [
-  { key: "activation", title: "流量 → 首次反馈", steps: [
+  { key: "entry_v3", title: "新入口 · 有效曝光 → 首次反馈", steps: [
+    ["进入新版页面", "speech_entry_v3_page"], ["按钮可见一秒", "speech_entry_v3_view"],
+    ["点击免费练习", "speech_entry_v3_click"], ["打开练习面板", "speech_coach_v3_open"],
+    ["开始录音或选文件", "speech_first_attempt_start"], ["看到首次反馈", "speech_first_feedback_view"],
+  ] },
+  { key: "example_v3", title: "新入口 · 示例 → 实际尝试", steps: [
+    ["进入新版页面", "speech_entry_v3_page"], ["查看反馈示例", "speech_example_open"],
+    ["从示例开始练习", "speech_example_practice"], ["开始录音或选文件", "speech_first_attempt_start"],
+    ["看到首次反馈", "speech_first_feedback_view"],
+  ] },
+  { key: "activation", title: "旧入口曝光口径 · 历史参考", steps: [
     ["进入有练习功能的页面", "speech_page_view"],
     ["看到可用练习入口", "speech_entry_view"], ["打开练习", "speech_coach_open"],
     ["开始首次录音或选文件", "speech_first_attempt_start"],

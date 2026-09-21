@@ -87,3 +87,20 @@ fakeWindow.location.pathname = "/speech";
 delete fakeWindow.gtag;
 tracker.track("speech_coach_open"); assert.equal(fakeWindow.dataLayer[0][1], "speech_coach_open");
 console.log("PASS: ordered funnel headers, production/event-name filters, private event allowlist, replay failure isolation, preview exclusion and early-event queue.");
+
+const qaEvents = [], qaStorage = new Map();
+const qaWindow = { location: {search:'?speech_qa=1'}, dispatchEvent() {} };
+const qaTelemetry = load('src/lib/speech/telemetry.ts', {'@/lib/track':{track:(...args)=>qaEvents.push(args)}}, {
+  window:qaWindow, sessionStorage:{getItem:k=>qaStorage.get(k),setItem:(k,v)=>qaStorage.set(k,v),removeItem:k=>qaStorage.delete(k)},
+  CustomEvent:class { constructor(type, options) {this.type=type;this.detail=options.detail;} },
+});
+qaTelemetry.trackSpeech('speech_entry_v3_click',{content_source:'speech_hub',entry_surface:'example',email:'private@example.test'});
+qaWindow.location.search='';
+qaTelemetry.trackSpeech('speech_coach_v3_open',{content_source:'speech_hub'});
+qaWindow.location.search='?speech_qa=0';
+qaTelemetry.trackSpeech('speech_entry_v3_click',{content_source:'speech_hub',entry_surface:'primary'});
+assert.deepEqual(qaEvents.map(e=>e[0]),['qa_speech_entry_v3_click','qa_speech_coach_v3_open','speech_entry_v3_click']);
+assert.equal(qaEvents[0][1].entry_surface,'example');
+assert.equal(JSON.stringify(qaEvents).includes('private@example'),false);
+assert.ok(SPEECH_FUNNELS.every(f=>f.steps.every(([,event])=>!event.startsWith('qa_'))));
+console.log('PASS: production QA namespace persists across navigation, explicit exit, private-field exclusion and natural funnel isolation.');
