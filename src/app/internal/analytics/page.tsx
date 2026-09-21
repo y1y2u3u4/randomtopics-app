@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import SpeechAnalytics from "@/components/SpeechAnalytics";
 import SpeechPayments from "@/components/SpeechPayments";
+import SitewideReportSync from "@/components/SitewideReportSync";
 import { hasAnalyticsSession, isAnalyticsAuthConfigured } from "@/lib/analyticsAuth";
 import {
   getAnalyticsDashboardData,
@@ -410,9 +411,7 @@ export default async function AnalyticsPage({
         <div className="flex flex-wrap gap-2">
           <Link href="/internal/analytics?refresh=1" className="mode-chip">↻ Refresh</Link>
           <Link href="/api/internal/analytics/summary" className="mode-chip">JSON</Link>
-          <form action="/api/internal/analytics/sitewide" method="post">
-            <button type="submit" className="mode-chip">同步全站分析到私有表格</button>
-          </form>
+          <SitewideReportSync />
           <form action="/api/internal/analytics/logout" method="post">
             <button type="submit" className="mode-chip">Log out</button>
           </form>
