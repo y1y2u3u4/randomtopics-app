@@ -32,16 +32,21 @@ function PracticeRound({ topic, contentSource, draft, onNoteChange }: {
   const nextStep = PREP.find((_, index) => !notes[index].trim());
   const outlineStatus = completedParts === PREP.length ? "PREP outline — 4 of 4 parts" : `PREP draft — ${completedParts} of 4 parts`;
   return (
-    <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]">
+    <div>
+      {topic && <p className="mb-5 text-lg font-semibold text-[var(--text-primary)]" data-practice-prompt>{topic.text}</p>}
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]">
+      <div className="lg:order-last"><SpeechTimer contentSource={contentSource} selfReview /></div>
       {topic ? (
         <div className="min-w-0">
-          <p className="text-lg font-semibold text-[var(--text-primary)]" data-practice-prompt>{topic.text}</p>
+
           {topic.talkingPoints.length ? (
             <details className="mt-3 text-sm text-[var(--text-muted)]">
               <summary className="cursor-pointer py-2">Need an angle? See this topic’s talking points</summary>
               <ul className="list-disc space-y-1 pl-5">{topic.talkingPoints.map((point) => <li key={point}>{point}</li>)}</ul>
             </details>
           ) : null}
+          <details className="mt-4">
+            <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold text-[var(--neon-cyan)]">Optional PREP notes · {completedParts} of 4 parts</summary>
           <div className="mt-4 rounded-xl border border-[var(--neon-cyan)]/20 bg-[var(--neon-cyan)]/5 p-3 text-sm">
             <p className="font-semibold text-[var(--text-secondary)]" aria-live="polite">{outlineStatus}</p>
             <p className="mt-1 text-[var(--text-muted)]">
@@ -76,12 +81,13 @@ function PracticeRound({ topic, contentSource, draft, onNoteChange }: {
               isPostGenerate
             />
           </div> : <p className="mt-4 text-sm text-[var(--text-muted)]">Add a few words to any field to copy or save a draft. You can start the timer without notes.</p>}
+          </details>
           <p className="mt-3 text-xs text-[var(--text-muted)]">Switch between this batch’s topics without losing your notes. Copy or save before generating a new batch or leaving this page. Notes stay in this open page unless you choose Save.</p>
         </div>
       ) : (
         <p className="text-sm leading-relaxed text-[var(--text-muted)]">Generate a topic above to create your practice outline, or use the timer with a topic of your own.</p>
       )}
-      <SpeechTimer contentSource={contentSource} />
+      </div>
     </div>
   );
 }
@@ -112,7 +118,7 @@ export default function SpeechPracticePanel({ topics, contentSource }: { topics:
   return (
     <section id="speech-practice" className="glass-card mb-12 p-5 sm:p-7" aria-labelledby="speech-practice-heading">
       <h2 id="speech-practice-heading" className="text-xl font-bold">Turn your topic into a short speech</h2>
-      <p className="mb-5 mt-2 text-sm text-[var(--text-muted)]">Prepare with Point, Reason, Example, Point — then practice aloud.</p>
+      <p className="mb-5 mt-2 text-sm text-[var(--text-muted)]">Start the timer and speak. Afterward, choose one thing to improve and try again. PREP notes are optional.</p>
       {topics.length > 1 ? (
         <label className="mb-5 block text-sm text-[var(--text-secondary)]">
           Topic to practice

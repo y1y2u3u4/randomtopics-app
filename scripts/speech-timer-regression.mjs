@@ -44,7 +44,7 @@ const descend = (node) => !node || typeof node !== "object" ? [] : Array.isArray
 const text = (node) => node == null || typeof node === "boolean" ? "" : typeof node !== "object" ? String(node) : Array.isArray(node) ? node.map(text).join("") : text(node.props?.children);
 function render() {
   cursor = 0;
-  const tree = target.exports.default({ contentSource: "speech_hub", toastmastersCues: true });
+  const tree = target.exports.default({ contentSource: "speech_hub", toastmastersCues: true, selfReview: true });
   const jobs = pending; pending = []; jobs.forEach((fn) => fn());
   return tree;
 }
@@ -69,10 +69,14 @@ shown("0:01");
 tick(1);
 shown("Time's Up!");
 assert.equal(completions(), 1, "Pause preserves fractional seconds and excludes paused time");
+shown("Choose one change, then try again");
+click("Add one concrete example");
+assert.equal(events.filter((event) => event.name === "practice_self_review").length, 1);
+assert.equal(events.find((event) => event.name === "practice_self_review").params.review_focus, "example");
 tick(10_000);
 assert.equal(completions(), 1);
 click("▶ Restart");
-shown("1:00");
+shown("1:00"); shown("This attempt: add one concrete example.");
 now += 65_000;
 listeners.get("visibilitychange")?.(); render();
 shown("Time's Up!");

@@ -47,6 +47,7 @@ function harness(path, props, extra = {}, globals = {}) {
       if (!(index in state)) state[index] = typeof initial === "function" ? initial() : initial;
       return [state[index], (value) => { state[index] = typeof value === "function" ? value(state[index]) : value; }];
     },
+    useRef(initial) { const index = cursor++; return state[index] ??= { current: initial }; },
     useMemo: (fn) => fn(), useCallback: (fn) => fn, useEffect: (fn) => effects.push(fn),
     useId: () => "test-copy", useSyncExternalStore: () => "[]",
   };

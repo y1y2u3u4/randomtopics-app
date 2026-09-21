@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import PrintButton from "./PrintButton";
 import Link from "next/link";
@@ -10,7 +10,8 @@ import {
   QOTD_QUESTIONS,
   QOTD_CATEGORIES,
   QotdCategory,
-  qotdIndexForDate,
+  qotdIndexForCategory,
+  parseQotdPreference,
 } from "@/data/questionOfTheDay";
 import { track } from "@/lib/track";
 
@@ -27,6 +28,9 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
   // for timezones on the other side of midnight.
   const [todayIdx, setTodayIdx] = useState<number>(initialIdx);
   const [dateLabel, setDateLabel] = useState(initialDateLabel);
+  const [dailyCategory, setDailyCategory] = useState<QotdCategory | "all">("all");
+  const [preferenceStatus, setPreferenceStatus] = useState("");
+  const dailyCategoryRef = useRef<QotdCategory | "all">("all");
 
   // Random-mode state
   const [category, setCategory] = useState<QotdCategory | "all">("all");
@@ -34,9 +38,12 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
   const [used, setUsed] = useState<Set<string>>(new Set());
 
   useEffect(() => {
+    try { dailyCategoryRef.current = parseQotdPreference(localStorage.getItem("rt-qotd-daily-category")); } catch { /* Keep the in-memory choice when storage is blocked. */ }
     const refreshDate = () => {
       const now = new Date();
-      setTodayIdx(qotdIndexForDate(now));
+      const saved = dailyCategoryRef.current;
+      setDailyCategory(saved);
+      setTodayIdx(qotdIndexForCategory(now, saved));
       setDateLabel(
         now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })
       );
@@ -91,6 +98,20 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
   const catMeta = shown ? QOTD_CATEGORIES.find((c) => c.id === shown.c) : null;
   const isToday = randomQ === null;
 
+  function chooseDailyCategory(value: QotdCategory | "all") {
+    dailyCategoryRef.current = value;
+    setDailyCategory(value);
+    setTodayIdx(qotdIndexForCategory(new Date(), value));
+    setRandomQ(null);
+    try {
+      localStorage.setItem("rt-qotd-daily-category", value);
+      setPreferenceStatus("Remembered in this browser. Come back tomorrow for another question in this category.");
+    } catch {
+      setPreferenceStatus("Your browser could not remember this choice. You can still use this category now.");
+    }
+    track("qotd_daily_category_select", { tool_type: "question_of_the_day", content_source: "qotd_hub", generator_category: value, locale: "en" });
+  }
+
   const planLinks = [
     { href: "/question-of-the-day-for-students#weekly-plan", label: "Plan 5 classroom questions", audience: "classroom" },
     { href: "/question-of-the-day-for-work#weekly-plan", label: "Plan 5 team questions", audience: "work" },
@@ -99,6 +120,15 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
   return (
     <section id="qotd-generator" aria-label="Daily and random question generator" className="max-w-3xl mx-auto px-4 sm:px-6 scroll-mt-24">
       <div className="glass-card p-6 sm:p-8">
+        <label className="mb-4 block text-sm text-[var(--text-secondary)]">
+          Today’s question for
+          <select value={dailyCategory} onChange={(event) => chooseDailyCategory(event.target.value as QotdCategory | "all")} className="mt-2 block min-h-11 w-full rounded-xl border border-white/15 bg-[var(--bg-primary)] px-3 py-3">
+            <option value="all">Everyone · mixed categories</option>
+            {QOTD_CATEGORIES.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
+          </select>
+        </label>
+        <p className="mb-4 text-xs leading-relaxed text-[var(--text-muted)]">One question per local day in your chosen category. We remember your choice in this browser; you can change it any time.</p>
+        <p role="status" className="mb-3 text-xs text-[var(--neon-cyan)]">{preferenceStatus}</p>
         {/* Question card */}
         <div
           className="rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] p-6 sm:p-8 text-center min-h-[11rem] flex flex-col items-center justify-center"
@@ -144,6 +174,7 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
             toolType="question_of_the_day"
             contentSource="qotd_hub"
             isPostGenerate={!isToday}
+            showSavedLink
           />
         </div> : null}
 
@@ -200,7 +231,7 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
         </div>
 
         <p className="text-xs text-[var(--text-muted)] text-center mt-4">
-          {pool.length} questions in this filter. Filters apply to your next random draw; your current question stays visible.
+          {pool.length} questions in this filter. These filters apply only to your next random draw; your daily category stays unchanged.
         </p>
         <p className="mt-4 text-center"><a href="#question-ideas" className="inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Browse all {QOTD_QUESTIONS.length} question ideas by category ↓</a></p>
         <p className="text-xs text-[var(--text-muted)] text-center mt-2">Today&apos;s question follows your local date and changes at midnight · {QOTD_QUESTIONS.length} questions in rotation.</p>

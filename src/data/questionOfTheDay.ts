@@ -156,3 +156,15 @@ export function qotdIndexForDate(d: Date): number {
   const dayOfYear = Math.floor((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - start) / 86400000);
   return (d.getFullYear() * 366 + dayOfYear) % QOTD_QUESTIONS.length;
 }
+
+/** One daily prompt within the explicitly chosen audience; never a random draw. */
+export function qotdIndexForCategory(d: Date, category: QotdCategory | "all"): number {
+  if (category === "all") return qotdIndexForDate(d);
+  const indices = QOTD_QUESTIONS.flatMap((item, index) => item.c === category ? [index] : []);
+  const day = Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86_400_000);
+  return indices[((day % indices.length) + indices.length) % indices.length];
+}
+
+export function parseQotdPreference(value: string | null): QotdCategory | "all" {
+  return QOTD_CATEGORIES.some((item) => item.id === value) ? value as QotdCategory : "all";
+}

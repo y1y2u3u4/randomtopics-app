@@ -66,11 +66,13 @@ export default function SpeechTimer({
   defaultSeconds = 60,
   contentSource = "speech_hub",
   toastmastersCues = false,
+  selfReview = false,
 }: {
   locale?: Locale;
   defaultSeconds?: number;
   contentSource?: string;
   toastmastersCues?: boolean;
+  selfReview?: boolean;
 }) {
   const t = STRINGS[locale] || STRINGS.en;
   const initialSeconds = PRESETS.some((preset) => preset.seconds === defaultSeconds) ? defaultSeconds : 60;
@@ -78,6 +80,7 @@ export default function SpeechTimer({
   const [remaining, setRemaining] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
+  const [reviewFocus, setReviewFocus] = useState("");
   const deadline = useRef<number | null>(null);
   const pausedMilliseconds = useRef(initialSeconds * 1000);
 
@@ -307,6 +310,23 @@ export default function SpeechTimer({
           </div>
         </div>
       )}
+
+      {selfReview && locale === "en" && isFinished && <div className="mb-5 rounded-xl border border-[var(--neon-cyan)]/25 p-4">
+        <h4 className="text-sm font-semibold">Choose one change, then try again</h4>
+        <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">Your own reflection — this timer does not record or assess your speech.</p>
+        <div className="mt-3 flex flex-col gap-2">
+          {[
+            ["point", "State my point sooner"],
+            ["example", "Add one concrete example"],
+            ["ending", "Finish with a clear takeaway"],
+          ].map(([value, label]) => <button key={value} type="button" aria-pressed={reviewFocus === value} onClick={() => {
+            setReviewFocus(value);
+            track("practice_self_review", { tool_type: "speech_timer", content_source: contentSource, review_focus: value, locale });
+          }} className={`min-h-11 rounded-lg border px-3 py-2 text-left text-xs ${reviewFocus === value ? "border-[var(--neon-cyan)] text-[var(--neon-cyan)]" : "border-white/15 text-[var(--text-secondary)]"}`}>{label}</button>)}
+        </div>
+        <p className="mt-3 text-xs text-[var(--text-muted)]">Restart below to practice the same topic. No notes required.</p>
+      </div>}
+      {selfReview && reviewFocus && !isFinished && <p role="status" className="mb-4 rounded-lg bg-[var(--neon-cyan)]/5 p-3 text-sm text-[var(--neon-cyan)]">This attempt: {reviewFocus === "point" ? "state your point sooner" : reviewFocus === "example" ? "add one concrete example" : "finish with a clear takeaway"}.</p>}
 
       {/* Controls */}
       <div className="flex justify-center gap-3">

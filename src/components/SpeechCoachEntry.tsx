@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import type { Topic } from "@/data/types";
 import { trackSpeech } from "@/lib/speech/telemetry";
+import { track } from "@/lib/track";
 import { observeVisibleAction } from "@/lib/speech/visibleAction";
 
 const Coach = dynamic(() => import("./SpeechCoach"), {
@@ -107,6 +108,7 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
           {exampleOpen ? "Hide feedback example" : "See a feedback example"}
         </button>
       </div>
+      <a href="#speech-practice" onClick={() => track("practice_timer_entry", { tool_type: "speech_practice", content_source: contentSource, locale: "en" })} className="mt-3 inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Practice aloud with the timer · no recording</a>
       <p className="mt-3 text-xs leading-relaxed text-[var(--text-muted)]">Two free attempts. No sign-up or card. Feedback on your words and structure.</p>
     </div>;
   return (

@@ -67,6 +67,13 @@ export default function MostLikelyToPageEs() {
           locale="es"
         />
 
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 py-6">
+          <div className="rounded-xl border border-[var(--neon-cyan)]/25 p-5">
+            <h2 className="font-semibold">¿Prefieres preparar 5 o 10 preguntas?</h2>
+            <p className="mt-2 text-sm text-[var(--text-muted)]">Aquí juegas una pregunta a la vez. En la colección de 100 puedes elegir una categoría, preparar una ronda y copiarla completa. Son dos mazos distintos; la pregunta actual no se traslada.</p>
+            <Link href="/es/topics/most-likely-to-questions#generator-es_most_likely_article" className="mt-2 inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Elegir categoría y preparar una ronda →</Link>
+          </div>
+        </section>
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
           <h2 className="text-lg font-bold text-[var(--text-primary)] mb-4">Elige preguntas para tu grupo</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
