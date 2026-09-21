@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Topic } from "@/data/types";
 import { trackSpeech, speechErrorCode } from "@/lib/speech/telemetry";
 import type { SpeechEvent } from "@/lib/speech/events";
-import SpeechInterest from "./SpeechInterest";
+import SpeechPlanTeaser from "./SpeechPlanTeaser";
 import { practiceFetch, PracticeRequestError } from "@/lib/speech/client";
 import { recordingToWav } from "@/lib/speech/audio";
 import { observeVisibleAction } from "@/lib/speech/visibleAction";
@@ -671,12 +671,8 @@ export default function SpeechCoach({
             >
               Try this topic again
             </button>
-          ) : (
-            <Link href="/speech/account" onClick={() => emit("speech_history_open")} className={`${button} inline-block`}>
-              Continue practicing · See your options
-            </Link>
-          )}
-          <SpeechInterest key={result.id} attempt={previous ? 2 : 1} contentSource={contentSource} visible={visible} />
+          ) : null}
+          <SpeechPlanTeaser key={result.id} attempt={previous ? 2 : 1} contentSource={contentSource} visible={visible} />
         </div>
       )}
       {error && (
