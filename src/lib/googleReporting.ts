@@ -34,7 +34,6 @@ type GaReportResponse = {
   rowCount?: number;
   metadata?: { timeZone?: string; subjectToThresholding?: boolean; dataLossFromOtherRow?: boolean; samplingMetadatas?: unknown[] };
   rows?: GaRow[];
-  metadata?: { timeZone?: string };
 };
 
 type GscRow = {
