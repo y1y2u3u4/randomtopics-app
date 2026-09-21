@@ -1,5 +1,23 @@
 # RandomTopics speech payments
 
+## Current production state — September 21
+
+The owner explicitly requested normal payment launch without waiting for the
+owner's test-email approval. Production email, billing and live-billing flags are
+now enabled. The independent live plan and portal were read back successfully:
+USD 12 per month, live mode, active portal and cancellation at period end.
+PR #36 was merged as `f71cfc492ce8c7cf9bfd4297fb9410459e20e2d3` and deployment
+`dpl_8q2gZhws5mfwwyRyC4qCFXbR5an1` is Ready on `randomtopics.app`.
+Earlier flags were first opened by `dpl_HqxbSeQr9bLtbB7wkueoDaCmGUMY` around
+08:45–08:47 Asia/Shanghai. The September 20 closed-state notes below are history.
+
+Chrome verification at 09:06 showed the USD 12 offer and an enabled Subscribe
+button. An unverified visitor's click records intent and focuses the email form;
+it does not create Checkout before the account verifies. No real card was charged,
+and actual customer-email delivery/recovery is not yet independently verified.
+Past-24-hour live Checkout reporting returned a complete zero-session cohort.
+The owner-email QA waiver does not bypass email verification for customers.
+
 ## Product and credential boundary
 
 The agreed baseline in the speech-coach branch is **RandomTopics Speech Coach**:

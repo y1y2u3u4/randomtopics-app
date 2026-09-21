@@ -8,6 +8,19 @@ join the existing 7/28 complete-day reports; current-day data is provisional.
 Source/medium, landing page (without query strings), and device tables contain
 independent event-user counts, not conditional conversion rates.
 
+The September 21 live check found that GA4 rejects the unregistered
+`measurement_version` parameter. Funnels therefore use the exact speech-v2 event
+names (new in that release), with the original production-host and sequence
+constraints, rather than claiming parameter-based version filtering.
+
+`scripts/speech-daily-report.mjs` is an owner-only server job using the existing
+production reporting credentials. It maps Asia/Shanghai's calendar day to the
+property's `dateHour` values before aggregation and does not sum distinct users
+across dates. `SPEECH_REPORT_UNTIL` can fix a cutoff for reproducibility; filtering
+has hour precision. Output contains aggregates only, in short log chunks. No
+credentials are exported and there is no new public reporting endpoint.
+GA4 may revise intraday totals and attribution after collection.
+
 From the September 21 payment launch, an unverified visitor can click Subscribe;
 the click emits `speech_checkout_start` and focuses email verification. This
 avoids losing purchase intent behind a disabled control. It does not create a
