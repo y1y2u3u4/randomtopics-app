@@ -25,7 +25,7 @@ const reply = value => new Response(JSON.stringify({ choices: [{ message: { cont
 const validate = value => validateFeedback(coach.assembleFeedback(value, transcript), transcript);
 try {
   const evidence = evidenceCoaching(transcript);
-  const encoded = structuredClone(good);
+  const encoded = JSON.parse(JSON.stringify(good));
   for (const criterion of Object.values(encoded.assessment)) {
     const id = Object.entries(evidence.sources.current).find(([, quote]) => quote === criterion.quote)?.[0];
     assert.ok(id, 'Short complete source sentences are selectable');

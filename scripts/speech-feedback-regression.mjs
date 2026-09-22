@@ -35,8 +35,23 @@ try {
  AbortSignal.timeout=ms=>{timeouts.push(ms);return original.timeout(ms);};
  globalThis.fetch=async(url,options)=>{
   assert.equal(url,'https://openrouter.ai/api/v1/chat/completions');
-  requests.push(JSON.parse(options.body)); now+=elapsedPerCall;
-  const next=queue.shift(); assert.ok(next,'Unexpected extra model request'); return typeof next==='function'?next():next;
+  const request=JSON.parse(options.body);requests.push(request); now+=elapsedPerCall;
+  const next=queue.shift(); assert.ok(next,'Unexpected extra model request');
+  const response=typeof next==='function'?next():next;
+  // Route fixtures use the actual evidence-ID protocol. Unknown quotations stay
+  // invalid instead of being silently turned into a valid source selection.
+  let evidence;try{evidence=JSON.parse(request.messages[1].content).evidence;}catch{}
+  if(evidence && response.ok){
+   const envelope=await response.clone().json();
+   const value=JSON.parse(envelope.choices[0].message.content);
+   const encode=(quote,source)=>quote ? Object.entries(source).find(([,text])=>text===quote)?.[0]
+    ?? Object.entries(source).sort((a,b)=>a[1].length-b[1].length).find(([,text])=>text.includes(quote))?.[0] ?? quote : quote;
+   if(value?.assessment)for(const criterion of Object.values(value.assessment))criterion.quote=encode(criterion.quote,evidence.current);
+   if(value?.comparison){value.comparison.beforeQuote=encode(value.comparison.beforeQuote,evidence.previous);value.comparison.afterQuote=encode(value.comparison.afterQuote,evidence.current);}
+   envelope.choices[0].message.content=JSON.stringify(value);
+   return new Response(JSON.stringify(envelope),{status:response.status,headers:response.headers});
+  }
+  return response;
  };
  const reset=(responses,elapsed=0)=>{queue=responses;now=0;elapsedPerCall=elapsed;requests.length=0;logs.length=0;recoveries.length=0;timeouts.length=0;};
  for (const invalid of [provider(null),provider({strength:null}),new Response('invalid JSON'),provider('not an object')]) {
@@ -85,6 +100,7 @@ try {
  assert.equal(result.body.feedback.comparison.beforeQuote,''); assert.equal(result.body.feedback.comparison.afterQuote,'');
  assert.ok(!('comparison' in requests[0].response_format.json_schema.schema.properties),'First attempt requests no unnecessary comparison');
  assert.equal(result.updates[0].usage.feedback.attempts.length,2);
+ assert.equal(result.updates[0].usage.feedbackEvidenceVersion,'source_ids_v1');
  result=await runRoute({responses:[provider(null),provider(null)]});
  assert.equal(result.status,503); assert.equal(result.updates.at(-1).status,'transcribed','Failure keeps the same transcript retryable');
  assert.equal(result.claims,1);
@@ -94,21 +110,21 @@ try {
  assert.ok('comparison' in requests[0].response_format.json_schema.schema.properties);
  const ungrounded={assessment:{...assessment,point:{...assessment.point,quote:'Invented words'}}};
  const missingEvidence={assessment:{...assessment,point:{...assessment.point,quote:''}}};
- for (const [invalid,reason] of [[ungrounded,'ungrounded_quote'],[missingEvidence,'missing_assessment_evidence']]) {
+ for (const [invalid,stage,reason] of [[ungrounded,'model_schema',undefined],[missingEvidence,'feedback_evidence','missing_assessment_evidence']]) {
   result=await runRoute({responses:[provider(invalid),provider({assessment})],elapsed:3000});
   assert.equal(result.status,200,'Evidence rejection is recovered before returning an error to the user');
   assert.equal(result.claims,1);assert.equal(requests.length,2);assert.equal(result.updates.length,1);
   assert.equal(result.updates[0].usage.feedback.attempts.length,2,'Rejected evidence usage remains counted');
   assert.deepEqual(timeouts,[45000,42000],'Evidence recovery shares the existing deadline');
-  assert.equal(logs[0].stage,'feedback_evidence');assert.equal(logs[0].evidence_issue,reason);assert.equal(logs[0].retrying,true);
-  assert.match(requests[1].messages[0].content,/exact, contiguous substring/);
+  assert.equal(logs[0].stage,stage);assert.equal(logs[0].evidence_issue,reason);assert.equal(logs[0].retrying,true);
+  assert.match(requests[1].messages[0].content,/exact.*(?:quot|substring)/s);
   assert.equal(requests[0].messages[1].content,requests[1].messages[1].content);
   assert.ok(!JSON.stringify(result.body).includes('Invented words'),'Invalid evidence never reaches the saved result');
  }
  result=await runRoute({responses:[provider(ungrounded),provider(ungrounded)]});
  assert.equal(result.status,503);assert.equal(requests.length,2);assert.equal(result.updates.at(-1).status,'transcribed');
  assert.deepEqual(logs.map(x=>x.retrying),[true,false]);
- assert.equal(logs.at(-1).stage,'feedback_evidence','Quotes are still rejected after the bounded recovery');
+ assert.equal(logs.at(-1).stage,'model_schema','Unknown evidence IDs are still rejected after the bounded recovery');
  result=await runRoute({responses:[provider(ungrounded)],elapsed:41000});
  assert.equal(result.status,503);assert.equal(requests.length,1,'Do not exceed the recovery deadline for evidence failures');
  result=await runRoute({responses:[provider(ungrounded,{finish_reason:'content_filter'})]});
