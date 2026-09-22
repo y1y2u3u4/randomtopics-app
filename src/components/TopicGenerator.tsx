@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Topic, Mode, Category, Depth, CATEGORIES, MODES, DEPTHS } from "@/data/types";
 import { getLocalizedTopics } from "@/data/topics.es";
 import TopicCard from "./TopicCard";
+import { PracticeSelectedTopic } from "./TopicHandoff";
+import DebatePreparation from "./DebatePreparation";
 import { copyText } from "@/lib/clipboard";
 import { track } from "@/lib/track";
 import { Locale, defaultLocale } from "@/i18n/config";
@@ -391,7 +393,7 @@ export default function TopicGenerator({
         {hasGenerated && (!coachEnabled || generatedTopics.length === 0) && <motion.div key={generatedTopics.map((t) => t.id).join(",")}
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mb-4 space-y-4">
           {generatedTopics.length > 0 ? generatedTopics.map((topic, i) => (
-            <TopicCard key={topic.id} topic={topic} index={i} locale={locale} contentSource={contentSource} actionContext="generated_result" />
+            <TopicCard key={topic.id} topic={topic} index={i} locale={locale} contentSource={contentSource} actionContext="generated_result" afterTitle={contentSource === "homepage" ? <PracticeSelectedTopic topic={topic} source="home" /> : contentSource === "debate_hub" ? <DebatePreparation topic={topic} /> : undefined} />
           )) : (
               <div className="glass-card text-center py-16 px-6">
                 <motion.p

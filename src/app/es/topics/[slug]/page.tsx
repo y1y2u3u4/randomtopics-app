@@ -1,3 +1,4 @@
+import { PracticeSelectedTopic } from "@/components/TopicHandoff";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -268,12 +269,13 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
                   {section.description && <p className="text-[var(--text-muted)] text-sm mb-5">{section.description}</p>}
                   <ol start={startNum + 1} className="space-y-3">
                     {section.items.map((item, iIdx) => (
-                      <li key={iIdx} data-discussion-card={isControversial ? "true" : undefined} className="flex items-start gap-3">
+                      <li key={iIdx} id={article.slug === "public-speaking-topics-for-beginners" ? `es-public-speaking-${startNum + iIdx}` : undefined} data-discussion-card={isControversial ? "true" : undefined} className="flex items-start gap-3">
                         <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--neon-pink)]/10 text-[var(--neon-pink)] text-xs font-bold flex items-center justify-center mt-0.5">
                           {startNum + iIdx + 1}
                         </span>
                         <div className="min-w-0 flex-1 text-sm text-[var(--text-secondary)] leading-relaxed">
                           <p>{item}</p>
+                          {article.slug === "public-speaking-topics-for-beginners" && <PracticeSelectedTopic source="es_article" topic={{ id: `es-public-speaking-${startNum + iIdx}`, text: item, category: "education", modes: ["speech"], depth: "light", talkingPoints: [] }} />}
                           {isControversial ? <details className="mt-2 rounded-xl border border-white/10 px-4 py-2">
                             <summary className="min-h-11 cursor-pointer py-3 font-semibold text-[var(--neon-cyan)]">Ver perspectivas y seguimiento</summary>
                             <ul className="space-y-3 pb-3">{discussionByPrompt.get(item)?.items.map((point) => <li key={point}>{point}</li>)}</ul>

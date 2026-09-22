@@ -1,5 +1,13 @@
 const qotd = "/question-of-the-day", speech = "/speech", article = "/es/topics/most-likely-to-questions", tool = "/es/most-likely-to";
 export const CORE_USAGE_STAGES: readonly (readonly [string, string, string])[] = [
+  ...[["home", "/", "/speech"], ["wheel", "/spin-the-wheel", "/speech"], ["es_article", "/es/topics/public-speaking-topics-for-beginners", "/es/speech"]].flatMap(([source, origin, target]) => [
+    ...(source === "es_article" ? ["click", "error"] : ["click", "error", "return"]).map(action => [origin, `handoff_${source}_${action}`, "Selected-topic handoff in this tab; return is navigation, not cohort retention"] as const),
+    ...["load", "timer_first_start", "timer_complete", "timer_restart", "copy", "save", "share", "copy_error", "save_error", "share_error"].map(action => [target, `handoff_${source}_${action}`, "Same-topic practice action; load is not generation, timer completion is not proof of speech"] as const),
+  ]),
+  ["/spin-the-wheel", "spin_start", "Spin requested"],
+  ["/spin-the-wheel", "spin_success", "Completed spin with a topic; use this denominator, not generate_success"],
+  ...["copy", "save", "share", "copy_error", "save_error", "share_error"].map(action => ["/spin-the-wheel", `post_spin_${action}`, "Action on a completed spin result only; excludes restored selection"] as const),
+  ...["open", "start", "copy", "share", "copy_error", "share_error"].map(action => ["/debate", `debate_prep_${action}`, "Explicit preparation action; notes stay in the browser and are not sent to analytics"] as const),
   ...["copy", "save", "share", "copy_error", "save_error", "share_error"].map(action => ["/topics/ethical-dilemma-questions", `ethics_card_${action}`, `Existing discussion card ${action}; not generation. API success does not prove delivery or discussion.`] as const),
   ...["friends", "group", "classroom", "deep"].map(scene => ["/question-generator", `question_scenario_${scene}`, "Clicked a matching existing collection; not destination arrival or successful use"] as const),
   ...["daily", "random", "list"].flatMap(source => ["copy", "save", "share", "copy_error", "save_error", "share_error"].map(action =>

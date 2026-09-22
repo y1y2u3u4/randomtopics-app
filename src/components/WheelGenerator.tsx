@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CATEGORIES, Category, Mode } from "@/data/types";
 import { getLocalizedTopics } from "@/data/topics.es";
 import TopicCard from "./TopicCard";
+import { PracticeSelectedTopic, SelectedTopicPractice } from "./TopicHandoff";
+import { drawUnseen } from "@/lib/topicPool";
 import type { Topic } from "@/data/types";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { getDict, CATEGORY_LABELS } from "@/i18n/dictionaries";
@@ -41,10 +43,11 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
   const [spinning, setSpinning] = useState(false);
   const [result, setResult] = useState<Topic | null>(null);
   const [landedCat, setLandedCat] = useState<Category | null>(null);
+  const usedTopics = useRef(new Set<string>());
   const pendingWinner = useRef<number | null>(null);
 
   const spin = useCallback(() => {
-    if (spinning) return;
+    if (spinning || pendingWinner.current !== null) return;
     track("spin_start", {
       tool_type: "topic_wheel",
       generator_mode: mode ?? "any",
@@ -71,6 +74,7 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
   const onComplete = useCallback(() => {
     const winner = pendingWinner.current;
     if (winner === null) return;
+    pendingWinner.current = null;
     const cat = CATEGORIES[winner].id;
     setLandedCat(cat);
 
@@ -78,7 +82,9 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
     let pool = localized.filter((t) => t.category === cat);
     if (mode) pool = pool.filter((t) => t.modes.includes(mode));
     if (pool.length === 0) pool = localized.filter((t) => t.category === cat);
-    const picked = pool[Math.floor(Math.random() * pool.length)] || null;
+    const draw = drawUnseen(pool, usedTopics.current, topic => topic.id);
+    usedTopics.current = draw.used;
+    const picked = draw.picked[0] || null;
 
     setResult(picked);
     setSpinning(false);
@@ -106,6 +112,7 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
         </p>
       </div>
 
+      {locale === "en" && !mode && !result && <SelectedTopicPractice returnSource="wheel" />}
       <div className="glass-card p-6 sm:p-10 flex flex-col items-center">
         {/* Wheel + pointer */}
         <div className="relative" style={{ width: "min(100%, 340px)" }}>
@@ -182,7 +189,7 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
             exit={{ opacity: 0 }}
             className="mt-8"
           >
-            <TopicCard topic={result} locale={locale} />
+            <TopicCard topic={result} locale={locale} contentSource="topic_wheel" actionContext="spin_result" afterTitle={locale === "en" && !mode ? <PracticeSelectedTopic topic={result} source="wheel" /> : undefined} />
           </motion.div>
         )}
       </AnimatePresence>

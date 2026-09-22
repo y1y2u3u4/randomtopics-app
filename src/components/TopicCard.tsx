@@ -12,7 +12,7 @@ interface TopicCardProps {
   index?: number;
   locale?: Locale;
   contentSource?: string;
-  actionContext?: "generated_result" | "editorial_card" | "saved_library";
+  actionContext?: "generated_result" | "editorial_card" | "saved_library" | "spin_result";
   afterTitle?: ReactNode;
 }
 

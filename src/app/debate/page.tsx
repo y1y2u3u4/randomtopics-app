@@ -89,6 +89,7 @@ export default function DebatePage() {
         <ModeIllustration mode="debate" />
         <TopicGenerator
           initialMode="debate"
+          contentSource="debate_hub"
           title="Debate Topic Generator"
           subtitle="Find thought-provoking debate topics with clear arguments for both sides."
         />

@@ -4,11 +4,15 @@ type Params = Record<string, unknown>;
 const GAP = 30 * 60_000;
 const MAX_AGE = 30 * 24 * 60 * 60_000;
 export function coreUsageEvents(path: string, event: string, params: Params, local: Store, session: Store, now = Date.now(), qa = false): string[] {
+  const action = ["copy_result", "save_result", "share_result", "copy_error", "save_error", "share_error"].includes(event);
+  if (path === "/spin-the-wheel" && params.action_surface === "spin_result" && action) return [`post_spin_${event.replace("_result", "")}`];
+  if (path === "/debate" && params.action_surface === "debate_preparation" && action) return [`debate_prep_${event.replace("_result", "")}`];
+  const handoffEvents = (["/speech", "/es/speech"].includes(path) && ["handoff_home", "handoff_wheel", "handoff_es_article"].includes(String(params.content_source)) && (action || ["timer_first_start", "timer_complete", "timer_restart"].includes(event))) ? [`${params.content_source}_${event.replace("_result", "")}`] : [];
   if (path === "/topics/ethical-dilemma-questions" && params.action_surface === "ethics_card" && ["copy_result", "save_result", "share_result", "copy_error", "save_error", "share_error"].includes(event)) return [`ethics_card_${event.replace("_result", "")}`];
   const flow = path === "/question-of-the-day" ? "qotd" : path === "/speech" ? "speech" :
     ["/es/topics/most-likely-to-questions", "/es/most-likely-to"].includes(path) ? "party" : null;
-  if (!flow) return [];
-  const out: string[] = [];
+  if (!flow) return handoffEvents;
+  const out: string[] = [...handoffEvents];
   const prefix = `rt-core-${qa ? "qa-" : ""}${flow}-`;
   const number = (store: Store, key: string) => {
     const value = Number(store.getItem(prefix + key));

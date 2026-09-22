@@ -1,3 +1,4 @@
+import { SelectedTopicPractice } from "@/components/TopicHandoff";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopicGenerator from "@/components/TopicGenerator";
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <Navbar />
       <main className="flex-1">
+        <SelectedTopicPractice returnSource="home" />
         <TopicGenerator contentSource="homepage" />
 
         {/* High-intent handoff: helps the dedicated subject page own its query
