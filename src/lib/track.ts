@@ -7,6 +7,7 @@
 
 export type GtagParams = Record<string, string | number | boolean | null | undefined | Record<string, string | number>[]>;
 import { isProductionHost } from "./analyticsEnvironment";
+import { coreUsageEvents } from "./coreUsage";
 
 declare global {
   interface Window {
@@ -20,6 +21,22 @@ declare global {
 export function track(eventName: string, params?: GtagParams): void {
   try {
     if (typeof window !== "undefined") {
+      if (window.location.pathname.startsWith("/internal")) return;
+      let usageQa = false;
+      try {
+        const choice = new URLSearchParams(window.location.search || "").get("usage_qa");
+        if (choice === "1") sessionStorage.setItem("rt_usage_qa", "1");
+        if (choice === "0") sessionStorage.removeItem("rt_usage_qa");
+        usageQa = choice === "1" || sessionStorage.getItem("rt_usage_qa") === "1";
+      } catch { usageQa = new URLSearchParams(window.location.search || "").get("usage_qa") === "1"; }
+      const qa = usageQa || eventName.startsWith("qa_");
+      const rawName = eventName.replace(/^qa_/, "");
+      const lazyStorage = (kind: "localStorage" | "sessionStorage") => ({
+        getItem: (key: string) => window[kind].getItem(key),
+        setItem: (key: string, value: string) => window[kind].setItem(key, value),
+        removeItem: (key: string) => window[kind].removeItem(key),
+      });
+      const derived = coreUsageEvents(window.location.pathname, rawName, params ?? {}, lazyStorage("localStorage"), lazyStorage("sessionStorage"), Date.now(), qa);
       const eventParams = {
         ...params,
         // Query strings on /share may contain user-selected topic text. Keep
@@ -31,16 +48,18 @@ export function track(eventName: string, params?: GtagParams): void {
       };
 
       // Preview QA stays local; never send test sessions to the production property.
-      if (!isProductionHost(window.location.hostname)) {
-        window.dispatchEvent(new CustomEvent("rt:analytics", { detail: { event: eventName, params: eventParams } }));
-        return;
+      for (const name of [rawName, ...derived]) {
+        const measuredName = `${qa ? "qa_" : ""}${name}`;
+        if (!isProductionHost(window.location.hostname) || usageQa) {
+          window.dispatchEvent(new CustomEvent("rt:analytics", { detail: { event: measuredName, params: eventParams } }));
+        }
+        if (!isProductionHost(window.location.hostname)) continue;
+        if (!window.gtag) {
+          window.dataLayer ??= [];
+          window.gtag = (...args) => { window.dataLayer!.push(args); };
+        }
+        window.gtag("event", measuredName, eventParams);
       }
-      if (window.location.pathname.startsWith("/internal")) return;
-      if (!window.gtag) {
-        window.dataLayer ??= [];
-        window.gtag = (...args) => { window.dataLayer!.push(args); };
-      }
-      window.gtag("event", eventName, eventParams);
     }
   } catch {
     /* analytics must never break the app */

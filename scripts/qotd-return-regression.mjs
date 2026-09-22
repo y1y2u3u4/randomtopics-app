@@ -46,6 +46,7 @@ function fixture(blocked = false) {
 const f=fixture();
 assert.equal(f.render().find(n=>n.type==='select').props.value,'work');
 assert.equal(f.actions().isPostGenerate,false);assert.equal(f.actions().showSavedLink,true);
+assert.equal(f.actions().actionSurface,'qotd_daily');
 assert.equal(f.events.length,0,'Restoring a daily preference is not generation');
 f.choose('kids');assert.equal(f.storage.get('rt-qotd-daily-category'),'kids');
 assert.equal(questions.QOTD_QUESTIONS.find(item=>item.q===f.actions().text).c,'kids');
