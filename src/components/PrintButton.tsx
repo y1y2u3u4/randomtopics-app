@@ -13,6 +13,7 @@ interface PrintButtonProps {
   /** Optional short intro line under the heading. */
   intro?: string;
   label?: string;
+  footerNote?: string;
   locale?: Locale;
 }
 
@@ -22,7 +23,7 @@ interface PrintButtonProps {
  * "Save as PDF". Produces a clean, brandable handout for classrooms, parties,
  * and Teachers-Pay-Teachers / Pinterest distribution.
  */
-export default function PrintButton({ heading, items, intro, label, locale = defaultLocale }: PrintButtonProps) {
+export default function PrintButton({ heading, items, intro, label, footerNote, locale = defaultLocale }: PrintButtonProps) {
   const t = getDict(locale);
   const btnLabel = label ?? t.print.defaultLabel;
   const handlePrint = useCallback(() => {
@@ -70,12 +71,12 @@ export default function PrintButton({ heading, items, intro, label, locale = def
   <h1>${esc(heading)}</h1>
   ${intro ? `<p class="intro">${esc(intro)}</p>` : ""}
   <ul>${rows}</ul>
-  <footer>${esc(t.print.footerNote(items.length))}</footer>
+  <footer>${esc(footerNote ?? t.print.footerNote(items.length))}</footer>
   <script>window.onload = function () { window.print(); };<\/script>
 </body>
 </html>`);
     win.document.close();
-  }, [heading, items, intro, t, locale]);
+  }, [heading, items, intro, footerNote, t, locale]);
 
   return (
     <button
