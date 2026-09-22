@@ -10,6 +10,9 @@ const schemaFields = new Set([
   "priority", "priority.quote", "priority.observation", "priority.nextStep",
   "structure", "structure.point", "structure.example", "structure.ending",
   "comparison", "comparison.outcome", "comparison.beforeQuote", "comparison.afterQuote", "comparison.explanation",
+  "assessment", "focus", "focus.status", "focus.quote", "focus.explanation",
+  ...["relevance", "point", "example", "ending"].flatMap(criterion =>
+    [`assessment.${criterion}`, ...["status", "quote", "explanation"].map(field => `assessment.${criterion}.${field}`)]),
 ]);
 const schemaCodes = new Set(["invalid_type", "invalid_value", "too_small", "too_big", "invalid_format", "unrecognized_keys"]);
 const evidenceIssues = ["ungrounded_quote", "missing_assessment_evidence", "missing_comparison_evidence",
@@ -27,6 +30,22 @@ export function speechSchemaIssues(error: unknown) {
     return { field: schemaFields.has(field) ? field || "$" : "other",
       code: schemaCodes.has(issue.code) ? issue.code : "other" };
   });
+}
+
+// Only schema-owned paths and numeric limits may enter recovery instructions.
+// Never include rejected text, arbitrary property names, or Zod error messages.
+export function speechLengthRecoveryHint(error: unknown): string {
+  if (!(error instanceof z.ZodError)) return "";
+  const limits = error.issues.flatMap(issue => {
+    const field = issue.path.join(".");
+    return issue.code === "too_big" && issue.origin === "string" &&
+      schemaFields.has(field) && field !== "" &&
+      typeof issue.maximum === "number" && Number.isSafeInteger(issue.maximum) &&
+      issue.maximum > 0 && issue.maximum <= 10000
+      ? [`${field}: at most ${issue.maximum} characters, including spaces and punctuation`] : [];
+  }).slice(0, 8);
+  if (!limits.length) return "";
+  return `\nThe rejected response exceeded these specific limits: ${limits.join("; ")}. Aim well below each limit. For a quote, select a shorter exact contiguous substring that still supports the assessment; do not paraphrase, join passages, or add ellipses. For an explanation, write a shorter complete sentence. Return every required field.`;
 }
 
 // Closed categories only: no Error object, content, identifiers or request headers.

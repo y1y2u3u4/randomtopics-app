@@ -8,7 +8,8 @@ import {
   SpeechError,
 } from "@/lib/speech/server";
 import { feedbackSchema, validateFeedback, type SpeechFeedback } from "@/lib/speech/schema";
-import { assembleFeedback, coachingInstruction, firstAssessmentSchema, focusedAssessmentSchema, repeatAssessmentSchema, type CoachingResult } from "@/lib/speech/coaching";
+import { assembleFeedback, coachingInstruction, type CoachingResult } from "@/lib/speech/coaching";
+import { evidenceCoaching } from "@/lib/speech/evidence";
 import { speechAllowance } from "@/lib/speech/allowance";
 import { logSpeechFailure, type SpeechFailureStage } from "@/lib/speech/diagnostics";
 export const runtime = "nodejs";
@@ -96,17 +97,18 @@ export async function POST(request: Request) {
     try {
       stage = "model_request";
       const focused = attempt.usage?.context?.practiceMode === "focused" && Boolean(previous?.feedback.drill);
+      const evidence = evidenceCoaching(transcript, previous?.transcript, focused);
       const validatedFeedback = (value: CoachingResult) => validateFeedback(
         assembleFeedback(value, transcript, previous?.feedback, focused),
         transcript, previous?.transcript, previous?.feedback,
       );
       const result = await modelCall(
-        (focused ? focusedAssessmentSchema : previous ? repeatAssessmentSchema : firstAssessmentSchema) as z.ZodType<CoachingResult>,
+        evidence.schema as z.ZodType<CoachingResult>,
         "speech_feedback",
-        coachingInstruction(previous?.feedback, focused),
+        coachingInstruction(previous?.feedback, focused) + evidence.instruction,
         JSON.stringify({ topic: attempt.topic, transcript, previous,
           practiceGoal: previous?.feedback.drill ?? previous?.feedback.priority,
-          scope: focused ? "focused" : "full" }),
+          scope: focused ? "focused" : "full", evidence: evidence.sources }),
         validatedFeedback,
       );
       stage = "feedback_evidence";
@@ -118,7 +120,7 @@ export async function POST(request: Request) {
           status: "complete",
           feedback,
           model: result.model,
-          usage: { ...attempt.usage, feedback: result.usage,
+          usage: { ...attempt.usage, feedback: result.usage, feedbackEvidenceVersion: "source_ids_v1",
             ...(revise ? { earlierFeedbackUsage: [...(attempt.usage?.earlierFeedbackUsage ?? []), attempt.usage?.feedback ?? {}] } : {}) },
           updated_at: new Date().toISOString(),
         })
