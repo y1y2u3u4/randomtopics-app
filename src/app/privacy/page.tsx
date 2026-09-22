@@ -130,6 +130,14 @@ export default function PrivacyPage() {
               settings.
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
+              Daily-question, speech and party tools also keep coarse usage times
+              in this browser to recognize returns after an action, plus temporary
+              same-tab completion markers. Analytics receives event names, not
+              these timestamps, question text or draft content. Return signals use
+              at most 30 days of history and do not identify you across devices.
+              Clearing browser storage removes these markers.
+            </p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
               Speech coaching also stores a sign-in session in your browser. This
               session accesses private records on our servers. Clearing it can make
               guest practice unrecoverable unless you have verified an email first.

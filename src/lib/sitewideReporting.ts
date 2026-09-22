@@ -1,5 +1,6 @@
 import "server-only";
 import { getGoogleReportingAccessToken, querySearchConsole, runGaReport } from "@/lib/googleReporting";
+import { coreUsageRows } from "@/lib/coreUsageReport";
 
 type Cell = string | number | boolean;
 type Table = { name: string; headers: string[]; rows: Cell[][] };
@@ -95,6 +96,12 @@ export async function collectSitewideReport() {
   await Promise.all(Array.from({ length: 4 }, async () => {
     while (next < jobs.length) await jobs[next++]();
   }));
+  const core = table("Core Usage", [...baseHeaders, "Visited page", "Event", "Event count", "Event users", "Status", "Definition", "Interpretation"]);
+  for (const w of reportWindows(gaEnd).filter(w => !w.period.endsWith("28"))) {
+    const evidence = coverage.rows.find(r => r[2] === "GA4 Actions" && r[3] === w.period);
+    const limited = !evidence || evidence.slice(8, 12).some(value => value === true);
+    core.rows.push(...coreUsageRows(tables.get("GA4 Actions")?.rows ?? [], w.period, w.startDate, w.endDate, limited));
+  }
   for (const t of tables.values()) t.rows.sort((a, b) => String(a[0]).localeCompare(String(b[0])));
   return { generatedAt, gaEnd, gscEnd, tables: [...tables.values()] };
 }

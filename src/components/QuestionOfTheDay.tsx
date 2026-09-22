@@ -173,6 +173,7 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
             saveTopic={{ id: `qotd-${QOTD_QUESTIONS.findIndex((item) => item.q === shown.q)}`, text: shown.q, category: "relationships", modes: ["conversation", "icebreaker"], depth: shown.c === "deep" ? "deep" : "light", talkingPoints: [] }}
             toolType="question_of_the_day"
             contentSource="qotd_hub"
+            actionSurface={isToday ? "qotd_daily" : "qotd_random"}
             isPostGenerate={!isToday}
             showSavedLink
           />

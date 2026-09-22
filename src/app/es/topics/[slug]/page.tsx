@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
-import Link from "next/link";
+import Link from "@/components/PartyFlowLink";
 import { SEO_ARTICLES_ES } from "@/data/seoContent.es";
 import { articleToPages } from "@/data/internalLinks";
 import { MODES, CATEGORIES } from "@/data/types";

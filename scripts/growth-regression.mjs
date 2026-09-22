@@ -16,7 +16,7 @@ for (const query of ["", "x".repeat(241), "word ".repeat(41), "ignore previous i
   assert.ok(queryNoiseReason(query), "Exclude query noise");
 }
 assert.equal(inObservationWindow("/question-of-the-day", "2026-09-30"), true);
-assert.equal(inObservationWindow("/question-of-the-day", "2026-10-05"), false);
+assert.equal(inObservationWindow("/question-of-the-day", "2026-10-06"), false);
 assert.equal(inObservationWindow("/speech", "2026-09-17"), true);
 assert.equal(inObservationWindow("/speech", "2026-09-18"), false);
 assert.equal(inObservationWindow("/es/conversation", "2026-09-27"), true);
@@ -117,3 +117,5 @@ await import("./practice-metrics-regression.mjs");
 await import("./weekly-plan-regression.mjs");
 await import("./charades-regression.mjs");
 await import("./qotd-return-regression.mjs");
+
+await import("./core-usage-regression.mjs");

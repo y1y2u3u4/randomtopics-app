@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
 import FaqSchema from "@/components/FaqSchema";
-import Link from "next/link";
+import Link from "@/components/PartyFlowLink";
 import type { Metadata } from "next";
 import { MOST_LIKELY_TO_ES } from "@/data/partyGames.es";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";

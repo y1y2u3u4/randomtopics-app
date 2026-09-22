@@ -6,6 +6,7 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { QOTD_QUESTIONS, QOTD_CATEGORIES, qotdIndexForDate } from "@/data/questionOfTheDay";
+import QotdListActions from "@/components/QotdListActions";
 
 // ISR: regenerate hourly so the server-rendered "today's question" (UTC) stays
 // current and crawlers always see a real question in the HTML, not a placeholder.
@@ -136,7 +137,7 @@ export default function QuestionOfTheDayPage() {
                 {QOTD_QUESTIONS.filter((item) => item.c === cat.id).map(({ q }) => (
                   <li key={q} data-qotd-question="true" className="flex gap-3 items-start text-sm text-[var(--text-secondary)] leading-relaxed">
                     <span className="text-[var(--neon-cyan)] shrink-0">•</span>
-                    <span>{q}</span>
+                    <div className="min-w-0 flex-1"><span>{q}</span><QotdListActions question={q} category={cat.id} index={QOTD_QUESTIONS.findIndex((item) => item.q === q)} /></div>
                   </li>
                 ))}
               </ul>

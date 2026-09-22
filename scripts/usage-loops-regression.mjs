@@ -207,3 +207,14 @@ const secondRound = practice.render().find((node) => typeof node.type === "funct
 assert.equal(secondRound.props.topic.id, topics[1].id);
 assert.equal(JSON.stringify(practice.events).includes(topics[1].text), false);
 console.log("PASS: all 48 Spanish conversation filters, safe pool exhaustion, QOTD default/random separation, party actions, 55 complete Spanish discussion cards, copy failure recovery, private event payloads, and speech topic selection.");
+
+const list = harness('src/components/QotdListActions.tsx', {question:'A real classroom question?',category:'classroom',index:4});
+assert.equal(list.actions(), undefined, 'List actions subscribe only after opening');
+list.render().find(n=>n.type==='details').props.onToggle({currentTarget:{open:true}});
+assert.equal(list.actions().copyLabel,'Copy question');
+assert.equal(list.actions().text,'A real classroom question?');
+assert.equal(list.actions().saveTopic.id,'qotd-4','Shared favorite identity across list and daily/random modes');
+assert.equal(list.actions().isPostGenerate,false);
+assert.equal(list.actions().actionSurface,'qotd_list');
+assert.deepEqual(list.events.map(e=>e.name),['qotd_list_open']);
+console.log('PASS: list directly exports chosen question, shares saved identity, and never fabricates generation.');

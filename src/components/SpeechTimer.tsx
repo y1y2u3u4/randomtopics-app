@@ -83,6 +83,7 @@ export default function SpeechTimer({
   const [reviewFocus, setReviewFocus] = useState("");
   const deadline = useRef<number | null>(null);
   const pausedMilliseconds = useRef(initialSeconds * 1000);
+  const hasStarted = useRef(false);
 
   const complete = useCallback(() => {
     if (deadline.current === null) return;
@@ -124,6 +125,7 @@ export default function SpeechTimer({
     setRemaining(seconds);
     setIsRunning(false);
     setIsFinished(false);
+    hasStarted.current = false;
     track("timer_preset_select", { tool_type: "speech_timer", content_source: contentSource, timer_seconds: seconds, locale });
   }, [locale, contentSource]);
 
@@ -150,8 +152,13 @@ export default function SpeechTimer({
       tool_type: "speech_timer",
       content_source: contentSource,
       timer_seconds: totalSeconds,
+      start_kind: restarting ? "restart_after_complete" : isRunning ? "pause" : hasStarted.current ? "resume" : "first_start",
       locale,
     });
+    if (!isRunning) {
+      if (!hasStarted.current) track("timer_first_start", { tool_type: "speech_timer", content_source: contentSource, timer_seconds: totalSeconds, locale });
+      hasStarted.current = true;
+    }
     setIsRunning((prev) => !prev);
   }, [isFinished, isRunning, totalSeconds, locale, contentSource, complete]);
 
@@ -161,6 +168,7 @@ export default function SpeechTimer({
     setRemaining(totalSeconds);
     setIsRunning(false);
     setIsFinished(false);
+    hasStarted.current = false;
     track("timer_reset", { tool_type: "speech_timer", content_source: contentSource, timer_seconds: totalSeconds, locale });
   }, [totalSeconds, locale, contentSource]);
 

@@ -65,6 +65,7 @@ tick(30_000);
 shown("0:54");
 click("▶ Start");
 tick(53_649);
+assert.equal(events.filter(e => e.name === "timer_first_start").length, 1, "Pause/resume must not add a first start");
 shown("0:01");
 tick(1);
 shown("Time's Up!");
@@ -76,6 +77,8 @@ assert.equal(events.find((event) => event.name === "practice_self_review").param
 tick(10_000);
 assert.equal(completions(), 1);
 click("▶ Restart");
+assert.equal(events.filter(e => e.name === "timer_restart").length, 1);
+assert.equal(events.filter(e => e.name === "timer_first_start").length, 1, "Completed retries have their own event");
 shown("1:00"); shown("This attempt: add one concrete example.");
 now += 65_000;
 listeners.get("visibilitychange")?.(); render();
