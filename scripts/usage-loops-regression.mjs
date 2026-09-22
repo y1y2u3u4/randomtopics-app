@@ -234,6 +234,7 @@ for (const card of ethics.ETHICS_DISCUSSION_CARDS) {
   assert.equal(action.saveTopic.talkingPoints[0], exported);
   const print = h.render().find(n => n.type === 'print-button').props;
   assert.equal(print.items.length, 5);
+  assert.ok(print.footerNote.startsWith("One discussion card"));
   assert.equal(print.items[0], card.scenario);
 }
 const scenes = harness('src/components/QuestionScenarioLinks.tsx', {});
