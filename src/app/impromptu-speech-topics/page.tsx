@@ -46,7 +46,7 @@ const FAQ_ITEMS = [
   {
     question: "Is this impromptu speech generator free?",
     answer:
-      "Yes — nearly 300 curated speech prompts, category and depth filters, fresh AI prompts when available, and the practice timer are all free with no signup and no ads.",
+      "Yes — topic generation, category and depth filters, and the practice timer are free with no signup. Optional AI feedback includes two free recorded attempts, including retries; more recorded practice is available on the monthly plan.",
   },
 ];
 
@@ -66,12 +66,14 @@ export default function ImpromptuSpeechPage() {
         <TopicGenerator
           initialMode="speech"
           contentSource="impromptu_speech_generator"
+          speechFeedback
+          speechTimerHref="#impromptu-timer"
           title="Impromptu Speech Topics Generator"
-          subtitle="Get a surprise topic, start the timer, and practice speaking on your feet — the way it happens in class, contests, and interviews."
+          subtitle="Get a surprise topic and try a 60-second answer with AI feedback, or practice speaking on your feet with the free timer."
         />
 
         {/* Speech Timer */}
-        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
+        <section id="impromptu-timer" className="max-w-3xl mx-auto scroll-mt-20 px-4 sm:px-6 pb-4">
           <SpeechTimer defaultSeconds={120} contentSource="impromptu_speech_generator" />
         </section>
 

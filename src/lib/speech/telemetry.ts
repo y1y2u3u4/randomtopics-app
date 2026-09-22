@@ -2,10 +2,12 @@
 import { track } from "@/lib/track";
 import { isProductionHost } from "@/lib/analyticsEnvironment";
 import { SPEECH_ISSUE_CODES, type SpeechEvent } from "./events";
+import { readCheckoutIntent } from "./checkoutIntent";
+import { SPEECH_EXPOSURE_VERSION, speechEntrySource } from "./exposure";
 
 type Properties = {
   content_source: string;
-  entry_surface?: "primary" | "example";
+  entry_surface?: "primary" | "example" | "desktop_nav" | "mobile_nav";
   attempt?: number;
   input_method?: "microphone" | "upload";
   duration_seconds?: number;
@@ -18,7 +20,12 @@ type Properties = {
 };
 export function trackSpeech(event: SpeechEvent, properties: Properties) {
   // Deliberately no transcript, topic, email, file name, auth ID or attempt UUID.
-  const safe: Record<string, string | number | boolean> = { measurement_version: "speech-v2" };
+  const safe: Record<string, string | number | boolean> = {
+    measurement_version: "speech-v2", exposure_version: SPEECH_EXPOSURE_VERSION,
+  };
+  const entrySource = properties.content_source === "speech_account"
+    ? readCheckoutIntent()?.entrySource : speechEntrySource(properties.content_source);
+  if (entrySource) safe.entry_source = entrySource;
   for (const key of ["content_source", "entry_surface", "input_method", "error_code", "outcome", "reason"] as const) {
     const value = properties[key];
     if (typeof value === "string" && /^[a-z0-9_]{1,80}$/.test(value)) safe[key] = value;

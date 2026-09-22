@@ -1,6 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Topic } from "@/data/types";
 import { trackSpeech } from "@/lib/speech/telemetry";
 import { track } from "@/lib/track";
@@ -10,12 +10,13 @@ const Coach = dynamic(() => import("./SpeechCoach"), {
   loading: () => <p role="status" className="p-4">Opening your practice…</p>,
 });
 
-export default function SpeechCoachEntry({ topics, contentSource, requestTopics, loadingTopics, renderFirstTopic }: {
+export default function SpeechCoachEntry({ topics, contentSource, requestTopics, loadingTopics, renderFirstTopic, timerHref = "#speech-practice" }: {
   topics: Topic[];
   contentSource: string;
   requestTopics: () => Promise<Topic[]>;
   loadingTopics: boolean;
   renderFirstTopic?: (actions: ReactNode) => ReactNode;
+  timerHref?: string;
 }) {
   const [topic, setTopic] = useState<Topic | null>(null);
   const [open, setOpen] = useState(false);
@@ -32,7 +33,8 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
   const exampleViewed = useRef(false);
   const landed = useRef(false);
   const pending = useRef(false);
-  const id = useId();
+  // One entry per source page; keep aria-controls stable across lazy hydration.
+  const id = `speech-coach-${contentSource}`;
   const enabled = process.env.NEXT_PUBLIC_SPEECH_COACH_ENABLED === "true";
   const busy = starting || loadingTopics;
   const firstTopicId = topics[0]?.id;
@@ -44,6 +46,7 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
     trackSpeech("speech_entry_v3_page", { content_source: contentSource });
     trackSpeech("speech_entry_v4_page", { content_source: contentSource });
     trackSpeech("speech_entry_v5_page", { content_source: contentSource });
+    trackSpeech("speech_entry_expanded_page", { content_source: contentSource });
   }, [enabled, contentSource]);
   useEffect(() => {
     if (!enabled || busy || open || viewed.current || !primary.current) return;
@@ -52,6 +55,7 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
       trackSpeech("speech_entry_v3_view", { content_source: contentSource });
       trackSpeech("speech_entry_v4_view", { content_source: contentSource });
       trackSpeech("speech_entry_v5_view", { content_source: contentSource });
+      trackSpeech("speech_entry_expanded_view", { content_source: contentSource });
     });
   }, [enabled, busy, open, contentSource, firstTopicId, inlineActions]);
   useEffect(() => {
@@ -85,6 +89,7 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
     trackSpeech("speech_entry_v3_click", { content_source: contentSource, entry_surface: surface });
     trackSpeech("speech_entry_v4_click", { content_source: contentSource, entry_surface: surface });
     trackSpeech("speech_entry_v5_click", { content_source: contentSource, entry_surface: surface });
+    trackSpeech("speech_entry_expanded_click", { content_source: contentSource, entry_surface: surface });
     if (surface === "example") trackSpeech("speech_example_practice", { content_source: contentSource });
     try {
       const chosen = topic ?? topics[0] ?? (await requestTopics())[0];
@@ -133,8 +138,8 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
         <p className="mt-1">“A short walk helps me feel better.”</p>
         <p className="mt-1"><span className="font-semibold text-[var(--neon-cyan)]">A 20-second change:</span> Name one walk and what changed afterward. Re-record just that example and compare.</p>
       </div>}
-      <a href="#speech-practice" onClick={() => track("practice_timer_entry", { tool_type: "speech_practice", content_source: contentSource, locale: "en" })} className="mt-3 inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Practice aloud with the timer · no recording</a>
-      <p className="mt-3 text-xs leading-relaxed text-[var(--text-muted)]">Two free attempts. No sign-up or card. Feedback on your words and structure.</p>
+      <a href={timerHref} onClick={() => track("practice_timer_entry", { tool_type: "speech_practice", content_source: contentSource, locale: "en" })} className="mt-3 inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Practice aloud with the timer · no recording</a>
+      <p className="mt-3 text-xs leading-relaxed text-[var(--text-muted)]">Two free recorded attempts, including retries. No sign-up or card. Feedback on your words and structure.</p>
     </div>;
   return (
     <section className="mb-6" aria-label="Free speech feedback">

@@ -81,7 +81,7 @@ telemetry.trackSpeech("speech_checkout_redirect", {
   email: "private@example.test",
 });
 assert.deepEqual(events.at(-1), ["speech_checkout_redirect", {
-  measurement_version: "speech-v2", content_source: "speech_account",
+  measurement_version: "speech-v2", exposure_version: "expanded_v1", content_source: "speech_account",
 }]);
 
 const stored = new Map(); const pending = new Map(); const paidEvents = [];

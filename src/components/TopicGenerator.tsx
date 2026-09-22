@@ -26,6 +26,8 @@ interface TopicGeneratorProps {
   locale?: Locale;
   contentSource?: string;
   speechPractice?: boolean;
+  speechFeedback?: boolean;
+  speechTimerHref?: string;
   heroLinks?: ReactNode;
 }
 
@@ -43,6 +45,8 @@ export default function TopicGenerator({
   locale = defaultLocale,
   contentSource = "topic_generator",
   speechPractice = false,
+  speechFeedback = speechPractice,
+  speechTimerHref = "#speech-practice",
   heroLinks,
 }: TopicGeneratorProps) {
   const t = getDict(locale);
@@ -217,7 +221,7 @@ export default function TopicGenerator({
     });
   }, [contentSource, generatedTopics, locale]);
 
-  const coachEnabled = speechPractice && locale === "en" && process.env.NEXT_PUBLIC_SPEECH_COACH_ENABLED === "true";
+  const coachEnabled = speechFeedback && locale === "en" && process.env.NEXT_PUBLIC_SPEECH_COACH_ENABLED === "true";
   const showModeSelector = !initialMode;
   const showCategorySelector = !initialCategory;
 
@@ -407,7 +411,7 @@ export default function TopicGenerator({
           )}
         </motion.div>}
       </AnimatePresence>
-      {coachEnabled ? <SpeechCoachEntry topics={generatedTopics} contentSource={contentSource} requestTopics={generate} loadingTopics={isSpinning}
+      {coachEnabled ? <SpeechCoachEntry topics={generatedTopics} contentSource={contentSource} requestTopics={generate} loadingTopics={isSpinning} timerHref={speechTimerHref}
         renderFirstTopic={generatedTopics[0] ? (actions) => <TopicCard key={generatedTopics[0].id} topic={generatedTopics[0]} locale={locale}
           contentSource={contentSource} actionContext="generated_result" afterTitle={actions} /> : undefined} /> : null}
       {coachEnabled && generatedTopics.length > 1 && <div className="mb-4 space-y-4" aria-label="More generated topics">
@@ -514,7 +518,7 @@ export default function TopicGenerator({
       {speechPractice ? <SpeechPracticePanel key={practiceBatch} topics={generatedTopics} contentSource={contentSource} /> : null}
 
       {/* Pre-generate prompt */}
-      {!hasGenerated && !speechPractice && (
+      {!hasGenerated && !speechPractice && !coachEnabled && (
         <motion.div
           className="text-center py-20"
           initial={{ opacity: 0, y: 20 }}

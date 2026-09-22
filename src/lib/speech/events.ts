@@ -7,12 +7,15 @@ export const SPEECH_REASON_EVENTS = {
 export type SpeechReason = keyof typeof SPEECH_REASON_EVENTS;
 export const SPEECH_ISSUE_CODES = ["quota", "daily_limit", "insufficient_speech", "session", "conflict", "service", "invalid_audio_or_text", "permission_denied", "no_device", "device_busy", "client_or_network", "recording_interrupted", "empty_audio", "invalid_file_size"] as const;
 export const SPEECH_ENTRY_EVENTS = [
+  "speech_entry_expanded_page", "speech_entry_expanded_view", "speech_entry_expanded_click",
+  "speech_nav_view", "speech_nav_click",
   "speech_entry_v5_page", "speech_entry_v5_view", "speech_entry_v5_click",
   "speech_entry_v3_page", "speech_entry_v3_view", "speech_entry_v3_click", "speech_entry_v3_error",
   "speech_coach_v3_open", "speech_example_open", "speech_example_practice",
   "speech_entry_v4_page", "speech_entry_v4_view", "speech_entry_v4_click", "speech_coach_v4_open", "speech_entry_v4_example_view",
 ] as const;
 export const SPEECH_EVENTS = [
+  "speech_plan_hint_view", "speech_checkout_offer_v2_view",
   ...Object.values(SPEECH_REASON_EVENTS),
   "speech_feedback_v5_request", "speech_feedback_v5_view", "speech_retry_action_view", "speech_short_practice_start",
   "speech_transcript_review", "speech_transcript_corrected", "speech_feedback_reason", "speech_done_for_now", "speech_plan_hint_click",
@@ -45,6 +48,10 @@ export const SPEECH_EVENTS = [
 export type SpeechEvent = typeof SPEECH_EVENTS[number];
 // Independent event counts, not an ordered or user-deduplicated funnel.
 export const SPEECH_JOURNEY_STAGES = [
+  ["本次入口更新页面触达", "speech_entry_expanded_page"], ["本次入口更新有效曝光", "speech_entry_expanded_view"], ["本次入口更新练习点击", "speech_entry_expanded_click"],
+  ["导航反馈入口有效曝光", "speech_nav_view"], ["导航反馈入口点击", "speech_nav_click"],
+  ["精简价格提示有效曝光", "speech_plan_hint_view"], ["精简价格提示点击", "speech_plan_hint_click"],
+  ["账号套餐有效曝光（新口径）", "speech_checkout_offer_v2_view"],
   ["v5 页面触达", "speech_entry_v5_page"], ["v5 入口有效曝光", "speech_entry_v5_view"], ["v5 练习点击", "speech_entry_v5_click"],
   ["主动获取反馈", "speech_feedback_v5_request"], ["v5 首次反馈可见一秒", "speech_first_feedback_v5_view"],
   ["重练按钮可见一秒", "speech_retry_action_view"], ["开始短重练", "speech_short_practice_start"], ["v5 重练反馈可见一秒", "speech_retry_feedback_v5_view"],
@@ -76,6 +83,17 @@ export const SPEECH_JOURNEY_STAGES = [
   ["返回网站并确认实付", "speech_payment_confirmed"],
 ] as const satisfies readonly (readonly [string, SpeechEvent])[];
 export const SPEECH_FUNNELS = [
+  { key: "expanded_entry", title: "本次入口更新 · 有效曝光 → 首份反馈", steps: [
+    ["入口有效可见", "speech_entry_expanded_view"], ["点击练习", "speech_entry_expanded_click"],
+    ["主动提交", "speech_feedback_v5_request"], ["首份反馈可见", "speech_first_feedback_v5_view"],
+  ] },
+  { key: "navigation_discovery", title: "导航 · 发现反馈功能 → 练习", steps: [
+    ["导航入口可见", "speech_nav_view"], ["点击导航", "speech_nav_click"], ["点击练习", "speech_entry_expanded_click"],
+  ] },
+  { key: "price_hint", title: "精简价格提示 → 套餐 → 结账", steps: [
+    ["价格提示可见", "speech_plan_hint_view"], ["点击价格提示", "speech_plan_hint_click"],
+    ["账号套餐有效可见", "speech_checkout_offer_v2_view"], ["前往收银台", "speech_checkout_redirect"],
+  ] },
   { key: "exposure_v5", title: "v5 · 有效曝光 → 点击", steps: [
     ["按钮可见一秒", "speech_entry_v5_view"], ["点击练习", "speech_entry_v5_click"],
   ] },

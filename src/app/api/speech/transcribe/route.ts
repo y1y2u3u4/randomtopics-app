@@ -9,6 +9,7 @@ import {
   SpeechError,
 } from "@/lib/speech/server";
 import { MAX_AUDIO_BYTES, transcriptSchema } from "@/lib/speech/schema";
+import { SPEECH_EXPOSURE_VERSION, SPEECH_ENTRY_SOURCES } from "@/lib/speech/exposure";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 const input = z.object({
@@ -17,6 +18,8 @@ const input = z.object({
   previousId: z.uuid().nullable(),
   practiceMode: z.enum(["full", "focused"]).default("full"),
   qa: z.boolean().default(false),
+  exposureVersion: z.literal(SPEECH_EXPOSURE_VERSION).optional(),
+  entrySource: z.enum(SPEECH_ENTRY_SOURCES).catch("unknown").optional(),
   audio: z.string().min(60).max(3_900_000),
 });
 export async function POST(request: Request) {
@@ -104,7 +107,9 @@ export async function POST(request: Request) {
       );
     }
     try {
-      const context = { version: "v5", practiceMode: body.practiceMode, qa: body.qa };
+      const context = { version: "v5", practiceMode: body.practiceMode, qa: body.qa,
+        ...(body.exposureVersion ? { exposureVersion: body.exposureVersion, entrySource: body.entrySource ?? "unknown" } : {}),
+      };
       // Save measurement context before the provider call, so failed or interrupted
       // requests can be separated from customer outcomes too.
       const { error: contextError } = await db.from("speech_attempts")
