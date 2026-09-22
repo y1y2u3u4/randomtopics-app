@@ -6,7 +6,10 @@ function load(path, globals = {}) {
   const code = ts.transpileModule(readFileSync(new URL(`../src/lib/speech/${path}.ts`, import.meta.url), 'utf8'), {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
   }).outputText;
-  new Function('exports', ...Object.keys(globals), code)(exports, ...Object.values(globals));
+  new Function('exports', 'require', ...Object.keys(globals), code)(exports, id => {
+    if (id === './exposure') return load('exposure', globals);
+    throw new Error(`Unexpected import: ${id}`);
+  }, ...Object.values(globals));
   return exports;
 }
 const stored = new Map(); let now = 500_000_000;
@@ -26,6 +29,14 @@ intent.rememberCheckoutIntent(false); intent.clearCheckoutIntent(); assert.equal
 const blocked = load('checkoutIntent', { localStorage: { getItem() { throw Error(); }, setItem() { throw Error(); }, removeItem() { throw Error(); } } });
 assert.equal(blocked.readCheckoutIntent(), null); blocked.rememberCheckoutIntent(false); blocked.clearCheckoutIntent();
 assert.equal(intent.speechPlanPath, '/speech/account?plan=monthly#speech-plan');
+intent.rememberCheckoutIntent(false, 'table_topics_generator');
+assert.equal(intent.readCheckoutIntent().entrySource, 'table_topics_generator');
+intent.rememberCheckoutIntent(false);
+assert.equal(intent.readCheckoutIntent().entrySource, 'table_topics_generator', 'Email confirmation must preserve the chosen plan source');
+intent.rememberCheckoutIntent(false, 'private@example.test');
+assert.equal(intent.readCheckoutIntent().entrySource, undefined, 'Only a fixed source label may persist');
+assert.equal(JSON.stringify([...stored.values()]).includes('private@'), false);
+intent.clearCheckoutIntent();
 console.log('PASS: intent expires, rejects malformed/future values, works without storage and never persists credentials or authorizes payments.');
 
 let authListener; let inCallback = false; let refreshes = 0; let changes = 0; let waiting = true; let unsubscribed = false;

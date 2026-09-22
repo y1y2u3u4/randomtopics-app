@@ -1,7 +1,8 @@
+import { speechEntrySource, type SpeechEntrySource } from "./exposure";
 // UI navigation only. This never authorizes Checkout or grants paid access.
 const key = "rt_speech_checkout_intent_v1";
 const lifetime = 24 * 60 * 60 * 1000;
-export type CheckoutIntent = { createdAt: number; qa: boolean };
+export type CheckoutIntent = { createdAt: number; qa: boolean; entrySource?: SpeechEntrySource };
 export function readCheckoutIntent(): CheckoutIntent | null {
   try {
     const value = JSON.parse(localStorage.getItem(key) || "null");
@@ -10,11 +11,13 @@ export function readCheckoutIntent(): CheckoutIntent | null {
       localStorage.removeItem(key);
       return null;
     }
-    return { createdAt: value.createdAt, qa: value.qa };
+    const entrySource = speechEntrySource(value.entrySource);
+    return { createdAt: value.createdAt, qa: value.qa, ...(entrySource ? { entrySource } : {}) };
   } catch { return null; }
 }
-export function rememberCheckoutIntent(qa: boolean) {
-  try { localStorage.setItem(key, JSON.stringify({ createdAt: Date.now(), qa })); } catch { /* Navigation still works without storage. */ }
+export function rememberCheckoutIntent(qa: boolean, source?: string) {
+  const entrySource = source === undefined ? readCheckoutIntent()?.entrySource : speechEntrySource(source);
+  try { localStorage.setItem(key, JSON.stringify({ createdAt: Date.now(), qa, ...(entrySource ? { entrySource } : {}) })); } catch { /* Navigation still works without storage. */ }
 }
 export function clearCheckoutIntent() {
   try { localStorage.removeItem(key); } catch { /* optional UI state */ }

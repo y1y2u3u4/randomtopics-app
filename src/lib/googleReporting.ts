@@ -554,6 +554,7 @@ export type SpeechReport = {
   devices: { device: string; event: string; users: number }[];
   sources: { source: string; event: string; users: number }[];
   landings: { landing: string; event: string; users: number }[];
+  pages: { available: boolean; rows: { page: string; event: string; users: number }[] };
   funnels: { key: string; title: string; rows: { label: string; users: number }[]; available: boolean; qualified: boolean }[];
 };
 // Private server job only. QA and natural events use disjoint names.
@@ -588,6 +589,13 @@ export async function getSpeechReport(days = 7, force = false, window?: { startD
   const devices = await runGaReport({ ...base, dimensions: ["deviceCategory", "eventName"], metrics: ["totalUsers"], limit: 500 });
   const sources = await runGaReport({ ...base, dimensions: ["sessionSourceMedium", "eventName"], metrics: ["totalUsers"], limit: 1000 });
   const landings = await runGaReport({ ...base, dimensions: ["landingPage", "eventName"], metrics: ["totalUsers"], limit: 1000 });
+  let pages: SpeechReport["pages"] = { available: false, rows: [] };
+  try {
+    const data = await runGaReport({ ...base, dimensions: ["pagePath", "eventName"], metrics: ["totalUsers"], limit: 10000 });
+    pages = { available: true, rows: (data.rows ?? []).map(row => ({
+      page: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0),
+    })) };
+  } catch { /* A missing breakdown is unavailable, never zero exposure. */ }
   let hourly: SpeechReport["hourly"] = { available: false, timeZone: "unknown", rows: [] };
   try {
     const data = await runGaReport({ ...base, dimensions: ["dateHour", "eventName"], metrics: ["totalUsers", "eventCount"],
@@ -616,7 +624,7 @@ export async function getSpeechReport(days = 7, force = false, window?: { startD
     }
   }
   const value: SpeechReport = {
-    generatedAt: new Date().toISOString(), days, funnels, hourly,
+    generatedAt: new Date().toISOString(), days, funnels, hourly, pages,
     coverage: speechEventCoverage((events.rows ?? []).map(row => ({ event: row.dimensionValues?.[0]?.value ?? "", count: metricValue(row, 0) }))),
     events: (events.rows ?? []).map((row) => ({ eventName: row.dimensionValues?.[0]?.value ?? "", eventCount: metricValue(row, 0), totalUsers: metricValue(row, 1), sessions: metricValue(row, 2), keyEvents: 0 })),
     devices: (devices.rows ?? []).map((row) => ({ device: row.dimensionValues?.[0]?.value ?? "", event: row.dimensionValues?.[1]?.value ?? "", users: metricValue(row, 0) })),

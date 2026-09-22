@@ -82,14 +82,11 @@ export default function SpeechAccount() {
   useEffect(() => {
     if (!loaded || !billing || subscription.active || !offer.current || offerSeen.current)
       return;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting || offerSeen.current) return;
+    return observeVisibleContent(offer.current, () => {
       offerSeen.current = true;
       trackSpeech("speech_checkout_offer_view", { content_source: "speech_account" });
-      observer.disconnect();
-    }, { threshold: 0.25 });
-    observer.observe(offer.current);
-    return () => observer.disconnect();
+      trackSpeech("speech_checkout_offer_v2_view", { content_source: "speech_account" });
+    });
   }, [loaded, billing, subscription.active]);
 
   async function openBilling(destination: "checkout" | "portal") {

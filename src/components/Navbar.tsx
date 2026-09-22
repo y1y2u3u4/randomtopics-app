@@ -9,6 +9,7 @@ import { localeFromPath, localeBase, localizePath } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import { getDict, MODE_LABELS } from "@/i18n/dictionaries";
 import LocaleSwitcher from "./LocaleSwitcher";
+import SpeechNavigationLink from "./SpeechNavigationLink";
 
 export default function Navbar({
   locale: localeOverride,
@@ -19,6 +20,7 @@ export default function Navbar({
   const base = localeBase(locale);
   const t = getDict(locale);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const feedbackEnabled = locale === "en" && process.env.NEXT_PUBLIC_SPEECH_COACH_ENABLED === "true";
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-[#08080f]/90 border-b" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
@@ -36,8 +38,10 @@ export default function Navbar({
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
-            {MODES.map((mode) => (
+          <div className="hidden lg:flex items-center gap-1">
+            {MODES.map((mode) => mode.id === "speech" && feedbackEnabled ? (
+              <SpeechNavigationLink key={mode.slug} className={`nav-link px-3 py-2 rounded-lg text-sm whitespace-nowrap ${pathname === "/speech" ? "active" : ""}`} />
+            ) : (
               <Link
                 key={mode.slug}
                 href={`${base}/${mode.slug}`}
@@ -70,7 +74,7 @@ export default function Navbar({
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 text-[var(--text-secondary)]"
+            className="lg:hidden p-2 text-[var(--text-secondary)]"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -92,11 +96,13 @@ export default function Navbar({
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
-              className="md:hidden overflow-hidden"
+              className="lg:hidden overflow-hidden"
             >
               <div className="pb-4 border-t border-white/5 mt-2 pt-3">
                 <div className="flex flex-col gap-1">
-                  {MODES.map((mode) => (
+                  {MODES.map((mode) => mode.id === "speech" && feedbackEnabled ? (
+                    <SpeechNavigationLink key={mode.slug} mobile onClick={() => setMobileOpen(false)} className={`nav-link px-3 py-2.5 rounded-lg text-sm ${pathname === "/speech" ? "active" : ""}`} />
+                  ) : (
                     <Link
                       key={mode.slug}
                       href={`${base}/${mode.slug}`}

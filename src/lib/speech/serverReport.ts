@@ -1,11 +1,12 @@
 import "server-only";
 import { database } from "./server";
+import { SPEECH_EXPOSURE_VERSION, SPEECH_ENTRY_SOURCES } from "./exposure";
 
 type Row = { id: string; user_id: string; previous_id: string | null; status: string;
-  created_at: string; usage: { context?: { version?: string; qa?: boolean; practiceMode?: string } } | null };
+  created_at: string; usage: { context?: { version?: string; qa?: boolean; practiceMode?: string; exposureVersion?: string; entrySource?: string } } | null };
 
 // This aggregate intentionally never returns speech text, feedback, or identifiers.
-export function summarizeSpeechAttempts(rows: Row[]) {
+function counts(rows: Row[]) {
   const qa = rows.filter(row => row.usage?.context?.qa === true);
   const cohort = rows.filter(row => row.usage?.context?.version === "v5" && row.usage.context.qa === false);
   const first = cohort.filter(row => !row.previous_id);
@@ -23,6 +24,16 @@ export function summarizeSpeechAttempts(rows: Row[]) {
     failed: cohort.filter(row => row.status === "failed").length,
     pending: cohort.filter(row => !["complete", "failed"].includes(row.status)).length,
   };
+}
+
+export function summarizeSpeechAttempts(rows: Row[]) {
+  const expanded = rows.filter(row => row.usage?.context?.exposureVersion === SPEECH_EXPOSURE_VERSION &&
+    row.usage.context.version === "v5" && row.usage.context.qa === false);
+  return { ...counts(rows), expandedExposure: {
+    version: SPEECH_EXPOSURE_VERSION, ...counts(expanded),
+    sources: SPEECH_ENTRY_SOURCES.map(source => ({ source, ...counts(expanded.filter(row =>
+      (row.usage?.context?.entrySource ?? "unknown") === source)) })),
+  } };
 }
 
 export async function getSpeechServerReport(now = new Date()) {

@@ -5,6 +5,7 @@ import type { Topic } from "@/data/types";
 import { trackSpeech, speechErrorCode, speechQaSession } from "@/lib/speech/telemetry";
 import type { SpeechEvent } from "@/lib/speech/events";
 import { practiceFetch, PracticeRequestError } from "@/lib/speech/client";
+import { SPEECH_EXPOSURE_VERSION, speechEntrySource } from "@/lib/speech/exposure";
 import { recordingToWav } from "@/lib/speech/audio";
 import { observeVisibleAction } from "@/lib/speech/visibleAction";
 import SpeechFeedbackResult, { type SpeechResult } from "./SpeechFeedbackResult";
@@ -267,6 +268,7 @@ export default function SpeechCoach({
         data = await practiceFetch("transcribe", {
           id, topic: topic.text, previousId: previous?.id ?? null, audio,
           practiceMode: previous?.feedback.drill ? "focused" : "full", qa: speechQaSession(),
+          exposureVersion: SPEECH_EXPOSURE_VERSION, entrySource: speechEntrySource(contentSource) ?? "unknown",
         });
       } catch (e) {
         emit("speech_transcribe_error", { error_code: speechErrorCode(e), elapsed_ms: Math.round(performance.now() - requestedAt) });
