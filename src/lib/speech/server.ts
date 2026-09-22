@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { createHmac } from "node:crypto";
 import { z } from "zod";
 import { MODEL } from "./schema";
-import { logSpeechFailure, logSpeechRecovery, speechEvidenceIssue, speechSchemaIssues, type SpeechFailureStage } from "./diagnostics";
+import { logSpeechFailure, logSpeechRecovery, speechEvidenceIssue, speechSchemaIssues, speechLengthRecoveryHint, type SpeechFailureStage } from "./diagnostics";
 
 export class SpeechError extends Error {
   constructor(
@@ -115,6 +115,7 @@ export async function modelCall<T>(
   const budgetMs = name === "speech_feedback" ? 45000 : 55000;
   const usages: unknown[] = [];
   let recoveryStage: SpeechFailureStage | undefined;
+  let recoveryHint = "";
   for (let attempt: 1 | 2 = 1; ; attempt = 2) {
     usages.push(null);
     let stage: SpeechFailureStage = "model_request";
@@ -143,7 +144,7 @@ export async function modelCall<T>(
               ? recoveryStage === "feedback_evidence"
                 ? "\nThe previous response failed evidence validation. Generate a fresh complete JSON object matching the supplied schema. Copy each quote as one exact, contiguous substring from its source transcript; do not paraphrase, alter punctuation or combine separate passages. Current evidence must come from the current transcript, and beforeQuote only from the previous transcript. Every met criterion needs a non-empty supporting quote. For a comparison, include evidence from both answers unless the saved target was missing or the outcome is insufficient_evidence. If evidence is unclear, acknowledge that instead of inventing a quote."
                 : "\nThe previous response did not satisfy the JSON format. Generate a fresh complete JSON object matching the supplied schema. Include every required field, use non-empty explanatory text, keep within field length limits, and do not add markdown. Preserve exact transcript quotations."
-              : "") },
+              : "") + (attempt === 2 ? recoveryHint : "") },
             { role: "user", content },
           ],
           response_format: {
@@ -151,7 +152,7 @@ export async function modelCall<T>(
             json_schema: {
               name,
               strict: true,
-              schema: z.toJSONSchema(schema, { target: "draft-7" }),
+              schema: z.toJSONSchema(schema, { target: "draft-7", io: "input" }),
             },
           },
         }),
@@ -192,7 +193,11 @@ export async function modelCall<T>(
         budgetMs - (Date.now() - started) >= 5000;
       logSpeechFailure(name === "speech_transcript" ? "transcribe" : "feedback", stage, Date.now() - started, providerStatus,
         { attempt, retrying, issues: speechSchemaIssues(error), evidenceIssue });
-      if (retrying) { recoveryStage = stage; continue; }
+      if (retrying) {
+        recoveryStage = stage;
+        recoveryHint = stage === "model_schema" ? speechLengthRecoveryHint(error) : "";
+        continue;
+      }
       throw error;
     }
   }
