@@ -1,3 +1,4 @@
+import { SelectedTopicPractice } from "@/components/TopicHandoff";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -92,6 +93,7 @@ export default function SpeechPage() {
           ]}
         />
         <ModeIllustration mode="speech" />
+        <SelectedTopicPractice locale="en" />
         <TopicGenerator
           initialMode="speech"
           title="Speech Topic Generator"

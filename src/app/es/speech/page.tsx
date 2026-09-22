@@ -1,3 +1,4 @@
+import { SelectedTopicPractice } from "@/components/TopicHandoff";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -47,6 +48,7 @@ export default function SpeechPageEs() {
             { label: "Temas para Discursos" },
           ]}
         />
+        <SelectedTopicPractice locale="es" />
         <TopicGenerator
           initialMode="speech"
           locale="es"
