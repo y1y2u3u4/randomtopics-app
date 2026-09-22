@@ -1,5 +1,7 @@
 const qotd = "/question-of-the-day", speech = "/speech", article = "/es/topics/most-likely-to-questions", tool = "/es/most-likely-to";
 export const CORE_USAGE_STAGES: readonly (readonly [string, string, string])[] = [
+  ...["copy", "save", "share", "copy_error", "save_error", "share_error"].map(action => ["/topics/ethical-dilemma-questions", `ethics_card_${action}`, `Existing discussion card ${action}; not generation. API success does not prove delivery or discussion.`] as const),
+  ...["friends", "group", "classroom", "deep"].map(scene => ["/question-generator", `question_scenario_${scene}`, "Clicked a matching existing collection; not destination arrival or successful use"] as const),
   ...["daily", "random", "list"].flatMap(source => ["copy", "save", "share", "copy_error", "save_error", "share_error"].map(action =>
     [qotd, `qotd_${source}_${action}`, `${source}: ${action}; success only after browser API succeeds; errors separate`] as const)),
   [qotd, "qotd_usage_visit", "Page-view event; not a unique visit or action-bar exposure"],

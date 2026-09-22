@@ -218,3 +218,31 @@ assert.equal(list.actions().isPostGenerate,false);
 assert.equal(list.actions().actionSurface,'qotd_list');
 assert.deepEqual(list.events.map(e=>e.name),['qotd_list_open']);
 console.log('PASS: list directly exports chosen question, shares saved identity, and never fabricates generation.');
+
+// Discussion exports preserve the exact existing case, both trade-offs and follow-ups.
+const ethics = load('src/data/ethicsDiscussionCards.ts');
+const ethicsArticle = load('src/data/seoContent.ts').SEO_ARTICLES.find(a => a.slug === 'ethical-dilemma-questions');
+const ethicsCorpus = ethicsArticle.sections.flatMap(s => s.items);
+for (const card of ethics.ETHICS_DISCUSSION_CARDS) {
+  assert.ok(ethicsCorpus.includes(card.scenario), `Existing case required: ${card.id}`);
+  const h = harness('src/components/EthicsCardActions.tsx', { card });
+  const action = h.actions();
+  assert.equal(action.isPostGenerate, false);
+  assert.equal(action.actionSurface, 'ethics_card');
+  const exported = action.text;
+  for (const value of [card.scenario, ...card.options.flatMap(o => [o.choice, o.reason, o.cost]), ...card.followUps]) assert.ok(exported.includes(value));
+  assert.equal(action.saveTopic.talkingPoints[0], exported);
+  const print = h.render().find(n => n.type === 'print-button').props;
+  assert.equal(print.items.length, 5);
+  assert.equal(print.items[0], card.scenario);
+}
+const scenes = harness('src/components/QuestionScenarioLinks.tsx', {});
+const links = scenes.render().filter(n => n.type === 'a');
+assert.equal(links.length, 4);
+for (const link of links) {
+  assert.ok(existsSync(resolve(root, 'src/app', link.props.href.slice(1), 'page.tsx')) || link.props.href.startsWith('/topics/'));
+  link.props.onClick();
+}
+assert.deepEqual(scenes.events.map(e => e.name), ['question_scenario_friends','question_scenario_group','question_scenario_classroom','question_scenario_deep']);
+assert.ok(scenes.events.every(e => !e.name.includes('generate')));
+console.log('PASS: discussion cards match real corpus, complete exports/save/print, no false generation, explicit scenario links.');

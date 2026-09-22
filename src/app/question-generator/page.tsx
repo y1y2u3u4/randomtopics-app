@@ -1,3 +1,4 @@
+import QuestionScenarioLinks from "@/components/QuestionScenarioLinks";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -63,6 +64,8 @@ export default function QuestionGeneratorPage() {
         />
         <TopicGenerator
           initialMode="icebreaker"
+          contentSource="question_generator"
+          heroLinks={<QuestionScenarioLinks />}
           title="Random Question Generator"
           subtitle="Instant questions for any group — icebreakers, deep questions, funny prompts and everything in between."
         />
