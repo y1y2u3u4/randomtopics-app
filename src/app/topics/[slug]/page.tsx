@@ -1,3 +1,4 @@
+import EthicsDiscussionCards from "@/components/EthicsDiscussionCards";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -290,6 +291,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               />
             </section>
         ) : null}
+
+        {article.slug === "ethical-dilemma-questions" && <EthicsDiscussionCards />}
 
         {/* Intro */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">

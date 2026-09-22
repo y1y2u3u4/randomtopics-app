@@ -4,6 +4,7 @@ type Params = Record<string, unknown>;
 const GAP = 30 * 60_000;
 const MAX_AGE = 30 * 24 * 60 * 60_000;
 export function coreUsageEvents(path: string, event: string, params: Params, local: Store, session: Store, now = Date.now(), qa = false): string[] {
+  if (path === "/topics/ethical-dilemma-questions" && params.action_surface === "ethics_card" && ["copy_result", "save_result", "share_result", "copy_error", "save_error", "share_error"].includes(event)) return [`ethics_card_${event.replace("_result", "")}`];
   const flow = path === "/question-of-the-day" ? "qotd" : path === "/speech" ? "speech" :
     ["/es/topics/most-likely-to-questions", "/es/most-likely-to"].includes(path) ? "party" : null;
   if (!flow) return [];
