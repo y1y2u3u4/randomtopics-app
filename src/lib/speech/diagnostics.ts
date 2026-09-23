@@ -65,9 +65,9 @@ export function logSpeechFailure(operation: "transcribe" | "feedback", stage: Sp
   } catch { /* Diagnostic failures must not alter the customer response. */ }
 }
 
-export function logSpeechRecovery(elapsedMs: number) {
+export function logSpeechRecovery(operation: "transcribe" | "feedback", elapsedMs: number) {
   try {
-    console.info(JSON.stringify({ event: "speech_service_recovered", operation: "feedback", attempt: 2,
+    console.info(JSON.stringify({ event: "speech_service_recovered", operation, attempt: 2,
       elapsed_ms: Math.max(0, Math.round(elapsedMs)) }));
   } catch { /* Keep diagnostics separate from the customer response. */ }
 }
