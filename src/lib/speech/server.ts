@@ -110,9 +110,10 @@ export async function modelCall<T>(
   validate?: (value: T) => void,
 ) {
   const started = Date.now();
-  // Reserve time for validation, persistence and releasing the feedback claim
-  // inside the route's 60-second limit. Transcription keeps its existing limit.
+  // Each operation keeps its existing deadline across at most two model calls.
+  // Feedback reserves extra time for evidence validation and saving the result.
   const budgetMs = name === "speech_feedback" ? 45000 : 55000;
+  const operation = name === "speech_transcript" ? "transcribe" : "feedback";
   const usages: unknown[] = [];
   let recoveryStage: SpeechFailureStage | undefined;
   let recoveryHint = "";
@@ -141,7 +142,9 @@ export async function modelCall<T>(
           provider: { data_collection: "deny", require_parameters: true },
           messages: [
             { role: "system", content: instruction + (attempt === 2
-              ? recoveryStage === "feedback_evidence"
+              ? name === "speech_transcript"
+                ? "\nThe previous response did not satisfy the transcription JSON schema. Transcribe the same original audio again and return a complete JSON object matching the supplied schema, without markdown. Preserve audible words, repetitions and filler words; do not shorten the speech or invent content to fill a field. Keep [unclear] for inaudible passages and return an empty transcript if there is no intelligible speech."
+                : recoveryStage === "feedback_evidence"
                 ? "\nThe previous response failed evidence validation. Generate a fresh complete JSON object matching the supplied schema. Copy each quote as one exact, contiguous substring from its source transcript; do not paraphrase, alter punctuation or combine separate passages. Current evidence must come from the current transcript, and beforeQuote only from the previous transcript. Every met criterion needs a non-empty supporting quote. For a comparison, include evidence from both answers unless the saved target was missing or the outcome is insufficient_evidence. If evidence is unclear, acknowledge that instead of inventing a quote."
                 : "\nThe previous response did not satisfy the JSON format. Generate a fresh complete JSON object matching the supplied schema. Include every required field, use non-empty explanatory text, keep within field length limits, and do not add markdown. Preserve exact transcript quotations."
               : "") + (attempt === 2 ? recoveryHint : "") },
@@ -177,7 +180,7 @@ export async function modelCall<T>(
         stage = "feedback_evidence";
         validate(value);
       }
-      if (attempt === 2) logSpeechRecovery(Date.now() - started);
+      if (attempt === 2) logSpeechRecovery(operation, Date.now() - started);
       return {
         value,
         // Keep both provider calls in the private usage ledger when recovery ran.
@@ -188,14 +191,15 @@ export async function modelCall<T>(
       if (stage === "model_request" && error instanceof Error &&
         (error.name === "AbortError" || error.name === "TimeoutError")) stage = "model_timeout";
       const evidenceIssue = stage === "feedback_evidence" ? speechEvidenceIssue(error) : undefined;
-      const retrying = name === "speech_feedback" && attempt === 1 && !refusal &&
-        (["response_json", "content_json", "model_schema"].includes(stage) || Boolean(evidenceIssue)) &&
+      const retrying = attempt === 1 && !refusal &&
+        (["response_json", "content_json", "model_schema"].includes(stage) ||
+          (name === "speech_feedback" && Boolean(evidenceIssue))) &&
         budgetMs - (Date.now() - started) >= 5000;
-      logSpeechFailure(name === "speech_transcript" ? "transcribe" : "feedback", stage, Date.now() - started, providerStatus,
+      logSpeechFailure(operation, stage, Date.now() - started, providerStatus,
         { attempt, retrying, issues: speechSchemaIssues(error), evidenceIssue });
       if (retrying) {
         recoveryStage = stage;
-        recoveryHint = stage === "model_schema" ? speechLengthRecoveryHint(error) : "";
+        recoveryHint = name === "speech_feedback" && stage === "model_schema" ? speechLengthRecoveryHint(error) : "";
         continue;
       }
       throw error;
