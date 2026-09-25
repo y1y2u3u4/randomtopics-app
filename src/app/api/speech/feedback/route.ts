@@ -97,7 +97,7 @@ export async function POST(request: Request) {
     try {
       stage = "model_request";
       const focused = attempt.usage?.context?.practiceMode === "focused" && Boolean(previous?.feedback.drill);
-      const evidence = evidenceCoaching(transcript, previous?.transcript, focused);
+      const evidence = evidenceCoaching(transcript, previous?.transcript, focused, previous?.feedback);
       const validatedFeedback = (value: CoachingResult) => validateFeedback(
         assembleFeedback(value, transcript, previous?.feedback, focused),
         transcript, previous?.transcript, previous?.feedback,
@@ -121,6 +121,7 @@ export async function POST(request: Request) {
           feedback,
           model: result.model,
           usage: { ...attempt.usage, feedback: result.usage, feedbackEvidenceVersion: "source_ids_v1",
+            feedbackComparisonVersion: "conditional_evidence_v1",
             ...(revise ? { earlierFeedbackUsage: [...(attempt.usage?.earlierFeedbackUsage ?? []), attempt.usage?.feedback ?? {}] } : {}) },
           updated_at: new Date().toISOString(),
         })

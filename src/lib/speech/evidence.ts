@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { criterionSchema } from "./schema";
+import { comparisonCanOmitBeforeQuote, criterionSchema, type SpeechFeedback } from "./schema";
 import { firstAssessmentSchema, repeatAssessmentSchema } from "./coaching";
 
 // Gemini structured output supports enums, but does not enforce maxLength.
@@ -28,27 +28,41 @@ function excerpts(transcript: string): string[] {
   return [...values];
 }
 
-export function evidenceCoaching(transcript: string, previousTranscript?: string, focused = false) {
+export function evidenceCoaching(transcript: string, previousTranscript?: string, focused = false, previousFeedback?: SpeechFeedback) {
   const entries = (text: string, prefix: string) => Object.fromEntries(
     excerpts(text).map((quote, index) => [`${prefix}${index + 1}`, quote]),
   );
   const current = entries(transcript, "c");
   const previous = entries(previousTranscript ?? "", "p");
-  const quote = (source: Record<string, string>) => z.enum(["", ...Object.keys(source)])
-    .describe("Select one supplied evidence ID, or an empty string when evidence is absent. Never output the quotation text.")
+  const quote = (source: Record<string, string>, optional = true) => z.enum(optional ? ["", ...Object.keys(source)] : Object.keys(source))
+    .describe(optional
+      ? "Select one supplied evidence ID, or an empty string when evidence is absent. Never output the quotation text."
+      : "Select one supplied evidence ID. An empty string is not allowed. Never output the quotation text.")
     .transform(id => id === "" ? "" : source[id]);
   const currentQuote = quote(current);
   const criterion = criterionSchema.extend({ quote: currentQuote });
   const first = firstAssessmentSchema.extend({ assessment: z.object({
     relevance: criterion, point: criterion, example: criterion, ending: criterion,
   }) });
-  const comparison = repeatAssessmentSchema.shape.comparison.extend({
-    beforeQuote: quote(previous), afterQuote: currentQuote,
-  });
+  const mayOmitBefore = comparisonCanOmitBeforeQuote(previousFeedback);
+  // Make the model's available choices agree with validateFeedback. A missing
+  // target in the earlier answer does not make an empty afterQuote sufficient
+  // for claiming improvement, similarity, or a mixed result.
+  const comparison = z.discriminatedUnion("outcome", [
+    repeatAssessmentSchema.shape.comparison.extend({
+      outcome: z.enum(["improved", "similar", "mixed"]),
+      beforeQuote: quote(previous, mayOmitBefore), afterQuote: quote(current, false),
+    }),
+    repeatAssessmentSchema.shape.comparison.extend({
+      outcome: z.literal("insufficient_evidence"),
+      beforeQuote: quote(previous), afterQuote: currentQuote,
+    }),
+  ]);
   return {
     schema: focused ? z.object({ focus: criterion, comparison })
       : previousTranscript !== undefined ? first.extend({ comparison }) : first,
     sources: { current, previous },
-    instruction: "\nEvidence selection: the user payload contains evidence.current and evidence.previous maps. Read the full transcripts to assess meaning, then put a single evidence ID (c1, c2, etc. for current evidence; p1, p2, etc. for beforeQuote) in each quote field. These IDs replace quotation text in this response. Choose the excerpt that supports your judgment. Use an empty string only when the normal evidence rules allow absence. The server restores the exact source text; do not write or edit quotation text yourself.",
+    instruction: "\nEvidence selection: the user payload contains evidence.current and evidence.previous maps. Read the full transcripts to assess meaning, then put a single evidence ID (c1, c2, etc. for current evidence; p1, p2, etc. for beforeQuote) in each quote field. These IDs replace quotation text in this response. Choose the excerpt that supports your judgment. Use an empty string only when the normal evidence rules allow absence. The server restores the exact source text; do not write or edit quotation text yourself." +
+      (previousTranscript === undefined ? "" : `\nComparison evidence: improved, similar and mixed require a non-empty afterQuote from evidence.current. If you cannot support the comparison with current evidence, use insufficient_evidence and explain the limitation; do not invent a quotation or improvement. An empty beforeQuote ${mayOmitBefore ? "is allowed because the saved practice target was missing" : "is allowed only for insufficient_evidence"}. The saved missing-target exception never permits an empty afterQuote for improved, similar or mixed.`),
   };
 }

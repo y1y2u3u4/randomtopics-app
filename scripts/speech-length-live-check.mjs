@@ -30,7 +30,7 @@ const original = { fetch: globalThis.fetch, error: console.error, info: console.
 const results = [];
 try {
   for (const sample of samples) {
-    const evidence = evidenceCoaching(sample.text, sample.previous?.transcript, Boolean(sample.previous));
+    const evidence = evidenceCoaching(sample.text, sample.previous?.transcript, Boolean(sample.previous), sample.previous?.feedback);
     const encodeQuote = (value, source) => Object.entries(source).find(([, quote]) => quote === value)?.[0] ?? value;
     const bad = sample.bad ? structuredClone(sample.bad) : undefined;
     if (bad?.focus) bad.focus.quote = encodeQuote(bad.focus.quote, evidence.sources.current);
