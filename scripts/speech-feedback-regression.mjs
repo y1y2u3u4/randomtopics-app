@@ -132,7 +132,7 @@ try {
  result=await runRoute({responses:[provider(null),provider(ungrounded)]});
  assert.equal(result.status,503);assert.equal(requests.length,2,'Format and evidence recovery share one two-call budget');
  result=await runRoute({previous:true,responses:[provider({assessment,comparison:{...compared.comparison,beforeQuote:''}}),provider({assessment,comparison:compared.comparison})]});
- assert.equal(result.status,200);assert.equal(logs[0].evidence_issue,'missing_comparison_evidence');
+ assert.equal(result.status,200);assert.equal(logs[0].stage,'model_schema','Missing comparison evidence is rejected at the generation contract');
  assert.equal(result.claims,1);
  reset([provider(feedback)]);
  await assert.rejects(()=>server.modelCall(firstFeedbackSchema,'speech_feedback','Assess.',transcript,()=>{throw new TypeError(privateMarker);}));

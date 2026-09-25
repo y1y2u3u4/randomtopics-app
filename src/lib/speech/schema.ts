@@ -65,6 +65,13 @@ export function firstAttemptFeedback(value: z.infer<typeof firstFeedbackSchema>)
 export const transcriptSchema = z.object({
   transcript: z.string().trim().max(10000),
 });
+// Share the saved-target exception with the generation contract. It only
+// permits missing *before* evidence, never an unsupported current comparison.
+export function comparisonCanOmitBeforeQuote(previousFeedback?: SpeechFeedback) {
+  const target = previousFeedback?.drill?.target;
+  return Boolean(target && target !== "concise" &&
+    previousFeedback?.assessment?.[target]?.status === "missing");
+}
 export function validateFeedback(
   value: unknown,
   transcript: string,
@@ -93,13 +100,11 @@ export function validateFeedback(
     throw new Error("invalid_comparison");
   if (previous && result.comparison.outcome === "first_attempt")
     throw new Error("invalid_comparison");
-  const comparisonTarget = previousFeedback?.drill?.target;
   if (
     previous &&
     result.comparison.outcome !== "insufficient_evidence" &&
     ((!result.comparison.beforeQuote && !(
-      result.version === "v5" && comparisonTarget && comparisonTarget !== "concise" &&
-      previousFeedback?.assessment?.[comparisonTarget]?.status === "missing"
+      result.version === "v5" && comparisonCanOmitBeforeQuote(previousFeedback)
     )) || !result.comparison.afterQuote)
   )
     throw new Error("missing_comparison_evidence");
