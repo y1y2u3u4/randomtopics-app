@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { createHmac } from "node:crypto";
 import { z } from "zod";
 import { MODEL } from "./schema";
-import { logSpeechFailure, logSpeechRecovery, speechEvidenceIssue, speechSchemaIssues, speechLengthRecoveryHint, type SpeechFailureStage } from "./diagnostics";
+import { logSpeechFailure, logSpeechRecovery, speechEvidenceIssue, speechSchemaIssues, speechLengthRecoveryHint, speechModelOutput, type SpeechFailureStage } from "./diagnostics";
 
 export class SpeechError extends Error {
   constructor(
@@ -121,6 +121,7 @@ export async function modelCall<T>(
     usages.push(null);
     let stage: SpeechFailureStage = "model_request";
     let providerStatus: number | undefined;
+    let modelOutput: ReturnType<typeof speechModelOutput> | undefined;
     let refusal = false;
     const remainingMs = budgetMs - (Date.now() - started);
     try {
@@ -170,6 +171,7 @@ export async function modelCall<T>(
       }
       stage = "response_json";
       const data = await result.json();
+      modelOutput = speechModelOutput(data);
       usages[attempt - 1] = data.usage ?? null;
       refusal = data.choices?.[0]?.finish_reason === "content_filter" || Boolean(data.choices?.[0]?.message?.refusal);
       stage = "content_json";
@@ -196,7 +198,7 @@ export async function modelCall<T>(
           (name === "speech_feedback" && Boolean(evidenceIssue))) &&
         budgetMs - (Date.now() - started) >= 5000;
       logSpeechFailure(operation, stage, Date.now() - started, providerStatus,
-        { attempt, retrying, issues: speechSchemaIssues(error), evidenceIssue });
+        { attempt, retrying, issues: speechSchemaIssues(error), evidenceIssue, modelOutput });
       if (retrying) {
         recoveryStage = stage;
         recoveryHint = name === "speech_feedback" && stage === "model_schema" ? speechLengthRecoveryHint(error) : "";
