@@ -32,6 +32,43 @@ export function speechSchemaIssues(error: unknown) {
   });
 }
 
+const finishReasons = new Set(["stop", "length", "content_filter", "tool_calls", "function_call", "error"]);
+function object(value: unknown): Record<string, unknown> | undefined {
+  return value !== null && typeof value === "object" && !Array.isArray(value)
+    ? value as Record<string, unknown> : undefined;
+}
+function tokenCount(value: unknown): number | undefined {
+  return typeof value === "number" && Number.isSafeInteger(value) && value >= 0 && value <= 10_000_000
+    ? value : undefined;
+}
+
+// Diagnose HTTP-200 output failures without logging text, provider errors or IDs.
+// Select every field explicitly; the provider response must never be spread here.
+export function speechModelOutput(data: unknown) {
+  const envelope = object(data);
+  const choice = Array.isArray(envelope?.choices) ? object(envelope.choices[0]) : undefined;
+  const message = object(choice?.message);
+  const content = message?.content;
+  const usage = object(envelope?.usage);
+  const finishReason = choice?.finish_reason;
+  return {
+    finish_reason: finishReason == null ? "missing"
+      : typeof finishReason === "string" && finishReasons.has(finishReason) ? finishReason : "other",
+    content_state: content === undefined ? "missing" : content === null ? "null"
+      : typeof content !== "string" ? "other_type" : content.length === 0 ? "empty"
+      : content.trim().length === 0 ? "whitespace" : "text",
+    ...(typeof content === "string" ? {
+      content_chars: Math.min(content.length, 1_000_000),
+      content_fenced: content.trimStart().startsWith("```"),
+    } : {}),
+    has_response_error: Boolean(envelope?.error || choice?.error),
+    has_refusal: Boolean(message?.refusal),
+    prompt_tokens: tokenCount(usage?.prompt_tokens),
+    completion_tokens: tokenCount(usage?.completion_tokens),
+    reasoning_tokens: tokenCount(object(usage?.completion_tokens_details)?.reasoning_tokens),
+  };
+}
+
 // Only schema-owned paths and numeric limits may enter recovery instructions.
 // Never include rejected text, arbitrary property names, or Zod error messages.
 export function speechLengthRecoveryHint(error: unknown): string {
@@ -51,7 +88,7 @@ export function speechLengthRecoveryHint(error: unknown): string {
 // Closed categories only: no Error object, content, identifiers or request headers.
 export function logSpeechFailure(operation: "transcribe" | "feedback", stage: SpeechFailureStage,
   elapsedMs: number, providerStatus?: number,
-  details?: { attempt: 1 | 2; retrying: boolean; issues?: ReturnType<typeof speechSchemaIssues>; evidenceIssue?: SpeechEvidenceIssue }) {
+  details?: { attempt: 1 | 2; retrying: boolean; issues?: ReturnType<typeof speechSchemaIssues>; evidenceIssue?: SpeechEvidenceIssue; modelOutput?: ReturnType<typeof speechModelOutput> }) {
   try {
     console.error(JSON.stringify({
       event: "speech_service_failure", operation, stage,
@@ -60,6 +97,7 @@ export function logSpeechFailure(operation: "transcribe" | "feedback", stage: Sp
         ? { provider_status: providerStatus } : {}),
       ...(details ? { attempt: details.attempt, retrying: details.retrying,
         ...(details.issues?.length ? { schema_issues: details.issues } : {}),
+        ...(details.modelOutput ? { model_output: details.modelOutput } : {}),
         ...(details.evidenceIssue ? { evidence_issue: details.evidenceIssue } : {}) } : {}),
     }));
   } catch { /* Diagnostic failures must not alter the customer response. */ }
