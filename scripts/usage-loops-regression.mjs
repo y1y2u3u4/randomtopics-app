@@ -208,16 +208,40 @@ assert.equal(secondRound.props.topic.id, topics[1].id);
 assert.equal(JSON.stringify(practice.events).includes(topics[1].text), false);
 console.log("PASS: all 48 Spanish conversation filters, safe pool exhaustion, QOTD default/random separation, party actions, 55 complete Spanish discussion cards, copy failure recovery, private event payloads, and speech topic selection.");
 
-const list = harness('src/components/QotdListActions.tsx', {question:'A real classroom question?',category:'classroom',index:4});
-assert.equal(list.actions(), undefined, 'List actions subscribe only after opening');
+let listCopyAllowed = false, listExposure, listObserverCleaned = false;
+const listCopies = [];
+const list = harness('src/components/QotdListActions.tsx', {question:'A real classroom question?',category:'classroom',index:4}, {
+  '@/lib/clipboard': {copyText: async text => { listCopies.push(text); return listCopyAllowed; }},
+  '@/lib/speech/visibleAction': {observeVisibleAction: (_button, onView) => { listExposure = onView; return () => { listObserverCleaned = true; }; }},
+});
+assert.equal(list.actions(), undefined, 'Secondary actions subscribe only after opening');
+const direct = list.render().find(n => n.type === 'button');
+assert.equal(label(direct), 'Copy question', 'Direct copy is usable without opening a disclosure');
+direct.props.ref.current = {disabled:false};
+const cleanupListObserver = list.effects[0]();
+assert.equal(list.events.length, 0, 'Mount does not manufacture an exposure');
+await direct.props.onClick();
+assert.deepEqual(listCopies, ['A real classroom question?']);
+assert.equal(list.render().find(n => n.type === 'textarea').props.value, 'A real classroom question?');
+assert.deepEqual(list.events.map(e => e.name), ['qotd_list_copy_click_v2', 'copy_error', 'qotd_list_quick_copy_error_v2']);
+assert.ok(!list.events.some(e => e.name.includes('view')), 'A fast click does not synthesize exposure');
+listExposure();
+assert.equal(list.events.at(-1).name, 'qotd_list_copy_view_v2');
+listCopyAllowed = true;
+await list.button('Copy question').props.onClick();
+assert.equal(list.render().find(n => n.type === 'textarea'), undefined, 'Retry clears manual fallback');
+assert.ok(list.button('Copied ✓'));
+assert.equal(list.events.at(-1).name, 'qotd_list_quick_copy_v2');
+assert.ok(list.events.every(e => !e.name.includes('generate')));
+assert.ok(!JSON.stringify(list.events).includes('A real classroom question?'));
 list.render().find(n=>n.type==='details').props.onToggle({currentTarget:{open:true}});
 assert.equal(list.actions().copyLabel,'Copy question');
 assert.equal(list.actions().text,'A real classroom question?');
 assert.equal(list.actions().saveTopic.id,'qotd-4','Shared favorite identity across list and daily/random modes');
 assert.equal(list.actions().isPostGenerate,false);
 assert.equal(list.actions().actionSurface,'qotd_list');
-assert.deepEqual(list.events.map(e=>e.name),['qotd_list_open']);
-console.log('PASS: list directly exports chosen question, shares saved identity, and never fabricates generation.');
+cleanupListObserver(); assert.equal(listObserverCleaned, true);
+console.log('PASS: direct list-copy entry, separate real exposure callback, exact failure text, retry recovery, existing favorite identity, private event payloads and no fabricated generation.');
 
 // Discussion exports preserve the exact existing case, both trade-offs and follow-ups.
 const ethics = load('src/data/ethicsDiscussionCards.ts');
