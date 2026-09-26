@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
+import DebatePreparation from "@/components/DebatePreparation";
+import { MOTION_PREPARATION } from "@/data/motionPreparation";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -277,6 +279,7 @@ export default function DebateMotionsPage() {
 
         {/* Quick nav */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+          <p className="text-center text-sm mb-4"><a href="#prepare-a-motion" className="text-[var(--neon-cyan)] underline">Prepare one of three example motions →</a></p>
           <div className="flex flex-wrap justify-center gap-2">
             {MOTION_SECTIONS.map((s) => (
               <a
@@ -314,7 +317,7 @@ export default function DebateMotionsPage() {
                   {section.motions.map((motion, i) => (
                     <li key={motion} className="flex gap-3 items-start text-sm text-[var(--text-secondary)] leading-relaxed">
                       <span className="text-[var(--neon-cyan)] font-bold shrink-0">{startAt + i + 1}.</span>
-                      <span>{motion}</span>
+                      <span>{motion}{MOTION_PREPARATION.filter(item => item.motion === motion).map(item => <a key={item.id} href={`#prepare-${item.id}`} className="block w-fit py-3 text-[var(--neon-cyan)] underline">Prepare this motion →</a>)}</span>
                     </li>
                   ))}
                 </ol>
@@ -333,6 +336,22 @@ export default function DebateMotionsPage() {
             </section>
           );
         })}
+
+        <section id="prepare-a-motion" className="max-w-3xl mx-auto px-4 sm:px-6 pb-8 scroll-mt-24">
+          <h2 className="section-heading text-2xl sm:text-3xl mb-4">Three motions to prepare now</h2>
+          <p className="text-sm text-[var(--text-secondary)] mb-6">Choose one of these motions from the bank. Use the starting points to test both sides, then write and copy your own preparation. These are research prompts, not verified evidence or a finished case.</p>
+          <div className="space-y-6">
+            {MOTION_PREPARATION.map(item => <article key={item.id} id={`prepare-${item.id}`} className="glass-card p-6 sm:p-8 scroll-mt-24">
+              <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+              <p className="text-[var(--neon-cyan)] font-semibold mb-4">{item.motion}</p>
+              <dl className="space-y-3 text-sm text-[var(--text-secondary)]">
+                {[["Define the motion", item.define], ["Main clash", item.clash], ["Proposition must show", item.proposition], ["Opposition can test", item.opposition], ["Evidence to investigate", item.research]].map(([label, value]) => <div key={label}><dt className="font-semibold text-[var(--text-primary)]">{label}</dt><dd className="mt-1 leading-relaxed">{value}</dd></div>)}
+              </dl>
+              <DebatePreparation topic={{ text: item.motion }} source="debate_motions" />
+              <a href="#prepare-a-motion" className="text-xs text-[var(--neon-cyan)] underline">Back to the three examples</a>
+            </article>)}
+          </div>
+        </section>
 
         {/* SEO content + FAQ */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16">
