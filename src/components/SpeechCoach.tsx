@@ -8,6 +8,7 @@ import { practiceFetch, PracticeRequestError } from "@/lib/speech/client";
 import { SPEECH_EXPOSURE_VERSION, speechEntrySource } from "@/lib/speech/exposure";
 import { recordingToWav } from "@/lib/speech/audio";
 import { observeVisibleAction } from "@/lib/speech/visibleAction";
+import { MicrophoneRequest } from "@/lib/speech/microphoneRequest";
 import SpeechFeedbackResult, { type SpeechResult } from "./SpeechFeedbackResult";
 
 type Stage =
@@ -55,7 +56,7 @@ export default function SpeechCoach({
   const stream = useRef<MediaStream | null>(null);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
   const mounted = useRef(true);
-  const generation = useRef(0);
+  const microphoneRequest = useRef(new MicrophoneRequest());
   const started = useRef(0);
   const urls = useRef<string[]>([]);
   const busy = useRef(false);
@@ -67,17 +68,21 @@ export default function SpeechCoach({
   const transcriptInput = useRef<HTMLTextAreaElement>(null);
   const recordButton = useRef<HTMLButtonElement>(null);
   const uploadInput = useRef<HTMLInputElement>(null);
+  const recordingNotice = useRef<HTMLDivElement>(null);
+  const focusUpload = useRef(false);
   const seenControls = useRef(new Set<number>());
   useEffect(() => {
     if (!visible || stage !== "ready") return;
     // The lazy coach can mount after the entry has already scrolled its loader.
     // Wait until parent effects finish, then reveal the actual next action.
     const frame = requestAnimationFrame(() => {
-      recordButton.current?.focus({ preventScroll: true });
-      recordButton.current?.scrollIntoView({ block: "center", behavior: "instant" });
+      const next = focusUpload.current ? uploadInput.current : error ? recordingNotice.current : recordButton.current;
+      focusUpload.current = false;
+      next?.focus({ preventScroll: true });
+      next?.scrollIntoView({ block: "center", behavior: "instant" });
     });
     return () => cancelAnimationFrame(frame);
-  }, [visible, stage]);
+  }, [visible, stage, error]);
   useEffect(() => {
     const input = uploadInput.current;
     if (stage !== "ready" || !input) return;
@@ -131,15 +136,31 @@ export default function SpeechCoach({
     stream.current?.getTracks().forEach((t) => t.stop());
     if (timer.current) clearInterval(timer.current);
   };
+  function cancelMicrophone(reason: "choose_upload" | "panel_hidden" | "tab_hidden") {
+    if (!microphoneRequest.current.cancel()) return;
+    busy.current = false;
+    if (mounted.current) {
+      setStage("ready");
+      if (reason === "choose_upload") focusUpload.current = true;
+      emit("speech_permission_cancel", { reason });
+    }
+  }
+  const cancelPendingMicrophone = useRef(cancelMicrophone);
+  useEffect(() => { cancelPendingMicrophone.current = cancelMicrophone; });
   useEffect(() => {
     mounted.current = true;
     const recordingUrls = urls.current;
+    const requests = microphoneRequest.current;
     const hide = () => {
-      if (document.hidden) stop();
+      if (document.hidden) {
+        cancelPendingMicrophone.current("tab_hidden");
+        stop();
+      }
     };
     document.addEventListener("visibilitychange", hide);
     return () => {
       mounted.current = false;
+      requests.cancel();
       stop();
       recordingUrls.forEach(URL.revokeObjectURL);
       document.removeEventListener("visibilitychange", hide);
@@ -147,7 +168,7 @@ export default function SpeechCoach({
   }, []);
   useEffect(() => {
     if (!visible) {
-      generation.current++;
+      cancelPendingMicrophone.current("panel_hidden");
       stop();
     }
   }, [visible]);
@@ -159,19 +180,18 @@ export default function SpeechCoach({
     busy.current = true;
     setError("");
     setStage("permission");
-    const ticket = ++generation.current;
+    const ticket = microphoneRequest.current.begin();
     try {
       if (
         !navigator.mediaDevices?.getUserMedia ||
         typeof MediaRecorder === "undefined"
       )
         throw new Error(
-          "Recording is unavailable in this browser. Try a recent Safari or Chrome, or use the timer below.",
+          "Recording is unavailable in this browser. Upload an existing audio file below, or try a recent Safari or Chrome.",
         );
       const media = await navigator.mediaDevices.getUserMedia({ audio: true });
-      if (!mounted.current || ticket !== generation.current) {
+      if (!mounted.current || !microphoneRequest.current.owns(ticket)) {
         media.getTracks().forEach((t) => t.stop());
-        if (mounted.current) setStage("ready");
         return;
       }
       stream.current = media;
@@ -232,12 +252,13 @@ export default function SpeechCoach({
         if (elapsed >= 119) stop();
       }, 200);
     } catch (e) {
+      if (!mounted.current || !microphoneRequest.current.owns(ticket)) return;
       stream.current?.getTracks().forEach((t) => t.stop());
       if (mounted.current) {
         setStage("ready");
         setError(
           e instanceof DOMException && e.name === "NotAllowedError"
-            ? "Microphone access was not granted. You can allow it in your browser settings, or keep using the timer."
+            ? "Microphone access was not granted. Allow microphone access for this site in your browser’s site settings, then try again. Or upload an existing recording below — no microphone permission needed."
             : e instanceof DOMException && e.name === "NotFoundError"
               ? "No microphone was found. Connect one or upload an existing recording below. Your topics and timer are still available."
               : e instanceof DOMException && e.name === "NotReadableError"
@@ -249,7 +270,10 @@ export default function SpeechCoach({
         emit("speech_record_error", { error_code: speechErrorCode(e) });
       }
     } finally {
-      busy.current = false;
+      if (microphoneRequest.current.owns(ticket)) {
+        microphoneRequest.current.finish(ticket);
+        busy.current = false;
+      }
     }
   }
   async function transcribe() {
@@ -422,6 +446,13 @@ export default function SpeechCoach({
       )}
       {["ready", "permission", "recording"].includes(stage) && (
         <div className="rounded-2xl bg-black/20 p-5 sm:p-7">
+          {stage === "ready" && error && <div ref={recordingNotice} tabIndex={-1} role="alert"
+            className="mb-4 rounded-xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm leading-relaxed outline-none">
+            <p>{error}</p>
+            <button type="button" className={`${button} mt-3`} onClick={() => uploadInput.current?.click()}>
+              Choose an audio file
+            </button>
+          </div>}
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <p className="text-sm text-[var(--text-muted)]">
@@ -469,6 +500,12 @@ export default function SpeechCoach({
               )}
             </div>
           </div>
+          {stage === "permission" && <div className="mt-4 space-y-3 text-sm">
+            <p role="status">Choose Allow in your browser’s microphone prompt to record. Nothing is uploaded until you choose “Get my feedback”.</p>
+            <button type="button" className={button} onClick={() => cancelMicrophone("choose_upload")}>
+              Cancel waiting · use an audio file
+            </button>
+          </div>}
           <p className="mt-4 text-sm leading-relaxed text-[var(--text-muted)]">
             {previous?.feedback.drill ? "Record just the part you’re practicing. " : "Start with your point, add an example, then return to your point. "}
             Finish your thought, then stop. Recording ends after two minutes or when you leave this tab.
@@ -599,7 +636,7 @@ export default function SpeechCoach({
             }} />
         </div>
       )}
-      {error && (
+      {error && stage !== "ready" && (
         <p
           role="alert"
           className="rounded-xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm leading-relaxed"

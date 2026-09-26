@@ -44,6 +44,8 @@ Award points only against recorded evidence. Critical incorrect feedback, broken
 
 The observed conversion/retention requirement remains open. No 100-point claim is made from software tests alone.
 
+The September 26 follow-up observed sustained first feedback and completed repeat practice, while paid conversion remained unproven. The next bounded iteration addresses pending/denied microphone recovery; see [the recovery specification and verification boundaries](speech-microphone-recovery-20260926.md). A successful fixture run is not evidence of improved natural conversion.
+
 - Completed mobile UI checks: real focused retry produced a grounded improvement comparison before other content; correcting punctuation regenerated matching feedback without another attempt; history restored the saved correction and showed progress before optional practice; history continuation honored exhausted allowance.
 - Fixture UI checks covered transcription failure/retry, feedback failure/retry without retranscription, optional review before feedback, quota fallback, and separate inaccurate/later reasons. The 390px viewport had no horizontal overflow and the browser warning/error log was empty. All QA events used the `qa_` namespace; both real-model browser attempts were confirmed as QA in the database.
 - Latest local webpack production build, speech/billing suites, TypeScript and focused ESLint checks passed. A previous Turbopack build also passed; after replacing the inherited dependency symlink with a clean installation, the verification harness used its own copied source files to avoid cross-directory development resolution issues.
