@@ -8,6 +8,7 @@ export const CORE_USAGE_STAGES: readonly (readonly [string, string, string])[] =
   ["/spin-the-wheel", "spin_success", "Completed spin with a topic; use this denominator, not generate_success"],
   ...["copy", "save", "share", "copy_error", "save_error", "share_error"].map(action => ["/spin-the-wheel", `post_spin_${action}`, "Action on a completed spin result only; excludes restored selection"] as const),
   ...["open", "start", "copy", "share", "copy_error", "share_error"].map(action => ["/debate", `debate_prep_${action}`, "Explicit preparation action; notes stay in the browser and are not sent to analytics"] as const),
+  ...["open", "start", "copy", "share", "copy_error", "share_error"].map(action => ["/debate/motions", `motion_prep_${action}`, "Preparation of an existing editorial motion; not generation. Notes are not sent to analytics; share does not prove delivery."] as const),
   ...["copy", "save", "share", "copy_error", "save_error", "share_error"].map(action => ["/topics/ethical-dilemma-questions", `ethics_card_${action}`, `Existing discussion card ${action}; not generation. API success does not prove delivery or discussion.`] as const),
   ...["friends", "group", "classroom", "deep"].map(scene => ["/question-generator", `question_scenario_${scene}`, "Clicked a matching existing collection; not destination arrival or successful use"] as const),
   ...["daily", "random", "list"].flatMap(source => ["copy", "save", "share", "copy_error", "save_error", "share_error"].map(action =>
@@ -38,8 +39,9 @@ export function coreUsageRows(rows: (string | number | boolean)[][], period: str
   return CORE_USAGE_STAGES.map(([path, event, definition]) => {
     const row = rows.find(r => r[0] === period && r[3] === path && r[4] === event);
     const count = row ? Number(row[5]) : 0, users = row ? Number(row[6]) : 0;
+    const releaseDate = event.startsWith("motion_prep_") ? "2026-09-26" : "2026-09-22";
     return [period, start, end, path, event, count, users,
-      limited ? "limited_report" : count > 0 ? "received" : end < "2026-09-22" ? "before_release_no_new_signal" : "no_events_in_window",
+      limited ? "limited_report" : count > 0 ? "received" : end < releaseDate ? "before_release_no_new_signal" : "no_events_in_window",
       definition, "Independent event users; do not divide rows into an ordered funnel. New events cannot backfill. QA names excluded."];
   });
 }

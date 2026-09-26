@@ -7,6 +7,7 @@ export function coreUsageEvents(path: string, event: string, params: Params, loc
   const action = ["copy_result", "save_result", "share_result", "copy_error", "save_error", "share_error"].includes(event);
   if (path === "/spin-the-wheel" && params.action_surface === "spin_result" && action) return [`post_spin_${event.replace("_result", "")}`];
   if (path === "/debate" && params.action_surface === "debate_preparation" && action) return [`debate_prep_${event.replace("_result", "")}`];
+  if (path === "/debate/motions" && params.action_surface === "debate_motion_preparation" && action) return [`motion_prep_${event.replace("_result", "")}`];
   const handoffEvents = (["/speech", "/es/speech"].includes(path) && ["handoff_home", "handoff_wheel", "handoff_es_article"].includes(String(params.content_source)) && (action || ["timer_first_start", "timer_complete", "timer_restart"].includes(event))) ? [`${params.content_source}_${event.replace("_result", "")}`] : [];
   if (path === "/topics/ethical-dilemma-questions" && params.action_surface === "ethics_card" && ["copy_result", "save_result", "share_result", "copy_error", "save_error", "share_error"].includes(event)) return [`ethics_card_${event.replace("_result", "")}`];
   const flow = path === "/question-of-the-day" ? "qotd" : path === "/speech" ? "speech" :
