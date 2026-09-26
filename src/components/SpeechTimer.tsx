@@ -1,9 +1,13 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { track } from "@/lib/track";
+import type { Topic } from "@/data/types";
+import { getTimerCoach, noServerTimerCoach, subscribeTimerCoach } from "@/lib/speech/timerPractice";
+import { trackSpeech } from "@/lib/speech/telemetry";
+import SpeechTimerBridge from "./SpeechTimerBridge";
 
 const PRESETS = [
   { label: "1 min", seconds: 60 },
@@ -67,12 +71,14 @@ export default function SpeechTimer({
   contentSource = "speech_hub",
   toastmastersCues = false,
   selfReview = false,
+  practiceTopic,
 }: {
   locale?: Locale;
   defaultSeconds?: number;
   contentSource?: string;
   toastmastersCues?: boolean;
   selfReview?: boolean;
+  practiceTopic?: Topic;
 }) {
   const t = STRINGS[locale] || STRINGS.en;
   const initialSeconds = PRESETS.some((preset) => preset.seconds === defaultSeconds) ? defaultSeconds : 60;
@@ -84,6 +90,9 @@ export default function SpeechTimer({
   const deadline = useRef<number | null>(null);
   const pausedMilliseconds = useRef(initialSeconds * 1000);
   const hasStarted = useRef(false);
+  const coach = useSyncExternalStore(subscribeTimerCoach, () => getTimerCoach(contentSource), noServerTimerCoach);
+  const [roundTopic, setRoundTopic] = useState<Topic | null>(null);
+  const bridgeEnabled = locale === "en" && process.env.NEXT_PUBLIC_SPEECH_COACH_ENABLED === "true";
 
   const complete = useCallback(() => {
     if (deadline.current === null) return;
@@ -98,7 +107,8 @@ export default function SpeechTimer({
       timer_seconds: totalSeconds,
       locale,
     });
-  }, [contentSource, totalSeconds, locale]);
+    if (bridgeEnabled && getTimerCoach(contentSource)) trackSpeech("speech_timer_eligible_complete", { content_source: contentSource });
+  }, [contentSource, totalSeconds, locale, bridgeEnabled]);
 
   useEffect(() => {
     if (!isRunning) return;
@@ -141,6 +151,7 @@ export default function SpeechTimer({
       deadline.current = null;
       setRemaining(Math.ceil(milliseconds / 1000));
     } else {
+      if (!hasStarted.current || restarting) setRoundTopic(practiceTopic ?? getTimerCoach(contentSource)?.topic ?? null);
       if (restarting) pausedMilliseconds.current = totalSeconds * 1000;
       deadline.current = Date.now() + pausedMilliseconds.current;
     }
@@ -160,7 +171,7 @@ export default function SpeechTimer({
       hasStarted.current = true;
     }
     setIsRunning((prev) => !prev);
-  }, [isFinished, isRunning, totalSeconds, locale, contentSource, complete]);
+  }, [isFinished, isRunning, totalSeconds, locale, contentSource, complete, practiceTopic]);
 
   const reset = useCallback(() => {
     deadline.current = null;
@@ -319,6 +330,7 @@ export default function SpeechTimer({
         </div>
       )}
 
+      {isFinished && bridgeEnabled && coach && <SpeechTimerBridge topic={roundTopic} contentSource={contentSource} />}
       {selfReview && locale === "en" && isFinished && <div className="mb-5 rounded-xl border border-[var(--neon-cyan)]/25 p-4">
         <h4 className="text-sm font-semibold">Choose one change, then try again</h4>
         <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">Your own reflection — this timer does not record or assess your speech.</p>

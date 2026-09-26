@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import * as React from "react";
 import ts from "typescript";
+import { load } from "./lib/load-typescript.mjs";
 
 // Run the real component with a controlled clock and delayed browser callbacks.
 const require = createRequire(import.meta.url);
@@ -18,6 +19,7 @@ const react = {
   },
   useRef(initial) { const i = cursor++; return state[i] ??= { current: initial }; },
   useCallback(fn) { return fn; },
+  useSyncExternalStore(_subscribe, snapshot) { return snapshot(); },
   useEffect(fn, deps) {
     const i = cursor++;
     if (changed(effects[i]?.deps, deps)) pending.push(() => {
@@ -34,6 +36,9 @@ new Function("require", "module", "exports", "Date", "setInterval", "clearInterv
   if (id === "react") return react;
   if (id === "@/i18n/config") return { defaultLocale: "en" };
   if (id === "@/lib/track") return { track: (name, params) => events.push({ name, params }) };
+  if (id === "@/lib/speech/timerPractice") return load("src/lib/speech/timerPractice.ts");
+  if (id === "@/lib/speech/telemetry") return { trackSpeech: (name, params) => events.push({ name, params }) };
+  if (id === "./SpeechTimerBridge") return { default: () => null, __esModule: true };
   if (id === "framer-motion") return { motion: new Proxy({}, { get: (_, key) => key }), AnimatePresence: "fragment" };
   return require(id);
 }, target, target.exports, { now: () => now }, (fn) => { intervals.set(++serial, fn); return serial; }, (id) => intervals.delete(id), {

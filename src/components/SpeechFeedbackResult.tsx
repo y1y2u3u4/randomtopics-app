@@ -14,9 +14,10 @@ export type SpeechResult = {
   correctionsRemaining?: number;
 };
 const button = "min-h-11 rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--neon-cyan)]";
-export default function SpeechFeedbackResult({ result, repeated, visible, contentSource, onRetry, onCorrect }: {
+export default function SpeechFeedbackResult({ result, repeated, visible, contentSource, onRetry, onCorrect, fromTimer = false }: {
   result: SpeechResult; repeated: boolean; visible: boolean; contentSource: string;
   onRetry: () => void; onCorrect: () => void;
+  fromTimer?: boolean;
 }) {
   const [helpful, setHelpful] = useState<boolean | null>(null);
   const [reason, setReason] = useState("");
@@ -38,9 +39,10 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
       trackSpeech(repeated ? "speech_retry_feedback_view" : "speech_first_feedback_view", props);
       trackSpeech("speech_feedback_v5_view", props);
       trackSpeech(repeated ? "speech_retry_feedback_v5_view" : "speech_first_feedback_v5_view", props);
+      if (fromTimer) trackSpeech(repeated ? "speech_timer_retry_view" : "speech_timer_feedback_view", props);
       if (repeated) trackSpeech("speech_comparison_view", { ...props, outcome: f.comparison.outcome });
     });
-  }, [visible, contentSource, attempt, repeated, f.comparison.outcome]);
+  }, [visible, contentSource, attempt, repeated, f.comparison.outcome, fromTimer]);
   useEffect(() => {
     if (!visible || !retry.current || retryViewed.current) return;
     return observeVisibleAction(retry.current, () => {

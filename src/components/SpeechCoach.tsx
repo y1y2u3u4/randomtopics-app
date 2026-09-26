@@ -33,6 +33,7 @@ export default function SpeechCoach({
   contentSource,
   visible,
   initialPrevious,
+  fromTimer = false,
 }: {
   topic: Topic;
   topics: Topic[];
@@ -40,6 +41,7 @@ export default function SpeechCoach({
   contentSource: string;
   visible: boolean;
   initialPrevious?: SpeechResult;
+  fromTimer?: boolean;
 }) {
   const [stage, setStage] = useState<Stage>("ready");
   const [seconds, setSeconds] = useState(0);
@@ -122,13 +124,24 @@ export default function SpeechCoach({
   const emit = (
     event: SpeechEvent,
     extra: Partial<Parameters<typeof trackSpeech>[1]> = {},
-  ) =>
-    trackSpeech(event, {
+  ) => {
+    const properties = {
       content_source: contentSource,
       attempt: previous ? 2 : 1,
       input_method: inputMethod.current,
       ...extra,
-    });
+    };
+    trackSpeech(event, properties);
+    if (fromTimer && !previous) {
+      const derived = {
+        speech_first_attempt_start: "speech_timer_attempt_start",
+        speech_audio_ready: "speech_timer_audio_ready",
+        speech_feedback_v5_request: "speech_timer_submit",
+      } as const;
+      const timerEvent = derived[event as keyof typeof derived];
+      if (timerEvent) trackSpeech(timerEvent, properties);
+    }
+  };
   function beginAttempt() {
     if (beganAttempt.current) return;
     beganAttempt.current = true;
@@ -635,7 +648,7 @@ export default function SpeechCoach({
       )}
       {stage === "complete" && result && (
         <div ref={resultPanel}>
-          <SpeechFeedbackResult key={`${result.id}-${result.correctionsRemaining}`} result={result} repeated={Boolean(previous)} visible={visible} contentSource={contentSource}
+          <SpeechFeedbackResult key={`${result.id}-${result.correctionsRemaining}`} result={result} repeated={Boolean(previous)} visible={visible} contentSource={contentSource} fromTimer={fromTimer}
             onRetry={() => {
               emit("speech_retry_start", { attempt: 2 });
               beganAttempt.current = false;
