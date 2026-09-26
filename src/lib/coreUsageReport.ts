@@ -17,6 +17,10 @@ export const CORE_USAGE_STAGES: readonly (readonly [string, string, string])[] =
     [qotd, `qotd_${source}_${action}`, `${source}: ${action}; success only after browser API succeeds; errors separate`] as const)),
   [qotd, "qotd_usage_visit", "Page-view event; not a unique visit or action-bar exposure"],
   [qotd, "qotd_list_open", "Explicitly expanded an existing list question's actions; not generation or viewport exposure"],
+  [qotd, "qotd_list_copy_view_v2", "Direct copy button >=50% visible for one continuous focused foreground second, once per mounted question; not page load or click"],
+  [qotd, "qotd_list_copy_click_v2", "Explicit direct-copy request; may precede a qualified exposure and does not imply success"],
+  [qotd, "qotd_list_quick_copy_v2", "Direct list-copy API/fallback success; subset of qotd_list_copy, not generation or proof of use"],
+  [qotd, "qotd_list_quick_copy_error_v2", "Direct list-copy failed; manual recovery displayed but not counted as a successful copy"],
   [qotd, "qotd_return_after_use", "Same browser after successful copy/save/share, >=30min tracked inactivity, within 30 days; not D1/D7 cohort retention"],
   [speech, "timer_first_start", "First start since reset, preset change or topic mount; pause resume excluded"],
   [speech, "timer_complete", "Timer deadline reached; not proof the user spoke"],
@@ -41,7 +45,7 @@ export function coreUsageRows(rows: (string | number | boolean)[][], period: str
   return CORE_USAGE_STAGES.map(([path, event, definition]) => {
     const row = rows.find(r => r[0] === period && r[3] === path && r[4] === event);
     const count = row ? Number(row[5]) : 0, users = row ? Number(row[6]) : 0;
-    const releaseDate = event.startsWith("motion_prep_") || event.startsWith("bank_") ? "2026-09-26" : "2026-09-22";
+    const releaseDate = event.startsWith("motion_prep_") || event.startsWith("bank_") || (event.startsWith("qotd_list_") && event.endsWith("_v2")) ? "2026-09-26" : "2026-09-22";
     return [period, start, end, path, event, count, users,
       limited ? "limited_report" : count > 0 ? "received" : end < releaseDate ? "before_release_no_new_signal" : "no_events_in_window",
       definition, "Independent event users; do not divide rows into an ordered funnel. New events cannot backfill. QA names excluded."];
