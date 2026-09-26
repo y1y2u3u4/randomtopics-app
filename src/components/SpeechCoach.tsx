@@ -9,6 +9,7 @@ import { SPEECH_EXPOSURE_VERSION, speechEntrySource } from "@/lib/speech/exposur
 import { recordingToWav } from "@/lib/speech/audio";
 import { observeVisibleAction } from "@/lib/speech/visibleAction";
 import { MicrophoneRequest } from "@/lib/speech/microphoneRequest";
+import SpeechPlanLink from "./SpeechPlanLink";
 import SpeechFeedbackResult, { type SpeechResult } from "./SpeechFeedbackResult";
 
 type Stage =
@@ -541,7 +542,7 @@ export default function SpeechCoach({
             We save your transcript and feedback privately, not the audio. <Link href="/privacy" className="underline">Privacy details</Link>
           </p>}
           <div className="flex flex-wrap gap-2">
-            {quotaHit ? <Link href="/speech/account#speech-plan" className={`${primary} w-full text-center sm:w-auto`}>View allowance and practice plan</Link> :
+            {quotaHit ? <SpeechPlanLink surface="quota" visible={visible} attempt={previous ? 2 : 1} contentSource={contentSource} href="/speech/account#speech-plan" className={`${primary} w-full text-center sm:w-auto`}>View allowance and practice plan</SpeechPlanLink> :
               <button ref={feedbackButton} type="button" className={`${primary} w-full sm:w-auto`} onClick={transcribe}>Get my feedback</button>}
             <button type="button" className={button} onClick={reset}>Record again</button>
           </div>
