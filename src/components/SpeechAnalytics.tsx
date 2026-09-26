@@ -95,6 +95,16 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
         {!keys.length && <p className="mt-3 text-sm">暂无正式流量数据。</p>}
       </details>;
     })}
+    <details className="glass-card p-5" open><summary className="font-semibold">付费前的选择 · 新套餐说明</summary>
+      <p className="mt-2 text-xs text-[var(--text-muted)]">卡片曝光与可点击按钮曝光分开。新版事件从发布后开始；点击不补造曝光。下面均为独立事件次数，不能相加当人数。可选原因不是离开页面的推断，未回答保持未知。</p>
+      <ul className="mt-3 space-y-2 text-sm">{[
+        ["speech_plan_v2_view", "套餐卡曝光"], ["speech_plan_v2_action_view", "套餐按钮曝光"], ["speech_plan_v2_click", "套餐按钮点击"],
+        ["speech_plan_hint_action_view", "精简价格链接曝光"], ["speech_quota_plan_view", "额度套餐链接曝光"], ["speech_quota_plan_click", "额度套餐链接点击"],
+        ["speech_plan_reason_view", "原因问题曝光"], ["speech_plan_reason_select", "主动回答原因"],
+        ["speech_plan_reason_once", "只需要这次练习"], ["speech_plan_reason_value", "还需要看到更多帮助"],
+        ["speech_plan_reason_subscription", "不想订阅"], ["speech_plan_reason_price", "价格不合适"], ["speech_plan_reason_later", "可能稍后练习"],
+      ].map(([event, label]) => <li key={event}>{label}：{count(event)} 次</li>)}</ul>
+    </details>
     <details className="glass-card p-5" open><summary className="font-semibold">用户主动选择的原因 · 非离开页面推断</summary>
       <p className="mt-2 text-xs text-[var(--text-muted)]">可选回答；未作答不代表满意、不满意或已完成目的。每项独立计数。</p>
       <ul className="mt-3 space-y-2 text-sm">{[
