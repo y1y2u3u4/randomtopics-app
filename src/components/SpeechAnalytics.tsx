@@ -95,6 +95,20 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
         {!keys.length && <p className="mt-3 text-sm">暂无正式流量数据。</p>}
       </details>;
     })}
+    <details className="glass-card p-5" open><summary className="font-semibold">计时结束 → 下一轮录音反馈</summary>
+      <p className="mt-2 text-xs text-[var(--text-muted)]">仅统计当前页已连接反馈面板的英文计时器，不等同于全站 timer_complete。原计时没有录音；点击只打开面板，下一次明确操作才申请麦克风或选择文件。恢复已有练习与新建练习分开；新来源事件不会给已开始的旧练习补标。新事件从发布起记录，尚未收到不等于无人看到。</p>
+      <ul className="mt-3 space-y-2 text-sm">{[
+        ["speech_timer_eligible_complete", "支持反馈入口的计时完成"], ["speech_timer_bridge_view", "按钮有效曝光"],
+        ["speech_timer_bridge_click", "点击按钮"], ["speech_timer_coach_open", "创建新练习"],
+        ["speech_timer_practice_resume", "恢复已有练习"], ["speech_timer_topic_conflict", "需选择保留哪个话题"],
+        ["speech_timer_attempt_start", "新练习开始"], ["speech_timer_audio_ready", "音频准备完成"],
+        ["speech_timer_submit", "主动提交"], ["speech_timer_feedback_view", "首份反馈可见"], ["speech_timer_retry_view", "重练反馈可见"],
+      ].map(([event, label]) => <li key={event}>{label}：{count(event)} 次</li>)}</ul>
+      <p className="mt-3 text-xs text-[var(--text-muted)]">下面为各事件独立用户数，不直接相除当作有序转化率；上方计时专属漏斗按顺序计算。GA4 用户漏斗不保证同一录音，窗口内可跨会话。</p>
+      <div className="overflow-x-auto"><table className="mt-3 w-full min-w-[520px] text-left text-sm"><thead><tr>{["设备", "入口曝光", "点击", "新练习开始", "首份反馈"].map(label => <th key={label}>{label}</th>)}</tr></thead>
+        <tbody>{[...new Set(report.devices.filter(row => row.event.startsWith("speech_timer_")).map(row => row.device))].map(device => <tr key={device}><td>{device}</td>{["speech_timer_bridge_view", "speech_timer_bridge_click", "speech_timer_attempt_start", "speech_timer_feedback_view"].map(event => <td key={event}>{number.format(report.devices.find(row => row.device === device && row.event === event)?.users ?? 0)}</td>)}</tr>)}</tbody>
+      </table></div>
+    </details>
     <details className="glass-card p-5" open><summary className="font-semibold">首次开始前 · 场景与疑问</summary>
       <p className="mt-2 text-xs text-[var(--text-muted)]">首练新说明事件从发布起记录。开始包含点击录音或选择文件，不代表麦克风已授权、文件有效或已经提交。快速开始不会补造按钮曝光；设备表是独立人数，不能相除替代有序漏斗。原因仅来自主动回答，未回答保持未知；回答后仍能练习。</p>
       <ul className="mt-3 space-y-2 text-sm">{[

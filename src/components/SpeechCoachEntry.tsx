@@ -1,10 +1,11 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import type { Topic } from "@/data/types";
 import { trackSpeech } from "@/lib/speech/telemetry";
 import { track } from "@/lib/track";
 import { observeVisibleAction, observeVisibleContent } from "@/lib/speech/visibleAction";
+import { registerTimerCoach } from "@/lib/speech/timerPractice";
 
 const Coach = dynamic(() => import("./SpeechCoach"), {
   loading: () => <p role="status" className="p-4">Opening your practice…</p>,
@@ -23,6 +24,11 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
   const [exampleOpen, setExampleOpen] = useState(false);
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState("");
+  const [practiceVersion, setPracticeVersion] = useState(0);
+  const [fromTimer, setFromTimer] = useState(false);
+  const [timerTopic, setTimerTopic] = useState<Topic | null>(null);
+  const timerPending = useRef<Topic | null>(null);
+  const timerChoice = useRef<HTMLDivElement>(null);
   const primary = useRef<HTMLButtonElement>(null);
   const preview = useRef<HTMLDivElement>(null);
   const previewSeen = useRef(false);
@@ -39,6 +45,45 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
   const busy = starting || loadingTopics;
   const firstTopicId = topics[0]?.id;
   const inlineActions = Boolean(renderFirstTopic);
+  const openTimerTopic = useCallback((chosen: Topic) => {
+    setTopic(chosen);
+    setPracticeVersion(version => version + 1);
+    setFromTimer(true);
+    setOpen(true);
+    setExampleOpen(false);
+    setError("");
+    setTimerTopic(null);
+    timerPending.current = null;
+    trackSpeech("speech_timer_coach_open", { content_source: contentSource });
+    trackSpeech(opened.current ? "speech_coach_return" : "speech_coach_open", { content_source: contentSource });
+    opened.current = true;
+  }, [contentSource]);
+  useEffect(() => {
+    if (!enabled) return;
+    return registerTimerCoach(contentSource, {
+      topic: topics[0], available: !busy,
+      open(chosen) {
+        if (pending.current || busy) return false;
+        if (!topic) openTimerTopic(chosen);
+        else if (topic.id === chosen.id && topic.text === chosen.text) {
+          setOpen(true);
+          trackSpeech("speech_timer_practice_resume", { content_source: contentSource });
+          requestAnimationFrame(() => panel.current?.scrollIntoView({ block: "start", behavior: "instant" }));
+        } else {
+          timerPending.current = chosen;
+          setTimerTopic(chosen);
+          setOpen(true);
+          trackSpeech("speech_timer_topic_conflict", { content_source: contentSource });
+        }
+        return true;
+      },
+    });
+  }, [enabled, busy, contentSource, topics, topic, openTimerTopic]);
+  useEffect(() => {
+    if (!timerTopic) return;
+    timerChoice.current?.focus({ preventScroll: true });
+    timerChoice.current?.scrollIntoView({ block: "center", behavior: "instant" });
+  }, [timerTopic]);
   useEffect(() => {
     if (!enabled || landed.current) return;
     landed.current = true;
@@ -171,7 +216,22 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
         </button>}
       </div>}
       {topic && <div ref={panel} id={`${id}-practice`} hidden={!open} tabIndex={-1} className="outline-none">
-        <Coach topic={topic} topics={topics} onTopicChange={setTopic} contentSource={contentSource} visible={open} />
+        {timerTopic && <div ref={timerChoice} role="region" aria-label="Choose which practice to keep" tabIndex={-1} className="mt-4 space-y-3 rounded-xl border border-amber-300/30 p-4">
+          <p className="font-semibold">A different practice is already open.</p>
+          <p data-clarity-mask="true" className="text-sm">Timer topic: {timerTopic.text}</p>
+          <p className="text-sm">Continue your current practice, or replace it with this topic. Replacing discards any unsent recording in this panel; saved feedback stays in your history.</p>
+          <div className="flex flex-wrap gap-3">
+            <button type="button" className="min-h-11 rounded-xl border border-white/25 px-4 py-2" onClick={() => {
+              timerPending.current = null; setTimerTopic(null);
+              trackSpeech("speech_timer_practice_resume", { content_source: contentSource });
+            }}>Keep current practice</button>
+            <button type="button" className="min-h-11 rounded-xl border border-white/25 px-4 py-2" onClick={() => {
+              const chosen = timerPending.current;
+              if (chosen) openTimerTopic(chosen);
+            }}>Replace with timer topic</button>
+          </div>
+        </div>}
+        <Coach key={practiceVersion} topic={topic} topics={topics} onTopicChange={setTopic} contentSource={contentSource} visible={open} fromTimer={fromTimer} />
       </div>}
     </section>
   );

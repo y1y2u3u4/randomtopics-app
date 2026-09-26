@@ -35,7 +35,7 @@ function PracticeRound({ topic, contentSource, draft, onNoteChange }: {
     <div>
       {topic && <p className="mb-5 text-lg font-semibold text-[var(--text-primary)]" data-practice-prompt>{topic.text}</p>}
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]">
-      <div className="lg:order-last"><SpeechTimer contentSource={contentSource} selfReview /></div>
+      <div className="lg:order-last"><SpeechTimer contentSource={contentSource} practiceTopic={topic} selfReview /></div>
       {topic ? (
         <div className="min-w-0">
 
