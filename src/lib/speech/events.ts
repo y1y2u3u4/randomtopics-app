@@ -25,6 +25,7 @@ export const SPEECH_EVENTS = [
   "speech_record_controls_view", "speech_upload_open", "speech_upload_cancel",
   "speech_first_attempt_start", "speech_retry_attempt_start",
   "speech_record_request", "speech_record_start", "speech_record_complete",
+  "speech_permission_cancel",
   "speech_record_error", "speech_audio_selected", "speech_audio_ready",
   "speech_transcribe_start", "speech_transcript_ready", "speech_transcribe_error",
   "speech_feedback_start", "speech_feedback_ready", "speech_feedback_view", "speech_feedback_error",
@@ -65,6 +66,7 @@ export const SPEECH_JOURNEY_STAGES = [
   ["录音操作可见一秒", "speech_record_controls_view"],
   ["点击选择文件", "speech_upload_open"], ["取消选择文件", "speech_upload_cancel"],
   ["开始首次尝试", "speech_first_attempt_start"], ["请求麦克风", "speech_record_request"],
+  ["取消等待麦克风授权", "speech_permission_cancel"],
   ["录音开始", "speech_record_start"], ["录音完成", "speech_record_complete"], ["录音或文件失败", "speech_record_error"],
   ["选中有效文件", "speech_audio_selected"], ["音频准备完成", "speech_audio_ready"],
   ["请求转写", "speech_transcribe_start"], ["转写完成", "speech_transcript_ready"], ["转写失败", "speech_transcribe_error"],
@@ -89,6 +91,14 @@ export const SPEECH_FUNNELS = [
   ] },
   { key: "navigation_discovery", title: "导航 · 发现反馈功能 → 练习", steps: [
     ["导航入口可见", "speech_nav_view"], ["点击导航", "speech_nav_click"], ["点击练习", "speech_entry_expanded_click"],
+  ] },
+  { key: "permission_recovery", title: "麦克风权限拒绝 → 恢复练习", steps: [
+    ["麦克风权限被拒绝", "speech_issue_permission_denied"], ["音频准备完成", "speech_audio_ready"],
+    ["提交转写", "speech_transcribe_start"], ["反馈可见", "speech_feedback_v5_view"],
+  ] },
+  { key: "permission_cancel_recovery", title: "取消等待麦克风 → 恢复练习", steps: [
+    ["取消等待授权", "speech_permission_cancel"], ["音频准备完成", "speech_audio_ready"],
+    ["提交转写", "speech_transcribe_start"], ["反馈可见", "speech_feedback_v5_view"],
   ] },
   { key: "price_hint", title: "精简价格提示 → 套餐 → 结账", steps: [
     ["价格提示可见", "speech_plan_hint_view"], ["点击价格提示", "speech_plan_hint_click"],
