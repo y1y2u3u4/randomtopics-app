@@ -119,3 +119,5 @@ await import("./charades-regression.mjs");
 await import("./qotd-return-regression.mjs");
 
 await import("./core-usage-regression.mjs");
+
+await import("./question-bank-copy-regression.mjs");
