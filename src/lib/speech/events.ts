@@ -11,6 +11,11 @@ export const SPEECH_PLAN_REASON_EVENTS = {
   later: "speech_plan_reason_later",
 } as const;
 export type SpeechPlanReason = keyof typeof SPEECH_PLAN_REASON_EVENTS;
+export const SPEECH_START_REASON_EVENTS = {
+  busy: "speech_start_reason_busy", unsure: "speech_start_reason_unsure",
+  privacy: "speech_start_reason_privacy", exploring: "speech_start_reason_exploring",
+} as const;
+export type SpeechStartReason = keyof typeof SPEECH_START_REASON_EVENTS;
 export const SPEECH_ISSUE_CODES = ["quota", "daily_limit", "insufficient_speech", "session", "conflict", "service", "invalid_audio_or_text", "permission_denied", "no_device", "device_busy", "client_or_network", "recording_interrupted", "empty_audio", "invalid_file_size"] as const;
 export const SPEECH_ENTRY_EVENTS = [
   "speech_entry_expanded_page", "speech_entry_expanded_view", "speech_entry_expanded_click",
@@ -21,6 +26,8 @@ export const SPEECH_ENTRY_EVENTS = [
   "speech_entry_v4_page", "speech_entry_v4_view", "speech_entry_v4_click", "speech_coach_v4_open", "speech_entry_v4_example_view",
 ] as const;
 export const SPEECH_EVENTS = [
+  "speech_start_v2_view", "speech_start_v2_begin",
+  "speech_start_reason_view", "speech_start_reason_select", ...Object.values(SPEECH_START_REASON_EVENTS),
   "speech_plan_hint_view", "speech_checkout_offer_v2_view",
   "speech_plan_v2_view", "speech_plan_v2_action_view", "speech_plan_v2_click",
   "speech_plan_hint_action_view", "speech_quota_plan_view", "speech_quota_plan_click",
@@ -58,6 +65,8 @@ export const SPEECH_EVENTS = [
 export type SpeechEvent = typeof SPEECH_EVENTS[number];
 // Independent event counts, not an ordered or user-deduplicated funnel.
 export const SPEECH_JOURNEY_STAGES = [
+  ["首练新说明 · 开始按钮可见", "speech_start_v2_view"], ["首练新说明 · 开始尝试", "speech_start_v2_begin"],
+  ["首练可选原因问题曝光", "speech_start_reason_view"], ["首练主动回答原因", "speech_start_reason_select"],
   ["下一次练习套餐卡可见", "speech_plan_v2_view"], ["套餐按钮有效曝光", "speech_plan_v2_action_view"], ["点击下一次练习套餐", "speech_plan_v2_click"],
   ["精简价格链接有效曝光", "speech_plan_hint_action_view"], ["额度限制后的套餐链接曝光", "speech_quota_plan_view"], ["额度限制后的套餐链接点击", "speech_quota_plan_click"],
   ["不继续原因问题可见", "speech_plan_reason_view"], ["主动选择不继续原因", "speech_plan_reason_select"],
@@ -97,6 +106,15 @@ export const SPEECH_JOURNEY_STAGES = [
   ["返回网站并确认实付", "speech_payment_confirmed"],
 ] as const satisfies readonly (readonly [string, SpeechEvent])[];
 export const SPEECH_FUNNELS = [
+  { key: "start_v2", title: "首练新说明 · 操作可见 → 首份反馈", steps: [
+    ["开始按钮可见一秒", "speech_start_v2_view"], ["开始录音或选文件", "speech_start_v2_begin"],
+    ["音频准备完成", "speech_audio_ready"], ["主动提交反馈", "speech_feedback_v5_request"],
+    ["首份反馈可见", "speech_first_feedback_v5_view"],
+  ] },
+  { key: "start_reason", title: "首练可选原因 · 曝光 → 回答 → 开始", steps: [
+    ["原因问题可见", "speech_start_reason_view"], ["主动回答原因", "speech_start_reason_select"],
+    ["开始录音或选文件", "speech_start_v2_begin"],
+  ] },
   { key: "plan_action_v2", title: "下一次练习 · 套餐按钮 → 订阅 → 实付确认", steps: [
     ["套餐按钮有效可见", "speech_plan_v2_action_view"], ["点击套餐", "speech_plan_v2_click"],
     ["账号套餐可见", "speech_checkout_offer_v2_view"], ["点击订阅", "speech_checkout_start"],
