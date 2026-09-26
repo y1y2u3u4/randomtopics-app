@@ -10,8 +10,8 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
   const count = (event: string) => report.events.find((r) => r.eventName === event)?.eventCount ?? 0;
   const yes = count("speech_feedback_yes");
   const no = count("speech_feedback_no");
-  const breakdownEvents = ["speech_entry_v5_view", "speech_entry_v5_click", "speech_first_feedback_v5_view", "speech_retry_feedback_v5_view", "speech_checkout_redirect", "speech_payment_confirmed"];
-  const labels = ["v5 入口有效曝光", "练习点击", "首次反馈人数", "重练反馈人数", "结账跳转人数", "网站收到实付确认人数"];
+  const breakdownEvents = ["speech_entry_v5_view", "speech_entry_v5_click", "speech_start_v2_view", "speech_start_v2_begin", "speech_first_feedback_v5_view", "speech_retry_feedback_v5_view", "speech_checkout_redirect", "speech_payment_confirmed"];
+  const labels = ["v5 入口有效曝光", "练习点击", "首练新按钮曝光", "首练新说明后开始", "首次反馈人数", "重练反馈人数", "结账跳转人数", "网站收到实付确认人数"];
   const hours = [...new Set(report.hourly.rows.filter(row => row.event.includes("_v5_")).map(row => row.hour))];
   const curveEvents = ["speech_entry_v5_page", "speech_entry_v5_view", "speech_entry_v5_click"];
   const exposureColumns = [
@@ -95,6 +95,15 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
         {!keys.length && <p className="mt-3 text-sm">暂无正式流量数据。</p>}
       </details>;
     })}
+    <details className="glass-card p-5" open><summary className="font-semibold">首次开始前 · 场景与疑问</summary>
+      <p className="mt-2 text-xs text-[var(--text-muted)]">首练新说明事件从发布起记录。开始包含点击录音或选择文件，不代表麦克风已授权、文件有效或已经提交。快速开始不会补造按钮曝光；设备表是独立人数，不能相除替代有序漏斗。原因仅来自主动回答，未回答保持未知；回答后仍能练习。</p>
+      <ul className="mt-3 space-y-2 text-sm">{[
+        ["speech_start_v2_view", "首练开始按钮有效曝光"], ["speech_start_v2_begin", "开始首次尝试"],
+        ["speech_start_reason_view", "可选原因问题曝光"], ["speech_start_reason_select", "主动回答原因"],
+        ["speech_start_reason_busy", "现在不方便说话"], ["speech_start_reason_unsure", "不知道说什么"],
+        ["speech_start_reason_privacy", "担心音频隐私"], ["speech_start_reason_exploring", "只是了解功能"],
+      ].map(([event, label]) => <li key={event}>{label}：{count(event)} 次</li>)}</ul>
+    </details>
     <details className="glass-card p-5" open><summary className="font-semibold">付费前的选择 · 新套餐说明</summary>
       <p className="mt-2 text-xs text-[var(--text-muted)]">卡片曝光与可点击按钮曝光分开。新版事件从发布后开始；点击不补造曝光。下面均为独立事件次数，不能相加当人数。可选原因不是离开页面的推断，未回答保持未知。</p>
       <ul className="mt-3 space-y-2 text-sm">{[

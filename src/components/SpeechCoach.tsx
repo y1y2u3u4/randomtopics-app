@@ -10,6 +10,7 @@ import { recordingToWav } from "@/lib/speech/audio";
 import { observeVisibleAction } from "@/lib/speech/visibleAction";
 import { MicrophoneRequest } from "@/lib/speech/microphoneRequest";
 import SpeechPlanLink from "./SpeechPlanLink";
+import SpeechStartReasons from "./SpeechStartReasons";
 import SpeechFeedbackResult, { type SpeechResult } from "./SpeechFeedbackResult";
 
 type Stage =
@@ -99,6 +100,7 @@ export default function SpeechCoach({
     return observeVisibleAction(recordButton.current, () => {
       seenControls.current.add(attempt);
       trackSpeech("speech_record_controls_view", { content_source: contentSource, attempt });
+      if (!previous) trackSpeech("speech_start_v2_view", { content_source: contentSource, attempt: 1 });
     });
   }, [visible, stage, previous, contentSource]);
   useEffect(() => {
@@ -131,6 +133,7 @@ export default function SpeechCoach({
     if (beganAttempt.current) return;
     beganAttempt.current = true;
     emit(previous ? "speech_retry_attempt_start" : "speech_first_attempt_start");
+    if (!previous) emit("speech_start_v2_begin");
   }
   const stop = () => {
     if (recorder.current?.state === "recording") recorder.current.stop();
@@ -454,8 +457,13 @@ export default function SpeechCoach({
               Choose an audio file
             </button>
           </div>}
+          {stage === "ready" && !previous && <div className="mb-4 space-y-2 text-sm leading-relaxed">
+            <p className="font-semibold">Say your point, then give one example.</p>
+            <p className="text-[var(--text-muted)]">A minute is a guide, not a minimum. Stop when you finish your thought.</p>
+            <p className="text-[var(--text-muted)]">Audio stays on this page until you choose “Get my feedback”.</p>
+          </div>}
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <div>
+            {(stage !== "ready" || previous) && <div>
               <p className="text-sm text-[var(--text-muted)]">
                 {stage === "recording"
                   ? "Recording · microphone on"
@@ -465,11 +473,11 @@ export default function SpeechCoach({
                 {String(Math.floor(seconds / 60)).padStart(2, "0")}:
                 {String(seconds % 60).padStart(2, "0")}
               </p>
-            </div>
+            </div>}
             <div className="flex flex-wrap gap-2">
               {stage === "ready" && (
                 <label className="text-sm">
-                  Aim for
+                  {previous ? "Aim for" : "Optional goal"}
                   <select
                     aria-label="Recording time"
                     value={target}
@@ -508,8 +516,8 @@ export default function SpeechCoach({
             </button>
           </div>}
           <p className="mt-4 text-sm leading-relaxed text-[var(--text-muted)]">
-            {previous?.feedback.drill ? "Record just the part you’re practicing. " : "Start with your point, add an example, then return to your point. "}
-            Finish your thought, then stop. Recording ends after two minutes or when you leave this tab.
+            {stage === "ready" && !previous ? "" : previous?.feedback.drill ? "Record just the part you’re practicing. Finish your thought, then stop. " : "Start with your point, add an example, then return to your point. Finish your thought, then stop. "}
+            Recording ends after two minutes or when you leave this tab.
           </p>
           {stage === "recording" && seconds >= target && <p role="status" className="mt-2 text-sm text-[var(--neon-cyan)]">You’ve reached your practice target. Finish your sentence, then stop.</p>}
         </div>
@@ -533,6 +541,9 @@ export default function SpeechCoach({
             }}
           />
         </label>
+      )}
+      {stage === "ready" && !previous && !beganAttempt.current && (
+        <SpeechStartReasons visible={visible} contentSource={contentSource} />
       )}
       {stage === "recorded" && (
         <div className="space-y-3 rounded-xl border border-[var(--neon-cyan)]/30 p-4">
