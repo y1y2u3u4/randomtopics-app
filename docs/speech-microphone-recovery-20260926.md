@@ -23,7 +23,7 @@ The speech and billing regression suites, TypeScript, focused ESLint and whitesp
 ## Measurement and remaining acceptance
 
 - `speech_permission_cancel` records only a closed reason: `choose_upload`, `panel_hidden` or `tab_hidden`. QA uses the existing `qa_` namespace.
-- `permission_recovery` is an ordered funnel from permission denial through audio ready and submission to first feedback visible. The existing denial event permits a historical baseline.
+- `permission_recovery` is an ordered funnel from permission denial through audio ready and submission to feedback visible, including both first attempts and retries. The existing denial event permits a historical baseline.
 - `permission_cancel_recovery` starts with the new cancellation event. Before release, this event was unavailable; its absence is not a historical zero.
 - Compare Beijing-aligned windows around the actual production release, with independent event counts separate from ordered users. Report sampling/threshold flags. Do not add overlapping error/cancellation populations.
 - [ ] Natural users recover from refusal or cancellation and reach feedback after this release.

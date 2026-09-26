@@ -94,11 +94,11 @@ export const SPEECH_FUNNELS = [
   ] },
   { key: "permission_recovery", title: "麦克风权限拒绝 → 恢复练习", steps: [
     ["麦克风权限被拒绝", "speech_issue_permission_denied"], ["音频准备完成", "speech_audio_ready"],
-    ["提交转写", "speech_transcribe_start"], ["首次反馈可见", "speech_first_feedback_v5_view"],
+    ["提交转写", "speech_transcribe_start"], ["反馈可见", "speech_feedback_v5_view"],
   ] },
   { key: "permission_cancel_recovery", title: "取消等待麦克风 → 恢复练习", steps: [
     ["取消等待授权", "speech_permission_cancel"], ["音频准备完成", "speech_audio_ready"],
-    ["提交转写", "speech_transcribe_start"], ["首次反馈可见", "speech_first_feedback_v5_view"],
+    ["提交转写", "speech_transcribe_start"], ["反馈可见", "speech_feedback_v5_view"],
   ] },
   { key: "price_hint", title: "精简价格提示 → 套餐 → 结账", steps: [
     ["价格提示可见", "speech_plan_hint_view"], ["点击价格提示", "speech_plan_hint_click"],
