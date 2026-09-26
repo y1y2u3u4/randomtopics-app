@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useRef, useState } from "react";
 import { track } from "@/lib/track";
+import { copyText } from "@/lib/clipboard";
 
 // Full browsable question bank for the party-game pages. The curated decks
 // used to live only inside the client generator — invisible as page content.
@@ -16,30 +17,35 @@ interface QuestionBankProps {
 }
 
 export default function QuestionBank({ questions, heading, intro }: QuestionBankProps) {
-  const [copiedAll, setCopiedAll] = useState(false);
-  const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
-
-  const copyAll = async () => {
+  const [result, setResult] = useState<{ index: number | null; text: string; success: boolean } | null>(null);
+  const [pending, setPending] = useState(false);
+  const copying = useRef(false);
+  const fallbackId = useId();
+  const copy = async (index: number | null) => {
+    if (copying.current) return;
+    copying.current = true;
+    setPending(true);
+    setResult(null);
+    const text = index === null ? questions.map((q, i) => `${i + 1}. ${q}`).join("\n") : questions[index];
+    let success = false;
     try {
-      await navigator.clipboard.writeText(questions.map((q, i) => `${i + 1}. ${q}`).join("\n"));
-      track("copy_deck", { deck: heading, deck_size: questions.length });
-      setCopiedAll(true);
-      setTimeout(() => setCopiedAll(false), 1800);
-    } catch {
-      /* clipboard unavailable */
+      success = await copyText(text);
+    } catch { /* Preserve manual access even if a browser API fails unexpectedly. */ }
+    finally {
+      copying.current = false;
+      setPending(false);
     }
+    setResult({ index, text, success });
+    const params = { content_source: "question_bank", copy_scope: index === null ? "deck" : "question", deck_size: questions.length };
+    track(`bank_${index === null ? "deck" : "question"}_copy${success ? "" : "_error"}`, params);
+    // Keep the historical successful-action series; manual selection is not success.
+    if (success) track(index === null ? "copy_deck" : "copy_question", { deck: heading, deck_size: questions.length });
   };
-
-  const copyOne = async (q: string, i: number) => {
-    try {
-      await navigator.clipboard.writeText(q);
-      track("copy_question", { deck: heading });
-      setCopiedIdx(i);
-      setTimeout(() => setCopiedIdx(null), 1200);
-    } catch {
-      /* clipboard unavailable */
-    }
-  };
+  const manualFallback = result && !result.success ? <div className="mt-3 w-full rounded-lg border border-amber-300/30 p-3">
+    <p role="status" className="text-sm text-amber-100">Automatic copy was blocked. Select the text below to copy it manually, or try the copy button again.</p>
+    <label htmlFor={fallbackId} className="block mt-2 text-xs text-[var(--text-secondary)]">Text to copy manually</label>
+    <textarea id={fallbackId} readOnly value={result.text} rows={result.index === null ? 6 : 3} onFocus={event => event.currentTarget.select()} className="mt-1 w-full rounded-lg border border-white/20 bg-black/20 p-3 text-sm text-[var(--text-primary)]" />
+  </div> : null;
 
   return (
     <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
@@ -52,28 +58,34 @@ export default function QuestionBank({ questions, heading, intro }: QuestionBank
             {heading}
           </h2>
           <button
-            onClick={copyAll}
+            onClick={() => copy(null)}
+            disabled={pending}
             className="flex-shrink-0 text-xs px-3 py-1.5 rounded-lg border border-[rgba(255,255,255,0.08)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/40 transition-all"
           >
-            {copiedAll ? "✓ Copied all" : "Copy full list"}
+            {result?.success && result.index === null ? "✓ Copied all" : pending ? "Copying…" : "Copy full list"}
           </button>
         </div>
         {intro && (
           <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">{intro}</p>
         )}
+        {result?.index === null && manualFallback}
         <ol className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
           {questions.map((q, i) => (
             <li key={i} className="flex items-start gap-2.5 group">
               <span className="flex-shrink-0 w-6 text-right text-xs font-bold text-[var(--text-muted)] mt-0.5 tabular-nums">
                 {i + 1}.
               </span>
+              <div className="min-w-0 flex-1">
               <button
-                onClick={() => copyOne(q, i)}
+                onClick={() => copy(i)}
+                disabled={pending}
                 title="Click to copy"
                 className="text-left text-[var(--text-secondary)] text-xs sm:text-sm leading-relaxed hover:text-[var(--text-primary)] transition-colors"
               >
-                {copiedIdx === i ? <span className="text-[var(--neon-cyan)]">✓ Copied</span> : q}
+                {q}{result?.success && result.index === i && <span className="ml-2 text-[var(--neon-cyan)]" role="status">✓ Copied</span>}
               </button>
+              {result?.index === i && manualFallback}
+              </div>
             </li>
           ))}
         </ol>
