@@ -17,16 +17,17 @@ let component = resolve(root, 'src/components/SpeechCoach.tsx');
 if (baseline) component = put('SpeechCoach.tsx', execFileSync('git', ['show', `${baseline}:src/components/SpeechCoach.tsx`], { cwd: root }));
 const loader = put('loader.cjs', `const ts=require(${JSON.stringify(require.resolve('typescript'))});module.exports=function(s){return ts.transpileModule(s,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext,jsx:ts.JsxEmit.ReactJSX}}).outputText;};`);
 const link = put('link.tsx', `export default function Link({href,children,...p}){return <a href={href} {...p}>{children}</a>}`);
-const result = put('result.tsx', `export default function Result(){return <h4 tabIndex={-1}>Fixture feedback ready</h4>}`);
+const result = put('result.tsx', `export default function Result({fromWarmup,fromTimer}){return <h4 tabIndex={-1} data-warmup={Boolean(fromWarmup)} data-timer={Boolean(fromTimer)}>Fixture feedback ready</h4>}`);
 const client = put('client.ts', `export class PracticeRequestError extends Error {};
-export const api={calls:[],hold:false,quota:false,release:()=>{}};
-export async function practiceFetch(path,body){api.calls.push(path);if(path==='transcribe'){if(api.quota)throw Object.assign(new PracticeRequestError('Fixture quota'),{status:402});if(api.hold)await new Promise(r=>{api.release=r});return {transcript:'A synthetic answer for a local browser test.',duration:5};}return {id:body.id,status:'complete',feedback:{}};}`);
+export const api={calls:[],bodies:[],hold:false,quota:false,release:()=>{}};
+export async function practiceFetch(path,body){api.calls.push(path);api.bodies.push(body);if(path==='transcribe'){if(api.quota)throw Object.assign(new PracticeRequestError('Fixture quota'),{status:402});if(api.hold)await new Promise(r=>{api.release=r});return {transcript:'A synthetic answer for a local browser test.',duration:5};}return {id:body.id,status:'complete',feedback:{}};}`);
 const audio = put('audio.ts', `export async function recordingToWav(){return 'SYNTHETIC_AUDIO_FIXTURE';}`);
 const entry = put('entry.tsx', `
-import React,{act} from 'react';
+import React,{act,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import Coach from 'coach-under-test';
 import {api} from '@/lib/speech/client';
+import {SPEECH_WARMUP_TOPIC} from '@/lib/speech/warmup';
 window.IS_REACT_ACT_ENVIRONMENT=true;
 const pending=[],tracks=[],events=[];let recorderStarts=0,key=0,prior;
 const topic={id:'fixture',text:'Describe a small change that helped your day.',talkingPoints:[]};
@@ -40,8 +41,10 @@ const check=(condition,message)=>{if(!condition)throw Error(message)};
 const text=()=>host.textContent;
 const button=name=>[...host.querySelectorAll('button')].find(x=>x.textContent.trim()===name);
 const click=async name=>{const b=button(name);check(b&&!b.disabled,'Missing enabled control: '+name);await act(async()=>b.click())};
-const render=async(visible=true,remount=false)=>{if(remount)key++;await act(async()=>root.render(<Coach key={key} topic={topic} topics={[topic]} onTopicChange={()=>{}} contentSource='speech_hub' visible={visible} initialPrevious={prior}/>));};
-const fresh=async(previous)=>{prior=previous;pending.length=0;tracks.length=0;api.calls.length=0;api.hold=false;api.quota=false;recorderStarts=0;events.length=0;await render(true,true)};
+let timerOrigin=false;
+function Fixture({visible}){const [chosen,setChosen]=useState(topic);return <Coach topic={chosen} topics={[topic]} onTopicChange={setChosen} contentSource='speech_hub' visible={visible} initialPrevious={prior} fromTimer={timerOrigin}/>;}
+const render=async(visible=true,remount=false)=>{if(remount)key++;await act(async()=>root.render(<Fixture key={key} visible={visible}/>));};
+const fresh=async(previous,fromTimer=false)=>{prior=previous;timerOrigin=fromTimer;pending.length=0;tracks.length=0;api.calls.length=0;api.bodies.length=0;api.hold=false;api.quota=false;recorderStarts=0;events.length=0;await render(true,true)};
 const grant=async index=>{const track={stopped:false,stop(){this.stopped=true}};tracks.push(track);await act(async()=>pending[index].resolve({getTracks:()=>[track]}));return track};
 const deny=async index=>act(async()=>pending[index].reject(new DOMException('Fixture denied','NotAllowedError')));
 const file=async()=>{const input=host.querySelector('input[type=file]');check(input,'Upload input is available');const d=new DataTransfer();d.items.add(new File([wav()],'fixture.wav',{type:'audio/wav'}));await act(async()=>{input.files=d.files;input.dispatchEvent(new Event('change',{bubbles:true}))});};
@@ -52,6 +55,33 @@ const results=[];
 const test=async(name,fn)=>{try{await fn();results.push({name,pass:true})}catch(e){results.push({name,pass:false,error:e.message})}output.textContent=JSON.stringify(results,null,2)};
 document.getElementById('run').onclick=async()=>{
  document.getElementById('run').disabled=true;results.length=0;
+ await test('Everyday topic is opt-in, reversible and never starts media or a model',async()=>{
+  await fresh();check(host.querySelector('h3').textContent===topic.text,'Original topic remains the default');
+  const choice=button('Try an everyday warm-up instead');await act(async()=>{choice.click();choice.click()});
+  check(host.querySelector('h3').textContent===SPEECH_WARMUP_TOPIC.text&&host.querySelector('select[aria-label="Recording time"]').value==='20','Explicit choice changes topic and goal');
+  check(count('qa_speech_warmup_select')===1&&count('qa_speech_warmup_begin')===0,'Choice is deduplicated and is not an attempt');
+  check(pending.length===0&&api.calls.length===0,'Choosing incurs no microphone or API request');
+  await click('Return to my original topic');check(host.querySelector('h3').textContent===topic.text&&host.querySelector('select[aria-label="Recording time"]').value==='60','Return restores exact topic and original duration');
+  await click('Start recording');await grant(0);await click('Finish recording');check(count('qa_speech_warmup_begin')===0&&count('qa_speech_warmup_audio_ready')===0,'Original practice never joins warm-up cohort');
+ });
+ await test('Warm-up recording submits the chosen topic and keeps timer-topic attribution separate',async()=>{
+  await fresh(undefined,true);await click('Try an everyday warm-up instead');await click('Start recording');
+  check(!button('Return to my original topic')&&count('qa_speech_warmup_begin')===1&&count('qa_speech_timer_attempt_start')===0,'Cannot switch mid-recording and is not a same-topic timer continuation');
+  await grant(0);await click('Finish recording');check(count('qa_speech_warmup_audio_ready')===1&&api.calls.length===0,'Audio is local until explicit submission');
+  await click('Get my feedback');check(api.calls.join(',')==='transcribe,feedback'&&api.bodies[0].topic===SPEECH_WARMUP_TOPIC.text&&api.bodies[1].id===api.bodies[0].id,'Same two requests use the actual selected topic');
+  check(count('qa_speech_warmup_submit')===1&&host.querySelector('[data-warmup="true"][data-timer="false"]'),'Result retains warm-up attribution');
+  check(events.every(e=>e.event.startsWith('qa_'))&&!JSON.stringify(events).includes(SPEECH_WARMUP_TOPIC.text),'QA stays separate; no topic or transcript in analytics');
+ });
+ await test('Warm-up option exposure is separate from a fast selection or hidden panel',async()=>{
+  await fresh();await render(false);await settle();check(count('qa_speech_warmup_offer_view')===0,'Hidden option never qualifies');
+  await render(true);await click('Try an everyday warm-up instead');check(count('qa_speech_warmup_offer_view')===0,'Fast selection never fabricates exposure');
+  await click('Return to my original topic');await frames();button('Try an everyday warm-up instead').scrollIntoView({block:'center'});await settle();
+  check(count('qa_speech_warmup_offer_view')===1,'Visible enabled option qualifies');await render(false);await render(true);await frames();button('Try an everyday warm-up instead').scrollIntoView({block:'center'});await settle();check(count('qa_speech_warmup_offer_view')===1,'Reopen deduplicates');
+ });
+ await test('Retry cannot replace its comparison topic with a warm-up',async()=>{
+  await fresh({id:'fixture-prior',feedback:{priority:{nextStep:'Use one concrete example.'},drill:{}}});
+  check(!button('Try an everyday warm-up instead')&&!button('Return to my original topic'),'No topic replacement on retry');
+ });
  await test('Optional first-start help never starts media or blocks recording',async()=>{await fresh();check(text().includes('A minute is a guide, not a minimum.')&&host.querySelector('select[aria-label="Recording time"]').value==='60','Existing duration and new guidance agree');const answer=button('I’m not sure what to say');await act(async()=>{answer.click();answer.click()});check(count('qa_speech_start_reason_select')===1&&count('qa_speech_start_reason_unsure')===1,'One explicit QA reason even on double click');check(text().includes('My point is')&&button('Start recording')&&host.querySelector('input[type=file]'),'Help preserves both input paths');check(pending.length===0&&api.calls.length===0&&count('qa_speech_start_v2_begin')===0,'Answering does not start recording or upload');check(events.every(e=>!JSON.stringify(e.params).includes('Describe a small change')),'Topic content stays out of telemetry');await click('Start recording');check(!text().includes('Not ready to record?'),'Question is removed after beginning');await click('Cancel waiting · use an audio file');await click('Start recording');check(count('qa_speech_start_v2_begin')===1,'Repeated permission request does not duplicate first start');const old=await grant(0);check(old.stopped,'Old request stays inert');await grant(1);await click('Finish recording');await click('Get my feedback');check(text().includes('Fixture feedback ready'),'Optional help still allows the full flow');});
  await test('Start exposure requires visibility and never comes from a fast click',async()=>{await fresh();await render(false);await settle();check(count('qa_speech_start_v2_view')===0,'Hidden panel has no first-start exposure');await render(true);await frames();await click('Start recording');check(count('qa_speech_start_v2_begin')===1&&count('qa_speech_start_v2_view')===0,'Fast start records intent without manufacturing exposure');await click('Cancel waiting · use an audio file');await frames();await settle();check(count('qa_speech_start_v2_view')===1,'Visible ready action eventually qualifies');await render(false);await render(true);await frames();await settle();check(count('qa_speech_start_v2_view')===1,'Reopen does not duplicate exposure');});
  await test('Reason exposure and privacy help are optional and measured separately',async()=>{await fresh();await render(false);await settle();check(count('qa_speech_start_reason_view')===0,'Hidden question never qualifies');await render(true);await frames();const prompt=host.querySelector('[aria-label="Optional help before recording"] p');prompt.scrollIntoView({block:'center'});await settle();check(count('qa_speech_start_reason_view')===1,'Visible question qualifies once');await click('I’m concerned about audio privacy');check(host.querySelector('a[href="/privacy"]')&&text().includes('OpenRouter')&&button('Start recording'),'Privacy explanation links details and preserves recording');check(pending.length===0&&api.calls.length===0,'Privacy answer has no network/media side effect');await file();check(count('qa_speech_start_v2_begin')===1&&events.some(e=>e.event==='qa_speech_start_v2_begin'&&e.params.input_method==='upload'),'Direct file selection is also a first start');await click('Get my feedback');check(text().includes('Fixture feedback ready'),'Upload remains possible without using microphone');});
@@ -85,7 +115,8 @@ const css = await require('postcss')([require('@tailwindcss/postcss')({base:root
 put('styles.css',css.css);
 const html = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/styles.css"><title>Speech microphone recovery · local fixtures</title><body style="max-width:900px;margin:auto;padding:20px"><h1>Microphone recovery · local fixtures</h1><p>No microphone or external API is used. ${baseline ? 'Baseline '+baseline : 'Current working tree'}.</p><div style="display:flex;gap:12px;flex-wrap:wrap;margin:16px 0"><button id="run">Run regression</button><button id="deny">Show denied microphone</button><button id="wait">Show waiting microphone</button></div><strong id="summary"></strong><pre id="results" style="white-space:pre-wrap"></pre><main id="coach"></main><script src="/bundle.js"></script></body></html>`;
 createServer((req,res)=>{
-  if(req.url?.startsWith('/styles.css')){res.setHeader('Content-Type','text/css');res.end(readFileSync(join(temp,'styles.css')))}
+  if(req.url?.startsWith('/mobile')){res.setHeader('Content-Type','text/html');res.end('<!doctype html><title>390px speech practice fixture</title><body style="margin:0;background:#20232b"><iframe title="Mobile speech practice" src="/?speech_qa=1" style="display:block;width:390px;height:844px;margin:16px auto;border:0"></iframe></body>')}
+  else if(req.url?.startsWith('/styles.css')){res.setHeader('Content-Type','text/css');res.end(readFileSync(join(temp,'styles.css')))}
   else if(req.url?.startsWith('/bundle.js')){res.setHeader('Content-Type','application/javascript');res.end(readFileSync(join(temp,'bundle.js')))}
   else if(req.url?.split('?')[0]==='/'){res.setHeader('Content-Type','text/html');res.end(html)}
   else{res.statusCode=404;res.end()}
