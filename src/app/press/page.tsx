@@ -8,14 +8,14 @@ import CopyBlock from "./CopyBlock";
 export const metadata: Metadata = {
   title: "Press & Media Kit - Random Topics",
   description:
-    "Press kit, embed widget, and media resources for Random Topics — the free AI-powered topic generator.",
+    "Press kit, embed widget, and media resources for Random Topics — the free topic generator.",
   alternates: { canonical: "/press" },
   robots: { index: true, follow: true },
 };
 
 const SITE_URL = "https://randomtopics.app";
 
-const ABOUT_DESCRIPTION = `Random Topics is a free AI-powered topic generator that delivers instant conversation starters, writing prompts, debate motions, speech ideas, and icebreaker questions from a curated library of 500+ topics across 16 categories. No signup, no ads, no paywall — just one click and you have a fresh topic ready to use.`;
+const ABOUT_DESCRIPTION = `Random Topics is a free topic generator that delivers instant conversation starters, writing prompts, debate motions, speech ideas, and icebreaker questions from a curated library of 500+ topics across 16 categories. No signup, no ads, no paywall — just one click and you have a fresh topic ready to use.`;
 
 const EMBED_CODE = `<iframe
   src="${SITE_URL}/embed"
@@ -49,7 +49,7 @@ const QUICK_FACTS = [
 const KEY_FEATURES = [
   "500+ hand-curated topics across 16 diverse categories",
   "5 specialized modes: Conversation, Writing, Debate, Speech, and Icebreaker",
-  "AI-powered topic generation via Gemini 2.5 Flash for unlimited fresh ideas",
+  "Instant topic selection with no repeats until the matching collection is used",
   "Built-in speech timer with customizable duration",
   "Embeddable widget for blogs and websites",
   "22 curated collection articles for deep-dive browsing",

@@ -50,6 +50,8 @@ try {
   assert.equal(unsafe.completion_tokens,undefined);
   assert.equal(unsafe.reasoning_tokens,undefined);
   assert.ok(!JSON.stringify(unsafe).includes(privateText));
+  assert.equal(speechModelOutput({usage:{cost:0.002}}).cost_usd,0.002);
+  for (const cost of [privateText,-1,Infinity,1001]) assert.equal(speechModelOutput({usage:{cost}}).cost_usd,undefined);
   assert.equal(speechModelOutput({choices:[{message:{content:'x'.repeat(1_000_001)}}]}).content_chars,1_000_000);
   for (const [content, finish, tokens, fenced] of [
     ['', 'error',0,false], ['{"transcript":"'+privateText,'length',4500,false],

@@ -36,6 +36,7 @@ await capture('sourcesToday', () => ga.runGaReport({ ...base, dimensions: ['sess
 await capture('pagesToday', () => ga.runGaReport({ ...base, dimensions: ['pagePath'], metrics: ['totalUsers', 'sessions', 'screenPageViews'], limit: 30, orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }] }));
 await capture('siteEventsToday', () => ga.runGaReport({ ...base, dimensions: ['eventName'], metrics: ['eventCount', 'totalUsers', 'sessions'], limit: 100, orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }] }));
 await capture('speechToday', () => ga.getSpeechReport(0, true, window));
+await capture('speechServer24h', () => load('src/lib/speech/serverReport.ts').getSpeechServerReport(now));
 await capture('speechRealtime30m', () => ga.getSpeechRealtime());
 await capture('speechQaRealtime30m', () => ga.getSpeechRealtime(true));
 const billing = load('src/lib/speech/billing.ts');

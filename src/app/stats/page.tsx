@@ -77,7 +77,7 @@ export default function StatsPage() {
               { value: String(stats.totalArticles), label: "Topic Collections" },
               { value: `${stats.totalArticleItems}+`, label: "Collection Items" },
               { value: "3", label: "Depth Levels" },
-              { value: "∞", label: "AI-Generated" },
+              { value: "Free", label: "Topic Draws" },
             ].map((s, i) => (
               <div key={i} className="glass-card p-5 text-center">
                 <div

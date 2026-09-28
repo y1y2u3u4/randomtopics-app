@@ -7,7 +7,7 @@ export default async function SpeechServerAnalytics() {
   }
   const sourceLabels: Record<string, string> = {
     speech_hub: "演讲话题页", impromptu_speech_generator: "即兴演讲页",
-    table_topics_generator: "Table Topics 页", speech_account: "历史练习", unknown: "来源未知",
+    table_topics_generator: "Table Topics 页", handoff_home: "首页所选题目", handoff_wheel: "转盘所选题目", speech_account: "历史练习", unknown: "来源未知",
   };
   const date = (iso: string) => new Date(iso).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", hour12: false });
   return <section className="glass-card space-y-3 p-5">
@@ -25,6 +25,12 @@ export default async function SpeechServerAnalytics() {
       <p className="my-2 text-xs text-[var(--text-muted)]">仅含 expanded_v1 且明确非 QA 的新提交。旧客户端不补标；下表是保存结果，不是页面曝光、GA 人数或付款转化。</p>
       <div className="overflow-x-auto"><table className="w-full text-left text-sm"><thead><tr><th>来源</th><th>首练提交</th><th>首练反馈保存</th><th>重练反馈保存</th><th>待反馈 / 失败</th></tr></thead>
         <tbody>{report.expandedExposure.sources.map(row => <tr key={row.source} className="border-t border-white/10"><td className="py-2">{sourceLabels[row.source] ?? row.source}</td><td>{row.firstAttempts}</td><td>{row.firstComplete}</td><td>{row.retryComplete}</td><td>{row.pending} / {row.failed}</td></tr>)}</tbody>
+      </table></div>
+    </details>
+    <details open><summary className="font-semibold">已记录的语音模型费用 · 美元</summary>
+      <p className="my-2 text-xs text-[var(--text-muted)]">仅为此窗口练习记录保存的转写和反馈用量，包含已保存的重试。失败但未保存用量的请求不在内；不是 OpenRouter 完整账单，也不包含历史取题费用。</p>
+      <div className="overflow-x-auto"><table className="w-full text-left text-sm"><thead><tr><th>记录类型</th><th>已知费用</th><th>含费用的调用 / 含用量的调用</th></tr></thead>
+        <tbody>{report.costs.groups.map(row => <tr key={row.cohort} className="border-t border-white/10"><td className="py-2">{{ non_qa: "明确非 QA", qa: "明确 QA", unclassified: "旧版或未分类" }[row.cohort]}</td><td>{row.callsWithCost ? `$${row.knownCostUsd.toFixed(4)}` : "未收到费用记录"}</td><td>{row.callsWithCost} / {row.callsWithUsage}</td></tr>)}</tbody>
       </table></div>
     </details>
     <p className="text-xs text-[var(--text-muted)]">仅统计明确标记 v5 且非 QA 的记录，仍不能排除未标记自测。服务端完成不等于用户看到反馈；账户不是 GA4 访客。窗口末尾的首轮尚未得到同等重练机会，以上配对是即时进展，不能当作次日留存或与 GA4 人数混算。</p>

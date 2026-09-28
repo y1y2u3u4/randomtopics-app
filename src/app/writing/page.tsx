@@ -67,7 +67,7 @@ const FAQ_ITEMS = [
   {
     question: "How many writing prompts are available?",
     answer:
-      "Our curated database contains over 500 writing prompts across 15+ categories. With AI-powered generation enabled, you can access virtually unlimited unique prompts tailored to any genre, age group, or difficulty level.",
+      "Writing prompts are drawn from our curated topic collection. The generator shows how many match your filters and cycles through them before repeating. Broaden the category or depth for more options.",
   },
   {
     question: "How do I get a random topic to write about?",
@@ -268,9 +268,9 @@ export default function WritingPage() {
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">How many writing prompts are available?</h4>
               <p>
-                Our curated database contains over 500 writing prompts across 15+ categories. With
-                AI-powered generation enabled, you can access virtually unlimited unique prompts
-                tailored to any genre, age group, or difficulty level.
+                Writing prompts are drawn from our curated topic collection. The generator shows how
+                many match your filters and cycles through them before repeating. Broaden the
+                category or depth for more options.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">How do I get a random topic to write about?</h4>

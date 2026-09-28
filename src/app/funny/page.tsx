@@ -40,7 +40,7 @@ const FAQ_ITEMS = [
   {
     question: "Can I get unlimited funny topics?",
     answer:
-      "Yes. Click generate as many times as you like — with AI generation enabled you get an endless supply of fresh, unique funny prompts that never repeat.",
+      "You can draw topics as often as you like. Picks come from a finite curated collection, with no repeats until the matching pool is used. Broaden your filters to see more options.",
   },
 ];
 
@@ -196,9 +196,9 @@ export default function FunnyPage() {
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">How many funny topics do you have?</h4>
               <p>
-                Our curated collection includes hundreds of funny, weird, and bizarre topics across
-                multiple categories. With AI generation enabled, you get fresh, unique topics every
-                time — so you&apos;ll never repeat the same question twice.
+                The generator shows how many curated topics match your filters. Picks do not repeat
+                until that pool is used. Broaden your filters to see more funny, weird, and
+                unusual conversation starters.
               </p>
             </div>
           </div>

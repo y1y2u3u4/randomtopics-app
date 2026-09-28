@@ -64,3 +64,22 @@ assert.equal(report.expandedExposure.sources.find(r => r.source === "table_topic
 assert.equal(JSON.stringify(report).includes('"owner"'), false);
 console.log("PASS: expanded ordered funnel, GA event limits, source persistence before/after transcription, old-client separation, private-source rejection and QA-separated outcome aggregates.");
 
+
+for (const entrySource of ["handoff_home", "handoff_wheel"]) {
+  assert.ok((await transcribe({ exposureVersion: SPEECH_EXPOSURE_VERSION, entrySource, qa: true }))
+    .every(context => context.entrySource === entrySource && context.qa === true), "Selected-topic feedback preserves source and QA cohort");
+}
+const {summarizeSpeechCosts}=load("src/lib/speech/costs.ts");
+const costs=summarizeSpeechCosts([
+ {usage:{context:{version:"v5",qa:false},transcription:{cost:0.001,prompt_tokens:100,completion_tokens:20},feedback:{attempts:[{cost:0.002,completion_tokens:30},{cost:0.003,completion_tokens:40}]},earlierFeedbackUsage:[{cost:0.004}]}},
+ {usage:{context:{qa:true},feedback:{cost:1,prompt_tokens:2}}},
+ {usage:{feedback:{prompt_tokens:5}}},
+ {usage:{context:{version:"v5",qa:false}}},
+]);
+assert.equal(costs.groups[0].knownCostUsd,0.01);
+assert.equal(costs.groups[0].callsWithCost,4,"Count recoveries and superseded feedback once");
+assert.equal(costs.groups[0].attempts,2,"Attempts without saved usage do not disappear");
+assert.equal(costs.groups[1].knownCostUsd,1);
+assert.equal(costs.groups[2].callsWithCost,0,"Missing cost is not a confirmed zero charge");
+assert.equal(costs.completeProviderBill,false);
+console.log("PASS: selected-topic source persistence and QA-separated stored cost accounting.");

@@ -1,36 +1,36 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { rateLimit } from '@/lib/rateLimit';
-import { generateTopicsWithAI } from '@/lib/topicGenerator';
-import { Category, Mode, Depth } from '@/data/types';
+import { generateTopicsFromLibrary, topicRequest } from '@/lib/topicGenerator';
 
+const MAX_BODY_BYTES = 4096;
 export async function POST(request: NextRequest) {
-  // Rate limit: 15 requests per 60 seconds per IP
-  const rateLimitResponse = rateLimit(request, 'generate-topics', {
-    limit: 15,
-    windowSeconds: 60,
-  });
-  if (rateLimitResponse) return rateLimitResponse;
+  const limited = rateLimit(request, 'generate-topics', { limit: 15, windowSeconds: 60 });
+  if (limited) return limited;
 
+  // Bound streamed input too: old clients need only count and three enum filters.
+  const reader = request.body?.getReader();
+  if (!reader) return NextResponse.json({ error: 'Invalid topic filters.' }, { status: 400 });
   try {
-    const body = await request.json();
-    const { count = 1, mode = null, category = null, depth = null } = body;
-
-    // Validate count (1-10)
-    const validCount = Math.min(Math.max(1, Number(count) || 1), 10);
-
-    const result = await generateTopicsWithAI(
-      validCount,
-      mode as Mode | null,
-      category as Category | null,
-      depth as Depth | null
-    );
-
-    return NextResponse.json(result);
-  } catch (error) {
-    console.error('Error generating topics:', error);
-    return NextResponse.json(
-      { error: 'Failed to generate topics. Please try again.' },
-      { status: 500 }
-    );
+    const chunks: Uint8Array[] = [];
+    let size = 0;
+    while (true) {
+      const part = await reader.read();
+      if (part.done) break;
+      size += part.value.byteLength;
+      if (size > MAX_BODY_BYTES) {
+        await reader.cancel();
+        return NextResponse.json({ error: 'Request too large.' }, { status: 413 });
+      }
+      chunks.push(part.value);
+    }
+    const parsed = topicRequest.safeParse(JSON.parse(Buffer.concat(chunks).toString('utf8')));
+    if (!parsed.success) return NextResponse.json({ error: 'Invalid topic filters.' }, { status: 400 });
+    return NextResponse.json(generateTopicsFromLibrary(parsed.data), {
+      headers: { 'Cache-Control': 'no-store' },
+    });
+  } catch {
+    return NextResponse.json({ error: 'Invalid topic request.' }, { status: 400 });
+  } finally {
+    reader.releaseLock();
   }
 }

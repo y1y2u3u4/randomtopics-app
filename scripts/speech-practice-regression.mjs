@@ -79,7 +79,8 @@ assert.deepEqual(notes(), ["", "A second private reason", "", ""]);
 
 // Exercise the actual generation completion handler. Even a repeated topic ID
 // must produce a fresh panel key, resetting drafts, selection, and timer together.
-const generatorState = [];
+const generatorState = [], generatorEvents = [];
+let generatorLocale = "es";
 let generatorCursor = 0;
 const generatorOverrides = {
   react: {
@@ -89,6 +90,11 @@ const generatorOverrides = {
       if (!(index in generatorState)) generatorState[index] = typeof initial === "function" ? initial() : initial;
       return [generatorState[index], (value) => { generatorState[index] = typeof value === "function" ? value(generatorState[index]) : value; }];
     },
+    useRef(initial) {
+      const index = generatorCursor++;
+      if (!(index in generatorState)) generatorState[index] = { current: initial };
+      return generatorState[index];
+    },
     useMemo: (fn) => fn(), useCallback: (fn) => fn,
   },
   "next/link": { default: "a" },
@@ -96,7 +102,7 @@ const generatorOverrides = {
   "framer-motion": { motion: new Proxy({}, { get: (_, key) => key }), AnimatePresence: "fragment" },
   "@/data/topics.es": { getLocalizedTopics: () => [topics[0]] },
   "./TopicCard": { default: "topic-card" },
-  "@/lib/track": { track() {} },
+  "@/lib/track": { track(name, params) { generatorEvents.push({name, params}); } },
   "@/lib/topicLibrary": { recordRecentTopics() {} },
 };
 function loadGeneratorModule(file) {
@@ -116,7 +122,7 @@ function loadGeneratorModule(file) {
 const Generator = loadGeneratorModule(resolve(import.meta.dirname, "../src/components/TopicGenerator.tsx")).default;
 function renderGenerator() {
   generatorCursor = 0;
-  return descend(Generator({ initialMode: "speech", locale: "es", speechPractice: true }));
+  return descend(Generator({ initialMode: "speech", locale: generatorLocale, speechPractice: true }));
 }
 const generatedPanel = () => renderGenerator().find((node) => node.type === "practice-panel");
 const initialKey = generatedPanel().key;
@@ -139,3 +145,24 @@ assert.equal(events.some((event) => event.name === "generate_success"), false);
 assert.equal(JSON.stringify(events).includes("private"), false, "Notes and prompts must not enter analytics");
 assert.ok(events.every((event) => Object.keys(event.params).sort().join(",") === "content_source,locale,tool_type"));
 console.log("PASS: speech drafts preserve batch selections, omit blank hints, export real notes, keep revision identities, and emit private-safe readiness events.");
+
+// The actual English completion handler must work offline, with a synchronous
+// guard for two clicks before React has committed the next render.
+generatorState.length = 0;
+generatorEvents.length = 0;
+generatorLocale = "en";
+const originalFetch = globalThis.fetch;
+let englishNetworkCalls = 0;
+globalThis.fetch = async () => { englishNetworkCalls++; throw Error("English topic selection must be offline"); };
+try {
+  const draw = renderGenerator().find(node => node.type === "button" && node.props.className?.includes("btn-generate")).props.onClick;
+  await Promise.all([draw(), draw()]);
+  assert.equal(generatedPanel().props.topics[0].id, topics[0].id);
+  const successes = generatorEvents.filter(e => e.name === "generate_success");
+  assert.equal(successes.length, 1, "A same-tick double click completes only one draw");
+  assert.equal(successes[0].params.result_source, "curated_pool");
+  assert.equal(successes[0].params.provider_requests, 0);
+  assert.equal(englishNetworkCalls, 0);
+  assert.equal(JSON.stringify(generatorEvents).includes("private"), false);
+} finally { globalThis.fetch = originalFetch; }
+console.log("PASS: actual English generation handler works offline and deduplicates same-tick clicks.");

@@ -155,7 +155,7 @@ export default function RootLayout({
                     "16 categories",
                     "5 modes: conversation, writing, debate, speech, icebreaker",
                     "Built-in speech practice timer",
-                    "AI-powered topic generation",
+                    "Instant curated topic selection",
                     "No signup required",
                   ],
                   isAccessibleForFree: true,

@@ -277,7 +277,7 @@ export default function Home() {
                   name: "How does the random topic generator work?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Select a mode (conversation, writing, debate, speech, or icebreaker), optionally filter by category and depth, choose how many topics you want, and click Generate. The tool uses AI and a curated database to deliver relevant random topics instantly.",
+                    text: "Select a mode (conversation, writing, debate, speech, or icebreaker), optionally filter by category and depth, choose how many topics you want, and click Generate. The tool draws from a curated collection and shows how many topics match your filters.",
                   },
                 },
                 {
@@ -335,8 +335,8 @@ export default function Home() {
                 Unlike simple random word generators, a dedicated <strong>random topic generator</strong>{" "}
                 gives you fully-formed discussion ideas complete with talking points, depth levels,
                 and category tags. Each topic is designed to spark meaningful conversation, inspire
-                creative writing, or fuel a lively debate. Our tool also uses AI to generate fresh,
-                unique topics on the fly — so you&apos;ll never see the same result twice.
+                creative writing, or fuel a lively debate. Draw instantly from the matching
+                collection, without repeats until that pool is used.
               </p>
 
               <h3
@@ -385,9 +385,9 @@ export default function Home() {
                 mental overhead of brainstorming from scratch.
               </p>
               <p>
-                Our random topic generator is especially useful because it combines AI-powered
-                generation with a curated database of 500+ topics. This means you get both the
-                reliability of expert-written prompts and the novelty of AI-generated ideas. Every
+                Our random topic generator draws instantly from a curated database of 500+ topics.
+                Filter by category, mode, or depth, then work through the matching collection
+                without repeats until the pool is used. Every
                 topic includes multiple talking points to help you explore the subject in depth.
               </p>
 
@@ -488,7 +488,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--neon-cyan)]" />
-                  <span><strong>Writers and content creators</strong> — Overcome writer&apos;s block with AI-powered writing prompts across every genre and category.</span>
+                  <span><strong>Writers and content creators</strong> — Overcome writer&apos;s block with curated writing prompts across every genre and category.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--neon-cyan)]" />
@@ -537,9 +537,9 @@ export default function Home() {
                     How many topics can I generate at once?
                   </p>
                   <p>
-                    You can generate 1, 3, 5, or 10 random topics at a time. Each generation
-                    pulls from our database of 500+ topics or creates fresh ones using AI, so
-                    you&apos;ll always get unique results.
+                    Choose up to 1, 3, 5, or 10 random topics at a time. Each draw comes from
+                    our collection of 500+ topics. The generator shows the available count for
+                    your filters and avoids repeats until that pool is used.
                   </p>
                 </div>
                 <div>
@@ -547,8 +547,8 @@ export default function Home() {
                     What makes this random topic generator different?
                   </p>
                   <p>
-                    Unlike basic random generators, our tool combines a curated database of 500+
-                    expert-written topics with AI-powered generation for unlimited variety. Every
+                    Our tool offers instant picks from a curated database of 500+ topics,
+                    with filters for your purpose and difficulty. Every
                     topic includes talking points, category tags, and depth levels — giving you
                     everything you need to start a great conversation, essay, debate, or speech.
                   </p>
