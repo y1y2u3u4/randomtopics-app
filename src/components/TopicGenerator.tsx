@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useRef } from "react";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -62,7 +62,8 @@ export default function TopicGenerator({
   const [hasGenerated, setHasGenerated] = useState(false);
   const [copiedAll, setCopiedAll] = useState(false);
   const [manualCopyText, setManualCopyText] = useState<string | null>(null);
-  const [usedStatic, setUsedStatic] = useState<Set<string>>(new Set());
+  const usedStatic = useRef(new Set<string>());
+  const generating = useRef(false);
   const [filterNotice, setFilterNotice] = useState("");
   const localizedTopics = useMemo(() => getLocalizedTopics(locale), [locale]);
   const staticPool = useMemo(() => filterTopicPool(localizedTopics, {
@@ -71,19 +72,19 @@ export default function TopicGenerator({
 
   const chooseCategory = (category: Category | null) => {
     setSelectedCategory(category);
-    const clearDepth = locale === "es" && !filterTopicPool(localizedTopics, { mode: selectedMode, category, depth: selectedDepth }).length;
+    const clearDepth = !filterTopicPool(localizedTopics, { mode: selectedMode, category, depth: selectedDepth }).length;
     if (clearDepth) setSelectedDepth(null);
-    setFilterNotice(clearDepth ? "Profundidad restablecida a Cualquiera para mostrar temas de esta categoría." : "");
+    setFilterNotice(clearDepth ? (locale === "es" ? "Profundidad restablecida a Cualquiera para mostrar temas de esta categoría." : "Depth reset to Any to show topics in this category.") : "");
     track("filter_select", { tool_type: "topic_generator", content_source: contentSource, filter_name: "category", filter_value: category ?? "all", locale });
   };
 
   const chooseMode = (mode: Mode | null) => {
     setSelectedMode(mode);
-    const category = locale === "es" && !filterTopicPool(localizedTopics, { mode, category: selectedCategory }).length ? null : selectedCategory;
+    const category = !filterTopicPool(localizedTopics, { mode, category: selectedCategory }).length ? null : selectedCategory;
     if (category !== selectedCategory) setSelectedCategory(category);
-    const clearDepth = locale === "es" && !filterTopicPool(localizedTopics, { mode, category, depth: selectedDepth }).length;
+    const clearDepth = !filterTopicPool(localizedTopics, { mode, category, depth: selectedDepth }).length;
     if (clearDepth) setSelectedDepth(null);
-    setFilterNotice(category !== selectedCategory || clearDepth ? "Filtros ajustados para mostrar temas del modo seleccionado." : "");
+    setFilterNotice(category !== selectedCategory || clearDepth ? (locale === "es" ? "Filtros ajustados para mostrar temas del modo seleccionado." : "Filters adjusted to show topics for this mode.") : "");
     track("filter_select", { tool_type: "topic_generator", content_source: contentSource, filter_name: "mode", filter_value: mode ?? "all", locale });
   };
 
@@ -94,12 +95,12 @@ export default function TopicGenerator({
   };
 
   const generateFromStatic = useCallback(() => {
-    const draw = drawUnseen(staticPool, usedStatic, (topic) => topic.id, count);
-    setUsedStatic(draw.used);
+    const draw = drawUnseen(staticPool, usedStatic.current, (topic) => topic.id, count);
+    usedStatic.current = draw.used;
     return draw.picked;
-  }, [staticPool, usedStatic, count]);
+  }, [staticPool, count]);
 
-  const finishGeneration = useCallback((nextTopics: Topic[], resultSource: "ai" | "localized_pool" | "static_fallback") => {
+  const finishGeneration = useCallback((nextTopics: Topic[], resultSource: "curated_pool" | "localized_pool") => {
     setGeneratedTopics(nextTopics);
     setPracticeBatch((batch) => batch + 1);
     recordRecentTopics(nextTopics);
@@ -115,6 +116,8 @@ export default function TopicGenerator({
       requested_count: count,
       result_count: nextTopics.length,
       result_source: resultSource,
+      generation_policy: "curated_v1",
+      provider_requests: 0,
       ...(nextTopics.length === 0 ? { error_code: "empty_filtered_pool" } : {}),
       content_source: contentSource,
       locale,
@@ -123,7 +126,8 @@ export default function TopicGenerator({
   }, [selectedMode, selectedCategory, selectedDepth, count, contentSource, locale]);
 
   const generate = useCallback(async () => {
-    if (isSpinning || (locale === "es" && !staticPool.length)) return [];
+    if (generating.current || !staticPool.length) return [];
+    generating.current = true;
     setIsSpinning(true);
 
     track("generate_start", {
@@ -136,40 +140,15 @@ export default function TopicGenerator({
       locale,
     });
 
-    // Spanish serves purely from the localized static database so results are
-    // always in Spanish (the AI API returns English only).
-    if (locale === "es") {
-      return finishGeneration(generateFromStatic(), "localized_pool");
-    }
-
     try {
-      const res = await fetch('/api/generate-topics', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          count,
-          mode: selectedMode,
-          category: selectedCategory,
-          depth: selectedDepth,
-        }),
-      });
-
-      if (!res.ok) {
-        throw new Error('API error');
-      }
-
-      const data = await res.json();
-      if (data.topics && data.topics.length > 0) {
-        return finishGeneration(data.topics, "ai");
-      } else {
-        // Fallback to static if AI returns empty
-        return finishGeneration(generateFromStatic(), "static_fallback");
-      }
-    } catch {
-      // Fallback to static database on any error
-      return finishGeneration(generateFromStatic(), "static_fallback");
+      // Keep the coach's async contract without a network/model round trip.
+      await Promise.resolve();
+      return finishGeneration(generateFromStatic(), locale === "es" ? "localized_pool" : "curated_pool");
+    } finally {
+      generating.current = false;
+      setIsSpinning(false);
     }
-  }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, finishGeneration, contentSource, locale, isSpinning, staticPool.length]);
+  }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, finishGeneration, contentSource, locale, staticPool.length]);
 
   const generateAgain = useCallback(() => {
     track("repeat_generate", {
@@ -299,7 +278,7 @@ export default function TopicGenerator({
                     )
                   }
                   aria-pressed={selectedCategory === cat.id}
-                  disabled={locale === "es" && !filterTopicPool(localizedTopics, { mode: selectedMode, category: cat.id }).length}
+                  disabled={!filterTopicPool(localizedTopics, { mode: selectedMode, category: cat.id }).length}
                   className={`category-tag min-h-11 disabled:opacity-40 ${selectedCategory === cat.id ? "active" : ""}`}
                 >
                   {cat.emoji} {CATEGORY_LABELS[locale][cat.id].label}
@@ -328,8 +307,8 @@ export default function TopicGenerator({
                     chooseDepth(selectedDepth === d.id ? null : d.id)
                   }
                   aria-pressed={selectedDepth === d.id}
-                  disabled={locale === "es" && !filterTopicPool(localizedTopics, { mode: selectedMode, category: selectedCategory, depth: d.id }).length}
-                  title={locale === "es" ? `${filterTopicPool(localizedTopics, { mode: selectedMode, category: selectedCategory, depth: d.id }).length} temas disponibles` : undefined}
+                  disabled={!filterTopicPool(localizedTopics, { mode: selectedMode, category: selectedCategory, depth: d.id }).length}
+                  title={`${filterTopicPool(localizedTopics, { mode: selectedMode, category: selectedCategory, depth: d.id }).length} ${locale === "es" ? "temas disponibles" : "topics available"}`}
                   className={`depth-btn min-h-11 disabled:cursor-not-allowed disabled:opacity-40 ${selectedDepth === d.id ? "active" : ""}`}
                 >
                   {t.generator[DEPTH_KEYS[d.id]]}
@@ -357,7 +336,7 @@ export default function TopicGenerator({
           <div className="flex sm:justify-end justify-center col-span-1 sm:col-span-1">
             <button
               onClick={generate}
-              disabled={isSpinning || (locale === "es" && !staticPool.length)}
+              disabled={isSpinning || !staticPool.length}
               className="btn-generate animate-pulse-glow disabled:opacity-70 w-full sm:w-auto text-lg px-10 py-4"
             >
               <motion.span
@@ -378,13 +357,15 @@ export default function TopicGenerator({
             </button>
           </div>
         </div>
-        {locale === "es" ? (
-          <div className="text-center text-sm text-[var(--text-muted)]" role="status">
-            <p>{`${staticPool.length} temas disponibles · se mostrarán hasta ${Math.min(count, staticPool.length)} · sin repetir hasta agotar este filtro.`}</p>
-            <p className="mt-1 text-xs">Las profundidades sin temas están desactivadas. Los resultados proceden de nuestra colección en español.</p>
-            {filterNotice ? <p className="mt-2 text-[var(--neon-cyan)]">{filterNotice}</p> : null}
-          </div>
-        ) : null}
+        <div className="text-center text-sm text-[var(--text-muted)]" role="status">
+          <p>{locale === "es"
+            ? `${staticPool.length} temas disponibles · se mostrarán hasta ${Math.min(count, staticPool.length)} · sin repetir hasta agotar este filtro.`
+            : `${staticPool.length} topics available · showing up to ${Math.min(count, staticPool.length)} · no repeats until this pool is used.`}</p>
+          <p className="mt-1 text-xs">{locale === "es"
+            ? "Las profundidades sin temas están desactivadas. Los resultados proceden de nuestra colección en español."
+            : "Instant picks from our topic collection. Broaden your filters for more options."}</p>
+          {filterNotice ? <p className="mt-2 text-[var(--neon-cyan)]">{filterNotice}</p> : null}
+        </div>
       </div>
 
       {/* Keep the coach outside keyed result animations so a new topic batch

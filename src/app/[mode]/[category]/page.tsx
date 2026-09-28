@@ -139,8 +139,7 @@ export default async function ModeCategoryPage({ params }: ComboPageProps) {
             <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
               <p>
                 Looking for <strong>{catInfo.label.toLowerCase()} {modeInfo.label.toLowerCase()}</strong>?
-                Our generator combines a curated database of 500+ topics with AI-powered generation to deliver
-                fresh {catInfo.label.toLowerCase()} topics tailored for {modeInfo.label.toLowerCase().replace(/s$/, "").replace(/topic/, "discussion")}.
+                Our generator draws from a curated database of 500+ topics to find {catInfo.label.toLowerCase()} topics tailored for {modeInfo.label.toLowerCase().replace(/s$/, "").replace(/topic/, "discussion")}.
                 Whether you need topics for a classroom, a meeting, a writing session, or just for fun —
                 generate as many as you want, completely free.
               </p>

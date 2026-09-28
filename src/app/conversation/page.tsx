@@ -70,7 +70,7 @@ const FAQ_ITEMS = [
   {
     question: "How many conversation starters does this generator have?",
     answer:
-      "Our database includes over 300 hand-curated conversation topics across 15+ categories, and we add new ones regularly. You can also enable AI-powered generation for virtually unlimited unique topics.",
+      "Choose conversation starters from our curated topic collection. The generator shows the number matching your filters and avoids repeats until that pool is used. Broaden your filters for more options.",
   },
   {
     question: "Can I use these for ESL or language practice?",
@@ -233,9 +233,9 @@ export default function ConversationPage() {
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">How many conversation starters does this generator have?</h4>
               <p>
-                Our database includes over 300 hand-curated conversation topics across 15+ categories,
-                and we add new ones regularly. You can also enable AI-powered generation for virtually
-                unlimited unique topics.
+                Choose conversation starters from our curated topic collection. The generator shows
+                the number matching your filters and avoids repeats until that pool is used.
+                Broaden your filters for more options.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">Can I use these for ESL or language practice?</h4>

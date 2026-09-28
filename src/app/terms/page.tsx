@@ -88,11 +88,9 @@ export default function TermsPage() {
               AI-Generated Content
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              Some topics are generated using artificial intelligence. While we
-              strive for quality and accuracy, AI-generated content may
-              occasionally be inaccurate, repetitive, or inappropriate. We are
-              not responsible for any consequences arising from the use of
-              AI-generated topics.
+              Topic draws use our existing collection. Optional speech transcription
+              and feedback use artificial intelligence and may contain errors.
+              Review suggestions before relying on them.
             </p>
           </section>
 

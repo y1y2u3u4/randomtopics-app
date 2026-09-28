@@ -63,6 +63,7 @@ export function speechModelOutput(data: unknown) {
     } : {}),
     has_response_error: Boolean(envelope?.error || choice?.error),
     has_refusal: Boolean(message?.refusal),
+    cost_usd: typeof usage?.cost === "number" && Number.isFinite(usage.cost) && usage.cost >= 0 && usage.cost <= 1000 ? usage.cost : undefined,
     prompt_tokens: tokenCount(usage?.prompt_tokens),
     completion_tokens: tokenCount(usage?.completion_tokens),
     reasoning_tokens: tokenCount(object(usage?.completion_tokens_details)?.reasoning_tokens),

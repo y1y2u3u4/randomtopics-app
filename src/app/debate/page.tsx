@@ -65,7 +65,7 @@ const FAQ_ITEMS = [
   {
     question: "How often are new debate topics added?",
     answer:
-      "We regularly update our topic database to reflect current events and emerging issues. You can also enable AI-powered topic generation for real-time, unique debate propositions on virtually any subject.",
+      "Debate topics come from our curated collection, rather than live news. The generator shows the number matching your filters and cycles through that pool before repeating. Check current facts when preparing evidence.",
   },
   {
     question: "Can I use this as a debate motion generator?",
@@ -271,9 +271,9 @@ export default function DebatePage() {
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">How often are new debate topics added?</h4>
               <p>
-                We regularly update our topic database to reflect current events and emerging issues.
-                You can also enable AI-powered topic generation for real-time, unique debate
-                propositions on virtually any subject.
+                Debate topics come from our curated collection, rather than live news. The generator
+                shows the number matching your filters and cycles through that pool before
+                repeating. Check current facts when preparing evidence.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">Can I use this as a debate motion generator?</h4>

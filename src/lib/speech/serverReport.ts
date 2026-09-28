@@ -1,4 +1,5 @@
 import "server-only";
+import { summarizeSpeechCosts } from "./costs";
 import { database } from "./server";
 import { SPEECH_EXPOSURE_VERSION, SPEECH_ENTRY_SOURCES } from "./exposure";
 
@@ -51,5 +52,5 @@ export async function getSpeechServerReport(now = new Date()) {
     rows.push(...data);
     if (data.length < 500) { complete = true; break; }
   }
-  return { start, end, complete, ...summarizeSpeechAttempts(rows) };
+  return { start, end, complete, ...summarizeSpeechAttempts(rows), costs: summarizeSpeechCosts(rows) };
 }

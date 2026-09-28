@@ -119,14 +119,13 @@ export default function HowWeCuratePage() {
 
           <section className="glass-card p-8 space-y-4">
             <h2 className="text-2xl font-semibold text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
-              About the AI mode
+              Topic selection and AI feedback
             </h2>
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-              The generator has an optional AI mode for effectively unlimited topics. AI-generated topics are
-              clearly a different thing from the curated deck: they follow the same prompt rules but have not
-              passed human review, and they are never added to the database or to any page on this site. Every
-              topic you can read on a page here — category references, sample lists, party decks — is from the
-              human-curated set.
+              Topic draws use the existing collection and do not call an AI model. The generator shows how many
+              topics match your filters, avoids repeats until that pool is used, and then starts a new cycle.
+              Optional speech feedback uses AI only after you submit a recording. That personalized feedback
+              is separate from the topic collection and is not published as a topic.
             </p>
           </section>
 

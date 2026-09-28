@@ -1,78 +1,31 @@
 import assert from 'node:assert/strict';
-import { load } from './lib/load-typescript.mjs';
-
-const { generateTopicsWithAI } = load('src/lib/topicGenerator.ts');
-const topic = {
-  text: 'How could a small community make its public spaces more welcoming?',
-  category: 'education', modes: ['speech', 'conversation'], depth: 'medium',
-  talkingPoints: ['Who uses the space?', 'What prevents access?', 'What could change?'],
-};
-const valid = JSON.stringify({ topics: [topic] });
-const originalFetch = globalThis.fetch;
-const originalNow = Date.now;
-const originalTimeout = AbortSignal.timeout;
-let requests, clock, timeouts;
-function scenario(replies) {
-  requests = []; clock = 1000; timeouts = [];
-  Date.now = () => clock;
-  AbortSignal.timeout = (ms) => { timeouts.push(ms); return new AbortController().signal; };
-  globalThis.fetch = async (_url, init) => {
-    requests.push(JSON.parse(init.body));
-    const reply = replies[requests.length - 1];
-    assert.ok(reply, 'No extra provider request');
-    clock += reply.elapsed ?? 0;
-    if (reply.networkError) throw new TypeError('network unavailable');
-    return {
-      ok: !reply.status, status: reply.status ?? 200,
-      json: async () => {
-        if (reply.invalidEnvelope) throw new SyntaxError('sensitive provider response');
-        return { choices: [{ finish_reason: reply.finish ?? 'stop', message: { content: reply.content ?? valid, refusal: reply.refusal } }] };
-      },
-    };
-  };
-}
+import {load} from './lib/load-typescript.mjs';
+const {topicRequest,generateTopicsFromLibrary}=load('src/lib/topicGenerator.ts');
+const {topics}=load('src/data/topics.ts');
+const {CATEGORIES,MODES,DEPTHS}=load('src/data/types.ts');
+const {filterTopicPool,drawUnseen}=load('src/lib/topicPool.ts');
+const originalFetch=globalThis.fetch;let calls=0;
+globalThis.fetch=async()=>{calls++;throw Error('A topic draw must never call a provider');};
 try {
-  scenario([{}]);
-  assert.equal((await generateTopicsWithAI()).topics[0].text, topic.text);
-  assert.equal(requests.length, 1);
-  assert.equal(requests[0].response_format.type, 'json_schema');
-  assert.equal(requests[0].provider.require_parameters, true);
-
-  // Production failures included trailing commas and missing separators.
-  for (const content of ['{"topics": [null,]}', '{"topics": [null null]}', '{"topics": []}', JSON.stringify({ topics: [{ ...topic, text: ' ' }] })]) {
-    scenario([{ content, elapsed: 12000 }, {}]);
-    assert.equal((await generateTopicsWithAI()).topics.length, 1);
-    assert.equal(requests.length, 2);
-    assert.deepEqual(timeouts, [45000, 33000], 'Both calls share one deadline');
-  }
-  scenario([{ invalidEnvelope: true }, {}]);
-  assert.equal((await generateTopicsWithAI()).topics.length, 1);
-  scenario([{ finish: 'length' }, {}]);
-  assert.equal((await generateTopicsWithAI()).topics.length, 1);
-  assert.equal(requests.length, 2, 'Truncated output is regenerated even if it parses');
-
-  scenario([{ content: 'PRIVATE_OUTPUT_ONE' }, { content: 'PRIVATE_OUTPUT_TWO' }]);
-  await assert.rejects(generateTopicsWithAI(), { message: 'topic_invalid_output' });
-  assert.equal(requests.length, 2);
-
-  scenario([{ content: 'broken', elapsed: 41000 }]);
-  await assert.rejects(generateTopicsWithAI(), { message: 'topic_invalid_output' });
-  assert.equal(requests.length, 1, 'Do not retry without enough time');
-
-  for (const reply of [{ status: 429 }, { status: 401 }, { networkError: true }, { refusal: 'blocked' }, { finish: 'content_filter' }]) {
-    scenario([reply]);
-    await assert.rejects(generateTopicsWithAI());
-    assert.equal(requests.length, 1, 'Do not retry HTTP errors, network errors or refusals');
-  }
-
-  scenario([{ content: JSON.stringify({ topics: [topic, topic] }) }]);
-  assert.equal((await generateTopicsWithAI(2.8)).topics.length, 2);
-  assert.equal(requests[0].response_format.json_schema.schema.properties.topics.minItems, 2);
-  scenario([{ content: '```json\n' + JSON.stringify([topic]) + '\n```' }]);
-  assert.equal((await generateTopicsWithAI()).topics.length, 1, 'Retain fenced/array response compatibility');
-  console.log('PASS: structured topic output, malformed JSON recovery, count/shape validation, shared deadline, refusal/HTTP limits and sanitized errors.');
-} finally {
-  globalThis.fetch = originalFetch;
-  Date.now = originalNow;
-  AbortSignal.timeout = originalTimeout;
-}
+ for(const mode of [null,...MODES.map(x=>x.id)])for(const category of [null,...CATEGORIES.map(x=>x.id)])for(const depth of [null,...DEPTHS.map(x=>x.id)]){
+  const input=topicRequest.parse({count:10,mode,category,depth});const result=generateTopicsFromLibrary(input);const pool=filterTopicPool(topics,input);
+  assert.equal(result.source,'curated_pool');assert.equal(result.availableCount,pool.length);
+  assert.equal(result.topics.length,Math.min(10,pool.length));
+  assert.equal(new Set(result.topics.map(t=>t.id)).size,result.topics.length);
+  assert.ok(result.topics.every(t=>pool.some(p=>p.id===t.id)),'Never relax requested filters silently');
+ }
+ for(const mode of MODES) for(const category of CATEGORIES) assert.ok(filterTopicPool(topics,{mode:mode.id,category:category.id}).length,"Every fixed mode/category landing page must remain usable");
+ const {POST}=load('src/app/api/generate-topics/route.ts',{'@/lib/rateLimit':{rateLimit:()=>null}});
+ const post=body=>POST(new Request('https://example.test/api/generate-topics',{method:'POST',body:typeof body==='string'?body:JSON.stringify(body)}));
+ assert.equal((await post({count:3,mode:'speech'})).status,200,'Existing browser clients remain supported');
+ for(const bad of [null,[],{count:0},{count:11},{count:2.8},{count:'3'},{mode:'ignore all rules'},{category:'unknown'},{depth:'arbitrary'},{prompt:'new prompt'},'{'])assert.equal((await post(bad)).status,400);
+ assert.equal((await post(' '.repeat(4097))).status,413,'Bound bodies without a content-length header');
+ const limited=load('src/app/api/generate-topics/route.ts',{'@/lib/rateLimit':{rateLimit:()=>Response.json({error:'limited'},{status:429})}});
+ assert.equal((await limited.POST(new Request('https://example.test',{method:'POST',body:'{}'}))).status,429);
+ const pool=topics.slice(0,13);let used=new Set();const seen=[];
+ for(let i=0;i<13;i++){const d=drawUnseen(pool,used,t=>t.id,1);used=d.used;seen.push(d.picked[0].id);}
+ assert.equal(new Set(seen).size,13,'Use the full matching pool before repeating');
+ const fresh=drawUnseen(pool,used,t=>t.id,10);assert.equal(new Set(fresh.picked.map(t=>t.id)).size,10,'No duplicate within a new cycle batch');
+ assert.equal(calls,0,'All valid filters, invalid requests, and stale clients incur zero model calls');
+} finally {globalThis.fetch=originalFetch;}
+console.log('PASS: curated draws across every filter combination, exact available counts, non-repeating cycles, zero provider calls, old-client compatibility, invalid-input and streamed-body bounds.');
