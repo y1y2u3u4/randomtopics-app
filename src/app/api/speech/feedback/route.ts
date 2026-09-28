@@ -7,7 +7,7 @@ import {
   response,
   SpeechError,
 } from "@/lib/speech/server";
-import { feedbackSchema, validateFeedback, type SpeechFeedback } from "@/lib/speech/schema";
+import { feedbackSchema, focusSchema, validateFeedback, type SpeechFeedback } from "@/lib/speech/schema";
 import { assembleFeedback, coachingInstruction, type CoachingResult } from "@/lib/speech/coaching";
 import { evidenceCoaching } from "@/lib/speech/evidence";
 import { speechAllowance } from "@/lib/speech/allowance";
@@ -97,9 +97,12 @@ export async function POST(request: Request) {
     try {
       stage = "model_request";
       const focused = attempt.usage?.context?.practiceMode === "focused" && Boolean(previous?.feedback.drill);
+      // This goal was derived from owned, completed feedback at reservation time.
+      // A fresh topic has no previous transcript and must never claim a comparison.
+      const carriedGoal = !previous ? focusSchema.safeParse(attempt.usage?.context?.goalTarget) : null;
       const evidence = evidenceCoaching(transcript, previous?.transcript, focused, previous?.feedback);
       const validatedFeedback = (value: CoachingResult) => validateFeedback(
-        assembleFeedback(value, transcript, previous?.feedback, focused),
+        assembleFeedback(value, transcript, previous?.feedback, focused, carriedGoal?.success ? carriedGoal.data : undefined),
         transcript, previous?.transcript, previous?.feedback,
       );
       const result = await modelCall(

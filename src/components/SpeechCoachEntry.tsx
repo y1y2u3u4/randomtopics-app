@@ -159,7 +159,7 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
   const buttonLabel = busy ? "Getting your topic…" : open ? "Hide practice" : topic ? "Continue your practice" :
     topics.length ? "Practice this topic free" : "Get a topic & practice free";
   const actions = <div className={`relative z-10 ${inlineActions ? "mb-5" : "mt-5"}`}>
-      {inlineActions && <p className="mb-3 text-sm leading-relaxed text-[var(--text-secondary)]">Try a 60-second answer. Get one specific suggestion.</p>}
+      {inlineActions && <p className="mb-3 text-sm leading-relaxed text-[var(--text-secondary)]">Give an answer, get one suggestion, then try it once and compare.</p>}
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <button ref={primary} type="button" disabled={busy} aria-expanded={open} aria-controls={`${id}-practice`}
           onClick={() => void startPractice("primary")}
@@ -192,7 +192,7 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
         <p className="text-xs font-bold uppercase tracking-widest text-[var(--neon-cyan)]">Your next step · Free speech feedback</p>
         <h2 className="mt-2 text-xl font-bold leading-tight sm:text-2xl">Make your next answer clearer.</h2>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--text-secondary)]">
-          Give a 60-second answer. Get one specific suggestion for your point, example or ending — then try it again.
+          Practice this topic. Get one clear suggestion, try it once, and compare your two answers.
         </p>
         {actions}
       </div>}

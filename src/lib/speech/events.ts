@@ -26,6 +26,9 @@ export const SPEECH_ENTRY_EVENTS = [
   "speech_entry_v4_page", "speech_entry_v4_view", "speech_entry_v4_click", "speech_coach_v4_open", "speech_entry_v4_example_view",
 ] as const;
 export const SPEECH_EVENTS = [
+  "speech_round_suggestion_view", "speech_round_retry_click", "speech_round_compare_view",
+  "speech_round_next_view", "speech_round_next_click", "speech_round_evidence_open",
+  "speech_round_transfer_begin", "speech_round_transfer_ready",
   "speech_warmup_offer_view", "speech_warmup_select", "speech_warmup_return",
   "speech_warmup_begin", "speech_warmup_audio_ready", "speech_warmup_submit",
   "speech_warmup_feedback_view", "speech_warmup_retry_view",
@@ -121,6 +124,21 @@ export const SPEECH_JOURNEY_STAGES = [
   ["返回网站并确认实付", "speech_payment_confirmed"],
 ] as const satisfies readonly (readonly [string, SpeechEvent])[];
 export const SPEECH_FUNNELS = [
+  { key: "guided_purchase", title: "新版练习 · 建议 → 对比 → 套餐 → 实付", steps: [
+    ["新版建议可见", "speech_round_suggestion_view"], ["主动重练", "speech_round_retry_click"],
+    ["看到前后对比", "speech_round_compare_view"], ["套餐按钮可见", "speech_plan_v2_action_view"],
+    ["点击套餐", "speech_plan_v2_click"], ["请求结账", "speech_checkout_request"],
+    ["跳转 Stripe", "speech_checkout_redirect"], ["Stripe 确认付款", "speech_payment_confirmed"],
+  ] },
+  { key: "guided_round", title: "完整练习轮次 · 建议 → 重练 → 对比 → 下一轮", steps: [
+    ["新版建议可见", "speech_round_suggestion_view"], ["主动重练", "speech_round_retry_click"],
+    ["看到前后对比", "speech_round_compare_view"], ["下一轮按钮可见", "speech_round_next_view"],
+    ["打开下一轮", "speech_round_next_click"],
+  ] },
+  { key: "goal_transfer", title: "目标迁移 · 打开下一轮 → 换题开始 → 新反馈", steps: [
+    ["打开下一轮", "speech_round_next_click"], ["换题开始尝试", "speech_round_transfer_begin"],
+    ["新题反馈返回", "speech_round_transfer_ready"],
+  ] },
   { key: "warmup_choice", title: "日常热身 · 选择按钮曝光 → 选择", steps: [
     ["热身选项可见一秒", "speech_warmup_offer_view"], ["主动选择日常题", "speech_warmup_select"],
   ] },

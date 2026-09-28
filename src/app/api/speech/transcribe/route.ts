@@ -8,7 +8,8 @@ import {
   response,
   SpeechError,
 } from "@/lib/speech/server";
-import { MAX_AUDIO_BYTES, transcriptSchema } from "@/lib/speech/schema";
+import { MAX_AUDIO_BYTES, transcriptSchema, feedbackSchema, type SpeechFocus } from "@/lib/speech/schema";
+import { nextRound } from "@/lib/speech/nextRound";
 import { SPEECH_EXPOSURE_VERSION, SPEECH_ENTRY_SOURCES } from "@/lib/speech/exposure";
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -16,6 +17,7 @@ const input = z.object({
   id: z.uuid(),
   topic: z.string().trim().min(1).max(700),
   previousId: z.uuid().nullable(),
+  goalSourceId: z.uuid().optional(),
   practiceMode: z.enum(["full", "focused"]).default("full"),
   qa: z.boolean().default(false),
   exposureVersion: z.literal(SPEECH_EXPOSURE_VERSION).optional(),
@@ -59,6 +61,19 @@ export async function POST(request: Request) {
         400,
         "Please record between 5 seconds and 2 minutes.",
       );
+    let goalTarget: SpeechFocus | undefined;
+    if (body.goalSourceId) {
+      if (body.previousId || body.practiceMode !== "full")
+        throw new SpeechError(400, "Start a new answer to practice on a different topic.");
+      const { data: source, error } = await db.from("speech_attempts")
+        .select("topic,feedback").eq("id", body.goalSourceId).eq("user_id", user.id)
+        .eq("status", "complete").is("deleted_at", null).single();
+      const parsedFeedback = feedbackSchema.safeParse(source?.feedback);
+      const next = parsedFeedback.success ? nextRound(parsedFeedback.data) : null;
+      if (error || !source || next?.mode !== "transfer" || source.topic.trim() === body.topic)
+        throw new SpeechError(409, "Open your saved feedback to choose the next practice again.");
+      goalTarget = next.target;
+    }
     const reservation = await db.rpc("reserve_speech_attempt", {
       p_id: body.id,
       p_user: user.id,
@@ -108,6 +123,7 @@ export async function POST(request: Request) {
     }
     try {
       const context = { version: "v5", practiceMode: body.practiceMode, qa: body.qa,
+        ...(goalTarget ? { goalTarget, goalSourceId: body.goalSourceId } : {}),
         ...(body.exposureVersion ? { exposureVersion: body.exposureVersion, entrySource: body.entrySource ?? "unknown" } : {}),
       };
       // Save measurement context before the provider call, so failed or interrupted

@@ -9,6 +9,7 @@ import { watchSpeechAccount } from "@/lib/speech/accountChanges";
 import { observeVisibleAction, observeVisibleContent } from "@/lib/speech/visibleAction";
 import { resumeHistoryFeedback } from "@/lib/speech/historyFeedback";
 import SpeechHistorySummary from "./SpeechHistorySummary";
+import { nextRound } from "@/lib/speech/nextRound";
 type Attempt = {
   id: string;
   topic: string;
@@ -461,7 +462,7 @@ export default function SpeechAccount() {
                 <SpeechHistorySummary nextStep={attempt.feedback.priority.nextStep} repeated={Boolean(attempt.previous_id)}
                   comparison={attempt.feedback.comparison} optional={attempt.feedback.drill?.kind === "refine"} />
                 <Link className="inline-flex min-h-11 items-center rounded-xl bg-[var(--neon-cyan)] px-4 py-2 text-sm font-semibold text-black"
-                  href={`/speech/practice?attempt=${attempt.id}`}>{attempt.feedback.drill ? "Practice this change in 20 seconds" : "Continue this practice"}</Link>
+                  href={`/speech/practice?attempt=${attempt.id}&next=1`}>{nextRound(attempt.feedback).mode === "transfer" ? "Practice this goal on a new topic" : attempt.feedback.drill ? "Practice this change in 20 seconds" : "Continue this practice"}</Link>
                 <details>
                   <summary className="cursor-pointer py-2 text-sm">
                     Feedback and transcript
