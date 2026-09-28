@@ -13,6 +13,9 @@ import { isSpeechWarmup, SPEECH_WARMUP_TOPIC } from "@/lib/speech/warmup";
 import SpeechPlanLink from "./SpeechPlanLink";
 import SpeechStartReasons from "./SpeechStartReasons";
 import SpeechFeedbackResult, { type SpeechResult } from "./SpeechFeedbackResult";
+import SpeechRoundSteps from "./SpeechRoundSteps";
+import { transferInstructions } from "@/lib/speech/nextRound";
+import type { SpeechFocus } from "@/lib/speech/schema";
 
 type Stage =
   | "ready"
@@ -35,6 +38,7 @@ export default function SpeechCoach({
   visible,
   initialPrevious,
   fromTimer = false,
+  carriedGoal,
 }: {
   topic: Topic;
   topics: Topic[];
@@ -43,6 +47,7 @@ export default function SpeechCoach({
   visible: boolean;
   initialPrevious?: SpeechResult;
   fromTimer?: boolean;
+  carriedGoal?: { sourceId: string; target: SpeechFocus };
 }) {
   const [stage, setStage] = useState<Stage>("ready");
   const [seconds, setSeconds] = useState(0);
@@ -82,12 +87,12 @@ export default function SpeechCoach({
   const warmupOriginal = useRef<Topic | null>(null);
   const warmupOriginalTarget = useRef(60);
   useEffect(() => {
-    if (!visible || stage !== "ready" || previous || beganAttempt.current || warmup || warmupSeen.current || !warmupButton.current) return;
+    if (!visible || stage !== "ready" || previous || carriedGoal || beganAttempt.current || warmup || warmupSeen.current || !warmupButton.current) return;
     return observeVisibleAction(warmupButton.current, () => {
       warmupSeen.current = true;
       trackSpeech("speech_warmup_offer_view", { content_source: contentSource, attempt: 1 });
     });
-  }, [visible, stage, previous, warmup, contentSource]);
+  }, [visible, stage, previous, warmup, contentSource, carriedGoal]);
   useEffect(() => {
     if (!visible || stage !== "ready") return;
     // The lazy coach can mount after the entry has already scrolled its loader.
@@ -169,6 +174,7 @@ export default function SpeechCoach({
     beganAttempt.current = true;
     emit(previous ? "speech_retry_attempt_start" : "speech_first_attempt_start");
     if (!previous) emit("speech_start_v2_begin");
+    if (carriedGoal && !previous) emit("speech_round_transfer_begin");
   }
   const stop = () => {
     if (recorder.current?.state === "recording") recorder.current.stop();
@@ -331,6 +337,7 @@ export default function SpeechCoach({
         data = await practiceFetch("transcribe", {
           id, topic: topic.text, previousId: previous?.id ?? null, audio,
           practiceMode: previous?.feedback.drill ? "focused" : "full", qa: speechQaSession(),
+          ...(!previous && carriedGoal ? { goalSourceId: carriedGoal.sourceId } : {}),
           exposureVersion: SPEECH_EXPOSURE_VERSION, entrySource: speechEntrySource(contentSource) ?? "unknown",
         });
       } catch (e) {
@@ -368,6 +375,7 @@ export default function SpeechCoach({
         setResult(data);
         setCorrecting(false);
         setStage("complete");
+        if (carriedGoal && !previous) emit("speech_round_transfer_ready");
         const elapsed = Math.round(performance.now() - requestedAt);
         emit("speech_feedback_ready", { elapsed_ms: elapsed });
         if (revise) emit("speech_transcript_corrected");
@@ -438,10 +446,11 @@ export default function SpeechCoach({
   ].includes(stage);
   return (
     <div className="mt-5 space-y-5 border-t border-white/10 pt-5">
+      {stage !== "complete" && <SpeechRoundSteps step={previous ? 3 : 1} />}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="mb-1 text-sm text-[var(--neon-cyan)]">
-            {previous?.feedback.drill ? "Same topic · One short practice" : previous ? "Same topic · Another attempt" : "Your first attempt"}
+            {previous?.feedback.drill ? "Same topic · One short practice" : previous ? "Same topic · Another attempt" : carriedGoal ? "New topic · Same practice goal" : "Your first attempt"}
           </p>
           <h3 className="text-xl font-semibold leading-relaxed">
             {topic.text}
@@ -487,6 +496,10 @@ export default function SpeechCoach({
           <p className="mt-2">{previous.feedback.priority.nextStep}</p>
         </aside>
       )}
+      {carriedGoal && !previous && stage !== "complete" && <aside className="rounded-xl border border-[var(--neon-cyan)]/25 p-4 text-sm">
+        <p className="font-semibold">{transferInstructions[carriedGoal.target]}</p>
+        <p className="mt-2 text-[var(--text-muted)]">A fresh answer, assessed on its own. Your short retry will use this new topic too.</p>
+      </aside>}
       {["ready", "permission", "recording"].includes(stage) && (
         <div className="rounded-2xl bg-black/20 p-5 sm:p-7">
           {stage === "ready" && error && <div ref={recordingNotice} tabIndex={-1} role="alert"
@@ -497,6 +510,7 @@ export default function SpeechCoach({
             </button>
           </div>}
           {stage === "ready" && !previous && <div aria-live="polite" className="mb-4 space-y-2 text-sm leading-relaxed">
+            <p>Give an answer, get one suggestion, try it once, then compare your two answers.</p>
             <p className="font-semibold">{warmup ? "Everyday warm-up · use your own experience" : "Say your point, then give one example."}</p>
             {warmup ? <>
               <p>{SPEECH_WARMUP_TOPIC.text}</p>
@@ -562,7 +576,7 @@ export default function SpeechCoach({
             Recording ends after two minutes or when you leave this tab.
           </p>
           {stage === "recording" && seconds >= target && <p role="status" className="mt-2 text-sm text-[var(--neon-cyan)]">You’ve reached your practice target. Finish your sentence, then stop.</p>}
-          {stage === "ready" && !previous && !beganAttempt.current && <div className="mt-3 border-t border-white/10 pt-3 text-sm">
+          {stage === "ready" && !previous && !carriedGoal && !beganAttempt.current && <div className="mt-3 border-t border-white/10 pt-3 text-sm">
             {warmup ? warmupOriginal.current && <button type="button" className="min-h-11 py-2 underline" onClick={() => {
               if (busy.current || beganAttempt.current || !warmupOriginal.current) return;
               const original = warmupOriginal.current;
@@ -604,7 +618,7 @@ export default function SpeechCoach({
           />
         </label>
       )}
-      {stage === "ready" && !previous && !beganAttempt.current && (
+      {stage === "ready" && !previous && !carriedGoal && !beganAttempt.current && (
         <SpeechStartReasons visible={visible} contentSource={contentSource} />
       )}
       {stage === "recorded" && (

@@ -76,10 +76,10 @@ export function makeDrill(target: SpeechFocus, kind: "fix" | "refine" | "check" 
   return { target, kind, seconds: 20, ...tasks[target] };
 }
 
-export function assembleFeedback(value: CoachingResult, transcript: string, previous?: SpeechFeedback, focused = false): SpeechFeedback {
+export function assembleFeedback(value: CoachingResult, transcript: string, previous?: SpeechFeedback, focused = false, carriedGoal?: SpeechFocus): SpeechFeedback {
   const isFocused = focused && Boolean(previous?.drill);
   if (isFocused && !value.focus || !isFocused && !value.assessment) throw new Error("missing_assessment");
-  const target = isFocused ? previous!.drill!.target : selectFocus(value.assessment!);
+  const target = isFocused ? previous!.drill!.target : carriedGoal ?? selectFocus(value.assessment!);
   const focus = isFocused ? value.focus! : target === "concise" ? undefined : value.assessment![target];
   const notAssessed = { status: "not_assessed" as const, quote: "", explanation: "Not assessed in this focused practice; your earlier answer provides the context." };
   const assessment = isFocused ? {

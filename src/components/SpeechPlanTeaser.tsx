@@ -33,7 +33,7 @@ export default function SpeechPlanTeaser({ attempt, contentSource, visible, comp
   }} className="underline">More practice: $12/month</SpeechPlanLink>.</p></section>;
   return <><section ref={card} aria-label="Keep practicing" className="space-y-3 rounded-xl border border-[var(--neon-cyan)]/30 bg-[var(--neon-cyan)]/5 p-5">
     <h4 className="font-semibold">{focusLabel ? `Your next practice: ${focusLabel}` : "Turn your feedback into another practice"}</h4>
-    <p className="text-sm">Choose your next topic, record an answer, then retry one suggested change. Compare those two answers to see what changed. Your saved feedback stays available to revisit.</p>
+    <p className="text-sm">Continue from your saved goal in practice history. Record, try one suggested change, and compare your two answers. Each recording uses one attempt.</p>
     <p className="text-sm"><strong>$12/month</strong> · 40 attempts per billing month, including retries · up to 2 minutes each. Unused attempts do not roll over.</p>
     {attempt === 1 && <p className="text-sm text-[var(--text-muted)]">Your first two recorded attempts are free, including retries.</p>}
     <SpeechPlanLink surface="card" visible={visible} attempt={attempt} contentSource={contentSource} href={speechPlanPath} onClick={() => {

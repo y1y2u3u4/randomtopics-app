@@ -17,7 +17,7 @@ let component = resolve(root, 'src/components/SpeechCoach.tsx');
 if (baseline) component = put('SpeechCoach.tsx', execFileSync('git', ['show', `${baseline}:src/components/SpeechCoach.tsx`], { cwd: root }));
 const loader = put('loader.cjs', `const ts=require(${JSON.stringify(require.resolve('typescript'))});module.exports=function(s){return ts.transpileModule(s,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext,jsx:ts.JsxEmit.ReactJSX}}).outputText;};`);
 const link = put('link.tsx', `export default function Link({href,children,...p}){return <a href={href} {...p}>{children}</a>}`);
-const result = put('result.tsx', `export default function Result({fromWarmup,fromTimer}){return <h4 tabIndex={-1} data-warmup={Boolean(fromWarmup)} data-timer={Boolean(fromTimer)}>Fixture feedback ready</h4>}`);
+const result = put('result.tsx', `import Steps from '@/components/SpeechRoundSteps';export default function Result({fromWarmup,fromTimer,repeated}){return <><Steps step={repeated?4:2}/><h4 tabIndex={-1} data-warmup={Boolean(fromWarmup)} data-timer={Boolean(fromTimer)}>Fixture feedback ready</h4></>}`);
 const client = put('client.ts', `export class PracticeRequestError extends Error {};
 export const api={calls:[],bodies:[],hold:false,quota:false,release:()=>{}};
 export async function practiceFetch(path,body){api.calls.push(path);api.bodies.push(body);if(path==='transcribe'){if(api.quota)throw Object.assign(new PracticeRequestError('Fixture quota'),{status:402});if(api.hold)await new Promise(r=>{api.release=r});return {transcript:'A synthetic answer for a local browser test.',duration:5};}return {id:body.id,status:'complete',feedback:{}};}`);
@@ -41,10 +41,10 @@ const check=(condition,message)=>{if(!condition)throw Error(message)};
 const text=()=>host.textContent;
 const button=name=>[...host.querySelectorAll('button')].find(x=>x.textContent.trim()===name);
 const click=async name=>{const b=button(name);check(b&&!b.disabled,'Missing enabled control: '+name);await act(async()=>b.click())};
-let timerOrigin=false;
-function Fixture({visible}){const [chosen,setChosen]=useState(topic);return <Coach topic={chosen} topics={[topic]} onTopicChange={setChosen} contentSource='speech_hub' visible={visible} initialPrevious={prior} fromTimer={timerOrigin}/>;}
+let timerOrigin=false,carry;
+function Fixture({visible}){const [chosen,setChosen]=useState(topic);return <Coach topic={chosen} topics={[topic]} onTopicChange={setChosen} contentSource='speech_hub' visible={visible} initialPrevious={prior} fromTimer={timerOrigin} carriedGoal={carry}/>;}
 const render=async(visible=true,remount=false)=>{if(remount)key++;await act(async()=>root.render(<Fixture key={key} visible={visible}/>));};
-const fresh=async(previous,fromTimer=false)=>{prior=previous;timerOrigin=fromTimer;pending.length=0;tracks.length=0;api.calls.length=0;api.bodies.length=0;api.hold=false;api.quota=false;recorderStarts=0;events.length=0;await render(true,true)};
+const fresh=async(previous,fromTimer=false,goal)=>{prior=previous;carry=goal;timerOrigin=fromTimer;pending.length=0;tracks.length=0;api.calls.length=0;api.bodies.length=0;api.hold=false;api.quota=false;recorderStarts=0;events.length=0;await render(true,true)};
 const grant=async index=>{const track={stopped:false,stop(){this.stopped=true}};tracks.push(track);await act(async()=>pending[index].resolve({getTracks:()=>[track]}));return track};
 const deny=async index=>act(async()=>pending[index].reject(new DOMException('Fixture denied','NotAllowedError')));
 const file=async()=>{const input=host.querySelector('input[type=file]');check(input,'Upload input is available');const d=new DataTransfer();d.items.add(new File([wav()],'fixture.wav',{type:'audio/wav'}));await act(async()=>{input.files=d.files;input.dispatchEvent(new Event('change',{bubbles:true}))});};
@@ -55,6 +55,16 @@ const results=[];
 const test=async(name,fn)=>{try{await fn();results.push({name,pass:true})}catch(e){results.push({name,pass:false,error:e.message})}output.textContent=JSON.stringify(results,null,2)};
 document.getElementById('run').onclick=async()=>{
  document.getElementById('run').disabled=true;results.length=0;
+ await test('Carried goal preserves full new-topic context without automatic calls or warm-up replacement',async()=>{
+  await fresh(undefined,false,{sourceId:'fixture-goal-source',target:'example'});
+  check(text().includes('New topic · Same practice goal')&&text().includes('one specific scene'),'The actual carried goal is visible');
+  check(!button('Try an everyday warm-up instead')&&pending.length===0&&api.calls.length===0,'Opening a next round never records, invokes models, or replaces the new topic');
+  check(host.querySelector('[aria-label="Your practice round"] [aria-current="step"]').textContent.includes('Give your answer'),'Round starts at step one');
+  await click('Start recording');await grant(0);await click('Finish recording');await click('Get my feedback');
+  check(api.bodies[0].goalSourceId==='fixture-goal-source'&&api.bodies[0].previousId===null&&api.bodies[0].practiceMode==='full','Transfer is a full new answer with a source goal, never a cross-topic comparison');
+  check(api.calls.join(',')==='transcribe,feedback'&&count('qa_speech_round_transfer_begin')===1&&count('qa_speech_round_transfer_ready')===1,'Existing two requests only; separate transfer events');
+  check(host.querySelector('[aria-current="step"]').textContent.includes('See one suggestion'),'Result advances the round to step two');
+ });
  await test('Everyday topic is opt-in, reversible and never starts media or a model',async()=>{
   await fresh();check(host.querySelector('h3').textContent===topic.text,'Original topic remains the default');
   const choice=button('Try an everyday warm-up instead');await act(async()=>{choice.click();choice.click()});

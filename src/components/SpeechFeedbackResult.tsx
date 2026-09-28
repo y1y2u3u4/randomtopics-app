@@ -3,10 +3,12 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { SpeechFeedback } from "@/lib/speech/schema";
 import { focusLabels } from "@/lib/speech/practiceLabels";
+import { nextRound, retryLabels } from "@/lib/speech/nextRound";
 import { observeVisibleAction, observeVisibleContent } from "@/lib/speech/visibleAction";
 import { trackSpeech } from "@/lib/speech/telemetry";
 import { SPEECH_REASON_EVENTS, type SpeechReason } from "@/lib/speech/events";
 import SpeechPlanTeaser from "./SpeechPlanTeaser";
+import SpeechRoundSteps from "./SpeechRoundSteps";
 
 export type SpeechResult = {
   id: string; transcript: string; feedback: SpeechFeedback; duration: number;
@@ -25,12 +27,17 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
   const [finished, setFinished] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
   const retry = useRef<HTMLButtonElement>(null);
+  const evidence = useRef<HTMLDetailsElement>(null);
+  const nextAction = useRef<HTMLAnchorElement>(null);
+  const nextViewed = useRef(false);
   const viewed = useRef(false);
   const retryViewed = useRef(false);
   const f = result.feedback;
   const drill = f.drill;
   const attempt = repeated ? 2 : 1;
   const canRetry = result.allowance?.remaining !== 0;
+  const next = nextRound(f);
+  const recovery = helpful === false;
   useEffect(() => {
     if (!visible || !heading.current || viewed.current) return;
     return observeVisibleContent(heading.current, () => {
@@ -40,6 +47,7 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
       trackSpeech(repeated ? "speech_retry_feedback_view" : "speech_first_feedback_view", props);
       trackSpeech("speech_feedback_v5_view", props);
       trackSpeech(repeated ? "speech_retry_feedback_v5_view" : "speech_first_feedback_v5_view", props);
+      trackSpeech(repeated ? "speech_round_compare_view" : "speech_round_suggestion_view", props);
       if (fromTimer) trackSpeech(repeated ? "speech_timer_retry_view" : "speech_timer_feedback_view", props);
       if (fromWarmup) trackSpeech(repeated ? "speech_warmup_retry_view" : "speech_warmup_feedback_view", props);
       if (repeated) trackSpeech("speech_comparison_view", { ...props, outcome: f.comparison.outcome });
@@ -52,12 +60,27 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
       trackSpeech("speech_retry_action_view", { content_source: contentSource, attempt });
     });
   }, [visible, contentSource, attempt]);
+  useEffect(() => {
+    if (!visible || recovery || !nextAction.current || nextViewed.current) return;
+    return observeVisibleContent(nextAction.current, () => {
+      nextViewed.current = true;
+      trackSpeech("speech_round_next_view", { content_source: contentSource, attempt, outcome: next.mode });
+    });
+  }, [visible, contentSource, attempt, next.mode, recovery]);
+  const openEvidence = () => {
+    if (!evidence.current) return;
+    evidence.current.open = true;
+    evidence.current.querySelector("summary")?.focus();
+    evidence.current.scrollIntoView({ block: "start", behavior: "smooth" });
+    trackSpeech("speech_round_evidence_open", { content_source: contentSource, attempt });
+  };
   const feedbackReason = (value: SpeechReason) => {
     setReason(value);
     trackSpeech("speech_feedback_reason", { content_source: contentSource, attempt, reason: value });
     trackSpeech(SPEECH_REASON_EVENTS[value], { content_source: contentSource, attempt });
   };
   return <section className="space-y-4" aria-label="Your feedback">
+    <SpeechRoundSteps step={repeated ? 4 : 2} />
     <h4 ref={heading} className="text-xl font-semibold" tabIndex={-1}>
       {repeated ? "Your progress on this goal" : "One small step for your next answer"}
     </h4>
@@ -72,21 +95,26 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
     {!repeated && <div data-clarity-mask="true" className="space-y-2">
       {(!f.assessment || Object.values(f.assessment).some(item => item.status === "met")) && <p><strong>Keep: </strong>{f.strength.observation}</p>}
       <p><strong>{drill?.kind === "refine" ? "Optional refinement: " : drill?.kind === "check" ? "Check the transcript: " : "Focus: "}</strong>{f.priority.observation}</p>
+      {f.priority.quote ? <blockquote className="rounded-xl border-l-2 border-[var(--neon-cyan)] bg-white/5 p-3 text-sm">
+        <span className="mb-1 block font-semibold">From your answer</span>“{f.priority.quote}”
+      </blockquote> : <p className="text-sm text-[var(--text-muted)]">{drill?.kind === "refine" ? "This is optional practice, not a missing skill." : "There is no passage to quote for this goal. Check the full transcript if the assessment missed something."}</p>}
     </div>}
-    {canRetry && <div data-clarity-mask="true" className="space-y-3 rounded-xl border border-[var(--neon-cyan)]/30 p-4 sm:p-5">
-      <p className="font-semibold">{repeated && drill?.kind === "refine" ? "Goal reached · another practice is optional" : drill ? `Practice ${focusLabels[drill.target]} · about 20 seconds` : "Practice this one change"}</p>
+    {canRetry && next.mode !== "review" && !(repeated && next.mode === "transfer") && <div data-clarity-mask="true" className="space-y-3 rounded-xl border border-[var(--neon-cyan)]/30 p-4 sm:p-5">
+      <p className="font-semibold">{drill ? `Practice ${focusLabels[drill.target]} · about 20 seconds` : "Practice this one change"}</p>
       <p>{drill?.instruction ?? f.priority.nextStep}</p>
       {drill && <>
         <p className="text-sm text-[var(--text-muted)]">Use this frame with your own words:</p>
         <blockquote className="border-l-2 border-[var(--neon-cyan)]/60 pl-3">{drill.starter}</blockquote>
         <p className="text-sm"><strong>We’ll check: </strong>{drill.successCriterion}</p>
       </>}
-      <button ref={retry} type="button" className={`${button} w-full bg-[var(--neon-cyan)] text-black sm:w-auto`} onClick={onRetry}>
-        {drill ? "Try this 20-second practice" : "Try this change"}{result.allowance && !result.allowance.paid && result.allowance.remaining > 0 ? " — free" : ""}
+      <button ref={retry} type="button" className={`${button} w-full bg-[var(--neon-cyan)] text-black sm:w-auto`} onClick={() => {
+        trackSpeech("speech_round_retry_click", { content_source: contentSource, attempt }); onRetry();
+      }}>
+        {drill ? retryLabels[drill.target] : "Try this change"}{result.allowance && !result.allowance.paid && result.allowance.remaining > 0 ? " — free" : ""}
       </button>
       {result.allowance && <p className="text-xs text-[var(--text-muted)]">{result.allowance.remaining} {result.allowance.paid ? "included" : "free"} attempt{result.allowance.remaining === 1 ? "" : "s"} remaining. A short practice uses one attempt.</p>}
     </div>}
-    <details data-clarity-mask="true" className="rounded-xl border border-white/10 p-4">
+    <details ref={evidence} data-clarity-mask="true" className="rounded-xl border border-white/10 p-4">
       <summary className="cursor-pointer font-semibold">Evidence, structure & transcript</summary>
       <div className="mt-3 space-y-3 text-sm">
         {f.strength.quote && <blockquote><strong>What worked: </strong>“{f.strength.quote}”</blockquote>}
@@ -109,7 +137,25 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
         feedbackReason(value); if (value === "transcription" && (result.correctionsRemaining ?? 0) > 0) onCorrect();
       }}>{label}</button>)}
     </div>}
-    {!result.allowance?.paid && <SpeechPlanTeaser attempt={attempt} contentSource={contentSource} visible={visible}
+    {recovery && <aside aria-label="Check this feedback" className="space-y-3 rounded-xl border border-amber-400/30 p-4">
+      <p className="font-semibold">Let’s make the feedback useful first</p>
+      <p className="text-sm">{reason === "hard_to_apply" ? "Use this sentence frame with your own words. You can rehearse it here before recording; reading it or checking your saved answer uses no attempts."
+        : "Compare the quoted passage with your full transcript. If the words are correct but the assessment is wrong, you can keep your answer and skip this suggestion."}</p>
+      {reason === "hard_to_apply" && drill && <blockquote className="border-l-2 border-amber-400/40 pl-3 text-sm">{drill.starter}</blockquote>}
+      <button type="button" className={button} onClick={openEvidence}>Check my transcript and evidence</button>
+      {(result.correctionsRemaining ?? 0) > 0 && <button type="button" className={button} onClick={onCorrect}>Correct a transcription mistake</button>}
+      <p className="text-xs text-[var(--text-muted)]">{(result.correctionsRemaining ?? 0) > 0 ? "Correcting transcription mistakes does not use another recorded attempt." : "No feedback corrections remain for this recording. You can still review all saved evidence."} You do not need to subscribe to review this result.</p>
+    </aside>}
+    {(repeated || next.mode === "review") && !recovery && <aside aria-label="Your next round" className="space-y-3 rounded-xl border border-white/15 p-4">
+      <h4 className="font-semibold">{next.title}</h4><p className="text-sm">{next.description}</p>
+      {next.mode === "review" ? <button type="button" className={button} onClick={openEvidence}>Check the evidence</button> :
+        <Link ref={nextAction} href={`/speech/practice?attempt=${result.id}&next=1`} className={`${button} inline-flex items-center`}
+          onClick={() => trackSpeech("speech_round_next_click", { content_source: contentSource, attempt, outcome: next.mode })}>
+          {!canRetry ? "Preview my next round" : next.mode === "transfer" ? "Choose a new topic for this goal" : "Open my next practice"}
+        </Link>}
+      {!canRetry && <p className="text-xs text-[var(--text-muted)]">Your goal stays in practice history. {result.allowance?.paid ? "Submitting another recording needs available attempts." : "Your free attempts are used. Another recording requires a plan; reviewing your result stays free."}</p>}
+    </aside>}
+    {!result.allowance?.paid && !recovery && next.mode !== "review" && <SpeechPlanTeaser attempt={attempt} contentSource={contentSource} visible={visible}
       compact={!repeated && canRetry} focusLabel={drill ? focusLabels[drill.target] : undefined} />}
     {result.allowance?.paid && !canRetry && <p className="text-sm">You’ve used this billing month’s included attempts. Your saved feedback is still available. <Link className="underline" href="/speech/account">View your account and renewal date</Link>.</p>}
     <div className="text-sm">
