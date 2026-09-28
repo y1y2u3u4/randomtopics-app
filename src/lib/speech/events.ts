@@ -26,6 +26,9 @@ export const SPEECH_ENTRY_EVENTS = [
   "speech_entry_v4_page", "speech_entry_v4_view", "speech_entry_v4_click", "speech_coach_v4_open", "speech_entry_v4_example_view",
 ] as const;
 export const SPEECH_EVENTS = [
+  "speech_warmup_offer_view", "speech_warmup_select", "speech_warmup_return",
+  "speech_warmup_begin", "speech_warmup_audio_ready", "speech_warmup_submit",
+  "speech_warmup_feedback_view", "speech_warmup_retry_view",
   "speech_timer_eligible_complete", "speech_timer_bridge_view", "speech_timer_bridge_click",
   "speech_timer_coach_open", "speech_timer_practice_resume", "speech_timer_topic_conflict",
   "speech_timer_attempt_start", "speech_timer_audio_ready", "speech_timer_submit", "speech_timer_feedback_view", "speech_timer_retry_view",
@@ -68,6 +71,10 @@ export const SPEECH_EVENTS = [
 export type SpeechEvent = typeof SPEECH_EVENTS[number];
 // Independent event counts, not an ordered or user-deduplicated funnel.
 export const SPEECH_JOURNEY_STAGES = [
+  ["日常热身选择按钮曝光", "speech_warmup_offer_view"], ["选择日常热身题", "speech_warmup_select"],
+  ["返回原练习题", "speech_warmup_return"], ["热身开始尝试", "speech_warmup_begin"],
+  ["热身音频就绪", "speech_warmup_audio_ready"], ["热身提交反馈", "speech_warmup_submit"],
+  ["热身首份反馈可见", "speech_warmup_feedback_view"], ["热身重练反馈可见", "speech_warmup_retry_view"],
   ["支持反馈入口的计时完成", "speech_timer_eligible_complete"], ["计时后录音入口有效曝光", "speech_timer_bridge_view"],
   ["计时后点击录音入口", "speech_timer_bridge_click"], ["计时后创建新练习", "speech_timer_coach_open"],
   ["计时入口恢复已有练习", "speech_timer_practice_resume"], ["计时话题与已有练习不同", "speech_timer_topic_conflict"],
@@ -114,6 +121,18 @@ export const SPEECH_JOURNEY_STAGES = [
   ["返回网站并确认实付", "speech_payment_confirmed"],
 ] as const satisfies readonly (readonly [string, SpeechEvent])[];
 export const SPEECH_FUNNELS = [
+  { key: "warmup_choice", title: "日常热身 · 选择按钮曝光 → 选择", steps: [
+    ["热身选项可见一秒", "speech_warmup_offer_view"], ["主动选择日常题", "speech_warmup_select"],
+  ] },
+  { key: "warmup_activation", title: "日常热身 · 选择 → 首份反馈", steps: [
+    ["主动选择日常题", "speech_warmup_select"], ["开始录音或选文件", "speech_warmup_begin"],
+    ["音频准备完成", "speech_warmup_audio_ready"], ["主动提交反馈", "speech_warmup_submit"],
+    ["首份反馈可见", "speech_warmup_feedback_view"],
+  ] },
+  { key: "warmup_value", title: "日常热身 · 首份反馈 → 重练 → 套餐", steps: [
+    ["首份反馈可见", "speech_warmup_feedback_view"], ["重练反馈可见", "speech_warmup_retry_view"],
+    ["完整套餐按钮曝光", "speech_plan_v2_action_view"], ["点击完整套餐", "speech_plan_v2_click"],
+  ] },
   { key: "timer_bridge", title: "计时后入口 · 有效曝光 → 新练习 → 首份反馈", steps: [
     ["录音入口可见一秒", "speech_timer_bridge_view"], ["主动点击", "speech_timer_bridge_click"],
     ["打开新的练习", "speech_timer_coach_open"], ["开始录音或选文件", "speech_timer_attempt_start"],

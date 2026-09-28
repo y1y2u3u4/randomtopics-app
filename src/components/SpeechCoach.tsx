@@ -9,6 +9,7 @@ import { SPEECH_EXPOSURE_VERSION, speechEntrySource } from "@/lib/speech/exposur
 import { recordingToWav } from "@/lib/speech/audio";
 import { observeVisibleAction } from "@/lib/speech/visibleAction";
 import { MicrophoneRequest } from "@/lib/speech/microphoneRequest";
+import { isSpeechWarmup, SPEECH_WARMUP_TOPIC } from "@/lib/speech/warmup";
 import SpeechPlanLink from "./SpeechPlanLink";
 import SpeechStartReasons from "./SpeechStartReasons";
 import SpeechFeedbackResult, { type SpeechResult } from "./SpeechFeedbackResult";
@@ -75,6 +76,18 @@ export default function SpeechCoach({
   const recordingNotice = useRef<HTMLDivElement>(null);
   const focusUpload = useRef(false);
   const seenControls = useRef(new Set<number>());
+  const warmup = isSpeechWarmup(topic);
+  const warmupButton = useRef<HTMLButtonElement>(null);
+  const warmupSeen = useRef(false);
+  const warmupOriginal = useRef<Topic | null>(null);
+  const warmupOriginalTarget = useRef(60);
+  useEffect(() => {
+    if (!visible || stage !== "ready" || previous || beganAttempt.current || warmup || warmupSeen.current || !warmupButton.current) return;
+    return observeVisibleAction(warmupButton.current, () => {
+      warmupSeen.current = true;
+      trackSpeech("speech_warmup_offer_view", { content_source: contentSource, attempt: 1 });
+    });
+  }, [visible, stage, previous, warmup, contentSource]);
   useEffect(() => {
     if (!visible || stage !== "ready") return;
     // The lazy coach can mount after the entry has already scrolled its loader.
@@ -86,7 +99,7 @@ export default function SpeechCoach({
       next?.scrollIntoView({ block: "center", behavior: "instant" });
     });
     return () => cancelAnimationFrame(frame);
-  }, [visible, stage, error]);
+  }, [visible, stage, error, warmup]);
   useEffect(() => {
     const input = uploadInput.current;
     if (stage !== "ready" || !input) return;
@@ -132,7 +145,16 @@ export default function SpeechCoach({
       ...extra,
     };
     trackSpeech(event, properties);
-    if (fromTimer && !previous) {
+    if (warmup && !previous) {
+      const derived = {
+        speech_first_attempt_start: "speech_warmup_begin",
+        speech_audio_ready: "speech_warmup_audio_ready",
+        speech_feedback_v5_request: "speech_warmup_submit",
+      } as const;
+      const warmupEvent = derived[event as keyof typeof derived];
+      if (warmupEvent) trackSpeech(warmupEvent, properties);
+    }
+    if (fromTimer && !previous && !warmup) {
       const derived = {
         speech_first_attempt_start: "speech_timer_attempt_start",
         speech_audio_ready: "speech_timer_audio_ready",
@@ -441,7 +463,11 @@ export default function SpeechCoach({
             value={topic.id}
             onChange={(e) => {
               const next = topics.find((t) => t.id === e.target.value);
-              if (next) onTopicChange(next);
+              if (next) {
+                if (warmup) { setTarget(warmupOriginalTarget.current); emit("speech_warmup_return"); }
+                warmupOriginal.current = null;
+                onTopicChange(next);
+              }
             }}
           >
             {!topics.some((t) => t.id === topic.id) && (
@@ -470,9 +496,12 @@ export default function SpeechCoach({
               Choose an audio file
             </button>
           </div>}
-          {stage === "ready" && !previous && <div className="mb-4 space-y-2 text-sm leading-relaxed">
-            <p className="font-semibold">Say your point, then give one example.</p>
-            <p className="text-[var(--text-muted)]">A minute is a guide, not a minimum. Stop when you finish your thought.</p>
+          {stage === "ready" && !previous && <div aria-live="polite" className="mb-4 space-y-2 text-sm leading-relaxed">
+            <p className="font-semibold">{warmup ? "Everyday warm-up · use your own experience" : "Say your point, then give one example."}</p>
+            {warmup ? <>
+              <p>{SPEECH_WARMUP_TOPIC.text}</p>
+              <p className="text-[var(--text-muted)]">Try: “One habit that helps me is … For example …” Use your own words. About 20 seconds is enough to start; stop when you finish your thought.</p>
+            </> : <p className="text-[var(--text-muted)]">A minute is a guide, not a minimum. Stop when you finish your thought.</p>}
             <p className="text-[var(--text-muted)]">Audio stays on this page until you choose “Get my feedback”.</p>
           </div>}
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -497,7 +526,7 @@ export default function SpeechCoach({
                     onChange={(e) => setTarget(Number(e.target.value))}
                     className="ml-2 rounded-lg bg-[var(--bg-primary)] p-3"
                   >
-                    {previous?.feedback.drill && <option value={20}>20 seconds</option>}
+                    {(warmup || previous?.feedback.drill) && <option value={20}>20 seconds</option>}
                     <option value={60}>1 minute</option>
                     <option value={120}>2 minutes</option>
                   </select>
@@ -533,6 +562,26 @@ export default function SpeechCoach({
             Recording ends after two minutes or when you leave this tab.
           </p>
           {stage === "recording" && seconds >= target && <p role="status" className="mt-2 text-sm text-[var(--neon-cyan)]">You’ve reached your practice target. Finish your sentence, then stop.</p>}
+          {stage === "ready" && !previous && !beganAttempt.current && <div className="mt-3 border-t border-white/10 pt-3 text-sm">
+            {warmup ? warmupOriginal.current && <button type="button" className="min-h-11 py-2 underline" onClick={() => {
+              if (busy.current || beganAttempt.current || !warmupOriginal.current) return;
+              const original = warmupOriginal.current;
+              warmupOriginal.current = null;
+              setTarget(warmupOriginalTarget.current);
+              onTopicChange(original);
+              emit("speech_warmup_return");
+            }}>Return to my original topic</button> : <>
+              <p className="text-[var(--text-muted)]">Hard to answer this topic on the spot?</p>
+              <button ref={warmupButton} type="button" className="min-h-11 py-2 underline" onClick={() => {
+                if (busy.current || beganAttempt.current || warmupOriginal.current) return;
+                warmupOriginal.current = topic;
+                warmupOriginalTarget.current = target;
+                onTopicChange(SPEECH_WARMUP_TOPIC);
+                setTarget(20);
+                emit("speech_warmup_select");
+              }}>Try an everyday warm-up instead</button>
+            </>}
+          </div>}
         </div>
       )}
       {stage === "ready" && (
@@ -648,7 +697,7 @@ export default function SpeechCoach({
       )}
       {stage === "complete" && result && (
         <div ref={resultPanel}>
-          <SpeechFeedbackResult key={`${result.id}-${result.correctionsRemaining}`} result={result} repeated={Boolean(previous)} visible={visible} contentSource={contentSource} fromTimer={fromTimer}
+          <SpeechFeedbackResult key={`${result.id}-${result.correctionsRemaining}`} result={result} repeated={Boolean(previous)} visible={visible} contentSource={contentSource} fromTimer={fromTimer && !warmup} fromWarmup={warmup}
             onRetry={() => {
               emit("speech_retry_start", { attempt: 2 });
               beganAttempt.current = false;
