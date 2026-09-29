@@ -35,4 +35,5 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm run speech:test
+      - run: npm run billing:test
       - run: npx eslint src/lib/speech/server.ts src/lib/speech/diagnostics.ts scripts/speech-transcription-regression.mjs

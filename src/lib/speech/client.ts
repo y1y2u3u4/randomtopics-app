@@ -33,12 +33,14 @@ export async function practiceFetch(
   path: string,
   body?: unknown,
   method?: string,
+  options?: { existingSessionOnly?: boolean; timeoutMs?: number },
 ) {
   const auth = (await speechClient()).auth;
   let {
     data: { session },
   } = await auth.getSession();
   if (!session) {
+    if (options?.existingSessionOnly) throw new PracticeRequestError("Reconnect this browser session or sign in with your linked email. Your saved practice has not been replaced.", false, 401);
     guestSession ??= auth
       .signInAnonymously()
       .then((result) => {
@@ -60,6 +62,7 @@ export async function practiceFetch(
       "Content-Type": "application/json",
     },
     body: body ? JSON.stringify(body) : undefined,
+    ...(options?.timeoutMs ? { signal: AbortSignal.timeout(options.timeoutMs) } : {}),
   });
   const result = await res.json();
   if (!res.ok)
@@ -69,4 +72,14 @@ export async function practiceFetch(
       res.status,
     );
   return result;
+}
+
+// Explicit recovery never silently creates a new guest or changes the owner.
+export async function reconnectSpeechSession() {
+  const auth = (await speechClient()).auth;
+  const { data: { session }, error } = await auth.getSession();
+  if (error || !session) throw new PracticeRequestError("This session could not be restored. If you linked an email, sign in below. Guest practice cannot be recovered after its browser session is lost.", false, 401);
+  const refreshed = await auth.refreshSession();
+  if (refreshed.error || !refreshed.data.session) throw new PracticeRequestError("Could not reconnect this session. Try again, or sign in with your linked email.", false, 401);
+  if (refreshed.data.session.user.id !== session.user.id) throw new PracticeRequestError("Your account changed. Review the practice and plan in this account before continuing.", false, 409);
 }

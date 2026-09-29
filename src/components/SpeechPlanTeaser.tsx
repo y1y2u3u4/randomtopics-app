@@ -4,12 +4,13 @@ import SpeechPlanReasons from "./SpeechPlanReasons";
 import { useEffect, useRef, useState } from "react";
 import { speechBillingAvailable } from "@/lib/speech/client";
 import { speechQaSession, trackSpeech } from "@/lib/speech/telemetry";
-import { rememberCheckoutIntent, speechPlanPath } from "@/lib/speech/checkoutIntent";
+import { rememberCheckoutIntent, speechPlanPathForAttempt } from "@/lib/speech/checkoutIntent";
 import { observeVisibleContent } from "@/lib/speech/visibleAction";
 
-export default function SpeechPlanTeaser({ attempt, contentSource, visible, compact = false, focusLabel }: {
-  attempt: number; contentSource: string; visible: boolean; compact?: boolean; focusLabel?: string;
+export default function SpeechPlanTeaser({ attempt, contentSource, visible, compact = false, focusLabel, attemptId }: {
+  attempt: number; contentSource: string; visible: boolean; compact?: boolean; focusLabel?: string; attemptId?: string;
 }) {
+  const speechPlanPath = speechPlanPathForAttempt(attemptId);
   const [available, setAvailable] = useState(false);
   const card = useRef<HTMLElement>(null);
   const seen = useRef(new Set<string>());
@@ -29,7 +30,7 @@ export default function SpeechPlanTeaser({ attempt, contentSource, visible, comp
   }, [available, visible, contentSource, attempt, compact]);
   if (!available) return null;
   if (compact) return <section ref={card} aria-label="More speech practice"><p className="text-sm text-[var(--text-muted)]">Your first two recorded attempts are free, including retries. <SpeechPlanLink surface="hint" visible={visible} attempt={attempt} contentSource={contentSource} href={speechPlanPath} onClick={() => {
-    rememberCheckoutIntent(speechQaSession(), contentSource);
+    rememberCheckoutIntent(speechQaSession(), contentSource, attemptId ?? null);
   }} className="underline">More practice: $12/month</SpeechPlanLink>.</p></section>;
   return <><section ref={card} aria-label="Keep practicing" className="space-y-3 rounded-xl border border-[var(--neon-cyan)]/30 bg-[var(--neon-cyan)]/5 p-5">
     <h4 className="font-semibold">{focusLabel ? `Your next practice: ${focusLabel}` : "Turn your feedback into another practice"}</h4>
@@ -37,7 +38,7 @@ export default function SpeechPlanTeaser({ attempt, contentSource, visible, comp
     <p className="text-sm"><strong>$12/month</strong> · 40 attempts per billing month, including retries · up to 2 minutes each. Unused attempts do not roll over.</p>
     {attempt === 1 && <p className="text-sm text-[var(--text-muted)]">Your first two recorded attempts are free, including retries.</p>}
     <SpeechPlanLink surface="card" visible={visible} attempt={attempt} contentSource={contentSource} href={speechPlanPath} onClick={() => {
-      rememberCheckoutIntent(speechQaSession(), contentSource);
+      rememberCheckoutIntent(speechQaSession(), contentSource, attemptId ?? null);
       trackSpeech("speech_plan_click", { content_source: contentSource, attempt });
     }} className="inline-flex min-h-11 items-center rounded-xl bg-[var(--neon-cyan)] px-4 py-2 text-sm font-semibold text-black">
       View the $12/month plan

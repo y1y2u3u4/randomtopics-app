@@ -26,6 +26,10 @@ export const SPEECH_ENTRY_EVENTS = [
   "speech_entry_v4_page", "speech_entry_v4_view", "speech_entry_v4_click", "speech_coach_v4_open", "speech_entry_v4_example_view",
 ] as const;
 export const SPEECH_EVENTS = [
+  "speech_account_arrive", "speech_account_load_start", "speech_account_load_ready", "speech_account_load_error",
+  "speech_account_reconnect_start", "speech_account_reconnect_ready", "speech_account_reconnect_error",
+  "speech_checkout_action_view", "speech_checkout_context_view", "speech_checkout_email_error",
+  "speech_first_retry_action_view", "speech_first_retry_click", "speech_first_retry_unavailable_view",
   "speech_round_suggestion_view", "speech_round_retry_click", "speech_round_compare_view",
   "speech_round_next_view", "speech_round_next_click", "speech_round_evidence_open",
   "speech_round_transfer_begin", "speech_round_transfer_ready",
@@ -74,6 +78,13 @@ export const SPEECH_EVENTS = [
 export type SpeechEvent = typeof SPEECH_EVENTS[number];
 // Independent event counts, not an ordered or user-deduplicated funnel.
 export const SPEECH_JOURNEY_STAGES = [
+  ["账号页到达", "speech_account_arrive"], ["账号加载开始", "speech_account_load_start"],
+  ["账号加载成功", "speech_account_load_ready"], ["账号加载失败", "speech_account_load_error"],
+  ["主动重新连接会话", "speech_account_reconnect_start"], ["重新连接并加载成功", "speech_account_reconnect_ready"],
+  ["重新连接失败", "speech_account_reconnect_error"], ["购买操作按钮可见", "speech_checkout_action_view"],
+  ["购买页当前练习目标可见", "speech_checkout_context_view"], ["购买验证邮件请求失败", "speech_checkout_email_error"],
+  ["首次反馈后可用重练按钮曝光", "speech_first_retry_action_view"], ["首次反馈后点击重练", "speech_first_retry_click"],
+  ["首次反馈可见但重练不可用", "speech_first_retry_unavailable_view"],
   ["日常热身选择按钮曝光", "speech_warmup_offer_view"], ["选择日常热身题", "speech_warmup_select"],
   ["返回原练习题", "speech_warmup_return"], ["热身开始尝试", "speech_warmup_begin"],
   ["热身音频就绪", "speech_warmup_audio_ready"], ["热身提交反馈", "speech_warmup_submit"],
@@ -124,6 +135,25 @@ export const SPEECH_JOURNEY_STAGES = [
   ["返回网站并确认实付", "speech_payment_confirmed"],
 ] as const satisfies readonly (readonly [string, SpeechEvent])[];
 export const SPEECH_FUNNELS = [
+  { key: "account_arrival", title: "账号入口 · 到达 → 成功加载 → 购买操作曝光", steps: [
+    ["账号页到达", "speech_account_arrive"], ["账号加载成功", "speech_account_load_ready"],
+    ["可用购买操作可见", "speech_checkout_action_view"],
+  ] },
+  { key: "plan_account_load", title: "完整套餐点击 → 账号到达 → 加载成功", steps: [
+    ["点击套餐", "speech_plan_v2_click"], ["账号页到达", "speech_account_arrive"], ["账号加载成功", "speech_account_load_ready"],
+  ] },
+  { key: "purchase_email_action", title: "购买操作曝光 → 邮件请求 → 验证 → 收银台", steps: [
+    ["购买操作可见", "speech_checkout_action_view"], ["请求验证邮件", "speech_checkout_email_start"],
+    ["邮件请求被接受", "speech_checkout_email_sent"], ["账号已验证", "speech_email_verified"],
+    ["请求结账", "speech_checkout_request"], ["跳转 Stripe", "speech_checkout_redirect"],
+  ] },
+  { key: "account_recovery", title: "账号恢复 · 请求重连 → 成功加载", steps: [
+    ["主动重连", "speech_account_reconnect_start"], ["重连并加载成功", "speech_account_reconnect_ready"],
+  ] },
+  { key: "first_retry_action", title: "首次反馈可用重练按钮 → 点击 → 对比", steps: [
+    ["首份反馈后可用按钮曝光", "speech_first_retry_action_view"], ["点击这次重练", "speech_first_retry_click"],
+    ["重练对比可见", "speech_round_compare_view"],
+  ] },
   { key: "guided_purchase", title: "新版练习 · 建议 → 对比 → 套餐 → 实付", steps: [
     ["新版建议可见", "speech_round_suggestion_view"], ["主动重练", "speech_round_retry_click"],
     ["看到前后对比", "speech_round_compare_view"], ["套餐按钮可见", "speech_plan_v2_action_view"],
