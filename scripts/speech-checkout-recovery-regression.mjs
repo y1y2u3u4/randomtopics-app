@@ -39,6 +39,22 @@ assert.equal(JSON.stringify([...stored.values()]).includes('private@'), false);
 intent.clearCheckoutIntent();
 console.log('PASS: intent expires, rejects malformed/future values, works without storage and never persists credentials or authorizes payments.');
 
+const reference = '11111111-1111-4111-8111-111111111111';
+intent.rememberCheckoutIntent(true, 'speech_hub', reference);
+assert.equal(intent.readCheckoutIntent().attemptId, reference);
+intent.rememberCheckoutIntent(true);
+assert.equal(intent.readCheckoutIntent().attemptId, reference, 'Email return keeps the opaque reference, not private feedback');
+assert.equal(intent.speechPlanPathForAttempt(reference), `/speech/account?plan=monthly&attempt=${reference}#speech-plan`);
+for (const invalid of ['private@example.test', 'https://evil.test', '../other', '<script>', '']) {
+  assert.equal(intent.speechPlanPathForAttempt(invalid), intent.speechPlanPath);
+  intent.rememberCheckoutIntent(false, 'speech_hub', invalid);
+  assert.equal(intent.readCheckoutIntent().attemptId, undefined);
+}
+intent.rememberCheckoutIntent(false, 'speech_hub', reference);
+intent.rememberCheckoutIntent(false, 'speech_hub', null);
+assert.equal(intent.readCheckoutIntent().attemptId, undefined, 'An unrelated plan entry can explicitly clear old context');
+console.log('PASS: validated practice navigation survives email return; malformed references and stale unrelated context are excluded.');
+
 let authListener; let inCallback = false; let refreshes = 0; let changes = 0; let waiting = true; let unsubscribed = false;
 let nextTimer = 0; const timers = new Map(); const windowListeners = new Map(); const documentListeners = new Map();
 const document = { visibilityState: 'visible', addEventListener: (name, cb) => documentListeners.set(name, cb), removeEventListener: name => documentListeners.delete(name) };

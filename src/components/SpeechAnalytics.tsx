@@ -31,6 +31,7 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
     </div>
     <p className="text-sm text-[var(--text-secondary)]">本次入口更新另外记录 expanded 入口事件，首练与重练反馈沿用 v5。旧版 v3/v4 兼容事件仍会记录，不能当作独立对照组。反馈可见要求标题至少50%可见、前台连续一秒，不代表已阅读或满意。有效曝光要求可用按钮至少 50% 可见、前台连续一秒。快速点击不会补记曝光；点击独立计数，旧版曝光率不可直接比较。QA 使用独立事件名称，不进入下方漏斗。</p>
     <p className="text-sm text-[var(--text-secondary)]">有序漏斗按 GA4 用户去重，必须按顺序完成，每相邻步骤不超过 24 小时。可跨会话，不保证是同一条录音；清除 Cookie、换设备及拦截统计会影响识别。数据未成熟时先看人数。</p>
+    <p className="text-sm text-[var(--text-secondary)]">购买承接新增账号到达、加载成功/失败、可用购买按钮曝光和重连结果。按钮曝光包含邮箱提交或已验证后的结账操作，不等于整个套餐卡曝光；邮件请求被接受不代表投递成功。首次重练漏斗从实际可用按钮曝光开始，额度用完或需要检查转写的反馈不进入该分母。新增事件仅从本次更新开始记录。</p>
     <p className="text-sm text-[var(--text-secondary)]">曝光到点击单独从有效曝光开始计算；完整入口漏斗还要求同一用户在窗口内先触达页面。完整漏斗为 0 不代表所有曝光后都无人点击，两种分母不能互换。完整套餐卡与精简价格提示分别统计，不可相加当作唯一人数。账号页套餐 v2 曝光统一为前台至少 50% 可见、连续一秒；旧版账号套餐曝光定义不同，不直接比较。</p>
     <details className="glass-card p-5" open><summary className="font-semibold">入口曝光效果 · 按事件所在页面拆解</summary>
       <p className="mt-2 text-xs text-[var(--text-muted)]">按实际出现入口或反馈的页面分组，区别于会话落地页。各列为独立去重人数，不能相除当作有序转化；首次反馈列可能包含旧客户端，判断新版使用有序入口漏斗及服务端版本核对。精简价格提示从本次发布开始计曝光，不能补回历史。</p>

@@ -46,10 +46,23 @@ document.getElementById('run').onclick=async()=>{
   check(events.every(e=>e.event.startsWith('qa_'))&&!JSON.stringify(events).includes('local-warmup'),'No identifier or natural events from QA');
  });
  await test('First result foregrounds real evidence and one goal-specific retry',async()=>{
-  await showResult(false,false);const quote=host.querySelector('section[aria-label="Your feedback"] > div blockquote');
+  await showResult(false,false);const quote=[...host.querySelectorAll('section[aria-label="Your feedback"] > div blockquote')].find(el=>el.textContent.includes(feedback.priority.quote));
   check(quote?.textContent.includes(feedback.priority.quote)&&!quote.closest('details'),'Evidence is visible before opening details');
   check([...host.querySelectorAll('button')].some(b=>b.textContent.includes('Try a clearer point')),'Action names the goal');
+  const action=[...host.querySelectorAll('button')].find(b=>b.textContent.includes('Try a clearer point'));
+  check(action.compareDocumentPosition(quote)&Node.DOCUMENT_POSITION_FOLLOWING,'Short retry action precedes the longer evidence passage');
   check(!host.querySelector('[aria-label="Your next round"]'),'First answer offers its retry before another topic');
+ });
+ await test('First retry eligibility measures the available action without depending on heading order',async()=>{
+  events.length=0;observers.length=0;window.IntersectionObserver=Observer;
+  const draw=async remaining=>act(async()=>root.render(<Result key={++key} result={{id:'11111111-1111-4111-8111-111111111111',transcript:'Synthetic only.',feedback,duration:20,allowance:{paid:false,included:2,remaining}}} repeated={false} visible contentSource='speech_hub' onRetry={()=>{}} onCorrect={()=>{}}/>));
+  await draw(1);const b=[...host.querySelectorAll('button')].find(b=>b.textContent.includes('Try a clearer point'));fire(b,1);await sleep(1050);
+  check(count('speech_first_retry_action_view')===1&&count('speech_round_suggestion_view')===0,'Action cohort does not require an earlier heading view');
+  await act(async()=>b.click());check(count('speech_first_retry_click')===1,'First retry distinguished from later practice');
+  await draw(0);check(![...host.querySelectorAll('button')].some(b=>b.textContent.includes('Try a clearer point')),'No retry action at zero allowance');
+  fire(host.querySelector('h4'),1);await sleep(1050);check(count('speech_first_retry_unavailable_view')===1&&count('speech_first_retry_action_view')===1,'Unavailable results do not inflate the available-button denominator');
+  const plan=host.querySelector('a[href*="plan=monthly"]');await act(async()=>plan.click());check(readCheckoutIntent()?.attemptId==='11111111-1111-4111-8111-111111111111','Owned reference is passed to account navigation');
+  check(!JSON.stringify(events).includes('11111111-1111-4111-8111-111111111111'),'Reference never enters speech telemetry');
  });
  await test('Next round is actionable, preserves source, and never fabricates an exposure on click',async()=>{
   events.length=0;observers.length=0;window.IntersectionObserver=Observer;

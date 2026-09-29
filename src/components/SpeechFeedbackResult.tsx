@@ -48,18 +48,23 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
       trackSpeech("speech_feedback_v5_view", props);
       trackSpeech(repeated ? "speech_retry_feedback_v5_view" : "speech_first_feedback_v5_view", props);
       trackSpeech(repeated ? "speech_round_compare_view" : "speech_round_suggestion_view", props);
+      if (!repeated && (!canRetry || next.mode === "review")) trackSpeech("speech_first_retry_unavailable_view", {
+        ...props, reason: !canRetry ? "quota" : "review",
+      });
       if (fromTimer) trackSpeech(repeated ? "speech_timer_retry_view" : "speech_timer_feedback_view", props);
       if (fromWarmup) trackSpeech(repeated ? "speech_warmup_retry_view" : "speech_warmup_feedback_view", props);
       if (repeated) trackSpeech("speech_comparison_view", { ...props, outcome: f.comparison.outcome });
     });
-  }, [visible, contentSource, attempt, repeated, f.comparison.outcome, fromTimer, fromWarmup]);
+  }, [visible, contentSource, attempt, repeated, f.comparison.outcome, fromTimer, fromWarmup, canRetry, next.mode]);
   useEffect(() => {
     if (!visible || !retry.current || retryViewed.current) return;
     return observeVisibleAction(retry.current, () => {
       retryViewed.current = true;
       trackSpeech("speech_retry_action_view", { content_source: contentSource, attempt });
+      if (!repeated) trackSpeech("speech_first_retry_action_view", { content_source: contentSource, attempt,
+        outcome: result.allowance ? result.allowance.paid ? "included" : "free" : "unknown" });
     });
-  }, [visible, contentSource, attempt]);
+  }, [visible, contentSource, attempt, repeated, result.allowance]);
   useEffect(() => {
     if (!visible || recovery || !nextAction.current || nextViewed.current) return;
     return observeVisibleContent(nextAction.current, () => {
@@ -93,11 +98,7 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
       </div>
     </div>}
     {!repeated && <div data-clarity-mask="true" className="space-y-2">
-      {(!f.assessment || Object.values(f.assessment).some(item => item.status === "met")) && <p><strong>Keep: </strong>{f.strength.observation}</p>}
       <p><strong>{drill?.kind === "refine" ? "Optional refinement: " : drill?.kind === "check" ? "Check the transcript: " : "Focus: "}</strong>{f.priority.observation}</p>
-      {f.priority.quote ? <blockquote className="rounded-xl border-l-2 border-[var(--neon-cyan)] bg-white/5 p-3 text-sm">
-        <span className="mb-1 block font-semibold">From your answer</span>“{f.priority.quote}”
-      </blockquote> : <p className="text-sm text-[var(--text-muted)]">{drill?.kind === "refine" ? "This is optional practice, not a missing skill." : "There is no passage to quote for this goal. Check the full transcript if the assessment missed something."}</p>}
     </div>}
     {canRetry && next.mode !== "review" && !(repeated && next.mode === "transfer") && <div data-clarity-mask="true" className="space-y-3 rounded-xl border border-[var(--neon-cyan)]/30 p-4 sm:p-5">
       <p className="font-semibold">{drill ? `Practice ${focusLabels[drill.target]} · about 20 seconds` : "Practice this one change"}</p>
@@ -108,15 +109,22 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
         <p className="text-sm"><strong>We’ll check: </strong>{drill.successCriterion}</p>
       </>}
       <button ref={retry} type="button" className={`${button} w-full bg-[var(--neon-cyan)] text-black sm:w-auto`} onClick={() => {
+        if (!repeated) trackSpeech("speech_first_retry_click", { content_source: contentSource, attempt });
         trackSpeech("speech_round_retry_click", { content_source: contentSource, attempt }); onRetry();
       }}>
         {drill ? retryLabels[drill.target] : "Try this change"}{result.allowance && !result.allowance.paid && result.allowance.remaining > 0 ? " — free" : ""}
       </button>
       {result.allowance && <p className="text-xs text-[var(--text-muted)]">{result.allowance.remaining} {result.allowance.paid ? "included" : "free"} attempt{result.allowance.remaining === 1 ? "" : "s"} remaining. A short practice uses one attempt.</p>}
     </div>}
+    {!repeated && <div data-clarity-mask="true" className="space-y-2 text-sm">
+      {f.priority.quote ? <blockquote className="rounded-xl border-l-2 border-[var(--neon-cyan)] bg-white/5 p-3">
+        <span className="mb-1 block font-semibold">From your answer</span>“{f.priority.quote}”
+      </blockquote> : <p className="text-[var(--text-muted)]">{drill?.kind === "refine" ? "This is optional practice, not a missing skill." : "There is no passage to quote for this goal. Check the full transcript if the assessment missed something."}</p>}
+    </div>}
     <details ref={evidence} data-clarity-mask="true" className="rounded-xl border border-white/10 p-4">
       <summary className="cursor-pointer font-semibold">Evidence, structure & transcript</summary>
       <div className="mt-3 space-y-3 text-sm">
+        {(!f.assessment || Object.values(f.assessment).some(item => item.status === "met")) && <p><strong>Keep: </strong>{f.strength.observation}</p>}
         {f.strength.quote && <blockquote><strong>What worked: </strong>“{f.strength.quote}”</blockquote>}
         {f.priority.quote && <blockquote><strong>Focus passage: </strong>“{f.priority.quote}”</blockquote>}
         {repeated && <p>{f.priority.observation}</p>}
@@ -156,7 +164,7 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
       {!canRetry && <p className="text-xs text-[var(--text-muted)]">Your goal stays in practice history. {result.allowance?.paid ? "Submitting another recording needs available attempts." : "Your free attempts are used. Another recording requires a plan; reviewing your result stays free."}</p>}
     </aside>}
     {!result.allowance?.paid && !recovery && next.mode !== "review" && <SpeechPlanTeaser attempt={attempt} contentSource={contentSource} visible={visible}
-      compact={!repeated && canRetry} focusLabel={drill ? focusLabels[drill.target] : undefined} />}
+      compact={!repeated && canRetry} attemptId={result.id} focusLabel={drill ? focusLabels[drill.target] : undefined} />}
     {result.allowance?.paid && !canRetry && <p className="text-sm">You’ve used this billing month’s included attempts. Your saved feedback is still available. <Link className="underline" href="/speech/account">View your account and renewal date</Link>.</p>}
     <div className="text-sm">
       {!finished ? <button type="button" className={`${button} border-transparent`} onClick={() => {

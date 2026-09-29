@@ -1,14 +1,15 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { practiceFetch, speechClient } from "@/lib/speech/client";
+import { practiceFetch, PracticeRequestError, reconnectSpeechSession, speechClient } from "@/lib/speech/client";
 import type { SpeechFeedback } from "@/lib/speech/schema";
 import { speechErrorCode, speechQaSession, trackSpeech, trackConfirmedSpeechPurchase } from "@/lib/speech/telemetry";
-import { clearCheckoutIntent, readCheckoutIntent, rememberCheckoutIntent } from "@/lib/speech/checkoutIntent";
+import { clearCheckoutIntent, readCheckoutIntent, rememberCheckoutIntent, validPracticeReference } from "@/lib/speech/checkoutIntent";
 import { watchSpeechAccount } from "@/lib/speech/accountChanges";
 import { observeVisibleAction, observeVisibleContent } from "@/lib/speech/visibleAction";
 import { resumeHistoryFeedback } from "@/lib/speech/historyFeedback";
 import SpeechHistorySummary from "./SpeechHistorySummary";
+import SpeechCheckoutContext from "./SpeechCheckoutContext";
 import { nextRound } from "@/lib/speech/nextRound";
 type Attempt = {
   id: string;
@@ -29,6 +30,8 @@ export default function SpeechAccount() {
   const [busy, setBusy] = useState(false);
   const [resumingId, setResumingId] = useState<string | null>(null);
   const [loaded, setLoaded] = useState(false);
+  const [loadError, setLoadError] = useState("");
+  const [mailSent, setMailSent] = useState(false);
   const [anonymous, setAnonymous] = useState(true);
   const [billing, setBilling] = useState(false);
   const [emailAvailable, setEmailAvailable] = useState(false);
@@ -39,9 +42,14 @@ export default function SpeechAccount() {
   const accountGeneration = useRef(0);
   const actionInFlight = useRef(false);
   const checkoutIntent = useRef(false);
+  const practiceReference = useRef<string | undefined>(undefined);
+  const existingSessionOnly = useRef(false);
+  const recoveryOwner = useRef<number | null>(null);
   const verified = useRef(false);
   const verifiedReported = useRef(false);
   const checkoutButton = useRef<HTMLButtonElement>(null);
+  const emailSubmit = useRef<HTMLButtonElement>(null);
+  const actionSeen = useRef(new Set<string>());
   const emailStep = useRef<HTMLElement>(null);
   const seenEmailStep = useRef(false);
   const seenResume = useRef(false);
@@ -56,16 +64,27 @@ export default function SpeechAccount() {
   const offerSeen = useRef(false);
   const invalidateHistory = useCallback(() => { requestVersion.current++; }, []);
   useEffect(() => {
-    if (!loaded || !checkoutMode || subscription.active || !billing || !checkoutButton.current) return;
+    if (!loaded || !checkoutMode || subscription.active || !billing) return;
     const step = emailVerified ? "verified" : "plan";
     if (focusedStep.current === step) return;
     focusedStep.current = step;
     const frame = requestAnimationFrame(() => {
-      checkoutButton.current?.focus({ preventScroll: true });
-      checkoutButton.current?.scrollIntoView({ block: "center", behavior: "instant" });
+      const target = emailVerified ? checkoutButton.current : offer.current;
+      target?.focus({ preventScroll: true });
+      target?.scrollIntoView({ block: "start", behavior: "instant" });
     });
     return () => cancelAnimationFrame(frame);
   }, [loaded, checkoutMode, subscription.active, billing, emailVerified]);
+  useEffect(() => {
+    if (!loaded || !billing || subscription.active || busy || loadError) return;
+    const step = emailVerified ? "checkout" : checkoutMode ? "email" : "choose_plan";
+    const action = step === "email" ? emailSubmit.current : checkoutButton.current;
+    if (!action || actionSeen.current.has(step)) return;
+    return observeVisibleAction(action, () => {
+      actionSeen.current.add(step);
+      trackSpeech("speech_checkout_action_view", { content_source: "speech_account", outcome: step });
+    });
+  }, [loaded, billing, subscription.active, busy, loadError, emailVerified, checkoutMode]);
   useEffect(() => {
     if (!checkoutMode || !loaded || emailVerified || !emailAvailable || !emailStep.current || seenEmailStep.current) return;
     return observeVisibleContent(emailStep.current, () => {
@@ -112,10 +131,13 @@ export default function SpeechAccount() {
   }
   const load = useCallback(async () => {
     const version = ++requestVersion.current;
+    const startedAt = performance.now();
+    trackSpeech("speech_account_load_start", { content_source: "speech_account" });
     try {
-      const id = new URLSearchParams(window.location.search).get("attempt");
-      const data = await practiceFetch(id ? `history?id=${encodeURIComponent(id)}` : "history");
-      if (!mounted.current || version !== requestVersion.current) return;
+      const id = practiceReference.current;
+      const data = await practiceFetch(id ? `history?id=${encodeURIComponent(id)}` : "history", undefined, undefined,
+        { existingSessionOnly: existingSessionOnly.current, timeoutMs: 15000 });
+      if (!mounted.current || version !== requestVersion.current) return false;
       setAttempts(data.attempts);
       setAnonymous(data.anonymous);
       setBilling(data.billingAvailable);
@@ -141,22 +163,48 @@ export default function SpeechAccount() {
           : "Your subscription is not confirmed yet. If you completed payment, refresh in a moment. Do not pay again while confirmation is pending.");
       }
       setLoaded(true);
+      setLoadError("");
+      trackSpeech("speech_account_load_ready", { content_source: "speech_account", elapsed_ms: Math.round(performance.now() - startedAt) });
       trackSpeech("speech_history_view", { content_source: "speech_account" });
+      if (recoveryOwner.current === accountGeneration.current) {
+        recoveryOwner.current = null;
+        trackSpeech("speech_account_reconnect_ready", { content_source: "speech_account" });
+      }
+      return true;
     } catch (error) {
-      if (!mounted.current || version !== requestVersion.current) return;
+      if (!mounted.current || version !== requestVersion.current) return false;
+      const code = speechErrorCode(error);
+      if (code === "session") existingSessionOnly.current = true;
+      setLoadError(code);
+      setLoaded(false);
+      setAttempts([]);
+      setBilling(false);
+      verified.current = false;
+      setEmailVerified(false);
+      trackSpeech("speech_account_load_error", { content_source: "speech_account", error_code: code,
+        elapsed_ms: Math.round(performance.now() - startedAt) });
+      if (recoveryOwner.current === accountGeneration.current) {
+        recoveryOwner.current = null;
+        trackSpeech("speech_account_reconnect_error", { content_source: "speech_account", error_code: code });
+      }
       throw error;
     }
   }, []);
   useEffect(() => {
     mounted.current = true;
     let active = true;
+    let startedLoad = false;
     let stopWatching: (() => void) | undefined;
     const showError = (error: unknown) => {
-      if (active) setMessage(error instanceof Error ? error.message : "Could not load your account. Please try again.");
+      if (active) {
+        if (!startedLoad) {
+          setLoadError(speechErrorCode(error));
+          trackSpeech("speech_account_load_error", { content_source: "speech_account", error_code: speechErrorCode(error) });
+        }
+        setMessage(error instanceof Error ? error.message : "Could not load your account. Please try again.");
+      }
     };
     async function initialize() {
-      const auth = (await speechClient()).auth;
-      if (!active) return;
       const params = new URLSearchParams(window.location.search);
       const saved = readCheckoutIntent();
       // Preserve QA across a same-browser email confirmation that opens a new tab.
@@ -164,25 +212,37 @@ export default function SpeechAccount() {
         try { sessionStorage.setItem("rt_speech_qa", "1"); } catch { /* optional analytics */ }
       }
       checkoutIntent.current = params.get("plan") === "monthly" || Boolean(saved);
-      if (checkoutIntent.current) rememberCheckoutIntent(speechQaSession());
+      const reference = params.get("attempt") ?? (checkoutIntent.current ? saved?.attemptId : undefined);
+      practiceReference.current = validPracticeReference(reference) ? reference : undefined;
+      if (checkoutIntent.current) rememberCheckoutIntent(speechQaSession(), undefined, practiceReference.current ?? null);
       setCheckoutMode(checkoutIntent.current);
+      trackSpeech("speech_account_arrive", { content_source: "speech_account", outcome: checkoutIntent.current ? "plan" : "history" });
+      const auth = (await speechClient()).auth;
+      if (!active) return;
       stopWatching = watchSpeechAccount(auth, () => { void load().catch(showError); }, () => {
         invalidateHistory();
+        if (recoveryOwner.current !== null) {
+          recoveryOwner.current = null;
+          trackSpeech("speech_account_reconnect_error", { content_source: "speech_account", error_code: "conflict" });
+        }
         accountGeneration.current++;
         verified.current = false;
         verifiedReported.current = false;
         seenEmailStep.current = false;
         seenResume.current = false;
         offerSeen.current = false;
+        actionSeen.current.clear();
         focusedStep.current = "";
         setMessage("");
         setEmail("");
+        setMailSent(false);
         setEmailVerified(false);
         setAttempts([]);
         setLoaded(false);
         setBilling(false);
         setSubscription({ active: false, periodEnd: null, manageable: false });
       }, () => checkoutIntent.current && !verified.current);
+      startedLoad = true;
       await load();
     }
     void initialize().catch(showError);
@@ -212,17 +272,15 @@ export default function SpeechAccount() {
     const purchasing = checkoutIntent.current;
     trackSpeech(`${event}_start`, { content_source: "speech_account" });
     if (purchasing) trackSpeech("speech_checkout_email_start", { content_source: "speech_account" });
+    const ownerGeneration = accountGeneration.current;
     try {
       const auth = (await speechClient()).auth;
       const redirect = `${window.location.origin}/speech/account`;
       const {
         data: { session }, error: sessionError,
       } = await auth.getSession();
-      if (sessionError) throw sessionError;
-      if (!existing && !session) {
-        const result = await auth.signInAnonymously();
-        if (result.error) throw result.error;
-      }
+      if (!existing && (sessionError || !session)) throw new PracticeRequestError("Your session expired. Reconnect before linking your email.", false, 401);
+      if (!mounted.current || ownerGeneration !== accountGeneration.current) return;
       const result = existing
         ? await auth.signInWithOtp({
             email,
@@ -232,20 +290,106 @@ export default function SpeechAccount() {
       if (result.error) {
         throw result.error;
       }
+      if (!mounted.current || ownerGeneration !== accountGeneration.current) return;
       trackSpeech(`${event}_sent`, { content_source: "speech_account" });
       if (purchasing) trackSpeech("speech_checkout_email_sent", { content_source: "speech_account" });
+      setMailSent(true);
       setMessage(
         checkoutIntent.current
           ? "Check your email to confirm. Your $12/month plan is saved here; this page will update when you return."
           : "Check your email to confirm, then return here. Your account will update automatically.",
       );
-    } catch {
-      trackSpeech(`${event}_error`, { content_source: "speech_account", error_code: "service" });
+    } catch (error) {
+      if (!mounted.current || ownerGeneration !== accountGeneration.current) return;
+      const code = error instanceof PracticeRequestError ? speechErrorCode(error) : "service";
+      if (code === "session") {
+        existingSessionOnly.current = true;
+        setLoadError(code); setLoaded(false); setAttempts([]); setBilling(false);
+      }
+      trackSpeech(`${event}_error`, { content_source: "speech_account", error_code: code });
+      if (purchasing) trackSpeech("speech_checkout_email_error", { content_source: "speech_account", error_code: code });
+      if (code === "session") throw error;
       throw new Error(existing
         ? "Could not send a sign-in link. Please check your email and try again later."
         : "Could not link this email. If you already have an account, use the sign-in option.");
     }
   }
+  async function reconnect() {
+    existingSessionOnly.current = true;
+    trackSpeech("speech_account_reconnect_start", { content_source: "speech_account" });
+    const owner = accountGeneration.current;
+    let startedLoading = false;
+    try {
+      await reconnectSpeechSession();
+      if (!mounted.current || owner !== accountGeneration.current) throw new PracticeRequestError("Your account changed. Review the plan in this account.", false, 409);
+      recoveryOwner.current = owner;
+      startedLoading = true;
+      await load();
+    } catch (error) {
+      if (!startedLoading) trackSpeech("speech_account_reconnect_error", { content_source: "speech_account", error_code: speechErrorCode(error) });
+      throw error;
+    }
+  }
+  const context = checkoutMode ? attempts.find(item => item.id === practiceReference.current && item.status === "complete" && item.feedback) : undefined;
+  const emailPanel = (
+        <section ref={emailStep} className={checkoutMode && loaded && billing ? "space-y-3 border-t border-white/15 pt-4" : "glass-card space-y-4 p-5"}>
+          <h2 className="text-xl font-semibold">
+            {loadError === "session" ? "Sign in to your linked account" : checkoutMode ? "Step 1 · Confirm your email" : "Keep your practice across devices"}
+          </h2>
+          <p className="text-sm text-[var(--text-muted)]">
+            {loadError === "session" ? "Use an email you already linked to your practice. We won’t create a replacement guest session." : checkoutMode
+              ? "Confirm your email, then review and pay with Stripe. No payment is taken now."
+              : "Free practice works without an email. Link an email before clearing browser data or switching devices so you can recover your saved feedback."}
+          </p>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              void run(() => emailLink(loadError === "session"));
+            }}
+            className="space-y-3"
+          >
+            <label className="block text-sm">
+              Email address
+              <input
+                type="email"
+                ref={emailInput}
+                required
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="mt-2 w-full rounded-xl border border-white/15 bg-black/20 p-3 text-base"
+              />
+            </label>
+            <div className="flex flex-wrap gap-2">
+              <button ref={emailSubmit} className={`${button} bg-[var(--neon-cyan)] text-black`} disabled={busy}>
+                {loadError === "session" ? "Send sign-in link" : checkoutMode ? "Send confirmation email" : "Link my email"}
+              </button>
+              {loadError !== "session" && <button
+                type="button"
+                className={button}
+                disabled={busy || !email.includes("@")}
+                onClick={() => run(() => emailLink(true))}
+              >
+                Sign in to an existing account
+              </button>}
+            </div>
+          </form>
+          {checkoutMode && mailSent && <button type="button" className={button} disabled={busy} onClick={() => run(async () => { await load(); })}>
+            Check email confirmation
+          </button>}
+          <p className="text-sm text-[var(--text-muted)]">
+            Signing in to another account opens that account’s history; guest
+            attempts are not automatically transferred.{" "}
+            <Link href="/privacy" className="underline">
+              Privacy
+            </Link>{" "}
+            ·{" "}
+            <Link href="/terms" className="underline">
+              Terms
+            </Link>
+          </p>
+        </section>
+  );
   return (
     <div data-clarity-mask="true" className="space-y-7">
       <Link href="/speech" onClick={() => clearCheckoutIntent()} className="text-sm underline">
@@ -257,7 +401,7 @@ export default function SpeechAccount() {
         next.
       </p>
       {loaded && (billing || subscription.manageable) && (
-        <section ref={offer} id="speech-plan" aria-label="Speech practice plan" className="glass-card space-y-4 p-5">
+        <section ref={offer} id="speech-plan" tabIndex={-1} aria-label="Speech practice plan" className="glass-card space-y-4 p-5">
           <h2 className="text-xl font-semibold">
             {subscription.active
               ? "Your speech subscription"
@@ -269,17 +413,20 @@ export default function SpeechAccount() {
               {new Date(subscription.periodEnd).toLocaleDateString()}.
             </p>
           )}
+          {context?.feedback && <SpeechCheckoutContext key={context.id} attempt={{ id: context.id, feedback: context.feedback }} />}
+          {checkoutMode && practiceReference.current && !context && <p className="text-sm">
+            This saved goal is not available in this account. You can review the plan for this account; signing in does not transfer another account’s practice.
+          </p>}
           <p>
-            40 recorded attempts per billing month, including retries. Each
-            attempt includes transcription and feedback, up to two minutes.
-            Unused attempts do not roll over.
+            40 recordings per billing month, including retries · up to 2 minutes each.
+            Includes transcription and feedback.
           </p>
           <p className="text-sm text-[var(--text-muted)]">
-            Renews monthly until canceled. Cancel through Manage subscription.
-            Access continues to the end of your paid period.
+            Renews monthly. Cancel anytime through Manage subscription; access lasts
+            through your paid period. Unused attempts do not roll over.
           </p>
           <div className="flex flex-wrap gap-3">
-            {billing && !subscription.active && (
+            {billing && !subscription.active && (!checkoutMode || emailVerified) && (
               <button
                 ref={checkoutButton}
                 className={`${button} bg-[var(--neon-cyan)] text-black`}
@@ -318,7 +465,8 @@ export default function SpeechAccount() {
               </button>
             )}
           </div>
-          {!emailVerified && !subscription.active && (
+          {checkoutMode && !emailVerified && !subscription.active && emailAvailable && emailPanel}
+          {!emailVerified && !subscription.active && !checkoutMode && (
             <p className="text-sm">
               1. Confirm your email · 2. Review and pay securely with Stripe
             </p>
@@ -332,7 +480,14 @@ export default function SpeechAccount() {
         </p>
       )}
       {message && <p role="status" className="rounded-xl border border-white/15 p-4 text-sm">{message}</p>}
-      {!loaded ? <p role="status">Loading your account…</p> : emailVerified ? (
+      {!loaded ? loadError ? <section role="alert" className="space-y-3 rounded-xl border border-amber-400/30 p-4">
+        <h2 className="font-semibold">{loadError === "session" ? "Reconnect your practice session" : "Your account could not load"}</h2>
+        <p className="text-sm">Your selected plan stays saved. Reconnecting does not submit a payment.</p>
+        <button className={button} disabled={busy} onClick={() => void run(loadError === "session" ? reconnect : async () => { await load(); })}>
+          {busy ? "Please wait…" : loadError === "session" ? "Reconnect this session" : "Try loading again"}
+        </button>
+        {loadError === "session" && emailPanel}
+      </section> : <p role="status">Loading your account…</p> : emailVerified ? (
         <section className="glass-card space-y-3 p-5">
           <h2 className="text-xl font-semibold">Your email is verified</h2>
           <p className="text-sm text-[var(--text-muted)]">Your practice and subscription are linked to your account. You can sign in with this email on another device.</p>
@@ -351,65 +506,9 @@ export default function SpeechAccount() {
             Sign out on this device
           </button>
         </section>
-      ) : emailAvailable ? (
-        <section ref={emailStep} className="glass-card space-y-4 p-5">
-          <h2 className="text-xl font-semibold">
-            {checkoutMode ? "Step 1 · Confirm your email" : "Keep your practice across devices"}
-          </h2>
-          <p className="text-sm text-[var(--text-muted)]">
-            {checkoutMode
-              ? "We’ll email a confirmation link so your subscription stays linked to you. Confirm it, then return to your selected plan. No payment is taken in this step."
-              : "Free practice works without an email. Link an email before clearing browser data or switching devices so you can recover your saved feedback."}
-          </p>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              void run(() => emailLink(false));
-            }}
-            className="space-y-3"
-          >
-            <label className="block text-sm">
-              Email address
-              <input
-                type="email"
-                ref={emailInput}
-                required
-                autoComplete="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="mt-2 w-full rounded-xl border border-white/15 bg-black/20 p-3 text-base"
-              />
-            </label>
-            <div className="flex flex-wrap gap-2">
-              <button className={button} disabled={busy}>
-                {checkoutMode ? "Send confirmation email" : "Link my email"}
-              </button>
-              <button
-                type="button"
-                className={button}
-                disabled={busy || !email.includes("@")}
-                onClick={() => run(() => emailLink(true))}
-              >
-                Sign in to an existing account
-              </button>
-            </div>
-          </form>
-          {checkoutMode && <button type="button" className={button} disabled={busy} onClick={() => run(load)}>
-            Check email confirmation
-          </button>}
-          <p className="text-sm text-[var(--text-muted)]">
-            Signing in to another account opens that account’s history; guest
-            attempts are not automatically transferred.{" "}
-            <Link href="/privacy" className="underline">
-              Privacy
-            </Link>{" "}
-            ·{" "}
-            <Link href="/terms" className="underline">
-              Terms
-            </Link>
-          </p>
-        </section>
-      ) : (
+      ) : emailAvailable && (!checkoutMode || !billing) ? (
+        emailPanel
+      ) : checkoutMode && emailAvailable ? null : (
         <section className="glass-card space-y-3 p-5">
           <h2 className="text-xl font-semibold">
             Your private practice session
@@ -425,7 +524,7 @@ export default function SpeechAccount() {
       <section className="space-y-4">
         <div className="flex flex-wrap justify-between gap-3">
           <h2 className="text-xl font-semibold">Practice history</h2>
-          <button className={button} disabled={busy} onClick={() => run(load)}>
+          <button className={button} disabled={busy} onClick={() => run(async () => { await load(); })}>
             {loaded ? "Refresh history" : "Load my history"}
           </button>
         </div>
