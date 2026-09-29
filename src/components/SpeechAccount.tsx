@@ -71,7 +71,7 @@ export default function SpeechAccount() {
     const frame = requestAnimationFrame(() => {
       const target = emailVerified ? checkoutButton.current : offer.current;
       target?.focus({ preventScroll: true });
-      target?.scrollIntoView({ block: "start", behavior: "instant" });
+      target?.scrollIntoView({ block: emailVerified ? "center" : "start", behavior: "instant" });
     });
     return () => cancelAnimationFrame(frame);
   }, [loaded, checkoutMode, subscription.active, billing, emailVerified]);
@@ -401,7 +401,7 @@ export default function SpeechAccount() {
         next.
       </p>
       {loaded && (billing || subscription.manageable) && (
-        <section ref={offer} id="speech-plan" tabIndex={-1} aria-label="Speech practice plan" className="glass-card space-y-4 p-5">
+        <section ref={offer} id="speech-plan" tabIndex={-1} aria-label="Speech practice plan" className="glass-card scroll-mt-24 space-y-4 p-5">
           <h2 className="text-xl font-semibold">
             {subscription.active
               ? "Your speech subscription"
