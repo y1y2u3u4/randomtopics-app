@@ -189,7 +189,7 @@ for (const releaseFails of [false, true]) {
   assert.equal(result.status, 422);
   assert.equal((await result.json()).retryWithNewId, !releaseFails);
   assert.equal(updates.at(-1).status, "failed");
-  assert.deepEqual(updates[0].usage.context, { version: "v5", practiceMode: "full", qa: false });
+  assert.deepEqual(updates[0].usage.context, { version: "v5", practiceMode: "full", qa: false, purpose: "unspecified" });
 }
 
 const clauses = [];
@@ -214,7 +214,7 @@ const chain = {
     return { data: null, error: null };
   },
   then(resolve) {
-    resolve({ data: [], error: null });
+    resolve({ data: [{ id, usage: { context: { purpose: "habit" }, transcription: { privateProviderMarker: "private-provider-data" } } }], error: null });
   },
 };
 const history = load("src/app/api/speech/history/route.ts", {
@@ -245,7 +245,11 @@ assert.ok(
   "Direct practice links must still filter by verified owner",
 );
 assert.ok(clauses.some(([key, value]) => key === "id" && value === id));
-assert.equal((await historyResponse.json()).billingAvailable, false);
+const historyBody = await historyResponse.json();
+assert.equal(historyBody.billingAvailable, false);
+assert.equal(historyBody.attempts[0].purpose, "habit");
+assert.equal("usage" in historyBody.attempts[0], false, "History exposes purpose but never the private provider ledger");
+assert.ok(!JSON.stringify(historyBody).includes("private-provider-data"));
 
 const billing = load("src/lib/speech/billing.ts");
 process.env.SPEECH_BILLING_ENABLED = "true";

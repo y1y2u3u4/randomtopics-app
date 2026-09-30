@@ -12,6 +12,7 @@ import { assembleFeedback, coachingInstruction, type CoachingResult } from "@/li
 import { evidenceCoaching } from "@/lib/speech/evidence";
 import { speechAllowance } from "@/lib/speech/allowance";
 import { logSpeechFailure, type SpeechFailureStage } from "@/lib/speech/diagnostics";
+import { purposeFromUsage } from "@/lib/speech/purpose";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 export async function POST(request: Request) {
@@ -61,6 +62,7 @@ export async function POST(request: Request) {
         status,
         previous_id,
         created_at,
+        purpose: purposeFromUsage(attempt.usage),
         allowance: await speechAllowance(db, user.id).catch(() => undefined),
         correctionsRemaining: Math.max(0, 3 - attempt.feedback_calls),
       });
@@ -135,7 +137,7 @@ export async function POST(request: Request) {
         )
         .single();
       if (saveError) throw saveError;
-      return response({ ...data, allowance: await speechAllowance(db, user.id).catch(() => undefined),
+      return response({ ...data, purpose: purposeFromUsage(attempt.usage), allowance: await speechAllowance(db, user.id).catch(() => undefined),
         correctionsRemaining: Math.max(0, 2 - attempt.feedback_calls) });
     } catch (error) {
       await db

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useRef, type ReactNode } from "react";
 import { observeVisibleContent } from "@/lib/speech/visibleAction";
 import { trackSpeech } from "@/lib/speech/telemetry";
+import type { SpeechPurpose } from "@/lib/speech/purpose";
 
 const events = {
   card: ["speech_plan_v2_action_view", "speech_plan_v2_click"],
@@ -12,9 +13,10 @@ const events = {
 
 // Observe the actionable link itself. Card visibility never substitutes for it,
 // and a fast click never manufactures an impression.
-export default function SpeechPlanLink({ surface, visible, attempt, contentSource, href, className, children, onClick }: {
+export default function SpeechPlanLink({ surface, visible, attempt, contentSource, href, className, children, onClick, purpose }: {
   surface: keyof typeof events; visible: boolean; attempt: number; contentSource: string;
   href: string; className: string; children: ReactNode; onClick?: () => void;
+  purpose?: SpeechPurpose;
 }) {
   const link = useRef<HTMLAnchorElement>(null);
   const seen = useRef(new Set<string>());
@@ -23,11 +25,11 @@ export default function SpeechPlanLink({ surface, visible, attempt, contentSourc
     if (!visible || !link.current || seen.current.has(key)) return;
     return observeVisibleContent(link.current, () => {
       seen.current.add(key);
-      trackSpeech(events[surface][0], { content_source: contentSource, attempt });
+      trackSpeech(events[surface][0], { content_source: contentSource, attempt, purpose });
     });
-  }, [visible, surface, attempt, contentSource]);
+  }, [visible, surface, attempt, contentSource, purpose]);
   return <Link ref={link} href={href} className={className} onClick={() => {
-    trackSpeech(events[surface][1], { content_source: contentSource, attempt });
+    trackSpeech(events[surface][1], { content_source: contentSource, attempt, purpose });
     onClick?.();
   }}>{children}</Link>;
 }

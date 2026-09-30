@@ -8,6 +8,7 @@ function load(path, globals = {}) {
   }).outputText;
   new Function('exports', 'require', ...Object.keys(globals), code)(exports, id => {
     if (id === './exposure') return load('exposure', globals);
+    if (id === './purpose') return load('purpose', globals);
     throw new Error(`Unexpected import: ${id}`);
   }, ...Object.values(globals));
   return exports;
@@ -77,3 +78,16 @@ document.visibilityState = 'visible'; documentListeners.get('visibilitychange')(
 dispose(); flush(); assert.equal(refreshes, 3); assert.equal(unsubscribed, true); assert.equal(windowListeners.size + documentListeners.size, 0);
 emit('USER_UPDATED'); flush(); assert.equal(refreshes, 3);
 console.log('PASS: deferred auth refresh, notification coalescing, identity invalidation, cross-tab signout recovery, foreground return and cleanup.');
+
+intent.rememberCheckoutIntent(true, 'speech_hub', reference, 'habit');
+assert.equal(intent.readCheckoutIntent().purpose, 'habit');
+intent.rememberCheckoutIntent(true);
+assert.equal(intent.readCheckoutIntent().purpose, 'habit', 'Email return preserves purpose');
+intent.rememberCheckoutIntent(true, 'speech_hub', null);
+assert.equal(intent.readCheckoutIntent().purpose, undefined, 'A different unclassified practice never inherits old purpose');
+intent.rememberCheckoutIntent(false, 'speech_hub', reference, 'private@example.test');
+assert.equal(intent.readCheckoutIntent().purpose, 'unspecified');
+assert.ok(!JSON.stringify([...stored.values()]).includes('private@'));
+console.log('PASS: closed practice purpose persists through email recovery without leaking to a different practice.');
+
+const purposeCreatedAt=intent.readCheckoutIntent().createdAt;now+=1000;intent.reconcileCheckoutPurpose('once');assert.equal(intent.readCheckoutIntent().createdAt,purposeCreatedAt,'Owned history refresh never extends intent expiry');

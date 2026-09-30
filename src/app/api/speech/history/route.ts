@@ -9,6 +9,7 @@ import { z } from "zod";
 import { billingManagementReady, billingReady } from "@/lib/speech/billing";
 import { latestSpeechPurchase } from "@/lib/speech/purchases";
 import { speechAllowance } from "@/lib/speech/allowance";
+import { purposeFromUsage } from "@/lib/speech/purpose";
 export async function GET(request: Request) {
   try {
     const { db, user } = await actor(request);
@@ -18,7 +19,7 @@ export async function GET(request: Request) {
     let query = db
       .from("speech_attempts")
       .select(
-        "id,topic,transcript,duration,feedback,status,previous_id,created_at",
+        "id,topic,transcript,duration,feedback,status,previous_id,created_at,usage",
       )
       .eq("user_id", user.id)
       .is("deleted_at", null)
@@ -45,7 +46,8 @@ export async function GET(request: Request) {
       ? await latestSpeechPurchase(account.customer_id, user.id).catch(() => null)
       : null;
     return response({
-      attempts: data,
+      // Only expose the closed purpose, never the private provider usage ledger.
+      attempts: data?.map(({ usage, ...attempt }) => ({ ...attempt, purpose: purposeFromUsage(usage) })),
       allowance: await speechAllowance(db, user.id).catch(() => undefined),
       anonymous: user.is_anonymous === true,
       emailVerified: verified,

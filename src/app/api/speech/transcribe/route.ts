@@ -11,6 +11,7 @@ import {
 import { MAX_AUDIO_BYTES, transcriptSchema, feedbackSchema, type SpeechFocus } from "@/lib/speech/schema";
 import { nextRound } from "@/lib/speech/nextRound";
 import { SPEECH_EXPOSURE_VERSION, SPEECH_ENTRY_SOURCES } from "@/lib/speech/exposure";
+import { SPEECH_PURPOSES, purposeFromUsage } from "@/lib/speech/purpose";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 const input = z.object({
@@ -20,6 +21,7 @@ const input = z.object({
   goalSourceId: z.uuid().optional(),
   practiceMode: z.enum(["full", "focused"]).default("full"),
   qa: z.boolean().default(false),
+  purpose: z.enum(SPEECH_PURPOSES).default("unspecified"),
   exposureVersion: z.literal(SPEECH_EXPOSURE_VERSION).optional(),
   entrySource: z.enum(SPEECH_ENTRY_SOURCES).catch("unknown").optional(),
   audio: z.string().min(60).max(3_900_000),
@@ -62,17 +64,19 @@ export async function POST(request: Request) {
         "Please record between 5 seconds and 2 minutes.",
       );
     let goalTarget: SpeechFocus | undefined;
+    let purpose = body.purpose;
     if (body.goalSourceId) {
       if (body.previousId || body.practiceMode !== "full")
         throw new SpeechError(400, "Start a new answer to practice on a different topic.");
       const { data: source, error } = await db.from("speech_attempts")
-        .select("topic,feedback").eq("id", body.goalSourceId).eq("user_id", user.id)
+        .select("topic,feedback,usage").eq("id", body.goalSourceId).eq("user_id", user.id)
         .eq("status", "complete").is("deleted_at", null).single();
       const parsedFeedback = feedbackSchema.safeParse(source?.feedback);
       const next = parsedFeedback.success ? nextRound(parsedFeedback.data) : null;
       if (error || !source || next?.mode !== "transfer" || source.topic.trim() === body.topic)
         throw new SpeechError(409, "Open your saved feedback to choose the next practice again.");
       goalTarget = next.target;
+      purpose = purposeFromUsage(source.usage);
     }
     const reservation = await db.rpc("reserve_speech_attempt", {
       p_id: body.id,
@@ -122,7 +126,7 @@ export async function POST(request: Request) {
       );
     }
     try {
-      const context = { version: "v5", practiceMode: body.practiceMode, qa: body.qa,
+      const context = { version: "v5", practiceMode: body.practiceMode, qa: body.qa, purpose,
         ...(goalTarget ? { goalTarget, goalSourceId: body.goalSourceId } : {}),
         ...(body.exposureVersion ? { exposureVersion: body.exposureVersion, entrySource: body.entrySource ?? "unknown" } : {}),
       };

@@ -27,6 +27,12 @@ export default async function SpeechServerAnalytics() {
         <tbody>{report.expandedExposure.sources.map(row => <tr key={row.source} className="border-t border-white/10"><td className="py-2">{sourceLabels[row.source] ?? row.source}</td><td>{row.firstAttempts}</td><td>{row.firstComplete}</td><td>{row.retryComplete}</td><td>{row.pending} / {row.failed}</td></tr>)}</tbody>
       </table></div>
     </details>
+    <details open><summary className="font-semibold">练习用途 · 服务端保存结果</summary>
+      <p className="my-2 text-xs text-[var(--text-muted)]">仅统计明确非 QA 记录。用途可跳过；发布前未采集与发布后未选择分开。账号可以跨用途，不能把各行账号数相加；完成不等于用户看见或认可。</p>
+      <div className="overflow-x-auto"><table className="w-full text-left text-sm"><thead><tr><th>用途</th><th>账号</th><th>首练提交 / 完成</th><th>重练完成</th></tr></thead>
+        <tbody>{report.purposes.map(row => <tr key={row.purpose} className="border-t border-white/10"><td className="py-2">{{ once: "准备一次发言", habit: "持续训练", explore: "体验看看", unspecified: "未选择用途", unrecorded: "未采集用途" }[row.purpose] ?? row.purpose}</td><td>{row.accounts}</td><td>{row.firstAttempts} / {row.firstComplete}</td><td>{row.retryComplete}</td></tr>)}</tbody>
+      </table></div>
+    </details>
     <details open><summary className="font-semibold">已记录的语音模型费用 · 美元</summary>
       <p className="my-2 text-xs text-[var(--text-muted)]">仅为此窗口练习记录保存的转写和反馈用量，包含已保存的重试。失败但未保存用量的请求不在内；不是 OpenRouter 完整账单，也不包含历史取题费用。</p>
       <div className="overflow-x-auto"><table className="w-full text-left text-sm"><thead><tr><th>记录类型</th><th>已知费用</th><th>含费用的调用 / 含用量的调用</th></tr></thead>

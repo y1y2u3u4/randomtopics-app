@@ -1,6 +1,7 @@
 import "server-only";
 import { summarizeSpeechCosts } from "./costs";
 import { database } from "./server";
+import { SPEECH_PURPOSES, purposeFromUsage } from "./purpose";
 import { SPEECH_EXPOSURE_VERSION, SPEECH_ENTRY_SOURCES } from "./exposure";
 
 type Row = { id: string; user_id: string; previous_id: string | null; status: string;
@@ -30,7 +31,8 @@ function counts(rows: Row[]) {
 export function summarizeSpeechAttempts(rows: Row[]) {
   const expanded = rows.filter(row => row.usage?.context?.exposureVersion === SPEECH_EXPOSURE_VERSION &&
     row.usage.context.version === "v5" && row.usage.context.qa === false);
-  return { ...counts(rows), expandedExposure: {
+  const recordedPurpose = (row: Row) => Object.hasOwn(row.usage?.context ?? {}, "purpose") ? purposeFromUsage(row.usage) : "unrecorded";
+  return { ...counts(rows), purposes: ([...SPEECH_PURPOSES, "unrecorded"] as const).map(purpose => ({ purpose, ...counts(rows.filter(row => recordedPurpose(row) === purpose)) })), expandedExposure: {
     version: SPEECH_EXPOSURE_VERSION, ...counts(expanded),
     sources: SPEECH_ENTRY_SOURCES.map(source => ({ source, ...counts(expanded.filter(row =>
       (row.usage?.context?.entrySource ?? "unknown") === source)) })),

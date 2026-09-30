@@ -3,7 +3,8 @@ import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import ts from "typescript";
 import * as opportunities from "../src/lib/growthOpportunities.ts";
-import * as speechEvents from "../src/lib/speech/events.ts";
+import { load } from "./lib/load-typescript.mjs";
+const speechEvents = load("src/lib/speech/events.ts");
 
 const { buildQueryOpportunities, queryNoiseReason, inObservationWindow } = opportunities;
 const range = { startDate: "2026-08-09", endDate: "2026-09-05" };

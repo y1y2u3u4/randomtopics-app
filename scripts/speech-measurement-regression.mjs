@@ -169,3 +169,20 @@ historyResponse = () => ({...completedAttempt,status:'processing'});
 await assert.rejects(()=>history.resumeHistoryFeedback(savedAttempt), /not ready/);
 assert.ok(!historyEvents.some(e=>e.event.endsWith('_ready')), 'An incomplete response must not count as recovery');
 console.log('PASS: history recovery starts before completion, counts failures separately, returns saved results without a second request, never fabricates views, and omits private content.');
+
+const purposeSent = [];
+const purposeTelemetry = load('src/lib/speech/telemetry.ts', {'@/lib/track': {track:(...args)=>purposeSent.push(args)}}, {window:{location:{search:'?speech_qa=1'}}});
+purposeTelemetry.trackSpeech('speech_first_attempt_start', {content_source:'speech_hub',purpose:'habit'});
+assert.deepEqual(purposeSent.map(e=>e[0]), ['qa_speech_first_attempt_start','qa_speech_goal_habit_begin']);
+purposeTelemetry.trackSpeech('speech_round_suggestion_view', {content_source:'speech_hub',purpose:'private@example.test'});
+assert.equal(purposeSent.at(-1)[0], 'qa_speech_goal_unspecified_feedback');
+assert.ok(!JSON.stringify(purposeSent).includes('private@'));
+purposeTelemetry.trackSpeech('speech_plan_need_subscription', {content_source:'speech_hub',purpose:'once'});
+assert.equal(purposeSent.at(-1)[0], 'qa_speech_goal_once_subscription', 'Explicit unmet purchase needs can be counted by purpose without a registered custom dimension');
+assert.ok(SPEECH_EVENTS.every(event => ('qa_'+event).length <= 40), 'QA and purpose events fit GA event-name limits');
+for (const purpose of ['once','habit','explore','unspecified']) {
+ const f = SPEECH_FUNNELS.find(f=>f.key==='purpose_'+purpose+'_purchase');
+ assert.equal(f.steps[0][1], 'speech_goal_'+purpose+'_feedback');
+ assert.equal(f.steps.at(-1)[1], 'speech_goal_'+purpose+'_paid');
+}
+console.log('PASS: purpose cohorts use QA-safe event names, closed labels and actual payment confirmation.');

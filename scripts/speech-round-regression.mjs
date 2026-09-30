@@ -54,3 +54,15 @@ const route = load('src/app/api/speech/feedback/route.ts', { '@/lib/speech/serve
 const response = await route.POST(new Request('https://example.test/api/speech/feedback', { method: 'POST', body: JSON.stringify({ id, transcript: text, goalTarget: 'point' }) }));
 const result = await response.json(); assert.equal(response.status, 200); assert.equal(result.feedback.drill.target, 'example'); assert.equal(result.feedback.comparison.outcome, 'first_attempt'); assert.equal(modelCalls, 1); assert.equal(claimCalls, 1); assert.equal(modelInput.previous, null);
 console.log('PASS: evidence-based next goals, honest new-topic assessment, owned source validation, quota/no-extra-call guards and server-controlled goal continuity.');
+
+r = await reserve({ body: { goalSourceId: undefined, purpose: 'once' } });
+assert.equal(r.status, 200); assert.equal(r.models, 1); assert.equal(r.updates[0].usage.context.purpose, 'once');
+r = await reserve({ source: { topic: 'Old topic', feedback: improved, usage: { context: { purpose: 'habit' } } }, body: { purpose: 'explore' } });
+assert.equal(r.status, 200); assert.equal(r.updates[0].usage.context.purpose, 'habit', 'Owned transferred goal keeps its saved purpose');
+r = await reserve({ body: { purpose: 'private free text' } });
+assert.equal(r.status, 400); assert.equal(r.models, 0); assert.equal(r.reservations, 0);
+assert.match(nextRound(improved, 'once').why, /finish here/);
+assert.match(nextRound(improved, 'habit').why, /different topic/);
+assert.equal(nextRound(improved, 'habit').check, improved.drill.successCriterion);
+assert.equal(nextRound({ ...improved, comparison: { ...improved.comparison, outcome: 'insufficient_evidence' } }, 'habit').check, undefined);
+console.log('PASS: optional purpose validates before any charge, transfers from owned context, and never fabricates an unmet goal.');

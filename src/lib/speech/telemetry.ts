@@ -4,6 +4,7 @@ import { isProductionHost } from "@/lib/analyticsEnvironment";
 import { SPEECH_ISSUE_CODES, type SpeechEvent } from "./events";
 import { readCheckoutIntent } from "./checkoutIntent";
 import { SPEECH_EXPOSURE_VERSION, speechEntrySource } from "./exposure";
+import { PURPOSE_EVENT_STAGES, purposeEvent, speechPurpose, type SpeechPurpose } from "./purpose";
 
 type Properties = {
   content_source: string;
@@ -17,6 +18,7 @@ type Properties = {
   transcript_edited?: boolean;
   outcome?: string;
   reason?: string;
+  purpose?: SpeechPurpose;
 };
 export function trackSpeech(event: SpeechEvent, properties: Properties) {
   // Deliberately no transcript, topic, email, file name, auth ID or attempt UUID.
@@ -35,11 +37,17 @@ export function trackSpeech(event: SpeechEvent, properties: Properties) {
     if (typeof value === "number" && Number.isFinite(value) && value >= 0) safe[key] = value;
   }
   if (typeof properties.transcript_edited === "boolean") safe.transcript_edited = properties.transcript_edited;
+  const selectedPurpose = properties.purpose ?? (properties.content_source === "speech_account" ? readCheckoutIntent()?.purpose : undefined);
+  const purpose = selectedPurpose === undefined ? undefined : speechPurpose(selectedPurpose);
+  if (purpose !== undefined) { safe.practice_purpose = purpose; safe.purpose_version = "purpose_v1"; }
   const qa = speechQaSession();
-  const eventName = qa ? `qa_${event}` : event;
-  track(eventName, safe);
-  if (qa && typeof window !== "undefined" && isProductionHost(window.location.hostname)) {
-    window.dispatchEvent(new CustomEvent("rt:analytics", { detail: { event: eventName, params: safe } }));
+  const stage = PURPOSE_EVENT_STAGES[event];
+  for (const name of [event, ...(purpose !== undefined && stage ? [purposeEvent(purpose, stage)] : [])]) {
+    const eventName = qa ? `qa_${name}` : name;
+    track(eventName, safe);
+    if (qa && typeof window !== "undefined" && isProductionHost(window.location.hostname)) {
+      window.dispatchEvent(new CustomEvent("rt:analytics", { detail: { event: eventName, params: safe } }));
+    }
   }
   if (event.endsWith("_error") && SPEECH_ISSUE_CODES.some((code) => code === safe.error_code)) {
     track(`${qa ? "qa_" : ""}speech_issue_${safe.error_code}`, safe);
