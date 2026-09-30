@@ -189,7 +189,7 @@ for (const releaseFails of [false, true]) {
   assert.equal(result.status, 422);
   assert.equal((await result.json()).retryWithNewId, !releaseFails);
   assert.equal(updates.at(-1).status, "failed");
-  assert.deepEqual(updates[0].usage.context, { version: "v5", practiceMode: "full", qa: false, purpose: "unspecified" });
+  assert.deepEqual(updates[0].usage.context, { version: "v5", journeyVersion: "task_v1", practiceMode: "full", qa: false, purpose: "unspecified" });
 }
 
 const clauses = [];

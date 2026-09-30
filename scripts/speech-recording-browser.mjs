@@ -61,14 +61,14 @@ document.getElementById('run').onclick=async()=>{
   check(!button('Build a speaking habit'),'Purpose locks once the attempt starts');await click('Cancel waiting · use an audio file');
  });
  await test('Chosen purpose survives actual audio submission without extra requests',async()=>{
-  await fresh();await click('Build a speaking habit');check(button('Build a speaking habit').getAttribute('aria-pressed')==='true','Selection is accessible');
+  await fresh();await act(async()=>host.querySelector('summary').click());await click('Build a speaking habit');check(button('Build a speaking habit').getAttribute('aria-pressed')==='true','Selection is accessible');
   check(pending.length===0&&api.calls.length===0,'Selection creates no API or microphone request');await click('Prepare one talk');
   await file();await click('Get my feedback');check(api.bodies[0].purpose==='once'&&api.calls.join(',')==='transcribe,feedback','Only the two existing calls carry the final choice');
   check(count('qa_speech_goal_once_begin')===1&&count('qa_speech_goal_once_submit')===1&&count('qa_speech_goal_habit_begin')===0,'A changed choice does not reattribute the attempt');
   check(events.every(e=>e.event.startsWith('qa_'))&&!JSON.stringify(events).includes(topic.text),'Closed QA purpose events contain no content');
  });
  await test('A purpose can be cleared before starting and retry purpose stays with its saved answer',async()=>{
-  await fresh();await click('Just try the feedback');await click('Just try the feedback');await file();await click('Get my feedback');check(api.bodies[0].purpose==='unspecified','Cleared choice stays unknown');
+  await fresh();await act(async()=>host.querySelector('summary').click());await click('Just try the feedback');await click('Just try the feedback');await file();await click('Get my feedback');check(api.bodies[0].purpose==='unspecified','Cleared choice stays unknown');
   await fresh({id:'fixture-prior',purpose:'habit',feedback:{priority:{nextStep:'Use one concrete example.'},drill:{}}});
   check(!button('Prepare one talk'),'Retry never asks for a new purpose');await file();await click('Get my feedback');check(api.bodies[0].purpose==='habit','Retry retains the saved purpose');
  });

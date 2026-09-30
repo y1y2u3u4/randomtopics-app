@@ -12,6 +12,9 @@ import SpeechHistorySummary from "./SpeechHistorySummary";
 import SpeechCheckoutContext from "./SpeechCheckoutContext";
 import { nextRound } from "@/lib/speech/nextRound";
 import { speechPurpose, type SpeechPurpose } from "@/lib/speech/purpose";
+import type { SpeechAllowance } from "@/lib/speech/returnTrial";
+import SpeechAnswerCard from "./SpeechAnswerCard";
+import SpeechReturnTrial from "./SpeechReturnTrial";
 type Attempt = {
   id: string;
   topic: string;
@@ -27,6 +30,7 @@ const button =
   "min-h-11 rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold disabled:opacity-50";
 export default function SpeechAccount() {
   const [attempts, setAttempts] = useState<Attempt[]>([]);
+  const [allowance, setAllowance] = useState<SpeechAllowance>();
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
@@ -146,6 +150,7 @@ export default function SpeechAccount() {
         reconcileCheckoutPurpose(speechPurpose(owned?.purpose));
       }
       setAttempts(data.attempts);
+      setAllowance(data.allowance);
       setAnonymous(data.anonymous);
       setBilling(data.billingAvailable);
       setEmailAvailable(data.emailAvailable);
@@ -184,7 +189,7 @@ export default function SpeechAccount() {
       if (code === "session") existingSessionOnly.current = true;
       setLoadError(code);
       setLoaded(false);
-      setAttempts([]);
+      setAttempts([]); setAllowance(undefined);
       setBilling(false);
       verified.current = false;
       setEmailVerified(false);
@@ -244,7 +249,7 @@ export default function SpeechAccount() {
         setEmail("");
         setMailSent(false);
         setEmailVerified(false);
-        setAttempts([]);
+        setAttempts([]); setAllowance(undefined);
         setLoaded(false);
         setBilling(false);
         setSubscription({ active: false, periodEnd: null, manageable: false });
@@ -311,7 +316,7 @@ export default function SpeechAccount() {
       const code = error instanceof PracticeRequestError ? speechErrorCode(error) : "service";
       if (code === "session") {
         existingSessionOnly.current = true;
-        setLoadError(code); setLoaded(false); setAttempts([]); setBilling(false);
+        setLoadError(code); setLoaded(false); setAttempts([]); setAllowance(undefined); setBilling(false);
       }
       trackSpeech(`${event}_error`, { content_source: "speech_account", error_code: code });
       if (purchasing) trackSpeech("speech_checkout_email_error", { content_source: "speech_account", error_code: code });
@@ -540,6 +545,8 @@ export default function SpeechAccount() {
             No saved attempts yet. Start with a topic and a short recording.
           </p>
         )}
+        {loaded && attempts.find(a => a.status === "complete" && a.previous_id)?.id && <SpeechReturnTrial allowance={allowance}
+          attemptId={attempts.find(a => a.status === "complete" && a.previous_id)!.id} visible contentSource="speech_account" />}
         {attempts.map((attempt) => (
           <article
             data-clarity-mask="true"
@@ -573,6 +580,7 @@ export default function SpeechAccount() {
                   <summary className="cursor-pointer py-2 text-sm">
                     Feedback and transcript
                   </summary>
+                  {attempt.transcript && <SpeechAnswerCard result={{ ...attempt, transcript: attempt.transcript, feedback: attempt.feedback }} repeated={Boolean(attempt.previous_id)} visible contentSource="speech_account" />}
                   <h4 className="mt-3 font-semibold">What worked</h4>
                   <p className="my-3">
                     {attempt.feedback.strength.observation}

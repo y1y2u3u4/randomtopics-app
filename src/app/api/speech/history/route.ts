@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     let query = db
       .from("speech_attempts")
       .select(
-        "id,topic,transcript,duration,feedback,status,previous_id,created_at,usage",
+        "id,topic,transcript,duration,feedback,status,previous_id,created_at,usage,allowance_kind",
       )
       .eq("user_id", user.id)
       .is("deleted_at", null)
@@ -47,7 +47,7 @@ export async function GET(request: Request) {
       : null;
     return response({
       // Only expose the closed purpose, never the private provider usage ledger.
-      attempts: data?.map(({ usage, ...attempt }) => ({ ...attempt, purpose: purposeFromUsage(usage) })),
+      attempts: data?.map(({ usage, allowance_kind, ...attempt }) => ({ ...attempt, allowanceKind: allowance_kind, purpose: purposeFromUsage(usage) })),
       allowance: await speechAllowance(db, user.id).catch(() => undefined),
       anonymous: user.is_anonymous === true,
       emailVerified: verified,

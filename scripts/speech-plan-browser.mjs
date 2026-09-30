@@ -29,6 +29,23 @@ const feedback={assessment:{point:{status:'met',quote:'A pause helps me speak cl
 const showResult=async(paid=false,repeated=true)=>{fixture.billing=true;window.IntersectionObserver=NativeObserver;await act(async()=>root.render(<Result key={++key} result={{id:'local-fixture',transcript:'Synthetic local example only.',feedback,duration:20,allowance:{paid,included:paid?40:2,remaining:repeated?0:1}}} repeated={repeated} visible contentSource='speech_hub' onRetry={()=>showResult(false,true)} onCorrect={()=>{}}/>));};
 document.getElementById('run').onclick=async()=>{
  document.getElementById('run').disabled=true;window.IntersectionObserver=Observer;results.length=0;
+ await test('Practice card copies saved words only and reports successful copy separately',async()=>{
+  await showResult(false,true);events.length=0;let copied='';
+  Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async value=>{copied=value}}});
+  const box=host.querySelector('[aria-label="Your answer card"]');check(box&&box.textContent.includes('not a complete rewritten speech'),'Short retry is honestly labeled');
+  await act(async()=>box.querySelector('button').click());check(copied.includes('Synthetic local example only.')&&!copied.includes('My point is…'),'Only saved answer, not a fabricated rewritten speech');
+  check(count('speech_card_copy')===1&&!JSON.stringify(events).includes('Synthetic local example'),'Success is measured without private content');
+  navigator.clipboard.writeText=async()=>{throw Error('blocked')};
+  await act(async()=>box.querySelector('button').click());check(box.textContent.includes('Copy was unavailable')&&count('speech_card_copy')===1,'Blocked clipboard offers manual fallback and never reports success');
+ });
+ await test('Return offer exposes the real time and does not hide the existing free evidence',async()=>{
+  window.IntersectionObserver=Observer;events.length=0;observers.length=0;
+  const draw=async state=>act(async()=>root.render(<Result key={++key} result={{id:'return-fixture',transcript:'Synthetic saved answer.',feedback,duration:20,allowance:{paid:false,included:state==='scheduled'?2:3,remaining:state==='available'?1:0,returnTrial:{state,availableAt:'2026-10-02T00:00:00Z'}}}} repeated visible contentSource='speech_hub' onRetry={()=>{}} onCorrect={()=>{}}/>));
+  await draw('scheduled');const box=host.querySelector('[aria-label="Your return practice"]');check(box.textContent.includes('No subscription needed')&&host.querySelector('[aria-label="Your answer card"]'),'Return time and free card visible');
+  fire(box.querySelector('p'),1);await sleep(1050);check(count('speech_return_trial_offer_view')===1,'Qualified offer only');
+  await draw('available');fire(host.querySelector('[aria-label="Your return practice"] p'),1);await sleep(1050);check(count('speech_return_trial_available_view')===1,'Available credit is separate from scheduled offer');
+  await draw('used');check(!host.querySelector('[aria-label="Your return practice"]'),'Used credit is never offered again');
+ });
  await test('Hidden panel emits no view',async()=>{await fresh('full',false);for(const o of observers)if(o.el)fire(o.el,1);await sleep(1050);check(!events.length,'Hidden content is not an impression')});
  await test('Card visibility never substitutes for button visibility',async()=>{await fresh();fire(host.querySelector('section'),1);await sleep(1050);check(count('speech_plan_v2_view')===1&&count('speech_plan_v2_action_view')===0,'Only the card was visible')});
  await test('Button requires continuous one-second foreground visibility and deduplicates',async()=>{await fresh();const a=host.querySelector('a');fire(a,.49);await sleep(1050);check(count('speech_plan_v2_action_view')===0,'A sliver is not a view');fire(a,1);await sleep(550);fire(a,0);await sleep(550);check(count('speech_plan_v2_action_view')===0,'Interrupted exposure is not a view');fire(a,1);await sleep(1050);check(count('speech_plan_v2_action_view')===1,'Qualified link view');await render('full',false,false);await render('full',true,false);fire(a,1);await sleep(1050);check(count('speech_plan_v2_action_view')===1,'Reopen does not double count')});
