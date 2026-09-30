@@ -36,6 +36,7 @@ const rows=coreUsageRows([['current7','2026-09-22','2026-09-28','/question-of-th
 assert.ok(rows.every(r=>r[5]===0&&r[6]===0),'QA names excluded from natural report');
 assert.ok(coreUsageRows([],'current7','2026-09-13','2026-09-19').every(r=>r[7]==='before_release_no_new_signal'));
 assert.ok(coreUsageRows([],'current7','2026-09-22','2026-09-28',true).every(r=>r[7]==='limited_report'));
+assert.equal(coreUsageRows([],'current7','2026-09-22','2026-09-28').find(r=>r[4]==='qotd_funny_collection_click')[7],'before_release_no_new_signal');
 console.log('PASS: source-specific success/error, return inactivity and expiry, QA isolation, timer order, unfinished-round markers and report coverage.');
 for (const action of ['copy_result','save_result','share_result','copy_error','save_error','share_error']) {
   assert.deepEqual(run(action,{action_surface:'ethics_card'},'/topics/ethical-dilemma-questions'),[`ethics_card_${action.replace('_result','')}`]);
