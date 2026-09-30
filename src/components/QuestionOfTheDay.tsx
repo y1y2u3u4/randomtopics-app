@@ -181,6 +181,12 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
 
         <p className="mt-3 text-center text-xs text-[var(--text-muted)]">Copy includes the question and an invitation to answer or pass. No signup needed.</p>
 
+        {shown?.c === "funny" ? <div className="mt-4 rounded-xl border border-[var(--neon-yellow)]/20 p-4 text-center">
+          <p className="text-sm font-semibold">Want a funny question that fits your group?</p>
+          <p className="mt-1 text-xs leading-relaxed text-[var(--text-muted)]">Choose from a separate collection of 100 funny questions, with filters for family, students, work teams, or friends.</p>
+          <Link href="/funny-question-of-the-day#weekly-plan-filters" onClick={() => track("qotd_funny_collection_click", { tool_type: "question_of_the_day", content_source: "qotd_hub", action_surface: isToday ? "qotd_daily" : "qotd_random", locale: "en" })} className="mt-2 inline-flex min-h-11 items-center text-sm text-[var(--neon-yellow)] underline underline-offset-4">Choose funny questions for my group →</Link>
+        </div> : null}
+
         <p className="mt-5 text-center text-sm font-semibold">Want a different question? Choose a category for your next draw.</p>
         {/* Category filter for random mode */}
         <div className="flex flex-wrap justify-center gap-2 mt-5">
