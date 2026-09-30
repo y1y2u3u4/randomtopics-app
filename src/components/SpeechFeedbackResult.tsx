@@ -10,10 +10,15 @@ import { SPEECH_REASON_EVENTS, type SpeechReason } from "@/lib/speech/events";
 import SpeechPlanTeaser from "./SpeechPlanTeaser";
 import SpeechRoundSteps from "./SpeechRoundSteps";
 import { purposeLabels, speechPurpose, type SpeechPurpose } from "@/lib/speech/purpose";
+import type { SpeechAllowance } from "@/lib/speech/returnTrial";
+import SpeechAnswerCard from "./SpeechAnswerCard";
+import SpeechReturnTrial from "./SpeechReturnTrial";
 
 export type SpeechResult = {
   id: string; transcript: string; feedback: SpeechFeedback; duration: number;
-  allowance?: { remaining: number; included: number; paid: boolean };
+  topic?: string;
+  allowance?: SpeechAllowance;
+  allowanceKind?: string;
   correctionsRemaining?: number;
   purpose?: SpeechPurpose;
 };
@@ -51,6 +56,7 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
       trackSpeech("speech_feedback_v5_view", props);
       trackSpeech(repeated ? "speech_retry_feedback_v5_view" : "speech_first_feedback_v5_view", props);
       trackSpeech(repeated ? "speech_round_compare_view" : "speech_round_suggestion_view", props);
+      if (result.allowanceKind === "return_trial") trackSpeech("speech_return_trial_feedback_view", props);
       if (!repeated && (!canRetry || next.mode === "review")) trackSpeech("speech_first_retry_unavailable_view", {
         ...props, reason: !canRetry ? "quota" : "review",
       });
@@ -58,7 +64,7 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
       if (fromWarmup) trackSpeech(repeated ? "speech_warmup_retry_view" : "speech_warmup_feedback_view", props);
       if (repeated) trackSpeech("speech_comparison_view", { ...props, outcome: f.comparison.outcome });
     });
-  }, [visible, contentSource, attempt, repeated, f.comparison.outcome, fromTimer, fromWarmup, canRetry, next.mode, purpose]);
+  }, [visible, contentSource, attempt, repeated, f.comparison.outcome, fromTimer, fromWarmup, canRetry, next.mode, purpose, result.allowanceKind]);
   useEffect(() => {
     if (!visible || !retry.current || retryViewed.current) return;
     return observeVisibleAction(retry.current, () => {
@@ -158,6 +164,8 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
       {(result.correctionsRemaining ?? 0) > 0 && <button type="button" className={button} onClick={onCorrect}>Correct a transcription mistake</button>}
       <p className="text-xs text-[var(--text-muted)]">{(result.correctionsRemaining ?? 0) > 0 ? "Correcting transcription mistakes does not use another recorded attempt." : "No feedback corrections remain for this recording. You can still review all saved evidence."} You do not need to subscribe to review this result.</p>
     </aside>}
+    <SpeechAnswerCard result={result} repeated={repeated} visible={visible} contentSource={contentSource} />
+    <SpeechReturnTrial allowance={result.allowance} attemptId={result.id} visible={visible} purpose={purpose} contentSource={contentSource} />
     {(repeated || next.mode === "review") && !recovery && <aside aria-label="Your next round" className="space-y-3 rounded-xl border border-white/15 p-4">
       <h4 className="font-semibold">{next.title}</h4><p className="text-sm">{next.description}</p>
       <p className="text-sm">{next.why}</p>
@@ -167,7 +175,7 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
           onClick={() => trackSpeech("speech_round_next_click", { content_source: contentSource, attempt, purpose, outcome: next.mode })}>
           {!canRetry ? "Preview my next round" : next.mode === "transfer" ? "Choose a new topic for this goal" : "Open my next practice"}
         </Link>}
-      {!canRetry && <p className="text-xs text-[var(--text-muted)]">Your goal stays in practice history. {result.allowance?.paid ? "Submitting another recording needs available attempts." : "Your free attempts are used. Another recording requires a plan; reviewing your result stays free."}</p>}
+      {!canRetry && <p className="text-xs text-[var(--text-muted)]">Your goal stays in practice history. {result.allowance?.paid ? "Submitting another recording needs available attempts." : result.allowance?.returnTrial?.state === "scheduled" ? "Your extra free recording opens at the time shown above. Choose a plan only if you want more practice before then." : "Your free attempts are used. Another recording requires a plan; reviewing your result stays free."}</p>}
     </aside>}
     {!result.allowance?.paid && !recovery && next.mode !== "review" && <SpeechPlanTeaser attempt={attempt} contentSource={contentSource} visible={visible}
       compact={!repeated && canRetry} purpose={purpose} nextCheck={next.check} onReview={openEvidence} attemptId={result.id} focusLabel={drill ? focusLabels[drill.target] : undefined} />}

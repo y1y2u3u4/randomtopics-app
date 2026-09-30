@@ -32,6 +32,9 @@ export const SPEECH_ENTRY_EVENTS = [
   "speech_entry_v4_page", "speech_entry_v4_view", "speech_entry_v4_click", "speech_coach_v4_open", "speech_entry_v4_example_view",
 ] as const;
 export const SPEECH_EVENTS = [
+  "speech_task_start_view", "speech_task_start_begin", "speech_card_view", "speech_card_copy",
+  "speech_return_trial_offer_view", "speech_return_trial_open", "speech_return_trial_available_view",
+  "speech_return_trial_begin", "speech_return_trial_feedback_view",
   "speech_purpose_view", "speech_purpose_select", "speech_plan_need_view", "speech_plan_need_select",
   ...Object.values(SPEECH_PLAN_NEED_EVENTS), ...PURPOSE_EVENTS,
   "speech_account_arrive", "speech_account_load_start", "speech_account_load_ready", "speech_account_load_error",
@@ -86,6 +89,11 @@ export const SPEECH_EVENTS = [
 export type SpeechEvent = typeof SPEECH_EVENTS[number];
 // Independent event counts, not an ordered or user-deduplicated funnel.
 export const SPEECH_JOURNEY_STAGES = [
+  ["新版任务开始入口可见", "speech_task_start_view"], ["新版任务开始尝试", "speech_task_start_begin"],
+  ["回答卡可见", "speech_card_view"], ["主动复制回答卡", "speech_card_copy"],
+  ["额外回访录音预约可见", "speech_return_trial_offer_view"], ["打开回访练习", "speech_return_trial_open"],
+  ["回访额外录音已可用", "speech_return_trial_available_view"], ["开始回访尝试", "speech_return_trial_begin"],
+  ["额外录音反馈可见", "speech_return_trial_feedback_view"],
   ["练习用途问题可见", "speech_purpose_view"], ["主动选择练习用途", "speech_purpose_select"],
   ["新版继续需求问题可见", "speech_plan_need_view"], ["主动选择继续需求", "speech_plan_need_select"],
   ["本次任务已完成", "speech_plan_need_done"], ["还未感到有用", "speech_plan_need_value"],
@@ -148,6 +156,17 @@ export const SPEECH_JOURNEY_STAGES = [
   ["返回网站并确认实付", "speech_payment_confirmed"],
 ] as const satisfies readonly (readonly [string, SpeechEvent])[];
 export const SPEECH_FUNNELS = [
+  { key: "task_start", title: "一分钟任务 · 开始 → 音频 → 反馈", steps: [
+    ["任务入口可见", "speech_task_start_view"], ["主动开始", "speech_task_start_begin"],
+    ["音频就绪", "speech_audio_ready"], ["反馈可见", "speech_first_feedback_v5_view"],
+  ] },
+  { key: "answer_card", title: "回答卡 · 展示 → 主动复制", steps: [
+    ["回答卡可见", "speech_card_view"], ["复制成功", "speech_card_copy"],
+  ] },
+  { key: "return_trial", title: "额外回访录音 · 可用 → 开始 → 反馈", steps: [
+    ["回访额度可用提示可见", "speech_return_trial_available_view"], ["主动开始", "speech_return_trial_begin"],
+    ["服务端确认额外录音反馈可见", "speech_return_trial_feedback_view"],
+  ] },
   ...SPEECH_PURPOSES.flatMap(purpose => {
     const label = { once: "准备一次发言", habit: "持续训练", explore: "体验看看", unspecified: "未选择用途" }[purpose];
     return [

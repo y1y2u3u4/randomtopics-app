@@ -42,6 +42,7 @@ export default function SpeechCoach({
   initialPrevious,
   fromTimer = false,
   carriedGoal,
+  returnTrial = false,
 }: {
   topic: Topic;
   topics: Topic[];
@@ -51,6 +52,7 @@ export default function SpeechCoach({
   initialPrevious?: SpeechResult;
   fromTimer?: boolean;
   carriedGoal?: { sourceId: string; target: SpeechFocus; purpose?: SpeechPurpose };
+  returnTrial?: boolean;
 }) {
   const [stage, setStage] = useState<Stage>("ready");
   const [seconds, setSeconds] = useState(0);
@@ -126,6 +128,7 @@ export default function SpeechCoach({
       seenControls.current.add(attempt);
       trackSpeech("speech_record_controls_view", { content_source: contentSource, attempt });
       if (!previous) trackSpeech("speech_start_v2_view", { content_source: contentSource, attempt: 1 });
+      if (!previous) trackSpeech("speech_task_start_view", { content_source: contentSource, attempt: 1 });
     });
   }, [visible, stage, previous, contentSource]);
   useEffect(() => {
@@ -180,6 +183,8 @@ export default function SpeechCoach({
     beganAttempt.current = true;
     emit(previous ? "speech_retry_attempt_start" : "speech_first_attempt_start");
     if (!previous) emit("speech_start_v2_begin");
+    if (!previous) emit("speech_task_start_begin");
+    if (returnTrial) emit("speech_return_trial_begin");
     if (carriedGoal && !previous) emit("speech_round_transfer_begin");
   }
   const stop = () => {
@@ -516,16 +521,14 @@ export default function SpeechCoach({
             </button>
           </div>}
           {stage === "ready" && !previous && <div aria-live="polite" className="mb-4 space-y-2 text-sm leading-relaxed">
-            <p>Give an answer, get one suggestion, try it once, then compare your two answers.</p>
-            <p className="font-semibold">{warmup ? "Everyday warm-up · use your own experience" : "Say your point, then give one example."}</p>
+            <p className="font-semibold">{warmup ? "Everyday warm-up · use your own experience" : "Your one-minute task: make one point clear."}</p>
+            <p>Say your point, add one example, then finish your thought. Get one suggestion, retry that part, and keep your own practice card.</p>
             {warmup ? <>
               <p>{SPEECH_WARMUP_TOPIC.text}</p>
               <p className="text-[var(--text-muted)]">Try: “One habit that helps me is … For example …” Use your own words. About 20 seconds is enough to start; stop when you finish your thought.</p>
             </> : <p className="text-[var(--text-muted)]">A minute is a guide, not a minimum. Stop when you finish your thought.</p>}
             <p className="text-[var(--text-muted)]">Audio stays on this page until you choose “Get my feedback”.</p>
           </div>}
-          {stage === "ready" && !previous && !carriedGoal && !beganAttempt.current && <SpeechPurposeChoice
-            value={purpose} onChange={setSelectedPurpose} visible={visible} contentSource={contentSource} />}
           <div className="flex flex-wrap items-center justify-between gap-4">
             {(stage !== "ready" || previous) && <div>
               <p className="text-sm text-[var(--text-muted)]">
@@ -573,6 +576,10 @@ export default function SpeechCoach({
               )}
             </div>
           </div>
+          {stage === "ready" && !previous && !carriedGoal && !beganAttempt.current && <details className="mt-3 text-sm">
+            <summary className="min-h-11 cursor-pointer py-3">Personalize my practice goal · optional</summary>
+            <SpeechPurposeChoice value={purpose} onChange={setSelectedPurpose} visible={visible} contentSource={contentSource} />
+          </details>}
           {stage === "permission" && <div className="mt-4 space-y-3 text-sm">
             <p role="status">Choose Allow in your browser’s microphone prompt to record. Nothing is uploaded until you choose “Get my feedback”.</p>
             <button type="button" className={button} onClick={() => cancelMicrophone("choose_upload")}>

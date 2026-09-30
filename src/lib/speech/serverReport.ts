@@ -4,7 +4,7 @@ import { database } from "./server";
 import { SPEECH_PURPOSES, purposeFromUsage } from "./purpose";
 import { SPEECH_EXPOSURE_VERSION, SPEECH_ENTRY_SOURCES } from "./exposure";
 
-type Row = { id: string; user_id: string; previous_id: string | null; status: string;
+type Row = { id: string; user_id: string; previous_id: string | null; status: string; allowance_kind?: string;
   created_at: string; usage: { context?: { version?: string; qa?: boolean; practiceMode?: string; exposureVersion?: string; entrySource?: string } } | null };
 
 // This aggregate intentionally never returns speech text, feedback, or identifiers.
@@ -23,6 +23,8 @@ function counts(rows: Row[]) {
     firstAttempts: first.length, firstComplete: completedFirst.length,
     retryAttempts: retry.length, retryComplete: completedRetry.length,
     firstWithCompletedRetry: paired.length,
+    returnTrialAttempts: cohort.filter(row => row.allowance_kind === "return_trial").length,
+    returnTrialComplete: cohort.filter(row => row.allowance_kind === "return_trial" && row.status === "complete").length,
     failed: cohort.filter(row => row.status === "failed").length,
     pending: cohort.filter(row => !["complete", "failed"].includes(row.status)).length,
   };
@@ -47,7 +49,7 @@ export async function getSpeechServerReport(now = new Date()) {
   let complete = false;
   for (let offset = 0; offset < 5000; offset += 500) {
     const { data, error } = await database().from("speech_attempts")
-      .select("id,user_id,previous_id,status,created_at,usage")
+      .select("id,user_id,previous_id,status,created_at,usage,allowance_kind")
       .gte("created_at", start).lt("created_at", end)
       .order("created_at").order("id").range(offset, offset + 499);
     if (error) throw error;

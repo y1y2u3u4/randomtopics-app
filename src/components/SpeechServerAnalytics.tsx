@@ -19,6 +19,7 @@ export default async function SpeechServerAnalytics() {
       ["v5 重练提交 / 已完成反馈", `${report.retryAttempts} / ${report.retryComplete}`],
       ["窗口内首轮完成且已有重练完成", `${report.firstWithCompletedRetry} / ${report.firstComplete}`],
       ["v5 失败 / 处理中或待反馈", `${report.failed} / ${report.pending}`],
+      ["额外回访录音提交 / 反馈保存", `${report.returnTrialAttempts} / ${report.returnTrialComplete}`],
       ["排除的明确 QA 记录", report.qa], ["旧版或未分类记录", report.unclassified],
     ].map(([label, value]) => <div key={label}><p className="text-sm text-[var(--text-muted)]">{label}</p><p className="text-xl font-semibold">{value}</p></div>)}</div>
     <details open><summary className="font-semibold">本次入口更新 · 按提交来源核对</summary>

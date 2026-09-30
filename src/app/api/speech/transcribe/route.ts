@@ -78,7 +78,7 @@ export async function POST(request: Request) {
       goalTarget = next.target;
       purpose = purposeFromUsage(source.usage);
     }
-    const reservation = await db.rpc("reserve_speech_attempt", {
+    const reservation = await db.rpc("reserve_speech_attempt_v6", {
       p_id: body.id,
       p_user: user.id,
       p_topic: body.topic,
@@ -126,7 +126,7 @@ export async function POST(request: Request) {
       );
     }
     try {
-      const context = { version: "v5", practiceMode: body.practiceMode, qa: body.qa, purpose,
+      const context = { version: "v5", journeyVersion: "task_v1", practiceMode: body.practiceMode, qa: body.qa, purpose,
         ...(goalTarget ? { goalTarget, goalSourceId: body.goalSourceId } : {}),
         ...(body.exposureVersion ? { exposureVersion: body.exposureVersion, entrySource: body.entrySource ?? "unknown" } : {}),
       };
