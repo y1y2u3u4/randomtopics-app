@@ -1,4 +1,10 @@
 // Versioned names need no GA custom-dimension registration for the core reports.
+import { PURPOSE_EVENTS, SPEECH_PURPOSES, purposeEvent } from "./purpose";
+export const SPEECH_PLAN_NEED_EVENTS = {
+  done: "speech_plan_need_done", value: "speech_plan_need_value",
+  subscription: "speech_plan_need_subscription", price: "speech_plan_need_price", later: "speech_plan_need_later",
+} as const;
+export type SpeechPlanNeed = keyof typeof SPEECH_PLAN_NEED_EVENTS;
 export const SPEECH_REASON_EVENTS = {
   inaccurate: "speech_reason_inaccurate", hard_to_apply: "speech_reason_hard_to_apply",
   transcription: "speech_reason_transcription", task_complete: "speech_reason_task_complete",
@@ -26,6 +32,8 @@ export const SPEECH_ENTRY_EVENTS = [
   "speech_entry_v4_page", "speech_entry_v4_view", "speech_entry_v4_click", "speech_coach_v4_open", "speech_entry_v4_example_view",
 ] as const;
 export const SPEECH_EVENTS = [
+  "speech_purpose_view", "speech_purpose_select", "speech_plan_need_view", "speech_plan_need_select",
+  ...Object.values(SPEECH_PLAN_NEED_EVENTS), ...PURPOSE_EVENTS,
   "speech_account_arrive", "speech_account_load_start", "speech_account_load_ready", "speech_account_load_error",
   "speech_account_reconnect_start", "speech_account_reconnect_ready", "speech_account_reconnect_error",
   "speech_checkout_action_view", "speech_checkout_context_view", "speech_checkout_email_error",
@@ -78,6 +86,11 @@ export const SPEECH_EVENTS = [
 export type SpeechEvent = typeof SPEECH_EVENTS[number];
 // Independent event counts, not an ordered or user-deduplicated funnel.
 export const SPEECH_JOURNEY_STAGES = [
+  ["练习用途问题可见", "speech_purpose_view"], ["主动选择练习用途", "speech_purpose_select"],
+  ["新版继续需求问题可见", "speech_plan_need_view"], ["主动选择继续需求", "speech_plan_need_select"],
+  ["本次任务已完成", "speech_plan_need_done"], ["还未感到有用", "speech_plan_need_value"],
+  ["想继续但不想订阅", "speech_plan_need_subscription"], ["想继续但价格不合适", "speech_plan_need_price"],
+  ["想另一天继续", "speech_plan_need_later"],
   ["账号页到达", "speech_account_arrive"], ["账号加载开始", "speech_account_load_start"],
   ["账号加载成功", "speech_account_load_ready"], ["账号加载失败", "speech_account_load_error"],
   ["主动重新连接会话", "speech_account_reconnect_start"], ["重新连接并加载成功", "speech_account_reconnect_ready"],
@@ -135,6 +148,23 @@ export const SPEECH_JOURNEY_STAGES = [
   ["返回网站并确认实付", "speech_payment_confirmed"],
 ] as const satisfies readonly (readonly [string, SpeechEvent])[];
 export const SPEECH_FUNNELS = [
+  ...SPEECH_PURPOSES.flatMap(purpose => {
+    const label = { once: "准备一次发言", habit: "持续训练", explore: "体验看看", unspecified: "未选择用途" }[purpose];
+    return [
+      { key: `purpose_${purpose}_activation`, title: `${label} · 开始 → 提交 → 首份建议`, steps: [
+        ["开始首次尝试", purposeEvent(purpose, "begin")], ["主动提交", purposeEvent(purpose, "submit")],
+        ["首份建议可见", purposeEvent(purpose, "feedback")],
+      ] as const },
+      { key: `purpose_${purpose}_purchase`, title: `${label} · 建议 → 套餐 → 结账 → 实付`, steps: [
+        ["首份建议可见", purposeEvent(purpose, "feedback")], ["点击套餐入口", purposeEvent(purpose, "plan")],
+        ["请求结账", purposeEvent(purpose, "checkout")], ["跳转 Stripe", purposeEvent(purpose, "redirect")],
+        ["确认实付", purposeEvent(purpose, "paid")],
+      ] as const },
+      { key: `purpose_${purpose}_offer`, title: `${label} · 套餐按钮曝光 → 点击`, steps: [
+        ["套餐按钮可见", purposeEvent(purpose, "offer")], ["点击套餐入口", purposeEvent(purpose, "plan")],
+      ] as const },
+    ];
+  }),
   { key: "account_arrival", title: "账号入口 · 到达 → 成功加载 → 购买操作曝光", steps: [
     ["账号页到达", "speech_account_arrive"], ["账号加载成功", "speech_account_load_ready"],
     ["可用购买操作可见", "speech_checkout_action_view"],

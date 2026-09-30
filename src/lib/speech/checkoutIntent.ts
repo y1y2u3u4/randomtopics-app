@@ -1,8 +1,9 @@
 import { speechEntrySource, type SpeechEntrySource } from "./exposure";
+import { speechPurpose, type SpeechPurpose } from "./purpose";
 // UI navigation only. This never authorizes Checkout or grants paid access.
 const key = "rt_speech_checkout_intent_v1";
 const lifetime = 24 * 60 * 60 * 1000;
-export type CheckoutIntent = { createdAt: number; qa: boolean; entrySource?: SpeechEntrySource; attemptId?: string };
+export type CheckoutIntent = { createdAt: number; qa: boolean; entrySource?: SpeechEntrySource; attemptId?: string; purpose?: SpeechPurpose };
 // An opaque navigation reference only. The history API must check ownership;
 // never persist feedback, transcripts, credentials or entitlement here.
 export function validPracticeReference(value: unknown): value is string {
@@ -18,18 +19,27 @@ export function readCheckoutIntent(): CheckoutIntent | null {
     }
     const entrySource = speechEntrySource(value.entrySource);
     return { createdAt: value.createdAt, qa: value.qa, ...(entrySource ? { entrySource } : {}),
+      ...(value.purpose !== undefined ? { purpose: speechPurpose(value.purpose) } : {}),
       ...(validPracticeReference(value.attemptId) ? { attemptId: value.attemptId } : {}) };
   } catch { return null; }
 }
-export function rememberCheckoutIntent(qa: boolean, source?: string, reference?: string | null) {
+export function rememberCheckoutIntent(qa: boolean, source?: string, reference?: string | null, purpose?: SpeechPurpose) {
   const saved = readCheckoutIntent();
   const entrySource = source === undefined ? saved?.entrySource : speechEntrySource(source);
   const attemptId = reference === undefined ? saved?.attemptId : reference;
+  const selectedPurpose = purpose ?? (reference === undefined ? saved?.purpose : undefined);
   try { localStorage.setItem(key, JSON.stringify({ createdAt: Date.now(), qa, ...(entrySource ? { entrySource } : {}),
+    ...(selectedPurpose !== undefined ? { purpose: speechPurpose(selectedPurpose) } : {}),
     ...(validPracticeReference(attemptId) ? { attemptId } : {}) })); } catch { /* Navigation still works without storage. */ }
 }
 export function clearCheckoutIntent() {
   try { localStorage.removeItem(key); } catch { /* optional UI state */ }
+}
+export function reconcileCheckoutPurpose(purpose: SpeechPurpose) {
+  const saved = readCheckoutIntent();
+  if (!saved) return;
+  // History refresh must not extend the original 24-hour purchase intention.
+  try { localStorage.setItem(key, JSON.stringify({ ...saved, purpose: speechPurpose(purpose) })); } catch { /* optional attribution */ }
 }
 export const speechPlanPath = "/speech/account?plan=monthly#speech-plan";
 export function speechPlanPathForAttempt(attemptId?: string) {

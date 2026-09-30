@@ -16,6 +16,9 @@ import SpeechFeedbackResult, { type SpeechResult } from "./SpeechFeedbackResult"
 import SpeechRoundSteps from "./SpeechRoundSteps";
 import { transferInstructions } from "@/lib/speech/nextRound";
 import type { SpeechFocus } from "@/lib/speech/schema";
+import { speechPurpose, type SpeechPurpose } from "@/lib/speech/purpose";
+import { rememberCheckoutIntent } from "@/lib/speech/checkoutIntent";
+import SpeechPurposeChoice from "./SpeechPurposeChoice";
 
 type Stage =
   | "ready"
@@ -47,7 +50,7 @@ export default function SpeechCoach({
   visible: boolean;
   initialPrevious?: SpeechResult;
   fromTimer?: boolean;
-  carriedGoal?: { sourceId: string; target: SpeechFocus };
+  carriedGoal?: { sourceId: string; target: SpeechFocus; purpose?: SpeechPurpose };
 }) {
   const [stage, setStage] = useState<Stage>("ready");
   const [seconds, setSeconds] = useState(0);
@@ -58,6 +61,8 @@ export default function SpeechCoach({
   const [transcript, setTranscript] = useState("");
   const [result, setResult] = useState<Result | null>(null);
   const [previous, setPrevious] = useState<Result | null>(initialPrevious ?? null);
+  const [selectedPurpose, setSelectedPurpose] = useState<SpeechPurpose>("unspecified");
+  const purpose = speechPurpose(previous ? previous.purpose : carriedGoal ? carriedGoal.purpose : selectedPurpose);
   const [id, setId] = useState("");
   const [reviewFirst, setReviewFirst] = useState(false);
   const [correcting, setCorrecting] = useState(false);
@@ -147,6 +152,7 @@ export default function SpeechCoach({
       content_source: contentSource,
       attempt: previous ? 2 : 1,
       input_method: inputMethod.current,
+      purpose,
       ...extra,
     };
     trackSpeech(event, properties);
@@ -336,7 +342,7 @@ export default function SpeechCoach({
         const audio = await recordingToWav(blob);
         data = await practiceFetch("transcribe", {
           id, topic: topic.text, previousId: previous?.id ?? null, audio,
-          practiceMode: previous?.feedback.drill ? "focused" : "full", qa: speechQaSession(),
+          practiceMode: previous?.feedback.drill ? "focused" : "full", qa: speechQaSession(), purpose,
           ...(!previous && carriedGoal ? { goalSourceId: carriedGoal.sourceId } : {}),
           exposureVersion: SPEECH_EXPOSURE_VERSION, entrySource: speechEntrySource(contentSource) ?? "unknown",
         });
@@ -518,6 +524,8 @@ export default function SpeechCoach({
             </> : <p className="text-[var(--text-muted)]">A minute is a guide, not a minimum. Stop when you finish your thought.</p>}
             <p className="text-[var(--text-muted)]">Audio stays on this page until you choose “Get my feedback”.</p>
           </div>}
+          {stage === "ready" && !previous && !carriedGoal && !beganAttempt.current && <SpeechPurposeChoice
+            value={purpose} onChange={setSelectedPurpose} visible={visible} contentSource={contentSource} />}
           <div className="flex flex-wrap items-center justify-between gap-4">
             {(stage !== "ready" || previous) && <div>
               <p className="text-sm text-[var(--text-muted)]">
@@ -629,7 +637,9 @@ export default function SpeechCoach({
             We save your transcript and feedback privately, not the audio. <Link href="/privacy" className="underline">Privacy details</Link>
           </p>}
           <div className="flex flex-wrap gap-2">
-            {quotaHit ? <SpeechPlanLink surface="quota" visible={visible} attempt={previous ? 2 : 1} contentSource={contentSource} href="/speech/account#speech-plan" className={`${primary} w-full text-center sm:w-auto`}>View allowance and practice plan</SpeechPlanLink> :
+            {quotaHit ? <SpeechPlanLink surface="quota" purpose={purpose} visible={visible} attempt={previous ? 2 : 1} contentSource={contentSource} href="/speech/account#speech-plan"
+              onClick={() => rememberCheckoutIntent(speechQaSession(), contentSource, previous?.id ?? null, purpose)}
+              className={`${primary} w-full text-center sm:w-auto`}>View allowance and practice plan</SpeechPlanLink> :
               <button ref={feedbackButton} type="button" className={`${primary} w-full sm:w-auto`} onClick={transcribe}>Get my feedback</button>}
             <button type="button" className={button} onClick={reset}>Record again</button>
           </div>

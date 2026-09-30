@@ -45,6 +45,7 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
         <tbody>{report.coverage.map(row => <tr key={row.event} className="border-t border-white/10"><td className="py-2">{row.label}</td><td>{row.count === null ? "—" : number.format(row.count)}</td><td>{row.status === "received" ? "已收到" : row.status === "unavailable" ? "数据暂不可用" : "本窗口未收到"}</td></tr>)}</tbody>
       </table></div>
     </details>
+    <p className="text-sm text-[var(--text-muted)]">用途漏斗从 purpose_v1 发布后开始记录，选择不强制。按每次操作携带的用途归类，同一访客可跨用途；不能相加当总人数。新继续需求问题单独统计，不能与旧“只需要一次”问卷混算。次日回访须按日期另查，打开下一轮不等于留存。</p>
     <div className="grid gap-4 lg:grid-cols-3">{report.funnels.map((funnel) => <article key={funnel.key} className="glass-card p-5">
       <h3 className="font-semibold">{funnel.title}</h3>
       {!funnel.available ? <p className="mt-4 text-sm text-amber-200">有序漏斗接口暂不可用，不能用事件次数相除替代。</p> : <ol className="mt-4 space-y-3">{funnel.rows.map((row, index) => <li key={row.label}>

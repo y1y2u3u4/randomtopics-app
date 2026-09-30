@@ -55,4 +55,13 @@ const row=(id,extra={})=>({id,user_id:'a',previous_id:null,status:'complete',cre
 const report=summarizeSpeechAttempts([row('first'),row('repeat',{previous_id:'first',created_at:'2026-09-21T10:01:00Z'}),row('qa',{usage:{context:{version:'v5',qa:true}}}),row('legacy',{usage:{}}),row('pending',{user_id:'b',status:'transcribed'}),row('other-owner',{user_id:'c',previous_id:'pending'})]);
 assert.equal(report.attempts,4);assert.equal(report.qa,1);assert.equal(report.unclassified,1);assert.equal(report.firstComplete,1);assert.equal(report.firstWithCompletedRetry,1);assert.equal(report.pending,1);
 assert.ok(!JSON.stringify(report).includes('user_id'));
+const purposes=summarizeSpeechAttempts([
+ row('old'),row('skip',{usage:{context:{version:'v5',qa:false,purpose:'unspecified'}}}),
+ row('habit',{usage:{context:{version:'v5',qa:false,purpose:'habit'}}}),
+ row('qa-habit',{usage:{context:{version:'v5',qa:true,purpose:'habit'}}}),
+]).purposes;
+assert.equal(purposes.find(r=>r.purpose==='unrecorded').attempts,1,'Old missing labels are not explicit skipped choices');
+assert.equal(purposes.find(r=>r.purpose==='unspecified').attempts,1);
+assert.equal(purposes.find(r=>r.purpose==='habit').attempts,1,'QA does not inflate natural purpose counts');
+assert.equal(purposes.find(r=>r.purpose==='habit').qa,1);
 console.log('PASS: v5 coaching priorities, focused evidence, explicit correction/idempotency/recovery, ownership/claim limits and QA-separated aggregates.');

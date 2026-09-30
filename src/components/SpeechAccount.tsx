@@ -4,13 +4,14 @@ import Link from "next/link";
 import { practiceFetch, PracticeRequestError, reconnectSpeechSession, speechClient } from "@/lib/speech/client";
 import type { SpeechFeedback } from "@/lib/speech/schema";
 import { speechErrorCode, speechQaSession, trackSpeech, trackConfirmedSpeechPurchase } from "@/lib/speech/telemetry";
-import { clearCheckoutIntent, readCheckoutIntent, rememberCheckoutIntent, validPracticeReference } from "@/lib/speech/checkoutIntent";
+import { clearCheckoutIntent, readCheckoutIntent, rememberCheckoutIntent, reconcileCheckoutPurpose, validPracticeReference } from "@/lib/speech/checkoutIntent";
 import { watchSpeechAccount } from "@/lib/speech/accountChanges";
 import { observeVisibleAction, observeVisibleContent } from "@/lib/speech/visibleAction";
 import { resumeHistoryFeedback } from "@/lib/speech/historyFeedback";
 import SpeechHistorySummary from "./SpeechHistorySummary";
 import SpeechCheckoutContext from "./SpeechCheckoutContext";
 import { nextRound } from "@/lib/speech/nextRound";
+import { speechPurpose, type SpeechPurpose } from "@/lib/speech/purpose";
 type Attempt = {
   id: string;
   topic: string;
@@ -20,6 +21,7 @@ type Attempt = {
   feedback: SpeechFeedback | null;
   created_at: string;
   previous_id: string | null;
+  purpose?: SpeechPurpose;
 };
 const button =
   "min-h-11 rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold disabled:opacity-50";
@@ -138,6 +140,11 @@ export default function SpeechAccount() {
       const data = await practiceFetch(id ? `history?id=${encodeURIComponent(id)}` : "history", undefined, undefined,
         { existingSessionOnly: existingSessionOnly.current, timeoutMs: 15000 });
       if (!mounted.current || version !== requestVersion.current) return false;
+      // Reconcile a referenced purpose against owned history before attributing payment.
+      if (checkoutIntent.current && id) {
+        const owned = data.attempts?.find((item: Attempt) => item.id === id);
+        reconcileCheckoutPurpose(speechPurpose(owned?.purpose));
+      }
       setAttempts(data.attempts);
       setAnonymous(data.anonymous);
       setBilling(data.billingAvailable);
@@ -413,7 +420,7 @@ export default function SpeechAccount() {
               {new Date(subscription.periodEnd).toLocaleDateString()}.
             </p>
           )}
-          {context?.feedback && <SpeechCheckoutContext key={context.id} attempt={{ id: context.id, feedback: context.feedback }} />}
+          {context?.feedback && <SpeechCheckoutContext key={context.id} attempt={{ id: context.id, feedback: context.feedback, purpose: context.purpose }} />}
           {checkoutMode && practiceReference.current && !context && <p className="text-sm">
             This saved goal is not available in this account. You can review the plan for this account; signing in does not transfer another account’s practice.
           </p>}

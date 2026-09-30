@@ -34,6 +34,16 @@ New named events are registered in the existing private GA report allowlist and 
 
 These are GA ordered user funnels, not a same-round session audit. Historical versions are not randomized controls. Retain independent event counts alongside funnels and separate QA/unattributed tests. No commercial uplift is established by controlled tests.
 
+### Purpose and continuing value — 2026-09-30
+
+Before a first recording, visitors may choose `once` (prepare one talk), `habit` (build a speaking habit), or `explore` (try feedback). They can clear the choice or start immediately as `unspecified`. The choice locks once the attempt begins and is saved in `usage.context.purpose`; history and feedback return only this closed label, never the provider usage ledger. A retry or transferred goal retains its saved purpose. The server derives transferred purpose from owned history, not the posted source label.
+
+Next-round guidance states the existing saved success criterion and why another answer could be useful for this purpose. An attained goal is acknowledged; an optional refinement is not a fabricated failure. Evidence uncertainty still leads to free review. Plan details retain the existing price and terms, and one-off visitors can finish without subscribing. These changes add no model operation or paid package.
+
+The optional continuing-needs question uses new `speech_plan_need_*` events: `done`, `value`, `subscription`, `price`, and `later`. Subscription/price answers explicitly require wanting more practice. Old `speech_plan_reason_*` counts keep their old definitions; unanswered prompts are not reasons. “Value” offers review of the saved evidence, with no provider request.
+
+`speech_goal_{once|habit|explore|unspecified}_{stage}` events derive from actual actions or qualified exposures and use the existing QA namespace. The private report includes separate ordered activation, suggestion-to-purchase, and plan-button-exposure-to-click funnels for each purpose. Fast clicks do not manufacture exposure. `return` means opening saved practice, not proven next-day retention. Purpose is reconciled with owned history at purchase entry, with no extension of the original 24-hour intent lifetime. Accounts may use several purposes: never sum segment users as distinct people or relabel old missing metadata as an explicit skipped choice. Server aggregates show historical missing labels as `unrecorded` and keep QA separate. This release begins measurement; it does not establish a causal conversion improvement.
+
 ## Verification
 
 `npm run speech:test` includes source ownership, same-topic rejection, honest transfer assessment, quota/no-extra-call, and existing model/evidence regressions. `npm run billing:test`, growth/handoff regressions, TypeScript, lint, and production build cover retained behavior.
