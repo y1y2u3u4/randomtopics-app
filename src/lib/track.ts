@@ -56,15 +56,27 @@ export function track(eventName: string, params?: GtagParams): void {
       // Preview QA stays local; never send test sessions to the production property.
       for (const name of [rawName, ...derived]) {
         const measuredName = `${qa ? "qa_" : ""}${name}`;
-        if (!isProductionHost(window.location.hostname) || usageQa) {
-          window.dispatchEvent(new CustomEvent("rt:analytics", { detail: { event: measuredName, params: eventParams } }));
-        }
+        const diagnose = (stage: "constructed" | "dispatch_called" | "dispatch_error") => {
+          if (isProductionHost(window.location.hostname) && !qa) return;
+          try {
+            window.dispatchEvent(new CustomEvent("rt:analytics", { detail: {
+              event: measuredName, params: eventParams, stage,
+              ...(stage === "dispatch_error" ? { error_code: "dispatch_exception" } : {}),
+            } }));
+          } catch { /* Diagnostics must not suppress the actual event. */ }
+        };
+        diagnose("constructed");
         if (!isProductionHost(window.location.hostname)) continue;
-        if (!window.gtag) {
-          window.dataLayer ??= [];
-          window.gtag = (...args) => { window.dataLayer!.push(args); };
+        try {
+          if (!window.gtag) {
+            window.dataLayer ??= [];
+            window.gtag = (...args) => { window.dataLayer!.push(args); };
+          }
+          window.gtag("event", measuredName, eventParams);
+          diagnose("dispatch_called");
+        } catch {
+          diagnose("dispatch_error");
         }
-        window.gtag("event", measuredName, eventParams);
       }
     }
   } catch {
