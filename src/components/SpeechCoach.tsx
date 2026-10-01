@@ -456,7 +456,7 @@ export default function SpeechCoach({
     "analyzing",
   ].includes(stage);
   return (
-    <div className="mt-5 space-y-5 border-t border-white/10 pt-5">
+    <div data-clarity-mask="true" className="mt-5 space-y-5 border-t border-white/10 pt-5">
       {stage !== "complete" && <SpeechRoundSteps step={previous ? 3 : 1} />}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>

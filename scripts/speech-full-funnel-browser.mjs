@@ -1,0 +1,174 @@
+// Local-only browser regression harness. No microphone, accounts, API keys or
+// real network requests: the actual SpeechCoach uses deferred media/API fixtures.
+// Run with node scripts/speech-recording-browser.mjs, then open the printed URL.
+import { createRequire } from 'node:module';
+import { readFileSync, writeFileSync, mkdtempSync } from 'node:fs';
+import { resolve, join } from 'node:path';
+import { tmpdir } from 'node:os';
+import { createServer } from 'node:http';
+import { execFileSync } from 'node:child_process';
+const require = createRequire(import.meta.url);
+const root = resolve(import.meta.dirname, '..');
+const temp = mkdtempSync(join(tmpdir(), 'speech-recording-browser-'));
+const baseline = process.argv.find(x => x.startsWith('--baseline='))?.slice(11);
+const port = 4695;
+const put = (name, value) => { const file = join(temp, name); writeFileSync(file, value); return file; };
+let component = resolve(root, 'src/components/SpeechCoach.tsx');
+if (baseline) component = put('SpeechCoach.tsx', execFileSync('git', ['show', `${baseline}:src/components/SpeechCoach.tsx`], { cwd: root }));
+const loader = put('loader.cjs', `const ts=require(${JSON.stringify(require.resolve('typescript'))});module.exports=function(s){s=s.replace('window.location.assign(data.url)','window.__fixtureDestination=data.url');return ts.transpileModule(s,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext,jsx:ts.JsxEmit.ReactJSX}}).outputText;};`);
+const link = put('link.tsx', `export default function Link({href,children,...p}){return <a href={href} {...p}>{children}</a>}`);
+const result = put('result.tsx', `import Actual from '@/components/SpeechFeedbackResult';import {api} from '@/lib/speech/client';import Steps from '@/components/SpeechRoundSteps';export default function Result(props){const {fromWarmup,fromTimer,repeated}=props;if(api.full)return <Actual {...props}/>;return <><Steps step={repeated?4:2}/><h4 tabIndex={-1} data-warmup={Boolean(fromWarmup)} data-timer={Boolean(fromTimer)}>Fixture feedback ready</h4></>}`);
+const client = put('client.ts', `export class PracticeRequestError extends Error {};
+export const api={calls:[],bodies:[],hold:false,quota:false,full:false,release:()=>{}};
+export async function speechBillingAvailable(){return true;}export async function speechClient(){return {auth:{getSession:async()=>({data:{session:{user:{id:'fixture-owner'}}}}),onAuthStateChange(cb){queueMicrotask(()=>cb('INITIAL_SESSION',{user:{id:'fixture-owner'}}));return {data:{subscription:{unsubscribe(){}}}}}}};}export async function reconnectSpeechSession(){};export async function practiceFetch(path,body){api.calls.push(path);api.bodies.push(body);if(path==='transcribe'){if(api.quota)throw Object.assign(new PracticeRequestError('Fixture quota'),{status:402});if(api.hold)await new Promise(r=>{api.release=r});return {transcript:'A synthetic answer for a local browser test.',duration:5};}if(path.startsWith('history'))return {attempts:[],billingAvailable:true,emailAvailable:true,anonymous:false,emailVerified:true,subscription:{active:false,manageable:false}};if(path==='checkout')return {url:'/checkout-fixture'};return {id:body.id,status:'complete',transcript:'Synthetic words only.',duration:5,allowance:{remaining:0,included:2,paid:false},feedback:{priority:{observation:'Put your point first.',quote:'Synthetic words only.',nextStep:'Say your point.'},strength:{observation:'Clear example.',quote:'Synthetic words only.'},structure:{opening:'Clear.',body:'Clear.',closing:'Clear.'},comparison:{outcome:'similar',explanation:'Fixture.',beforeQuote:'Before.',afterQuote:'After.'},drill:{kind:'refine',target:'point',instruction:'Say your point.',starter:'My point is',successCriterion:'Clear point.'}}};}`);
+const audio = put('audio.ts', `export async function recordingToWav(){return 'SYNTHETIC_AUDIO_FIXTURE';}`);
+const entry = put('entry.tsx', `
+import React,{act,useState} from 'react';
+import {createRoot} from 'react-dom/client';
+import Coach from 'coach-under-test';import Account from '@/components/SpeechAccount';
+import {api} from '@/lib/speech/client';
+import {SPEECH_WARMUP_TOPIC} from '@/lib/speech/warmup';
+window.IS_REACT_ACT_ENVIRONMENT=true;
+const pending=[],tracks=[],events=[];let recorderStarts=0,key=0,prior;
+const topic={id:'fixture',text:'Describe a small change that helped your day.',talkingPoints:[]};
+const host=document.getElementById('coach'),output=document.getElementById('results');
+const root=createRoot(host);
+window.addEventListener('rt:analytics',e=>events.push(e.detail));
+Object.defineProperty(navigator,'mediaDevices',{configurable:true,value:{getUserMedia:()=>new Promise((resolve,reject)=>pending.push({resolve,reject}))}});
+const wav=()=>{const a=new ArrayBuffer(44+16000*2*5),v=new DataView(a);const s=(i,x)=>[...x].forEach((c,n)=>v.setUint8(i+n,c.charCodeAt(0)));s(0,'RIFF');v.setUint32(4,a.byteLength-8,true);s(8,'WAVE');s(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,16000,true);v.setUint32(28,32000,true);v.setUint16(32,2,true);v.setUint16(34,16,true);s(36,'data');v.setUint32(40,a.byteLength-44,true);return new Blob([a],{type:'audio/wav'});};
+window.MediaRecorder=class{static isTypeSupported(){return true}state='inactive';mimeType='audio/wav';start(){recorderStarts++;this.state='recording'}stop(){this.state='inactive';queueMicrotask(()=>{this.ondataavailable?.({data:wav()});this.onstop?.()})}};
+const check=(condition,message)=>{if(!condition)throw Error(message)};
+const text=()=>host.textContent;
+const button=name=>[...host.querySelectorAll('button')].find(x=>x.textContent.trim()===name);
+const click=async name=>{const b=button(name);check(b&&!b.disabled,'Missing enabled control: '+name);await act(async()=>b.click())};
+let timerOrigin=false,carry;
+function Fixture({visible}){const [chosen,setChosen]=useState(topic);return <Coach topic={chosen} topics={[topic]} onTopicChange={setChosen} contentSource='speech_hub' visible={visible} initialPrevious={prior} fromTimer={timerOrigin} carriedGoal={carry}/>;}
+const render=async(visible=true,remount=false)=>{if(remount)key++;await act(async()=>root.render(<Fixture key={key} visible={visible}/>));};
+const fresh=async(previous,fromTimer=false,goal)=>{prior=previous;carry=goal;timerOrigin=fromTimer;pending.length=0;tracks.length=0;api.calls.length=0;api.bodies.length=0;api.hold=false;api.quota=false;recorderStarts=0;events.length=0;await render(true,true)};
+const grant=async index=>{const track={stopped:false,stop(){this.stopped=true}};tracks.push(track);await act(async()=>pending[index].resolve({getTracks:()=>[track]}));return track};
+const deny=async index=>act(async()=>pending[index].reject(new DOMException('Fixture denied','NotAllowedError')));
+const file=async()=>{const input=host.querySelector('input[type=file]');check(input,'Upload input is available');const d=new DataTransfer();d.items.add(new File([wav()],'fixture.wav',{type:'audio/wav'}));await act(async()=>{input.files=d.files;input.dispatchEvent(new Event('change',{bubbles:true}))});};
+const frames=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+const settle=()=>new Promise(r=>setTimeout(r,1200));
+const count=name=>events.filter(e=>e.event===name).length;
+const results=[];
+const test=async(name,fn)=>{try{await fn();results.push({name,pass:true})}catch(e){results.push({name,pass:false,error:e.message})}output.textContent=JSON.stringify(results,null,2)};
+document.getElementById('run').onclick=async()=>{
+ document.getElementById('run').disabled=true;results.length=0;
+ await test('Purpose is optional and direct recording remains available',async()=>{
+  await fresh();check(button('Start recording')&&host.querySelector('input[type=file]'),'Both recording paths remain available');
+  await click('Start recording');check(count('qa_speech_goal_unspecified_begin')===1&&pending.length===1&&api.calls.length===0,'Skipped choice is explicit unknown; no automatic upload');
+  check(!button('Build a speaking habit'),'Purpose locks once the attempt starts');await click('Cancel waiting · use an audio file');
+ });
+ await test('Chosen purpose survives actual audio submission without extra requests',async()=>{
+  await fresh();await act(async()=>host.querySelector('summary').click());await click('Build a speaking habit');check(button('Build a speaking habit').getAttribute('aria-pressed')==='true','Selection is accessible');
+  check(pending.length===0&&api.calls.length===0,'Selection creates no API or microphone request');await click('Prepare one talk');
+  await file();await click('Get my feedback');check(api.bodies[0].purpose==='once'&&api.calls.join(',')==='transcribe,feedback','Only the two existing calls carry the final choice');
+  check(count('qa_speech_goal_once_begin')===1&&count('qa_speech_goal_once_submit')===1&&count('qa_speech_goal_habit_begin')===0,'A changed choice does not reattribute the attempt');
+  check(events.every(e=>e.event.startsWith('qa_'))&&!JSON.stringify(events).includes(topic.text),'Closed QA purpose events contain no content');
+ });
+ await test('A purpose can be cleared before starting and retry purpose stays with its saved answer',async()=>{
+  await fresh();await act(async()=>host.querySelector('summary').click());await click('Just try the feedback');await click('Just try the feedback');await file();await click('Get my feedback');check(api.bodies[0].purpose==='unspecified','Cleared choice stays unknown');
+  await fresh({id:'fixture-prior',purpose:'habit',feedback:{priority:{nextStep:'Use one concrete example.'},drill:{}}});
+  check(!button('Prepare one talk'),'Retry never asks for a new purpose');await file();await click('Get my feedback');check(api.bodies[0].purpose==='habit','Retry retains the saved purpose');
+ });
+ await test('Carried goal preserves full new-topic context without automatic calls or warm-up replacement',async()=>{
+  await fresh(undefined,false,{sourceId:'fixture-goal-source',target:'example'});
+  check(text().includes('New topic · Same practice goal')&&text().includes('one specific scene'),'The actual carried goal is visible');
+  check(!button('Try an everyday warm-up instead')&&pending.length===0&&api.calls.length===0,'Opening a next round never records, invokes models, or replaces the new topic');
+  check(host.querySelector('[aria-label="Your practice round"] [aria-current="step"]').textContent.includes('Give your answer'),'Round starts at step one');
+  await click('Start recording');await grant(0);await click('Finish recording');await click('Get my feedback');
+  check(api.bodies[0].goalSourceId==='fixture-goal-source'&&api.bodies[0].previousId===null&&api.bodies[0].practiceMode==='full','Transfer is a full new answer with a source goal, never a cross-topic comparison');
+  check(api.calls.join(',')==='transcribe,feedback'&&count('qa_speech_round_transfer_begin')===1&&count('qa_speech_round_transfer_ready')===1,'Existing two requests only; separate transfer events');
+  check(host.querySelector('[aria-current="step"]').textContent.includes('See one suggestion'),'Result advances the round to step two');
+ });
+ await test('Everyday topic is opt-in, reversible and never starts media or a model',async()=>{
+  await fresh();check(host.querySelector('h3').textContent===topic.text,'Original topic remains the default');
+  const choice=button('Try an everyday warm-up instead');await act(async()=>{choice.click();choice.click()});
+  check(host.querySelector('h3').textContent===SPEECH_WARMUP_TOPIC.text&&host.querySelector('select[aria-label="Recording time"]').value==='20','Explicit choice changes topic and goal');
+  check(count('qa_speech_warmup_select')===1&&count('qa_speech_warmup_begin')===0,'Choice is deduplicated and is not an attempt');
+  check(pending.length===0&&api.calls.length===0,'Choosing incurs no microphone or API request');
+  await click('Return to my original topic');check(host.querySelector('h3').textContent===topic.text&&host.querySelector('select[aria-label="Recording time"]').value==='60','Return restores exact topic and original duration');
+  await click('Start recording');await grant(0);await click('Finish recording');check(count('qa_speech_warmup_begin')===0&&count('qa_speech_warmup_audio_ready')===0,'Original practice never joins warm-up cohort');
+ });
+ await test('Warm-up recording submits the chosen topic and keeps timer-topic attribution separate',async()=>{
+  await fresh(undefined,true);await click('Try an everyday warm-up instead');await click('Start recording');
+  check(!button('Return to my original topic')&&count('qa_speech_warmup_begin')===1&&count('qa_speech_timer_attempt_start')===0,'Cannot switch mid-recording and is not a same-topic timer continuation');
+  await grant(0);await click('Finish recording');check(count('qa_speech_warmup_audio_ready')===1&&api.calls.length===0,'Audio is local until explicit submission');
+  await click('Get my feedback');check(api.calls.join(',')==='transcribe,feedback'&&api.bodies[0].topic===SPEECH_WARMUP_TOPIC.text&&api.bodies[1].id===api.bodies[0].id,'Same two requests use the actual selected topic');
+  check(count('qa_speech_warmup_submit')===1&&host.querySelector('[data-warmup="true"][data-timer="false"]'),'Result retains warm-up attribution');
+  check(events.every(e=>e.event.startsWith('qa_'))&&!JSON.stringify(events).includes(SPEECH_WARMUP_TOPIC.text),'QA stays separate; no topic or transcript in analytics');
+ });
+ await test('Warm-up option exposure is separate from a fast selection or hidden panel',async()=>{
+  await fresh();await render(false);await settle();check(count('qa_speech_warmup_offer_view')===0,'Hidden option never qualifies');
+  await render(true);await click('Try an everyday warm-up instead');check(count('qa_speech_warmup_offer_view')===0,'Fast selection never fabricates exposure');
+  await click('Return to my original topic');await frames();button('Try an everyday warm-up instead').scrollIntoView({block:'center'});await settle();
+  check(count('qa_speech_warmup_offer_view')===1,'Visible enabled option qualifies');await render(false);await render(true);await frames();button('Try an everyday warm-up instead').scrollIntoView({block:'center'});await settle();check(count('qa_speech_warmup_offer_view')===1,'Reopen deduplicates');
+ });
+ await test('Retry cannot replace its comparison topic with a warm-up',async()=>{
+  await fresh({id:'fixture-prior',feedback:{priority:{nextStep:'Use one concrete example.'},drill:{}}});
+  check(!button('Try an everyday warm-up instead')&&!button('Return to my original topic'),'No topic replacement on retry');
+ });
+ await test('Optional first-start help never starts media or blocks recording',async()=>{await fresh();check(text().includes('A minute is a guide, not a minimum.')&&host.querySelector('select[aria-label="Recording time"]').value==='60','Existing duration and new guidance agree');const answer=button('I’m not sure what to say');await act(async()=>{answer.click();answer.click()});check(count('qa_speech_start_reason_select')===1&&count('qa_speech_start_reason_unsure')===1,'One explicit QA reason even on double click');check(text().includes('My point is')&&button('Start recording')&&host.querySelector('input[type=file]'),'Help preserves both input paths');check(pending.length===0&&api.calls.length===0&&count('qa_speech_start_v2_begin')===0,'Answering does not start recording or upload');check(events.every(e=>!JSON.stringify(e.params).includes('Describe a small change')),'Topic content stays out of telemetry');await click('Start recording');check(!text().includes('Not ready to record?'),'Question is removed after beginning');await click('Cancel waiting · use an audio file');await click('Start recording');check(count('qa_speech_start_v2_begin')===1,'Repeated permission request does not duplicate first start');const old=await grant(0);check(old.stopped,'Old request stays inert');await grant(1);await click('Finish recording');await click('Get my feedback');check(text().includes('Fixture feedback ready'),'Optional help still allows the full flow');});
+ await test('Start exposure requires visibility and never comes from a fast click',async()=>{await fresh();await render(false);await settle();check(count('qa_speech_start_v2_view')===0,'Hidden panel has no first-start exposure');await render(true);await frames();await click('Start recording');check(count('qa_speech_start_v2_begin')===1&&count('qa_speech_start_v2_view')===0,'Fast start records intent without manufacturing exposure');await click('Cancel waiting · use an audio file');await frames();await settle();check(count('qa_speech_start_v2_view')===1,'Visible ready action eventually qualifies');await render(false);await render(true);await frames();await settle();check(count('qa_speech_start_v2_view')===1,'Reopen does not duplicate exposure');});
+ await test('Reason exposure and privacy help are optional and measured separately',async()=>{await fresh();await render(false);await settle();check(count('qa_speech_start_reason_view')===0,'Hidden question never qualifies');await render(true);await frames();const prompt=host.querySelector('[aria-label="Optional help before recording"] p');prompt.scrollIntoView({block:'center'});await settle();check(count('qa_speech_start_reason_view')===1,'Visible question qualifies once');await click('I’m concerned about audio privacy');check(host.querySelector('a[href="/privacy"]')&&text().includes('OpenRouter')&&button('Start recording'),'Privacy explanation links details and preserves recording');check(pending.length===0&&api.calls.length===0,'Privacy answer has no network/media side effect');await file();check(count('qa_speech_start_v2_begin')===1&&events.some(e=>e.event==='qa_speech_start_v2_begin'&&e.params.input_method==='upload'),'Direct file selection is also a first start');await click('Get my feedback');check(text().includes('Fixture feedback ready'),'Upload remains possible without using microphone');});
+ await test('Retry keeps its existing focus and never joins the first-start cohort',async()=>{await fresh({id:'fixture-prior',feedback:{priority:{nextStep:'Use one concrete example.'},drill:{}}});await frames();await settle();check(!text().includes('Not ready to record?')&&!text().includes('A minute is a guide'),'First-start content is absent from retries');check(text().includes('Use one concrete example.')&&host.querySelector('select[aria-label="Recording time"]').value==='20','Retry focus and twenty-second goal remain');check(count('qa_speech_start_v2_view')===0,'Retry has no first-start impression');await click('Record this short practice');check(count('qa_speech_start_v2_begin')===0&&count('qa_speech_retry_attempt_start')===1,'Retry is counted only as a retry');await grant(0);await click('Finish recording');});
+ await test('Cancel pending permission; late grant never records',async()=>{await fresh();await click('Start recording');check(!host.querySelector('input[type=file]'),'Pending state reproduces blocked upload');await click('Cancel waiting · use an audio file');await frames();check(document.activeElement===host.querySelector('input[type=file]'),'Focus reaches upload');const t=await grant(0);check(t.stopped&&recorderStarts===0&&button('Start recording'),'Late media stopped without changing ready state');check(api.calls.length===0,'No automatic upload');check(events.some(e=>e.event==='qa_speech_permission_cancel'),'Cancellation uses QA telemetry');});
+ await test('Old denial cannot interrupt a newer recording',async()=>{await fresh();await click('Start recording');await click('Cancel waiting · use an audio file');await click('Start recording');await grant(1);await deny(0);check(button('Finish recording')&&!tracks[0].stopped,'Old denial leaves current microphone running');await click('Finish recording');check(button('Get my feedback'),'Normal recording remains usable');check(api.calls.length===0,'Recording is never uploaded automatically');await click('Get my feedback');check(text().includes('Fixture feedback ready')&&api.calls.join(',')==='transcribe,feedback','Explicit submit completes fixture chain once');});
+ await test('Late permission cannot replace an upload or reset submission',async()=>{await fresh();await click('Start recording');await click('Cancel waiting · use an audio file');await file();api.hold=true;await click('Get my feedback');check(text().includes('Listening to your answer'),'Submission is pending');const t=await grant(0);check(t.stopped&&recorderStarts===0&&text().includes('Listening to your answer'),'Old grant preserves submitted audio state');await act(async()=>api.release());check(text().includes('Fixture feedback ready')&&api.calls.length===2,'Submission finishes without duplicate requests');});
+ await test('Denied microphone offers visible recovery and accepts a file',async()=>{await fresh();await click('Start recording');await deny(0);await frames();const alert=host.querySelector('[role=alert]');check(alert?.textContent.includes('no microphone permission needed'),'Denied permission explains file alternative');check(document.activeElement===alert&&alert.contains(button('Choose an audio file')),'Error and actionable file recovery receive focus');await file();await click('Get my feedback');check(text().includes('Fixture feedback ready'),'Upload recovery reaches fixture feedback');check(events.some(e=>e.event==='qa_speech_issue_permission_denied'),'Permission failure stays QA');});
+ await test('Quota response preserves recording and exposes measured allowance navigation',async()=>{await fresh();await click('Start recording');await grant(0);await click('Finish recording');api.quota=true;await click('Get my feedback');const a=[...host.querySelectorAll('a')].find(a=>a.textContent==='View allowance and practice plan');check(a?.getAttribute('href')==='/speech/account#speech-plan','Actual quota state retains allowance destination');check(host.querySelector('audio')&&button('Record again'),'Recording and retry are retained');a.addEventListener('click',e=>e.preventDefault(),{once:true});await act(async()=>a.click());check(events.some(e=>e.event==='qa_speech_quota_hit')&&events.some(e=>e.event==='qa_speech_quota_plan_click'),'Actual quota path records both hit and navigation');check(api.calls.join(',')==='transcribe','Quota does not trigger feedback or Checkout');});
+ await test('Hide and reopen pending request releases the busy state',async()=>{await fresh();await click('Start recording');await render(false);await render(true);check(button('Start recording'),'Reopening is ready immediately');const t=await grant(0);check(t.stopped&&recorderStarts===0,'Hidden request cannot record later');await click('Start recording');await grant(1);check(button('Finish recording'),'A new request works');await click('Finish recording');});
+ await test('Backgrounding a pending request never starts recording later',async()=>{await fresh();await click('Start recording');Object.defineProperty(document,'hidden',{configurable:true,value:true});try{await act(async()=>document.dispatchEvent(new Event('visibilitychange')))}finally{delete document.hidden}check(button('Start recording'),'Background wait was cancelled');const t=await grant(0);check(t.stopped&&recorderStarts===0,'No late background recording');});
+ await test('Unmount stops late media without events or requests',async()=>{await fresh();await click('Start recording');await act(async()=>root.render(null));const count=events.length;const t=await grant(0);check(t.stopped&&recorderStarts===0&&events.length===count&&api.calls.length===0,'Unmounted request is inert');});
+ await render(true,true);document.getElementById('run').disabled=false;
+ await test('Full synthetic practice through visible feedback, quota CTA and mock checkout',async()=>{
+ await fresh();api.full=true;
+ const SavedObserver=window.IntersectionObserver;
+ window.IntersectionObserver=class{constructor(cb){this.cb=cb}observe(el){queueMicrotask(()=>this.cb([{isIntersecting:true,intersectionRatio:1,target:el}]))}disconnect(){}};
+ const originalFocus=document.hasFocus;document.hasFocus=()=>true;
+ try {
+  await click('Start recording');await grant(0);await click('Finish recording');
+  const b=button('Get my feedback');await act(async()=>{b.click();b.click()});await settle();
+  check(api.calls.join(',')==='transcribe,feedback','Duplicate submission uses exactly one transcribe and feedback');
+  check(count('qa_speech_first_attempt_start')===1&&count('qa_speech_feedback_v5_request')===1&&count('qa_speech_feedback_ready')===1&&count('qa_speech_first_feedback_v5_view')===1,'Start, submit, ready and qualified real-result view each occur once');
+  // A second explicit attempt is separately limited; preserve the first sequence.
+  const firstEvents=[...events];await fresh();api.full=true;api.quota=true;
+  await click('Start recording');await grant(0);await click('Finish recording');await click('Get my feedback');await settle();
+  const quota=[...host.querySelectorAll('a')].find(a=>a.textContent==='View allowance and practice plan');check(quota,'Quota CTA exists');quota.addEventListener('click',e=>e.preventDefault());await act(async()=>quota.click());
+  check(count('qa_speech_quota_hit')===1&&count('qa_speech_quota_plan_view')===1&&count('qa_speech_quota_plan_click')===1,'Quota exposure and user action each once');
+  await act(async()=>root.render(<Account/>));await settle();
+  check(count('qa_speech_checkout_offer_view')===1&&count('qa_speech_checkout_action_view')===1,'Actual account offer and action qualified');
+  const checkout=[...host.querySelectorAll('button')].find(b=>b.textContent==='Continue to secure checkout');check(checkout,'Verified mock checkout action exists');await act(async()=>{checkout.click();checkout.click()});await frames();
+  check(api.calls.filter(p=>p==='checkout').length===1&&count('qa_speech_checkout_request')===1&&count('qa_speech_checkout_redirect')===1,'Duplicate checkout invokes and measures once');
+  check(window.__fixtureDestination==='/checkout-fixture','Redirect captured locally, no navigation or payment');
+  check(!events.some(e=>e.event==='purchase'||e.event==='qa_purchase'),'Mock checkout is not a purchase');
+  document.getElementById('sequence').textContent=JSON.stringify({first:firstEvents.map(e=>e.event),quotaToCheckout:events.map(e=>e.event)},null,2);
+ }finally{window.IntersectionObserver=SavedObserver;document.hasFocus=originalFocus;api.full=false;}
+});
+document.getElementById('summary').textContent=results.filter(r=>r.pass).length+'/'+results.length+' passed';
+};
+document.getElementById('deny').onclick=async()=>{output.textContent='';await fresh();await click('Start recording');await deny(0);};
+document.getElementById('wait').onclick=async()=>{output.textContent='';await fresh();await click('Start recording');};
+await render(true,true);
+`);
+const { webpack } = require('next/dist/compiled/webpack/webpack');
+await new Promise((ok, fail) => webpack({
+  mode: 'development', devtool: false, entry, output: { path: temp, filename: 'bundle.js' },
+  resolve: { extensions: ['.tsx', '.ts', '.js'], modules: [resolve(root, 'node_modules')], alias: {
+    'coach-under-test': component, 'next/link': link,
+    '@/lib/speech/client': client, '@/lib/speech/audio': audio, '@': resolve(root, 'src'),
+  } },
+  module: { rules: [{ test: /\.tsx?$/, use: loader }] },
+  plugins: [new webpack.NormalModuleReplacementPlugin(/\.\/SpeechFeedbackResult$/, result)],
+}, (error, stats) => error || stats.hasErrors() ? fail(error || Error(stats.toString({all:false,errors:true}))) : ok()));
+const css = await require('postcss')([require('@tailwindcss/postcss')({base:root})]).process(readFileSync(resolve(root,'src/app/globals.css'),'utf8'),{from:resolve(root,'src/app/globals.css')});
+put('styles.css',css.css);
+const html = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/styles.css"><title>Speech microphone recovery · local fixtures</title><body style="max-width:900px;margin:auto;padding:20px"><h1>Microphone recovery · local fixtures</h1><p>No microphone or external API is used. ${baseline ? 'Baseline '+baseline : 'Current working tree'}.</p><div style="display:flex;gap:12px;flex-wrap:wrap;margin:16px 0"><button id="run">Run regression</button><button id="deny">Show denied microphone</button><button id="wait">Show waiting microphone</button></div><strong id="summary"></strong><pre id="results" style="white-space:pre-wrap"></pre><pre id="sequence"></pre><main id="coach"></main><script src="/bundle.js"></script></body></html>`;
+createServer((req,res)=>{
+  if(req.url?.startsWith('/mobile')){res.setHeader('Content-Type','text/html');res.end('<!doctype html><title>390px speech practice fixture</title><body style="margin:0;background:#20232b"><iframe title="Mobile speech practice" src="/?speech_qa=1" style="display:block;width:390px;height:844px;margin:16px auto;border:0"></iframe></body>')}
+  else if(req.url?.startsWith('/styles.css')){res.setHeader('Content-Type','text/css');res.end(readFileSync(join(temp,'styles.css')))}
+  else if(req.url?.startsWith('/bundle.js')){res.setHeader('Content-Type','application/javascript');res.end(readFileSync(join(temp,'bundle.js')))}
+  else if(req.url?.split('?')[0]==='/'){res.setHeader('Content-Type','text/html');res.end(html)}
+  else{res.statusCode=404;res.end()}
+}).listen(port,'127.0.0.1',()=>console.log(`Local fixture harness: http://127.0.0.1:${port}/?speech_qa=1`));

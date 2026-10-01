@@ -15,6 +15,7 @@ declare global {
     dataLayer?: unknown[];
     clarity?: ((...args: unknown[]) => void) & { q?: unknown[][] };
     __rtReplayActive?: boolean;
+    __rtClarityLoaded?: boolean;
   }
 }
 
@@ -39,6 +40,11 @@ export function track(eventName: string, params?: GtagParams): void {
       const derived = coreUsageEvents(window.location.pathname, rawName, params ?? {}, lazyStorage("localStorage"), lazyStorage("sessionStorage"), Date.now(), qa);
       const eventParams = {
         ...params,
+        // Derive these at the transport boundary, never trust caller overrides.
+        // Preserve existing QA names so historical reports remain comparable.
+        schema_version: "1",
+        environment: isProductionHost(window.location.hostname) ? "production" : "local_preview",
+        is_test: qa || !isProductionHost(window.location.hostname),
         // Query strings on /share may contain user-selected topic text. Keep
         // analytics useful without sending that content to GA4.
         page_path: window.location.pathname,
