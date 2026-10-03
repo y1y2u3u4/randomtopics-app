@@ -60,6 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "argument-generator",
     "table-topics-generator",
     "random-subject-generator",
+    "random-drawing-generator",
     "random-learning-topic-generator",
     "writing-topic-generator",
     "research-topic-generator",

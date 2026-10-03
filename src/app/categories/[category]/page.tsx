@@ -55,6 +55,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           ]}
         />
         <CategoryIllustration category={category as Category} />
+        {category === "art-culture" && <section className="max-w-3xl mx-auto px-4 sm:px-6 py-4"><p className="glass-card p-5">Want to make art rather than discuss it? <Link href="/random-drawing-generator" className="text-[var(--neon-cyan)] underline">Get a random drawing idea and sketch tip</Link>.</p></section>}
         <TopicGenerator
           initialCategory={category as Category}
           title={`${label} Topic Generator`}

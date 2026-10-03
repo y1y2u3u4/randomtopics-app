@@ -153,6 +153,7 @@ export const PURPOSE_GENERATORS = {
       { question: "Will the generator repeat topics?", answer: "Each click samples from the matching editor-written pool without duplicates inside the current result set. You can keep generating freely and copy any result you want to save." },
     ],
     relatedLinks: [
+      { label: "Random Drawing Generator", href: "/random-drawing-generator", emoji: "🎨" },
       { emoji: "📝", label: "Writing Prompt Hub", href: "/writing" },
       { emoji: "🎓", label: "Essay Topic Generator", href: "/essay-topic-generator" },
       { emoji: "📓", label: "Journal Prompts", href: "/journal-prompts" },

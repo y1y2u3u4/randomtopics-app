@@ -89,6 +89,7 @@ const INDEXABLE_MODE_CATEGORY_SET: ReadonlySet<string> = new Set(
 export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/how-we-curate",
   "/random-subject-generator",
+  "/random-drawing-generator",
   "/random-learning-topic-generator",
   "/writing-topic-generator",
   "/research-topic-generator",
