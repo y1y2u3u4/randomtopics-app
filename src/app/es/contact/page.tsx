@@ -68,7 +68,7 @@ export default function ContactPageEs() {
             <p>
               <a
                 href="mailto:zhanggongqing1314007@gmail.com"
-                className="text-xl font-semibold text-[var(--accent-blue)] hover:underline"
+                className="break-all text-xl font-semibold text-[var(--accent-blue)] hover:underline"
               >
                 zhanggongqing1314007@gmail.com
               </a>
