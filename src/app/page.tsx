@@ -41,6 +41,9 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               { emoji: "🧠", label: "Learn Something", detail: "Subject + difficulty", href: "/random-learning-topic-generator" },
+              { emoji: "📦", label: "Random Objects", detail: "Everyday physical things", href: "/random-object-generator" },
+              { emoji: "🗺️", label: "Random US State", detail: "50 states + capitals", href: "/random-state-generator" },
+              { emoji: "🏰", label: "Country Names", detail: "Fictional worldbuilding", href: "/country-name-generator" },
               { emoji: "🎨", label: "Drawing Ideas", detail: "Subject + sketch tip", href: "/random-drawing-generator" },
               { emoji: "✍️", label: "Writing Topic Generator", detail: "Essay, journal, fiction", href: "/writing-topic-generator" },
               { emoji: "🔎", label: "Research It", detail: "Question + scope note", href: "/research-topic-generator" },
