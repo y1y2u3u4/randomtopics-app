@@ -22,6 +22,7 @@ interface GeneratedResultActionsProps {
   saveTopic?: Topic;
   locale?: Locale;
   toolType: string;
+  resultType?: "topic" | "joke";
   contentSource: string;
   actionSurface?: string;
   isPostGenerate?: boolean;
@@ -41,6 +42,7 @@ export default function GeneratedResultActions({
   saveTopic,
   locale = "en",
   toolType,
+  resultType = "topic",
   contentSource,
   actionSurface = "result_action_bar",
   isPostGenerate = true,
@@ -67,10 +69,10 @@ export default function GeneratedResultActions({
   const eventParams = useMemo(() => ({
     tool_type: toolType,
     content_source: contentSource,
-    result_type: "topic",
+    result_type: resultType,
     action_surface: actionSurface,
     locale,
-  }), [actionSurface, contentSource, locale, toolType]);
+  }), [actionSurface, contentSource, locale, toolType, resultType]);
   const resultIdentity = actionViewIdentity ?? saveTopic?.id ?? copyValue;
   const actionBar = useRef<HTMLDivElement>(null);
   const manualCopyId = useId();

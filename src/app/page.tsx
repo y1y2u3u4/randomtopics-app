@@ -45,6 +45,7 @@ export default function Home() {
               { emoji: "🗺️", label: "Random US State", detail: "50 states + capitals", href: "/random-state-generator" },
               { emoji: "🏰", label: "Country Names", detail: "Fictional worldbuilding", href: "/country-name-generator" },
               { emoji: "🎨", label: "Drawing Ideas", detail: "Subject + sketch tip", href: "/random-drawing-generator" },
+              { emoji: "😄", label: "Yo Mama Randomizer", detail: "Clean text jokes + remixes", href: "/yo-mama-randomizer" },
               { emoji: "✍️", label: "Writing Topic Generator", detail: "Essay, journal, fiction", href: "/writing-topic-generator" },
               { emoji: "🔎", label: "Research It", detail: "Question + scope note", href: "/research-topic-generator" },
               { emoji: "📊", label: "Present It", detail: "Audience + slide angle", href: "/presentation-topic-generator" },

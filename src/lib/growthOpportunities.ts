@@ -1,5 +1,6 @@
 /** Editorial routing rules, not proof that multiple search results compete. */
 export const INTENT_OWNERS = [
+  { match: /^(random )?yo (mama|momma)( joke)? (randomizer|generator)$/, path: "/yo-mama-randomizer" },
   { match: /^(random )?charades?( word)? generator$|^charades (words|ideas|words list)$|^words for charades$/, path: "/charades" },
   { match: /^(temas? de conversacion|temas para hablar|generador de temas de conversacion)$/, path: "/es/conversation" },
   { match: /^(random )?writing topic generator$|^random topic generator to write about$/, path: "/writing-topic-generator" },
@@ -15,6 +16,7 @@ export const INTENT_OWNERS = [
 
 // Editorial observation dates protect recent releases from repeated rewrites.
 const RECENT_REVISIONS: Record<string, string> = {
+  "/yo-mama-randomizer": "2026-10-04",
   "/charades": "2026-09-21",
   "/question-of-the-day": "2026-09-22",
   "/es/conversation": "2026-09-14",

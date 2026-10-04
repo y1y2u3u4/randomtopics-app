@@ -87,6 +87,7 @@ const INDEXABLE_MODE_CATEGORY_SET: ReadonlySet<string> = new Set(
  * switcher hides the (nonexistent) Spanish toggle instead of 404-ing.
  */
 export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
+  "/yo-mama-randomizer",
   "/how-we-curate",
   "/random-subject-generator",
   "/random-drawing-generator",

@@ -23,6 +23,7 @@ function getPaths(): string[] {
     "/terms",
     "/stats",
     "/funny",
+    "/yo-mama-randomizer",
     "/argument-generator",
     "/table-topics-generator",
     "/random-subject-generator",

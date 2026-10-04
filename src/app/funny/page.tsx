@@ -63,6 +63,11 @@ export default function FunnyPage() {
         />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-4">
+          <Link href="/yo-mama-randomizer" className="glass-card mb-4 p-6 block hover:border-[var(--neon-pink)]/40 transition-colors">
+            <h2 className="text-lg font-bold">Yo Mama Randomizer · original text jokes</h2>
+            <p className="mt-2 text-sm text-[var(--text-secondary)]">Pick a clean one-liner, or keep a silly setup and remix its ending. A quick joke tool for when you want a punchline instead of a discussion question.</p>
+            <span className="mt-3 inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)]">Try the text randomizer →</span>
+          </Link>
           <Link href="/funny-question-of-the-day" className="glass-card p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-yellow)]/20 hover:border-[var(--neon-yellow)]/40 transition-colors">
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-yellow)]">A repeatable daily ritual</p>

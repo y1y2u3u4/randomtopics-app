@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/topics", changeFrequency: "weekly", priority: 0.8 },
     { path: "/categories", changeFrequency: "weekly", priority: 0.8 },
     { path: "/funny", changeFrequency: "weekly", priority: 0.8 },
+    { path: "/yo-mama-randomizer", changeFrequency: "monthly", priority: 0.8, lastModified: "2026-10-04" },
     { path: "/press", changeFrequency: "monthly", priority: 0.4 },
     { path: "/stats", changeFrequency: "weekly", priority: 0.6 },
     { path: "/about", changeFrequency: "monthly", priority: 0.5 },
