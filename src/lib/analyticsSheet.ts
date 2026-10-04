@@ -10,6 +10,7 @@ import {
 
 import { buildQueryOpportunities, inObservationWindow } from "@/lib/growthOpportunities";
 import { SPEECH_EVENTS } from "@/lib/speech/events";
+import { SPEECH_DAILY_TAB, SPEECH_DAILY_HEADERS, planSpeechDailyWrite } from "@/lib/speech/dailySchema";
 
 const SHEETS_API_BASE = "https://sheets.googleapis.com/v4/spreadsheets";
 const REQUEST_TIMEOUT_MS = 25_000;
@@ -23,7 +24,9 @@ const REQUIRED_TABS = [
 
 const STRICT_CONVERSION_VERSION = "strict-post-gen-v1";
 const STRICT_CONVERSION_START_DATE = "2026-09-04";
-const REPORT_WIDTHS: Record<string, number> = { "Daily Summary": 30, "Landing Pages": 55, "Query Opportunities": 17, "Speech Daily": 2 + SPEECH_EVENTS.length * 2 };
+// Release cutover in the report's America/Los_Angeles calendar.
+const VISIBLE_ACTION_CUTOVER_DATE = "2026-10-03";
+const REPORT_WIDTHS: Record<string, number> = { "Daily Summary": 30, "Landing Pages": 55, "Query Opportunities": 17 };
 const STRICT_DAILY_HEADERS = [
   "Conversion Metric Version",
   "Post-Generate Copy Users",
@@ -40,7 +43,7 @@ type SheetMetadataResponse = {
     properties?: {
       sheetId?: number;
       title?: string;
-      gridProperties?: { columnCount?: number };
+      gridProperties?: { columnCount?: number; rowCount?: number };
     };
   }>;
 };
@@ -138,9 +141,9 @@ async function writeRanges(
   );
 }
 
-async function assertExpectedTabs(sheetId: string): Promise<void> {
+async function assertExpectedTabs(sheetId: string) {
   const metadata = await sheetsRequest<SheetMetadataResponse>(
-    `${sheetId}?fields=sheets.properties(sheetId,title,gridProperties.columnCount)`,
+    `${sheetId}?fields=sheets.properties(sheetId,title,gridProperties(columnCount,rowCount))`,
     { method: "GET" },
     "sheet_metadata_failed"
   );
@@ -155,9 +158,7 @@ async function assertExpectedTabs(sheetId: string): Promise<void> {
   }
 
   const requests = [];
-  if (!existing.has("Speech Daily")) requests.push({ addSheet: { properties: { title: "Speech Daily", gridProperties: { columnCount: 2 + SPEECH_EVENTS.length * 2 } } } });
   for (const [title, requiredWidth] of Object.entries(REPORT_WIDTHS)) {
-    if (title === "Speech Daily" && !existing.has(title)) continue;
     const properties = metadata.sheets?.find((sheet) => sheet.properties?.title === title)?.properties;
     const columns = properties?.gridProperties?.columnCount ?? 0;
     if (properties?.sheetId === undefined || !columns) throw new AnalyticsSheetError("report_grid_missing");
@@ -166,6 +167,18 @@ async function assertExpectedTabs(sheetId: string): Promise<void> {
   if (requests.length) await sheetsRequest(`${sheetId}:batchUpdate`, {
     method: "POST", body: JSON.stringify({ requests }),
   }, "report_grid_expand_failed");
+  let speech = metadata.sheets?.find(sheet => sheet.properties?.title === SPEECH_DAILY_TAB)?.properties;
+  if (!speech) {
+    const created = await sheetsRequest<{ replies?: Array<{ addSheet?: { properties?: NonNullable<SheetMetadataResponse["sheets"]>[number]["properties"] } }> }>(`${sheetId}:batchUpdate`, {
+      method: "POST", body: JSON.stringify({ requests: [{ addSheet: { properties: {
+        title: SPEECH_DAILY_TAB, gridProperties: { columnCount: SPEECH_DAILY_HEADERS.length, rowCount: 1000, frozenRowCount: 1 },
+      } } }] }),
+    }, "speech_daily_create_failed");
+    speech = created.replies?.[0]?.addSheet?.properties;
+  }
+  if (speech?.sheetId === undefined || !speech.gridProperties?.rowCount ||
+      (speech.gridProperties.columnCount ?? 0) < SPEECH_DAILY_HEADERS.length) throw new AnalyticsSheetError("speech_daily_grid_missing");
+  return { sheetId: speech.sheetId, rowCount: speech.gridProperties.rowCount };
 }
 
 function safeRate(numerator: number, denominator: number): number {
@@ -283,20 +296,20 @@ function nextRunLogRow(rows: unknown[][]): number {
 
 export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncResult> {
   const sheetId = requiredSheetId();
-  await assertExpectedTabs(sheetId);
+  const speechGrid = await assertExpectedTabs(sheetId);
 
   const snapshot = await getAnalyticsSheetSnapshot(true);
   const [dailyDates, runLog] = await Promise.all([
     getValues(sheetId, "'Daily Summary'!A2:A1000"),
     getValues(sheetId, "'Run Log'!A2:B1000"),
   ]);
-  const speechDates = await getValues(sheetId, "'Speech Daily'!A2:A1000");
-  const speechTargetRow = nextRowForDate(speechDates, snapshot.reportDate);
-  const speechHeaders = ["Report date", "Measurement version · independent event counts/users, not an ordered funnel", ...SPEECH_EVENTS.flatMap((event) => [`${event} events`, `${event} users`])];
-  const speechValues = [snapshot.reportDate, "speech-v2 + entry/feedback-v5 (legacy compatibility events retained)", ...SPEECH_EVENTS.flatMap((event) => {
-    const row = eventByName(snapshot.ga4.eventsYesterday, event);
-    return [row.eventCount, row.totalUsers];
-  })];
+  const speechRows = await getValues(sheetId, `'${SPEECH_DAILY_TAB}'!A1:F${speechGrid.rowCount}`);
+  const speechWrite = planSpeechDailyWrite(speechRows, snapshot.reportDate, SPEECH_EVENTS, snapshot.ga4.eventsYesterday);
+  if (speechWrite.requiredRows > speechGrid.rowCount) await sheetsRequest(`${sheetId}:batchUpdate`, {
+    method: "POST", body: JSON.stringify({ requests: [{ appendDimension: {
+      sheetId: speechGrid.sheetId, dimension: "ROWS", length: Math.max(1000, speechWrite.requiredRows - speechGrid.rowCount),
+    } }] }),
+  }, "speech_daily_rows_expand_failed");
 
   const start = eventByName(snapshot.ga4.eventsYesterday, "generate_start");
   const success = eventByName(snapshot.ga4.eventsYesterday, "generate_success");
@@ -320,7 +333,9 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     "post_generate_share"
   );
   const users = snapshot.ga4.yesterday.activeUsers;
-  const strictVersion = snapshot.reportDate < STRICT_CONVERSION_START_DATE
+  const strictVersion = snapshot.reportDate >= VISIBLE_ACTION_CUTOVER_DATE
+    ? `strict-post-gen-visible-1s-v2${snapshot.reportDate === VISIBLE_ACTION_CUTOVER_DATE ? "-partial-cutover" : ""}`
+    : snapshot.reportDate < STRICT_CONVERSION_START_DATE
     ? ""
     : snapshot.reportDate === STRICT_CONVERSION_START_DATE
       ? `${STRICT_CONVERSION_VERSION}-partial-cutover`
@@ -376,8 +391,7 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     "'Query Opportunities'!A2:Q1000",
   ]);
   await writeRanges(sheetId, [
-    { range: "'Speech Daily'!A1", values: [speechHeaders] },
-    { range: `'Speech Daily'!A${speechTargetRow}`, values: [speechValues] },
+    ...speechWrite.ranges,
     { range: "'Landing Pages'!C1:C1", values: [["Visited Page (GA4 pagePath)"]] },
     {
       range: "'Landing Pages'!P1:AC1",

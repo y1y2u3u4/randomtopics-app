@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import ts from 'typescript';
+import { load } from './lib/load-typescript.mjs';
+const usageReport = load('src/lib/coreUsageReport.ts');
 const calls = [];
 let fail = false;
 const reporting = {
@@ -26,14 +28,14 @@ const fetch = async (url, options) => {
 };
 const code = ts.transpileModule(readFileSync(new URL('../src/lib/sitewideReporting.ts', import.meta.url), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
 const mod = { exports: {} };
-new Function('require','module','exports','fetch','process',code)(id => id === 'server-only' ? {} : reporting, mod, mod.exports, fetch, { env: { ANALYTICS_REPORT_SHEET_ID: 'synthetic_private_sheet' } });
+new Function('require','module','exports','fetch','process',code)(id => id === 'server-only' ? {} : id === '@/lib/coreUsageReport' ? usageReport : reporting, mod, mod.exports, fetch, { env: { ANALYTICS_REPORT_SHEET_ID: 'synthetic_private_sheet' } });
 const windows = mod.exports.reportWindows('2026-03-01');
 assert.deepEqual(windows[0], { period:'current7',startDate:'2026-02-23',endDate:'2026-03-01' });
 assert.equal(windows[1].endDate,'2026-02-22');
 const result = await mod.exports.syncSitewideReport();
 assert.equal(result.gaEnd,'2026-09-19');
 assert.equal(result.gscEnd,'2026-09-18');
-assert.equal(result.tables.length,13);
+assert.equal(result.tables.length,14);
 const batches = writes.filter(w => w.body?.valueInputOption);
 assert.ok(batches.every(w => w.body.valueInputOption === 'RAW'));
 assert.equal(batches.at(-1).body.data[0].range,"'Report Coverage'!A1");

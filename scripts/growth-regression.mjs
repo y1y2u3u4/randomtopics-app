@@ -5,6 +5,7 @@ import ts from "typescript";
 import * as opportunities from "../src/lib/growthOpportunities.ts";
 import { load } from "./lib/load-typescript.mjs";
 const speechEvents = load("src/lib/speech/events.ts");
+const speechDaily = load("src/lib/speech/dailySchema.ts");
 
 const { buildQueryOpportunities, queryNoiseReason, inObservationWindow } = opportunities;
 const range = { startDate: "2026-08-09", endDate: "2026-09-05" };
@@ -75,18 +76,21 @@ const fakeFetch = async (url, init) => {
   calls.push({ url: decodeURIComponent(url), body });
   let data = {};
   if (url.includes("?fields=")) data = { sheets: ["Overview", "Daily Summary", "Landing Pages", "Query Opportunities", "Run Log"].map((title, sheetId) => ({ properties: { title, sheetId, gridProperties: { columnCount: title === "Daily Summary" ? 29 : 15 } } })) };
+  else if (body?.requests?.[0]?.addSheet) data = { replies: [{ addSheet: { properties: { sheetId: 99, gridProperties: { rowCount: 1000, columnCount: 6 } } } }] };
+  else if (decodeURIComponent(url).includes("'Speech Daily v2'!")) data = { values: [] };
   else if (url.includes("majorDimension")) data = { values: [["2026-09-05", "Success"]] };
   return { ok: true, status: 200, json: async () => data };
 };
 const code = ts.transpileModule(readFileSync(new URL("../src/lib/analyticsSheet.ts", import.meta.url), "utf8"), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
 const testModule = { exports: {} };
 const require = createRequire(import.meta.url);
-const stubRequire = (id) => id === "@/lib/speech/events" ? speechEvents : id === "server-only" ? {} : id === "@/lib/growthOpportunities" ? opportunities : id === "@/lib/googleReporting" ? { getAnalyticsSheetSnapshot: async () => snapshot, getGoogleReportingAccessToken: async () => "test-only-token" } : require(id);
+const stubRequire = (id) => id === "@/lib/speech/dailySchema" ? speechDaily : id === "@/lib/speech/events" ? speechEvents : id === "server-only" ? {} : id === "@/lib/growthOpportunities" ? opportunities : id === "@/lib/googleReporting" ? { getAnalyticsSheetSnapshot: async () => snapshot, getGoogleReportingAccessToken: async () => "test-only-token" } : require(id);
 new Function("require", "module", "exports", "fetch", "process", code)(stubRequire, testModule, testModule.exports, fakeFetch, { env: { ANALYTICS_REPORT_SHEET_ID: "test_only_sheet_identifier" } });
 await testModule.exports.syncAnalyticsReportToSheet();
 const expansion = calls.find((c) => c.body?.requests)?.body.requests;
 assert.equal(expansion.filter((r) => r.appendDimension).length, 3);
-assert.equal(expansion.find((r) => r.addSheet)?.addSheet.properties.title, "Speech Daily");
+assert.equal(calls.flatMap(c => c.body?.requests ?? []).find(r => r.addSheet)?.addSheet.properties.title, "Speech Daily v2");
+assert.ok(!calls.some(c => c.url.includes("'Speech Daily'!")), "Legacy sheet is never read or rewritten");
 const write = calls.find((c) => c.body?.valueInputOption);
 assert.equal(write.body.valueInputOption, "RAW");
 const daily = write.body.data.find((d) => d.range === "'Daily Summary'!A2:AD2").values[0];
@@ -122,3 +126,19 @@ await import("./qotd-return-regression.mjs");
 await import("./core-usage-regression.mjs");
 
 await import("./question-bank-copy-regression.mjs");
+
+// The visibility definition changes in LA, not at an arbitrary UTC midnight.
+for (const [reportDate, expected] of [
+  ['2026-10-02', 'strict-post-gen-v1'],
+  ['2026-10-03', 'strict-post-gen-visible-1s-v2-partial-cutover'],
+  ['2026-10-04', 'strict-post-gen-visible-1s-v2'],
+]) {
+  calls.length = 0;
+  snapshot.reportDate = reportDate;
+  await testModule.exports.syncAnalyticsReportToSheet();
+  const batch = calls.find(c => c.body?.valueInputOption);
+  const row = batch.body.data.find(d => /^'Daily Summary'!A\d+:AD\d+$/.test(d.range)).values[0];
+  assert.equal(row[22], expected);
+  assert.ok(batch.body.data.every(d => !d.range.startsWith("'Speech Daily'!")));
+}
+console.log('PASS daily visibility version: legacy, LA partial cutover, and qualified exposure remain distinguishable.');

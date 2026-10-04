@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useMemo, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { Topic } from "@/data/types";
 import type { Locale } from "@/i18n/config";
 import { copyText, shareText } from "@/lib/clipboard";
@@ -11,6 +11,7 @@ import {
   toggleFavoriteTopic,
 } from "@/lib/topicLibrary";
 import { track } from "@/lib/track";
+import { observeVisibleContent } from "@/lib/speech/visibleAction";
 import Link from "next/link";
 
 interface GeneratedResultActionsProps {
@@ -71,6 +72,7 @@ export default function GeneratedResultActions({
     locale,
   }), [actionSurface, contentSource, locale, toolType]);
   const resultIdentity = actionViewIdentity ?? saveTopic?.id ?? copyValue;
+  const actionBar = useRef<HTMLDivElement>(null);
   const manualCopyId = useId();
   const buttonClass = compact
     ? "inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white/10 px-4 py-2.5 text-xs font-semibold text-[var(--text-secondary)] transition-colors hover:border-[var(--neon-cyan)]/40 hover:text-[var(--neon-cyan)]"
@@ -82,8 +84,10 @@ export default function GeneratedResultActions({
   }, [eventParams, isPostGenerate]);
 
   useEffect(() => {
-    if (!isPostGenerate) return;
-    track("post_generate_actions_view", eventParams);
+    if (!isPostGenerate || !actionBar.current) return;
+    return observeVisibleContent(actionBar.current, () => {
+      track("post_generate_actions_view", { ...eventParams, exposure_rule: "visible_1s" });
+    });
   }, [eventParams, isPostGenerate, resultIdentity]);
 
   const handleCopy = useCallback(async () => {
@@ -155,6 +159,7 @@ export default function GeneratedResultActions({
   return (
     <div>
       <div
+        ref={actionBar}
         className="flex flex-wrap items-center justify-center gap-2"
         role="group"
         aria-label={isSpanish ? "Acciones del resultado" : "Result actions"}

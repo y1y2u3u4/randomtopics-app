@@ -20,8 +20,10 @@ export async function copyText(text: string): Promise<boolean> {
     if (deadline !== undefined) clearTimeout(deadline);
   }
 
+  const previousFocus = document.activeElement as HTMLElement | null;
+  let textarea: HTMLTextAreaElement | undefined;
   try {
-    const textarea = document.createElement("textarea");
+    textarea = document.createElement("textarea");
     textarea.value = text;
     textarea.setAttribute("readonly", "");
     textarea.style.position = "fixed";
@@ -29,11 +31,12 @@ export async function copyText(text: string): Promise<boolean> {
     textarea.style.pointerEvents = "none";
     document.body.appendChild(textarea);
     textarea.select();
-    const copied = document.execCommand("copy");
-    textarea.remove();
-    return copied;
+    return document.execCommand("copy");
   } catch {
     return false;
+  } finally {
+    textarea?.remove();
+    previousFocus?.focus?.({ preventScroll: true });
   }
 }
 

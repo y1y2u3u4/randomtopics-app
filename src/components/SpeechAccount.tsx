@@ -49,6 +49,7 @@ export default function SpeechAccount() {
   const actionInFlight = useRef(false);
   const checkoutIntent = useRef(false);
   const practiceReference = useRef<string | undefined>(undefined);
+  const historyReturn = useRef(false);
   const existingSessionOnly = useRef(false);
   const recoveryOwner = useRef<number | null>(null);
   const verified = useRef(false);
@@ -69,6 +70,19 @@ export default function SpeechAccount() {
   const emailInput = useRef<HTMLInputElement>(null);
   const offerSeen = useRef(false);
   const invalidateHistory = useCallback(() => { requestVersion.current++; }, []);
+  useEffect(() => {
+    if (!loaded || checkoutMode || !historyReturn.current) return;
+    const id = practiceReference.current;
+    if (!id || !attempts.some(attempt => attempt.id === id)) return;
+    const frame = requestAnimationFrame(() => {
+      const target = document.getElementById(`attempt-${id}`);
+      if (!target) return;
+      historyReturn.current = false;
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ block: "start", behavior: "instant" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [loaded, checkoutMode, attempts]);
   useEffect(() => {
     if (!loaded || !checkoutMode || subscription.active || !billing) return;
     const step = emailVerified ? "verified" : "plan";
@@ -223,7 +237,10 @@ export default function SpeechAccount() {
       if (saved?.qa && params.get("speech_qa") !== "0") {
         try { sessionStorage.setItem("rt_speech_qa", "1"); } catch { /* optional analytics */ }
       }
-      checkoutIntent.current = params.get("plan") === "monthly" || Boolean(saved);
+      // An explicit practice-return link takes priority over an older plan visit.
+      // A plain email return can still restore that saved plan intention.
+      historyReturn.current = params.get("plan") !== "monthly" && validPracticeReference(params.get("attempt"));
+      checkoutIntent.current = params.get("plan") === "monthly" || (!historyReturn.current && Boolean(saved));
       const reference = params.get("attempt") ?? (checkoutIntent.current ? saved?.attemptId : undefined);
       practiceReference.current = validPracticeReference(reference) ? reference : undefined;
       if (checkoutIntent.current) rememberCheckoutIntent(speechQaSession(), undefined, practiceReference.current ?? null);
@@ -552,7 +569,8 @@ export default function SpeechAccount() {
             data-clarity-mask="true"
             key={attempt.id}
             id={`attempt-${attempt.id}`}
-            className="glass-card space-y-3 p-5"
+            tabIndex={-1}
+            className="glass-card scroll-mt-24 space-y-3 p-5"
           >
             <div className="flex flex-wrap justify-between gap-2">
               <h3 className="font-semibold">{attempt.topic}</h3>
