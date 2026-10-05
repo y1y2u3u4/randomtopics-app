@@ -2,15 +2,17 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ADSENSE_CLIENT, adRequestAllowed } from "@/lib/adsense";
-import { loadAdSense, prepareAd, requestAd } from "@/lib/adsenseClient";
+import { loadAdSense, pauseAdRequests, prepareAd, requestAd, retireAdDocument } from "@/lib/adsenseClient";
+import { observeSpeechAdEntitlement } from "@/lib/speech/adEligibilityClient";
 
 export default function ArticleAdvertisement({ path, slot }: { path: string; slot: string }) {
   const spanish = path === "/es" || path.startsWith("/es/");
   const unit = useRef<HTMLModElement>(null);
   const [choicesReady, setChoicesReady] = useState(false);
+  const [excluded, setExcluded] = useState(false);
   useEffect(() => {
     const element = unit.current;
-    let active = true, starting = false;
+    let active = true, started = false, sdkReady = false;
     const allowed = () => {
       let qa = true;
       try { qa = sessionStorage.getItem("rt_usage_qa") === "1" || sessionStorage.getItem("rt_speech_qa") === "1"; }
@@ -18,7 +20,10 @@ export default function ArticleAdvertisement({ path, slot }: { path: string; slo
       return active && location.pathname === path && adRequestAllowed({ path, host: location.hostname,
         search: location.search, qa, globalPrivacyControl: navigator.globalPrivacyControl === true });
     };
-    if (!element || !allowed()) return;
+    if (!element || !allowed()) {
+      setExcluded(true);
+      return;
+    }
     const messaging: NonNullable<Window["googlefc"]> = window.googlefc ??= {};
     const callbacks: NonNullable<NonNullable<Window["googlefc"]>["callbackQueue"]> = messaging.callbackQueue ??= [];
     callbacks.push({ CONSENT_API_READY: () => {
@@ -28,25 +33,49 @@ export default function ArticleAdvertisement({ path, slot }: { path: string; slo
     } });
     const start = () => {
       const bounds = element.getBoundingClientRect();
-      if (starting || !allowed() || document.hidden || bounds.width < 300 || bounds.height < 250 ||
+      if (!allowed() || !entitlement.gate.mayRequest() || document.hidden || bounds.width < 300 || bounds.height < 250 ||
         bounds.top > window.innerHeight + 300 || bounds.bottom < -300) return;
-      starting = true;
+      if (sdkReady) { requestAd(element); return; }
+      if (started || !entitlement.gate.begin()) return;
+      started = true;
       prepareAd(element);
       void loadAdSense().then(() => {
-        if (!allowed()) return;
-        if (document.hidden) { starting = false; return; }
-        requestAd(element);
-        observer.disconnect();
-        document.removeEventListener("visibilitychange", start);
+        sdkReady = true;
+        start();
       }).catch(() => { /* Blocked/failed ads must not interrupt the article. */ });
     };
+    let frame: number | undefined;
+    const entitlement = observeSpeechAdEntitlement({
+      changed: state => {
+        if (!active) return;
+        if (state !== "free") pauseAdRequests();
+        // Only collapse a unit that has never loaded an SDK. Loaded documents
+        // retire wholesale; CSS hiding is not used as their privacy boundary.
+        if (!started) setExcluded(state === "paid" || state === "unavailable");
+        if (state === "free") {
+          if (frame !== undefined) cancelAnimationFrame(frame);
+          frame = requestAnimationFrame(start);
+        }
+      },
+      retire: () => {
+        pauseAdRequests();
+        // Cross-route unmount is already owned by AdDocumentBoundary, which
+        // opens the destination as a fresh document. Avoid competing redirects.
+        if (location.pathname === path) retireAdDocument();
+      },
+    });
     const observer = new IntersectionObserver(start, { rootMargin: "300px 0px" });
     observer.observe(element);
     document.addEventListener("visibilitychange", start);
-    return () => { active = false; observer.disconnect(); document.removeEventListener("visibilitychange", start); };
+    return () => {
+      active = false;
+      if (frame !== undefined) cancelAnimationFrame(frame);
+      observer.disconnect(); document.removeEventListener("visibilitychange", start);
+      entitlement.dispose();
+    };
   }, [path, slot]);
 
-  return <aside aria-label={spanish ? "Publicidad" : "Advertisement"} className="rt-article-ad print:hidden" data-ad-placement="public-content">
+  return <aside hidden={excluded} aria-label={spanish ? "Publicidad" : "Advertisement"} className="rt-article-ad print:hidden" data-ad-placement="public-content">
     <p className="mb-3 text-center text-xs text-[var(--text-muted)]">{spanish ? "Publicidad" : "Advertisement"}</p>
     <div style={{ width: 300, height: 250, margin: "0 auto" }}>
       <ins ref={unit} className="adsbygoogle" style={{ display: "inline-block", width: 300, height: 250 }}

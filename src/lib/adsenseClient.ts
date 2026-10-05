@@ -1,5 +1,5 @@
 "use client";
-import { ADSENSE_CLIENT } from "./adsense";
+import { ADSENSE_CLIENT, adRetirementUrl } from "./adsense";
 import { advertisingConsent, type AdConsentData, type UsAdStatus } from "./adConsent";
 
 type AdQueue = { push(value: Record<string, unknown>): unknown; requestNonPersonalizedAds?: number; pauseAdRequests?: number };
@@ -23,7 +23,23 @@ let loading: Promise<void> | undefined;
 const prepared = new WeakSet<HTMLElement>();
 const requested = new WeakSet<HTMLElement>();
 let permitted = false, hasRequested = false;
+let retired = false;
+export function pauseAdRequests() {
+  if (window.adsbygoogle) window.adsbygoogle.pauseAdRequests = 1;
+}
+
+export function retireAdDocument() {
+  if (retired) return;
+  retired = true;
+  permitted = false;
+  pauseAdRequests();
+  // Removing a slot/script tag cannot revoke an executed SDK. Replace the
+  // document with the same content at a URL that cannot bootstrap advertising.
+  window.location.replace(adRetirementUrl(window.location.href));
+}
+
 export function loadAdSense() {
+  if (retired) return Promise.reject(new Error("Advertising retired"));
   if (loading) return loading;
   const queue: AdQueue = window.adsbygoogle ??= [];
   // These settings reduce data use; they do not replace the published CMP.
@@ -34,11 +50,11 @@ export function loadAdSense() {
     let consent: AdConsentData | undefined;
     let usStatus: UsAdStatus = "unknown";
     const complete = () => {
-      permitted = advertisingConsent(consent, usStatus) && navigator.globalPrivacyControl !== true;
+      permitted = !retired && advertisingConsent(consent, usStatus) && navigator.globalPrivacyControl !== true;
       if (!permitted && window.adsbygoogle) window.adsbygoogle.pauseAdRequests = 1;
       // Dispose the complete third-party runtime after a final withdrawal.
       // Never reload while the message is open, which would interrupt choices.
-      if (hasRequested && !permitted && consent?.eventStatus === "useractioncomplete") window.location.reload();
+      if (!retired && hasRequested && !permitted && consent?.eventStatus === "useractioncomplete") window.location.reload();
       if (scriptReady && permitted) resolve();
     };
     // Published Google Privacy & messaging supplies the actual regional choice.
@@ -92,7 +108,7 @@ export function loadAdSense() {
 }
 
 export function requestAd(element: HTMLElement) {
-  if (!permitted || navigator.globalPrivacyControl === true || !element.isConnected || !prepared.has(element) || requested.has(element) || element.offsetWidth < 300 || element.offsetHeight < 250) return;
+  if (retired || !permitted || navigator.globalPrivacyControl === true || !element.isConnected || !prepared.has(element) || requested.has(element) || element.offsetWidth < 300 || element.offsetHeight < 250) return;
   // Mark before unpausing: a failure must not cause a refresh/retry loop or another
   // request on React StrictMode's repeated effects.
   requested.add(element);
@@ -104,7 +120,7 @@ export function requestAd(element: HTMLElement) {
 }
 
 export function prepareAd(element: HTMLElement) {
-  if (!element.isConnected || prepared.has(element) || element.dataset.adsbygoogleStatus || element.offsetWidth < 300 || element.offsetHeight < 250) return;
+  if (retired || !element.isConnected || prepared.has(element) || element.dataset.adsbygoogleStatus || element.offsetWidth < 300 || element.offsetHeight < 250) return;
   const queue: AdQueue = window.adsbygoogle ??= [];
   queue.requestNonPersonalizedAds = 1;
   queue.pauseAdRequests = 1;

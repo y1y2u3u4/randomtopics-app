@@ -49,3 +49,11 @@ export function adDocumentBoundary(previousPath: string, nextPath: string) {
   // later visit to private practice from inheriting a public-page ad runtime.
   return previousPath !== nextPath && (adPageAllowed(previousPath) || adPageAllowed(nextPath));
 }
+
+// A deny-only marker: the existing no-query policy excludes the next document
+// before either CMP or AdSense can start. It never grants paid access.
+export function adRetirementUrl(href: string) {
+  const url = new URL(href);
+  url.searchParams.set("rt_ads", "off");
+  return url.href;
+}
