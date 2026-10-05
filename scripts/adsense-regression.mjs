@@ -25,6 +25,13 @@ check(!advertisingConsent(undefined,'not-applicable'),'Missing API is not permis
 const nonEu={...allowed,gdprApplies:false};
 check(advertisingConsent(nonEu,'not-applicable'),'Confirmed non-applicability permits NPA + RDP');
 check(advertisingConsent({cmpStatus:'loaded',gdprApplies:false},'not-applicable'),'Actual non-EU TCF callback can omit eventStatus');
-for(const status of ['unknown','opted-out','not-opted-out'])check(!advertisingConsent(nonEu,status),'Unverified state flow blocks '+status);
+for(const status of ['unavailable','not-applicable'])check(advertisingConsent(nonEu,status),'Known non-EU under mandatory RDP '+status);
+check(advertisingConsent(nonEu,'not-opted-out','not-opted-out'),'Configured US message with live GPP can release RDP');
+check(!advertisingConsent(nonEu,'not-opted-out','unavailable'),'Configured applicable US message waits for live GPP');
+for(const status of ['unknown','opted-out'])check(!advertisingConsent(nonEu,status),'Installed unresolved or opted-out blocks '+status);
+check(!advertisingConsent(allowed,'opted-out'),'Explicit US opt-out overrides EU grant');
+check(!advertisingConsent(nonEu,'unavailable','unknown'),'Installed GPP pending blocks');
+check(!advertisingConsent(nonEu,'unavailable','opted-out'),'GPP opt-out overrides missing US API');
+check(!advertisingConsent({cmpStatus:'loaded'},'unavailable'),'Missing US API never classifies unknown geography');
 check(readFileSync('public/ads.txt','utf8').trim()==='google.com, pub-1513206179290827, DIRECT, f08c47fec0942fa0','Authorized publisher unchanged');
 console.log(`PASS: ${checks} advertising configuration, privacy and route assertions (no network).`);
