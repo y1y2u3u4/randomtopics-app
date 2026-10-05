@@ -271,3 +271,24 @@ for (const link of links) {
 assert.deepEqual(scenes.events.map(e => e.name), ['question_scenario_friends','question_scenario_group','question_scenario_classroom','question_scenario_deep']);
 assert.ok(scenes.events.every(e => !e.name.includes('generate')));
 console.log('PASS: discussion cards match real corpus, complete exports/save/print, no false generation, explicit scenario links.');
+
+// A permission prompt can outlive a batch. Duplicate clicks and stale completions
+// must not show old copy text under a newly generated result.
+let releaseCopy, copyCalls = 0;
+const batch = harness("src/components/TopicGenerator.tsx", {}, {
+  "@/lib/clipboard": { copyText: () => { copyCalls++; return new Promise(resolve => { releaseCopy = resolve; }); } },
+});
+const generateBatch = () => batch.render().find(node => node.type === "button" && node.props.className?.includes("btn-generate")).props.onClick();
+const copyBatch = () => batch.render().find(node => node.type === "button" && label(node).includes("Copy results")).props.onClick();
+await generateBatch();
+const firstCopyHandler = batch.render().find(node => node.type === "button" && label(node).includes("Copy results")).props.onClick;
+const pendingBatchCopy = firstCopyHandler();
+const duplicateBatchCopy = firstCopyHandler();
+assert.equal(copyCalls, 1, "One pending user copy must issue one clipboard request");
+await generateBatch();
+releaseCopy(false);
+await Promise.all([pendingBatchCopy, duplicateBatchCopy]);
+assert.equal(batch.render().some(node => node.type === "textarea"), false, "Late failure must not restore the previous batch text");
+const nextBatchCopy = copyBatch(); releaseCopy(true); await nextBatchCopy;
+assert.equal(batch.events.filter(event => event.name === "post_generate_copy").length, 1, "A new batch remains copyable once");
+console.log("PASS: pending batch-copy deduplication, stale failure suppression and next-result retry.");

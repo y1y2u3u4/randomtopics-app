@@ -16,13 +16,14 @@ export default function SpeechResume({ attemptId, next = false, topics = [] }: {
   const [saved, setSaved] = useState<(SpeechResult & { topic: string }) | null>(null);
   const [chosen, setChosen] = useState<Topic | null>(null);
   const [error, setError] = useState("");
+  const [reload, setReload] = useState(0);
   useEffect(() => {
     let active = true, version = 0, waitingForAllowance = true, reported = false;
     let unwatch: (() => void) | undefined;
     const load = async () => {
       const ticket = ++version;
       try {
-        const data = await practiceFetch(`history?id=${encodeURIComponent(attemptId)}`);
+        const data = await practiceFetch(`history?id=${encodeURIComponent(attemptId)}`, undefined, undefined, { existingSessionOnly: true, timeoutMs: 15000 });
         if (!active || ticket !== version) return;
         const attempt = data.attempts?.find((item: { id: string }) => item.id === attemptId);
         if (!attempt || attempt.status !== "complete" || !attempt.feedback) throw new Error("This saved feedback is not available in this browser session. Open your practice history to recover it.");
@@ -46,7 +47,7 @@ export default function SpeechResume({ attemptId, next = false, topics = [] }: {
       }, () => waitingForAllowance);
     }).catch(() => {});
     return () => { active = false; version++; unwatch?.(); };
-  }, [attemptId]);
+  }, [attemptId, reload]);
   const goal = saved ? nextRound(saved.feedback, speechPurpose(saved.purpose)) : null;
   const transfer = next && goal?.mode === "transfer";
   const choices = saved ? topics.filter(topic => topic.text.trim() !== saved.topic.trim()) : [];
@@ -54,11 +55,16 @@ export default function SpeechResume({ attemptId, next = false, topics = [] }: {
     id: saved.id, text: saved.topic, category: "education", depth: "medium", modes: ["speech"], talkingPoints: [],
   } : null;
   return <div className="mx-auto max-w-3xl px-4 py-8">
-    <Link className="underline" href="/speech/account">Back to practice history</Link>
+    <Link className="underline" href={`/speech/account?attempt=${encodeURIComponent(attemptId)}`}>Back to practice history</Link>
     <h1 className="mt-5 text-3xl font-bold">{next && goal ? goal.title : "Continue one small improvement"}</h1>
     {next && goal && <div className="mt-3 space-y-2 text-sm"><p>{goal.description}</p><p>{goal.why}</p>
       {goal.check && <p><strong>Next check: </strong>{goal.check}</p>}</div>}
-    {error && <p role="alert" className="mt-4">{error}</p>}
+    {error && <div role="alert" className="mt-4 space-y-3">
+      <p>{error}</p>
+      <button type="button" className="min-h-11 rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold"
+        onClick={() => { setError(""); setReload(value => value + 1); }}>Try opening this practice again</button>
+      <p className="text-sm">If your session expired, open practice history to sign in with your linked email.</p>
+    </div>}
     {!saved && !error && <p role="status" className="mt-4">Opening your saved feedback…</p>}
     {saved && <SpeechReturnTrial allowance={saved.allowance} attemptId={saved.id} visible purpose={speechPurpose(saved.purpose)} contentSource="speech_resume" />}
     {saved && next && goal?.mode === "review" && <details open data-clarity-mask="true" className="mt-5 space-y-3 rounded-xl border border-white/15 p-4">

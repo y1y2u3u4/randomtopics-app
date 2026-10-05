@@ -5,6 +5,7 @@ import { practiceFetch, PracticeRequestError, reconnectSpeechSession, speechClie
 import type { SpeechFeedback } from "@/lib/speech/schema";
 import { speechErrorCode, speechQaSession, trackSpeech, trackConfirmedSpeechPurchase } from "@/lib/speech/telemetry";
 import { clearCheckoutIntent, readCheckoutIntent, rememberCheckoutIntent, reconcileCheckoutPurpose, validPracticeReference } from "@/lib/speech/checkoutIntent";
+import { clearHistoryReturn, readHistoryReturn, rememberHistoryReturn } from "@/lib/speech/historyReturn";
 import { watchSpeechAccount } from "@/lib/speech/accountChanges";
 import { observeVisibleAction, observeVisibleContent } from "@/lib/speech/visibleAction";
 import { resumeHistoryFeedback } from "@/lib/speech/historyFeedback";
@@ -47,6 +48,7 @@ export default function SpeechAccount() {
   const requestVersion = useRef(0);
   const accountGeneration = useRef(0);
   const actionInFlight = useRef(false);
+  const retryInitialization = useRef<(() => Promise<void>) | null>(null);
   const checkoutIntent = useRef(false);
   const practiceReference = useRef<string | undefined>(undefined);
   const historyReturn = useRef(false);
@@ -232,17 +234,22 @@ export default function SpeechAccount() {
     };
     async function initialize() {
       const params = new URLSearchParams(window.location.search);
-      const saved = readCheckoutIntent();
+      let saved = readCheckoutIntent();
+      const returning = readHistoryReturn();
+      const explicitPlan = params.get("plan") === "monthly";
+      const explicitHistory = !explicitPlan && validPracticeReference(params.get("attempt"));
       // Preserve QA across a same-browser email confirmation that opens a new tab.
-      if (saved?.qa && params.get("speech_qa") !== "0") {
+      if ((saved?.qa || returning?.qa) && params.get("speech_qa") !== "0") {
         try { sessionStorage.setItem("rt_speech_qa", "1"); } catch { /* optional analytics */ }
       }
-      // An explicit practice-return link takes priority over an older plan visit.
-      // A plain email return can still restore that saved plan intention.
-      historyReturn.current = params.get("plan") !== "monthly" && validPracticeReference(params.get("attempt"));
-      checkoutIntent.current = params.get("plan") === "monthly" || (!historyReturn.current && Boolean(saved));
-      const reference = params.get("attempt") ?? (checkoutIntent.current ? saved?.attemptId : undefined);
+      // Keep the latest explicit destination through a same-browser email return.
+      if (explicitHistory) { clearCheckoutIntent(); saved = null; }
+      if (explicitPlan) clearHistoryReturn();
+      historyReturn.current = !explicitPlan && (explicitHistory || (!saved && Boolean(returning)));
+      checkoutIntent.current = explicitPlan || (!historyReturn.current && Boolean(saved));
+      const reference = params.get("attempt") ?? (checkoutIntent.current ? saved?.attemptId : historyReturn.current ? returning?.attemptId : undefined);
       practiceReference.current = validPracticeReference(reference) ? reference : undefined;
+      if (explicitHistory && practiceReference.current) rememberHistoryReturn(practiceReference.current, speechQaSession());
       if (checkoutIntent.current) rememberCheckoutIntent(speechQaSession(), undefined, practiceReference.current ?? null);
       setCheckoutMode(checkoutIntent.current);
       trackSpeech("speech_account_arrive", { content_source: "speech_account", outcome: checkoutIntent.current ? "plan" : "history" });
@@ -271,13 +278,16 @@ export default function SpeechAccount() {
         setBilling(false);
         setSubscription({ active: false, periodEnd: null, manageable: false });
       }, () => checkoutIntent.current && !verified.current);
+      retryInitialization.current = null;
       startedLoad = true;
       await load();
     }
+    retryInitialization.current = async () => { await initialize().catch(showError); };
     void initialize().catch(showError);
     return () => {
       active = false;
       mounted.current = false;
+      retryInitialization.current = null;
       invalidateHistory();
       stopWatching?.();
     };
@@ -403,7 +413,7 @@ export default function SpeechAccount() {
               </button>}
             </div>
           </form>
-          {checkoutMode && mailSent && <button type="button" className={button} disabled={busy} onClick={() => run(async () => { await load(); })}>
+          {checkoutMode && mailSent && <button type="button" className={button} disabled={busy} onClick={() => run(async () => { if (retryInitialization.current) await retryInitialization.current(); else await load(); })}>
             Check email confirmation
           </button>}
           <p className="text-sm text-[var(--text-muted)]">
@@ -421,7 +431,7 @@ export default function SpeechAccount() {
   );
   return (
     <div data-clarity-mask="true" className="space-y-7">
-      <Link href="/speech" onClick={() => clearCheckoutIntent()} className="text-sm underline">
+      <Link href="/speech" onClick={() => { clearCheckoutIntent(); clearHistoryReturn(); }} className="text-sm underline">
         Back to speech topics
       </Link>
       <h1 className="text-3xl font-bold">Your speech practice</h1>
@@ -462,7 +472,9 @@ export default function SpeechAccount() {
                 disabled={busy}
                 onClick={() => {
                   checkoutIntent.current = true;
-                  rememberCheckoutIntent(speechQaSession());
+                  clearHistoryReturn();
+                  rememberCheckoutIntent(speechQaSession(), undefined, practiceReference.current ?? null,
+                    speechPurpose(attempts.find(item => item.id === practiceReference.current)?.purpose));
                   if (!emailVerified) focusedStep.current = "plan";
                   setCheckoutMode(true);
                   if (!emailVerified) {
@@ -511,8 +523,8 @@ export default function SpeechAccount() {
       {message && <p role="status" className="rounded-xl border border-white/15 p-4 text-sm">{message}</p>}
       {!loaded ? loadError ? <section role="alert" className="space-y-3 rounded-xl border border-amber-400/30 p-4">
         <h2 className="font-semibold">{loadError === "session" ? "Reconnect your practice session" : "Your account could not load"}</h2>
-        <p className="text-sm">Your selected plan stays saved. Reconnecting does not submit a payment.</p>
-        <button className={button} disabled={busy} onClick={() => void run(loadError === "session" ? reconnect : async () => { await load(); })}>
+        <p className="text-sm">{checkoutMode ? "Your selected plan stays saved. Reconnecting does not submit a payment." : "Your practice stays with its original account. Reconnect or try again to open it."}</p>
+        <button className={button} disabled={busy} onClick={() => void run(loadError === "session" ? reconnect : async () => { if (retryInitialization.current) await retryInitialization.current(); else await load(); })}>
           {busy ? "Please wait…" : loadError === "session" ? "Reconnect this session" : "Try loading again"}
         </button>
         {loadError === "session" && emailPanel}
@@ -528,6 +540,7 @@ export default function SpeechAccount() {
               const { error } = await (await speechClient()).auth.signOut({ scope: "local" });
               if (error) throw new Error("Could not sign out. Please try again.");
               clearCheckoutIntent();
+              clearHistoryReturn();
               try { sessionStorage.removeItem("rt_speech_checkout_pending"); } catch { /* optional measurement */ }
               window.location.assign("/speech/account");
             })}
@@ -553,7 +566,7 @@ export default function SpeechAccount() {
       <section className="space-y-4">
         <div className="flex flex-wrap justify-between gap-3">
           <h2 className="text-xl font-semibold">Practice history</h2>
-          <button className={button} disabled={busy} onClick={() => run(async () => { await load(); })}>
+          <button className={button} disabled={busy} onClick={() => run(async () => { if (retryInitialization.current) await retryInitialization.current(); else await load(); })}>
             {loaded ? "Refresh history" : "Load my history"}
           </button>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo, useRef } from "react";
+import { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -62,6 +62,10 @@ export default function TopicGenerator({
   const [hasGenerated, setHasGenerated] = useState(false);
   const [copiedAll, setCopiedAll] = useState(false);
   const [manualCopyText, setManualCopyText] = useState<string | null>(null);
+  const [copyingAll, setCopyingAll] = useState(false);
+  const copyInFlight = useRef(false);
+  const copyVersion = useRef(0);
+  useEffect(() => () => { copyVersion.current++; }, []);
   const usedStatic = useRef(new Set<string>());
   const generating = useRef(false);
   const [filterNotice, setFilterNotice] = useState("");
@@ -101,6 +105,9 @@ export default function TopicGenerator({
   }, [staticPool, count]);
 
   const finishGeneration = useCallback((nextTopics: Topic[], resultSource: "curated_pool" | "localized_pool") => {
+    copyVersion.current++;
+    copyInFlight.current = false;
+    setCopyingAll(false);
     setGeneratedTopics(nextTopics);
     setPracticeBatch((batch) => batch + 1);
     recordRecentTopics(nextTopics);
@@ -151,6 +158,7 @@ export default function TopicGenerator({
   }, [selectedMode, selectedCategory, selectedDepth, count, generateFromStatic, finishGeneration, contentSource, locale, staticPool.length]);
 
   const generateAgain = useCallback(() => {
+    if (generating.current || !staticPool.length) return;
     track("repeat_generate", {
       tool_type: "topic_generator",
       generator_mode: selectedMode ?? "any",
@@ -161,14 +169,22 @@ export default function TopicGenerator({
       locale,
     });
     void generate();
-  }, [contentSource, count, generate, locale, selectedCategory, selectedDepth, selectedMode]);
+  }, [contentSource, count, generate, locale, selectedCategory, selectedDepth, selectedMode, staticPool.length]);
 
   const copyAllGenerated = useCallback(async () => {
-    if (generatedTopics.length === 0) return;
+    if (generatedTopics.length === 0 || copyInFlight.current) return;
+    copyInFlight.current = true;
+    setCopyingAll(true);
+    setCopiedAll(false);
+    const version = ++copyVersion.current;
     const text = generatedTopics
       .map((topic, index) => `${index + 1}. ${topic.text}`)
       .join("\n");
     const copiedSuccessfully = await copyText(text);
+    // Clipboard permission can resolve after a new draw or after unmount.
+    if (version !== copyVersion.current) return;
+    copyInFlight.current = false;
+    setCopyingAll(false);
     if (!copiedSuccessfully) {
       setManualCopyText(text);
       track("copy_error", {
@@ -183,7 +199,7 @@ export default function TopicGenerator({
     }
     setManualCopyText(null);
     setCopiedAll(true);
-    window.setTimeout(() => setCopiedAll(false), 1800);
+    window.setTimeout(() => { if (version === copyVersion.current) setCopiedAll(false); }, 1800);
     track("copy_result", {
       tool_type: "topic_generator",
       result_type: "topic_batch",
@@ -420,10 +436,12 @@ export default function TopicGenerator({
                     <button
                       type="button"
                       onClick={copyAllGenerated}
+                      disabled={copyingAll}
+                      aria-busy={copyingAll}
                       className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 px-5 py-2.5 text-sm font-semibold text-[var(--text-secondary)] transition-colors hover:border-[var(--neon-cyan)]/40 hover:text-[var(--neon-cyan)]"
                     >
                       <span aria-hidden="true">{copiedAll ? "✓" : "⧉"}</span>
-                      {copiedAll
+                      {copyingAll ? (locale === "es" ? "Copiando…" : "Copying…") : copiedAll
                         ? (locale === "es" ? "Copiados" : "Copied")
                         : (locale === "es" ? "Copiar resultados" : "Copy results")}
                     </button>
