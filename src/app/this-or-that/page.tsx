@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -122,6 +123,8 @@ export default function ThisOrThatPage() {
           intro="The complete deck of quick either/or prompts &mdash; scan it, steal from it, or copy the whole list for your next session."
           questions={THIS_OR_THAT}
         />
+        <PublicAdPlacement path="/this-or-that" />
+
       </main>
       <Footer />
     </>

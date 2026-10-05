@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -114,6 +115,8 @@ export default function QuestionOfTheDayPage() {
             </Link>
           </div>
         </section>
+
+        <PublicAdPlacement path="/question-of-the-day" />
 
         <nav id="question-ideas" aria-label="Browse question ideas by category" className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 scroll-mt-24">
           <h2 className="text-xl font-bold">Browse all {QOTD_QUESTIONS.length} question-of-the-day ideas</h2>

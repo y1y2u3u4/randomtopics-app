@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -152,6 +153,8 @@ export default function SpinTheWheelPage() {
             </div>
           </div>
         </section>
+
+        <PublicAdPlacement path="/spin-the-wheel" />
 
         {/* What can land on the wheel: one real topic per category, from the curated DB */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">

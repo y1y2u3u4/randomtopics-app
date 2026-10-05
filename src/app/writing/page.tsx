@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -284,6 +285,8 @@ export default function WritingPage() {
             </div>
           </div>
         </section>
+        <PublicAdPlacement path="/writing" />
+
         <EditorsPicks
           heading="Writing Prompts with Angle Notes"
           intro="Eight picks from the writing pool across every depth. The talking points work as a ready-made outline — copy a prompt with its angles straight into your draft."

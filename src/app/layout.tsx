@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import AdDocumentBoundary from "@/components/AdDocumentBoundary";
+import { adConfiguration } from "@/lib/adsense";
 import AnalyticsPageView from "@/components/AnalyticsPageView";
 import ClarityReplay from "@/components/ClarityReplay";
 import AnalyticsDiagnostics from "@/components/AnalyticsDiagnostics";
@@ -112,6 +114,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="antialiased min-h-screen flex flex-col">
+        <AdDocumentBoundary enabled={Boolean(adConfiguration(process.env.NEXT_PUBLIC_ADSENSE_ROLLOUT, process.env.NEXT_PUBLIC_ADSENSE_ARTICLE_SLOT))}>
         <AnalyticsPageView />
         <AnalyticsDiagnostics />
         <ClarityReplay />
@@ -180,6 +183,7 @@ export default function RootLayout({
         <div className="relative z-[1] flex-1 flex flex-col">
           {children}
         </div>
+        </AdDocumentBoundary>
       </body>
     </html>
   );

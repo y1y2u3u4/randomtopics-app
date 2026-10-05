@@ -409,3 +409,8 @@ footer {
   .btn-generate { padding: 14px 32px; font-size: 1rem; }
   .topic-card { padding: 20px 24px; border-radius: var(--radius-lg); }
 }
+
+/* One fixed public-content placement. Keep the reserved space when unfilled or
+   blocked so content never jumps; no slot/space is rendered while rollout is off. */
+.rt-article-ad { width: 100%; height: 456px; padding: 24px 0; margin: 0 auto 40px; }
+@media (max-width: 319px) { .rt-article-ad { display: none; } }

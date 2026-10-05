@@ -1,6 +1,6 @@
 export const privacyPolicy = {
   en: {
-    title: "Privacy Policy", updated: "Last updated: October 3, 2026",
+    title: "Privacy Policy", updated: "Last updated: October 5, 2026",
     intro: "This policy describes how RandomTopics handles information when you browse, use a generator or choose speech practice. Ordinary topic generation does not require an account. Speech practice has separate account and content storage described below.",
     sections: [
       { id: "practice", title: "Speech accounts and saved practice", paragraphs: [
@@ -28,7 +28,7 @@ export const privacyPolicy = {
         "Replay is not loaded on student pages, account pages or internal reports. Use “Session replay · Change” on the speech page to withdraw permission; practice remains available. Clarity analytics storage is allowed only after this choice, while its advertising storage remains denied. This control applies to Clarity replay, not to every analytics or advertising service on the site."
       ] },
       { id: "ads", title: "Advertising and optional payments", paragraphs: [
-        "Where Google AdSense advertisements are shown, Google and its partners may use cookies to serve ads based on visits to this or other sites. Information about advertising in this policy does not imply that every page currently displays ads. You can manage personalized-ad preferences in Google My Ad Center and review other providers' choices at aboutads.info.",
+        "Selected public content pages may display Google AdSense advertisements. Our initial placement requests non-personalized ads with restricted data processing. These settings do not make advertising anonymous or cookie-free: Google may still process connection and device information and use cookies for purposes such as frequency capping and aggregated reporting, subject to applicable choices. Google’s regional privacy messages collect advertising choices where applicable. When available, use “Advertising privacy choices” below the placement to reopen the message. Browser privacy controls and Google My Ad Center provide additional choices. This advertising control does not change the separate analytics or optional replay controls.",
         "Optional paid speech features use Stripe when enabled. Stripe processes payment details; our application receives identifiers and payment or subscription status rather than your full card details. A helpfulness response or expression of interest in a paid feature is not a purchase."
       ] },
       { id: "choices", title: "Your choices and questions", paragraphs: [
@@ -42,7 +42,7 @@ export const privacyPolicy = {
     resources: "Service privacy information", contact: "Contact and updates", contactText: "For privacy questions or data requests, contact us at the address below. Changes to this policy appear here with an updated date.", contactLink: "Contact page"
   },
   es: {
-    title: "Política de privacidad", updated: "Última actualización: 3 de octubre de 2026",
+    title: "Política de privacidad", updated: "Última actualización: 5 de octubre de 2026",
     intro: "Esta política explica cómo RandomTopics trata la información cuando navegas, utilizas un generador o eliges practicar un discurso. Generar temas no requiere una cuenta. La práctica oral utiliza cuentas y almacenamiento de contenido, como se describe a continuación.",
     sections: [
       { id: "practice", title: "Cuentas y prácticas guardadas", paragraphs: [
@@ -70,7 +70,7 @@ export const privacyPolicy = {
         "No se carga en páginas para estudiantes, páginas de cuenta ni informes internos. Usa “Session replay · Change” en la página de práctica oral para retirar el permiso; puedes seguir practicando. Clarity permite almacenamiento analítico tras esa elección y mantiene denegado el almacenamiento publicitario. Este control solo corresponde a Clarity, no a todos los servicios de estadísticas o publicidad del sitio."
       ] },
       { id: "ads", title: "Publicidad y pagos opcionales", paragraphs: [
-        "Cuando se muestran anuncios de Google AdSense, Google y sus socios pueden usar cookies para servir anuncios basados en visitas a este u otros sitios. La información publicitaria de esta política no significa que todas las páginas muestren anuncios actualmente. Puedes gestionar la personalización en Mi centro de anuncios de Google y consultar las opciones de otros proveedores en aboutads.info.",
+        "Algunas páginas de contenido público pueden mostrar anuncios de Google AdSense. La ubicación inicial solicita anuncios no personalizados con procesamiento de datos restringido. Estas opciones no hacen que la publicidad sea anónima ni eliminen todas las cookies: Google puede tratar datos de conexión y dispositivo y usar cookies para limitar la frecuencia y elaborar informes agregados, según las opciones aplicables. Los mensajes regionales de Google recogen las preferencias publicitarias cuando corresponde. Cuando esté disponible, utiliza “Advertising privacy choices” debajo del anuncio para volver a abrir el mensaje. Los controles del navegador y Mi centro de anuncios de Google ofrecen otras opciones. Este control publicitario no cambia los controles separados de estadísticas o reproducción opcional.",
         "Las funciones de pago opcionales de práctica oral usan Stripe cuando están habilitadas. Stripe procesa los datos del pago; nuestra aplicación recibe identificadores y estados del pago o suscripción, no todos los datos de tu tarjeta. Una valoración de utilidad o una respuesta de interés en una función de pago no constituye una compra."
       ] },
       { id: "choices", title: "Tus opciones y consultas", paragraphs: [

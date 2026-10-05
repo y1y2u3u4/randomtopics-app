@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -207,6 +208,8 @@ export default function IcebreakerPage() {
             </div>
           </div>
         </section>
+        <PublicAdPlacement path="/icebreaker" />
+
         <EditorsPicks
           heading="Icebreaker Questions with Facilitator Notes"
           intro="Eight picks from the icebreaker pool, Light through Deep. The talking points tell you where each question tends to go — copy one with its notes into your session plan."

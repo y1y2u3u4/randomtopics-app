@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -334,6 +335,8 @@ export default function DebatePage() {
             </Link>
           </div>
         </section>
+        <PublicAdPlacement path="/debate" />
+
         <EditorsPicks
           heading="Debate Topics with Prep Points"
           intro="Eight motions from the debate pool, Light through Deep. The talking points give both sides their opening arguments — copy a motion with its prep straight into your round sheet."

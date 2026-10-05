@@ -37,6 +37,8 @@ try {
       assert.equal(await count('post_generate_save'), 1);
       await page.getByRole('link', { name: 'Open my saved topics', exact: false }).first().click();
       await page.waitForURL('**/saved-topics');
+      // Advertising boundaries replace the document after the URL changes.
+      await page.getByRole('heading', { name: 'Your Topic Library', exact: true }).waitFor();
       await page.reload({ waitUntil: 'networkidle' });
       assert.ok((await page.locator('main').innerText()).includes(saved.text));
       await page.getByRole('button', { name: 'Copy topic + points', exact: false }).first().click();
@@ -86,6 +88,8 @@ try {
       await page.screenshot({ path: output + '-' + viewport.width + '-qotd.png', animations: 'disabled' });
       await tool.getByRole('link', { name: 'Open my saved topics', exact: false }).click();
       await page.waitForURL('**/saved-topics');
+      // Advertising boundaries replace the document after the URL changes.
+      await page.getByRole('heading', { name: 'Your Topic Library', exact: true }).waitFor();
       await page.reload({ waitUntil: 'networkidle' });
       assert.ok((await page.locator('main').innerText()).includes(saved.text));
     });

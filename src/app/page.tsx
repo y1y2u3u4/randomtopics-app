@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import { SelectedTopicPractice } from "@/components/TopicHandoff";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -76,6 +77,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <PublicAdPlacement path="/" />
 
         {/* Put proven search intents one click from the homepage. These are
             task-distinct tools, not keyword-variant landing pages. */}
