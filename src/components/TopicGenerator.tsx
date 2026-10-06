@@ -32,6 +32,8 @@ interface TopicGeneratorProps {
   speechFeedback?: boolean;
   speechTimerHref?: string;
   heroLinks?: ReactNode;
+  /** Leave room for the Speech hub's optional privacy notice on phones. */
+  compactMobileHero?: boolean;
 }
 
 const DEPTH_KEYS: Record<Depth, "depthLight" | "depthMedium" | "depthDeep"> = {
@@ -51,6 +53,7 @@ export default function TopicGenerator({
   speechFeedback = speechPractice,
   speechTimerHref = "#speech-practice",
   heroLinks,
+  compactMobileHero = false,
 }: TopicGeneratorProps) {
   const t = getDict(locale);
   const [selectedMode, setSelectedMode] = useState<Mode | null>(initialMode);
@@ -248,9 +251,9 @@ export default function TopicGenerator({
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6">
       {/* Hero */}
-      <div className="text-center pt-16 sm:pt-24 pb-10 sm:pb-12">
+      <div className={`text-center ${compactMobileHero ? "pt-4 pb-4" : "pt-16 pb-10"} sm:pt-24 sm:pb-12`}>
         {title ? (
-          <h1 className="section-heading text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-5 leading-[1.1] tracking-tight">
+          <h1 className={`section-heading ${compactMobileHero ? "text-4xl [overflow-wrap:anywhere]" : "text-5xl"} sm:text-6xl lg:text-7xl font-extrabold mb-5 leading-[1.1] tracking-tight`}>
             {title}
           </h1>
         ) : (
@@ -267,10 +270,10 @@ export default function TopicGenerator({
       </div>
 
       {/* Controls */}
-      <div className="glass-card p-6 sm:p-8 lg:p-10 mb-10 space-y-7">
+      <div className={`glass-card ${compactMobileHero ? "p-4" : "p-6"} sm:p-8 lg:p-10 mb-10 space-y-7`}>
         <div className="text-center">
           <button onClick={generate} disabled={isSpinning || !staticPool.length}
-            className="btn-generate animate-pulse-glow disabled:opacity-70 w-full sm:w-auto text-lg px-10 py-4">
+            className={`btn-generate ${compactMobileHero ? "speech-compact-generate" : ""} animate-pulse-glow disabled:opacity-70 w-full sm:w-auto text-lg px-10 py-4`}>
             <span>{isSpinning ? "🎰" : "🎲"}</span> {isSpinning ? t.generator.spinning : t.generator.generate}
           </button>
           <p className="mt-3 text-sm text-[var(--text-muted)]" role="status">
@@ -395,7 +398,7 @@ export default function TopicGenerator({
         </div>
         <div className="text-center">
           <button type="button" onClick={generate} disabled={isSpinning || !staticPool.length}
-            className="btn-generate disabled:opacity-70 w-full sm:w-auto">
+            className={`btn-generate ${compactMobileHero ? "speech-compact-generate" : ""} disabled:opacity-70 w-full sm:w-auto`}>
             {locale === "es" ? "Generar con estos filtros" : "Generate with these filters"}
           </button>
         </div>

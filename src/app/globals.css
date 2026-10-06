@@ -201,6 +201,14 @@ body::before {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Keep Speech actions readable when narrow screens use enlarged text. */
+@media (width < 640px) {
+  .btn-generate.speech-compact-generate {
+    padding-inline: 12px;
+    overflow-wrap: anywhere;
+  }
+}
+
 .btn-generate:hover {
   background-position: right center;
   transform: translateY(-3px) scale(1.03);

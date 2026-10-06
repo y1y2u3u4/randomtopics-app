@@ -92,13 +92,14 @@ export default function SpeechPage() {
             { label: "Speech Topics" },
           ]}
         />
-        <ModeIllustration mode="speech" />
+        <div className="hidden sm:block"><ModeIllustration mode="speech" /></div>
         <SelectedTopicPractice locale="en" />
         <TopicGenerator
           initialMode="speech"
           title="Speech Topic Generator"
           subtitle="Find a topic for your next speech. Try a 60-second answer and get one specific suggestion to make it clearer."
           contentSource="speech_hub"
+          compactMobileHero
           speechPractice
         />
 
