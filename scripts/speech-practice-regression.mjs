@@ -95,7 +95,7 @@ const generatorOverrides = {
       if (!(index in generatorState)) generatorState[index] = { current: initial };
       return generatorState[index];
     },
-    useMemo: (fn) => fn(), useCallback: (fn) => fn, useEffect() {},
+    useMemo: (fn) => fn(), useCallback: (fn) => fn, useEffect() {}, useId: () => "fixture-filters",
   },
   "next/link": { default: "a" },
   "next/dynamic": { default: () => "practice-panel" },

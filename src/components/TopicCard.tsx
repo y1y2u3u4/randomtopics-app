@@ -172,6 +172,7 @@ export default function TopicCard({
           contentSource={contentSource}
           actionSurface={actionContext}
           isPostGenerate={actionContext === "generated_result"}
+          showSavedLink={actionContext === "spin_result"}
           compact
         />
       </div>

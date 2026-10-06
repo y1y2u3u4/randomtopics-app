@@ -52,12 +52,48 @@ export default function GeneratedResultActions({
   showMessageCopy = false,
   copyAsGroupMessage = false,
 }: GeneratedResultActionsProps) {
+  // Remount only when the actual action payload changes. An editable result
+  // must never inherit another result's pending action or success message.
+  return <ResultActions key={JSON.stringify([actionViewIdentity, saveTopic?.id, copyValue, shareTitle, locale, toolType, resultType, contentSource, actionSurface, isPostGenerate, copyAsGroupMessage])}
+    {...{ text, copyValue, shareTitle, copyLabel, saveTopic, locale, toolType, resultType, contentSource, actionSurface, isPostGenerate, actionViewIdentity, compact, showSavedLink, showMessageCopy, copyAsGroupMessage }} />;
+}
+
+function ResultActions({ text, copyValue = text, shareTitle, copyLabel, saveTopic, locale = "en", toolType, resultType = "topic", contentSource, actionSurface, isPostGenerate, actionViewIdentity, compact, showSavedLink, showMessageCopy, copyAsGroupMessage }: GeneratedResultActionsProps) {
   const isSpanish = locale === "es";
   const [copied, setCopied] = useState(false);
   const [messageCopied, setMessageCopied] = useState(false);
   const [shared, setShared] = useState<"native" | "clipboard" | null>(null);
   const [saveError, setSaveError] = useState(false);
   const [manualCopyText, setManualCopyText] = useState<string | null>(null);
+  const [pending, setPending] = useState<"copy" | "message" | "share" | null>(null);
+  const inFlight = useRef(false);
+  const mounted = useRef(true);
+  const feedbackTimer = useRef<number | undefined>(undefined);
+  useEffect(() => {
+    mounted.current = true;
+    return () => { mounted.current = false; window.clearTimeout(feedbackTimer.current); };
+  }, []);
+
+  // Keep keyboard focus while busy; the synchronous guard enforces aria-disabled.
+  const beginAction = useCallback((action: "copy" | "message" | "share") => {
+    if (inFlight.current) return false;
+    inFlight.current = true;
+    window.clearTimeout(feedbackTimer.current);
+    setCopied(false); setMessageCopied(false); setShared(null); setManualCopyText(null);
+    setPending(action);
+    return true;
+  }, []);
+  const finishAction = useCallback(() => {
+    if (!mounted.current) return false;
+    inFlight.current = false;
+    setPending(null);
+    return true;
+  }, []);
+  const clearFeedbackLater = useCallback(() => {
+    feedbackTimer.current = window.setTimeout(() => {
+      setCopied(false); setMessageCopied(false); setShared(null);
+    }, 1800);
+  }, []);
   const favoriteSnapshot = useSyncExternalStore(
     subscribeToTopicLibrary,
     getFavoriteTopicsSnapshot,
@@ -93,9 +129,12 @@ export default function GeneratedResultActions({
   }, [eventParams, isPostGenerate, resultIdentity]);
 
   const handleCopy = useCallback(async () => {
+    if (!beginAction("copy")) return;
     const value = copyAsGroupMessage ? `${copyValue}\n${window.location.origin}${window.location.pathname}` : copyValue;
     const params = copyAsGroupMessage ? { ...eventParams, copy_format: "group_message" } : eventParams;
-    if (!(await copyText(value))) {
+    const success = await copyText(value);
+    if (!finishAction()) return;
+    if (!success) {
       setCopied(false);
       setManualCopyText(value);
       track("copy_error", params);
@@ -105,8 +144,8 @@ export default function GeneratedResultActions({
     setCopied(true);
     track("copy_result", params);
     if (isPostGenerate) track("post_generate_copy", params);
-    window.setTimeout(() => setCopied(false), 1800);
-  }, [copyAsGroupMessage, copyValue, eventParams, isPostGenerate]);
+    clearFeedbackLater();
+  }, [beginAction, finishAction, clearFeedbackLater, copyAsGroupMessage, copyValue, eventParams, isPostGenerate]);
 
   const handleSave = useCallback(() => {
     if (!saveTopic) return;
@@ -122,9 +161,12 @@ export default function GeneratedResultActions({
   }, [eventParams, recordPostGenerate, saveTopic]);
 
   const handleMessageCopy = useCallback(async () => {
+    if (!beginAction("message")) return;
     const message = `${copyValue}\n${window.location.origin}${window.location.pathname}`;
     const params = { ...eventParams, copy_format: "group_message" };
-    if (!(await copyText(message))) {
+    const success = await copyText(message);
+    if (!finishAction()) return;
+    if (!success) {
       setManualCopyText(message);
       track("copy_error", params);
       return;
@@ -133,15 +175,17 @@ export default function GeneratedResultActions({
     setMessageCopied(true);
     track("copy_result", params);
     if (isPostGenerate) track("post_generate_copy", params);
-    window.setTimeout(() => setMessageCopied(false), 1800);
-  }, [copyValue, eventParams, isPostGenerate]);
+    clearFeedbackLater();
+  }, [beginAction, finishAction, clearFeedbackLater, copyValue, eventParams, isPostGenerate]);
 
   const handleShare = useCallback(async () => {
+    if (!beginAction("share")) return;
     const result = await shareText({
       title: shareTitle,
       text: copyValue,
       url: `${window.location.origin}${window.location.pathname}`,
     });
+    if (!finishAction()) return;
     if (result.status === "aborted") return;
     if (result.status === "failed") {
       setShared(null);
@@ -155,8 +199,8 @@ export default function GeneratedResultActions({
     if (isPostGenerate) {
       track("post_generate_share", { ...eventParams, share_method: result.method });
     }
-    window.setTimeout(() => setShared(null), 1800);
-  }, [copyValue, eventParams, isPostGenerate, shareTitle]);
+    clearFeedbackLater();
+  }, [beginAction, finishAction, clearFeedbackLater, copyValue, eventParams, isPostGenerate, shareTitle]);
 
   return (
     <div>
@@ -166,9 +210,9 @@ export default function GeneratedResultActions({
         role="group"
         aria-label={isSpanish ? "Acciones del resultado" : "Result actions"}
       >
-        <button type="button" onClick={handleCopy} className={`${buttonClass} border-[var(--neon-cyan)]/30 bg-[rgba(0,229,255,0.06)] text-[var(--neon-cyan)]`}>
+        <button type="button" onClick={handleCopy} aria-disabled={pending !== null} aria-busy={pending === "copy"} className={`${buttonClass} aria-disabled:opacity-60 border-[var(--neon-cyan)]/30 bg-[rgba(0,229,255,0.06)] text-[var(--neon-cyan)]`}>
           <span aria-hidden="true">{copied ? "✓" : "⧉"}</span>
-          {copied
+          {pending === "copy" ? (isSpanish ? "Copiando…" : "Copying…") : copied
             ? (isSpanish ? "Copiado" : "Copied")
             : (copyLabel ?? (isSpanish ? "Copiar tema + ideas" : "Copy topic + points"))}
         </button>
@@ -186,9 +230,9 @@ export default function GeneratedResultActions({
             {saved ? (isSpanish ? "Guardado ✓" : "Saved ✓") : (isSpanish ? "Guardar" : "Save")}
           </button>
         ) : null}
-        <button type="button" onClick={handleShare} className={`${buttonClass} hover:border-[var(--neon-pink)]/40 hover:text-[var(--neon-pink)]`}>
+        <button type="button" onClick={handleShare} aria-disabled={pending !== null} aria-busy={pending === "share"} className={`${buttonClass} aria-disabled:opacity-60 hover:border-[var(--neon-pink)]/40 hover:text-[var(--neon-pink)]`}>
           <span aria-hidden="true">↗</span>
-          {shared
+          {pending === "share" ? (isSpanish ? "Compartiendo…" : "Sharing…") : shared
             ? (shared === "clipboard"
               ? (isSpanish ? "Enlace copiado ✓" : "Link copied ✓")
               : (isSpanish ? "Compartido ✓" : "Shared ✓"))
@@ -215,8 +259,8 @@ export default function GeneratedResultActions({
       ) : null}
       {showMessageCopy ? (
         <div className="mt-2 text-center">
-          <button type="button" onClick={handleMessageCopy} className={`${buttonClass} text-xs`}>
-            {messageCopied ? (isSpanish ? "Mensaje copiado ✓" : "Message copied ✓") : (isSpanish ? "Copiar para el chat del grupo" : "Copy for group chat")}
+          <button type="button" onClick={handleMessageCopy} aria-disabled={pending !== null} aria-busy={pending === "message"} className={`${buttonClass} aria-disabled:opacity-60 text-xs`}>
+            {pending === "message" ? (isSpanish ? "Copiando…" : "Copying…") : messageCopied ? (isSpanish ? "Mensaje copiado ✓" : "Message copied ✓") : (isSpanish ? "Copiar para el chat del grupo" : "Copy for group chat")}
           </button>
           <p className="mt-1 text-[11px] text-[var(--text-muted)]">
             {isSpanish ? "Pregunta + enlace, listos para pegar en WhatsApp o tu chat." : "Prompt + link, ready to paste into WhatsApp, Slack, or your class chat."}

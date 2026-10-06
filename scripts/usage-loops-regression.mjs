@@ -62,7 +62,7 @@ function harness(path, props, extra = {}, globals = {}) {
     "./PrintButton": { default: "print-button" }, "./SpeechTimer": { default: "speech-timer" },
     ...extra,
   }, { window: { setTimeout() {}, setInterval() {}, clearTimeout() {}, clearInterval() {}, location: { origin: "https://randomtopics.app", pathname: "/question-of-the-day", search: "?private=value" } }, ...globals }).default;
-  const render = () => { cursor = 0; effects.length = 0; return descendants(Component(props)); };
+  const render = () => { cursor = 0; effects.length = 0; let node = Component(props); while (typeof node?.type === "function") node = node.type(node.props); return descendants(node); };
   const button = (name) => render().find((node) => node.type === "button" && label(node).trim() === name);
   return { render, button, events, effects, actions: () => render().find((node) => node.type === Actions)?.props };
 }

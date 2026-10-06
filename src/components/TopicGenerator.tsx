@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo, useRef, useEffect } from "react";
+import { useState, useCallback, useMemo, useRef, useEffect, useId } from "react";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -16,6 +16,7 @@ import { Locale, defaultLocale } from "@/i18n/config";
 import { getDict, MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
 import { recordRecentTopics } from "@/lib/topicLibrary";
 import { drawUnseen, filterTopicPool } from "@/lib/topicPool";
+import { readTopicResult, saveTopicResult } from "@/lib/topicResultSession";
 
 const SpeechPracticePanel = dynamic(() => import("./SpeechPracticePanel"));
 const SpeechCoachEntry = dynamic(() => import("./SpeechCoachEntry"));
@@ -69,7 +70,25 @@ export default function TopicGenerator({
   const usedStatic = useRef(new Set<string>());
   const generating = useRef(false);
   const [filterNotice, setFilterNotice] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
+  const filtersId = useId();
   const localizedTopics = useMemo(() => getLocalizedTopics(locale), [locale]);
+  const sessionScope = `${locale}:generator:${initialMode ?? "all"}:${initialCategory ?? "all"}`;
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      // An explicit same-topic practice handoff already owns the return card.
+      // Keep that existing path focused instead of adding a second old batch.
+      if (window.location.hash === "#selected-topic") return;
+      const previous = readTopicResult(sessionScope, localizedTopics);
+      if (!previous || (initialMode && previous.mode !== initialMode) || (initialCategory && previous.category !== initialCategory)) return;
+      const byId = new Map(localizedTopics.map(topic => [topic.id, topic]));
+      setSelectedMode(previous.mode); setSelectedCategory(previous.category); setSelectedDepth(previous.depth); setCount(previous.count);
+      setGeneratedTopics(previous.topicIds.map(id => byId.get(id)!));
+      usedStatic.current = new Set(previous.usedIds);
+      setHasGenerated(true);
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [sessionScope, localizedTopics, initialMode, initialCategory]);
   const staticPool = useMemo(() => filterTopicPool(localizedTopics, {
     mode: selectedMode, category: selectedCategory, depth: selectedDepth,
   }), [localizedTopics, selectedMode, selectedCategory, selectedDepth]);
@@ -111,6 +130,10 @@ export default function TopicGenerator({
     setGeneratedTopics(nextTopics);
     setPracticeBatch((batch) => batch + 1);
     recordRecentTopics(nextTopics);
+    if (nextTopics.length) saveTopicResult(sessionScope, {
+      topicIds: nextTopics.map(topic => topic.id), usedIds: [...usedStatic.current],
+      mode: selectedMode, category: selectedCategory, depth: selectedDepth, count,
+    });
     setIsSpinning(false);
     setHasGenerated(true);
     setCopiedAll(false);
@@ -130,7 +153,7 @@ export default function TopicGenerator({
       locale,
     });
     return nextTopics;
-  }, [selectedMode, selectedCategory, selectedDepth, count, contentSource, locale]);
+  }, [selectedMode, selectedCategory, selectedDepth, count, contentSource, locale, sessionScope]);
 
   const generate = useCallback(async () => {
     if (generating.current || !staticPool.length) return [];
@@ -245,6 +268,26 @@ export default function TopicGenerator({
 
       {/* Controls */}
       <div className="glass-card p-6 sm:p-8 lg:p-10 mb-10 space-y-7">
+        <div className="text-center">
+          <button onClick={generate} disabled={isSpinning || !staticPool.length}
+            className="btn-generate animate-pulse-glow disabled:opacity-70 w-full sm:w-auto text-lg px-10 py-4">
+            <span>{isSpinning ? "🎰" : "🎲"}</span> {isSpinning ? t.generator.spinning : t.generator.generate}
+          </button>
+          <p className="mt-3 text-sm text-[var(--text-muted)]" role="status">
+            {locale === "es" ? `${staticPool.length} temas disponibles · hasta ${Math.min(count, staticPool.length)} por selección.` : `${staticPool.length} topics available · up to ${Math.min(count, staticPool.length)} per draw.`}
+          </p>
+          {selectedMode || selectedCategory || selectedDepth ? <p className="mt-1 text-xs text-[var(--text-muted)] sm:hidden">
+            {[selectedMode && MODE_LABELS[locale][selectedMode].short, selectedCategory && CATEGORY_LABELS[locale][selectedCategory].label, selectedDepth && t.generator[DEPTH_KEYS[selectedDepth]]].filter(Boolean).join(" · ")}
+          </p> : null}
+          <button type="button" aria-expanded={showFilters} aria-controls={filtersId}
+            onClick={() => setShowFilters(value => !value)}
+            className="mt-2 min-h-11 text-sm text-[var(--neon-cyan)] underline underline-offset-4 sm:hidden">
+            {showFilters ? (locale === "es" ? "Ocultar filtros" : "Hide filters") : showModeSelector
+              ? (locale === "es" ? "Elegir modo, categoría y cantidad" : "Choose mode, category & count")
+              : (locale === "es" ? "Elegir filtros y cantidad" : "Choose filters & count")}
+          </button>
+        </div>
+        <div id={filtersId} className={`${showFilters ? "block" : "hidden sm:block"} space-y-7`}>
         {/* Mode selector */}
         {showModeSelector && (
           <div>
@@ -304,8 +347,8 @@ export default function TopicGenerator({
           </div>
         )}
 
-        {/* Depth + Count + Generate */}
-        <div className="grid grid-cols-1 lg:grid-cols-[auto_auto_1fr] items-end gap-6">
+        {/* Depth + Count */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 items-end gap-6">
           <div>
             <label className="control-label mb-2 block">{t.generator.depth}</label>
             <div className="flex flex-wrap gap-1.5">
@@ -340,6 +383,7 @@ export default function TopicGenerator({
                 <button
                   key={n}
                   onClick={() => setCount(n)}
+                  aria-pressed={count === n}
                   className={`depth-btn ${count === n ? "active" : ""}`}
                 >
                   {n}
@@ -348,30 +392,12 @@ export default function TopicGenerator({
             </div>
           </div>
 
-          {/* Generate button - full width on mobile, right-aligned on desktop */}
-          <div className="flex sm:justify-end justify-center col-span-1 sm:col-span-1">
-            <button
-              onClick={generate}
-              disabled={isSpinning || !staticPool.length}
-              className="btn-generate animate-pulse-glow disabled:opacity-70 w-full sm:w-auto text-lg px-10 py-4"
-            >
-              <motion.span
-                className="flex items-center justify-center gap-2"
-                animate={isSpinning ? { rotate: 360 } : { rotate: 0 }}
-                transition={{ duration: 0.6, ease: "linear", repeat: isSpinning ? Infinity : 0 }}
-              >
-                {isSpinning ? (
-                  <>
-                    <span>🎰</span> {t.generator.spinning}
-                  </>
-                ) : (
-                  <>
-                    <span>🎲</span> {t.generator.generate}
-                  </>
-                )}
-              </motion.span>
-            </button>
-          </div>
+        </div>
+        <div className="text-center">
+          <button type="button" onClick={generate} disabled={isSpinning || !staticPool.length}
+            className="btn-generate disabled:opacity-70 w-full sm:w-auto">
+            {locale === "es" ? "Generar con estos filtros" : "Generate with these filters"}
+          </button>
         </div>
         <div className="text-center text-sm text-[var(--text-muted)]" role="status">
           <p>{locale === "es"
@@ -381,6 +407,7 @@ export default function TopicGenerator({
             ? "Las profundidades sin temas están desactivadas. Los resultados proceden de nuestra colección en español."
             : "Instant picks from our topic collection. Broaden your filters for more options."}</p>
           {filterNotice ? <p className="mt-2 text-[var(--neon-cyan)]">{filterNotice}</p> : null}
+        </div>
         </div>
       </div>
 
