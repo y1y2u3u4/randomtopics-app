@@ -86,11 +86,13 @@ Checkout-created counts. No live payment/provider data was queried.
 - Zero real analytics, ads, paid-model, email or order requests. No shared
   desktop/browser, credentials, GA settings or user-owned untracked files used.
 
-This isolated branch starts from production commit
-`26c0877a62e0dbab7b267da588a0cc96e599ad2c`. It does not include the separate CMP
-commit `7e56598873b5111a86907854f75ffa05013ab6fa`. Apply this SEO commit to the
-intended release head when authorized; do not deploy this older-base branch
-over any subsequently released CMP work. This SEO patch is local only.
+The original audit branch started from production commit
+`26c0877a62e0dbab7b267da588a0cc96e599ad2c`; its isolated SEO commit was
+`9e5cf46679aa18aad59d880bed7b3853ae9fa485`. The subsequent local branch
+`codex/randomtopics-release-candidate-20261006` applies that SEO patch on top of
+CMP commit `7e56598873b5111a86907854f75ffa05013ab6fa`, preserving both fixes.
+This combination is local only. Neither creating this branch nor validating it
+authorizes or performs a push or deployment.
 
 After an authorized release, verify the actual production response headers,
 private-page exclusions and aliases, then inspect GSC's last crawl and indexed
