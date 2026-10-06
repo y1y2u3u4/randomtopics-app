@@ -130,9 +130,9 @@ function hasSpanishHeaderRule() {
 
 function getConfiguredHeader(path, name) {
   const matchingRules = routesManifest?.headers?.filter(
-    (candidate) => candidate.source === path || (candidate.source === "/es/:path*" && path.startsWith("/es")),
+    (candidate) => candidate.regex ? new RegExp(candidate.regex).test(path) : candidate.source === path,
   ) || [];
-  for (const rule of matchingRules) {
+  for (const rule of matchingRules.toReversed()) {
     const header = rule.headers?.find((candidate) => candidate.key.toLowerCase() === name.toLowerCase());
     if (header) return header.value;
   }
@@ -189,6 +189,10 @@ async function checkPage(check) {
     fail(`${check.path}: canonical ${canonical || "missing"}, expected ${expectedCanonical}`);
   }
   if (check.index && robots.includes("noindex")) fail(`${check.path}: unexpectedly noindexed`);
+  const headerRobots = (response.headers.get("x-robots-tag") || "").toLowerCase();
+  if (check.index && /\b(noindex|none)\b/.test(headerRobots)) {
+    fail(`${check.path}: X-Robots-Tag prevents indexing despite page metadata`);
+  }
   if (!check.index && !robots.includes("noindex")) fail(`${check.path}: expected noindex`);
   if (check.headerNoindex && !(response.headers.get("x-robots-tag") || "").toLowerCase().includes("noindex")) {
     fail(`${check.path}: expected X-Robots-Tag noindex header`);
