@@ -8,7 +8,7 @@ const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE||'
 const origin='https://randomtopics.app', backend=process.env.HISTORY_BACKEND||'http://127.0.0.1:4732';
 assert.ok(/^http:\/\/127\.0\.0\.1:\d+$/.test(backend),'Local built pages only; production traffic is never allowed');
 const output=process.env.HISTORY_EVIDENCE||'/tmp/early-history';mkdirSync(output,{recursive:true});
-const cases=JSON.parse(process.env.HISTORY_CASES||JSON.stringify([{name:'early-back-qa',hold:true,qa:true,forward:true},{name:'early-back-ad-mock',hold:true,qa:false},{name:'reverse-qa',hold:true,qa:true,start:'/speech',destination:'/'},{name:'reverse-ad-mock',hold:true,qa:false,start:'/speech',destination:'/'},{name:'band-back',hold:true,qa:true,destination:'/band-name-generator',forward:true},{name:'dragon-back',hold:true,qa:true,destination:'/dragon-name-generator',forward:true},{name:'loaded-control',hold:false,qa:true,loadedControl:true,forward:true}]));
+const cases=JSON.parse(process.env.HISTORY_CASES||JSON.stringify([{name:'before-guard-back',hold:true,qa:true,beforeGuard:true,forward:true},{name:'before-guard-reverse',hold:true,qa:true,beforeGuard:true,start:'/speech',destination:'/'},{name:'early-back-qa',hold:true,qa:true,forward:true},{name:'early-back-ad-mock',hold:true,qa:false},{name:'reverse-qa',hold:true,qa:true,start:'/speech',destination:'/'},{name:'reverse-ad-mock',hold:true,qa:false,start:'/speech',destination:'/'},{name:'band-back',hold:true,qa:true,destination:'/band-name-generator',forward:true},{name:'dragon-back',hold:true,qa:true,destination:'/dragon-name-generator',forward:true},{name:'loaded-control',hold:false,qa:true,loadedControl:true,forward:true}]));
 const browser=await chromium.launch({headless:true,chromiumSandbox:true});const results=[];
 for(const test of cases){
  const events=[],network=[],errors=[];let docs=0,held=0,delayActive=false,closing=false,phase='open';
@@ -40,7 +40,7 @@ for(const test of cases){
    if(url.origin===origin&&url.pathname==='/api/speech/ad-entitlement')return route.fulfill({contentType:'application/json',body:JSON.stringify({version:'speech-ad-v1',audience:'signed_out',adFree:false})});
    if(url.origin!==origin||url.pathname.startsWith('/api/')||req.method()!=='GET')return route.abort();
    if(req.isNavigationRequest()){docs++;network.push({event:'document-request',path:url.pathname,docs});if(url.pathname===(test.destination||'/speech')&&docs>1)delayActive=true;else delayActive=false;}
-   if(test.hold&&delayActive&&req.resourceType()==='script'){held++;network.push({event:'script-held',path:url.pathname});await gate;}
+   if(test.hold&&delayActive&&(req.resourceType()==='script'||(test.beforeGuard&&req.resourceType()==='stylesheet'))){held++;network.push({event:'script-held',path:url.pathname});await gate;}
    const response=await route.fetch({url:backend+url.pathname+url.search,maxRedirects:0,headers:{...req.headers(),host:new URL(backend).host}});
    return route.fulfill({response});
   }catch(e){if(!closing&&!/Target.*closed|Request context disposed/.test(e.message))errors.push({phase:'route',message:e.message})}
@@ -51,8 +51,8 @@ for(const test of cases){
  try{
   await page.goto(origin+(test.start||'/'),{waitUntil:'networkidle'});trace.push(await snap('start-ready'));
   const initial=await page.evaluate(()=>window.__probeInfo.id),destination=test.destination||'/speech';
-  phase='click';await page.locator(`a[href="${destination}"]:visible`).first().click();await page.waitForFunction(path=>location.pathname===path,destination);
-  phase='new-SSR';await page.waitForFunction(({initial,destination})=>window.__probeInfo.id!==initial&&window.__probeInfo.loadedPath===destination&&Boolean(document.querySelector('h1')),{initial,destination});
+  phase='click';await page.locator(`a[href="${destination}"]:visible`).first().evaluate(el=>el.click());await page.waitForFunction(path=>location.pathname===path,destination);
+  phase='new-SSR';await page.waitForFunction(({initial,destination,beforeGuard})=>window.__probeInfo.id!==initial&&window.__probeInfo.loadedPath===destination&&(beforeGuard||Boolean(document.querySelector('h1'))),{initial,destination,beforeGuard:Boolean(test.beforeGuard)});
   trace.push(await snap('new-SSR-before-back'));
   if(test.loadedControl)await page.waitForLoadState('networkidle');
   phase='early-back';await page.goBack({waitUntil:'commit'});await page.waitForFunction(path=>location.pathname===path,test.start||'/');trace.push(await snap('after-back-before-JS-release'));
@@ -83,7 +83,7 @@ for(const r of results){
  const before=r.trace.find(x=>x.label==='new-SSR-before-back');
  if(r.test.hold){assert.ok(r.held>0);assert.notEqual(before.ready,'complete');
   const early=r.events.find(x=>x.doc===before.info.id&&x.event==='popstate');
-  assert.equal(early?.nextListeners,1,'Only the inline guard is registered; Next chunks are still held');
+  assert.equal(early?.nextListeners,r.test.beforeGuard?0:1,'The traversal must precede the targeted listener; do not wait for hydration');
  }
  const after=r.trace.find(x=>x.label==='after-free-generate');
  assert.ok(after?.generatedCards>0,'Destination generator is interactive after scripts are released');
