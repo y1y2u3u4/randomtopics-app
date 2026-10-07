@@ -66,4 +66,89 @@ try{
  globalThis.fetch=async()=>Response.json(guest);await assert.rejects(()=>readSpeechAdEntitlement(auth,new AbortController().signal));checks++;
  globalThis.fetch=async()=>Response.json(guest);assert.deepEqual(await readSpeechAdEntitlement({getSession:async()=>({data:{session:null},error:null})},new AbortController().signal),guest);checks++;
 }finally{globalThis.fetch=originalFetch;}
-console.log(`PASS ${checks} paid entitlement, route, identity, timeout and lifecycle assertions; no external calls.`);
+
+// One transport retry shares the owning gate's deadline. All sessions, bodies,
+// timers and requests below are synthetic; no ad, auth or payment service runs.
+const retryAuth={getSession:async()=>({data:{session:{access_token:'SYNTHETIC',user:{id:'fixture'}}},error:null})};
+const rejectOnAbort=signal=>new Promise((resolve,reject)=>{
+ if(signal.aborted)reject(new DOMException('Aborted','AbortError'));
+ else signal.addEventListener('abort',()=>reject(new DOMException('Aborted','AbortError')),{once:true});
+});
+const originalSetTimeout=globalThis.setTimeout;
+try{
+ for(const failure of ['network',500,502,503,504]){
+  let requests=0;
+  globalThis.fetch=async()=>{requests++;if(requests===1){if(failure==='network')throw new TypeError('Synthetic network loss');return new Response(null,{status:failure})}return Response.json(free)};
+  assert.deepEqual(await readSpeechAdEntitlement(retryAuth,new AbortController().signal),free);checks++;
+  check(requests===2,'One retry recovers a transport failure: '+failure);
+ }
+ let exhausted=0;
+ globalThis.fetch=async()=>{exhausted++;throw new TypeError('Synthetic persistent network loss')};
+ await assert.rejects(()=>readSpeechAdEntitlement(retryAuth,new AbortController().signal));checks++;
+ check(exhausted===2,'Persistent network loss stops after two attempts');
+ for(const status of [400,401,403,404,429,501,505]){
+  let requests=0;globalThis.fetch=async()=>{requests++;return new Response(null,{status})};
+  await assert.rejects(()=>readSpeechAdEntitlement(retryAuth,new AbortController().signal));checks++;
+  check(requests===1,'Non-recoverable HTTP rejection does not retry: '+status);
+ }
+ for(const body of [paid,guest,{...free,version:'invalid'},null,'invalid-json','type-error-json']){
+  let requests=0;globalThis.fetch=async()=>{
+   requests++;
+   if(body==='type-error-json')return{ok:true,json:async()=>{throw new TypeError('Synthetic body decoding failure')}};
+   return body==='invalid-json'?new Response('{'):Response.json(body);
+  };
+  if(body===paid){assert.deepEqual(await readSpeechAdEntitlement(retryAuth,new AbortController().signal),paid);checks++;}
+  else{await assert.rejects(()=>readSpeechAdEntitlement(retryAuth,new AbortController().signal));checks++;}
+  check(requests===1,'Paid, malformed or wrong-audience responses do not retry');
+ }
+ let requests=0,sessionReads=0;
+ globalThis.fetch=async()=>{requests++;throw new TypeError('Synthetic network loss')};
+ const switched={getSession:async()=>({data:{session:{access_token:'SYNTHETIC',user:{id:++sessionReads===1?'first':'second'}}},error:null})};
+ await assert.rejects(()=>readSpeechAdEntitlement(switched,new AbortController().signal),/identity_changed/);checks++;
+ check(requests===1&&sessionReads===2,'A retry rechecks auth and rejects a changed identity without another request');
+ let accepts=0;requests=0;
+ await assert.rejects(()=>readSpeechAdEntitlement(retryAuth,new AbortController().signal,()=>++accepts===1),/identity_changed/);checks++;
+ check(requests===1&&accepts===2,'Identity observer can veto the retry even when session identity is unchanged');
+
+ const preAborted=new AbortController();preAborted.abort();requests=0;
+ await assert.rejects(()=>readSpeechAdEntitlement(retryAuth,preAborted.signal));checks++;
+ check(requests===0,'A parent signal already aborted cannot start a request');
+ const aborted=new AbortController();requests=0;
+ globalThis.fetch=async(url,options)=>{requests++;const waiting=rejectOnAbort(options.signal);aborted.abort();return waiting};
+ await assert.rejects(()=>readSpeechAdEntitlement(retryAuth,aborted.signal));checks++;
+ check(requests===1,'Parent abort terminates the first request and prevents a retry');
+ const between=new AbortController();requests=0;sessionReads=0;
+ globalThis.fetch=async()=>{requests++;throw new TypeError('Synthetic network loss')};
+ const abortingAuth={getSession:async()=>{if(++sessionReads===2)between.abort();return retryAuth.getSession()}};
+ await assert.rejects(()=>readSpeechAdEntitlement(abortingAuth,between.signal));checks++;
+ check(requests===1,'Parent abort during retry auth prevents the second request');
+ const lateAbort=new AbortController();requests=0;
+ globalThis.fetch=async()=>{requests++;lateAbort.abort();return Response.json(free)};
+ await assert.rejects(()=>readSpeechAdEntitlement(retryAuth,lateAbort.signal));checks++;
+ check(requests===1,'A late free response after parent abort cannot grant eligibility');
+
+ // Accelerate only production deadlines, while recording their original values.
+ const deadlines=[];let slowSecond=false,attemptDeadlines=0,gateDeadlineFires=0;
+ globalThis.setTimeout=(callback,ms,...args)=>{
+  deadlines.push(ms);
+  const delay=ms===3500?(slowSecond&&++attemptDeadlines===2?100:5):ms===8000?18:ms;
+  return originalSetTimeout(()=>{if(ms===8000)gateDeadlineFires++;callback(...args)},delay);
+ };
+ requests=0;
+ globalThis.fetch=async(url,options)=>{requests++;return requests===1?rejectOnAbort(options.signal):Response.json(free)};
+ assert.deepEqual(await readSpeechAdEntitlement(retryAuth,new AbortController().signal),free);checks++;
+ check(requests===2&&deadlines[0]===3500,'Short first transport timeout permits exactly one recovery attempt');
+
+ let transportFailure=false;requests=0;deadlines.length=0;
+ globalThis.fetch=async(url,options)=>{requests++;return transportFailure?rejectOnAbort(options.signal):Response.json(free)};
+ let retirements=0;const states=[];
+ const bounded=createSpeechAdGate({query:signal=>readSpeechAdEntitlement(retryAuth,signal),changed:state=>states.push(state),retire:()=>retirements++});
+ await bounded.refresh();check(bounded.begin(),'Confirmed free starts the runtime before the renewal fixture');
+ transportFailure=true;slowSecond=true;attemptDeadlines=0;await bounded.refresh();
+ check(retirements===1&&bounded.state==='retired'&&!bounded.mayRequest(),'Failed retry retires a loaded runtime without cached free permission');
+ check(requests===3,'Renewal exhaustion uses no more than two requests');
+ check(deadlines.filter(ms=>ms===8000).length===2,'Retries never restart or extend the gate eight-second deadline');
+ check(gateDeadlineFires===1,'Original parent deadline aborts an unfinished second request');
+ bounded.dispose();check(retirements===1,'Exhausted renewal retirement remains idempotent');
+}finally{globalThis.fetch=originalFetch;globalThis.setTimeout=originalSetTimeout;}
+console.log(`PASS ${checks} paid entitlement, route, identity, bounded retry, timeout and lifecycle assertions; no external calls.`);

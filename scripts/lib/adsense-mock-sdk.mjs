@@ -1,9 +1,12 @@
 // Local test double only; never served by the application.
 export const mockSdk=`(()=>{
- const old=window.adsbygoogle;window.__mock={prepared:old.length,requests:0,pause:old.pauseAdRequests,npa:old.requestNonPersonalizedAds,reopen:0};const m=window.__mock;
- const q={push:()=>{m.prepared++;document.querySelector('ins').dataset.adsbygoogleStatus='done'},requestNonPersonalizedAds:old.requestNonPersonalizedAds};
- Object.defineProperty(q,'pauseAdRequests',{get:()=>m.pause,set:v=>{m.pause=v;if(v===0){m.requests++;const el=document.querySelector('ins');window.__mockRdp=el.getAttribute('data-restrict-data-processing');el.dataset.adStatus='filled';el.textContent='Synthetic mock advertisement';}}});
- window.adsbygoogle=q;document.querySelector('ins').dataset.adsbygoogleStatus='done';if(window.__missingCmp)return;
+ const old=window.adsbygoogle;window.__mock={prepared:old.length,resumes:0,requests:0,pause:old.pauseAdRequests,npa:old.requestNonPersonalizedAds,reopen:0};const m=window.__mock,slots=new Set();
+ const fill=()=>{if(m.pause!==0)return;for(const el of slots){if(el.dataset.adStatus==='filled')continue;m.requests++;window.__mockRdp=el.getAttribute('data-restrict-data-processing');el.dataset.adStatus='filled';el.textContent='Synthetic mock advertisement';}};
+ const prepare=()=>{const el=[...document.querySelectorAll('ins')].find(el=>!slots.has(el));if(el){slots.add(el);el.dataset.adsbygoogleStatus='done';fill();}};
+ for(let i=0;i<old.length;i++)prepare();
+ const q={push:()=>{m.prepared++;prepare()},requestNonPersonalizedAds:old.requestNonPersonalizedAds};
+ Object.defineProperty(q,'pauseAdRequests',{get:()=>m.pause,set:v=>{const changed=m.pause!==v;m.pause=v;if(v===0){if(changed)m.resumes++;fill();}}});
+ window.adsbygoogle=q;if(window.__missingCmp)return;
  const listeners=[];window.__tcfapi=(c,v,f)=>{listeners.push(f);f(window.__consent,true)};window.__setConsent=(d,success=true)=>{window.__consent=d;listeners.forEach(f=>f(d,success))};
  const oldCallbacks=window.googlefc.callbackQueue,usCallbacks=[];const options=window.__privacyOptions||{};
  const fire=entry=>Object.entries(entry).forEach(([key,fn])=>{if(key==='INITIAL_US_STATES_OPT_OUT_DATA_READY'){usCallbacks.push(fn);if(options.missingUs||options.emptyUs||options.delayedUs)return;}fn()});

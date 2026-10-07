@@ -30,8 +30,8 @@ export function adPageAllowed(path: string) {
 }
 
 export function adConfiguration(mode: string | undefined, slot: string | undefined = ADSENSE_ARTICLE_SLOT) {
-  // This reviewed rollout includes: manual units only, Auto ads OFF, published
-  // Google CMP and reviewed regional choices. A publisher ID is not a slot ID.
+  // Keep the existing rollout flag and manual unit ID. Account-level Auto ads
+  // share this gated SDK and published CMP; a publisher ID is not a slot ID.
   return mode === "manual-public-reviewed-v1" && /^\d{6,20}$/.test(slot ?? "")
     ? { slot: slot! } : null;
 }

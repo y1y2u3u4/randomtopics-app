@@ -8,17 +8,61 @@ type Auth = Pick<SupabaseClient["auth"], "getSession" | "onAuthStateChange">;
 
 export async function readSpeechAdEntitlement(auth: Pick<Auth, "getSession">, signal: AbortSignal,
   acceptIdentity?: (identity: string | null) => boolean) {
-  const { data: { session }, error } = await auth.getSession();
-  if (error || signal.aborted) throw new Error("entitlement_unavailable");
-  if (acceptIdentity && !acceptIdentity(session?.user.id ?? null)) throw new Error("identity_changed");
-  const result = await fetch("/api/speech/ad-entitlement", {
-    method: "GET", cache: "no-store", credentials: "omit", redirect: "error", referrerPolicy: "no-referrer", signal,
-    headers: session ? { Authorization: `Bearer ${session.access_token}` } : {},
-  });
-  if (!result.ok) throw new Error("entitlement_unavailable");
-  const entitlement = parseAdEntitlement(await result.json());
-  if (entitlement.audience !== (session ? "verified_session" : "signed_out")) throw new Error("entitlement_unavailable");
-  return entitlement;
+  let identity: string | null | undefined;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    if (signal.aborted) throw new Error("entitlement_unavailable");
+    // Recheck before a retry; never send an earlier identity's credential or
+    // reinterpret a changed/failed session as a signed-out visitor.
+    const { data: { session }, error } = await auth.getSession();
+    if (error || signal.aborted) throw new Error("entitlement_unavailable");
+    const current = session?.user.id ?? null;
+    if ((identity !== undefined && identity !== current) || (acceptIdentity && !acceptIdentity(current))) {
+      throw new Error("identity_changed");
+    }
+    identity = current;
+    const request = new AbortController();
+    const abort = () => request.abort(signal.reason);
+    signal.addEventListener("abort", abort, { once: true });
+    if (signal.aborted) abort();
+    // Both attempts remain inside the gate's original eight-second signal.
+    // A shorter transport deadline leaves room for one recovery attempt.
+    const deadline = setTimeout(() => request.abort(), 3500);
+    try {
+      if (signal.aborted) throw new Error("entitlement_unavailable");
+      let result: Response;
+      try {
+        result = await fetch("/api/speech/ad-entitlement", {
+          method: "GET", cache: "no-store", credentials: "omit", redirect: "error", referrerPolicy: "no-referrer", signal: request.signal,
+          headers: session ? { Authorization: `Bearer ${session.access_token}` } : {},
+        });
+      } catch (error) {
+        // Classify only fetch transport errors. Body decoding, schema and
+        // audience failures below must never be reinterpreted as retryable.
+        if (attempt === 0 && !signal.aborted && (request.signal.aborted || error instanceof TypeError)) continue;
+        throw error;
+      }
+      if (signal.aborted || request.signal.aborted) throw new Error("entitlement_unavailable");
+      if (!result.ok) {
+        if (attempt === 0 && [500, 502, 503, 504].includes(result.status)) {
+          request.abort();
+          continue;
+        }
+        throw new Error("entitlement_unavailable");
+      }
+      const value: unknown = await result.json();
+      if (signal.aborted || request.signal.aborted) throw new Error("entitlement_unavailable");
+      const entitlement = parseAdEntitlement(value);
+      if (entitlement.audience !== (session ? "verified_session" : "signed_out")) throw new Error("entitlement_unavailable");
+      return entitlement;
+    } catch {
+      throw new Error("entitlement_unavailable");
+    } finally {
+      clearTimeout(deadline);
+      signal.removeEventListener("abort", abort);
+      request.abort();
+    }
+  }
+  throw new Error("entitlement_unavailable");
 }
 
 /** Private-origin observer. Never send its token, user ID or auth object to an ad origin. */
