@@ -1,5 +1,5 @@
 "use client";
-import { ADSENSE_CLIENT, adRetirementUrl } from "./adsense";
+import { ADSENSE_CLIENT, adRequestAllowed, adRetirementUrl } from "./adsense";
 import { advertisingConsent, type AdConsentData, type UsAdStatus } from "./adConsent";
 import { gppAdStatus, initialUsAdAvailability, readInitialUsAdStatus, type GppAdData, type UsAdApi } from "./usAdSignal";
 
@@ -20,16 +20,60 @@ declare global {
 
 let loading: Promise<void> | undefined;
 const prepared = new WeakSet<HTMLElement>();
-const requested = new WeakSet<HTMLElement>();
+const readyListeners = new Set<() => void>();
 let permitted = false, hasRequested = false;
-let retired = false;
-export function pauseAdRequests() {
+let retired = false, eligible = false, scriptReady = false, scriptFailed = false, privacyChoiceOpen = false;
+function pauseAdRequests() {
   if (window.adsbygoogle) window.adsbygoogle.pauseAdRequests = 1;
+}
+
+function contextAllowed() {
+  try {
+    return adRequestAllowed({ path: location.pathname, host: location.hostname, search: location.search,
+      qa: sessionStorage.getItem("rt_usage_qa") === "1" || sessionStorage.getItem("rt_speech_qa") === "1",
+      globalPrivacyControl: navigator.globalPrivacyControl === true });
+  } catch { return false; }
+}
+
+function mayRequest() {
+  return !retired && !scriptFailed && scriptReady && eligible && permitted && !privacyChoiceOpen &&
+    !document.hidden && contextAllowed();
+}
+
+function syncAdRequests() {
+  if (!mayRequest()) { pauseAdRequests(); return; }
+  const queue = window.adsbygoogle;
+  if (!queue) return;
+  queue.requestNonPersonalizedAds = 1;
+  // Auto ads can run before the manual slot is visible. A later entitlement
+  // refresh must be able to resume them without pushing another manual unit.
+  hasRequested = true;
+  if (queue.pauseAdRequests !== 0) queue.pauseAdRequests = 0;
+  for (const listener of readyListeners) listener();
+}
+
+export function observeAdRequestsReady(listener: () => void) {
+  readyListeners.add(listener);
+  return () => { readyListeners.delete(listener); };
+}
+
+export function setAdEligibility(allowed: boolean) {
+  eligible = allowed;
+  syncAdRequests();
+}
+
+export function showAdPrivacyChoices() {
+  // Focus/visibility callbacks may still contain the previous consent while
+  // the dialog is opening. Hold requests until its final choice arrives.
+  privacyChoiceOpen = true;
+  pauseAdRequests();
+  window.googlefc?.callbackQueue?.push({ CONSENT_API_READY: () => window.googlefc?.showRevocationMessage?.() });
 }
 
 export function retireAdDocument() {
   if (retired) return;
   retired = true;
+  eligible = false;
   permitted = false;
   pauseAdRequests();
   // Removing a slot/script tag cannot revoke an executed SDK. Replace the
@@ -45,13 +89,12 @@ export function loadAdSense() {
   queue.requestNonPersonalizedAds = 1;
   queue.pauseAdRequests = 1;
   loading = new Promise<void>((resolve, reject) => {
-    let scriptReady = false;
     let consent: AdConsentData | undefined;
     let usStatus: UsAdStatus = "unknown", gppStatus: UsAdStatus = "unavailable";
     let usResolved = false, gppSubscribed = false, tcfSubscribed = false, privacyFailed = false;
     const complete = () => {
       permitted = !retired && advertisingConsent(consent, usStatus, gppStatus) && navigator.globalPrivacyControl !== true;
-      if (!permitted && window.adsbygoogle) window.adsbygoogle.pauseAdRequests = 1;
+      syncAdRequests();
       // Dispose the complete third-party runtime after a final withdrawal.
       // Never reload while the message is open, which would interrupt choices.
       const withdrawn = navigator.globalPrivacyControl === true || usStatus === "opted-out" || gppStatus === "opted-out";
@@ -86,6 +129,7 @@ export function loadAdSense() {
           window.__tcfapi("addEventListener", 2, (data, success) => {
             consent = success ? data : undefined;
             if (!success) privacyFailed = true;
+            if (success && data?.eventStatus === "useractioncomplete") privacyChoiceOpen = false;
             complete();
           });
         } catch { consent = undefined; privacyFailed = true; }
@@ -100,7 +144,7 @@ export function loadAdSense() {
       complete();
     } });
     // GPC has no standard change event. Recheck at focus/visibility boundaries;
-    // requestAd also checks it immediately before its only possible release.
+    // Every resume and manual push also checks it immediately before release.
     window.addEventListener("focus", complete);
     document.addEventListener("visibilitychange", complete);
     // Initialize the existing published Google message independently. The
@@ -125,35 +169,26 @@ export function loadAdSense() {
     script.crossOrigin = "anonymous";
     script.referrerPolicy = "no-referrer";
     script.setAttribute("data-privacy-treatments", "disablePersonalization");
-    script.setAttribute("data-rt-adsense", "manual-public-v1");
+    // Apply the same RDP treatment to Auto ads before a manual unit is pushed.
+    script.setAttribute("data-restrict-data-processing", "1");
+    script.setAttribute("data-rt-adsense", "reviewed-public-v1");
     script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
-    const timeout = window.setTimeout(() => reject(new Error("Advertising unavailable")), 10000);
-    script.onload = () => { window.clearTimeout(timeout); scriptReady = true; complete(); };
-    script.onerror = () => { window.clearTimeout(timeout); reject(new Error("Advertising unavailable")); };
+    const fail = () => { scriptFailed = true; pauseAdRequests(); reject(new Error("Advertising unavailable")); };
+    const timeout = window.setTimeout(fail, 10000);
+    script.onload = () => { window.clearTimeout(timeout); if (!scriptFailed) { scriptReady = true; complete(); } };
+    script.onerror = () => { window.clearTimeout(timeout); fail(); };
     document.head.appendChild(script);
   });
   return loading;
 }
 
-export function requestAd(element: HTMLElement) {
-  if (retired || !permitted || navigator.globalPrivacyControl === true || !element.isConnected || !prepared.has(element) || element.getAttribute("data-restrict-data-processing") !== "1" || requested.has(element) || element.offsetWidth < 300 || element.offsetHeight < 250) return;
-  // Mark before unpausing: a failure must not cause a refresh/retry loop or another
-  // request on React StrictMode's repeated effects.
-  requested.add(element);
-  if (window.adsbygoogle) {
-    window.adsbygoogle.requestNonPersonalizedAds = 1;
-    window.adsbygoogle.pauseAdRequests = 0;
-    hasRequested = true;
-  }
-}
-
 export function prepareAd(element: HTMLElement) {
-  if (retired || !element.isConnected || element.getAttribute("data-restrict-data-processing") !== "1" || prepared.has(element) || element.dataset.adsbygoogleStatus || element.offsetWidth < 300 || element.offsetHeight < 250) return;
+  if (!mayRequest() || !element.isConnected || element.getAttribute("data-restrict-data-processing") !== "1" || prepared.has(element) || element.dataset.adsbygoogleStatus || element.offsetWidth < 300 || element.offsetHeight < 250) return;
   const queue: AdQueue = window.adsbygoogle ??= [];
   queue.requestNonPersonalizedAds = 1;
-  queue.pauseAdRequests = 1;
   prepared.add(element);
-  // Google's documented pause-before-push flow prepares the slot without an
-  // ad request. The CMP starts independently; requestAd alone unpauses.
-  queue.push({});
+  // The shared runtime already checked both gates. Do not pause working Auto
+  // ads when this manual slot finally enters the viewport, or refresh the unit.
+  try { queue.push({}); }
+  catch { /* A blocked/failed unit stays once-only and cannot interrupt content. */ }
 }
