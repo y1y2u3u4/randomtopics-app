@@ -9,6 +9,8 @@ const routesManifest = buildDir
   : null;
 
 const checks = [
+  { path: "/band-name-generator", index: true, canonical: "/band-name-generator", titleMax: 70, titleHas: "Band Name Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["Seed word (optional)", "Avoid words or phrases (optional)", "Your shortlist", "Indie &amp; alternative", "How this collection was made", 'href="/dragon-name-generator"'], bodyOccurrences: [{ needle: 'data-name-example=', exact: 108 }] },
+  { path: "/dragon-name-generator", index: true, canonical: "/dragon-name-generator", titleMax: 70, titleHas: "Dragon Name Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["Include a dragon title", "Suggested pronunciation", "creative story settings", "not translations", 'href="/country-name-generator"', 'href="/band-name-generator"'], bodyOccurrences: [{ needle: 'data-name-example=', exact: 48 }] },
   { path: "/yo-mama-randomizer", index: true, canonical: "/yo-mama-randomizer", titleMax: 65, titleHas: "Yo Mama Randomizer — Clean Jokes & Text Remixes", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["Original text jokes", "clean yo mama jokes", "possible text pairings", "not a video player or clip mixer", "New setup", "New ending", "yo momma", 'href="/funny"', 'href="/funny-question-of-the-day"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'data-yo-mama-joke=', exact: 72 }, { needle: 'data-remix-setup=', exact: 24 }, { needle: 'data-remix-ending=', exact: 24 }] },
   { path: "/charades", index: true, canonical: "/charades", titleHas: "Charades Generator — Random Charades Words with Timer & Categories", bodyHas: ["All 528 Charades Words by Category", "Start round", "Browse all", 'id="charades-word-bank"', 'href="#charades-generator"'], bodyOccurrences: [{ needle: 'data-charades-word="true"', exact: 528 }], bodyNotHas: ["timer starts automatically", "490+ words"] },
   { path: "/es/conversation", index: true, canonical: "/es/conversation", titleHas: "Generador de Temas de Conversación", es: true, bodyHas: ["320 temas disponibles", "Las profundidades sin temas están desactivadas", "12 temas para hablar", "Para seguir la conversación", 'href="#preguntas-para-conversar"', 'id="colecciones-conversacion"'], bodyOccurrences: [{ needle: 'data-conversation-example="true"', exact: 12 }], bodyNotHas: ["activar la generación con IA", "prácticamente ilimitados"] },
@@ -272,6 +274,8 @@ async function checkSitemap() {
   if (new Set(urls).size !== urls.length) fail("sitemap: duplicate URLs detected");
 
   for (const path of [
+    "/band-name-generator",
+    "/dragon-name-generator",
     "/yo-mama-randomizer",
     "/writing/philosophy",
     "/writing/psychology",

@@ -94,6 +94,8 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/random-object-generator",
   "/random-state-generator",
   "/country-name-generator",
+  "/band-name-generator",
+  "/dragon-name-generator",
   "/random-learning-topic-generator",
   "/writing-topic-generator",
   "/research-topic-generator",
