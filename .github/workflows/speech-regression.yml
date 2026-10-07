@@ -5,6 +5,12 @@ on:
       - 'src/lib/speech/**'
       - 'src/app/api/speech/**'
       - 'src/components/Speech*.tsx'
+      - 'src/lib/adsense*.ts'
+      - 'src/lib/adConsent.ts'
+      - 'src/lib/usAdSignal.ts'
+      - 'src/components/ArticleAdvertisement.tsx'
+      - 'scripts/adsense-*.mjs'
+      - 'scripts/us-ad-signal-regression.mjs'
       - 'scripts/speech-*.mjs'
       - 'scripts/lib/load-typescript.mjs'
       - 'package*.json'
@@ -15,6 +21,12 @@ on:
       - 'src/lib/speech/**'
       - 'src/app/api/speech/**'
       - 'src/components/Speech*.tsx'
+      - 'src/lib/adsense*.ts'
+      - 'src/lib/adConsent.ts'
+      - 'src/lib/usAdSignal.ts'
+      - 'src/components/ArticleAdvertisement.tsx'
+      - 'scripts/adsense-*.mjs'
+      - 'scripts/us-ad-signal-regression.mjs'
       - 'scripts/speech-*.mjs'
       - 'scripts/lib/load-typescript.mjs'
       - 'package*.json'
@@ -36,4 +48,5 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm run speech:test
       - run: npm run billing:test
+      - run: npm run ads:test
       - run: npx eslint src/lib/speech/server.ts src/lib/speech/diagnostics.ts scripts/speech-transcription-regression.mjs
