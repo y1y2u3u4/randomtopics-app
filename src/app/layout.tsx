@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import AdDocumentBoundary from "@/components/AdDocumentBoundary";
 import { adConfiguration } from "@/lib/adsense";
+import { initialHistoryGuardScript } from "@/lib/initialHistoryGuard";
 import AnalyticsPageView from "@/components/AnalyticsPageView";
 import ClarityReplay from "@/components/ClarityReplay";
 import AnalyticsDiagnostics from "@/components/AnalyticsDiagnostics";
@@ -91,6 +92,8 @@ export default function RootLayout({
       className={`${outfit.variable} ${jakarta.variable}`}
     >
       <head>
+        {/* Must run before deferred framework scripts: Back can precede hydration. */}
+        <script id="initial-history-guard" dangerouslySetInnerHTML={{ __html: initialHistoryGuardScript }} />
         {/* Root layouts cannot vary the html lang attribute by pathname without
             making every route dynamic. Set it before hydration; /es also sends
             Content-Language: es and inherits lang="es" from its nested layout. */}
