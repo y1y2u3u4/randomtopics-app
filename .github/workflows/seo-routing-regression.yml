@@ -39,3 +39,14 @@ jobs:
       - run: node scripts/seo-routing-regression.mjs
       - run: npx eslint 'src/app/es/categories/[category]/page.tsx' scripts/seo-routing-regression.mjs
       - run: npx tsc --noEmit
+      - run: npm run build
+      - name: Verify HTTP routes and permanent redirects on the built app
+        run: |
+          npm run start -- --hostname 127.0.0.1 > /tmp/seo-routing-next.log 2>&1 &
+          next_pid=$!
+          trap 'kill "$next_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --silent --fail http://127.0.0.1:3000/sitemap.xml > /dev/null; then break; fi
+            sleep 1
+          done
+          SEO_BASE_URL=http://127.0.0.1:3000 node scripts/seo-routing-regression.mjs
