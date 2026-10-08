@@ -155,3 +155,49 @@ for (const [source, destination] of [
 console.log("SEO routing regression passed: " + CATEGORIES.length + " rendered Spanish categories, " +
   renderedLinks + " rendered links, " + sitemap.length + " sitemap URLs, " +
   alternates + " alternates, 3 legacy redirect rules. No production HTTP/GSC assertions.");
+
+if (process.env.SEO_BASE_URL) {
+  const base = new URL(process.env.SEO_BASE_URL);
+  assert.ok(["127.0.0.1", "localhost"].includes(base.hostname),
+    "HTTP regression must target a local test server, not production");
+  const get = (path) => fetch(new URL(path, base), {
+    redirect: "manual", signal: AbortSignal.timeout(15000),
+  });
+  const sitemapResponse = await get("/sitemap.xml");
+  assert.equal(sitemapResponse.status, 200, "HTTP sitemap");
+  const xml = await sitemapResponse.text();
+  const published = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+  assert.deepEqual(published, [...urls.keys()], "HTTP sitemap differs from source inventory");
+  for (const entry of sitemap) {
+    const response = await get(new URL(entry.url).pathname);
+    assert.equal(response.status, 200, "HTTP sitemap URL: " + entry.url);
+    await response.text();
+  }
+  for (const [source, destination] of [
+    ["/article/deep-philosophical-questions", "/topics/deep-philosophical-questions"],
+    ["/topic-generator", "/"],
+    ["/es/topic-generator", "/es"],
+  ]) {
+    const response = await get(source + "?utm_source=routing-regression");
+    assert.ok([301, 308].includes(response.status), "HTTP permanent redirect: " + source);
+    const location = new URL(response.headers.get("location"), base);
+    assert.equal(location.pathname, destination, "HTTP redirect destination: " + source);
+    assert.equal(location.searchParams.get("utm_source"), "routing-regression",
+      "HTTP redirect dropped query parameters: " + source);
+    const target = await get(location.pathname + location.search);
+    assert.equal(target.status, 200, "HTTP redirect target: " + destination);
+    await target.text();
+  }
+  for (const path of [...brokenPaths, "/topics/nonexistent-seo-regression-slug"]) {
+    const response = await get(path);
+    assert.equal(response.status, 404, "Nonexistent route should remain 404: " + path);
+    await response.text();
+  }
+  const legacyMissing = await get("/article/nonexistent-seo-regression-slug");
+  assert.ok([301, 308].includes(legacyMissing.status));
+  assert.equal(new URL(legacyMissing.headers.get("location"), base).pathname,
+    "/topics/nonexistent-seo-regression-slug");
+  console.log("HTTP routing regression passed: " + sitemap.length +
+    " sitemap URLs return 200; 3 permanent redirects preserve queries and end at 200; " +
+    "nonexistent pages remain 404. Test server only, no production/GSC assertion.");
+}
