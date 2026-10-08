@@ -1,0 +1,52 @@
+name: SEO routing regression
+on:
+  pull_request:
+    paths:
+      - 'src/app/**'
+      - 'src/data/**'
+      - 'src/i18n/**'
+      - 'next.config.ts'
+      - 'scripts/seo-routing-regression.mjs'
+      - 'scripts/lib/load-typescript.mjs'
+      - 'package*.json'
+      - '.github/workflows/seo-routing-regression.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/app/**'
+      - 'src/data/**'
+      - 'src/i18n/**'
+      - 'next.config.ts'
+      - 'scripts/seo-routing-regression.mjs'
+      - 'scripts/lib/load-typescript.mjs'
+      - 'package*.json'
+      - '.github/workflows/seo-routing-regression.yml'
+permissions:
+  contents: read
+jobs:
+  routing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node scripts/seo-routing-regression.mjs
+      - run: npx eslint 'src/app/es/categories/[category]/page.tsx' scripts/seo-routing-regression.mjs
+      - run: npx tsc --noEmit
+      - run: npm run build
+      - name: Verify HTTP routes and permanent redirects on the built app
+        run: |
+          npm run start -- --hostname 127.0.0.1 > /tmp/seo-routing-next.log 2>&1 &
+          next_pid=$!
+          trap 'kill "$next_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --silent --fail http://127.0.0.1:3000/sitemap.xml > /dev/null; then break; fi
+            sleep 1
+          done
+          SEO_BASE_URL=http://127.0.0.1:3000 node scripts/seo-routing-regression.mjs

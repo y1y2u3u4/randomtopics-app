@@ -8,7 +8,7 @@ import type { Category } from "@/data/types";
 import { categorySeoContentEs } from "@/data/categorySeoContent.es";
 import { categoryToArticles } from "@/data/internalLinks";
 import { MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
-import { hreflangAlternates, SITE_URL } from "@/i18n/config";
+import { hreflangAlternates, localeCounterpartPath, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 
 interface CategoryPageProps {
@@ -39,7 +39,12 @@ export default async function CategoryPageEs({ params }: CategoryPageProps) {
   const catL = CATEGORY_LABELS.es[category as Category];
   const label = catL?.label ?? "Temas";
   const seoContent = categorySeoContentEs[category as Category];
-  const related = categoryToArticles[category];
+  // Do not invent /es mirrors for English-only collections. Resolve custom
+  // Spanish slugs through the same mapping as the sitemap and locale switcher.
+  const related = (categoryToArticles[category] ?? []).flatMap((article) => {
+    const href = localeCounterpartPath(article.href, "es");
+    return href ? [{ ...article, href }] : [];
+  });
 
   return (
     <>
@@ -102,7 +107,7 @@ export default async function CategoryPageEs({ params }: CategoryPageProps) {
               </div>
             </section>
 
-            {related && (
+            {related.length > 0 && (
               <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
                 <div className="glass-card p-8 sm:p-10">
                   <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-4" style={{ fontFamily: "var(--font-display)" }}>
@@ -112,7 +117,7 @@ export default async function CategoryPageEs({ params }: CategoryPageProps) {
                     {related.map((article, i) => (
                       <Link
                         key={i}
-                        href={`/es${article.href}`}
+                        href={article.href}
                         className="text-sm p-3 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
                       >
                         {article.title} →
