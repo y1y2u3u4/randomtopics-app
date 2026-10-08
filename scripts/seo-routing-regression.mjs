@@ -57,13 +57,13 @@ const code = ts.transpileModule(readFileSync(resolve(root, pageFile), "utf8"), {
     esModuleInterop: true,
   },
 }).outputText;
-const module = { exports: {} };
+const loadedPage = { exports: {} };
 new Function("require", "module", "exports", code)((id) => {
   if (Object.hasOwn(overrides, id)) return overrides[id];
   if (id.startsWith("@/")) return read("src/" + id.slice(2) + ".ts");
   return require(id);
-}, module, module.exports);
-const CategoryPage = module.exports.default;
+}, loadedPage, loadedPage.exports);
+const CategoryPage = loadedPage.exports.default;
 const renderCategory = async (category) => renderToStaticMarkup(
   await CategoryPage({ params: Promise.resolve({ category }) }),
 );
