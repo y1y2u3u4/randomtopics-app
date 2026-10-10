@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -159,6 +160,8 @@ export default function PremiumCollectionPage({ config }: { config: PremiumColle
             {config.disclaimer && <p className="mt-5 rounded-xl border border-[var(--neon-pink)]/20 bg-[rgba(255,45,120,0.04)] p-4 text-xs leading-relaxed text-[var(--text-muted)]">{config.disclaimer}</p>}
           </div>
         </section>
+
+        <PublicAdPlacement path={config.path} />
 
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-10">
           <div className="glass-card p-7 sm:p-9">

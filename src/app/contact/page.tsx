@@ -29,7 +29,7 @@ const reasons = [
   {
     emoji: "🔒",
     title: "Privacy questions",
-    body: "Questions about cookies, advertising or your data, including GDPR and CCPA requests. We hold no accounts and no personal data, but we will answer any request.",
+    body: "Questions about cookies, analytics, a speech account or saved practice, including access, correction and deletion requests. Describe the relevant account or record; do not send passwords, private recordings or full payment details.",
   },
 ];
 
@@ -64,7 +64,7 @@ export default function ContactPage() {
             <p>
               <a
                 href="mailto:zhanggongqing1314007@gmail.com"
-                className="text-xl font-semibold text-[var(--accent-blue)] hover:underline"
+                className="break-all text-xl font-semibold text-[var(--accent-blue)] hover:underline"
               >
                 zhanggongqing1314007@gmail.com
               </a>

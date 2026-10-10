@@ -15,6 +15,7 @@ declare global {
     dataLayer?: unknown[];
     clarity?: ((...args: unknown[]) => void) & { q?: unknown[][] };
     __rtReplayActive?: boolean;
+    __rtClarityLoaded?: boolean;
   }
 }
 
@@ -39,6 +40,11 @@ export function track(eventName: string, params?: GtagParams): void {
       const derived = coreUsageEvents(window.location.pathname, rawName, params ?? {}, lazyStorage("localStorage"), lazyStorage("sessionStorage"), Date.now(), qa);
       const eventParams = {
         ...params,
+        // Derive these at the transport boundary, never trust caller overrides.
+        // Preserve existing QA names so historical reports remain comparable.
+        schema_version: "1",
+        environment: isProductionHost(window.location.hostname) ? "production" : "local_preview",
+        is_test: qa || !isProductionHost(window.location.hostname),
         // Query strings on /share may contain user-selected topic text. Keep
         // analytics useful without sending that content to GA4.
         page_path: window.location.pathname,
@@ -50,15 +56,27 @@ export function track(eventName: string, params?: GtagParams): void {
       // Preview QA stays local; never send test sessions to the production property.
       for (const name of [rawName, ...derived]) {
         const measuredName = `${qa ? "qa_" : ""}${name}`;
-        if (!isProductionHost(window.location.hostname) || usageQa) {
-          window.dispatchEvent(new CustomEvent("rt:analytics", { detail: { event: measuredName, params: eventParams } }));
-        }
+        const diagnose = (stage: "constructed" | "dispatch_called" | "dispatch_error") => {
+          if (isProductionHost(window.location.hostname) && !qa) return;
+          try {
+            window.dispatchEvent(new CustomEvent("rt:analytics", { detail: {
+              event: measuredName, params: eventParams, stage,
+              ...(stage === "dispatch_error" ? { error_code: "dispatch_exception" } : {}),
+            } }));
+          } catch { /* Diagnostics must not suppress the actual event. */ }
+        };
+        diagnose("constructed");
         if (!isProductionHost(window.location.hostname)) continue;
-        if (!window.gtag) {
-          window.dataLayer ??= [];
-          window.gtag = (...args) => { window.dataLayer!.push(args); };
+        try {
+          if (!window.gtag) {
+            window.dataLayer ??= [];
+            window.gtag = (...args) => { window.dataLayer!.push(args); };
+          }
+          window.gtag("event", measuredName, eventParams);
+          diagnose("dispatch_called");
+        } catch {
+          diagnose("dispatch_error");
         }
-        window.gtag("event", measuredName, eventParams);
       }
     }
   } catch {

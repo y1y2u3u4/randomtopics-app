@@ -1,4 +1,5 @@
 import RandomGeneratorsGroup from "@/components/generators/RandomGeneratorsGroup";
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import { SelectedTopicPractice } from "@/components/TopicHandoff";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -37,20 +38,41 @@ export default function Home() {
 
         {/* Search intent handoff: each tool has its own filters and result shape,
             so broad homepage authority can flow to the task-specific page. */}
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
-          <h2 className="text-sm font-bold text-[var(--text-primary)] mb-3">Choose what the topic is for</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10" aria-labelledby="tools-by-task">
+          <h2 id="tools-by-task" className="text-sm font-bold text-[var(--text-primary)] mb-4">Choose a tool for your task</h2>
+          <div className="space-y-5">
             {[
-              { emoji: "🧠", label: "Learn Something", detail: "Subject + difficulty", href: "/random-learning-topic-generator" },
-              { emoji: "✍️", label: "Writing Topic Generator", detail: "Essay, journal, fiction", href: "/writing-topic-generator" },
-              { emoji: "🔎", label: "Research It", detail: "Question + scope note", href: "/research-topic-generator" },
-              { emoji: "📊", label: "Present It", detail: "Audience + slide angle", href: "/presentation-topic-generator" },
-            ].map((tool) => (
-              <Link key={tool.href} href={tool.href} className="glass-card p-4 hover:border-[var(--neon-pink)]/30 transition-all group">
-                <span className="text-2xl" aria-hidden="true">{tool.emoji}</span>
-                <p className="text-sm font-bold text-[var(--text-primary)] mt-2 group-hover:text-[var(--neon-pink)]">{tool.label}</p>
-                <p className="text-xs text-[var(--text-muted)] mt-1">{tool.detail}</p>
-              </Link>
+              { heading: "Writing & speaking", tools: [
+                { emoji: "✍️", label: "Writing Topic Generator", detail: "Essay, journal, fiction", href: "/writing-topic-generator" },
+                { emoji: "🎤", label: "Speech Practice", detail: "Topics + a practice timer", href: "/speech" },
+                { emoji: "🔎", label: "Research It", detail: "Question + scope note", href: "/research-topic-generator" },
+                { emoji: "📊", label: "Present It", detail: "Audience + slide angle", href: "/presentation-topic-generator" },
+              ] },
+              { heading: "Names & places", tools: [
+                { emoji: "🎸", label: "Band Names", detail: "Music style + your seed word", href: "/band-name-generator" },
+                { emoji: "🐉", label: "Dragon Names", detail: "Fantasy names + story titles", href: "/dragon-name-generator" },
+                { emoji: "🏰", label: "Country Names", detail: "Fictional worldbuilding", href: "/country-name-generator" },
+                { emoji: "🗺️", label: "Random US State", detail: "50 states + capitals", href: "/random-state-generator" },
+              ] },
+              { heading: "More ideas", tools: [
+                { emoji: "🧠", label: "Learn Something", detail: "Subject + difficulty", href: "/random-learning-topic-generator" },
+                { emoji: "🎨", label: "Drawing Ideas", detail: "Subject + sketch tip", href: "/random-drawing-generator" },
+                { emoji: "📦", label: "Random Objects", detail: "Everyday physical things", href: "/random-object-generator" },
+                { emoji: "😄", label: "Yo Mama Randomizer", detail: "Clean text jokes + remixes", href: "/yo-mama-randomizer" },
+              ] },
+            ].map((group) => (
+              <div key={group.heading}>
+                <h3 className="text-sm font-semibold text-[var(--text-secondary)] mb-2">{group.heading}</h3>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                  {group.tools.map((tool) => (
+                    <Link key={tool.href} href={tool.href} className="glass-card p-4 hover:border-[var(--neon-pink)]/30 transition-all group">
+                      <span className="text-2xl" aria-hidden="true">{tool.emoji}</span>
+                      <p className="text-sm font-bold text-[var(--text-primary)] mt-2 group-hover:text-[var(--neon-pink)]">{tool.label}</p>
+                      <p className="text-xs text-[var(--text-muted)] mt-1">{tool.detail}</p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </section>
@@ -72,6 +94,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <PublicAdPlacement path="/" />
 
         {/* Put proven search intents one click from the homepage. These are
             task-distinct tools, not keyword-variant landing pages. */}

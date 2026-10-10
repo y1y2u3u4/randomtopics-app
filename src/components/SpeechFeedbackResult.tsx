@@ -93,7 +93,7 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
     trackSpeech("speech_feedback_reason", { content_source: contentSource, attempt, purpose, reason: value });
     trackSpeech(SPEECH_REASON_EVENTS[value], { content_source: contentSource, attempt, purpose });
   };
-  return <section className="space-y-4" aria-label="Your feedback">
+  return <section data-clarity-mask="true" className="space-y-4" aria-label="Your feedback">
     <SpeechRoundSteps step={repeated ? 4 : 2} />
     {purpose !== "unspecified" && <p className="text-xs text-[var(--text-muted)]">Your purpose: {purposeLabels[purpose]}</p>}
     <h4 ref={heading} className="text-xl font-semibold" tabIndex={-1}>

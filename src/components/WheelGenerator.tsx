@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { track } from "@/lib/track";
 import { motion, AnimatePresence } from "framer-motion";
 import { CATEGORIES, Category, Mode } from "@/data/types";
@@ -11,6 +11,8 @@ import { drawUnseen } from "@/lib/topicPool";
 import type { Topic } from "@/data/types";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { getDict, CATEGORY_LABELS } from "@/i18n/dictionaries";
+import { readTopicResult, saveTopicResult } from "@/lib/topicResultSession";
+import { recordRecentTopics } from "@/lib/topicLibrary";
 
 interface WheelGeneratorProps {
   /** Optional mode preset — when set, landed topics are filtered to this mode. */
@@ -45,6 +47,20 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
   const [landedCat, setLandedCat] = useState<Category | null>(null);
   const usedTopics = useRef(new Set<string>());
   const pendingWinner = useRef<number | null>(null);
+  const sessionScope = `${locale}:wheel:${mode ?? "all"}`;
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const topics = getLocalizedTopics(locale);
+      const previous = readTopicResult(sessionScope, topics);
+      if (!previous || previous.mode !== mode || previous.topicIds.length !== 1) return;
+      const topic = topics.find(topic => topic.id === previous.topicIds[0])!;
+      setResult(topic); setLandedCat(topic.category);
+      // Restore the selected segment without replaying the spin or its events.
+      setRotation((360 - (CATEGORIES.findIndex(category => category.id === topic.category) * SEG + SEG / 2)) % 360);
+      usedTopics.current = new Set(previous.usedIds);
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [locale, mode, sessionScope]);
 
   const spin = useCallback(() => {
     if (spinning || pendingWinner.current !== null) return;
@@ -87,6 +103,10 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
     const picked = draw.picked[0] || null;
 
     setResult(picked);
+    if (picked) {
+      recordRecentTopics([picked]);
+      saveTopicResult(sessionScope, { topicIds: [picked.id], usedIds: [...usedTopics.current], mode, category: cat, depth: null, count: 1 });
+    }
     setSpinning(false);
     track(picked ? "spin_success" : "spin_error", {
       tool_type: "topic_wheel",
@@ -96,11 +116,11 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
       result_source: "editorial_pool",
       locale,
     });
-  }, [mode, locale]);
+  }, [mode, locale, sessionScope]);
 
   return (
-    <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20">
-      <div className="text-center mb-10">
+    <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 sm:pt-20">
+      <div className="text-center mb-6 sm:mb-10">
         <h1
           className="section-heading text-4xl sm:text-6xl font-extrabold mb-4"
           style={{ fontFamily: "var(--font-display)" }}
@@ -129,7 +149,7 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
 
           <motion.div
             animate={{ rotate: rotation }}
-            transition={{ duration: 4.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: spinning ? 4.2 : 0, ease: [0.16, 1, 0.3, 1] }}
             onAnimationComplete={() => {
               if (spinning) onComplete();
             }}

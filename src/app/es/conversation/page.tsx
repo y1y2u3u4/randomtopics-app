@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -253,6 +254,8 @@ export default function ConversationPageEs() {
             </div>
           </div>
         </section>
+        <PublicAdPlacement path="/es/conversation" />
+
       </main>
       <Footer locale="es" />
     </>

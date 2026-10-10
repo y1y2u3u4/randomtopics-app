@@ -19,7 +19,7 @@ export async function speechClient() {
   return (client ??= createClient(config.url, config.key));
 }
 async function speechConfiguration() {
-  configuration ??= fetch("/api/speech/config", { cache: "no-store" }).then(async res => {
+  configuration ??= fetch("/api/speech/config", { cache: "no-store", signal: AbortSignal.timeout(15000) }).then(async res => {
     const config = await res.json();
     if (!res.ok || !config.url || !config.key) throw new Error("Practice feedback is not available yet.");
     return config as { url: string; key: string; billingAvailable: boolean };

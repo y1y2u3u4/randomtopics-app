@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -247,6 +248,8 @@ export default function ConversationPage() {
             </div>
           </div>
         </section>
+        <PublicAdPlacement path="/conversation" />
+
         <EditorsPicks
           heading="Conversation Starters with Talking Points"
           intro="Eight picks from the conversation pool, spread across Light, Medium, and Deep. Each shows the talking points our editors attached — copy one for your next dinner, date, or meeting, or save it for later."

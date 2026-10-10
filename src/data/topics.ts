@@ -15,7 +15,7 @@ export const topics: Topic[] = [
     category: "science",
     modes: ["conversation", "writing"],
     depth: "medium",
-    talkingPoints: ["REM sleep mechanics", "Common dream symbols", "Lucid dreaming techniques"],
+    talkingPoints: ["Dream recall and observation", "Questions that need sleep research", "Limits of interpreting a single dream"],
   },
   {
     id: "t003",
@@ -4096,5 +4096,75 @@ export const topics: Topic[] = [
     modes: ["debate", "conversation"],
     depth: "medium",
     talkingPoints: ["Dopamine hijacking", "Design ethics", "Digital minimalism movement"],
+  },
+  {
+    "id": "t513",
+    "text": "Write a scene in which a small interruption changes what someone notices",
+    "category": "psychology",
+    "modes": [
+      "writing"
+    ],
+    "depth": "light",
+    "talkingPoints": [
+      "One concrete interruption",
+      "What is missed before and noticed after",
+      "A possible explanation, without diagnosing the character"
+    ]
+  },
+  {
+    "id": "t514",
+    "text": "Describe a habit from the point of view of someone trying to change it",
+    "category": "psychology",
+    "modes": [
+      "writing"
+    ],
+    "depth": "medium",
+    "talkingPoints": [
+      "The situation that starts the routine",
+      "An attempted change and an unexpected obstacle",
+      "What a single attempt can and cannot show"
+    ]
+  },
+  {
+    "id": "t515",
+    "text": "Write two accounts of the same event from people who remember it differently",
+    "category": "psychology",
+    "modes": [
+      "writing"
+    ],
+    "depth": "medium",
+    "talkingPoints": [
+      "Shared details and conflicting details",
+      "Reasons each narrator trusts their version",
+      "What evidence could clarify the disagreement"
+    ]
+  },
+  {
+    "id": "t516",
+    "text": "Explore belonging through a character entering an unfamiliar group",
+    "category": "psychology",
+    "modes": [
+      "writing"
+    ],
+    "depth": "light",
+    "talkingPoints": [
+      "One visible group custom",
+      "The difference between observation and assumption",
+      "A small action that changes the interaction"
+    ]
+  },
+  {
+    "id": "t517",
+    "text": "Argue when confidence is helpful and when it should give way to doubt",
+    "category": "psychology",
+    "modes": [
+      "writing"
+    ],
+    "depth": "deep",
+    "talkingPoints": [
+      "A specific decision and its stakes",
+      "Confidence based on evidence versus familiarity",
+      "A condition that would justify changing your mind"
+    ]
   },
 ];

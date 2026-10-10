@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -154,6 +155,8 @@ export default function SpinTheWheelPageEs() {
             </div>
           </div>
         </section>
+        <PublicAdPlacement path="/es/spin-the-wheel" />
+
       </main>
       <Footer locale="es" />
     </>

@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import QuestionScenarioLinks from "@/components/QuestionScenarioLinks";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -136,6 +137,8 @@ export default function QuestionGeneratorPage() {
             </div>
           </div>
         </section>
+        <PublicAdPlacement path="/question-generator" />
+
       </main>
       <Footer />
     </>

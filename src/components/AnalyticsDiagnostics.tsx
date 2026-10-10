@@ -13,7 +13,8 @@ export default function AnalyticsDiagnostics() {
     return () => { cancelAnimationFrame(frame); window.removeEventListener("rt:analytics", receive); };
   }, []);
   return show ? <details className="m-4 rounded-xl border border-amber-400/30 p-4" open>
-    <summary>Measurement QA · test events use qa_ names · {events.length} recent events</summary>
+    <summary>Measurement QA · test events use qa_ names · {events.length} recent status records</summary>
+    <p className="text-xs">constructed: local payload only. dispatch_called: gtag returned, possibly queued. dispatch_error: gtag threw. None confirms server receipt.</p>
     <pre className="max-h-60 overflow-auto whitespace-pre-wrap text-xs" aria-label="Preview analytics events">{JSON.stringify(events, null, 2)}</pre>
   </details> : null;
 }

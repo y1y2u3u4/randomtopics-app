@@ -116,7 +116,7 @@ export default function SpeechPracticePanel({ topics, contentSource }: { topics:
     }));
   };
   return (
-    <section id="speech-practice" className="glass-card mb-12 p-5 sm:p-7" aria-labelledby="speech-practice-heading">
+    <section data-clarity-mask="true" id="speech-practice" className="glass-card mb-12 p-5 sm:p-7" aria-labelledby="speech-practice-heading">
       <h2 id="speech-practice-heading" className="text-xl font-bold">Turn your topic into a short speech</h2>
       <p className="mb-5 mt-2 text-sm text-[var(--text-muted)]">Start the timer and speak. Afterward, choose one thing to improve and try again. PREP notes are optional.</p>
       {topics.length > 1 ? (

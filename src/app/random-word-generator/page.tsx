@@ -56,6 +56,7 @@ export default function RandomWordGeneratorPage() {
       updated="2026-10-10"
       faq={FAQ}
       related={[
+        { href: "/random-drawing-generator", label: "Random drawing generator" },
         { href: "/charades", label: "Charades generator" },
         { href: "/writing", label: "Writing prompt generator" },
         { href: "/random-letter-generator", label: "Random letter generator" },
@@ -80,7 +81,7 @@ export default function RandomWordGeneratorPage() {
           </ul>
           <SectionTitle>Ideas for random words</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Pictionary</strong> — drawable + easy, one word per turn; for acting rounds use the <Link href="/charades" className={linkClass}>charades generator</Link>.</li>
+            <li><strong>Pictionary</strong> — drawable + easy, one word per turn; for solo sketch practice try the <Link href="/random-drawing-generator" className={linkClass}>random drawing generator</Link>; for acting rounds use the <Link href="/charades" className={linkClass}>charades generator</Link>.</li>
             <li><strong>Three-word stories</strong> — generate three words and write a story that uses all of them; more ideas in the <Link href="/writing" className={linkClass}>writing prompt generator</Link>.</li>
             <li><strong>Vocabulary warm-ups</strong> — hard adjectives or verbs: define it, use it in a sentence, find a synonym.</li>
             <li><strong>Word games</strong> — Taboo-style clue giving, 20 Questions, or spelling bees with long words.</li>
