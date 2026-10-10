@@ -1,0 +1,49 @@
+.page {
+  display: contents;
+  overflow-wrap: anywhere;
+}
+
+/* Keep the shared mobile navigation usable with enlarged browser text.
+   Scoped to these pages; existing tool layouts retain their own styling. */
+@media (max-width: 639px) {
+  .page > nav > div > div:first-child {
+    height: auto;
+    min-height: 4rem;
+    gap: 0.5rem;
+  }
+
+  .page > nav > div > div:first-child > a {
+    min-width: 0;
+  }
+
+  .page > nav > div > div:first-child > a > span:last-child {
+    min-width: 0;
+  }
+
+  .page > nav > div > div:first-child > a > span:last-child > span {
+    display: inline-block;
+    overflow-wrap: normal;
+  }
+
+  .page > nav > div > div:first-child > button {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 359px) {
+  .page > nav > div > div:first-child > a > span:first-child {
+    display: none;
+  }
+
+  .page > main > div {
+    padding-inline: 16px;
+  }
+
+  .page section[aria-label$="name tool"] {
+    padding: 16px;
+  }
+
+  .page [data-name-generate] {
+    padding-inline: 16px;
+  }
+}

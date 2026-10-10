@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import TopicWorkshop from "@/components/TopicWorkshop";
+import { topicWorkshops } from "@/data/topicWorkshops";
 import Link from "next/link";
 import { CATEGORIES, MODES } from "@/data/types";
 import type { Category, Mode } from "@/data/types";
@@ -89,9 +91,10 @@ export default async function ModeCategoryPageEs({ params }: ComboPageProps) {
   const relatedModes = MODES.filter((m) => m.slug !== mode);
   const relatedCategories = CATEGORIES.filter((c) => c.id !== category).slice(0, 8);
 
-  const sampleTopics = getLocalizedTopics("es")
-    .filter((t) => t.modes.includes(modeInfo.id) && t.category === (category as Category))
-    .slice(0, 6);
+  const matchingTopics = getLocalizedTopics("es")
+    .filter((t) => t.modes.includes(modeInfo.id) && t.category === (category as Category));
+  const sampleTopics = matchingTopics.slice(0, 6);
+  const hasWorkshop = Boolean(topicWorkshops[`${mode}/${category}`]);
   const catSeo = categorySeoContentEs[category as Category];
 
   return (
@@ -113,24 +116,22 @@ export default async function ModeCategoryPageEs({ params }: ComboPageProps) {
           subtitle={`Genera ${modeL.label.toLowerCase()} de ${catL.label.toLowerCase()} para cualquier ocasión. ${catL.description}.`}
         />
 
+        <TopicWorkshop mode={mode} category={category} locale="es" />
+
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
             <h2 className="text-xl sm:text-2xl font-bold mb-4 text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
               {catInfo.emoji} {catL.label}: {modeL.label}
             </h2>
             <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
-              <p>
-                ¿Buscas <strong>{modeL.label.toLowerCase()} de {catL.label.toLowerCase()}</strong>? Nuestro
-                generador combina una base de datos seleccionada de más de 500 temas para ofrecerte {modeL.label.toLowerCase()} de {catL.label.toLowerCase()} siempre frescos.
-                Ya necesites temas para una clase, una reunión, una sesión de escritura o simplemente por diversión,
-                genera todos los que quieras, totalmente gratis.
+              <p data-topic-pool-count={matchingTopics.length}>
+                Esta combinación contiene <strong>{matchingTopics.length} temas</strong> de {catL.label.toLowerCase()} para {modeL.label.toLowerCase()}.
+                El generador selecciona esta colección finita; no crea temas nuevos en cada clic.
+                Los filtros de profundidad pueden reducir el conjunto. Si un nivel no tiene resultados, elige Cualquiera.
+                Al terminar los temas disponibles, puedes iniciar otra ronda.
               </p>
-              <p>{catSeo.intro}</p>
-              <p>{MODE_ANGLES[modeInfo.id](catL.label)}</p>
-              <p>
-                Cada tema generado incluye puntos de conversación que te ayudan a explorar el asunto en profundidad.
-                Filtra por nivel de profundidad (Ligero, Medio o Profundo) para adaptarlo a tu público y contexto.
-              </p>
+              {!hasWorkshop && <><p>{catSeo.intro}</p><p>{MODE_ANGLES[modeInfo.id](catL.label)}</p></>}
+              <p>Los ejemplos de abajo incluyen sus puntos de conversación. Son preguntas para explorar, no pruebas de las afirmaciones que mencionan. Comprueba las fuentes antes de presentar datos científicos o reglas vigentes.</p>
             </div>
           </div>
         </section>
@@ -145,12 +146,12 @@ export default async function ModeCategoryPageEs({ params }: ComboPageProps) {
                 {sampleTopics.map((t) => (
                   <li key={t.id} className="flex items-start gap-3">
                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "var(--neon-cyan)" }} />
-                    <span>{t.text}</span>
+                    <div data-sample-topic={t.id}><p className="font-semibold text-[var(--text-primary)]">{t.text}</p><ul className="mt-2 list-disc pl-5 space-y-1">{t.talkingPoints.map(point => <li key={point}>{point}</li>)}</ul></div>
                   </li>
                 ))}
               </ul>
               <p className="text-xs text-[var(--text-muted)] mt-5">
-                Están tomados directamente de la base de datos del generador: pulsa Generar arriba para ver el conjunto completo con puntos de conversación.
+                Estos ejemplos pertenecen a la misma colección del generador. Pulsa Generar arriba para seleccionar un tema con tus filtros.
               </p>
             </div>
           </section>

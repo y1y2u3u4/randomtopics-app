@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import TopicWorkshop from "@/components/TopicWorkshop";
+import { topicWorkshops } from "@/data/topicWorkshops";
 import Link from "next/link";
 import { CATEGORIES, MODES } from "@/data/types";
 import type { Category, Mode } from "@/data/types";
@@ -104,9 +106,10 @@ export default async function ModeCategoryPage({ params }: ComboPageProps) {
 
   // Real, deterministic sample topics for THIS mode×category combination —
   // unique content per combo page, drawn from the actual generator database.
-  const sampleTopics = topics
-    .filter((t) => t.modes.includes(modeInfo.id) && t.category === (category as Category))
-    .slice(0, 6);
+  const matchingTopics = topics
+    .filter((t) => t.modes.includes(modeInfo.id) && t.category === (category as Category));
+  const sampleTopics = matchingTopics.slice(0, 6);
+  const hasWorkshop = Boolean(topicWorkshops[`${mode}/${category}`]);
   const catSeo = categorySeoContent[category as Category];
 
   return (
@@ -128,6 +131,8 @@ export default async function ModeCategoryPage({ params }: ComboPageProps) {
         />
 
         {/* SEO content */}
+        <TopicWorkshop mode={mode} category={category} locale="en" />
+
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
             <h2
@@ -137,18 +142,14 @@ export default async function ModeCategoryPage({ params }: ComboPageProps) {
               {catInfo.emoji} {catInfo.label} {modeInfo.label}
             </h2>
             <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
-              <p>
-                Looking for <strong>{catInfo.label.toLowerCase()} {modeInfo.label.toLowerCase()}</strong>?
-                Our generator draws from a curated database of 500+ topics to find {catInfo.label.toLowerCase()} topics tailored for {modeInfo.label.toLowerCase().replace(/s$/, "").replace(/topic/, "discussion")}.
-                Whether you need topics for a classroom, a meeting, a writing session, or just for fun —
-                generate as many as you want, completely free.
+              <p data-topic-pool-count={matchingTopics.length}>
+                This combination contains <strong>{matchingTopics.length} topics</strong> in {catInfo.label.toLowerCase()} for {modeInfo.label.toLowerCase()}.
+                The generator selects from this finite collection; each click does not create new topics.
+                Depth filters can make the pool smaller. If a depth has no matches, choose Any.
+                After using the available topics, you can start another round.
               </p>
-              <p>{catSeo.intro}</p>
-              <p>{MODE_ANGLES[modeInfo.id](catInfo.label)}</p>
-              <p>
-                Each generated topic includes talking points to help you explore the subject in depth.
-                Filter by depth level (Light, Medium, or Deep) to match your audience and context.
-              </p>
+              {!hasWorkshop && <><p>{catSeo.intro}</p><p>{MODE_ANGLES[modeInfo.id](catInfo.label)}</p></>}
+              <p>The examples below include their talking points. These are starting questions, not evidence for the claims they mention. Check sources before presenting scientific claims or current rules as facts.</p>
             </div>
           </div>
         </section>
@@ -170,13 +171,12 @@ export default async function ModeCategoryPage({ params }: ComboPageProps) {
                       className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
                       style={{ background: "var(--neon-cyan)" }}
                     />
-                    <span>{t.text}</span>
+                    <div data-sample-topic={t.id}><p className="font-semibold text-[var(--text-primary)]">{t.text}</p><ul className="mt-2 list-disc pl-5 space-y-1">{t.talkingPoints.map(point => <li key={point}>{point}</li>)}</ul></div>
                   </li>
                 ))}
               </ul>
               <p className="text-xs text-[var(--text-muted)] mt-5">
-                These are pulled straight from the generator&apos;s curated database — hit Generate above
-                for the full set with talking points.
+                These examples come from the same collection used by the generator. Use Generate above to draw a prompt with your chosen filters.
               </p>
             </div>
           </section>

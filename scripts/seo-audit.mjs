@@ -9,6 +9,9 @@ const routesManifest = buildDir
   : null;
 
 const checks = [
+  { path: "/band-name-generator", index: true, canonical: "/band-name-generator", titleMax: 70, titleHas: "Band Name Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["Seed word (optional)", "Avoid words or phrases (optional)", "Your shortlist", "Indie &amp; alternative", "How this collection was made", 'href="/dragon-name-generator"'], bodyOccurrences: [{ needle: 'data-name-example=', exact: 108 }] },
+  { path: "/dragon-name-generator", index: true, canonical: "/dragon-name-generator", titleMax: 70, titleHas: "Dragon Name Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["Include a dragon title", "Suggested pronunciation", "creative story settings", "not translations", 'href="/country-name-generator"', 'href="/band-name-generator"'], bodyOccurrences: [{ needle: 'data-name-example=', exact: 48 }] },
+  { path: "/yo-mama-randomizer", index: true, canonical: "/yo-mama-randomizer", titleMax: 65, titleHas: "Yo Mama Randomizer — Clean Jokes & Text Remixes", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["Original text jokes", "clean yo mama jokes", "possible text pairings", "not a video player or clip mixer", "New setup", "New ending", "yo momma", 'href="/funny"', 'href="/funny-question-of-the-day"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'data-yo-mama-joke=', exact: 72 }, { needle: 'data-remix-setup=', exact: 24 }, { needle: 'data-remix-ending=', exact: 24 }] },
   { path: "/charades", index: true, canonical: "/charades", titleHas: "Charades Generator — Random Charades Words with Timer & Categories", bodyHas: ["All 528 Charades Words by Category", "Start round", "Browse all", 'id="charades-word-bank"', 'href="#charades-generator"'], bodyOccurrences: [{ needle: 'data-charades-word="true"', exact: 528 }], bodyNotHas: ["timer starts automatically", "490+ words"] },
   { path: "/es/conversation", index: true, canonical: "/es/conversation", titleHas: "Generador de Temas de Conversación", es: true, bodyHas: ["320 temas disponibles", "Las profundidades sin temas están desactivadas", "12 temas para hablar", "Para seguir la conversación", 'href="#preguntas-para-conversar"', 'id="colecciones-conversacion"'], bodyOccurrences: [{ needle: 'data-conversation-example="true"', exact: 12 }], bodyNotHas: ["activar la generación con IA", "prácticamente ilimitados"] },
   { path: "/topics/two-truths-and-a-lie-ideas", index: true, canonical: "/topics/two-truths-and-a-lie-ideas", titleHas: "120 Two Truths and a Lie Ideas — Good Examples for Work & Fun", hreflang: true, webApplicationCanonical: true, bodyHas: ["Build your round", "Draw 3 ideas", "Example round", "All 120 statement ideas", "How to make a believable round", "Return to your round", 'id="generator-two_truths_ideas_article"', 'href="#generator-two_truths_ideas_article"', 'href="/two-truths-and-a-lie"'], bodyOccurrences: [{ needle: 'data-statement-idea="true"', exact: 120 }] },
@@ -129,9 +132,9 @@ function hasSpanishHeaderRule() {
 
 function getConfiguredHeader(path, name) {
   const matchingRules = routesManifest?.headers?.filter(
-    (candidate) => candidate.source === path || (candidate.source === "/es/:path*" && path.startsWith("/es")),
+    (candidate) => candidate.regex ? new RegExp(candidate.regex).test(path) : candidate.source === path,
   ) || [];
-  for (const rule of matchingRules) {
+  for (const rule of matchingRules.toReversed()) {
     const header = rule.headers?.find((candidate) => candidate.key.toLowerCase() === name.toLowerCase());
     if (header) return header.value;
   }
@@ -188,6 +191,10 @@ async function checkPage(check) {
     fail(`${check.path}: canonical ${canonical || "missing"}, expected ${expectedCanonical}`);
   }
   if (check.index && robots.includes("noindex")) fail(`${check.path}: unexpectedly noindexed`);
+  const headerRobots = (response.headers.get("x-robots-tag") || "").toLowerCase();
+  if (check.index && /\b(noindex|none)\b/.test(headerRobots)) {
+    fail(`${check.path}: X-Robots-Tag prevents indexing despite page metadata`);
+  }
   if (!check.index && !robots.includes("noindex")) fail(`${check.path}: expected noindex`);
   if (check.headerNoindex && !(response.headers.get("x-robots-tag") || "").toLowerCase().includes("noindex")) {
     fail(`${check.path}: expected X-Robots-Tag noindex header`);
@@ -267,6 +274,9 @@ async function checkSitemap() {
   if (new Set(urls).size !== urls.length) fail("sitemap: duplicate URLs detected");
 
   for (const path of [
+    "/band-name-generator",
+    "/dragon-name-generator",
+    "/yo-mama-randomizer",
     "/writing/philosophy",
     "/writing/psychology",
     "/speech/politics",
@@ -293,7 +303,7 @@ async function checkSitemap() {
   ]) {
     if (!urls.includes(`${canonicalOrigin}${path}`)) fail(`sitemap: missing ${path}`);
   }
-  for (const path of ["/writing/sports", "/es/speech/politics", "/saved-topics", "/embed", "/internal/analytics", "/es/random-learning-topic-generator", "/es/writing-topic-generator", "/es/research-topic-generator", "/es/presentation-topic-generator", "/es/question-of-the-day-for-students", "/es/question-of-the-day-for-work", "/es/topics/ethical-dilemmas-for-students", "/es/topics/workplace-ethical-dilemmas", "/es/topics/ethical-dilemmas-for-adults", "/es/deep-conversation-question-generator"]) {
+  for (const path of ["/es/yo-mama-randomizer", "/writing/sports", "/es/speech/politics", "/saved-topics", "/embed", "/internal/analytics", "/es/random-learning-topic-generator", "/es/writing-topic-generator", "/es/research-topic-generator", "/es/presentation-topic-generator", "/es/question-of-the-day-for-students", "/es/question-of-the-day-for-work", "/es/topics/ethical-dilemmas-for-students", "/es/topics/workplace-ethical-dilemmas", "/es/topics/ethical-dilemmas-for-adults", "/es/deep-conversation-question-generator"]) {
     if (urls.includes(`${canonicalOrigin}${path}`)) fail(`sitemap: noindex URL included: ${path}`);
   }
   if (!xml.includes('hreflang="es"') || !xml.includes('hreflang="x-default"')) {

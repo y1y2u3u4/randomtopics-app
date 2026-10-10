@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -284,11 +285,17 @@ export default function WritingPage() {
             </div>
           </div>
         </section>
+        <PublicAdPlacement path="/writing" />
+
         <EditorsPicks
           heading="Writing Prompts with Angle Notes"
           intro="Eight picks from the writing pool across every depth. The talking points work as a ready-made outline — copy a prompt with its angles straight into your draft."
           topics={pickModeTopics("writing")}
         />
+        <nav aria-label="Creative naming tools" className="mx-auto max-w-4xl px-4 pb-6 text-sm text-[var(--neon-cyan)] flex flex-wrap gap-4">
+          <Link className="min-h-11 py-2 underline" href="/dragon-name-generator">Name a dragon for your story</Link>
+          <Link className="min-h-11 py-2 underline" href="/band-name-generator">Name a band for your music project</Link>
+        </nav>
       </main>
       <Footer />
     </>

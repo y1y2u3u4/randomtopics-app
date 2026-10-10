@@ -1,4 +1,5 @@
 import RandomGeneratorsGroup from "@/components/generators/RandomGeneratorsGroup";
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopicGenerator from "@/components/TopicGenerator";
@@ -101,6 +102,8 @@ export default function HomeEs() {
             </div>
           </div>
         </section>
+
+        <PublicAdPlacement path="/es" />
 
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
           <h2 className="text-sm font-bold text-[var(--text-primary)] mb-3">

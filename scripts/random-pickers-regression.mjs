@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {load}from'./lib/load-typescript.mjs';
+const {OBJECT_ITEMS,STATE_ITEMS,COUNTRY_ITEMS,pickerPool,pickItems,countryDisplay}=load('src/data/randomPickers.ts');
+assert.equal(OBJECT_ITEMS.length,72);assert.equal(STATE_ITEMS.length,50);assert.equal(COUNTRY_ITEMS.length,144);
+for(const items of [OBJECT_ITEMS,STATE_ITEMS,COUNTRY_ITEMS]){assert.equal(new Set(items.map(p=>p.id)).size,items.length);assert.equal(new Set(items.map(p=>p.name.toLowerCase())).size,items.length);const seen=[items[0].id];while(seen.length<items.length){const next=pickItems(items,seen,10,()=>0);assert.ok(next.length);seen.push(...next.map(p=>p.id))}assert.equal(new Set(seen).size,items.length);assert.equal(pickItems(items,seen,10).length,0);assert.equal(pickItems(items,[],10).length,10)}
+for(const [region,count]of Object.entries({northeast:9,midwest:12,south:16,west:13}))assert.equal(pickerPool('state',region).length,count);
+assert.equal(pickerPool('state','all',true).length,48);assert.ok(!STATE_ITEMS.some(p=>['DC','PR','GU'].includes(p.id)));assert.equal(STATE_ITEMS.find(p=>p.id==='WA').capital,'Olympia');assert.equal(STATE_ITEMS.find(p=>p.id==='NY').capital,'Albany');assert.equal(STATE_ITEMS.find(p=>p.id==='CA').capital,'Sacramento');
+for(const group of ['fantasy','modern','scifi'])assert.equal(pickerPool('country',group).length,48);
+const real=new Set(),dn=new Intl.DisplayNames(['en'],{type:'region'});for(let a=65;a<=90;a++)for(let b=65;b<=90;b++){const code=String.fromCharCode(a,b),name=dn.of(code);if(name!==code)real.add(name?.toLowerCase())}assert.ok(COUNTRY_ITEMS.every(p=>!real.has(p.name.toLowerCase())));assert.equal(countryDisplay('Astrador','kingdom'),'Kingdom of Astrador');assert.equal(countryDisplay('Astrador','republic'),'Republic of Astrador');assert.equal(pickerPool('object','invalid').length,0);
+const first=pickItems(pickerPool('state','northeast'),[],10);assert.equal(first.length,9);assert.equal(pickItems(pickerPool('state','northeast'),first.map(p=>p.id),10).length,0);
+console.log('PASS: independent object/state/fictional-name pools; 72/50/144 unique records, full cycles and partial batches, Census counts, 48-state filter, capital checks, fictional exact-country exclusion and forms.');

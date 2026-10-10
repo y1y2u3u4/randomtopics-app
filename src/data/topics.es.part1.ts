@@ -7,7 +7,7 @@ export const topicsEsPart1: Record<string, { text: string; talkingPoints: string
   },
   "t002": {
     text: "Por qué soñamos y qué significan los sueños",
-    talkingPoints: ["El funcionamiento del sueño REM", "Símbolos habituales de los sueños", "Técnicas de sueño lúcido"],
+    talkingPoints: ["El recuerdo y la observación de sueños", "Preguntas para investigar el sueño", "Límites de interpretar un solo sueño"],
   },
   "t003": {
     text: "¿Podríamos terraformar Marte en 100 años?",
@@ -515,5 +515,45 @@ export const topicsEsPart1: Record<string, { text: string; talkingPoints: string
   "t512": {
     text: "La economía de la atención y la adicción a las notificaciones",
     talkingPoints: ["El secuestro de la dopamina", "La ética del diseño", "El movimiento del minimalismo digital"],
+  },
+  "t513": {
+    "text": "Escribe una escena en la que una pequeña interrupción cambia lo que alguien observa",
+    "talkingPoints": [
+      "Una interrupción concreta",
+      "Qué pasa inadvertido antes y se observa después",
+      "Una explicación posible, sin diagnosticar al personaje"
+    ]
+  },
+  "t514": {
+    "text": "Describe un hábito desde la perspectiva de alguien que intenta cambiarlo",
+    "talkingPoints": [
+      "La situación que inicia la rutina",
+      "Un cambio intentado y un obstáculo inesperado",
+      "Qué puede demostrar un solo intento y qué no"
+    ]
+  },
+  "t515": {
+    "text": "Escribe dos relatos del mismo suceso desde recuerdos diferentes",
+    "talkingPoints": [
+      "Detalles compartidos y detalles contradictorios",
+      "Por qué cada narrador confía en su versión",
+      "Qué pruebas podrían aclarar el desacuerdo"
+    ]
+  },
+  "t516": {
+    "text": "Explora la pertenencia con un personaje que entra en un grupo desconocido",
+    "talkingPoints": [
+      "Una costumbre visible del grupo",
+      "La diferencia entre observación y suposición",
+      "Una pequeña acción que cambia la interacción"
+    ]
+  },
+  "t517": {
+    "text": "Argumenta cuándo ayuda la confianza y cuándo conviene dudar",
+    "talkingPoints": [
+      "Una decisión concreta y sus consecuencias",
+      "Confianza basada en pruebas frente a familiaridad",
+      "Una condición que justificaría cambiar de opinión"
+    ]
   },
 };

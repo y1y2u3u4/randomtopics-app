@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import EthicsDiscussionCards from "@/components/EthicsDiscussionCards";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -134,6 +135,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     label: "Try the Generator — It's Free",
     emoji: "🎲",
   };
+
   const articleItems = article.sections.flatMap((section) => section.items);
   const isTwoTruths = article.slug === "two-truths-and-a-lie-ideas";
   const articleGeneratorSource = isTwoTruths ? "two_truths_ideas_article"
@@ -517,6 +519,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </div>
           </section>
         ) : null}
+
+        <PublicAdPlacement path={`/topics/${slug}`} />
 
         {/* FAQ Section with Schema */}
         {article.faq.length > 0 && (

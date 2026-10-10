@@ -2,7 +2,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { isProductionHost, replayPathAllowed } from "@/lib/analyticsEnvironment";
+import { replayMayStart, replayPathAllowed } from "@/lib/analyticsEnvironment";
 import { trackSpeech } from "@/lib/speech/telemetry";
 
 const storageKey = "rt-replay-consent-v1";
@@ -13,7 +13,6 @@ export default function ClarityReplay() {
   const [ready, setReady] = useState(false);
   const [settings, setSettings] = useState(false);
   const replayWanted = useRef(false);
-  const scriptLoaded = useRef(false);
   const project = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || "";
   const enabled = /^[a-z0-9]{5,30}$/i.test(project);
   useEffect(() => {
@@ -27,8 +26,8 @@ export default function ClarityReplay() {
     return () => cancelAnimationFrame(frame);
   }, []);
   useLayoutEffect(() => {
-    const allowed = enabled && ready && consent === "allowed" && replayPathAllowed(pathname) &&
-      !location.search && !location.hash && isProductionHost(location.hostname);
+    const allowed = replayMayStart({ project, ready, consent, path: pathname, host: location.hostname,
+      search: location.search, hash: location.hash });
     replayWanted.current = allowed;
     if (!allowed) {
       if (window.__rtReplayActive) window.clarity?.("stop");
@@ -52,12 +51,12 @@ export default function ClarityReplay() {
       script.async = true;
       script.src = `https://www.clarity.ms/tag/${project}`;
       script.onload = () => {
-        scriptLoaded.current = true;
+        window.__rtClarityLoaded = true;
         if (!replayWanted.current) { window.clarity?.("stop"); return; }
         start();
       };
       document.head.appendChild(script);
-    } else if (scriptLoaded.current) {
+    } else if (window.__rtClarityLoaded) {
       start();
     }
     // End replay before navigating to a private or student-oriented destination.

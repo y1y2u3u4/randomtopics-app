@@ -5,7 +5,8 @@ import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import EditorsPicks from "@/components/EditorsPicks";
 import { ModeIllustration } from "@/components/CategoryIllustration";
-import { pickModeTopics } from "@/lib/editorial";
+import type { Topic } from "@/data/types";
+import { SPEECH_WARMUP_TOPIC } from "@/lib/speech/warmup";
 import Link from "next/link";
 import type { Metadata } from "next";
 import FaqSchema from "@/components/FaqSchema";
@@ -30,6 +31,53 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/speech"),
   },
 };
+
+// Page-local starter examples; the full generator pool and saved topics stay intact.
+const speechStarterTopics: Topic[] = [
+  SPEECH_WARMUP_TOPIC,
+  {
+    id: "speech-starter-learned-skill",
+    text: "What is something small you learned to do recently?",
+    category: "education", modes: ["speech"], depth: "light",
+    talkingPoints: ["Name the skill", "Describe one part you found tricky", "Explain what helped you learn"],
+  },
+  {
+    id: "speech-starter-kindness",
+    text: "When did a small act of kindness make your day easier?",
+    category: "relationships", modes: ["speech"], depth: "light",
+    talkingPoints: ["Set the scene without naming anyone", "Describe what someone did", "Say what difference it made"],
+  },
+  {
+    id: "speech-starter-useful-object",
+    text: "What everyday object would you miss if you could not use it for a day?",
+    category: "technology", modes: ["speech"], depth: "light",
+    talkingPoints: ["Name the object", "Give one example of how you use it", "Explain what you would do instead"],
+  },
+  {
+    id: "speech-starter-familiar-place",
+    text: "Where do you like to take a short break?",
+    category: "nature", modes: ["speech"], depth: "light",
+    talkingPoints: ["Describe the place without an address", "Recall one thing you noticed there", "Say why you like returning"],
+  },
+  {
+    id: "speech-starter-favorite-meal",
+    text: "What simple meal do you look forward to?",
+    category: "food-travel", modes: ["speech"], depth: "light",
+    talkingPoints: ["Name the meal", "Describe a time you enjoyed it", "Explain what makes it special to you"],
+  },
+  {
+    id: "speech-starter-changed-plan",
+    text: "Tell us about a day when a small plan changed.",
+    category: "weird-fun", modes: ["speech"], depth: "light",
+    talkingPoints: ["Say what you planned to do", "Describe what happened instead", "Share one thing you learned"],
+  },
+  {
+    id: "speech-starter-hobby",
+    text: "What hobby would you like to make more time for?",
+    category: "entertainment", modes: ["speech"], depth: "light",
+    talkingPoints: ["Name the activity", "Give one reason you enjoy it", "Suggest one small way to fit it into your week"],
+  },
+];
 
 const FAQ_ITEMS = [
   {
@@ -92,13 +140,14 @@ export default function SpeechPage() {
             { label: "Speech Topics" },
           ]}
         />
-        <ModeIllustration mode="speech" />
+        <div className="hidden sm:block"><ModeIllustration mode="speech" /></div>
         <SelectedTopicPractice locale="en" />
         <TopicGenerator
           initialMode="speech"
           title="Speech Topic Generator"
           subtitle="Find a topic for your next speech. Try a 60-second answer and get one specific suggestion to make it clearer."
           contentSource="speech_hub"
+          compactMobileHero
           speechPractice
         />
 
@@ -266,9 +315,9 @@ export default function SpeechPage() {
           </div>
         </section>
         <EditorsPicks
-          heading="Speech Topics with Skeleton Points"
-          intro="Eight picks from the speech pool across every depth. The talking points double as a three-beat speech skeleton — copy one and you have your structure before you stand up."
-          topics={pickModeTopics("speech")}
+          heading="Eight Everyday Speech Prompts to Start With"
+          intro="These eight prompts draw on your own experience, so no research is needed. Pick one, use the three talking points as your outline, and try a 60-second answer. Copy it into your notes or save it for your next practice."
+          topics={speechStarterTopics}
         />
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16">
           <div className="glass-card p-8 sm:p-10">

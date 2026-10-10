@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -129,6 +130,8 @@ export default function TruthOrDarePage() {
           intro="The full deck &mdash; every truth and dare in rotation, all clean enough for family game night."
           questions={TRUTH_OR_DARE}
         />
+        <PublicAdPlacement path="/truth-or-dare" />
+
       </main>
       <Footer />
     </>

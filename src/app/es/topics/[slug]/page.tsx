@@ -1,3 +1,4 @@
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import { PracticeSelectedTopic } from "@/components/TopicHandoff";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -320,6 +321,8 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           },
           { elements: [], runningCount: 0 }
         ).elements}
+
+        <PublicAdPlacement path={`/es/topics/${slug}`} />
 
         {article.faq.length > 0 && (
           <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
