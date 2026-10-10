@@ -21,7 +21,8 @@ const ids = idsArg.split(",").map((s) => s.trim());
 for (const id of ids) if (id !== "-" && !known.has(id)) throw new Error(`unknown ${singular} id: ${id}`);
 
 const cols = Number(colsArg);
-const rows = Math.ceil(ids.length / cols);
+// ChatGPT sheets are square grids even when the last one is only partly filled.
+const rows = Math.max(cols, Math.ceil(ids.length / cols));
 const { data, info } = await sharp(sheet).removeAlpha().raw().toBuffer({ resolveWithObject: true });
 const { width, height } = info;
 
@@ -39,22 +40,32 @@ const whiteness = (horizontal, index) => {
   }
   return white / Math.ceil(span / 2);
 };
+// Returns cell spans [start, end) that exclude the white gutter lines.
 const boundaries = (count, size, horizontal) => {
   const step = size / count;
-  const cuts = [0];
+  const radius = Math.round(step * 0.12);
+  const gutters = [];
   for (let b = 1; b < count; b++) {
     const expected = Math.round(b * step);
-    const radius = Math.round(step * 0.08);
-    let best = { at: expected, score: 0, from: expected, to: expected };
+    let best = expected;
+    let bestScore = -1;
     for (let at = expected - radius; at <= expected + radius; at++) {
       const score = whiteness(horizontal, at);
-      if (score > best.score + 0.001) best = { at, score, from: at, to: at };
-      else if (Math.abs(score - best.score) <= 0.001 && at === best.to + 1) best.to = at;
+      if (score > bestScore) { best = at; bestScore = score; }
     }
-    cuts.push(best.score > 0.6 ? Math.round((best.from + best.to) / 2) : expected);
+    if (bestScore < 0.9) { gutters.push({ from: expected, to: expected }); continue; }
+    let from = best, to = best;
+    while (from > 0 && whiteness(horizontal, from - 1) > 0.9) from--;
+    while (to < size - 1 && whiteness(horizontal, to + 1) > 0.9) to++;
+    gutters.push({ from, to });
   }
-  cuts.push(size);
-  return cuts;
+  const spans = [];
+  for (let c = 0; c < count; c++) {
+    const start = c === 0 ? 0 : gutters[c - 1].to + 1;
+    const end = c === count - 1 ? size : gutters[c].from;
+    spans.push([start, end]);
+  }
+  return spans;
 };
 const ys = boundaries(rows, height, true);
 const xs = boundaries(cols, width, false);
@@ -67,9 +78,10 @@ for (let i = 0; i < ids.length; i++) {
   if (ids[i] === "-") continue;
   const c = i % cols;
   const r = Math.floor(i / cols);
-  const x0 = xs[c], x1 = xs[c + 1], y0 = ys[r], y1 = ys[r + 1];
+  const [x0, x1] = xs[c];
+  const [y0, y1] = ys[r];
   // Square crop centred in the cell, trimmed just past the gutter.
-  const pad = Math.round(Math.min(x1 - x0, y1 - y0) * 0.015);
+  const pad = Math.round(Math.min(x1 - x0, y1 - y0) * 0.01);
   const size = Math.min(x1 - x0, y1 - y0) - pad * 2;
   const left = Math.round(x0 + (x1 - x0 - size) / 2);
   const top = Math.round(y0 + (y1 - y0 - size) / 2);
