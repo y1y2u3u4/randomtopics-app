@@ -325,4 +325,23 @@ test("letter generator: sets, case and no repeats across a full alphabet", () =>
   assert.equal(gen.resolve("q", { case: ["lower"] }).title, "q");
 });
 
+test("word generator: ≥300 words per language, every filter respected", () => {
+  const { WORDS, wordGenerator, initialOf, lengthBand } = mod("src/lib/generators/words.ts");
+  assert.equal(initialOf("Árbol"), "a");
+  assert.equal(initialOf("ñandú"), "ñ");
+  assert.equal(lengthBand("cat"), "short");
+  assert.equal(lengthBand("lighthouse"), "long");
+  for (const locale of ["en", "es"]) {
+    const by = new Map(WORDS[locale].map((w) => [w.w, w]));
+    assert.equal(by.size, WORDS[locale].length, `${locale}: unique words`);
+    checkGenerator(`words-${locale}`, wordGenerator(locale), [
+      [{ pos: ["verb"] }, (r) => by.get(r.key).pos === "verb"],
+      [{ pos: ["noun"], use: ["draw"], level: ["easy"] }, (r) => { const w = by.get(r.key); return w.pos === "noun" && w.draw && w.level === "easy"; }],
+      [{ length: ["long"] }, (r) => [...r.key].length >= 8],
+      [{ letter: ["m"] }, (r) => initialOf(r.key) === "m"],
+      [{ letter: ["any"], level: ["hard"] }, (r) => by.get(r.key).level === "hard"],
+    ]);
+  }
+});
+
 console.log(`✓ random generators: ${passed} tests passed`);

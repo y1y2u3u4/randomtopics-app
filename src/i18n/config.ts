@@ -57,6 +57,7 @@ export const CUSTOM_SPANISH_ALTERNATES: Readonly<Record<string, string>> = {
   "/random-team-generator": "/es/generador-de-equipos-aleatorios",
   "/random-animal-generator": "/es/generador-de-animales-aleatorios",
   "/last-name-generator": "/es/generador-de-apellidos",
+  "/random-word-generator": "/es/generador-de-palabras-aleatorias",
 };
 
 export function spanishCounterpartPath(englishPath: string): string | null {

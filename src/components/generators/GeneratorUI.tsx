@@ -84,7 +84,7 @@ export interface GeneratorUIProps {
   generate: (filters: FilterState, count: number, used: string[], seed: number) => { results: GeneratorResult[]; used: string[] };
   resolve: (key: string, filters: FilterState) => GeneratorResult | null;
   /** Bigger cards with images (animals) vs compact name rows. */
-  layout?: "cards" | "list" | "tiles";
+  layout?: "cards" | "list" | "tiles" | "words";
   /** Optional extra action rendered next to Copy, e.g. a link to a related tool. */
   footer?: React.ReactNode;
 }
@@ -170,8 +170,9 @@ export default function GeneratorUI(props: GeneratorUIProps) {
     [count, writeUrl, toolType, locale],
   );
 
+  // Letters and words are copied bare, one per line, ready to paste into a game.
   const resultText = results
-    .map((r) => [r.title, r.subtitle, r.detail].filter(Boolean).join(" — "))
+    .map((r) => (layout === "tiles" || layout === "words" ? r.title : [r.title, r.subtitle, r.detail].filter(Boolean).join(" — ")))
     .join("\n");
 
   const doCopy = async (what: "copy" | "share") => {
@@ -264,6 +265,15 @@ export default function GeneratorUI(props: GeneratorUIProps) {
                 </ul>
               )}
             </div>
+          ) : layout === "words" ? (
+            <ul className="flex flex-wrap justify-center gap-3">
+              {shown.map((r) => (
+                <li key={r.key} className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-3 text-center">
+                  <span className="block text-2xl sm:text-3xl font-bold text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>{r.title}</span>
+                  {r.subtitle && <span className="block text-[11px] text-[var(--text-muted)] mt-0.5">{r.subtitle}</span>}
+                </li>
+              ))}
+            </ul>
           ) : layout === "tiles" ? (
             <ul className="flex flex-wrap justify-center gap-3">
               {shown.map((r) => (

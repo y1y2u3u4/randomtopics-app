@@ -187,6 +187,9 @@ export default function CharadesPage() {
                 <Link href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">This or That</Link>.
                 Hosting a bigger crowd? Grab openers from{" "}
                 <Link href="/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">questions to ask at a party</Link>.
+                Playing Pictionary instead? The{" "}
+                <Link href="/random-word-generator" className="text-[var(--neon-cyan)] hover:underline">random word generator</Link>{" "}
+                has a drawable-words-only filter.
               </p>
 
               <h3
