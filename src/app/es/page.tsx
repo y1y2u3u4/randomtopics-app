@@ -1,3 +1,4 @@
+import RandomGeneratorsGroup from "@/components/generators/RandomGeneratorsGroup";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopicGenerator from "@/components/TopicGenerator";
@@ -121,6 +122,8 @@ export default function HomeEs() {
             ))}
           </div>
         </section>
+
+        <RandomGeneratorsGroup locale="es" />
 
         {/* Mode cards */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 py-20">

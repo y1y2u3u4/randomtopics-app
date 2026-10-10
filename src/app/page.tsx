@@ -1,3 +1,4 @@
+import RandomGeneratorsGroup from "@/components/generators/RandomGeneratorsGroup";
 import { SelectedTopicPractice } from "@/components/TopicHandoff";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -99,6 +100,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <RandomGeneratorsGroup locale="en" />
 
         {/* Editorial feature: real topics + talking points from the database */}
         <EditorsPicks

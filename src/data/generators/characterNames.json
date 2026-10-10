@@ -1,0 +1,5567 @@
+{
+  "first": [
+    {
+      "name": "Elowen",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Cornish: elm tree"
+    },
+    {
+      "name": "Seraphine",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Hebrew: fiery, burning ones"
+    },
+    {
+      "name": "Isolde",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Celtic: possibly fair one"
+    },
+    {
+      "name": "Morwenna",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Cornish: maiden"
+    },
+    {
+      "name": "Lyra",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Greek: lyre"
+    },
+    {
+      "name": "Thessaly",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Greek: the region of Thessaly"
+    },
+    {
+      "name": "Aeris",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "scifi"
+      ],
+      "meaning": "invented — evokes air and lightness"
+    },
+    {
+      "name": "Sylvara",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes deep forest shade"
+    },
+    {
+      "name": "Vaelith",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes moonlit elven song"
+    },
+    {
+      "name": "Nimue",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Arthurian: possibly memory"
+    },
+    {
+      "name": "Rhiannon",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Welsh: great queen"
+    },
+    {
+      "name": "Elara",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "scifi"
+      ],
+      "meaning": "Greek: a lover of Zeus, a moon of Jupiter"
+    },
+    {
+      "name": "Calantha",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Greek: beautiful flower"
+    },
+    {
+      "name": "Thalindra",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes silver rivers and old magic"
+    },
+    {
+      "name": "Mirelle",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes marsh-light and mirrors"
+    },
+    {
+      "name": "Ondine",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Latin: little wave"
+    },
+    {
+      "name": "Kestrel",
+      "gender": "neutral",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: a small falcon"
+    },
+    {
+      "name": "Wren",
+      "gender": "neutral",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: small songbird"
+    },
+    {
+      "name": "Briar",
+      "gender": "neutral",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: thorny shrub"
+    },
+    {
+      "name": "Ember",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: glowing coal"
+    },
+    {
+      "name": "Saoirse",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: freedom"
+    },
+    {
+      "name": "Eira",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Welsh: snow"
+    },
+    {
+      "name": "Ravenna",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Italian: the city of Ravenna"
+    },
+    {
+      "name": "Lirael",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes lyre-song and quiet power"
+    },
+    {
+      "name": "Yvaine",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes starlit Welsh legend"
+    },
+    {
+      "name": "Orla",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: golden princess"
+    },
+    {
+      "name": "Maelis",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Breton: chief, prince"
+    },
+    {
+      "name": "Tamsin",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Cornish: twin"
+    },
+    {
+      "name": "Zephyrine",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Greek: west wind"
+    },
+    {
+      "name": "Aurelia",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Latin: golden"
+    },
+    {
+      "name": "Celestine",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Latin: heavenly"
+    },
+    {
+      "name": "Vesper",
+      "gender": "neutral",
+      "genres": [
+        "fantasy",
+        "scifi"
+      ],
+      "meaning": "Latin: evening star"
+    },
+    {
+      "name": "Sorcha",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Irish: bright, radiant"
+    },
+    {
+      "name": "Niamh",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Irish: bright, radiant"
+    },
+    {
+      "name": "Branwen",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Welsh: white raven"
+    },
+    {
+      "name": "Gwendolyn",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Welsh: white ring"
+    },
+    {
+      "name": "Ione",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Greek: violet flower"
+    },
+    {
+      "name": "Elspeth",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Scottish: pledged to God"
+    },
+    {
+      "name": "Ishara",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a desert goddess's oath"
+    },
+    {
+      "name": "Kaelith",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes keen blades and frost"
+    },
+    {
+      "name": "Velka",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes wolf-runs and winter"
+    },
+    {
+      "name": "Myrrine",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Greek: myrtle"
+    },
+    {
+      "name": "Ardena",
+      "gender": "female",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes ardor and ancient woods"
+    },
+    {
+      "name": "Neriah",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Hebrew: lamp of God"
+    },
+    {
+      "name": "Melisande",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "French: strong in work"
+    },
+    {
+      "name": "Aldric",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Germanic: old ruler"
+    },
+    {
+      "name": "Caelum",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "scifi"
+      ],
+      "meaning": "Latin: sky, heaven"
+    },
+    {
+      "name": "Corvin",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Latin: raven"
+    },
+    {
+      "name": "Darian",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Persian: wealthy, kingly"
+    },
+    {
+      "name": "Eamon",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: wealthy protector"
+    },
+    {
+      "name": "Faelan",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Irish: little wolf"
+    },
+    {
+      "name": "Gareth",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Welsh: gentle"
+    },
+    {
+      "name": "Lorcan",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Irish: little fierce one"
+    },
+    {
+      "name": "Kaelen",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes wind across highlands"
+    },
+    {
+      "name": "Thalos",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes sea-cliffs and old bronze"
+    },
+    {
+      "name": "Varic",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes hard bargains and iron rings"
+    },
+    {
+      "name": "Orrin",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Irish: pale green"
+    },
+    {
+      "name": "Bram",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Irish: raven"
+    },
+    {
+      "name": "Cedric",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "English: possibly kindly, coined by Walter Scott"
+    },
+    {
+      "name": "Alaric",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Gothic: ruler of all"
+    },
+    {
+      "name": "Leoric",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a lion-hearted king"
+    },
+    {
+      "name": "Merrick",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Welsh: possibly fame and power"
+    },
+    {
+      "name": "Torvald",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Norse: Thor's ruler"
+    },
+    {
+      "name": "Rhydian",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Welsh: from the ford"
+    },
+    {
+      "name": "Evander",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Greek: good man"
+    },
+    {
+      "name": "Isidore",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Greek: gift of Isis"
+    },
+    {
+      "name": "Mordecai",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Hebrew: possibly servant of Marduk"
+    },
+    {
+      "name": "Soren",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Danish: stern"
+    },
+    {
+      "name": "Tavish",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Scottish: twin"
+    },
+    {
+      "name": "Ulric",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Germanic: wolf power"
+    },
+    {
+      "name": "Zarek",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "scifi"
+      ],
+      "meaning": "Polish: possibly God protect the king"
+    },
+    {
+      "name": "Dorian",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Greek: of the Dorian people"
+    },
+    {
+      "name": "Garrick",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: spear ruler"
+    },
+    {
+      "name": "Ronan",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Irish: little seal"
+    },
+    {
+      "name": "Fenris",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Norse: the great wolf of myth"
+    },
+    {
+      "name": "Kieran",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: little dark one"
+    },
+    {
+      "name": "Osric",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Old English: divine ruler"
+    },
+    {
+      "name": "Aethelred",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Old English: noble counsel"
+    },
+    {
+      "name": "Valerian",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Latin: strong, healthy"
+    },
+    {
+      "name": "Kaedric",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a scarred border lord"
+    },
+    {
+      "name": "Ithran",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a scholar of forbidden tomes"
+    },
+    {
+      "name": "Maelor",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes Welsh mountains and quiet grief"
+    },
+    {
+      "name": "Thaddeus",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Aramaic: heart, courageous"
+    },
+    {
+      "name": "Peregrine",
+      "gender": "neutral",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Latin: traveller, pilgrim"
+    },
+    {
+      "name": "Rook",
+      "gender": "neutral",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: a black crow"
+    },
+    {
+      "name": "Ash",
+      "gender": "neutral",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: ash tree"
+    },
+    {
+      "name": "Sable",
+      "gender": "neutral",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: black fur, darkness"
+    },
+    {
+      "name": "Emrys",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Welsh: immortal"
+    },
+    {
+      "name": "Taliesin",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Welsh: shining brow"
+    },
+    {
+      "name": "Drystan",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Welsh: possibly tumult"
+    },
+    {
+      "name": "Percival",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "French: pierce the valley"
+    },
+    {
+      "name": "Gawain",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Welsh: possibly white hawk"
+    },
+    {
+      "name": "Caspian",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: of the Caspian Sea"
+    },
+    {
+      "name": "Zephyr",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Greek: west wind"
+    },
+    {
+      "name": "Auberon",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "French: elf ruler"
+    },
+    {
+      "name": "Silvan",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Latin: of the forest"
+    },
+    {
+      "name": "Halvard",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Norse: rock guardian"
+    },
+    {
+      "name": "Jareth",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a charming goblin king"
+    },
+    {
+      "name": "Keir",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Scottish: dark-haired"
+    },
+    {
+      "name": "Lucan",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Latin: of Lucania, light"
+    },
+    {
+      "name": "Severin",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Latin: stern, strict"
+    },
+    {
+      "name": "Thane",
+      "gender": "male",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "Scottish: landholding lord"
+    },
+    {
+      "name": "Kaito",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Japanese: ocean, flying"
+    },
+    {
+      "name": "Nova",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Latin: new"
+    },
+    {
+      "name": "Vega",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Arabic: swooping eagle, a bright star"
+    },
+    {
+      "name": "Orion",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Greek: the hunter constellation"
+    },
+    {
+      "name": "Juno",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Latin: queen of the gods"
+    },
+    {
+      "name": "Kael",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a lean, quick pilot"
+    },
+    {
+      "name": "Zara",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Arabic: radiant, blooming flower"
+    },
+    {
+      "name": "Ryker",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Dutch: possibly rich"
+    },
+    {
+      "name": "Talon",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: claw of a bird of prey"
+    },
+    {
+      "name": "Xan",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes clean code and cold stars"
+    },
+    {
+      "name": "Cassia",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "fantasy"
+      ],
+      "meaning": "Latin: cinnamon tree"
+    },
+    {
+      "name": "Ixa",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a precise machine voice"
+    },
+    {
+      "name": "Zeta",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: sixth letter of the alphabet"
+    },
+    {
+      "name": "Sol",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Latin: sun"
+    },
+    {
+      "name": "Echo",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: reflected sound, a nymph"
+    },
+    {
+      "name": "Rhea",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: flowing, mother of the gods"
+    },
+    {
+      "name": "Atlas",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Greek: bearer of the heavens"
+    },
+    {
+      "name": "Calix",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: very handsome"
+    },
+    {
+      "name": "Dax",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "French: from the town of Dax"
+    },
+    {
+      "name": "Jett",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: black gemstone"
+    },
+    {
+      "name": "Nyx",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "fantasy"
+      ],
+      "meaning": "Greek: night"
+    },
+    {
+      "name": "Quill",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a sharp-eyed archivist"
+    },
+    {
+      "name": "Ren",
+      "gender": "neutral",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Japanese: lotus"
+    },
+    {
+      "name": "Tycho",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: luck"
+    },
+    {
+      "name": "Vance",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "English: marshland"
+    },
+    {
+      "name": "Zane",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "English: possibly gift of God"
+    },
+    {
+      "name": "Aster",
+      "gender": "neutral",
+      "genres": [
+        "scifi",
+        "fantasy"
+      ],
+      "meaning": "Greek: star"
+    },
+    {
+      "name": "Cosmo",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: order, universe"
+    },
+    {
+      "name": "Halcyon",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: kingfisher, calm"
+    },
+    {
+      "name": "Kepler",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "German: cap maker"
+    },
+    {
+      "name": "Lumen",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Latin: light"
+    },
+    {
+      "name": "Mira",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Latin: wonderful"
+    },
+    {
+      "name": "Nadir",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Arabic: lowest point"
+    },
+    {
+      "name": "Pax",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Latin: peace"
+    },
+    {
+      "name": "Rigel",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Arabic: foot, a bright star in Orion"
+    },
+    {
+      "name": "Sirius",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: glowing, scorching"
+    },
+    {
+      "name": "Vex",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a restless troublemaker"
+    },
+    {
+      "name": "Zyra",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a sleek interstellar courier"
+    },
+    {
+      "name": "Elio",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Italian: sun"
+    },
+    {
+      "name": "Axel",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Scandinavian: father of peace"
+    },
+    {
+      "name": "Anya",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Russian: grace"
+    },
+    {
+      "name": "Kira",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Russian: ruler; Japanese: shining"
+    },
+    {
+      "name": "Yuki",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Japanese: snow"
+    },
+    {
+      "name": "Hiro",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Japanese: generous, abundant"
+    },
+    {
+      "name": "Rin",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Japanese: dignified"
+    },
+    {
+      "name": "Ezra",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Hebrew: help"
+    },
+    {
+      "name": "Jax",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: modern short form of Jackson"
+    },
+    {
+      "name": "Korin",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a quiet station engineer"
+    },
+    {
+      "name": "Lexa",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: defender"
+    },
+    {
+      "name": "Neo",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: new"
+    },
+    {
+      "name": "Odessa",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Greek: possibly long journey"
+    },
+    {
+      "name": "Pallas",
+      "gender": "neutral",
+      "genres": [
+        "scifi",
+        "fantasy"
+      ],
+      "meaning": "Greek: an epithet of Athena"
+    },
+    {
+      "name": "Quasar",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a blazing deep-space beacon"
+    },
+    {
+      "name": "Sabine",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "historical"
+      ],
+      "meaning": "Latin: of the Sabine people"
+    },
+    {
+      "name": "Talia",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Hebrew: dew from heaven"
+    },
+    {
+      "name": "Ursa",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Latin: bear"
+    },
+    {
+      "name": "Vashti",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Persian: beautiful"
+    },
+    {
+      "name": "Xenia",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: hospitality"
+    },
+    {
+      "name": "Yara",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Tupi: water lady"
+    },
+    {
+      "name": "Zev",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Hebrew: wolf"
+    },
+    {
+      "name": "Calder",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Scottish: rocky water"
+    },
+    {
+      "name": "Dashiell",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "French: possibly page boy"
+    },
+    {
+      "name": "Galen",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "historical"
+      ],
+      "meaning": "Greek: calm"
+    },
+    {
+      "name": "Ilan",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Hebrew: tree"
+    },
+    {
+      "name": "Jovian",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Latin: of Jupiter"
+    },
+    {
+      "name": "Kestra",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a hawk-eyed scout"
+    },
+    {
+      "name": "Lysander",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Greek: liberator"
+    },
+    {
+      "name": "Mako",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Maori: shark"
+    },
+    {
+      "name": "Nash",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "English: at the ash tree"
+    },
+    {
+      "name": "Pyra",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: fire"
+    },
+    {
+      "name": "Riven",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes something split and remade"
+    },
+    {
+      "name": "Sarik",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a sharp-tongued smuggler"
+    },
+    {
+      "name": "Uriel",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Hebrew: God is my light"
+    },
+    {
+      "name": "Veyra",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a cool-headed navigator"
+    },
+    {
+      "name": "Yaro",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a fearless test pilot"
+    },
+    {
+      "name": "Zenith",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Arabic: highest point"
+    },
+    {
+      "name": "Andromeda",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: ruler of men"
+    },
+    {
+      "name": "Cyra",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes circuits and quiet resolve"
+    },
+    {
+      "name": "Dex",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Latin: right-handed, skillful"
+    },
+    {
+      "name": "Eon",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: an age, eternity"
+    },
+    {
+      "name": "Ion",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Romanian: form of John"
+    },
+    {
+      "name": "Kade",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Scottish: round"
+    },
+    {
+      "name": "Lior",
+      "gender": "neutral",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Hebrew: my light"
+    },
+    {
+      "name": "Nyra",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a mysterious signal from afar"
+    },
+    {
+      "name": "Rho",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: seventeenth letter of the alphabet"
+    },
+    {
+      "name": "Sage",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Latin: wise"
+    },
+    {
+      "name": "Tarek",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Arabic: night visitor, morning star"
+    },
+    {
+      "name": "Varro",
+      "gender": "male",
+      "genres": [
+        "scifi",
+        "historical"
+      ],
+      "meaning": "Latin: a Roman family name"
+    },
+    {
+      "name": "Arlo",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: fortified hill"
+    },
+    {
+      "name": "Seren",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Welsh: star"
+    },
+    {
+      "name": "Joss",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Breton: champion"
+    },
+    {
+      "name": "Kip",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: pointed hill"
+    },
+    {
+      "name": "Starling",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: a small songbird"
+    },
+    {
+      "name": "Ada",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern",
+        "historical"
+      ],
+      "meaning": "Germanic: noble"
+    },
+    {
+      "name": "Hollis",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: near the holly trees"
+    },
+    {
+      "name": "Imara",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Swahili: firm, strong"
+    },
+    {
+      "name": "Elysia",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "fantasy"
+      ],
+      "meaning": "Greek: blissful"
+    },
+    {
+      "name": "Kaida",
+      "gender": "female",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Japanese: little dragon"
+    },
+    {
+      "name": "Ryo",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Japanese: refreshing, distant"
+    },
+    {
+      "name": "Soraya",
+      "gender": "female",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Persian: the Pleiades"
+    },
+    {
+      "name": "Altair",
+      "gender": "male",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Arabic: the flier, a bright star"
+    },
+    {
+      "name": "Deneb",
+      "gender": "neutral",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Arabic: tail, a bright star"
+    },
+    {
+      "name": "Phoenix",
+      "gender": "neutral",
+      "genres": [
+        "scifi",
+        "fantasy"
+      ],
+      "meaning": "Greek: dark red, the mythical firebird"
+    },
+    {
+      "name": "Amara",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Igbo: grace"
+    },
+    {
+      "name": "Aaliyah",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: exalted, sublime"
+    },
+    {
+      "name": "Priya",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sanskrit: beloved"
+    },
+    {
+      "name": "Ananya",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sanskrit: unique, without equal"
+    },
+    {
+      "name": "Mei",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Chinese: beautiful"
+    },
+    {
+      "name": "Ling",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Chinese: delicate, bell"
+    },
+    {
+      "name": "Hana",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Japanese: flower"
+    },
+    {
+      "name": "Sakura",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Japanese: cherry blossom"
+    },
+    {
+      "name": "Ji-woo",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Korean: wisdom and help"
+    },
+    {
+      "name": "Seo-yeon",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Korean: auspicious and beautiful"
+    },
+    {
+      "name": "Fatima",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Arabic: one who abstains"
+    },
+    {
+      "name": "Layla",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: night"
+    },
+    {
+      "name": "Zainab",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Arabic: fragrant flower"
+    },
+    {
+      "name": "Nia",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Swahili: purpose"
+    },
+    {
+      "name": "Adaeze",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Igbo: daughter of the king"
+    },
+    {
+      "name": "Chiamaka",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Igbo: God is beautiful"
+    },
+    {
+      "name": "Ayana",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Amharic: beautiful flower"
+    },
+    {
+      "name": "Imani",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Swahili: faith"
+    },
+    {
+      "name": "Lucia",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Latin: light"
+    },
+    {
+      "name": "Sofia",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Greek: wisdom"
+    },
+    {
+      "name": "Isabella",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Hebrew: pledged to God"
+    },
+    {
+      "name": "Valentina",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Latin: strong, healthy"
+    },
+    {
+      "name": "Camila",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Latin: attendant at rituals"
+    },
+    {
+      "name": "Ximena",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Spanish: possibly one who listens"
+    },
+    {
+      "name": "Paloma",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: dove"
+    },
+    {
+      "name": "Freya",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "fantasy"
+      ],
+      "meaning": "Norse: lady"
+    },
+    {
+      "name": "Astrid",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "fantasy"
+      ],
+      "meaning": "Norse: divine beauty"
+    },
+    {
+      "name": "Maeve",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "fantasy"
+      ],
+      "meaning": "Irish: she who intoxicates"
+    },
+    {
+      "name": "Siobhan",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: God is gracious"
+    },
+    {
+      "name": "Chloe",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Greek: green shoot"
+    },
+    {
+      "name": "Zoe",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Greek: life"
+    },
+    {
+      "name": "Hannah",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hebrew: grace"
+    },
+    {
+      "name": "Maya",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sanskrit: illusion"
+    },
+    {
+      "name": "Olivia",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Latin: olive tree"
+    },
+    {
+      "name": "Emma",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Germanic: whole, universal"
+    },
+    {
+      "name": "Grace",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Latin: grace, kindness"
+    },
+    {
+      "name": "Nadia",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Slavic: hope"
+    },
+    {
+      "name": "Katya",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Russian: pure"
+    },
+    {
+      "name": "Daria",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Persian: possessing good"
+    },
+    {
+      "name": "Aditi",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sanskrit: boundless"
+    },
+    {
+      "name": "Kavya",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sanskrit: poetry"
+    },
+    {
+      "name": "Leilani",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hawaiian: heavenly flowers"
+    },
+    {
+      "name": "Tala",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Tagalog: bright star"
+    },
+    {
+      "name": "Marisol",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: sea and sun"
+    },
+    {
+      "name": "Esperanza",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: hope"
+    },
+    {
+      "name": "Renata",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Latin: reborn"
+    },
+    {
+      "name": "Yasmin",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Persian: jasmine"
+    },
+    {
+      "name": "Amira",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: princess"
+    },
+    {
+      "name": "Thandiwe",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Zulu: beloved"
+    },
+    {
+      "name": "Zuri",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Swahili: beautiful"
+    },
+    {
+      "name": "Abena",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Akan: born on Tuesday"
+    },
+    {
+      "name": "Elif",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Turkish: slender, the first letter"
+    },
+    {
+      "name": "Defne",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Turkish: laurel"
+    },
+    {
+      "name": "Aiko",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Japanese: child of love"
+    },
+    {
+      "name": "Linh",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Vietnamese: spirit, gentle"
+    },
+    {
+      "name": "Ngozi",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Igbo: blessing"
+    },
+    {
+      "name": "Rosa",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Latin: rose"
+    },
+    {
+      "name": "Clara",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Latin: bright, clear"
+    },
+    {
+      "name": "Juliet",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Latin: youthful"
+    },
+    {
+      "name": "June",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Latin: the month of Juno"
+    },
+    {
+      "name": "Iris",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Greek: rainbow"
+    },
+    {
+      "name": "Penelope",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Greek: weaver"
+    },
+    {
+      "name": "Beatrix",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: she who brings happiness"
+    },
+    {
+      "name": "Matilda",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Germanic: mighty in battle"
+    },
+    {
+      "name": "Eleanor",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Provençal: possibly the other Aenor"
+    },
+    {
+      "name": "Margaret",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Greek: pearl"
+    },
+    {
+      "name": "Agnes",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Greek: pure, holy"
+    },
+    {
+      "name": "Edith",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Old English: prosperous in war"
+    },
+    {
+      "name": "Mabel",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: lovable"
+    },
+    {
+      "name": "Winifred",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Welsh: blessed reconciliation"
+    },
+    {
+      "name": "Constance",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: steadfast"
+    },
+    {
+      "name": "Hester",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Persian: star"
+    },
+    {
+      "name": "Prudence",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: good judgment"
+    },
+    {
+      "name": "Temperance",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: moderation"
+    },
+    {
+      "name": "Philippa",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Greek: lover of horses"
+    },
+    {
+      "name": "Cecily",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: from the Roman family Caecilius"
+    },
+    {
+      "name": "Rowena",
+      "gender": "female",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Germanic: fame and joy"
+    },
+    {
+      "name": "Theodora",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Greek: gift of God"
+    },
+    {
+      "name": "Livia",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: possibly bluish, envious"
+    },
+    {
+      "name": "Octavia",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: eighth"
+    },
+    {
+      "name": "Cornelia",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: horn"
+    },
+    {
+      "name": "Hypatia",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Greek: highest, supreme"
+    },
+    {
+      "name": "Zenobia",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Greek: life of Zeus"
+    },
+    {
+      "name": "Nefertari",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Egyptian: beautiful companion"
+    },
+    {
+      "name": "Tomoe",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Japanese: comma-shaped swirl"
+    },
+    {
+      "name": "Lakshmi",
+      "gender": "female",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Sanskrit: sign, goddess of fortune"
+    },
+    {
+      "name": "Akosua",
+      "gender": "female",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Akan: born on Sunday"
+    },
+    {
+      "name": "Sunniva",
+      "gender": "female",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Old English: sun gift"
+    },
+    {
+      "name": "Mateo",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: gift of God"
+    },
+    {
+      "name": "Santiago",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: Saint James"
+    },
+    {
+      "name": "Diego",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: possibly supplanter"
+    },
+    {
+      "name": "Luca",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Italian: from Lucania"
+    },
+    {
+      "name": "Marco",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Italian: of Mars"
+    },
+    {
+      "name": "Arjun",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sanskrit: bright, shining"
+    },
+    {
+      "name": "Rohan",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sanskrit: ascending"
+    },
+    {
+      "name": "Vikram",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sanskrit: valor"
+    },
+    {
+      "name": "Dev",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sanskrit: god, divine"
+    },
+    {
+      "name": "Rafael",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hebrew: God heals"
+    },
+    {
+      "name": "Omar",
+      "gender": "male",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Arabic: long-lived"
+    },
+    {
+      "name": "Yusuf",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: God increases"
+    },
+    {
+      "name": "Karim",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: generous, noble"
+    },
+    {
+      "name": "Hamza",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: steadfast"
+    },
+    {
+      "name": "Kwame",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Akan: born on Saturday"
+    },
+    {
+      "name": "Kofi",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Akan: born on Friday"
+    },
+    {
+      "name": "Chidi",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Igbo: God exists"
+    },
+    {
+      "name": "Tendai",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Shona: be thankful"
+    },
+    {
+      "name": "Jabari",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Swahili: brave"
+    },
+    {
+      "name": "Obi",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Igbo: heart"
+    },
+    {
+      "name": "Wei",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Chinese: greatness"
+    },
+    {
+      "name": "Jun",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Chinese: handsome, talented"
+    },
+    {
+      "name": "Haruto",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Japanese: sun flying"
+    },
+    {
+      "name": "Min-jun",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Korean: quick and handsome"
+    },
+    {
+      "name": "Liam",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: strong-willed protector"
+    },
+    {
+      "name": "Noah",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hebrew: rest"
+    },
+    {
+      "name": "Oliver",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Latin: olive tree"
+    },
+    {
+      "name": "Ethan",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hebrew: strong, firm"
+    },
+    {
+      "name": "Felix",
+      "gender": "male",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Latin: lucky, happy"
+    },
+    {
+      "name": "Hugo",
+      "gender": "male",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Germanic: mind, heart"
+    },
+    {
+      "name": "Jasper",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Persian: treasurer"
+    },
+    {
+      "name": "Silas",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Latin: of the forest"
+    },
+    {
+      "name": "Theo",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Greek: god"
+    },
+    {
+      "name": "Oscar",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: deer lover"
+    },
+    {
+      "name": "Finn",
+      "gender": "male",
+      "genres": [
+        "modern",
+        "fantasy"
+      ],
+      "meaning": "Irish: fair, white"
+    },
+    {
+      "name": "Callum",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Gaelic: dove"
+    },
+    {
+      "name": "Rory",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: red king"
+    },
+    {
+      "name": "Declan",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: full of goodness"
+    },
+    {
+      "name": "Mikhail",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Russian: who is like God"
+    },
+    {
+      "name": "Dmitri",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Russian: devoted to Demeter"
+    },
+    {
+      "name": "Lev",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Russian: lion"
+    },
+    {
+      "name": "Nikolai",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Russian: victory of the people"
+    },
+    {
+      "name": "Anders",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Scandinavian: manly, strong"
+    },
+    {
+      "name": "Lars",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Scandinavian: from Laurentum"
+    },
+    {
+      "name": "Emil",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Latin: rival, eager"
+    },
+    {
+      "name": "Tomasz",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Polish: twin"
+    },
+    {
+      "name": "Kenji",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Japanese: strong second son"
+    },
+    {
+      "name": "Tenzin",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Tibetan: upholder of the teachings"
+    },
+    {
+      "name": "Ravi",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sanskrit: sun"
+    },
+    {
+      "name": "Ibrahim",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: father of many"
+    },
+    {
+      "name": "Emeka",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Igbo: great deeds"
+    },
+    {
+      "name": "Koa",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hawaiian: brave, warrior"
+    },
+    {
+      "name": "Thiago",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Portuguese: Saint James"
+    },
+    {
+      "name": "Joaquin",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: raised by God"
+    },
+    {
+      "name": "Nikhil",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sanskrit: whole, complete"
+    },
+    {
+      "name": "Samir",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: companion in evening talk"
+    },
+    {
+      "name": "Elias",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hebrew: my God is Yahweh"
+    },
+    {
+      "name": "Malik",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: king"
+    },
+    {
+      "name": "Desmond",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: man from south Munster"
+    },
+    {
+      "name": "Julian",
+      "gender": "male",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Latin: youthful"
+    },
+    {
+      "name": "Miles",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Latin: soldier"
+    },
+    {
+      "name": "Wesley",
+      "gender": "male",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: western meadow"
+    },
+    {
+      "name": "Arthur",
+      "gender": "male",
+      "genres": [
+        "historical",
+        "fantasy"
+      ],
+      "meaning": "Celtic: possibly bear"
+    },
+    {
+      "name": "Edmund",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Old English: prosperity and protection"
+    },
+    {
+      "name": "Godfrey",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Germanic: God's peace"
+    },
+    {
+      "name": "Ambrose",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Greek: immortal"
+    },
+    {
+      "name": "Bartholomew",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Aramaic: son of Talmai"
+    },
+    {
+      "name": "Cuthbert",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Old English: famous and bright"
+    },
+    {
+      "name": "Leofric",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Old English: dear ruler"
+    },
+    {
+      "name": "Wulfstan",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Old English: wolf stone"
+    },
+    {
+      "name": "Bertrand",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Germanic: bright raven"
+    },
+    {
+      "name": "Tristan",
+      "gender": "male",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Celtic: possibly tumult"
+    },
+    {
+      "name": "Augustin",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: venerable"
+    },
+    {
+      "name": "Lucius",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: light"
+    },
+    {
+      "name": "Cassius",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: possibly empty, vain"
+    },
+    {
+      "name": "Marcus",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: of Mars"
+    },
+    {
+      "name": "Septimus",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: seventh"
+    },
+    {
+      "name": "Ptolemy",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Greek: warlike"
+    },
+    {
+      "name": "Leonidas",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Greek: son of the lion"
+    },
+    {
+      "name": "Ramses",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Egyptian: Ra has fashioned him"
+    },
+    {
+      "name": "Takeshi",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Japanese: warrior, fierce"
+    },
+    {
+      "name": "Saladin",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Arabic: righteousness of the faith"
+    },
+    {
+      "name": "Suleiman",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Arabic: peaceful"
+    },
+    {
+      "name": "Casimir",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Polish: proclaims peace"
+    },
+    {
+      "name": "Wenceslas",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Czech: more glory"
+    },
+    {
+      "name": "Rodrigo",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Spanish: famous ruler"
+    },
+    {
+      "name": "Benedict",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: blessed"
+    },
+    {
+      "name": "Ignatius",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: fiery"
+    },
+    {
+      "name": "Archibald",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Germanic: genuinely bold"
+    },
+    {
+      "name": "Rupert",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Germanic: bright fame"
+    },
+    {
+      "name": "Reginald",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Germanic: counsel and power"
+    },
+    {
+      "name": "Horatio",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Latin: a Roman family name"
+    },
+    {
+      "name": "Gideon",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Hebrew: hewer, feller"
+    },
+    {
+      "name": "Ezekiel",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Hebrew: God strengthens"
+    },
+    {
+      "name": "Jedediah",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Hebrew: friend of God"
+    },
+    {
+      "name": "Obadiah",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Hebrew: servant of God"
+    },
+    {
+      "name": "Cyrus",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Persian: possibly sun"
+    },
+    {
+      "name": "Darius",
+      "gender": "male",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Persian: holder of good"
+    },
+    {
+      "name": "Avery",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: elf ruler"
+    },
+    {
+      "name": "Quinn",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: wise, chief"
+    },
+    {
+      "name": "Riley",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: courageous"
+    },
+    {
+      "name": "Jordan",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hebrew: to flow down"
+    },
+    {
+      "name": "Morgan",
+      "gender": "neutral",
+      "genres": [
+        "modern",
+        "fantasy"
+      ],
+      "meaning": "Welsh: sea-born"
+    },
+    {
+      "name": "Robin",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: bright fame"
+    },
+    {
+      "name": "Rowan",
+      "gender": "neutral",
+      "genres": [
+        "modern",
+        "fantasy"
+      ],
+      "meaning": "Irish: little red one"
+    },
+    {
+      "name": "Sasha",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Russian: defender"
+    },
+    {
+      "name": "Taylor",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: tailor"
+    },
+    {
+      "name": "Reese",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Welsh: ardor, enthusiasm"
+    },
+    {
+      "name": "Emerson",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: son of Emery"
+    },
+    {
+      "name": "Parker",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: park keeper"
+    },
+    {
+      "name": "Blair",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Scottish: field, plain"
+    },
+    {
+      "name": "Ellis",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Welsh: kind, benevolent"
+    },
+    {
+      "name": "Remy",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "French: oarsman"
+    },
+    {
+      "name": "Jules",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "French: youthful"
+    },
+    {
+      "name": "Arden",
+      "gender": "neutral",
+      "genres": [
+        "modern",
+        "fantasy"
+      ],
+      "meaning": "English: valley of the eagle"
+    },
+    {
+      "name": "Indigo",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Greek: deep blue dye"
+    },
+    {
+      "name": "River",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: flowing water"
+    },
+    {
+      "name": "Skyler",
+      "gender": "neutral",
+      "genres": [
+        "modern",
+        "scifi"
+      ],
+      "meaning": "Dutch: scholar"
+    },
+    {
+      "name": "Hayden",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: hay valley"
+    },
+    {
+      "name": "Jamie",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hebrew: supplanter"
+    },
+    {
+      "name": "Alexis",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Greek: defender"
+    },
+    {
+      "name": "Dakota",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sioux: friend, ally"
+    },
+    {
+      "name": "Shiloh",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hebrew: tranquil"
+    },
+    {
+      "name": "Marlowe",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: remnants of a lake"
+    },
+    {
+      "name": "Oakley",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: oak meadow"
+    },
+    {
+      "name": "Sloane",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: raider"
+    },
+    {
+      "name": "Tatum",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: cheerful"
+    },
+    {
+      "name": "Ari",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hebrew: lion"
+    },
+    {
+      "name": "Nour",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: light"
+    },
+    {
+      "name": "Akira",
+      "gender": "neutral",
+      "genres": [
+        "modern",
+        "scifi"
+      ],
+      "meaning": "Japanese: bright, clear"
+    },
+    {
+      "name": "Hikaru",
+      "gender": "neutral",
+      "genres": [
+        "modern",
+        "scifi"
+      ],
+      "meaning": "Japanese: radiance"
+    },
+    {
+      "name": "Nikita",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Greek: unconquerable"
+    },
+    {
+      "name": "Kendall",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: valley of the River Kent"
+    },
+    {
+      "name": "Kai",
+      "gender": "neutral",
+      "genres": [
+        "modern",
+        "scifi"
+      ],
+      "meaning": "Hawaiian: sea"
+    },
+    {
+      "name": "Harper",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: harp player"
+    },
+    {
+      "name": "Noa",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hebrew: movement"
+    },
+    {
+      "name": "Charlie",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Germanic: free person"
+    },
+    {
+      "name": "Frankie",
+      "gender": "neutral",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Latin: free one"
+    },
+    {
+      "name": "Ellery",
+      "gender": "neutral",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "English: alder tree"
+    }
+  ],
+  "last": [
+    {
+      "name": "Thorne",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: lives by a thorn bush"
+    },
+    {
+      "name": "Ashdown",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "English: hill of ash trees"
+    },
+    {
+      "name": "Blackwood",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: dark wood"
+    },
+    {
+      "name": "Ravenscroft",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "English: raven's enclosure"
+    },
+    {
+      "name": "Silverleaf",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes elven groves in moonlight"
+    },
+    {
+      "name": "Stormrider",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes riders racing the weather"
+    },
+    {
+      "name": "Duskwalker",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a traveller of twilight roads"
+    },
+    {
+      "name": "Brightwater",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: clear, shining stream"
+    },
+    {
+      "name": "Emberfall",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a fallen kingdom's last fire"
+    },
+    {
+      "name": "Frostmantle",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a cloak of winter"
+    },
+    {
+      "name": "Greymoor",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes misty highland moors"
+    },
+    {
+      "name": "Hollowell",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: holy well"
+    },
+    {
+      "name": "Ironhart",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes an unbreakable will"
+    },
+    {
+      "name": "Moonwhisper",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes secrets told under moonlight"
+    },
+    {
+      "name": "Nightshade",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: a poisonous plant; evokes mystery"
+    },
+    {
+      "name": "Ravenwood",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes dark woods full of crows"
+    },
+    {
+      "name": "Shadowmere",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a dark, still lake"
+    },
+    {
+      "name": "Starfell",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a meteor's landing place"
+    },
+    {
+      "name": "Thornfield",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "English: thorny field"
+    },
+    {
+      "name": "Underhill",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "English: lives at the foot of a hill"
+    },
+    {
+      "name": "Wolfsbane",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: a poisonous plant; evokes wolves"
+    },
+    {
+      "name": "Winterbourne",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "English: stream that flows in winter"
+    },
+    {
+      "name": "Whitlock",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "English: white-haired"
+    },
+    {
+      "name": "Vale",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: lives in a valley"
+    },
+    {
+      "name": "Mistvale",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a fog-filled valley"
+    },
+    {
+      "name": "Dragonsbane",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a famed dragon slayer"
+    },
+    {
+      "name": "Highcastle",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a fortress on a peak"
+    },
+    {
+      "name": "Larkspur",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: a blue flowering plant"
+    },
+    {
+      "name": "Fairweather",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: a person of sunny temperament"
+    },
+    {
+      "name": "Goldcrest",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: a small crowned bird"
+    },
+    {
+      "name": "Briarwood",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a thorny, tangled forest"
+    },
+    {
+      "name": "Cinderhall",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a burned great hall"
+    },
+    {
+      "name": "Darkmore",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a vast, shadowed moor"
+    },
+    {
+      "name": "Elderglen",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes an ancient wooded valley"
+    },
+    {
+      "name": "Fenwick",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "English: farm by the marsh"
+    },
+    {
+      "name": "Hawkridge",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: ridge where hawks fly"
+    },
+    {
+      "name": "Ivoryspire",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a pale wizard's tower"
+    },
+    {
+      "name": "Lightbringer",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a hero who ends darkness"
+    },
+    {
+      "name": "Mournvale",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a valley of old sorrow"
+    },
+    {
+      "name": "Northwind",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes cold wind from the far north"
+    },
+    {
+      "name": "Oathkeeper",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes unbreakable promises"
+    },
+    {
+      "name": "Pyrewood",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes sacred fires in the forest"
+    },
+    {
+      "name": "Quickwater",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes rapids and swift rivers"
+    },
+    {
+      "name": "Redthorn",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes crimson brambles"
+    },
+    {
+      "name": "Stonebrook",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: stony stream"
+    },
+    {
+      "name": "Whisperwind",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes voices carried on the breeze"
+    },
+    {
+      "name": "Yarrow",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: a healing herb"
+    },
+    {
+      "name": "Ashenford",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a river crossing after a fire"
+    },
+    {
+      "name": "Bramblecote",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a cottage among brambles"
+    },
+    {
+      "name": "Crowhurst",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "English: wooded hill of crows"
+    },
+    {
+      "name": "Dunmore",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Scottish: big fort"
+    },
+    {
+      "name": "Everhart",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "Germanic: strong as a boar"
+    },
+    {
+      "name": "Foxglove",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: a tall flowering plant"
+    },
+    {
+      "name": "Hartwell",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: stream where deer drink"
+    },
+    {
+      "name": "Isenmoor",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes an iron-grey moor"
+    },
+    {
+      "name": "Kingsley",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "English: king's meadow"
+    },
+    {
+      "name": "Lockhart",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Scottish: possibly enclosed stronghold"
+    },
+    {
+      "name": "Marrowind",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a bone-chilling wind"
+    },
+    {
+      "name": "Nethercott",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "English: lower cottage"
+    },
+    {
+      "name": "Oakhaven",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a sheltered village of oaks"
+    },
+    {
+      "name": "Penhallow",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Cornish: head of the moor"
+    },
+    {
+      "name": "Sorrowgate",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a city gate of farewells"
+    },
+    {
+      "name": "Tremaine",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Cornish: homestead of the stone"
+    },
+    {
+      "name": "Valcourt",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a noble court in the valley"
+    },
+    {
+      "name": "Wyndham",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "English: Wymonde's homestead"
+    },
+    {
+      "name": "Ashgrove",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: grove of ash trees"
+    },
+    {
+      "name": "Blackthorn",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: a dark thorny shrub"
+    },
+    {
+      "name": "Coldwater",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "English: cold stream"
+    },
+    {
+      "name": "Deepwood",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes forest older than memory"
+    },
+    {
+      "name": "Fallowmere",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a quiet lake by empty fields"
+    },
+    {
+      "name": "Glimmerstone",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes gems that shine in the dark"
+    },
+    {
+      "name": "Halloway",
+      "genres": [
+        "fantasy",
+        "modern"
+      ],
+      "meaning": "English: path in a hollow"
+    },
+    {
+      "name": "Ironwood",
+      "genres": [
+        "fantasy",
+        "scifi"
+      ],
+      "meaning": "English: very hard wood"
+    },
+    {
+      "name": "Lunaris",
+      "genres": [
+        "fantasy",
+        "scifi"
+      ],
+      "meaning": "invented — evokes the moon and its phases"
+    },
+    {
+      "name": "Mossheart",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a gentle forest guardian"
+    },
+    {
+      "name": "Pendragon",
+      "genres": [
+        "fantasy",
+        "historical"
+      ],
+      "meaning": "Welsh: chief dragon"
+    },
+    {
+      "name": "Sunstrider",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a traveller of sunlit roads"
+    },
+    {
+      "name": "Thistlewood",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a wild, prickly forest"
+    },
+    {
+      "name": "Wildmane",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a lion-like warrior"
+    },
+    {
+      "name": "Swiftarrow",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a peerless archer"
+    },
+    {
+      "name": "Dawnbreaker",
+      "genres": [
+        "fantasy"
+      ],
+      "meaning": "invented — evokes a hero of first light"
+    },
+    {
+      "name": "Voss",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "German: fox"
+    },
+    {
+      "name": "Kovacs",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Hungarian: smith"
+    },
+    {
+      "name": "Nakamura",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Japanese: middle village"
+    },
+    {
+      "name": "Tanaka",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Japanese: dweller in the rice field"
+    },
+    {
+      "name": "Strand",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Norse: shore, beach"
+    },
+    {
+      "name": "Halvorsen",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Norwegian: son of Halvor"
+    },
+    {
+      "name": "Ryland",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: rye land"
+    },
+    {
+      "name": "Varga",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Hungarian: shoemaker"
+    },
+    {
+      "name": "Orlov",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Russian: eagle"
+    },
+    {
+      "name": "Petrov",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Russian: son of Peter"
+    },
+    {
+      "name": "Sokolov",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Russian: falcon"
+    },
+    {
+      "name": "Drake",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "English: dragon"
+    },
+    {
+      "name": "Cross",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: lives by a cross"
+    },
+    {
+      "name": "Mercer",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "English: merchant"
+    },
+    {
+      "name": "Steele",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: steel worker"
+    },
+    {
+      "name": "Locke",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: enclosure, lock keeper"
+    },
+    {
+      "name": "Hale",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "English: nook, hollow"
+    },
+    {
+      "name": "Reyes",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Spanish: kings"
+    },
+    {
+      "name": "Castellan",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Latin: keeper of a castle"
+    },
+    {
+      "name": "Arkwright",
+      "genres": [
+        "scifi",
+        "historical"
+      ],
+      "meaning": "English: chest maker"
+    },
+    {
+      "name": "Calloway",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "French: from Caillouet, pebbly place"
+    },
+    {
+      "name": "Daxon",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a gruff freighter captain"
+    },
+    {
+      "name": "Elstrom",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes electric currents"
+    },
+    {
+      "name": "Fennix",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a reborn rebel pilot"
+    },
+    {
+      "name": "Ixari",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes an alien diplomat"
+    },
+    {
+      "name": "Jarvik",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes engineering and cold metal"
+    },
+    {
+      "name": "Krell",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes an ancient lost civilization"
+    },
+    {
+      "name": "Maddox",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Welsh: son of Madoc"
+    },
+    {
+      "name": "Novak",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Czech: newcomer"
+    },
+    {
+      "name": "Oberlin",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a calm research director"
+    },
+    {
+      "name": "Praxis",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: action, practice"
+    },
+    {
+      "name": "Quell",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: to calm, subdue"
+    },
+    {
+      "name": "Rourke",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Irish: famous king"
+    },
+    {
+      "name": "Solari",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Italian: sunny"
+    },
+    {
+      "name": "Thrace",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: the region of Thrace"
+    },
+    {
+      "name": "Vey",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a short, sharp call sign"
+    },
+    {
+      "name": "Wexler",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "German: money changer"
+    },
+    {
+      "name": "Xiang",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Chinese: soaring, fragrant"
+    },
+    {
+      "name": "Yorke",
+      "genres": [
+        "scifi",
+        "historical"
+      ],
+      "meaning": "English: from York"
+    },
+    {
+      "name": "Zorin",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Russian: dawn"
+    },
+    {
+      "name": "Acheron",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Greek: a river of the underworld"
+    },
+    {
+      "name": "Corvus",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Latin: crow, a constellation"
+    },
+    {
+      "name": "Dyne",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a unit of force"
+    },
+    {
+      "name": "Eckhart",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Germanic: brave edge"
+    },
+    {
+      "name": "Farrow",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: possibly ironworker, farrier"
+    },
+    {
+      "name": "Graves",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: grove, or steward"
+    },
+    {
+      "name": "Holt",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "English: small wood"
+    },
+    {
+      "name": "Ishikawa",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Japanese: stone river"
+    },
+    {
+      "name": "Kepler",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "German: cap maker"
+    },
+    {
+      "name": "Lazarev",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Russian: son of Lazar"
+    },
+    {
+      "name": "Marek",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Slavic: form of Mark, of Mars"
+    },
+    {
+      "name": "Pryce",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Welsh: son of Rhys"
+    },
+    {
+      "name": "Raines",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "English: possibly queen"
+    },
+    {
+      "name": "Sato",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Japanese: helping wisteria"
+    },
+    {
+      "name": "Takeda",
+      "genres": [
+        "scifi",
+        "historical"
+      ],
+      "meaning": "Japanese: warrior rice field"
+    },
+    {
+      "name": "Ueda",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Japanese: upper rice field"
+    },
+    {
+      "name": "Vasquez",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Spanish: son of Velasco"
+    },
+    {
+      "name": "Archer",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "English: bowman"
+    },
+    {
+      "name": "Carrick",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Irish: rock"
+    },
+    {
+      "name": "Denholm",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Scottish: valley island"
+    },
+    {
+      "name": "Falk",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "German: falcon"
+    },
+    {
+      "name": "Grayson",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "English: son of the steward"
+    },
+    {
+      "name": "Ito",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Japanese: wisteria from Ise"
+    },
+    {
+      "name": "Kuroda",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Japanese: black rice field"
+    },
+    {
+      "name": "Lindqvist",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Swedish: linden twig"
+    },
+    {
+      "name": "Mori",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Japanese: forest"
+    },
+    {
+      "name": "Navarro",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Spanish: from Navarre"
+    },
+    {
+      "name": "Okoye",
+      "genres": [
+        "scifi",
+        "modern"
+      ],
+      "meaning": "Igbo: man born on Oye market day"
+    },
+    {
+      "name": "Quan",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Vietnamese: soldier, army"
+    },
+    {
+      "name": "Rask",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Danish: quick, brisk"
+    },
+    {
+      "name": "Sundberg",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "Swedish: strait mountain"
+    },
+    {
+      "name": "Varkas",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "invented — evokes a ruthless corporate rival"
+    },
+    {
+      "name": "Zeller",
+      "genres": [
+        "scifi"
+      ],
+      "meaning": "German: from Zell"
+    },
+    {
+      "name": "Okafor",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Igbo: born on Afor market day"
+    },
+    {
+      "name": "Nguyen",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Vietnamese: a historic dynasty name"
+    },
+    {
+      "name": "Patel",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Gujarati: village headman"
+    },
+    {
+      "name": "Garcia",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Basque: possibly young"
+    },
+    {
+      "name": "Kim",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Korean: gold"
+    },
+    {
+      "name": "Rossi",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Italian: red-haired"
+    },
+    {
+      "name": "Müller",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "German: miller"
+    },
+    {
+      "name": "Andersson",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Swedish: son of Anders"
+    },
+    {
+      "name": "Kowalski",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Polish: blacksmith"
+    },
+    {
+      "name": "Haddad",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: blacksmith"
+    },
+    {
+      "name": "Mensah",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Akan: third-born son"
+    },
+    {
+      "name": "Fernandes",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Portuguese: son of Fernando"
+    },
+    {
+      "name": "Moreau",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "French: dark-skinned"
+    },
+    {
+      "name": "Laurent",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "French: from Laurentum"
+    },
+    {
+      "name": "O'Connell",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: descendant of Conall, strong wolf"
+    },
+    {
+      "name": "Murphy",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: sea warrior"
+    },
+    {
+      "name": "Gallagher",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: foreign helper"
+    },
+    {
+      "name": "Sullivan",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: dark-eyed"
+    },
+    {
+      "name": "Walsh",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: Welshman"
+    },
+    {
+      "name": "Chen",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Chinese: an ancient state name"
+    },
+    {
+      "name": "Wang",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Chinese: king"
+    },
+    {
+      "name": "Liu",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Chinese: name of the Han dynasty emperors"
+    },
+    {
+      "name": "Singh",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Punjabi: lion"
+    },
+    {
+      "name": "Sharma",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Sanskrit: joy, shelter"
+    },
+    {
+      "name": "Iyer",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Tamil: teacher, master"
+    },
+    {
+      "name": "Rahman",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: merciful"
+    },
+    {
+      "name": "Hassan",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: handsome, good"
+    },
+    {
+      "name": "Khalil",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Arabic: friend"
+    },
+    {
+      "name": "Diallo",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Fula: bold"
+    },
+    {
+      "name": "Adeyemi",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Yoruba: the crown suits me"
+    },
+    {
+      "name": "Banda",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Chewa: a clan name"
+    },
+    {
+      "name": "Kariuki",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Kikuyu: one reborn"
+    },
+    {
+      "name": "Santos",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Portuguese: saints"
+    },
+    {
+      "name": "Silva",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Portuguese: forest"
+    },
+    {
+      "name": "Oliveira",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Portuguese: olive tree"
+    },
+    {
+      "name": "Mendoza",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Basque: cold mountain"
+    },
+    {
+      "name": "Torres",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: towers"
+    },
+    {
+      "name": "Castillo",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: castle"
+    },
+    {
+      "name": "Morales",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: mulberry trees"
+    },
+    {
+      "name": "Herrera",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: blacksmith"
+    },
+    {
+      "name": "Bianchi",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Italian: white, fair"
+    },
+    {
+      "name": "Ricci",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Italian: curly-haired"
+    },
+    {
+      "name": "Esposito",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Italian: placed out, a foundling"
+    },
+    {
+      "name": "Schmidt",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "German: smith"
+    },
+    {
+      "name": "Becker",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "German: baker"
+    },
+    {
+      "name": "Fischer",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "German: fisherman"
+    },
+    {
+      "name": "Weber",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "German: weaver"
+    },
+    {
+      "name": "Horvat",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Croatian: a Croat"
+    },
+    {
+      "name": "Popescu",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Romanian: son of the priest"
+    },
+    {
+      "name": "Volkov",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Russian: wolf"
+    },
+    {
+      "name": "Lindgren",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Swedish: linden branch"
+    },
+    {
+      "name": "Dahl",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Norwegian: valley"
+    },
+    {
+      "name": "Jensen",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Danish: son of Jens"
+    },
+    {
+      "name": "Bakker",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Dutch: baker"
+    },
+    {
+      "name": "de Vries",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Dutch: the Frisian"
+    },
+    {
+      "name": "Kealoha",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hawaiian: the beloved"
+    },
+    {
+      "name": "Takahashi",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Japanese: high bridge"
+    },
+    {
+      "name": "Suzuki",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Japanese: bell tree"
+    },
+    {
+      "name": "Watanabe",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Japanese: ferry crossing"
+    },
+    {
+      "name": "Choi",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Korean: highest, pinnacle"
+    },
+    {
+      "name": "Tran",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Vietnamese: a dynasty name"
+    },
+    {
+      "name": "Cruz",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: cross"
+    },
+    {
+      "name": "Bautista",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Spanish: baptist"
+    },
+    {
+      "name": "Yilmaz",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Turkish: undaunted"
+    },
+    {
+      "name": "Demir",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Turkish: iron"
+    },
+    {
+      "name": "Kaya",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Turkish: rock"
+    },
+    {
+      "name": "Cohen",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hebrew: priest"
+    },
+    {
+      "name": "Levi",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Hebrew: joined, attached"
+    },
+    {
+      "name": "Ndlovu",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Zulu: elephant"
+    },
+    {
+      "name": "Dlamini",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Swazi: a royal clan name"
+    },
+    {
+      "name": "Bennett",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "Latin: blessed"
+    },
+    {
+      "name": "Brooks",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: lives by a stream"
+    },
+    {
+      "name": "Carter",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: cart driver"
+    },
+    {
+      "name": "Foster",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: forester"
+    },
+    {
+      "name": "Hayes",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: hedged enclosure"
+    },
+    {
+      "name": "Hughes",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Welsh: son of Hugh"
+    },
+    {
+      "name": "Parker",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: park keeper"
+    },
+    {
+      "name": "Quinn",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "Irish: wise, chief"
+    },
+    {
+      "name": "Turner",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: lathe worker"
+    },
+    {
+      "name": "Walker",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: cloth fuller"
+    },
+    {
+      "name": "Fletcher",
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "meaning": "English: arrow maker"
+    },
+    {
+      "name": "Harlow",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: army hill"
+    },
+    {
+      "name": "Whitaker",
+      "genres": [
+        "modern"
+      ],
+      "meaning": "English: white field"
+    },
+    {
+      "name": "Beaumont",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "French: beautiful mountain"
+    },
+    {
+      "name": "Cavendish",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "English: Cafna's field"
+    },
+    {
+      "name": "Darcy",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Norman: from Arcy"
+    },
+    {
+      "name": "Fairfax",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Old English: fair hair"
+    },
+    {
+      "name": "Fitzgerald",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Norman: son of Gerald"
+    },
+    {
+      "name": "Montague",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "French: pointed hill"
+    },
+    {
+      "name": "Percy",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Norman: from Percy-en-Auge"
+    },
+    {
+      "name": "Plantagenet",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "French: sprig of broom"
+    },
+    {
+      "name": "Talbot",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Norman: possibly messenger"
+    },
+    {
+      "name": "de Vere",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Norman: from Ver"
+    },
+    {
+      "name": "Wycliffe",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "English: white cliff"
+    },
+    {
+      "name": "Hawthorne",
+      "genres": [
+        "historical",
+        "fantasy"
+      ],
+      "meaning": "English: lives by a hawthorn"
+    },
+    {
+      "name": "Pemberton",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "English: barley farm on a hill"
+    },
+    {
+      "name": "Aldridge",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "English: alder ridge"
+    },
+    {
+      "name": "Cromwell",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "English: winding stream"
+    },
+    {
+      "name": "Devereux",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Norman: from Évreux"
+    },
+    {
+      "name": "Everard",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Germanic: brave boar"
+    },
+    {
+      "name": "Harcourt",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Norman: from Harcourt"
+    },
+    {
+      "name": "Lancaster",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "English: fort on the River Lune"
+    },
+    {
+      "name": "Neville",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Norman: new town"
+    },
+    {
+      "name": "Pembroke",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Welsh: land's end"
+    },
+    {
+      "name": "Radcliffe",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "English: red cliff"
+    },
+    {
+      "name": "Stanhope",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "English: stony hollow"
+    },
+    {
+      "name": "Tudor",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Welsh: form of Theodore, gift of God"
+    },
+    {
+      "name": "Valois",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "French: from the Valois region"
+    },
+    {
+      "name": "Medici",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Italian: physicians"
+    },
+    {
+      "name": "Borgia",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Spanish: from Borja, tower"
+    },
+    {
+      "name": "Sforza",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Italian: force, effort"
+    },
+    {
+      "name": "Visconti",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Italian: viscounts"
+    },
+    {
+      "name": "Romanov",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Russian: son of Roman"
+    },
+    {
+      "name": "Tokugawa",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Japanese: virtue river"
+    },
+    {
+      "name": "Minamoto",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Japanese: source, origin"
+    },
+    {
+      "name": "Bonaparte",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Italian: good part"
+    },
+    {
+      "name": "Mortimer",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Norman: still water"
+    },
+    {
+      "name": "Courtenay",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Norman: from Courtenay"
+    },
+    {
+      "name": "Seymour",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Norman: from Saint-Maur"
+    },
+    {
+      "name": "Boleyn",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "English: possibly from Boulogne"
+    },
+    {
+      "name": "Godwin",
+      "genres": [
+        "historical"
+      ],
+      "meaning": "Old English: friend of God"
+    }
+  ]
+}

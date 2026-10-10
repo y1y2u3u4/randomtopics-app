@@ -1,0 +1,3426 @@
+{
+ "first": [
+  {
+   "name": "Osan",
+   "race": "human",
+   "gender": "male",
+   "feel": "rustic, earnest"
+  },
+  {
+   "name": "Ulmund",
+   "race": "human",
+   "gender": "male",
+   "feel": "rustic, earnest"
+  },
+  {
+   "name": "Tordric",
+   "race": "human",
+   "gender": "male",
+   "feel": "rustic, earnest"
+  },
+  {
+   "name": "Coros",
+   "race": "human",
+   "gender": "male",
+   "feel": "rustic, earnest"
+  },
+  {
+   "name": "Merald",
+   "race": "human",
+   "gender": "male",
+   "feel": "steady, hearthborn"
+  },
+  {
+   "name": "Rosam",
+   "race": "human",
+   "gender": "male",
+   "feel": "rustic, earnest"
+  },
+  {
+   "name": "Darek",
+   "race": "human",
+   "gender": "male",
+   "feel": "crisp, soldierly"
+  },
+  {
+   "name": "Isos",
+   "race": "human",
+   "gender": "male",
+   "feel": "tough, frontier-born"
+  },
+  {
+   "name": "Nerwen",
+   "race": "human",
+   "gender": "male",
+   "feel": "plain, sturdy"
+  },
+  {
+   "name": "Osek",
+   "race": "human",
+   "gender": "male",
+   "feel": "crisp, soldierly"
+  },
+  {
+   "name": "Tormund",
+   "race": "human",
+   "gender": "male",
+   "feel": "plain, sturdy"
+  },
+  {
+   "name": "Jorek",
+   "race": "human",
+   "gender": "male",
+   "feel": "rustic, earnest"
+  },
+  {
+   "name": "Nerick",
+   "race": "human",
+   "gender": "male",
+   "feel": "noble, grounded"
+  },
+  {
+   "name": "Daram",
+   "race": "human",
+   "gender": "male",
+   "feel": "rustic, earnest"
+  },
+  {
+   "name": "Elin",
+   "race": "human",
+   "gender": "male",
+   "feel": "rustic, earnest"
+  },
+  {
+   "name": "Halard",
+   "race": "human",
+   "gender": "male",
+   "feel": "tough, frontier-born"
+  },
+  {
+   "name": "Adena",
+   "race": "human",
+   "gender": "female",
+   "feel": "bright, courtly"
+  },
+  {
+   "name": "Calyn",
+   "race": "human",
+   "gender": "female",
+   "feel": "bright, courtly"
+  },
+  {
+   "name": "Ulyn",
+   "race": "human",
+   "gender": "female",
+   "feel": "gentle, homespun"
+  },
+  {
+   "name": "Rinwen",
+   "race": "human",
+   "gender": "female",
+   "feel": "warm, familiar"
+  },
+  {
+   "name": "Coris",
+   "race": "human",
+   "gender": "female",
+   "feel": "warm, familiar"
+  },
+  {
+   "name": "Isina",
+   "race": "human",
+   "gender": "female",
+   "feel": "clear, confident"
+  },
+  {
+   "name": "Corise",
+   "race": "human",
+   "gender": "female",
+   "feel": "clear, confident"
+  },
+  {
+   "name": "Perise",
+   "race": "human",
+   "gender": "female",
+   "feel": "classic, elegant"
+  },
+  {
+   "name": "Neranne",
+   "race": "human",
+   "gender": "female",
+   "feel": "classic, elegant"
+  },
+  {
+   "name": "Darora",
+   "race": "human",
+   "gender": "female",
+   "feel": "gentle, homespun"
+  },
+  {
+   "name": "Calis",
+   "race": "human",
+   "gender": "female",
+   "feel": "clear, confident"
+  },
+  {
+   "name": "Peressa",
+   "race": "human",
+   "gender": "female",
+   "feel": "graceful, grounded"
+  },
+  {
+   "name": "Merora",
+   "race": "human",
+   "gender": "female",
+   "feel": "classic, elegant"
+  },
+  {
+   "name": "Nerena",
+   "race": "human",
+   "gender": "female",
+   "feel": "graceful, grounded"
+  },
+  {
+   "name": "Isyn",
+   "race": "human",
+   "gender": "female",
+   "feel": "gentle, homespun"
+  },
+  {
+   "name": "Lorina",
+   "race": "human",
+   "gender": "female",
+   "feel": "warm, familiar"
+  },
+  {
+   "name": "Lorow",
+   "race": "human",
+   "gender": "neutral",
+   "feel": "easygoing, modern"
+  },
+  {
+   "name": "Brenow",
+   "race": "human",
+   "gender": "neutral",
+   "feel": "simple, versatile"
+  },
+  {
+   "name": "Osar",
+   "race": "human",
+   "gender": "neutral",
+   "feel": "soft, adaptable"
+  },
+  {
+   "name": "Tamey",
+   "race": "human",
+   "gender": "neutral",
+   "feel": "short, practical"
+  },
+  {
+   "name": "Edey",
+   "race": "human",
+   "gender": "neutral",
+   "feel": "simple, versatile"
+  },
+  {
+   "name": "Kerar",
+   "race": "human",
+   "gender": "neutral",
+   "feel": "soft, adaptable"
+  },
+  {
+   "name": "Loran",
+   "race": "human",
+   "gender": "neutral",
+   "feel": "soft, adaptable"
+  },
+  {
+   "name": "Fenow",
+   "race": "human",
+   "gender": "neutral",
+   "feel": "short, practical"
+  },
+  {
+   "name": "Rinen",
+   "race": "human",
+   "gender": "neutral",
+   "feel": "short, practical"
+  },
+  {
+   "name": "Faethil",
+   "race": "elf",
+   "gender": "male",
+   "feel": "sylvan, measured"
+  },
+  {
+   "name": "Luarion",
+   "race": "elf",
+   "gender": "male",
+   "feel": "ancient, starlit"
+  },
+  {
+   "name": "Naemir",
+   "race": "elf",
+   "gender": "male",
+   "feel": "soft-spoken, wise"
+  },
+  {
+   "name": "Eriric",
+   "race": "elf",
+   "gender": "male",
+   "feel": "proud, silvery"
+  },
+  {
+   "name": "Ysethil",
+   "race": "elf",
+   "gender": "male",
+   "feel": "sylvan, measured"
+  },
+  {
+   "name": "Saeric",
+   "race": "elf",
+   "gender": "male",
+   "feel": "sylvan, measured"
+  },
+  {
+   "name": "Aelion",
+   "race": "elf",
+   "gender": "male",
+   "feel": "airy, regal"
+  },
+  {
+   "name": "Maethas",
+   "race": "elf",
+   "gender": "male",
+   "feel": "sylvan, measured"
+  },
+  {
+   "name": "Orinvyr",
+   "race": "elf",
+   "gender": "male",
+   "feel": "ancient, starlit"
+  },
+  {
+   "name": "Thaeric",
+   "race": "elf",
+   "gender": "male",
+   "feel": "soft-spoken, wise"
+  },
+  {
+   "name": "Ilythil",
+   "race": "elf",
+   "gender": "male",
+   "feel": "ancient, starlit"
+  },
+  {
+   "name": "Quelnis",
+   "race": "elf",
+   "gender": "male",
+   "feel": "ancient, starlit"
+  },
+  {
+   "name": "Aethil",
+   "race": "elf",
+   "gender": "male",
+   "feel": "ancient, starlit"
+  },
+  {
+   "name": "Caelmir",
+   "race": "elf",
+   "gender": "male",
+   "feel": "lyrical, moonlit"
+  },
+  {
+   "name": "Naelas",
+   "race": "elf",
+   "gender": "male",
+   "feel": "lyrical, moonlit"
+  },
+  {
+   "name": "Thaethar",
+   "race": "elf",
+   "gender": "male",
+   "feel": "soft-spoken, wise"
+  },
+  {
+   "name": "Araria",
+   "race": "elf",
+   "gender": "female",
+   "feel": "luminous, ancient"
+  },
+  {
+   "name": "Vaelriel",
+   "race": "elf",
+   "gender": "female",
+   "feel": "delicate, starlit"
+  },
+  {
+   "name": "Maessa",
+   "race": "elf",
+   "gender": "female",
+   "feel": "luminous, ancient"
+  },
+  {
+   "name": "Ysewyn",
+   "race": "elf",
+   "gender": "female",
+   "feel": "flowing, ethereal"
+  },
+  {
+   "name": "Maephine",
+   "race": "elf",
+   "gender": "female",
+   "feel": "lyrical, moonlit"
+  },
+  {
+   "name": "Vaelsira",
+   "race": "elf",
+   "gender": "female",
+   "feel": "lyrical, moonlit"
+  },
+  {
+   "name": "Naethiel",
+   "race": "elf",
+   "gender": "female",
+   "feel": "luminous, ancient"
+  },
+  {
+   "name": "Maedra",
+   "race": "elf",
+   "gender": "female",
+   "feel": "lyrical, moonlit"
+  },
+  {
+   "name": "Caelia",
+   "race": "elf",
+   "gender": "female",
+   "feel": "lyrical, moonlit"
+  },
+  {
+   "name": "Maelys",
+   "race": "elf",
+   "gender": "female",
+   "feel": "lyrical, moonlit"
+  },
+  {
+   "name": "Sylys",
+   "race": "elf",
+   "gender": "female",
+   "feel": "lyrical, moonlit"
+  },
+  {
+   "name": "Maethiel",
+   "race": "elf",
+   "gender": "female",
+   "feel": "luminous, ancient"
+  },
+  {
+   "name": "Maenna",
+   "race": "elf",
+   "gender": "female",
+   "feel": "dreamy, sylvan"
+  },
+  {
+   "name": "Aralith",
+   "race": "elf",
+   "gender": "female",
+   "feel": "lyrical, moonlit"
+  },
+  {
+   "name": "Yselith",
+   "race": "elf",
+   "gender": "female",
+   "feel": "delicate, starlit"
+  },
+  {
+   "name": "Vaelria",
+   "race": "elf",
+   "gender": "female",
+   "feel": "graceful, silvery"
+  },
+  {
+   "name": "Ysevel",
+   "race": "elf",
+   "gender": "neutral",
+   "feel": "gentle, sylvan"
+  },
+  {
+   "name": "Ilynor",
+   "race": "elf",
+   "gender": "neutral",
+   "feel": "timeless, fluid"
+  },
+  {
+   "name": "Nynor",
+   "race": "elf",
+   "gender": "neutral",
+   "feel": "gentle, sylvan"
+  },
+  {
+   "name": "Quelth",
+   "race": "elf",
+   "gender": "neutral",
+   "feel": "gentle, sylvan"
+  },
+  {
+   "name": "Elalin",
+   "race": "elf",
+   "gender": "neutral",
+   "feel": "timeless, fluid"
+  },
+  {
+   "name": "Elarai",
+   "race": "elf",
+   "gender": "neutral",
+   "feel": "soft, starlit"
+  },
+  {
+   "name": "Sylnor",
+   "race": "elf",
+   "gender": "neutral",
+   "feel": "soft, starlit"
+  },
+  {
+   "name": "Maenor",
+   "race": "elf",
+   "gender": "neutral",
+   "feel": "soft, starlit"
+  },
+  {
+   "name": "Ilmnor",
+   "race": "elf",
+   "gender": "neutral",
+   "feel": "soft, starlit"
+  },
+  {
+   "name": "Brungrim",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "hard, anvil-struck"
+  },
+  {
+   "name": "Durak",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "hard, anvil-struck"
+  },
+  {
+   "name": "Borvik",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "gruff, stone-hewn"
+  },
+  {
+   "name": "Eldmund",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "blunt, iron-bound"
+  },
+  {
+   "name": "Gorik",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "hard, anvil-struck"
+  },
+  {
+   "name": "Brunras",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "deep, forge-hot"
+  },
+  {
+   "name": "Gormund",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "hard, anvil-struck"
+  },
+  {
+   "name": "Bofbek",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "gruff, stone-hewn"
+  },
+  {
+   "name": "Rurnar",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "blunt, iron-bound"
+  },
+  {
+   "name": "Vondak",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "solid, mountain-born"
+  },
+  {
+   "name": "Skalin",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "solid, mountain-born"
+  },
+  {
+   "name": "Harak",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "solid, mountain-born"
+  },
+  {
+   "name": "Gorek",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "deep, forge-hot"
+  },
+  {
+   "name": "Hildrik",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "deep, forge-hot"
+  },
+  {
+   "name": "Morgar",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "blunt, iron-bound"
+  },
+  {
+   "name": "Morak",
+   "race": "dwarf",
+   "gender": "male",
+   "feel": "stout, rumbling"
+  },
+  {
+   "name": "Ulvi",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "firm, gem-cut"
+  },
+  {
+   "name": "Bora",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "proud, stone-carved"
+  },
+  {
+   "name": "Morhild",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "bold, mountain-born"
+  },
+  {
+   "name": "Eldis",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "hardy, clan-proud"
+  },
+  {
+   "name": "Thora",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "warm, hearth-strong"
+  },
+  {
+   "name": "Dagli",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "hardy, clan-proud"
+  },
+  {
+   "name": "Kileth",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "warm, hearth-strong"
+  },
+  {
+   "name": "Torbera",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "sturdy, forge-bright"
+  },
+  {
+   "name": "Kila",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "warm, hearth-strong"
+  },
+  {
+   "name": "Harbera",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "firm, gem-cut"
+  },
+  {
+   "name": "Durja",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "bold, mountain-born"
+  },
+  {
+   "name": "Thorvi",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "sturdy, forge-bright"
+  },
+  {
+   "name": "Kharwyn",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "hardy, clan-proud"
+  },
+  {
+   "name": "Bofli",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "sturdy, forge-bright"
+  },
+  {
+   "name": "Broketh",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "firm, gem-cut"
+  },
+  {
+   "name": "Bofwyn",
+   "race": "dwarf",
+   "gender": "female",
+   "feel": "proud, stone-carved"
+  },
+  {
+   "name": "Rurek",
+   "race": "dwarf",
+   "gender": "neutral",
+   "feel": "clipped, steady"
+  },
+  {
+   "name": "Thrur",
+   "race": "dwarf",
+   "gender": "neutral",
+   "feel": "plain, sturdy"
+  },
+  {
+   "name": "Dunond",
+   "race": "dwarf",
+   "gender": "neutral",
+   "feel": "clipped, steady"
+  },
+  {
+   "name": "Skalur",
+   "race": "dwarf",
+   "gender": "neutral",
+   "feel": "short, rocky"
+  },
+  {
+   "name": "Kharond",
+   "race": "dwarf",
+   "gender": "neutral",
+   "feel": "earthy, firm"
+  },
+  {
+   "name": "Hildal",
+   "race": "dwarf",
+   "gender": "neutral",
+   "feel": "earthy, firm"
+  },
+  {
+   "name": "Bofek",
+   "race": "dwarf",
+   "gender": "neutral",
+   "feel": "clipped, steady"
+  },
+  {
+   "name": "Harek",
+   "race": "dwarf",
+   "gender": "neutral",
+   "feel": "clipped, steady"
+  },
+  {
+   "name": "Bofal",
+   "race": "dwarf",
+   "gender": "neutral",
+   "feel": "plain, sturdy"
+  },
+  {
+   "name": "Nedwick",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "light, nimble"
+  },
+  {
+   "name": "Nedric",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "merry, pastoral"
+  },
+  {
+   "name": "Niby",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "merry, pastoral"
+  },
+  {
+   "name": "Milry",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "merry, pastoral"
+  },
+  {
+   "name": "Feno",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "cheerful, cozy"
+  },
+  {
+   "name": "Cobric",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "cheerful, cozy"
+  },
+  {
+   "name": "Dobdo",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "merry, pastoral"
+  },
+  {
+   "name": "Rosibin",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "quick, homey"
+  },
+  {
+   "name": "Tobry",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "round, friendly"
+  },
+  {
+   "name": "Tadric",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "round, friendly"
+  },
+  {
+   "name": "Caskin",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "cheerful, cozy"
+  },
+  {
+   "name": "Polan",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "cheerful, cozy"
+  },
+  {
+   "name": "Jemby",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "cheerful, cozy"
+  },
+  {
+   "name": "Caston",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "merry, pastoral"
+  },
+  {
+   "name": "Merric",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "round, friendly"
+  },
+  {
+   "name": "Nedo",
+   "race": "halfling",
+   "gender": "male",
+   "feel": "quick, homey"
+  },
+  {
+   "name": "Milbell",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "bouncy, warm"
+  },
+  {
+   "name": "Milsy",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "bubbly, homey"
+  },
+  {
+   "name": "Polie",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "bouncy, warm"
+  },
+  {
+   "name": "Hobella",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "cheery, pastoral"
+  },
+  {
+   "name": "Liloa",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "bubbly, homey"
+  },
+  {
+   "name": "Hobwyn",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "bright, garden-fresh"
+  },
+  {
+   "name": "Fenwyn",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "sweet, cozy"
+  },
+  {
+   "name": "Bela",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "bouncy, warm"
+  },
+  {
+   "name": "Casbell",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "cheery, pastoral"
+  },
+  {
+   "name": "Casly",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "sweet, cozy"
+  },
+  {
+   "name": "Fenbell",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "sweet, cozy"
+  },
+  {
+   "name": "Bramora",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "sweet, cozy"
+  },
+  {
+   "name": "Lilowyn",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "bubbly, homey"
+  },
+  {
+   "name": "Rosisy",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "sweet, cozy"
+  },
+  {
+   "name": "Tadbell",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "cheery, pastoral"
+  },
+  {
+   "name": "Nibly",
+   "race": "halfling",
+   "gender": "female",
+   "feel": "bouncy, warm"
+  },
+  {
+   "name": "Tadpo",
+   "race": "halfling",
+   "gender": "neutral",
+   "feel": "snug, friendly"
+  },
+  {
+   "name": "Lilory",
+   "race": "halfling",
+   "gender": "neutral",
+   "feel": "light, homey"
+  },
+  {
+   "name": "Pipry",
+   "race": "halfling",
+   "gender": "neutral",
+   "feel": "short, playful"
+  },
+  {
+   "name": "Dobny",
+   "race": "halfling",
+   "gender": "neutral",
+   "feel": "short, playful"
+  },
+  {
+   "name": "Casey",
+   "race": "halfling",
+   "gender": "neutral",
+   "feel": "snug, friendly"
+  },
+  {
+   "name": "Samli",
+   "race": "halfling",
+   "gender": "neutral",
+   "feel": "light, homey"
+  },
+  {
+   "name": "Merrli",
+   "race": "halfling",
+   "gender": "neutral",
+   "feel": "snug, friendly"
+  },
+  {
+   "name": "Bramkin",
+   "race": "halfling",
+   "gender": "neutral",
+   "feel": "cute, nimble"
+  },
+  {
+   "name": "Brampo",
+   "race": "halfling",
+   "gender": "neutral",
+   "feel": "light, homey"
+  },
+  {
+   "name": "Jibnock",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "bouncy, clever"
+  },
+  {
+   "name": "Orkbo",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "bouncy, clever"
+  },
+  {
+   "name": "Tibger",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "fizzy, mischievous"
+  },
+  {
+   "name": "Wobert",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "fizzy, mischievous"
+  },
+  {
+   "name": "Jibdle",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "quirky, inventive"
+  },
+  {
+   "name": "Belbus",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "fizzy, mischievous"
+  },
+  {
+   "name": "Nimpin",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "bouncy, clever"
+  },
+  {
+   "name": "Fizwick",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "quirky, inventive"
+  },
+  {
+   "name": "Nackrin",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "bouncy, clever"
+  },
+  {
+   "name": "Tibdle",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "fizzy, mischievous"
+  },
+  {
+   "name": "Dimbrin",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "fizzy, mischievous"
+  },
+  {
+   "name": "Gimbus",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "bouncy, clever"
+  },
+  {
+   "name": "Belnock",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "fizzy, mischievous"
+  },
+  {
+   "name": "Jibpin",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "tinkerish, bright"
+  },
+  {
+   "name": "Tibwick",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "quirky, inventive"
+  },
+  {
+   "name": "Zankin",
+   "race": "gnome",
+   "gender": "male",
+   "feel": "tinkerish, bright"
+  },
+  {
+   "name": "Twinwyn",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Tibella",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Lopwyn",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "nimble, curious"
+  },
+  {
+   "name": "Pezdra",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "giggly, bright"
+  },
+  {
+   "name": "Pezina",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "whimsical, quick"
+  },
+  {
+   "name": "Pezra",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "nimble, curious"
+  },
+  {
+   "name": "Sibwyn",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "giggly, bright"
+  },
+  {
+   "name": "Nackra",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Wobella",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "cheerful, inventive"
+  },
+  {
+   "name": "Gimiffy",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "whimsical, quick"
+  },
+  {
+   "name": "Wobdra",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Pezli",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Sibiffy",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Gimdra",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "giggly, bright"
+  },
+  {
+   "name": "Belella",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "whimsical, quick"
+  },
+  {
+   "name": "Gimette",
+   "race": "gnome",
+   "gender": "female",
+   "feel": "cheerful, inventive"
+  },
+  {
+   "name": "Nimdot",
+   "race": "gnome",
+   "gender": "neutral",
+   "feel": "quirky, light"
+  },
+  {
+   "name": "Bimro",
+   "race": "gnome",
+   "gender": "neutral",
+   "feel": "quirky, light"
+  },
+  {
+   "name": "Lopmo",
+   "race": "gnome",
+   "gender": "neutral",
+   "feel": "playful, odd"
+  },
+  {
+   "name": "Quiby",
+   "race": "gnome",
+   "gender": "neutral",
+   "feel": "quirky, light"
+  },
+  {
+   "name": "Bimpip",
+   "race": "gnome",
+   "gender": "neutral",
+   "feel": "tiny, bright"
+  },
+  {
+   "name": "Zookby",
+   "race": "gnome",
+   "gender": "neutral",
+   "feel": "tiny, bright"
+  },
+  {
+   "name": "Orkro",
+   "race": "gnome",
+   "gender": "neutral",
+   "feel": "short, zippy"
+  },
+  {
+   "name": "Fizby",
+   "race": "gnome",
+   "gender": "neutral",
+   "feel": "quirky, light"
+  },
+  {
+   "name": "Nackdot",
+   "race": "gnome",
+   "gender": "neutral",
+   "feel": "tiny, bright"
+  },
+  {
+   "name": "Zugdar",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "raw, thunderous"
+  },
+  {
+   "name": "Gruash",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "blunt, battle-worn"
+  },
+  {
+   "name": "Grurok",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "blunt, battle-worn"
+  },
+  {
+   "name": "Gromash",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "gravelly, fierce"
+  },
+  {
+   "name": "Zugush",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "raw, thunderous"
+  },
+  {
+   "name": "Dagul",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "gravelly, fierce"
+  },
+  {
+   "name": "Gashmok",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "harsh, war-drum"
+  },
+  {
+   "name": "Vorgul",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "blunt, battle-worn"
+  },
+  {
+   "name": "Yarug",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "gravelly, fierce"
+  },
+  {
+   "name": "Gromgul",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "blunt, battle-worn"
+  },
+  {
+   "name": "Korak",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "blunt, battle-worn"
+  },
+  {
+   "name": "Rokgar",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "blunt, battle-worn"
+  },
+  {
+   "name": "Orgug",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "gravelly, fierce"
+  },
+  {
+   "name": "Gashash",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "blunt, battle-worn"
+  },
+  {
+   "name": "Yargul",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "heavy, tusked"
+  },
+  {
+   "name": "Martor",
+   "race": "half-orc",
+   "gender": "male",
+   "feel": "blunt, battle-worn"
+  },
+  {
+   "name": "Mokgra",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "fierce, smoky"
+  },
+  {
+   "name": "Orgeth",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "proud, scarred"
+  },
+  {
+   "name": "Brakzha",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "proud, scarred"
+  },
+  {
+   "name": "Hulga",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "sharp, wolfish"
+  },
+  {
+   "name": "Urira",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "bold, untamed"
+  },
+  {
+   "name": "Beleth",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "proud, scarred"
+  },
+  {
+   "name": "Gashika",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "proud, scarred"
+  },
+  {
+   "name": "Kragka",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "proud, scarred"
+  },
+  {
+   "name": "Vorna",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "bold, untamed"
+  },
+  {
+   "name": "Thokya",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "strong, wild"
+  },
+  {
+   "name": "Mokira",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "strong, wild"
+  },
+  {
+   "name": "Hulira",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "proud, scarred"
+  },
+  {
+   "name": "Gromgra",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "strong, wild"
+  },
+  {
+   "name": "Thokira",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "sharp, wolfish"
+  },
+  {
+   "name": "Belna",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "sharp, wolfish"
+  },
+  {
+   "name": "Belzha",
+   "race": "half-orc",
+   "gender": "female",
+   "feel": "bold, untamed"
+  },
+  {
+   "name": "Zugum",
+   "race": "half-orc",
+   "gender": "neutral",
+   "feel": "short, hard"
+  },
+  {
+   "name": "Belash",
+   "race": "half-orc",
+   "gender": "neutral",
+   "feel": "short, hard"
+  },
+  {
+   "name": "Sharek",
+   "race": "half-orc",
+   "gender": "neutral",
+   "feel": "rough, simple"
+  },
+  {
+   "name": "Thok",
+   "race": "half-orc",
+   "gender": "neutral",
+   "feel": "guttural, steady"
+  },
+  {
+   "name": "Marum",
+   "race": "half-orc",
+   "gender": "neutral",
+   "feel": "guttural, steady"
+  },
+  {
+   "name": "Korum",
+   "race": "half-orc",
+   "gender": "neutral",
+   "feel": "guttural, steady"
+  },
+  {
+   "name": "Yark",
+   "race": "half-orc",
+   "gender": "neutral",
+   "feel": "guttural, steady"
+  },
+  {
+   "name": "Kragk",
+   "race": "half-orc",
+   "gender": "neutral",
+   "feel": "guttural, steady"
+  },
+  {
+   "name": "Korek",
+   "race": "half-orc",
+   "gender": "neutral",
+   "feel": "rough, simple"
+  },
+  {
+   "name": "Leviel",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "dark, silken"
+  },
+  {
+   "name": "Cyrazar",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "old, abyssal"
+  },
+  {
+   "name": "Thaion",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "infernal, smoldering"
+  },
+  {
+   "name": "Vexiel",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "dark, silken"
+  },
+  {
+   "name": "Zarazar",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "old, abyssal"
+  },
+  {
+   "name": "Nyxash",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "old, abyssal"
+  },
+  {
+   "name": "Xanarin",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "old, abyssal"
+  },
+  {
+   "name": "Xanoth",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "dark, silken"
+  },
+  {
+   "name": "Beloth",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "dark, silken"
+  },
+  {
+   "name": "Belex",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "sly, velvet"
+  },
+  {
+   "name": "Nyxoth",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "sharp, sulfurous"
+  },
+  {
+   "name": "Cyrion",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "sly, velvet"
+  },
+  {
+   "name": "Kaoth",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "sly, velvet"
+  },
+  {
+   "name": "Oriash",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "dark, silken"
+  },
+  {
+   "name": "Cyrash",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "sharp, sulfurous"
+  },
+  {
+   "name": "Zeoth",
+   "race": "tiefling",
+   "gender": "male",
+   "feel": "infernal, smoldering"
+  },
+  {
+   "name": "Malisa",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "silken, ominous"
+  },
+  {
+   "name": "Zarova",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "sultry, infernal"
+  },
+  {
+   "name": "Soress",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "dark, lyrical"
+  },
+  {
+   "name": "Cyrisa",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "smoky, elegant"
+  },
+  {
+   "name": "Aziza",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "silken, ominous"
+  },
+  {
+   "name": "Oriyne",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "dark, lyrical"
+  },
+  {
+   "name": "Xanara",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "silken, ominous"
+  },
+  {
+   "name": "Malia",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "sharp, ember-lit"
+  },
+  {
+   "name": "Morova",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "smoky, elegant"
+  },
+  {
+   "name": "Cyress",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "smoky, elegant"
+  },
+  {
+   "name": "Seless",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "dark, lyrical"
+  },
+  {
+   "name": "Cyrova",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "silken, ominous"
+  },
+  {
+   "name": "Velyne",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "sultry, infernal"
+  },
+  {
+   "name": "Kaela",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "silken, ominous"
+  },
+  {
+   "name": "Belira",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "smoky, elegant"
+  },
+  {
+   "name": "Iraira",
+   "race": "tiefling",
+   "gender": "female",
+   "feel": "silken, ominous"
+  },
+  {
+   "name": "Levix",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "soft, smoky"
+  },
+  {
+   "name": "Orix",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "soft, smoky"
+  },
+  {
+   "name": "Belyr",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "soft, smoky"
+  },
+  {
+   "name": "Selael",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "soft, smoky"
+  },
+  {
+   "name": "Damakael",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "strange, shadowed"
+  },
+  {
+   "name": "Moris",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "soft, smoky"
+  },
+  {
+   "name": "Nyxyr",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "ambiguous, dark"
+  },
+  {
+   "name": "Selyr",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "cryptic, ember-lit"
+  },
+  {
+   "name": "Moren",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "strange, shadowed"
+  },
+  {
+   "name": "Riddle",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "virtue name"
+  },
+  {
+   "name": "Patience",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "virtue name"
+  },
+  {
+   "name": "Hymn",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "virtue name"
+  },
+  {
+   "name": "Quill",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "virtue name"
+  },
+  {
+   "name": "Omen",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "virtue name"
+  },
+  {
+   "name": "Thorn",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "virtue name"
+  },
+  {
+   "name": "Ruin",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "virtue name"
+  },
+  {
+   "name": "Whisper",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "virtue name"
+  },
+  {
+   "name": "Solace",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "virtue name"
+  },
+  {
+   "name": "Hollow",
+   "race": "tiefling",
+   "gender": "neutral",
+   "feel": "virtue name"
+  },
+  {
+   "name": "Medorn",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "fiery, proud"
+  },
+  {
+   "name": "Kariv",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "scaled, regal"
+  },
+  {
+   "name": "Vorash",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "fiery, proud"
+  },
+  {
+   "name": "Uadgar",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "fiery, proud"
+  },
+  {
+   "name": "Krivash",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "scaled, regal"
+  },
+  {
+   "name": "Nadorn",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "fiery, proud"
+  },
+  {
+   "name": "Vororn",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "booming, draconic"
+  },
+  {
+   "name": "Rhogjed",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "fiery, proud"
+  },
+  {
+   "name": "Kavgar",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "fiery, proud"
+  },
+  {
+   "name": "Karorn",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "fiery, proud"
+  },
+  {
+   "name": "Tharhun",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "scaled, regal"
+  },
+  {
+   "name": "Nadgar",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "scaled, regal"
+  },
+  {
+   "name": "Balax",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "hissing, ancient"
+  },
+  {
+   "name": "Torar",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "thunderous, honorable"
+  },
+  {
+   "name": "Karath",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "thunderous, honorable"
+  },
+  {
+   "name": "Karhun",
+   "race": "dragonborn",
+   "gender": "male",
+   "feel": "hissing, ancient"
+  },
+  {
+   "name": "Veraka",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "fierce, ancient"
+  },
+  {
+   "name": "Zorilda",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "smoky, regal"
+  },
+  {
+   "name": "Zoraka",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "smoky, regal"
+  },
+  {
+   "name": "Skyara",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "fierce, ancient"
+  },
+  {
+   "name": "Zorahra",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "smoky, regal"
+  },
+  {
+   "name": "Arjira",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "smoky, regal"
+  },
+  {
+   "name": "Krivithra",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "sharp, scaled"
+  },
+  {
+   "name": "Rhogys",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "proud, draconic"
+  },
+  {
+   "name": "Rhogara",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "fierce, ancient"
+  },
+  {
+   "name": "Arjivi",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "smoky, regal"
+  },
+  {
+   "name": "Rhogithra",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "fierce, ancient"
+  },
+  {
+   "name": "Jhesira",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "gleaming, bold"
+  },
+  {
+   "name": "Drailda",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "proud, draconic"
+  },
+  {
+   "name": "Pandivi",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "fierce, ancient"
+  },
+  {
+   "name": "Draira",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "fierce, ancient"
+  },
+  {
+   "name": "Sorora",
+   "race": "dragonborn",
+   "gender": "female",
+   "feel": "smoky, regal"
+  },
+  {
+   "name": "Balith",
+   "race": "dragonborn",
+   "gender": "neutral",
+   "feel": "old, scaled"
+  },
+  {
+   "name": "Arjesh",
+   "race": "dragonborn",
+   "gender": "neutral",
+   "feel": "hissing, terse"
+  },
+  {
+   "name": "Ghesax",
+   "race": "dragonborn",
+   "gender": "neutral",
+   "feel": "old, scaled"
+  },
+  {
+   "name": "Pandax",
+   "race": "dragonborn",
+   "gender": "neutral",
+   "feel": "clipped, draconic"
+  },
+  {
+   "name": "Sorax",
+   "race": "dragonborn",
+   "gender": "neutral",
+   "feel": "old, scaled"
+  },
+  {
+   "name": "Skyr",
+   "race": "dragonborn",
+   "gender": "neutral",
+   "feel": "harsh, steady"
+  },
+  {
+   "name": "Verok",
+   "race": "dragonborn",
+   "gender": "neutral",
+   "feel": "harsh, steady"
+  },
+  {
+   "name": "Jhesesh",
+   "race": "dragonborn",
+   "gender": "neutral",
+   "feel": "harsh, steady"
+  },
+  {
+   "name": "Medok",
+   "race": "dragonborn",
+   "gender": "neutral",
+   "feel": "hissing, terse"
+  },
+  {
+   "name": "Lissor",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "dual, charming"
+  },
+  {
+   "name": "Kaeion",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "dual, charming"
+  },
+  {
+   "name": "Miraric",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "easy, silvered"
+  },
+  {
+   "name": "Galwell",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "smooth, wandering"
+  },
+  {
+   "name": "Arias",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "easy, silvered"
+  },
+  {
+   "name": "Galin",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "smooth, wandering"
+  },
+  {
+   "name": "Renwell",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "warm, worldly"
+  },
+  {
+   "name": "Vesric",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "smooth, wandering"
+  },
+  {
+   "name": "Taman",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "smooth, wandering"
+  },
+  {
+   "name": "Tamiel",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "bright, roguish"
+  },
+  {
+   "name": "Galdor",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "warm, worldly"
+  },
+  {
+   "name": "Mirador",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "warm, worldly"
+  },
+  {
+   "name": "Elyiel",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "bright, roguish"
+  },
+  {
+   "name": "Renor",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "easy, silvered"
+  },
+  {
+   "name": "Tamin",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "bright, roguish"
+  },
+  {
+   "name": "Wrenett",
+   "race": "half-elf",
+   "gender": "male",
+   "feel": "warm, worldly"
+  },
+  {
+   "name": "Wrenra",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "charming, airy"
+  },
+  {
+   "name": "Veslyn",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "charming, airy"
+  },
+  {
+   "name": "Vesia",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "gentle, mixed-heritage"
+  },
+  {
+   "name": "Raeline",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "lilting, bright"
+  },
+  {
+   "name": "Lissine",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "soft, worldly"
+  },
+  {
+   "name": "Nyisse",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "soft, worldly"
+  },
+  {
+   "name": "Renisse",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "gentle, mixed-heritage"
+  },
+  {
+   "name": "Kaeise",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "gentle, mixed-heritage"
+  },
+  {
+   "name": "Renra",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "lilting, bright"
+  },
+  {
+   "name": "Kaewyn",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "elegant, wandering"
+  },
+  {
+   "name": "Elyra",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "gentle, mixed-heritage"
+  },
+  {
+   "name": "Alaora",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "elegant, wandering"
+  },
+  {
+   "name": "Vesisse",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "charming, airy"
+  },
+  {
+   "name": "Sevora",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "elegant, wandering"
+  },
+  {
+   "name": "Alaelle",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "soft, worldly"
+  },
+  {
+   "name": "Arise",
+   "race": "half-elf",
+   "gender": "female",
+   "feel": "charming, airy"
+  },
+  {
+   "name": "Vesys",
+   "race": "half-elf",
+   "gender": "neutral",
+   "feel": "soft, between-worlds"
+  },
+  {
+   "name": "Kaear",
+   "race": "half-elf",
+   "gender": "neutral",
+   "feel": "soft, between-worlds"
+  },
+  {
+   "name": "Wrenae",
+   "race": "half-elf",
+   "gender": "neutral",
+   "feel": "fluid, adaptable"
+  },
+  {
+   "name": "Tamel",
+   "race": "half-elf",
+   "gender": "neutral",
+   "feel": "soft, between-worlds"
+  },
+  {
+   "name": "Lissar",
+   "race": "half-elf",
+   "gender": "neutral",
+   "feel": "calm, modern"
+  },
+  {
+   "name": "Raelel",
+   "race": "half-elf",
+   "gender": "neutral",
+   "feel": "fluid, adaptable"
+  },
+  {
+   "name": "Wrenen",
+   "race": "half-elf",
+   "gender": "neutral",
+   "feel": "calm, modern"
+  },
+  {
+   "name": "Corar",
+   "race": "half-elf",
+   "gender": "neutral",
+   "feel": "fluid, adaptable"
+  },
+  {
+   "name": "Miraen",
+   "race": "half-elf",
+   "gender": "neutral",
+   "feel": "light, versatile"
+  },
+  {
+   "name": "Nyion",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "bright, steadfast"
+  },
+  {
+   "name": "Eliaphiel",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "bright, steadfast"
+  },
+  {
+   "name": "Lumuriel",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "golden, noble"
+  },
+  {
+   "name": "Thaladiel",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "radiant, solemn"
+  },
+  {
+   "name": "Serael",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "radiant, solemn"
+  },
+  {
+   "name": "Celem",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "celestial, calm"
+  },
+  {
+   "name": "Casaphiel",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "celestial, calm"
+  },
+  {
+   "name": "Celeth",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "celestial, calm"
+  },
+  {
+   "name": "Lumias",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "celestial, calm"
+  },
+  {
+   "name": "Haluriel",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "golden, noble"
+  },
+  {
+   "name": "Zarem",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "holy, resonant"
+  },
+  {
+   "name": "Ithion",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "golden, noble"
+  },
+  {
+   "name": "Vaelaphiel",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "bright, steadfast"
+  },
+  {
+   "name": "Ariael",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "radiant, solemn"
+  },
+  {
+   "name": "Arion",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "bright, steadfast"
+  },
+  {
+   "name": "Ithos",
+   "race": "aasimar",
+   "gender": "male",
+   "feel": "celestial, calm"
+  },
+  {
+   "name": "Ophiah",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "radiant, serene"
+  },
+  {
+   "name": "Halena",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "radiant, serene"
+  },
+  {
+   "name": "Ariel",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "radiant, serene"
+  },
+  {
+   "name": "Thalira",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "radiant, serene"
+  },
+  {
+   "name": "Seraphina",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "graceful, golden"
+  },
+  {
+   "name": "Amaira",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "radiant, serene"
+  },
+  {
+   "name": "Radova",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "celestial, pure"
+  },
+  {
+   "name": "Eliaphina",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "soft, hymnlike"
+  },
+  {
+   "name": "Beaette",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "soft, hymnlike"
+  },
+  {
+   "name": "Seriel",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "radiant, serene"
+  },
+  {
+   "name": "Ophena",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "graceful, golden"
+  },
+  {
+   "name": "Thaline",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "soft, hymnlike"
+  },
+  {
+   "name": "Arira",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "radiant, serene"
+  },
+  {
+   "name": "Seria",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "graceful, golden"
+  },
+  {
+   "name": "Casiel",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "luminous, gentle"
+  },
+  {
+   "name": "Zarette",
+   "race": "aasimar",
+   "gender": "female",
+   "feel": "radiant, serene"
+  },
+  {
+   "name": "Zaral",
+   "race": "aasimar",
+   "gender": "neutral",
+   "feel": "serene, simple"
+  },
+  {
+   "name": "Mirior",
+   "race": "aasimar",
+   "gender": "neutral",
+   "feel": "bright, airy"
+  },
+  {
+   "name": "Eliyn",
+   "race": "aasimar",
+   "gender": "neutral",
+   "feel": "bright, airy"
+  },
+  {
+   "name": "Celior",
+   "race": "aasimar",
+   "gender": "neutral",
+   "feel": "quiet, holy"
+  },
+  {
+   "name": "Auryn",
+   "race": "aasimar",
+   "gender": "neutral",
+   "feel": "bright, airy"
+  },
+  {
+   "name": "Celis",
+   "race": "aasimar",
+   "gender": "neutral",
+   "feel": "quiet, holy"
+  },
+  {
+   "name": "Nyis",
+   "race": "aasimar",
+   "gender": "neutral",
+   "feel": "gleaming, calm"
+  },
+  {
+   "name": "Auris",
+   "race": "aasimar",
+   "gender": "neutral",
+   "feel": "quiet, holy"
+  },
+  {
+   "name": "Casior",
+   "race": "aasimar",
+   "gender": "neutral",
+   "feel": "serene, simple"
+  }
+ ],
+ "family": [
+  {
+   "name": "Crosswell",
+   "race": "human",
+   "meaning": "folk who kept the crossroads village well"
+  },
+  {
+   "name": "Ashcroft",
+   "race": "human",
+   "meaning": "family from the ash-tree small farm"
+  },
+  {
+   "name": "Thornwell",
+   "race": "human",
+   "meaning": "family from the thorn village well"
+  },
+  {
+   "name": "Ashbridge",
+   "race": "human",
+   "meaning": "family from the ash-tree old bridge"
+  },
+  {
+   "name": "Brookwell",
+   "race": "human",
+   "meaning": "descendants of the brook village well"
+  },
+  {
+   "name": "Crosswright",
+   "race": "human",
+   "meaning": "family from the crossroads workshop"
+  },
+  {
+   "name": "Kettlefield",
+   "race": "human",
+   "meaning": "folk who kept the kettle open field"
+  },
+  {
+   "name": "Marshwell",
+   "race": "human",
+   "meaning": "folk who kept the marsh village well"
+  },
+  {
+   "name": "Fairfield",
+   "race": "human",
+   "meaning": "house raised beside the fair open field"
+  },
+  {
+   "name": "Crosshill",
+   "race": "human",
+   "meaning": "house raised beside the crossroads hill"
+  },
+  {
+   "name": "Millgate",
+   "race": "human",
+   "meaning": "family from the mill town gate"
+  },
+  {
+   "name": "Thorngate",
+   "race": "human",
+   "meaning": "folk who kept the thorn town gate"
+  },
+  {
+   "name": "Brookwick",
+   "race": "human",
+   "meaning": "descendants of the brook farmstead"
+  },
+  {
+   "name": "Thornhill",
+   "race": "human",
+   "meaning": "descendants of the thorn hill"
+  },
+  {
+   "name": "Thornford",
+   "race": "human",
+   "meaning": "descendants of the thorn river crossing"
+  },
+  {
+   "name": "Stonedale",
+   "race": "human",
+   "meaning": "folk who kept the stone valley"
+  },
+  {
+   "name": "Woodwell",
+   "race": "human",
+   "meaning": "folk who kept the wood village well"
+  },
+  {
+   "name": "Hollowell",
+   "race": "human",
+   "meaning": "descendants of the hollow village well"
+  },
+  {
+   "name": "Dawnspire",
+   "race": "elf",
+   "meaning": "keepers of the dawn-touched tower"
+  },
+  {
+   "name": "Moonveil",
+   "race": "elf",
+   "meaning": "keepers of the moonlit veil of leaves"
+  },
+  {
+   "name": "Frostwhisper",
+   "race": "elf",
+   "meaning": "house sworn to the frost-kissed whispering grove"
+  },
+  {
+   "name": "Dawnmere",
+   "race": "elf",
+   "meaning": "house sworn to the dawn-touched quiet lake"
+  },
+  {
+   "name": "Briarglade",
+   "race": "elf",
+   "meaning": "house sworn to the briar-ringed hidden glade"
+  },
+  {
+   "name": "Dawnsong",
+   "race": "elf",
+   "meaning": "house sworn to the dawn-touched old song"
+  },
+  {
+   "name": "Duskwhisper",
+   "race": "elf",
+   "meaning": "keepers of the twilight whispering grove"
+  },
+  {
+   "name": "Willowsong",
+   "race": "elf",
+   "meaning": "house sworn to the willow-shaded old song"
+  },
+  {
+   "name": "Galemere",
+   "race": "elf",
+   "meaning": "those born beneath the wind-swept quiet lake"
+  },
+  {
+   "name": "Briarmere",
+   "race": "elf",
+   "meaning": "those born beneath the briar-ringed quiet lake"
+  },
+  {
+   "name": "Larkwhisper",
+   "race": "elf",
+   "meaning": "keepers of the larksong whispering grove"
+  },
+  {
+   "name": "Frostspire",
+   "race": "elf",
+   "meaning": "keepers of the frost-kissed tower"
+  },
+  {
+   "name": "Glimmerwhisper",
+   "race": "elf",
+   "meaning": "keepers of the glimmering whispering grove"
+  },
+  {
+   "name": "Mistveil",
+   "race": "elf",
+   "meaning": "one who dwells by the misty veil of leaves"
+  },
+  {
+   "name": "Glimmerpetal",
+   "race": "elf",
+   "meaning": "those born beneath the glimmering blossom"
+  },
+  {
+   "name": "Moonspire",
+   "race": "elf",
+   "meaning": "those born beneath the moonlit tower"
+  },
+  {
+   "name": "Leafglade",
+   "race": "elf",
+   "meaning": "keepers of the leafy hidden glade"
+  },
+  {
+   "name": "Moonmere",
+   "race": "elf",
+   "meaning": "one who dwells by the moonlit quiet lake"
+  },
+  {
+   "name": "Deepbrow",
+   "race": "dwarf",
+   "meaning": "clan of the deep stone brow"
+  },
+  {
+   "name": "Deepshield",
+   "race": "dwarf",
+   "meaning": "kin who swore by the deep shield"
+  },
+  {
+   "name": "Slatehelm",
+   "race": "dwarf",
+   "meaning": "clan that guards the slate helm"
+  },
+  {
+   "name": "Embervein",
+   "race": "dwarf",
+   "meaning": "kin who swore by the ember-lit ore vein"
+  },
+  {
+   "name": "Copperforge",
+   "race": "dwarf",
+   "meaning": "delvers famed for the copper forge"
+  },
+  {
+   "name": "Runefist",
+   "race": "dwarf",
+   "meaning": "clan that guards the rune-carved fist"
+  },
+  {
+   "name": "Gemhelm",
+   "race": "dwarf",
+   "meaning": "clan that guards the gem-studded helm"
+  },
+  {
+   "name": "Ironbrow",
+   "race": "dwarf",
+   "meaning": "kin who swore by the iron stone brow"
+  },
+  {
+   "name": "Ironshield",
+   "race": "dwarf",
+   "meaning": "clan of the iron shield"
+  },
+  {
+   "name": "Emberhammer",
+   "race": "dwarf",
+   "meaning": "delvers famed for the ember-lit hammer"
+  },
+  {
+   "name": "Deepdelve",
+   "race": "dwarf",
+   "meaning": "delvers famed for the deep mine"
+  },
+  {
+   "name": "Runeshield",
+   "race": "dwarf",
+   "meaning": "delvers famed for the rune-carved shield"
+  },
+  {
+   "name": "Gemforge",
+   "race": "dwarf",
+   "meaning": "clan of the gem-studded forge"
+  },
+  {
+   "name": "Flintshield",
+   "race": "dwarf",
+   "meaning": "delvers famed for the flint shield"
+  },
+  {
+   "name": "Ironvein",
+   "race": "dwarf",
+   "meaning": "kin who swore by the iron ore vein"
+  },
+  {
+   "name": "Copperfist",
+   "race": "dwarf",
+   "meaning": "clan that guards the copper fist"
+  },
+  {
+   "name": "Copperbeard",
+   "race": "dwarf",
+   "meaning": "clan that guards the copper beard"
+  },
+  {
+   "name": "Goldelve",
+   "race": "dwarf",
+   "meaning": "clan that guards the golden mine"
+  },
+  {
+   "name": "Teaburrow",
+   "race": "halfling",
+   "meaning": "kin who kept the cozy teapot burrow"
+  },
+  {
+   "name": "Sweetbottom",
+   "race": "halfling",
+   "meaning": "folk from the sweet meadow bottom"
+  },
+  {
+   "name": "Honeykettle",
+   "race": "halfling",
+   "meaning": "family known for the honey kettle"
+  },
+  {
+   "name": "Nettlefoot",
+   "race": "halfling",
+   "meaning": "household of the nettle path"
+  },
+  {
+   "name": "Bramblebun",
+   "race": "halfling",
+   "meaning": "household of the bramble bakery"
+  },
+  {
+   "name": "Plumbottom",
+   "race": "halfling",
+   "meaning": "kin who kept the cozy plum meadow bottom"
+  },
+  {
+   "name": "Plumhill",
+   "race": "halfling",
+   "meaning": "family known for the plum hill"
+  },
+  {
+   "name": "Hearthpatch",
+   "race": "halfling",
+   "meaning": "kin who kept the cozy hearth garden patch"
+  },
+  {
+   "name": "Puddlehill",
+   "race": "halfling",
+   "meaning": "folk from the puddle hill"
+  },
+  {
+   "name": "Bramblewallow",
+   "race": "halfling",
+   "meaning": "kin who kept the cozy bramble pond"
+  },
+  {
+   "name": "Honeyburrow",
+   "race": "halfling",
+   "meaning": "family known for the honey burrow"
+  },
+  {
+   "name": "Nettlekettle",
+   "race": "halfling",
+   "meaning": "household of the nettle kettle"
+  },
+  {
+   "name": "Hearthfoot",
+   "race": "halfling",
+   "meaning": "kin who kept the cozy hearth path"
+  },
+  {
+   "name": "Teabun",
+   "race": "halfling",
+   "meaning": "family known for the teapot bakery"
+  },
+  {
+   "name": "Sweetgather",
+   "race": "halfling",
+   "meaning": "family known for the sweet harvest"
+  },
+  {
+   "name": "Bramblebottom",
+   "race": "halfling",
+   "meaning": "folk from the bramble meadow bottom"
+  },
+  {
+   "name": "Teakettle",
+   "race": "halfling",
+   "meaning": "family known for the teapot kettle"
+  },
+  {
+   "name": "Hearthgather",
+   "race": "halfling",
+   "meaning": "folk from the hearth harvest"
+  },
+  {
+   "name": "Puzzlepocket",
+   "race": "gnome",
+   "meaning": "clan famous for the puzzle many pockets"
+  },
+  {
+   "name": "Fizzletwist",
+   "race": "gnome",
+   "meaning": "clan famous for the fizzling twisty spring"
+  },
+  {
+   "name": "Glimmertwist",
+   "race": "gnome",
+   "meaning": "burrow-clan of the glimmering twisty spring"
+  },
+  {
+   "name": "Whistlespanner",
+   "race": "gnome",
+   "meaning": "clan famous for the whistling wrench"
+  },
+  {
+   "name": "Gizmowidget",
+   "race": "gnome",
+   "meaning": "kin who invented the gizmo widget"
+  },
+  {
+   "name": "Tickertwist",
+   "race": "gnome",
+   "meaning": "kin who invented the ticking twisty spring"
+  },
+  {
+   "name": "Mushroomdial",
+   "race": "gnome",
+   "meaning": "clan famous for the mushroom dial"
+  },
+  {
+   "name": "Glimmerspanner",
+   "race": "gnome",
+   "meaning": "family that tinkers with the glimmering wrench"
+  },
+  {
+   "name": "Bellowbolt",
+   "race": "gnome",
+   "meaning": "kin who invented the bellows bolt"
+  },
+  {
+   "name": "Mushroombolt",
+   "race": "gnome",
+   "meaning": "clan famous for the mushroom bolt"
+  },
+  {
+   "name": "Tumblelamp",
+   "race": "gnome",
+   "meaning": "clan famous for the tumbling lamp"
+  },
+  {
+   "name": "Coglamp",
+   "race": "gnome",
+   "meaning": "clan famous for the cog lamp"
+  },
+  {
+   "name": "Sprocketnook",
+   "race": "gnome",
+   "meaning": "clan famous for the sprocket burrow nook"
+  },
+  {
+   "name": "Bellowpocket",
+   "race": "gnome",
+   "meaning": "family that tinkers with the bellows many pockets"
+  },
+  {
+   "name": "Sparkpocket",
+   "race": "gnome",
+   "meaning": "clan famous for the spark many pockets"
+  },
+  {
+   "name": "Sparkwidget",
+   "race": "gnome",
+   "meaning": "burrow-clan of the spark widget"
+  },
+  {
+   "name": "Tickerdial",
+   "race": "gnome",
+   "meaning": "burrow-clan of the ticking dial"
+  },
+  {
+   "name": "Whistlelamp",
+   "race": "gnome",
+   "meaning": "kin who invented the whistling lamp"
+  },
+  {
+   "name": "Scarfang",
+   "race": "half-orc",
+   "meaning": "clan marked by the scarred fang"
+  },
+  {
+   "name": "Redhide",
+   "race": "half-orc",
+   "meaning": "hunters who follow the red hide"
+  },
+  {
+   "name": "Stormhand",
+   "race": "half-orc",
+   "meaning": "tribe of the storm hand"
+  },
+  {
+   "name": "Stormjaw",
+   "race": "half-orc",
+   "meaning": "tribe of the storm jaw"
+  },
+  {
+   "name": "Rockhide",
+   "race": "half-orc",
+   "meaning": "tribe of the rock hide"
+  },
+  {
+   "name": "Blackhand",
+   "race": "half-orc",
+   "meaning": "clan marked by the black hand"
+  },
+  {
+   "name": "Wolfskull",
+   "race": "half-orc",
+   "meaning": "tribe of the wolf skull"
+  },
+  {
+   "name": "Bonecrag",
+   "race": "half-orc",
+   "meaning": "clan marked by the bone crag"
+  },
+  {
+   "name": "Embercrag",
+   "race": "half-orc",
+   "meaning": "hunters who follow the ember crag"
+  },
+  {
+   "name": "Emberjaw",
+   "race": "half-orc",
+   "meaning": "tribe of the ember jaw"
+  },
+  {
+   "name": "Wolfhide",
+   "race": "half-orc",
+   "meaning": "warband that bears the wolf hide"
+  },
+  {
+   "name": "Emberspear",
+   "race": "half-orc",
+   "meaning": "tribe of the ember spear"
+  },
+  {
+   "name": "Redfang",
+   "race": "half-orc",
+   "meaning": "warband that bears the red fang"
+  },
+  {
+   "name": "Ironmaw",
+   "race": "half-orc",
+   "meaning": "warband that bears the iron maw"
+  },
+  {
+   "name": "Wolfmaw",
+   "race": "half-orc",
+   "meaning": "warband that bears the wolf maw"
+  },
+  {
+   "name": "Redspear",
+   "race": "half-orc",
+   "meaning": "clan marked by the red spear"
+  },
+  {
+   "name": "Redskull",
+   "race": "half-orc",
+   "meaning": "clan marked by the red skull"
+  },
+  {
+   "name": "Bonemaw",
+   "race": "half-orc",
+   "meaning": "warband that bears the bone maw"
+  },
+  {
+   "name": "Ashgrave",
+   "race": "tiefling",
+   "meaning": "line that rose from the ashes of ruin"
+  },
+  {
+   "name": "Vane",
+   "race": "tiefling",
+   "meaning": "old human name kept from a fallen house"
+  },
+  {
+   "name": "Morrow",
+   "race": "tiefling",
+   "meaning": "family who believes tomorrow brings mercy"
+  },
+  {
+   "name": "Cindral",
+   "race": "tiefling",
+   "meaning": "bloodline marked by ember-colored eyes"
+  },
+  {
+   "name": "Hollowell",
+   "race": "tiefling",
+   "meaning": "family from a well-cursed hamlet"
+  },
+  {
+   "name": "Duskmantle",
+   "race": "tiefling",
+   "meaning": "house that wears twilight like a cloak"
+  },
+  {
+   "name": "Thornvale",
+   "race": "tiefling",
+   "meaning": "kin who grew up in briar country"
+  },
+  {
+   "name": "Grimsby",
+   "race": "tiefling",
+   "meaning": "adopted name from a harbor orphanage"
+  },
+  {
+   "name": "Kaelthorn",
+   "race": "tiefling",
+   "meaning": "house shaped by an ancient infernal pact"
+  },
+  {
+   "name": "Solace",
+   "race": "tiefling",
+   "meaning": "surname taken as a promise of peace"
+  },
+  {
+   "name": "Ravencourt",
+   "race": "tiefling",
+   "meaning": "fallen noble line with infernal blood"
+  },
+  {
+   "name": "Vexmoor",
+   "race": "tiefling",
+   "meaning": "family from the haunted moorlands"
+  },
+  {
+   "name": "Embersong",
+   "race": "tiefling",
+   "meaning": "line of fire-voiced street singers"
+  },
+  {
+   "name": "Blackwood",
+   "race": "tiefling",
+   "meaning": "plain human name hiding a fiendish ancestor"
+  },
+  {
+   "name": "Sorrowmere",
+   "race": "tiefling",
+   "meaning": "family who settled beside a mournful lake"
+  },
+  {
+   "name": "Hale",
+   "race": "tiefling",
+   "meaning": "chosen name meaning healthy and whole"
+  },
+  {
+   "name": "Nightvane",
+   "race": "tiefling",
+   "meaning": "house that only travels after dark"
+  },
+  {
+   "name": "Ardent",
+   "race": "tiefling",
+   "meaning": "surname taken as a vow of devotion"
+  },
+  {
+   "name": "Kerrhylon",
+   "race": "dragonborn",
+   "meaning": "clan of the brass dunes and patient fire"
+  },
+  {
+   "name": "Vyrrexis",
+   "race": "dragonborn",
+   "meaning": "clan whose scales shine like polished bronze"
+  },
+  {
+   "name": "Thaxarun",
+   "race": "dragonborn",
+   "meaning": "clan of the thunder peaks"
+  },
+  {
+   "name": "Myastrion",
+   "race": "dragonborn",
+   "meaning": "clan that guards the sunken hoards"
+  },
+  {
+   "name": "Ophinshar",
+   "race": "dragonborn",
+   "meaning": "clan of the silver storm-riders"
+  },
+  {
+   "name": "Daardaxis",
+   "race": "dragonborn",
+   "meaning": "clan of the obsidian forge-caves"
+  },
+  {
+   "name": "Yarjerix",
+   "race": "dragonborn",
+   "meaning": "clan sworn to an ancient blue wyrm"
+  },
+  {
+   "name": "Kimbarrth",
+   "race": "dragonborn",
+   "meaning": "clan of the smoldering salt marshes"
+  },
+  {
+   "name": "Norixath",
+   "race": "dragonborn",
+   "meaning": "clan of keen-eyed sky watchers"
+  },
+  {
+   "name": "Shestandar",
+   "race": "dragonborn",
+   "meaning": "clan famed for honor duels at dawn"
+  },
+  {
+   "name": "Turnurix",
+   "race": "dragonborn",
+   "meaning": "clan of the copper canyon nests"
+  },
+  {
+   "name": "Baharrun",
+   "race": "dragonborn",
+   "meaning": "clan descended from a gold dragon oath"
+  },
+  {
+   "name": "Ghezrimm",
+   "race": "dragonborn",
+   "meaning": "clan of the frost-cracked glacier halls"
+  },
+  {
+   "name": "Prexijandar",
+   "race": "dragonborn",
+   "meaning": "clan of scholars who record every hoard"
+  },
+  {
+   "name": "Ulvarrax",
+   "race": "dragonborn",
+   "meaning": "clan of the ember-breathing vanguard"
+  },
+  {
+   "name": "Zorinthesh",
+   "race": "dragonborn",
+   "meaning": "clan bound by a thousand-year blood oath"
+  },
+  {
+   "name": "Ravashkar",
+   "race": "dragonborn",
+   "meaning": "clan of the green jungle temples"
+  },
+  {
+   "name": "Esk Vharin",
+   "race": "dragonborn",
+   "meaning": "clan that carries the old war banners"
+  },
+  {
+   "name": "Rainrun",
+   "race": "half-elf",
+   "meaning": "house raised near the rain road"
+  },
+  {
+   "name": "Wrenwater",
+   "race": "half-elf",
+   "meaning": "wanderers of the wren water"
+  },
+  {
+   "name": "Hawkwood",
+   "race": "half-elf",
+   "meaning": "kin who walk the hawk wood"
+  },
+  {
+   "name": "Oakley",
+   "race": "half-elf",
+   "meaning": "kin who walk the oak meadow"
+  },
+  {
+   "name": "Brightwing",
+   "race": "half-elf",
+   "meaning": "wanderers of the bright wing"
+  },
+  {
+   "name": "Valebloom",
+   "race": "half-elf",
+   "meaning": "kin who walk the valley bloom"
+  },
+  {
+   "name": "Oakwater",
+   "race": "half-elf",
+   "meaning": "wanderers of the oak water"
+  },
+  {
+   "name": "Hawkwater",
+   "race": "half-elf",
+   "meaning": "wanderers of the hawk water"
+  },
+  {
+   "name": "Valewood",
+   "race": "half-elf",
+   "meaning": "wanderers of the valley wood"
+  },
+  {
+   "name": "Silvermoor",
+   "race": "half-elf",
+   "meaning": "house raised near the silver moor"
+  },
+  {
+   "name": "Sunwater",
+   "race": "half-elf",
+   "meaning": "house raised near the sunlit water"
+  },
+  {
+   "name": "Sunwind",
+   "race": "half-elf",
+   "meaning": "house raised near the sunlit wind"
+  },
+  {
+   "name": "Valewing",
+   "race": "half-elf",
+   "meaning": "house raised near the valley wing"
+  },
+  {
+   "name": "Rosewater",
+   "race": "half-elf",
+   "meaning": "kin who walk the rose water"
+  },
+  {
+   "name": "Rosemoor",
+   "race": "half-elf",
+   "meaning": "kin who walk the rose moor"
+  },
+  {
+   "name": "Sunmoor",
+   "race": "half-elf",
+   "meaning": "wanderers of the sunlit moor"
+  },
+  {
+   "name": "Wrenbloom",
+   "race": "half-elf",
+   "meaning": "kin who walk the wren bloom"
+  },
+  {
+   "name": "Silverwater",
+   "race": "half-elf",
+   "meaning": "house raised near the silver water"
+  },
+  {
+   "name": "Choirvow",
+   "race": "aasimar",
+   "meaning": "bloodline blessed with the choir vow"
+  },
+  {
+   "name": "Halomantle",
+   "race": "aasimar",
+   "meaning": "house sworn to the halo mantle"
+  },
+  {
+   "name": "Glorywing",
+   "race": "aasimar",
+   "meaning": "descendants guided by the glory wing"
+  },
+  {
+   "name": "Brightsong",
+   "race": "aasimar",
+   "meaning": "descendants guided by the bright hymn"
+  },
+  {
+   "name": "Starmantle",
+   "race": "aasimar",
+   "meaning": "descendants guided by the star mantle"
+  },
+  {
+   "name": "Palecrest",
+   "race": "aasimar",
+   "meaning": "line touched by the pale crest"
+  },
+  {
+   "name": "Goldcrest",
+   "race": "aasimar",
+   "meaning": "house sworn to the golden crest"
+  },
+  {
+   "name": "Sunsong",
+   "race": "aasimar",
+   "meaning": "house sworn to the sun hymn"
+  },
+  {
+   "name": "Goldvow",
+   "race": "aasimar",
+   "meaning": "descendants guided by the golden vow"
+  },
+  {
+   "name": "Lightblade",
+   "race": "aasimar",
+   "meaning": "house sworn to the light blade"
+  },
+  {
+   "name": "Goldwing",
+   "race": "aasimar",
+   "meaning": "line touched by the golden wing"
+  },
+  {
+   "name": "Hopevow",
+   "race": "aasimar",
+   "meaning": "descendants guided by the hope vow"
+  },
+  {
+   "name": "Choirsong",
+   "race": "aasimar",
+   "meaning": "bloodline blessed with the choir hymn"
+  },
+  {
+   "name": "Choirblade",
+   "race": "aasimar",
+   "meaning": "house sworn to the choir blade"
+  },
+  {
+   "name": "Choirward",
+   "race": "aasimar",
+   "meaning": "descendants guided by the choir ward"
+  },
+  {
+   "name": "Glorycrest",
+   "race": "aasimar",
+   "meaning": "house sworn to the glory crest"
+  },
+  {
+   "name": "Choirbearer",
+   "race": "aasimar",
+   "meaning": "house sworn to the choir bearer"
+  },
+  {
+   "name": "Sunblade",
+   "race": "aasimar",
+   "meaning": "line touched by the sun blade"
+  }
+ ]
+}

@@ -1,0 +1,3882 @@
+[
+ {
+  "name": "Smith",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for a blacksmith or metalworker, from Old English smið.",
+   "es": "Apellido de oficio para un herrero o trabajador del metal, del inglés antiguo smið."
+  }
+ },
+ {
+  "name": "Johnson",
+  "origin": "english",
+  "meaning": {
+   "en": "Patronymic meaning 'son of John'; John comes from Hebrew Yohanan, 'God is gracious'.",
+   "es": "Patronímico que significa 'hijo de John'; John viene del hebreo Yohanan, 'Dios es misericordioso'."
+  }
+ },
+ {
+  "name": "Williams",
+  "origin": "english",
+  "meaning": {
+   "en": "Patronymic meaning 'son of William', a Germanic name meaning 'resolute protector'.",
+   "es": "Patronímico que significa 'hijo de William', nombre germánico que significa 'protector decidido'."
+  }
+ },
+ {
+  "name": "Brown",
+  "origin": "english",
+  "meaning": {
+   "en": "Nickname for someone with brown hair, a dark complexion or brown clothing.",
+   "es": "Apodo para alguien de pelo castaño, piel morena o ropa de color marrón."
+  }
+ },
+ {
+  "name": "Taylor",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for a tailor, from Old French tailleur, 'one who cuts'.",
+   "es": "Apellido de oficio para un sastre, del francés antiguo tailleur, 'el que corta'."
+  }
+ },
+ {
+  "name": "Baker",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for a baker or someone who ran a communal oven.",
+   "es": "Apellido de oficio para un panadero o quien atendía el horno comunal."
+  }
+ },
+ {
+  "name": "Wright",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for a maker or craftsman, especially of wooden things, from Old English wyrhta.",
+   "es": "Apellido de oficio para un artesano, sobre todo de objetos de madera, del inglés antiguo wyrhta."
+  }
+ },
+ {
+  "name": "Cooper",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for a maker and repairer of barrels and casks.",
+   "es": "Apellido de oficio para quien fabricaba y reparaba barriles y toneles."
+  }
+ },
+ {
+  "name": "Fletcher",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for an arrow maker, from Old French flechier.",
+   "es": "Apellido de oficio para un fabricante de flechas, del francés antiguo flechier."
+  }
+ },
+ {
+  "name": "Thatcher",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for a roofer who covered buildings with straw or reeds.",
+   "es": "Apellido de oficio para quien cubría los tejados con paja o juncos."
+  }
+ },
+ {
+  "name": "Walker",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for a fuller, who trampled wet cloth to thicken and clean it.",
+   "es": "Apellido de oficio para un batanero, que pisaba la tela mojada para espesarla y limpiarla."
+  }
+ },
+ {
+  "name": "Turner",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for someone who shaped wood or bone on a lathe.",
+   "es": "Apellido de oficio para quien tallaba madera o hueso en un torno."
+  }
+ },
+ {
+  "name": "Clarke",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for a clerk, scribe or literate member of the clergy.",
+   "es": "Apellido de oficio para un escribano, copista o clérigo que sabía leer y escribir."
+  }
+ },
+ {
+  "name": "Hall",
+  "origin": "english",
+  "meaning": {
+   "en": "Name for someone who lived or worked at the hall of a manor house.",
+   "es": "Apellido para quien vivía o trabajaba en la casa señorial de una finca."
+  }
+ },
+ {
+  "name": "Hill",
+  "origin": "english",
+  "meaning": {
+   "en": "Topographic name for someone who lived on or near a hill.",
+   "es": "Apellido topográfico para quien vivía en una colina o cerca de ella."
+  }
+ },
+ {
+  "name": "Wood",
+  "origin": "english",
+  "meaning": {
+   "en": "Topographic name for someone who lived in or near a wood or forest.",
+   "es": "Apellido topográfico para quien vivía en un bosque o cerca de él."
+  }
+ },
+ {
+  "name": "Green",
+  "origin": "english",
+  "meaning": {
+   "en": "Topographic name for someone who lived beside the village green.",
+   "es": "Apellido topográfico para quien vivía junto al prado comunal del pueblo."
+  }
+ },
+ {
+  "name": "Shepherd",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for a shepherd, from Old English sceap 'sheep' and hierde 'herdsman'.",
+   "es": "Apellido de oficio para un pastor, del inglés antiguo sceap 'oveja' y hierde 'pastor'."
+  }
+ },
+ {
+  "name": "Fisher",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for a fisherman, from Old English fiscere.",
+   "es": "Apellido de oficio para un pescador, del inglés antiguo fiscere."
+  }
+ },
+ {
+  "name": "Carter",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for someone who transported goods by cart.",
+   "es": "Apellido de oficio para quien transportaba mercancías en carreta."
+  }
+ },
+ {
+  "name": "Hayward",
+  "origin": "english",
+  "meaning": {
+   "en": "Occupational name for the village officer who guarded hedges and enclosures.",
+   "es": "Apellido de oficio para el guarda del pueblo que vigilaba setos y cercados."
+  }
+ },
+ {
+  "name": "Blackwood",
+  "origin": "english",
+  "meaning": {
+   "en": "Place name meaning 'dark wood', from Old English blæc and wudu.",
+   "es": "Nombre de lugar que significa 'bosque oscuro', del inglés antiguo blæc y wudu."
+  }
+ },
+ {
+  "name": "Ashford",
+  "origin": "english",
+  "meaning": {
+   "en": "Place name meaning 'ford by the ash trees'.",
+   "es": "Nombre de lugar que significa 'vado junto a los fresnos'."
+  }
+ },
+ {
+  "name": "Thornton",
+  "origin": "english",
+  "meaning": {
+   "en": "Place name meaning 'settlement among the thorn bushes'.",
+   "es": "Nombre de lugar que significa 'asentamiento entre espinos'."
+  }
+ },
+ {
+  "name": "Whitaker",
+  "origin": "english",
+  "meaning": {
+   "en": "Place name meaning 'white field' or possibly 'wheat field', from Old English hwit and æcer.",
+   "es": "Nombre de lugar que significa 'campo blanco' o posiblemente 'campo de trigo', del inglés antiguo hwit y æcer."
+  }
+ },
+ {
+  "name": "Lockwood",
+  "origin": "english",
+  "meaning": {
+   "en": "Place name from Yorkshire meaning 'enclosed wood'.",
+   "es": "Nombre de lugar de Yorkshire que significa 'bosque cercado'."
+  }
+ },
+ {
+  "name": "Pemberton",
+  "origin": "english",
+  "meaning": {
+   "en": "Place name in Lancashire, from Celtic penn 'hill' and Old English 'barley farm'.",
+   "es": "Nombre de lugar de Lancashire, del celta penn 'colina' y el inglés antiguo 'granja de cebada'."
+  }
+ },
+ {
+  "name": "Hawthorne",
+  "origin": "english",
+  "meaning": {
+   "en": "Topographic name for someone who lived by a hawthorn hedge or tree.",
+   "es": "Apellido topográfico para quien vivía junto a un seto o árbol de espino blanco."
+  }
+ },
+ {
+  "name": "Kingsley",
+  "origin": "english",
+  "meaning": {
+   "en": "Place name meaning 'the king's wood' or 'king's clearing'.",
+   "es": "Nombre de lugar que significa 'bosque del rey' o 'claro del rey'."
+  }
+ },
+ {
+  "name": "Fairfax",
+  "origin": "english",
+  "meaning": {
+   "en": "Nickname meaning 'fair hair', from Old English fæger 'fair' and feax 'hair'.",
+   "es": "Apodo que significa 'cabello rubio', del inglés antiguo fæger 'claro' y feax 'pelo'."
+  }
+ },
+ {
+  "name": "Murphy",
+  "origin": "irish",
+  "meaning": {
+   "en": "Anglicized from Ó Murchadha, 'descendant of Murchadh' (sea warrior).",
+   "es": "Forma inglesa de Ó Murchadha, 'descendiente de Murchadh' (guerrero del mar)."
+  }
+ },
+ {
+  "name": "Kelly",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Ceallaigh, 'descendant of Ceallach', a name possibly meaning 'bright-headed' or 'strife'.",
+   "es": "De Ó Ceallaigh, 'descendiente de Ceallach', nombre que posiblemente significa 'cabeza brillante' o 'contienda'."
+  }
+ },
+ {
+  "name": "O'Brien",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Briain, 'descendant of Brian', the clan of High King Brian Boru.",
+   "es": "De Ó Briain, 'descendiente de Brian', el clan del gran rey Brian Boru."
+  }
+ },
+ {
+  "name": "Byrne",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Broin, 'descendant of Bran', a name meaning 'raven'.",
+   "es": "De Ó Broin, 'descendiente de Bran', nombre que significa 'cuervo'."
+  }
+ },
+ {
+  "name": "Ryan",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Riain, 'descendant of Rian', possibly meaning 'little king'.",
+   "es": "De Ó Riain, 'descendiente de Rian', que posiblemente significa 'pequeño rey'."
+  }
+ },
+ {
+  "name": "O'Sullivan",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Súilleabháin, possibly 'descendant of the dark-eyed one' or 'one-eyed one'.",
+   "es": "De Ó Súilleabháin, posiblemente 'descendiente del de ojos oscuros' o 'del tuerto'."
+  }
+ },
+ {
+  "name": "Walsh",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Breathnach, meaning 'Welshman', given to Welsh settlers in medieval Ireland.",
+   "es": "De Breathnach, 'galés', dado a los colonos galeses en la Irlanda medieval."
+  }
+ },
+ {
+  "name": "O'Connor",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Conchobhair, 'descendant of Conchobhar', usually explained as 'lover of hounds'.",
+   "es": "De Ó Conchobhair, 'descendiente de Conchobhar', que suele explicarse como 'amante de los sabuesos'."
+  }
+ },
+ {
+  "name": "McCarthy",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Mac Cárthaigh, 'son of Cárthach', a name meaning 'loving'.",
+   "es": "De Mac Cárthaigh, 'hijo de Cárthach', nombre que significa 'cariñoso'."
+  }
+ },
+ {
+  "name": "Doyle",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Dubhghaill, 'descendant of the dark foreigner', a term for Viking Danes.",
+   "es": "De Ó Dubhghaill, 'descendiente del extranjero oscuro', término para los vikingos daneses."
+  }
+ },
+ {
+  "name": "Kennedy",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Cinnéide, 'descendant of Cennétig', usually explained as 'helmet-headed'.",
+   "es": "De Ó Cinnéide, 'descendiente de Cennétig', que suele explicarse como 'cabeza con yelmo'."
+  }
+ },
+ {
+  "name": "Quinn",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Cuinn, 'descendant of Conn', a name meaning 'chief' or 'head'.",
+   "es": "De Ó Cuinn, 'descendiente de Conn', nombre que significa 'jefe' o 'cabeza'."
+  }
+ },
+ {
+  "name": "Gallagher",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Gallchobhair, 'descendant of Gallchobhar', meaning 'foreign helper' or 'ally'.",
+   "es": "De Ó Gallchobhair, 'descendiente de Gallchobhar', que significa 'ayudante extranjero' o 'aliado'."
+  }
+ },
+ {
+  "name": "Donovan",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Donnabháin, 'descendant of Donndubhán', from donn 'brown, dark'.",
+   "es": "De Ó Donnabháin, 'descendiente de Donndubhán', de donn 'castaño, oscuro'."
+  }
+ },
+ {
+  "name": "Lynch",
+  "origin": "irish",
+  "meaning": {
+   "en": "Mostly from Ó Loingsigh, 'descendant of Loingseach', meaning 'mariner'.",
+   "es": "Sobre todo de Ó Loingsigh, 'descendiente de Loingseach', que significa 'marinero'."
+  }
+ },
+ {
+  "name": "Fitzgerald",
+  "origin": "irish",
+  "meaning": {
+   "en": "Norman patronymic meaning 'son of Gerald', borne by the powerful Geraldine dynasty.",
+   "es": "Patronímico normando que significa 'hijo de Gerald', de la poderosa dinastía de los Geraldine."
+  }
+ },
+ {
+  "name": "Flanagan",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Flannagáin, 'descendant of Flannagán', from flann 'red, ruddy'.",
+   "es": "De Ó Flannagáin, 'descendiente de Flannagán', de flann 'rojo, rubicundo'."
+  }
+ },
+ {
+  "name": "Callahan",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Ceallacháin, 'descendant of Ceallachán', a diminutive of Ceallach.",
+   "es": "De Ó Ceallacháin, 'descendiente de Ceallachán', diminutivo de Ceallach."
+  }
+ },
+ {
+  "name": "Moriarty",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Muircheartaigh, 'descendant of Muircheartach', meaning 'skilled navigator' or 'sea ruler'.",
+   "es": "De Ó Muircheartaigh, 'descendiente de Muircheartach', que significa 'navegante experto' o 'señor del mar'."
+  }
+ },
+ {
+  "name": "Keane",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Catháin, 'descendant of Cathán', from cath 'battle'.",
+   "es": "De Ó Catháin, 'descendiente de Cathán', de cath 'batalla'."
+  }
+ },
+ {
+  "name": "Delaney",
+  "origin": "irish",
+  "meaning": {
+   "en": "Usually from Ó Dubhshláine, often explained as 'dark challenger'; sometimes Norman de l'Aunaie.",
+   "es": "Generalmente de Ó Dubhshláine, explicado como 'retador oscuro'; a veces del normando de l'Aunaie."
+  }
+ },
+ {
+  "name": "Hennessy",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó hAonghusa, 'descendant of Aonghus', a name meaning 'one strength'.",
+   "es": "De Ó hAonghusa, 'descendiente de Aonghus', nombre que significa 'una sola fuerza'."
+  }
+ },
+ {
+  "name": "Malone",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Maoil Eoin, 'descendant of the devotee of Saint John'.",
+   "es": "De Ó Maoil Eoin, 'descendiente del devoto de San Juan'."
+  }
+ },
+ {
+  "name": "Nolan",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Nualláin, 'descendant of Nuallán', possibly from nuall 'shout' or 'champion'.",
+   "es": "De Ó Nualláin, 'descendiente de Nuallán', posiblemente de nuall 'grito' o 'campeón'."
+  }
+ },
+ {
+  "name": "Rafferty",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Raithbheartaigh, 'descendant of Raithbheartach', meaning 'prosperity wielder'.",
+   "es": "De Ó Raithbheartaigh, 'descendiente de Raithbheartach', que significa 'portador de prosperidad'."
+  }
+ },
+ {
+  "name": "Sheridan",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Sirideáin, 'descendant of Sirideán', possibly meaning 'seeker'.",
+   "es": "De Ó Sirideáin, 'descendiente de Sirideán', que posiblemente significa 'buscador'."
+  }
+ },
+ {
+  "name": "Regan",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Riagáin, 'descendant of Riagán', possibly meaning 'little king'.",
+   "es": "De Ó Riagáin, 'descendiente de Riagán', que posiblemente significa 'pequeño rey'."
+  }
+ },
+ {
+  "name": "Dunne",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Duinn, 'descendant of Donn', meaning 'brown' or 'dark-haired'.",
+   "es": "De Ó Duinn, 'descendiente de Donn', que significa 'castaño' o 'de pelo oscuro'."
+  }
+ },
+ {
+  "name": "Kavanagh",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Caomhánach, 'follower of Saint Caomhán', whose name means 'gentle'.",
+   "es": "De Caomhánach, 'seguidor de San Caomhán', cuyo nombre significa 'gentil'."
+  }
+ },
+ {
+  "name": "Brennan",
+  "origin": "irish",
+  "meaning": {
+   "en": "From Ó Braonáin, 'descendant of Braonán', possibly from braon 'drop' or 'sorrow'.",
+   "es": "De Ó Braonáin, 'descendiente de Braonán', posiblemente de braon 'gota' o 'pena'."
+  }
+ },
+ {
+  "name": "Campbell",
+  "origin": "scottish",
+  "meaning": {
+   "en": "From Gaelic caimbeul, 'crooked mouth', a nickname of the clan founder.",
+   "es": "Del gaélico caimbeul, 'boca torcida', apodo del fundador del clan."
+  }
+ },
+ {
+  "name": "Stewart",
+  "origin": "scottish",
+  "meaning": {
+   "en": "Occupational name for a steward; borne by the royal House of Stuart.",
+   "es": "Apellido de oficio para un mayordomo; lo llevó la casa real de los Estuardo."
+  }
+ },
+ {
+  "name": "MacDonald",
+  "origin": "scottish",
+  "meaning": {
+   "en": "From Mac Dhòmhnaill, 'son of Domhnall', a name meaning 'world ruler'.",
+   "es": "De Mac Dhòmhnaill, 'hijo de Domhnall', nombre que significa 'gobernante del mundo'."
+  }
+ },
+ {
+  "name": "Fraser",
+  "origin": "scottish",
+  "meaning": {
+   "en": "Origin debated; possibly from French fraise 'strawberry' or a Norman place name.",
+   "es": "Origen discutido; posiblemente del francés fraise 'fresa' o de un lugar normando."
+  }
+ },
+ {
+  "name": "Murray",
+  "origin": "scottish",
+  "meaning": {
+   "en": "From the region of Moray, possibly meaning 'sea settlement'.",
+   "es": "De la región de Moray, que posiblemente significa 'asentamiento junto al mar'."
+  }
+ },
+ {
+  "name": "Cameron",
+  "origin": "scottish",
+  "meaning": {
+   "en": "From Gaelic cam shròn, 'crooked nose', a nickname of the clan founder.",
+   "es": "Del gaélico cam shròn, 'nariz torcida', apodo del fundador del clan."
+  }
+ },
+ {
+  "name": "Sinclair",
+  "origin": "scottish",
+  "meaning": {
+   "en": "Norman name from Saint-Clair in Normandy, brought to Scotland in the Middle Ages.",
+   "es": "Apellido normando de Saint-Clair, en Normandía, llevado a Escocia en la Edad Media."
+  }
+ },
+ {
+  "name": "Buchanan",
+  "origin": "scottish",
+  "meaning": {
+   "en": "Place name near Loch Lomond, possibly meaning 'house of the canon'.",
+   "es": "Nombre de lugar cerca del lago Lomond, que posiblemente significa 'casa del canónigo'."
+  }
+ },
+ {
+  "name": "Ferguson",
+  "origin": "scottish",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Fergus', a Gaelic name meaning 'man of vigor'.",
+   "es": "Patronímico que significa 'hijo de Fergus', nombre gaélico que significa 'hombre vigoroso'."
+  }
+ },
+ {
+  "name": "MacLeod",
+  "origin": "scottish",
+  "meaning": {
+   "en": "From Mac Leòid, 'son of Ljótr', an Old Norse name meaning 'ugly'.",
+   "es": "De Mac Leòid, 'hijo de Ljótr', nombre nórdico antiguo que significa 'feo'."
+  }
+ },
+ {
+  "name": "Douglas",
+  "origin": "scottish",
+  "meaning": {
+   "en": "Place name from Gaelic dubh glas, 'dark stream'.",
+   "es": "Nombre de lugar del gaélico dubh glas, 'arroyo oscuro'."
+  }
+ },
+ {
+  "name": "Lennox",
+  "origin": "scottish",
+  "meaning": {
+   "en": "From the district of Lennox, possibly meaning 'place of elms'.",
+   "es": "Del distrito de Lennox, que posiblemente significa 'lugar de olmos'."
+  }
+ },
+ {
+  "name": "Drummond",
+  "origin": "scottish",
+  "meaning": {
+   "en": "Place name from Gaelic druim, 'ridge', meaning 'at the ridge'.",
+   "es": "Nombre de lugar del gaélico druim, 'loma', es decir, 'en la loma'."
+  }
+ },
+ {
+  "name": "Gilmore",
+  "origin": "scottish",
+  "meaning": {
+   "en": "From Mac Gille Mhoire, 'son of the servant of the Virgin Mary'.",
+   "es": "De Mac Gille Mhoire, 'hijo del siervo de la Virgen María'."
+  }
+ },
+ {
+  "name": "Ross",
+  "origin": "scottish",
+  "meaning": {
+   "en": "From Gaelic ros, 'headland' or 'promontory', also the region of Ross.",
+   "es": "Del gaélico ros, 'cabo' o 'promontorio', también la región de Ross."
+  }
+ },
+ {
+  "name": "Kincaid",
+  "origin": "scottish",
+  "meaning": {
+   "en": "Place name near Glasgow, possibly 'head of the pass'.",
+   "es": "Nombre de lugar cerca de Glasgow, posiblemente 'cabeza del paso'."
+  }
+ },
+ {
+  "name": "Jones",
+  "origin": "welsh",
+  "meaning": {
+   "en": "Patronymic meaning 'son of John', the most common surname in Wales.",
+   "es": "Patronímico que significa 'hijo de John', el apellido más común de Gales."
+  }
+ },
+ {
+  "name": "Davies",
+  "origin": "welsh",
+  "meaning": {
+   "en": "Patronymic meaning 'son of David', a Hebrew name meaning 'beloved'.",
+   "es": "Patronímico que significa 'hijo de David', nombre hebreo que significa 'amado'."
+  }
+ },
+ {
+  "name": "Evans",
+  "origin": "welsh",
+  "meaning": {
+   "en": "Patronymic from Ifan, the Welsh form of John.",
+   "es": "Patronímico de Ifan, la forma galesa de John."
+  }
+ },
+ {
+  "name": "Hughes",
+  "origin": "welsh",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Hugh', a Germanic name meaning 'heart, mind'.",
+   "es": "Patronímico que significa 'hijo de Hugh', nombre germánico que significa 'corazón, mente'."
+  }
+ },
+ {
+  "name": "Lewis",
+  "origin": "welsh",
+  "meaning": {
+   "en": "Often an anglicized form of the Welsh personal name Llywelyn.",
+   "es": "A menudo forma inglesa del nombre galés Llywelyn."
+  }
+ },
+ {
+  "name": "Morgan",
+  "origin": "welsh",
+  "meaning": {
+   "en": "From the Welsh personal name Morgan, possibly meaning 'sea-born' or 'sea circle'.",
+   "es": "Del nombre galés Morgan, que posiblemente significa 'nacido del mar' o 'círculo del mar'."
+  }
+ },
+ {
+  "name": "Price",
+  "origin": "welsh",
+  "meaning": {
+   "en": "From ap Rhys, 'son of Rhys', a name meaning 'ardour' or 'enthusiasm'.",
+   "es": "De ap Rhys, 'hijo de Rhys', nombre que significa 'ardor' o 'entusiasmo'."
+  }
+ },
+ {
+  "name": "Powell",
+  "origin": "welsh",
+  "meaning": {
+   "en": "From ap Hywel, 'son of Hywel', a name meaning 'eminent' or 'conspicuous'.",
+   "es": "De ap Hywel, 'hijo de Hywel', nombre que significa 'eminente' o 'destacado'."
+  }
+ },
+ {
+  "name": "Pritchard",
+  "origin": "welsh",
+  "meaning": {
+   "en": "From ap Richard, 'son of Richard', a Germanic name meaning 'brave ruler'.",
+   "es": "De ap Richard, 'hijo de Richard', nombre germánico que significa 'gobernante valiente'."
+  }
+ },
+ {
+  "name": "Bowen",
+  "origin": "welsh",
+  "meaning": {
+   "en": "From ab Owain, 'son of Owain', a name possibly meaning 'well-born'.",
+   "es": "De ab Owain, 'hijo de Owain', nombre que posiblemente significa 'bien nacido'."
+  }
+ },
+ {
+  "name": "Griffiths",
+  "origin": "welsh",
+  "meaning": {
+   "en": "Patronymic from Gruffudd, a Welsh name usually explained as 'strong lord'.",
+   "es": "Patronímico de Gruffudd, nombre galés que suele explicarse como 'señor fuerte'."
+  }
+ },
+ {
+  "name": "Llewellyn",
+  "origin": "welsh",
+  "meaning": {
+   "en": "From the personal name Llywelyn, possibly meaning 'leader' or linked to llew 'lion'.",
+   "es": "Del nombre Llywelyn, que posiblemente significa 'líder' o se asocia a llew 'león'."
+  }
+ },
+ {
+  "name": "Vaughan",
+  "origin": "welsh",
+  "meaning": {
+   "en": "From Welsh fychan, 'little' or 'younger', used to distinguish a son from his father.",
+   "es": "Del galés fychan, 'pequeño' o 'menor', usado para distinguir al hijo del padre."
+  }
+ },
+ {
+  "name": "Wynn",
+  "origin": "welsh",
+  "meaning": {
+   "en": "From Welsh gwyn, meaning 'white', 'fair' or 'blessed'.",
+   "es": "Del galés gwyn, que significa 'blanco', 'rubio' o 'bendito'."
+  }
+ },
+ {
+  "name": "Lloyd",
+  "origin": "welsh",
+  "meaning": {
+   "en": "From Welsh llwyd, 'grey', a nickname for someone with grey hair.",
+   "es": "Del galés llwyd, 'gris', apodo para alguien de pelo canoso."
+  }
+ },
+ {
+  "name": "Parry",
+  "origin": "welsh",
+  "meaning": {
+   "en": "From ap Harry, 'son of Harry', a common Welsh contraction.",
+   "es": "De ap Harry, 'hijo de Harry', contracción galesa común."
+  }
+ },
+ {
+  "name": "Rees",
+  "origin": "welsh",
+  "meaning": {
+   "en": "From the Welsh personal name Rhys, meaning 'ardour' or 'enthusiasm'.",
+   "es": "Del nombre galés Rhys, que significa 'ardor' o 'entusiasmo'."
+  }
+ },
+ {
+  "name": "Rossi",
+  "origin": "italian",
+  "meaning": {
+   "en": "From rosso, 'red', a nickname for someone with red hair or a ruddy complexion.",
+   "es": "De rosso, 'rojo', apodo para alguien pelirrojo o de tez rojiza."
+  }
+ },
+ {
+  "name": "Russo",
+  "origin": "italian",
+  "meaning": {
+   "en": "Southern Italian form of rosso, 'red', referring to red hair or complexion.",
+   "es": "Forma del sur de Italia de rosso, 'rojo', por el pelo o la tez rojiza."
+  }
+ },
+ {
+  "name": "Ferrari",
+  "origin": "italian",
+  "meaning": {
+   "en": "Occupational name for a smith or ironworker, from ferraro.",
+   "es": "Apellido de oficio para un herrero o trabajador del hierro, de ferraro."
+  }
+ },
+ {
+  "name": "Esposito",
+  "origin": "italian",
+  "meaning": {
+   "en": "From esposto, 'exposed', a name traditionally given to abandoned children in Naples.",
+   "es": "De esposto, 'expuesto', nombre que se daba tradicionalmente a los niños abandonados en Nápoles."
+  }
+ },
+ {
+  "name": "Bianchi",
+  "origin": "italian",
+  "meaning": {
+   "en": "From bianco, 'white', a nickname for someone with fair hair or pale skin.",
+   "es": "De bianco, 'blanco', apodo para alguien de pelo rubio o piel pálida."
+  }
+ },
+ {
+  "name": "Romano",
+  "origin": "italian",
+  "meaning": {
+   "en": "Means 'Roman', for someone from Rome or with ties to the city.",
+   "es": "Significa 'romano', para alguien de Roma o vinculado a la ciudad."
+  }
+ },
+ {
+  "name": "Colombo",
+  "origin": "italian",
+  "meaning": {
+   "en": "From colombo, 'dove'; also given to foundlings as a symbol of the Holy Spirit.",
+   "es": "De colombo, 'paloma'; también se daba a expósitos como símbolo del Espíritu Santo."
+  }
+ },
+ {
+  "name": "Ricci",
+  "origin": "italian",
+  "meaning": {
+   "en": "From riccio, 'curly', a nickname for someone with curly hair.",
+   "es": "De riccio, 'rizado', apodo para alguien de pelo rizado."
+  }
+ },
+ {
+  "name": "Marino",
+  "origin": "italian",
+  "meaning": {
+   "en": "Means 'of the sea', for someone living by the coast or working as a sailor.",
+   "es": "Significa 'del mar', para quien vivía en la costa o trabajaba como marinero."
+  }
+ },
+ {
+  "name": "Greco",
+  "origin": "italian",
+  "meaning": {
+   "en": "Means 'Greek', for someone of Greek origin, common in southern Italy.",
+   "es": "Significa 'griego', para alguien de origen griego, común en el sur de Italia."
+  }
+ },
+ {
+  "name": "Bruno",
+  "origin": "italian",
+  "meaning": {
+   "en": "From bruno, 'brown', a nickname for dark hair or complexion.",
+   "es": "De bruno, 'moreno', apodo por el pelo o la tez oscura."
+  }
+ },
+ {
+  "name": "Gallo",
+  "origin": "italian",
+  "meaning": {
+   "en": "From gallo, 'rooster', a nickname for a proud or strutting man.",
+   "es": "De gallo, apodo para un hombre orgulloso o fanfarrón."
+  }
+ },
+ {
+  "name": "Conti",
+  "origin": "italian",
+  "meaning": {
+   "en": "From conte, 'count', for someone in a count's service or with noble airs.",
+   "es": "De conte, 'conde', para alguien al servicio de un conde o con aires nobles."
+  }
+ },
+ {
+  "name": "De Luca",
+  "origin": "italian",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Luca', the Italian form of Luke.",
+   "es": "Patronímico que significa 'hijo de Luca', la forma italiana de Lucas."
+  }
+ },
+ {
+  "name": "Giordano",
+  "origin": "italian",
+  "meaning": {
+   "en": "From the personal name Giordano, after the River Jordan where Christ was baptized.",
+   "es": "Del nombre Giordano, por el río Jordán donde fue bautizado Cristo."
+  }
+ },
+ {
+  "name": "Mancini",
+  "origin": "italian",
+  "meaning": {
+   "en": "From mancino, 'left-handed', a nickname for a left-handed person.",
+   "es": "De mancino, 'zurdo', apodo para una persona zurda."
+  }
+ },
+ {
+  "name": "Lombardi",
+  "origin": "italian",
+  "meaning": {
+   "en": "Means 'from Lombardy', the northern region named after the Lombards.",
+   "es": "Significa 'de Lombardía', la región del norte llamada así por los lombardos."
+  }
+ },
+ {
+  "name": "Moretti",
+  "origin": "italian",
+  "meaning": {
+   "en": "Diminutive of moro, 'dark' or 'Moor', for someone with dark hair or skin.",
+   "es": "Diminutivo de moro, 'oscuro' o 'moro', para alguien de pelo o piel oscuros."
+  }
+ },
+ {
+  "name": "Barbieri",
+  "origin": "italian",
+  "meaning": {
+   "en": "Occupational name for a barber, who also performed minor surgery.",
+   "es": "Apellido de oficio para un barbero, que también hacía pequeñas cirugías."
+  }
+ },
+ {
+  "name": "Fontana",
+  "origin": "italian",
+  "meaning": {
+   "en": "Means 'fountain' or 'spring', for someone living near a water source.",
+   "es": "Significa 'fuente' o 'manantial', para quien vivía cerca de una fuente de agua."
+  }
+ },
+ {
+  "name": "Santoro",
+  "origin": "italian",
+  "meaning": {
+   "en": "From Ognissanti, 'All Saints', often given to children born on All Saints' Day.",
+   "es": "De Ognissanti, 'Todos los Santos', dado a menudo a niños nacidos ese día."
+  }
+ },
+ {
+  "name": "Caruso",
+  "origin": "italian",
+  "meaning": {
+   "en": "Southern Italian for 'close-cropped' or 'boy', a nickname for a young or shaven-headed man.",
+   "es": "Del sur de Italia, 'rapado' o 'muchacho', apodo para un joven o alguien de pelo corto."
+  }
+ },
+ {
+  "name": "Rinaldi",
+  "origin": "italian",
+  "meaning": {
+   "en": "Patronymic from Rinaldo, a Germanic name meaning 'counsel ruler'.",
+   "es": "Patronímico de Rinaldo, nombre germánico que significa 'el que gobierna con consejo'."
+  }
+ },
+ {
+  "name": "Vitale",
+  "origin": "italian",
+  "meaning": {
+   "en": "From the personal name Vitale, from Latin vitalis, 'full of life'.",
+   "es": "Del nombre Vitale, del latín vitalis, 'lleno de vida'."
+  }
+ },
+ {
+  "name": "Benedetti",
+  "origin": "italian",
+  "meaning": {
+   "en": "From Benedetto, meaning 'blessed', from Latin benedictus.",
+   "es": "De Benedetto, que significa 'bendito', del latín benedictus."
+  }
+ },
+ {
+  "name": "Pellegrini",
+  "origin": "italian",
+  "meaning": {
+   "en": "From pellegrino, 'pilgrim', for someone who had made a pilgrimage.",
+   "es": "De pellegrino, 'peregrino', para quien había hecho una peregrinación."
+  }
+ },
+ {
+  "name": "Falcone",
+  "origin": "italian",
+  "meaning": {
+   "en": "From falcone, 'falcon', a nickname or name for a falconer.",
+   "es": "De falcone, 'halcón', apodo o nombre para un halconero."
+  }
+ },
+ {
+  "name": "Castellano",
+  "origin": "italian",
+  "meaning": {
+   "en": "For someone who lived in or kept a castle, from castello.",
+   "es": "Para quien vivía en un castillo o lo custodiaba, de castello."
+  }
+ },
+ {
+  "name": "Marchetti",
+  "origin": "italian",
+  "meaning": {
+   "en": "Diminutive patronymic from Marco, the Italian form of Mark.",
+   "es": "Patronímico diminutivo de Marco."
+  }
+ },
+ {
+  "name": "Amato",
+  "origin": "italian",
+  "meaning": {
+   "en": "From the personal name Amato, meaning 'beloved'.",
+   "es": "Del nombre Amato, que significa 'amado'."
+  }
+ },
+ {
+  "name": "Leone",
+  "origin": "italian",
+  "meaning": {
+   "en": "From leone, 'lion', a nickname for a brave or fierce person.",
+   "es": "De leone, 'león', apodo para una persona valiente o feroz."
+  }
+ },
+ {
+  "name": "Valentini",
+  "origin": "italian",
+  "meaning": {
+   "en": "Patronymic from Valentino, from Latin valens, 'strong, healthy'.",
+   "es": "Patronímico de Valentino, del latín valens, 'fuerte, sano'."
+  }
+ },
+ {
+  "name": "García",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Of debated origin, possibly from Basque, meaning 'young' or 'bear'.",
+   "es": "De origen discutido, posiblemente del vasco, con el significado de 'joven' u 'oso'."
+  }
+ },
+ {
+  "name": "Rodríguez",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Rodrigo', a Germanic name meaning 'famous ruler'.",
+   "es": "Patronímico que significa 'hijo de Rodrigo', nombre germánico que significa 'gobernante famoso'."
+  }
+ },
+ {
+  "name": "Martínez",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Martín', a name derived from Mars, the Roman god of war.",
+   "es": "Patronímico que significa 'hijo de Martín', nombre derivado de Marte, dios romano de la guerra."
+  }
+ },
+ {
+  "name": "Hernández",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Hernando', a form of the Germanic name Fernando.",
+   "es": "Patronímico que significa 'hijo de Hernando', forma del nombre germánico Fernando."
+  }
+ },
+ {
+  "name": "López",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Lope', from Latin lupus, 'wolf'.",
+   "es": "Patronímico que significa 'hijo de Lope', del latín lupus, 'lobo'."
+  }
+ },
+ {
+  "name": "González",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Gonzalo', a Germanic name linked to 'battle'.",
+   "es": "Patronímico que significa 'hijo de Gonzalo', nombre germánico relacionado con 'batalla'."
+  }
+ },
+ {
+  "name": "Pérez",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Pedro', from Greek petros, 'rock'.",
+   "es": "Patronímico que significa 'hijo de Pedro', del griego petros, 'piedra'."
+  }
+ },
+ {
+  "name": "Sánchez",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Sancho', from Latin sanctus, 'holy'.",
+   "es": "Patronímico que significa 'hijo de Sancho', del latín sanctus, 'santo'."
+  }
+ },
+ {
+  "name": "Ramírez",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Ramiro', a Germanic name meaning 'famous counsel'.",
+   "es": "Patronímico que significa 'hijo de Ramiro', nombre germánico que significa 'consejo famoso'."
+  }
+ },
+ {
+  "name": "Torres",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Topographic name meaning 'towers', for someone living near a tower.",
+   "es": "Apellido topográfico que significa 'torres', para quien vivía cerca de una torre."
+  }
+ },
+ {
+  "name": "Flores",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'flowers', from Latin flos; also linked to the given name Floro.",
+   "es": "Significa 'flores', del latín flos; también se asocia al nombre Floro."
+  }
+ },
+ {
+  "name": "Díaz",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Diego', a common medieval Spanish name.",
+   "es": "Patronímico que significa 'hijo de Diego', nombre muy común en la Edad Media española."
+  }
+ },
+ {
+  "name": "Morales",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Topographic name for someone living near mulberry or blackberry bushes.",
+   "es": "Apellido topográfico para quien vivía cerca de moreras o zarzamoras."
+  }
+ },
+ {
+  "name": "Castillo",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'castle', for someone who lived or worked at a castle.",
+   "es": "Significa 'castillo', para quien vivía o trabajaba en uno."
+  }
+ },
+ {
+  "name": "Herrera",
+  "origin": "spanish",
+  "meaning": {
+   "en": "From herrería, 'forge', for a blacksmith's family or a place with ironworks.",
+   "es": "De herrería, 'forja', para una familia de herreros o un lugar con ferrerías."
+  }
+ },
+ {
+  "name": "Navarro",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'from Navarre', the historic kingdom in northern Spain.",
+   "es": "Significa 'de Navarra', el antiguo reino del norte de España."
+  }
+ },
+ {
+  "name": "Delgado",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'thin' or 'slender', a nickname for a lean person.",
+   "es": "Significa 'delgado', apodo para una persona flaca."
+  }
+ },
+ {
+  "name": "Vega",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'meadow' or 'fertile plain', for someone living in a river valley.",
+   "es": "Significa 'vega' o 'llanura fértil', para quien vivía en un valle fluvial."
+  }
+ },
+ {
+  "name": "Romero",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'pilgrim to Rome'; also the name of the herb rosemary.",
+   "es": "Significa 'peregrino a Roma'; también es el nombre de la planta aromática."
+  }
+ },
+ {
+  "name": "Molina",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'mill', for someone who lived near or worked at a mill.",
+   "es": "Significa 'molino', para quien vivía cerca de uno o trabajaba en él."
+  }
+ },
+ {
+  "name": "Mendoza",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Basque place name usually explained as 'cold mountain'.",
+   "es": "Nombre de lugar vasco que suele explicarse como 'monte frío'."
+  }
+ },
+ {
+  "name": "Serrano",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'from the mountains', for a highlander.",
+   "es": "Significa 'de la sierra', para un montañés."
+  }
+ },
+ {
+  "name": "Guerrero",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'warrior', a nickname or name for a soldier.",
+   "es": "Significa 'guerrero', apodo o nombre para un soldado."
+  }
+ },
+ {
+  "name": "Cortés",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'courteous' or 'courtly', a nickname for a refined person.",
+   "es": "Significa 'cortés' o 'cortesano', apodo para una persona refinada."
+  }
+ },
+ {
+  "name": "Salazar",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Basque place name usually explained as 'old hall' or 'old manor'.",
+   "es": "Nombre de lugar vasco que suele explicarse como 'casa vieja' o 'solar antiguo'."
+  }
+ },
+ {
+  "name": "Ibarra",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Basque name meaning 'valley' or 'riverside meadow'.",
+   "es": "Nombre vasco que significa 'vega' o 'prado junto al río'."
+  }
+ },
+ {
+  "name": "Cervantes",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Galician place name, possibly from ciervo, 'stag'.",
+   "es": "Nombre de lugar gallego, posiblemente de ciervo."
+  }
+ },
+ {
+  "name": "Villanueva",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'new town', from villa and nueva.",
+   "es": "Significa 'pueblo nuevo', de villa y nueva."
+  }
+ },
+ {
+  "name": "Aguilar",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'place of eagles', from Latin aquilare.",
+   "es": "Significa 'lugar de águilas', del latín aquilare."
+  }
+ },
+ {
+  "name": "Fuentes",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'springs' or 'fountains', for someone living near a water source.",
+   "es": "Significa 'manantiales' o 'fuentes', para quien vivía cerca del agua."
+  }
+ },
+ {
+  "name": "Iglesias",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Means 'churches', for someone living near a church or serving one.",
+   "es": "Significa 'iglesias', para quien vivía cerca de una o la servía."
+  }
+ },
+ {
+  "name": "Ortega",
+  "origin": "spanish",
+  "meaning": {
+   "en": "Place name in Castile, possibly from a word for 'nettle' or 'grouse'.",
+   "es": "Nombre de lugar de Castilla, posiblemente de una palabra para 'ortiga' o 'ortega' (ave)."
+  }
+ },
+ {
+  "name": "Silva",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "From Latin silva, 'forest' or 'woodland', for someone living near woods.",
+   "es": "Del latín silva, 'selva' o 'bosque', para quien vivía cerca del bosque."
+  }
+ },
+ {
+  "name": "Santos",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Means 'saints', often given to children born on All Saints' Day.",
+   "es": "Significa 'santos', dado a menudo a niños nacidos el Día de Todos los Santos."
+  }
+ },
+ {
+  "name": "Ferreira",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "From ferreira, 'ironworks' or 'forge', a common place name.",
+   "es": "De ferreira, 'herrería' o 'forja', nombre de lugar frecuente."
+  }
+ },
+ {
+  "name": "Pereira",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Means 'pear tree', for someone living near pear trees.",
+   "es": "Significa 'peral', para quien vivía cerca de perales."
+  }
+ },
+ {
+  "name": "Oliveira",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Means 'olive tree', for someone living by an olive grove.",
+   "es": "Significa 'olivo', para quien vivía junto a un olivar."
+  }
+ },
+ {
+  "name": "Rodrigues",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Rodrigo', 'famous ruler'.",
+   "es": "Patronímico que significa 'hijo de Rodrigo', 'gobernante famoso'."
+  }
+ },
+ {
+  "name": "Almeida",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Place name from Arabic al-mā'ida, 'the table' or 'plateau'.",
+   "es": "Nombre de lugar del árabe al-mā'ida, 'la mesa' o 'meseta'."
+  }
+ },
+ {
+  "name": "Carvalho",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Means 'oak tree', for someone living near oaks.",
+   "es": "Significa 'roble', para quien vivía cerca de robles."
+  }
+ },
+ {
+  "name": "Sousa",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "From the River Sousa in northern Portugal; an old noble lineage.",
+   "es": "Del río Sousa, en el norte de Portugal; antiguo linaje noble."
+  }
+ },
+ {
+  "name": "Gonçalves",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Gonçalo', a Germanic name linked to 'battle'.",
+   "es": "Patronímico que significa 'hijo de Gonçalo', nombre germánico relacionado con 'batalla'."
+  }
+ },
+ {
+  "name": "Lima",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "From the River Lima in northern Portugal.",
+   "es": "Del río Lima, en el norte de Portugal."
+  }
+ },
+ {
+  "name": "Ribeiro",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Means 'stream' or 'brook', for someone living by a stream.",
+   "es": "Significa 'arroyo', para quien vivía junto a uno."
+  }
+ },
+ {
+  "name": "Machado",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Means 'axe', possibly a nickname for a woodcutter or warrior.",
+   "es": "Significa 'hacha', posiblemente apodo para un leñador o guerrero."
+  }
+ },
+ {
+  "name": "Moreira",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Means 'mulberry tree', for someone living near mulberries.",
+   "es": "Significa 'morera', para quien vivía cerca de moreras."
+  }
+ },
+ {
+  "name": "Teixeira",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Means 'place of yew trees', from teixo, 'yew'.",
+   "es": "Significa 'lugar de tejos', de teixo, 'tejo'."
+  }
+ },
+ {
+  "name": "Cardoso",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Means 'thistly place', from cardo, 'thistle'.",
+   "es": "Significa 'lugar de cardos', de cardo."
+  }
+ },
+ {
+  "name": "Monteiro",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Means 'huntsman' or 'mountain dweller', from monte.",
+   "es": "Significa 'montero' (cazador) o 'habitante del monte'."
+  }
+ },
+ {
+  "name": "Azevedo",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Means 'holly grove', from azevinho, 'holly'.",
+   "es": "Significa 'acebal', de azevinho, 'acebo'."
+  }
+ },
+ {
+  "name": "Fonseca",
+  "origin": "portuguese",
+  "meaning": {
+   "en": "Means 'dry fountain', from fonte and seca.",
+   "es": "Significa 'fuente seca', de fonte y seca."
+  }
+ },
+ {
+  "name": "Martin",
+  "origin": "french",
+  "meaning": {
+   "en": "From the personal name Martin, after Saint Martin of Tours; derived from Mars.",
+   "es": "Del nombre Martin, por San Martín de Tours; derivado de Marte."
+  }
+ },
+ {
+  "name": "Bernard",
+  "origin": "french",
+  "meaning": {
+   "en": "From a Germanic personal name meaning 'strong as a bear'.",
+   "es": "De un nombre germánico que significa 'fuerte como un oso'."
+  }
+ },
+ {
+  "name": "Dubois",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'of the wood', for someone who lived in or near a forest.",
+   "es": "Significa 'del bosque', para quien vivía en un bosque o cerca de él."
+  }
+ },
+ {
+  "name": "Moreau",
+  "origin": "french",
+  "meaning": {
+   "en": "From maur, 'Moor', a nickname for someone dark-haired or dark-skinned.",
+   "es": "De maur, 'moro', apodo para alguien de pelo o piel oscuros."
+  }
+ },
+ {
+  "name": "Laurent",
+  "origin": "french",
+  "meaning": {
+   "en": "From Latin Laurentius, 'man from Laurentum', linked to the laurel.",
+   "es": "Del latín Laurentius, 'hombre de Laurento', asociado al laurel."
+  }
+ },
+ {
+  "name": "Lefebvre",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'the smith', from Old French fevre, from Latin faber.",
+   "es": "Significa 'el herrero', del francés antiguo fevre, del latín faber."
+  }
+ },
+ {
+  "name": "Leroy",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'the king', a nickname for a proud person or a pageant king.",
+   "es": "Significa 'el rey', apodo para alguien orgulloso o el rey de una fiesta."
+  }
+ },
+ {
+  "name": "Girard",
+  "origin": "french",
+  "meaning": {
+   "en": "From a Germanic name meaning 'hard spear' or 'brave with the spear'.",
+   "es": "De un nombre germánico que significa 'lanza dura' o 'valiente con la lanza'."
+  }
+ },
+ {
+  "name": "Bonnet",
+  "origin": "french",
+  "meaning": {
+   "en": "For a maker of bonnets and caps, or a diminutive of bon, 'good'.",
+   "es": "Para un fabricante de gorros, o diminutivo de bon, 'bueno'."
+  }
+ },
+ {
+  "name": "Fontaine",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'fountain' or 'spring', for someone living near a spring.",
+   "es": "Significa 'fuente' o 'manantial', para quien vivía cerca de uno."
+  }
+ },
+ {
+  "name": "Rousseau",
+  "origin": "french",
+  "meaning": {
+   "en": "From roux, 'red', a nickname for a red-haired person.",
+   "es": "De roux, 'pelirrojo', apodo para alguien de pelo rojo."
+  }
+ },
+ {
+  "name": "Blanc",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'white', a nickname for someone with fair hair or pale skin.",
+   "es": "Significa 'blanco', apodo para alguien rubio o de piel pálida."
+  }
+ },
+ {
+  "name": "Chevalier",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'knight' or 'horseman', for a knight or one in a knight's service.",
+   "es": "Significa 'caballero', para un caballero o alguien a su servicio."
+  }
+ },
+ {
+  "name": "Dupont",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'of the bridge', for someone living near a bridge.",
+   "es": "Significa 'del puente', para quien vivía cerca de un puente."
+  }
+ },
+ {
+  "name": "Lambert",
+  "origin": "french",
+  "meaning": {
+   "en": "From a Germanic personal name meaning 'bright land'.",
+   "es": "De un nombre germánico que significa 'tierra brillante'."
+  }
+ },
+ {
+  "name": "Mercier",
+  "origin": "french",
+  "meaning": {
+   "en": "Occupational name for a merchant, especially a dealer in cloth and small wares.",
+   "es": "Apellido de oficio para un mercader, sobre todo de telas y mercería."
+  }
+ },
+ {
+  "name": "Boucher",
+  "origin": "french",
+  "meaning": {
+   "en": "Occupational name for a butcher, originally a seller of goat meat (bouc).",
+   "es": "Apellido de oficio para un carnicero, originalmente vendedor de carne de macho cabrío (bouc)."
+  }
+ },
+ {
+  "name": "Faure",
+  "origin": "french",
+  "meaning": {
+   "en": "Southern French occupational name for a smith, from Latin faber.",
+   "es": "Apellido de oficio del sur de Francia para un herrero, del latín faber."
+  }
+ },
+ {
+  "name": "Garnier",
+  "origin": "french",
+  "meaning": {
+   "en": "From the Germanic name Warinhari, meaning 'guard' and 'army'.",
+   "es": "Del nombre germánico Warinhari, que significa 'guardia' y 'ejército'."
+  }
+ },
+ {
+  "name": "Beaumont",
+  "origin": "french",
+  "meaning": {
+   "en": "Place name meaning 'beautiful mountain', borne by several Norman noble families.",
+   "es": "Nombre de lugar que significa 'monte hermoso', de varias familias nobles normandas."
+  }
+ },
+ {
+  "name": "Delacroix",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'of the cross', for someone living near a wayside cross.",
+   "es": "Significa 'de la cruz', para quien vivía junto a una cruz de camino."
+  }
+ },
+ {
+  "name": "Marchand",
+  "origin": "french",
+  "meaning": {
+   "en": "Occupational name meaning 'merchant' or 'trader'.",
+   "es": "Apellido de oficio que significa 'mercader' o 'comerciante'."
+  }
+ },
+ {
+  "name": "Lemaire",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'the mayor', for a village headman or someone in his service.",
+   "es": "Significa 'el alcalde', para el jefe de un pueblo o alguien a su servicio."
+  }
+ },
+ {
+  "name": "Toussaint",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'All Saints', often given to children born on All Saints' Day.",
+   "es": "Significa 'Todos los Santos', dado a menudo a niños nacidos ese día."
+  }
+ },
+ {
+  "name": "Duval",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'of the valley', for someone who lived in a valley.",
+   "es": "Significa 'del valle', para quien vivía en un valle."
+  }
+ },
+ {
+  "name": "Rivière",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'river', for someone who lived beside a river.",
+   "es": "Significa 'río', para quien vivía junto a un río."
+  }
+ },
+ {
+  "name": "Leclerc",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'the clerk', for a scribe, scholar or member of the clergy.",
+   "es": "Significa 'el clérigo', para un escribano, erudito o eclesiástico."
+  }
+ },
+ {
+  "name": "Beaulieu",
+  "origin": "french",
+  "meaning": {
+   "en": "Place name meaning 'beautiful place', often given to abbeys and estates.",
+   "es": "Nombre de lugar que significa 'lugar hermoso', dado a menudo a abadías y fincas."
+  }
+ },
+ {
+  "name": "Dumas",
+  "origin": "french",
+  "meaning": {
+   "en": "Southern French name meaning 'of the farmhouse', from mas.",
+   "es": "Apellido del sur de Francia que significa 'de la granja', de mas."
+  }
+ },
+ {
+  "name": "Picard",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'from Picardy', the region in northern France.",
+   "es": "Significa 'de Picardía', la región del norte de Francia."
+  }
+ },
+ {
+  "name": "Chastain",
+  "origin": "french",
+  "meaning": {
+   "en": "Means 'chestnut tree', for someone living near chestnut trees.",
+   "es": "Significa 'castaño' (árbol), para quien vivía cerca de castaños."
+  }
+ },
+ {
+  "name": "Müller",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for a miller, the most common surname in Germany.",
+   "es": "Apellido de oficio para un molinero, el más común de Alemania."
+  }
+ },
+ {
+  "name": "Schmidt",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for a smith or metalworker.",
+   "es": "Apellido de oficio para un herrero o trabajador del metal."
+  }
+ },
+ {
+  "name": "Schneider",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for a tailor, from schneiden, 'to cut'.",
+   "es": "Apellido de oficio para un sastre, de schneiden, 'cortar'."
+  }
+ },
+ {
+  "name": "Fischer",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for a fisherman, from German Fisch, 'fish'.",
+   "es": "Apellido de oficio para un pescador, del alemán Fisch, 'pez'."
+  }
+ },
+ {
+  "name": "Weber",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for a weaver, from weben, 'to weave'.",
+   "es": "Apellido de oficio para un tejedor, de weben, 'tejer'."
+  }
+ },
+ {
+  "name": "Meyer",
+  "origin": "german",
+  "meaning": {
+   "en": "From Latin maior, a steward or tenant farmer managing a lord's estate.",
+   "es": "Del latín maior, mayordomo o arrendatario que administraba la finca de un señor."
+  }
+ },
+ {
+  "name": "Wagner",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for a wagon maker or wagon driver.",
+   "es": "Apellido de oficio para un fabricante o conductor de carros."
+  }
+ },
+ {
+  "name": "Becker",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for a baker, from Low German.",
+   "es": "Apellido de oficio para un panadero, del bajo alemán."
+  }
+ },
+ {
+  "name": "Hoffmann",
+  "origin": "german",
+  "meaning": {
+   "en": "For a farmer attached to a manor or the steward of a large farm (Hof).",
+   "es": "Para un campesino vinculado a una finca señorial o el administrador de una granja (Hof)."
+  }
+ },
+ {
+  "name": "Schäfer",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for a shepherd, from Schaf, 'sheep'.",
+   "es": "Apellido de oficio para un pastor, de Schaf, 'oveja'."
+  }
+ },
+ {
+  "name": "Koch",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for a cook, often in a castle or monastery.",
+   "es": "Apellido de oficio para un cocinero, a menudo de un castillo o monasterio."
+  }
+ },
+ {
+  "name": "Bauer",
+  "origin": "german",
+  "meaning": {
+   "en": "Means 'farmer' or 'peasant', from Middle High German būr.",
+   "es": "Significa 'campesino' o 'agricultor', del alto alemán medio būr."
+  }
+ },
+ {
+  "name": "Richter",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for a judge or village magistrate.",
+   "es": "Apellido de oficio para un juez o magistrado de pueblo."
+  }
+ },
+ {
+  "name": "Klein",
+  "origin": "german",
+  "meaning": {
+   "en": "Means 'small', a nickname for a short person.",
+   "es": "Significa 'pequeño', apodo para una persona baja."
+  }
+ },
+ {
+  "name": "Wolf",
+  "origin": "german",
+  "meaning": {
+   "en": "From the animal or a Germanic personal name beginning with 'wolf'.",
+   "es": "Del animal o de un nombre germánico que empieza por 'wolf' (lobo)."
+  }
+ },
+ {
+  "name": "Schröder",
+  "origin": "german",
+  "meaning": {
+   "en": "Low German occupational name for a tailor or a drayman.",
+   "es": "Apellido de oficio del bajo alemán para un sastre o un carretero."
+  }
+ },
+ {
+  "name": "Neumann",
+  "origin": "german",
+  "meaning": {
+   "en": "Means 'new man', for a newcomer to a town.",
+   "es": "Significa 'hombre nuevo', para un recién llegado al pueblo."
+  }
+ },
+ {
+  "name": "Schwarz",
+  "origin": "german",
+  "meaning": {
+   "en": "Means 'black', a nickname for someone with black hair or a dark complexion.",
+   "es": "Significa 'negro', apodo para alguien de pelo negro o tez oscura."
+  }
+ },
+ {
+  "name": "Zimmermann",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for a carpenter, from Zimmer, 'timber'.",
+   "es": "Apellido de oficio para un carpintero, de Zimmer, 'madera de construcción'."
+  }
+ },
+ {
+  "name": "Krüger",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for an innkeeper (Krug, 'tavern') or a potter.",
+   "es": "Apellido de oficio para un posadero (Krug, 'taberna') o un alfarero."
+  }
+ },
+ {
+  "name": "Hartmann",
+  "origin": "german",
+  "meaning": {
+   "en": "From a Germanic name combining hart, 'hardy, strong', and man.",
+   "es": "De un nombre germánico que combina hart, 'fuerte, duro', y man, 'hombre'."
+  }
+ },
+ {
+  "name": "Lange",
+  "origin": "german",
+  "meaning": {
+   "en": "Means 'long' or 'tall', a nickname for a tall person.",
+   "es": "Significa 'largo' o 'alto', apodo para una persona alta."
+  }
+ },
+ {
+  "name": "Braun",
+  "origin": "german",
+  "meaning": {
+   "en": "Means 'brown', for someone with brown hair or complexion.",
+   "es": "Significa 'marrón', para alguien de pelo o tez morena."
+  }
+ },
+ {
+  "name": "Vogel",
+  "origin": "german",
+  "meaning": {
+   "en": "Means 'bird', for a bird catcher or a cheerful, lively person.",
+   "es": "Significa 'pájaro', para un cazador de aves o una persona alegre."
+  }
+ },
+ {
+  "name": "Jäger",
+  "origin": "german",
+  "meaning": {
+   "en": "Occupational name for a hunter or huntsman.",
+   "es": "Apellido de oficio para un cazador o montero."
+  }
+ },
+ {
+  "name": "Fuchs",
+  "origin": "german",
+  "meaning": {
+   "en": "Means 'fox', a nickname for a cunning or red-haired person.",
+   "es": "Significa 'zorro', apodo para una persona astuta o pelirroja."
+  }
+ },
+ {
+  "name": "Engel",
+  "origin": "german",
+  "meaning": {
+   "en": "Means 'angel', or from Germanic names beginning with Engel.",
+   "es": "Significa 'ángel', o de nombres germánicos que empiezan por Engel."
+  }
+ },
+ {
+  "name": "Brandt",
+  "origin": "german",
+  "meaning": {
+   "en": "For someone living on land cleared by burning, from Brand, 'fire'.",
+   "es": "Para quien vivía en tierras desbrozadas con fuego, de Brand, 'incendio'."
+  }
+ },
+ {
+  "name": "Kaiser",
+  "origin": "german",
+  "meaning": {
+   "en": "Means 'emperor', a nickname for a lordly person or a pageant role.",
+   "es": "Significa 'emperador', apodo para alguien altivo o un papel en fiestas."
+  }
+ },
+ {
+  "name": "Hahn",
+  "origin": "german",
+  "meaning": {
+   "en": "Means 'rooster', a nickname for a proud man or from a house sign.",
+   "es": "Significa 'gallo', apodo para un hombre orgulloso o por el letrero de una casa."
+  }
+ },
+ {
+  "name": "Steiner",
+  "origin": "german",
+  "meaning": {
+   "en": "For someone living near a stone or rocky ground, from Stein.",
+   "es": "Para quien vivía junto a una piedra o terreno rocoso, de Stein."
+  }
+ },
+ {
+  "name": "Lindner",
+  "origin": "german",
+  "meaning": {
+   "en": "For someone living near linden trees or from a place called Linden.",
+   "es": "Para quien vivía cerca de tilos o en un lugar llamado Linden."
+  }
+ },
+ {
+  "name": "Eichel",
+  "origin": "german",
+  "meaning": {
+   "en": "Means 'acorn', possibly for someone living near oak trees.",
+   "es": "Significa 'bellota', posiblemente para quien vivía cerca de robles."
+  }
+ },
+ {
+  "name": "de Jong",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Means 'the young', to tell a son from his father of the same name.",
+   "es": "Significa 'el joven', para distinguir a un hijo de su padre del mismo nombre."
+  }
+ },
+ {
+  "name": "Jansen",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Jan', the Dutch form of John.",
+   "es": "Patronímico que significa 'hijo de Jan', la forma neerlandesa de Juan."
+  }
+ },
+ {
+  "name": "de Vries",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Means 'the Frisian', for someone from Friesland.",
+   "es": "Significa 'el frisón', para alguien de Frisia."
+  }
+ },
+ {
+  "name": "van den Berg",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Means 'from the hill' or 'from the mountain'.",
+   "es": "Significa 'de la colina' o 'del monte'."
+  }
+ },
+ {
+  "name": "van Dijk",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Means 'from the dike', for someone living by a dike.",
+   "es": "Significa 'del dique', para quien vivía junto a un dique."
+  }
+ },
+ {
+  "name": "Bakker",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Occupational name for a baker, from bakken, 'to bake'.",
+   "es": "Apellido de oficio para un panadero, de bakken, 'hornear'."
+  }
+ },
+ {
+  "name": "Visser",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Occupational name for a fisherman, from vis, 'fish'.",
+   "es": "Apellido de oficio para un pescador, de vis, 'pez'."
+  }
+ },
+ {
+  "name": "Smit",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Occupational name for a smith or metalworker in Dutch.",
+   "es": "Apellido de oficio neerlandés para un herrero o trabajador del metal."
+  }
+ },
+ {
+  "name": "de Boer",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Means 'the farmer' or 'the peasant'.",
+   "es": "Significa 'el granjero' o 'el campesino'."
+  }
+ },
+ {
+  "name": "Mulder",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Occupational name for a miller, from Middle Dutch mulder.",
+   "es": "Apellido de oficio para un molinero, del neerlandés medio mulder."
+  }
+ },
+ {
+  "name": "de Groot",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Means 'the big' or 'the tall', a nickname for a large person.",
+   "es": "Significa 'el grande' o 'el alto', apodo para una persona corpulenta."
+  }
+ },
+ {
+  "name": "Bos",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Means 'wood' or 'forest', for someone living near woodland.",
+   "es": "Significa 'bosque', para quien vivía cerca de uno."
+  }
+ },
+ {
+  "name": "Vos",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Means 'fox', a nickname for a cunning or red-haired person.",
+   "es": "Significa 'zorro', apodo para una persona astuta o pelirroja."
+  }
+ },
+ {
+  "name": "Peeters",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Flemish patronymic meaning 'son of Peter'.",
+   "es": "Patronímico flamenco que significa 'hijo de Pedro'."
+  }
+ },
+ {
+  "name": "van der Meer",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Means 'from the lake', for someone living by a lake.",
+   "es": "Significa 'del lago', para quien vivía junto a uno."
+  }
+ },
+ {
+  "name": "Dekker",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Occupational name for a roofer or thatcher, from dekken, 'to cover'.",
+   "es": "Apellido de oficio para un techador, de dekken, 'cubrir'."
+  }
+ },
+ {
+  "name": "Verhoeven",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Means 'from the farmsteads', from hoeve, 'farm'.",
+   "es": "Significa 'de las granjas', de hoeve, 'granja'."
+  }
+ },
+ {
+  "name": "van Rijn",
+  "origin": "dutch",
+  "meaning": {
+   "en": "Means 'from the Rhine', for someone living by the river.",
+   "es": "Significa 'del Rin', para quien vivía junto al río."
+  }
+ },
+ {
+  "name": "Johansson",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Swedish patronymic meaning 'son of Johan', the form of John.",
+   "es": "Patronímico sueco que significa 'hijo de Johan', forma de Juan."
+  }
+ },
+ {
+  "name": "Andersson",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Swedish patronymic meaning 'son of Anders', the form of Andrew.",
+   "es": "Patronímico sueco que significa 'hijo de Anders', forma de Andrés."
+  }
+ },
+ {
+  "name": "Nilsson",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Swedish patronymic meaning 'son of Nils', a form of Nicholas.",
+   "es": "Patronímico sueco que significa 'hijo de Nils', forma de Nicolás."
+  }
+ },
+ {
+  "name": "Hansen",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Danish and Norwegian patronymic meaning 'son of Hans' (John).",
+   "es": "Patronímico danés y noruego que significa 'hijo de Hans' (Juan)."
+  }
+ },
+ {
+  "name": "Larsen",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Danish and Norwegian patronymic meaning 'son of Lars' (Laurence).",
+   "es": "Patronímico danés y noruego que significa 'hijo de Lars' (Lorenzo)."
+  }
+ },
+ {
+  "name": "Olsen",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Danish and Norwegian patronymic meaning 'son of Ole', from Old Norse Óláfr.",
+   "es": "Patronímico danés y noruego que significa 'hijo de Ole', del nórdico antiguo Óláfr."
+  }
+ },
+ {
+  "name": "Eriksson",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Swedish patronymic meaning 'son of Erik', 'eternal ruler'.",
+   "es": "Patronímico sueco que significa 'hijo de Erik', 'gobernante eterno'."
+  }
+ },
+ {
+  "name": "Lindqvist",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Swedish ornamental name meaning 'linden twig'.",
+   "es": "Apellido ornamental sueco que significa 'rama de tilo'."
+  }
+ },
+ {
+  "name": "Berg",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Means 'mountain' or 'hill', for someone living on high ground.",
+   "es": "Significa 'montaña' o 'colina', para quien vivía en terreno alto."
+  }
+ },
+ {
+  "name": "Lindberg",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Swedish ornamental name meaning 'linden mountain'.",
+   "es": "Apellido ornamental sueco que significa 'monte de tilos'."
+  }
+ },
+ {
+  "name": "Dahl",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Means 'valley', for someone living in a valley.",
+   "es": "Significa 'valle', para quien vivía en uno."
+  }
+ },
+ {
+  "name": "Haugen",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Norwegian farm name meaning 'the hill' or 'the mound'.",
+   "es": "Nombre de granja noruego que significa 'la colina' o 'el túmulo'."
+  }
+ },
+ {
+  "name": "Sørensen",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Danish patronymic meaning 'son of Søren', from Latin Severinus.",
+   "es": "Patronímico danés que significa 'hijo de Søren', del latín Severinus."
+  }
+ },
+ {
+  "name": "Nyström",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Swedish ornamental name meaning 'new stream'.",
+   "es": "Apellido ornamental sueco que significa 'arroyo nuevo'."
+  }
+ },
+ {
+  "name": "Holm",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Means 'islet', for someone living on a small island.",
+   "es": "Significa 'islote', para quien vivía en una isla pequeña."
+  }
+ },
+ {
+  "name": "Björk",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Swedish name meaning 'birch tree', often adopted as an ornamental surname.",
+   "es": "Apellido sueco que significa 'abedul', adoptado a menudo como apellido ornamental."
+  }
+ },
+ {
+  "name": "Strand",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Means 'shore' or 'beach', for someone living by the water.",
+   "es": "Significa 'orilla' o 'playa', para quien vivía junto al agua."
+  }
+ },
+ {
+  "name": "Lundgren",
+  "origin": "scandinavian",
+  "meaning": {
+   "en": "Swedish ornamental name meaning 'grove branch'.",
+   "es": "Apellido ornamental sueco que significa 'rama de arboleda'."
+  }
+ },
+ {
+  "name": "Nowak",
+  "origin": "polish",
+  "meaning": {
+   "en": "Means 'newcomer', from nowy, 'new'; the most common surname in Poland.",
+   "es": "Significa 'recién llegado', de nowy, 'nuevo'; el apellido más común de Polonia."
+  }
+ },
+ {
+  "name": "Kowalski",
+  "origin": "polish",
+  "meaning": {
+   "en": "From kowal, 'smith', meaning 'of the smith's family' or a place named after smiths.",
+   "es": "De kowal, 'herrero': 'de la familia del herrero' o de un lugar llamado así."
+  }
+ },
+ {
+  "name": "Wiśniewski",
+  "origin": "polish",
+  "meaning": {
+   "en": "From the place Wiśniewo, from wiśnia, 'cherry tree'.",
+   "es": "Del lugar Wiśniewo, de wiśnia, 'cerezo'."
+  }
+ },
+ {
+  "name": "Wójcik",
+  "origin": "polish",
+  "meaning": {
+   "en": "Diminutive of wójt, 'village headman', for the son of a headman.",
+   "es": "Diminutivo de wójt, 'alcalde de pueblo', para el hijo de uno."
+  }
+ },
+ {
+  "name": "Kowalczyk",
+  "origin": "polish",
+  "meaning": {
+   "en": "Means 'son of the smith', from kowal, 'smith'.",
+   "es": "Significa 'hijo del herrero', de kowal, 'herrero'."
+  }
+ },
+ {
+  "name": "Kamiński",
+  "origin": "polish",
+  "meaning": {
+   "en": "From place names based on kamień, 'stone'.",
+   "es": "De nombres de lugar basados en kamień, 'piedra'."
+  }
+ },
+ {
+  "name": "Lewandowski",
+  "origin": "polish",
+  "meaning": {
+   "en": "From places named Lewandów, linked to lawenda, 'lavender'.",
+   "es": "De lugares llamados Lewandów, relacionados con lawenda, 'lavanda'."
+  }
+ },
+ {
+  "name": "Zieliński",
+  "origin": "polish",
+  "meaning": {
+   "en": "From places based on zielony, 'green'.",
+   "es": "De lugares basados en zielony, 'verde'."
+  }
+ },
+ {
+  "name": "Szymański",
+  "origin": "polish",
+  "meaning": {
+   "en": "From places named after Szymon, the Polish form of Simon.",
+   "es": "De lugares nombrados por Szymon, la forma polaca de Simón."
+  }
+ },
+ {
+  "name": "Dąbrowski",
+  "origin": "polish",
+  "meaning": {
+   "en": "From places named Dąbrowa, meaning 'oak grove'.",
+   "es": "De lugares llamados Dąbrowa, que significa 'robledal'."
+  }
+ },
+ {
+  "name": "Kozłowski",
+  "origin": "polish",
+  "meaning": {
+   "en": "From places based on kozioł, 'billy goat'.",
+   "es": "De lugares basados en kozioł, 'macho cabrío'."
+  }
+ },
+ {
+  "name": "Mazur",
+  "origin": "polish",
+  "meaning": {
+   "en": "Means 'person from Masovia', the region around Warsaw.",
+   "es": "Significa 'persona de Mazovia', la región de Varsovia."
+  }
+ },
+ {
+  "name": "Krawczyk",
+  "origin": "polish",
+  "meaning": {
+   "en": "Means 'son of the tailor', from krawiec, 'tailor'.",
+   "es": "Significa 'hijo del sastre', de krawiec, 'sastre'."
+  }
+ },
+ {
+  "name": "Grabowski",
+  "origin": "polish",
+  "meaning": {
+   "en": "From places based on grab, 'hornbeam tree'.",
+   "es": "De lugares basados en grab, 'carpe' (árbol)."
+  }
+ },
+ {
+  "name": "Sokołowski",
+  "origin": "polish",
+  "meaning": {
+   "en": "From places based on sokół, 'falcon'.",
+   "es": "De lugares basados en sokół, 'halcón'."
+  }
+ },
+ {
+  "name": "Wróbel",
+  "origin": "polish",
+  "meaning": {
+   "en": "Means 'sparrow', a nickname for a small or lively person.",
+   "es": "Significa 'gorrión', apodo para una persona pequeña o vivaz."
+  }
+ },
+ {
+  "name": "Ivanov",
+  "origin": "russian",
+  "meaning": {
+   "en": "Patronymic surname meaning 'son of Ivan', the Russian form of John.",
+   "es": "Apellido patronímico que significa 'hijo de Iván', la forma rusa de Juan."
+  }
+ },
+ {
+  "name": "Smirnov",
+  "origin": "russian",
+  "meaning": {
+   "en": "From smirny, 'meek' or 'quiet', a nickname for a gentle person.",
+   "es": "De smirny, 'manso' o 'tranquilo', apodo para una persona apacible."
+  }
+ },
+ {
+  "name": "Kuznetsov",
+  "origin": "russian",
+  "meaning": {
+   "en": "From kuznets, 'smith', a family descended from a blacksmith.",
+   "es": "De kuznets, 'herrero', una familia que descendía de un herrero."
+  }
+ },
+ {
+  "name": "Popov",
+  "origin": "russian",
+  "meaning": {
+   "en": "From pop, 'priest', for a priest's son.",
+   "es": "De pop, 'sacerdote', para el hijo de un sacerdote."
+  }
+ },
+ {
+  "name": "Volkov",
+  "origin": "russian",
+  "meaning": {
+   "en": "From volk, 'wolf', a nickname or old personal name.",
+   "es": "De volk, 'lobo', apodo o antiguo nombre propio."
+  }
+ },
+ {
+  "name": "Sokolov",
+  "origin": "russian",
+  "meaning": {
+   "en": "From sokol, 'falcon', a nickname or for a falconer.",
+   "es": "De sokol, 'halcón', apodo o nombre para un halconero."
+  }
+ },
+ {
+  "name": "Lebedev",
+  "origin": "russian",
+  "meaning": {
+   "en": "From lebed, 'swan', often a clerical surname.",
+   "es": "De lebed, 'cisne', a menudo un apellido de clérigos."
+  }
+ },
+ {
+  "name": "Kozlov",
+  "origin": "russian",
+  "meaning": {
+   "en": "From kozel, 'goat', a nickname for a stubborn person.",
+   "es": "De kozel, 'cabra', apodo para una persona terca."
+  }
+ },
+ {
+  "name": "Novikov",
+  "origin": "russian",
+  "meaning": {
+   "en": "From novik, 'newcomer' or 'young recruit'.",
+   "es": "De novik, 'recién llegado' o 'recluta joven'."
+  }
+ },
+ {
+  "name": "Morozov",
+  "origin": "russian",
+  "meaning": {
+   "en": "From moroz, 'frost', possibly for someone born in winter.",
+   "es": "De moroz, 'helada', posiblemente para alguien nacido en invierno."
+  }
+ },
+ {
+  "name": "Petrov",
+  "origin": "russian",
+  "meaning": {
+   "en": "Patronymic surname meaning 'son of Pyotr' (Peter).",
+   "es": "Apellido patronímico que significa 'hijo de Piotr' (Pedro)."
+  }
+ },
+ {
+  "name": "Pavlov",
+  "origin": "russian",
+  "meaning": {
+   "en": "Patronymic surname meaning 'son of Pavel' (Paul).",
+   "es": "Apellido patronímico que significa 'hijo de Pável' (Pablo)."
+  }
+ },
+ {
+  "name": "Orlov",
+  "origin": "russian",
+  "meaning": {
+   "en": "From oryol, 'eagle', a nickname for a proud or keen-eyed person.",
+   "es": "De oriol, 'águila', apodo para alguien orgulloso o de vista aguda."
+  }
+ },
+ {
+  "name": "Medvedev",
+  "origin": "russian",
+  "meaning": {
+   "en": "From medved, 'bear', a nickname for a big, strong person.",
+   "es": "De medved, 'oso', apodo para una persona grande y fuerte."
+  }
+ },
+ {
+  "name": "Belov",
+  "origin": "russian",
+  "meaning": {
+   "en": "From bely, 'white', for someone with fair hair or pale skin.",
+   "es": "De bely, 'blanco', para alguien rubio o de piel pálida."
+  }
+ },
+ {
+  "name": "Zaitsev",
+  "origin": "russian",
+  "meaning": {
+   "en": "From zayats, 'hare', a nickname for a quick or timid person.",
+   "es": "De zayats, 'liebre', apodo para una persona rápida o tímida."
+  }
+ },
+ {
+  "name": "Romanov",
+  "origin": "russian",
+  "meaning": {
+   "en": "Patronymic from Roman, borne by Russia's last imperial dynasty.",
+   "es": "Patronímico de Román, que llevó la última dinastía imperial rusa."
+  }
+ },
+ {
+  "name": "Papadopoulos",
+  "origin": "greek",
+  "meaning": {
+   "en": "Means 'son of the priest', from papas, 'priest', and -poulos, 'son of'.",
+   "es": "Significa 'hijo del sacerdote', de papas, 'sacerdote', y -poulos, 'hijo de'."
+  }
+ },
+ {
+  "name": "Georgiou",
+  "origin": "greek",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Georgios', from geōrgos, 'farmer'.",
+   "es": "Patronímico que significa 'hijo de Georgios', de geōrgos, 'agricultor'."
+  }
+ },
+ {
+  "name": "Nikolaidis",
+  "origin": "greek",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Nikolaos', 'victory of the people'.",
+   "es": "Patronímico que significa 'hijo de Nikolaos', 'victoria del pueblo'."
+  }
+ },
+ {
+  "name": "Pappas",
+  "origin": "greek",
+  "meaning": {
+   "en": "From papas, 'priest', a name for a priest's family.",
+   "es": "De papas, 'sacerdote', para la familia de un sacerdote."
+  }
+ },
+ {
+  "name": "Konstantinou",
+  "origin": "greek",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Konstantinos', from Latin constans, 'steadfast'.",
+   "es": "Patronímico que significa 'hijo de Konstantinos', del latín constans, 'constante'."
+  }
+ },
+ {
+  "name": "Dimitriou",
+  "origin": "greek",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Dimitrios', after the goddess Demeter.",
+   "es": "Patronímico que significa 'hijo de Dimitrios', por la diosa Deméter."
+  }
+ },
+ {
+  "name": "Vlachos",
+  "origin": "greek",
+  "meaning": {
+   "en": "Means 'Vlach', a Balkan shepherd people; also used for a shepherd.",
+   "es": "Significa 'valaco', pueblo pastor de los Balcanes; también se usaba para un pastor."
+  }
+ },
+ {
+  "name": "Christodoulou",
+  "origin": "greek",
+  "meaning": {
+   "en": "Means 'son of Christodoulos', 'servant of Christ'.",
+   "es": "Significa 'hijo de Christodoulos', 'siervo de Cristo'."
+  }
+ },
+ {
+  "name": "Angelopoulos",
+  "origin": "greek",
+  "meaning": {
+   "en": "Means 'son of Angelos', from angelos, 'messenger, angel'.",
+   "es": "Significa 'hijo de Angelos', de angelos, 'mensajero, ángel'."
+  }
+ },
+ {
+  "name": "Karagiannis",
+  "origin": "greek",
+  "meaning": {
+   "en": "Means 'black John', from Turkish kara, 'black', and Giannis.",
+   "es": "Significa 'Juan el Negro', del turco kara, 'negro', y Giannis."
+  }
+ },
+ {
+  "name": "Oikonomou",
+  "origin": "greek",
+  "meaning": {
+   "en": "Means 'son of the steward', a church or estate administrator.",
+   "es": "Significa 'hijo del ecónomo', administrador de una iglesia o finca."
+  }
+ },
+ {
+  "name": "Alexiou",
+  "origin": "greek",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Alexios', from alexein, 'to defend'.",
+   "es": "Patronímico que significa 'hijo de Alexios', de alexein, 'defender'."
+  }
+ },
+ {
+  "name": "Theodorou",
+  "origin": "greek",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Theodoros', 'gift of God'.",
+   "es": "Patronímico que significa 'hijo de Theodoros', 'regalo de Dios'."
+  }
+ },
+ {
+  "name": "Makris",
+  "origin": "greek",
+  "meaning": {
+   "en": "From makrys, 'long' or 'tall', a nickname for a tall person.",
+   "es": "De makrys, 'largo' o 'alto', apodo para una persona alta."
+  }
+ },
+ {
+  "name": "Stavrou",
+  "origin": "greek",
+  "meaning": {
+   "en": "Patronymic meaning 'son of Stavros', from stavros, 'cross'.",
+   "es": "Patronímico que significa 'hijo de Stavros', de stavros, 'cruz'."
+  }
+ },
+ {
+  "name": "Antonopoulos",
+  "origin": "greek",
+  "meaning": {
+   "en": "Means 'son of Antonios', the Greek form of Anthony.",
+   "es": "Significa 'hijo de Antonios', la forma griega de Antonio."
+  }
+ },
+ {
+  "name": "Cohen",
+  "origin": "jewish",
+  "meaning": {
+   "en": "From Hebrew kohen, 'priest', borne by descendants of Aaron.",
+   "es": "Del hebreo kohen, 'sacerdote', apellido de los descendientes de Aarón."
+  }
+ },
+ {
+  "name": "Levi",
+  "origin": "jewish",
+  "meaning": {
+   "en": "From the tribe of Levi, whose members served in the Temple.",
+   "es": "De la tribu de Leví, cuyos miembros servían en el Templo."
+  }
+ },
+ {
+  "name": "Katz",
+  "origin": "jewish",
+  "meaning": {
+   "en": "Acronym of kohen tzedek, 'righteous priest'.",
+   "es": "Acrónimo de kohen tzedek, 'sacerdote justo'."
+  }
+ },
+ {
+  "name": "Goldberg",
+  "origin": "jewish",
+  "meaning": {
+   "en": "Ashkenazi ornamental name meaning 'gold mountain'.",
+   "es": "Apellido ornamental asquenazí que significa 'montaña de oro'."
+  }
+ },
+ {
+  "name": "Rosenberg",
+  "origin": "jewish",
+  "meaning": {
+   "en": "Ashkenazi ornamental name meaning 'rose mountain'.",
+   "es": "Apellido ornamental asquenazí que significa 'montaña de rosas'."
+  }
+ },
+ {
+  "name": "Friedman",
+  "origin": "jewish",
+  "meaning": {
+   "en": "From Yiddish and German fried, 'peace', meaning 'man of peace'.",
+   "es": "Del yidis y alemán fried, 'paz': 'hombre de paz'."
+  }
+ },
+ {
+  "name": "Shapiro",
+  "origin": "jewish",
+  "meaning": {
+   "en": "From the German city of Speyer, an early center of Jewish learning.",
+   "es": "De la ciudad alemana de Espira, antiguo centro del saber judío."
+  }
+ },
+ {
+  "name": "Horowitz",
+  "origin": "jewish",
+  "meaning": {
+   "en": "From the town of Hořovice in Bohemia.",
+   "es": "De la ciudad de Hořovice, en Bohemia."
+  }
+ },
+ {
+  "name": "Mizrahi",
+  "origin": "jewish",
+  "meaning": {
+   "en": "Hebrew for 'eastern', used by Jews from the Middle East.",
+   "es": "En hebreo, 'oriental', usado por judíos de Oriente Medio."
+  }
+ },
+ {
+  "name": "Sasson",
+  "origin": "jewish",
+  "meaning": {
+   "en": "From Hebrew sasson, 'joy', common among Sephardic and Iraqi Jews.",
+   "es": "Del hebreo sasson, 'alegría', común entre judíos sefardíes e iraquíes."
+  }
+ },
+ {
+  "name": "Eisenberg",
+  "origin": "jewish",
+  "meaning": {
+   "en": "Ashkenazi ornamental name meaning 'iron mountain'.",
+   "es": "Apellido ornamental asquenazí que significa 'montaña de hierro'."
+  }
+ },
+ {
+  "name": "Feldman",
+  "origin": "jewish",
+  "meaning": {
+   "en": "Means 'field man', for someone who lived or worked in the fields.",
+   "es": "Significa 'hombre del campo', para quien vivía o trabajaba en él."
+  }
+ },
+ {
+  "name": "Kaplan",
+  "origin": "jewish",
+  "meaning": {
+   "en": "From Polish kapłan, 'priest', a name taken by Kohanim families.",
+   "es": "Del polaco kapłan, 'sacerdote', nombre adoptado por familias de cohanim."
+  }
+ },
+ {
+  "name": "Segal",
+  "origin": "jewish",
+  "meaning": {
+   "en": "Acronym of segan leviyyah, 'assistant of the Levites'.",
+   "es": "Acrónimo de segan leviyyah, 'asistente de los levitas'."
+  }
+ },
+ {
+  "name": "Bernstein",
+  "origin": "jewish",
+  "meaning": {
+   "en": "Ashkenazi name meaning 'amber', from German Bernstein.",
+   "es": "Apellido asquenazí que significa 'ámbar', del alemán Bernstein."
+  }
+ },
+ {
+  "name": "Rothschild",
+  "origin": "jewish",
+  "meaning": {
+   "en": "From zum roten Schild, 'at the red shield', a house sign in Frankfurt.",
+   "es": "De zum roten Schild, 'del escudo rojo', el letrero de una casa en Fráncfort."
+  }
+ },
+ {
+  "name": "Lieberman",
+  "origin": "jewish",
+  "meaning": {
+   "en": "From Yiddish lieber, 'dear', meaning 'beloved man'.",
+   "es": "Del yidis lieber, 'querido': 'hombre amado'."
+  }
+ },
+ {
+  "name": "Haddad",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Occupational name meaning 'smith' or 'ironworker'.",
+   "es": "Apellido de oficio que significa 'herrero'."
+  }
+ },
+ {
+  "name": "Khalil",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Means 'friend', from al-Khalil, the epithet of Abraham.",
+   "es": "Significa 'amigo', de al-Jalil, el epíteto de Abraham."
+  }
+ },
+ {
+  "name": "Hassan",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Means 'good' or 'handsome', after the grandson of the Prophet.",
+   "es": "Significa 'bueno' o 'hermoso', por el nieto del Profeta."
+  }
+ },
+ {
+  "name": "Hussein",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Diminutive of Hassan, 'good', after the Prophet's grandson Husayn.",
+   "es": "Diminutivo de Hasán, 'bueno', por Husayn, nieto del Profeta."
+  }
+ },
+ {
+  "name": "Mansour",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Means 'victorious' or 'aided by God'.",
+   "es": "Significa 'victorioso' o 'ayudado por Dios'."
+  }
+ },
+ {
+  "name": "Nasser",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Means 'helper' or 'one who grants victory'.",
+   "es": "Significa 'ayudante' o 'el que da la victoria'."
+  }
+ },
+ {
+  "name": "Saleh",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Means 'righteous' or 'virtuous', also the name of a prophet.",
+   "es": "Significa 'justo' o 'virtuoso'; también es el nombre de un profeta."
+  }
+ },
+ {
+  "name": "Najjar",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Occupational name meaning 'carpenter' or 'woodworker' in Arabic.",
+   "es": "Apellido de oficio que significa 'carpintero' en árabe."
+  }
+ },
+ {
+  "name": "Khoury",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Means 'priest', common among Christian Arab families.",
+   "es": "Significa 'sacerdote', común entre familias árabes cristianas."
+  }
+ },
+ {
+  "name": "Sabbagh",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Occupational name meaning 'dyer' of cloth.",
+   "es": "Apellido de oficio que significa 'tintorero' de telas."
+  }
+ },
+ {
+  "name": "Farah",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Arabic name meaning 'joy' or 'happiness', also a given name.",
+   "es": "Nombre árabe que significa 'alegría' o 'felicidad'; también es nombre de pila."
+  }
+ },
+ {
+  "name": "Aziz",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Means 'mighty' or 'beloved', one of the names of God.",
+   "es": "Significa 'poderoso' o 'querido', uno de los nombres de Dios."
+  }
+ },
+ {
+  "name": "Qureshi",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Means 'of the Quraysh', the tribe of the Prophet Muhammad.",
+   "es": "Significa 'de los Quraysh', la tribu del profeta Mahoma."
+  }
+ },
+ {
+  "name": "Al-Masri",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Means 'the Egyptian', for a family from Egypt.",
+   "es": "Significa 'el egipcio', para una familia de Egipto."
+  }
+ },
+ {
+  "name": "Halabi",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Means 'from Aleppo', the city in northern Syria.",
+   "es": "Significa 'de Alepo', la ciudad del norte de Siria."
+  }
+ },
+ {
+  "name": "Attar",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Occupational name for a perfumer or seller of spices and herbs.",
+   "es": "Apellido de oficio para un perfumista o vendedor de especias."
+  }
+ },
+ {
+  "name": "Hakim",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Arabic name meaning 'wise' or 'physician', for a learned man or doctor.",
+   "es": "Nombre árabe que significa 'sabio' o 'médico', para un erudito o doctor."
+  }
+ },
+ {
+  "name": "Karim",
+  "origin": "arabic",
+  "meaning": {
+   "en": "Arabic name meaning 'generous' or 'noble', one of the names of God.",
+   "es": "Nombre árabe que significa 'generoso' o 'noble', uno de los nombres de Dios."
+  }
+ },
+ {
+  "name": "Sharma",
+  "origin": "indian",
+  "meaning": {
+   "en": "Sanskrit for 'joy' or 'protection', a surname traditionally used by Brahmins.",
+   "es": "Del sánscrito 'alegría' o 'protección', apellido tradicional de los brahmanes."
+  }
+ },
+ {
+  "name": "Patel",
+  "origin": "indian",
+  "meaning": {
+   "en": "Gujarati title for a village headman who kept land records.",
+   "es": "Título guyaratí para el jefe de aldea que llevaba el registro de tierras."
+  }
+ },
+ {
+  "name": "Singh",
+  "origin": "indian",
+  "meaning": {
+   "en": "From Sanskrit simha, 'lion', adopted by all Sikh men.",
+   "es": "Del sánscrito simha, 'león', adoptado por todos los hombres sijs."
+  }
+ },
+ {
+  "name": "Kumar",
+  "origin": "indian",
+  "meaning": {
+   "en": "From Sanskrit kumara, 'prince', 'boy' or 'son'.",
+   "es": "Del sánscrito kumara, 'príncipe', 'muchacho' o 'hijo'."
+  }
+ },
+ {
+  "name": "Gupta",
+  "origin": "indian",
+  "meaning": {
+   "en": "From Sanskrit gupta, 'protected' or 'protector'; also an ancient dynasty.",
+   "es": "Del sánscrito gupta, 'protegido' o 'protector'; también una antigua dinastía."
+  }
+ },
+ {
+  "name": "Reddy",
+  "origin": "indian",
+  "meaning": {
+   "en": "Telugu title for a village chief or landholder.",
+   "es": "Título telugu para el jefe de aldea o terrateniente."
+  }
+ },
+ {
+  "name": "Iyer",
+  "origin": "indian",
+  "meaning": {
+   "en": "Tamil Brahmin surname from a word meaning 'venerable' or 'respected one'.",
+   "es": "Apellido de brahmanes tamiles de una palabra que significa 'venerable'."
+  }
+ },
+ {
+  "name": "Nair",
+  "origin": "indian",
+  "meaning": {
+   "en": "Kerala community name, possibly from nayaka, 'leader'.",
+   "es": "Nombre de comunidad de Kerala, posiblemente de nayaka, 'líder'."
+  }
+ },
+ {
+  "name": "Rao",
+  "origin": "indian",
+  "meaning": {
+   "en": "From raya, 'king' or 'chief', common in South India.",
+   "es": "De raya, 'rey' o 'jefe', común en el sur de la India."
+  }
+ },
+ {
+  "name": "Joshi",
+  "origin": "indian",
+  "meaning": {
+   "en": "From jyotishi, 'astrologer', a traditional Brahmin occupation.",
+   "es": "De jyotishi, 'astrólogo', ocupación tradicional brahmán."
+  }
+ },
+ {
+  "name": "Mehta",
+  "origin": "indian",
+  "meaning": {
+   "en": "Means 'accountant' or 'chief', a Gujarati and Punjabi title.",
+   "es": "Significa 'contable' o 'jefe', título guyaratí y panyabí."
+  }
+ },
+ {
+  "name": "Desai",
+  "origin": "indian",
+  "meaning": {
+   "en": "Title for the head of a district, from desh, 'land'.",
+   "es": "Título para el jefe de un distrito, de desh, 'tierra'."
+  }
+ },
+ {
+  "name": "Mukherjee",
+  "origin": "indian",
+  "meaning": {
+   "en": "From Mukhopadhyay, 'teacher from the village of Mukhati' in Bengal.",
+   "es": "De Mukhopadhyay, 'maestro de la aldea de Mukhati', en Bengala."
+  }
+ },
+ {
+  "name": "Banerjee",
+  "origin": "indian",
+  "meaning": {
+   "en": "From Bandyopadhyay, 'teacher from the village of Banduri' in Bengal.",
+   "es": "De Bandyopadhyay, 'maestro de la aldea de Banduri', en Bengala."
+  }
+ },
+ {
+  "name": "Agarwal",
+  "origin": "indian",
+  "meaning": {
+   "en": "From Agroha, the ancestral town of a merchant community.",
+   "es": "De Agroha, la ciudad ancestral de una comunidad de comerciantes."
+  }
+ },
+ {
+  "name": "Menon",
+  "origin": "indian",
+  "meaning": {
+   "en": "Honorific title in Kerala given to accountants and administrators.",
+   "es": "Título honorífico de Kerala dado a contables y administradores."
+  }
+ },
+ {
+  "name": "Pillai",
+  "origin": "indian",
+  "meaning": {
+   "en": "Tamil and Malayalam title meaning 'child' or 'prince'.",
+   "es": "Título tamil y malayalam que significa 'niño' o 'príncipe'."
+  }
+ },
+ {
+  "name": "Bhatt",
+  "origin": "indian",
+  "meaning": {
+   "en": "From Sanskrit bhatta, 'learned lord' or 'scholar', a Brahmin title.",
+   "es": "Del sánscrito bhatta, 'señor erudito' o 'sabio', título brahmán."
+  }
+ },
+ {
+  "name": "Verma",
+  "origin": "indian",
+  "meaning": {
+   "en": "From Sanskrit varman, 'armour' or 'protection'.",
+   "es": "Del sánscrito varman, 'armadura' o 'protección'."
+  }
+ },
+ {
+  "name": "Wang",
+  "origin": "chinese",
+  "meaning": {
+   "en": "王 — 'king'; one of the most common surnames in the world.",
+   "es": "王 — 'rey'; uno de los apellidos más comunes del mundo."
+  }
+ },
+ {
+  "name": "Li",
+  "origin": "chinese",
+  "meaning": {
+   "en": "李 — 'plum tree'; the surname of the Tang dynasty emperors.",
+   "es": "李 — 'ciruelo'; el apellido de los emperadores de la dinastía Tang."
+  }
+ },
+ {
+  "name": "Zhang",
+  "origin": "chinese",
+  "meaning": {
+   "en": "张 — 'to draw a bow'; traditionally linked to the inventor of the bow.",
+   "es": "张 — 'tensar el arco'; tradicionalmente ligado al inventor del arco."
+  }
+ },
+ {
+  "name": "Liu",
+  "origin": "chinese",
+  "meaning": {
+   "en": "刘 — an ancient word for a battle axe; surname of the Han emperors.",
+   "es": "刘 — antigua palabra para un hacha de guerra; apellido de los emperadores Han."
+  }
+ },
+ {
+  "name": "Chen",
+  "origin": "chinese",
+  "meaning": {
+   "en": "陈 — 'to display' or 'arrange'; from the ancient state of Chen.",
+   "es": "陈 — 'exponer' u 'ordenar'; del antiguo estado de Chen."
+  }
+ },
+ {
+  "name": "Yang",
+  "origin": "chinese",
+  "meaning": {
+   "en": "杨 — 'poplar tree'; also an ancient state and the Sui imperial clan.",
+   "es": "杨 — 'álamo'; también un antiguo estado y el clan imperial Sui."
+  }
+ },
+ {
+  "name": "Huang",
+  "origin": "chinese",
+  "meaning": {
+   "en": "黄 — 'yellow'; from the ancient state of Huang.",
+   "es": "黄 — 'amarillo'; del antiguo estado de Huang."
+  }
+ },
+ {
+  "name": "Zhao",
+  "origin": "chinese",
+  "meaning": {
+   "en": "赵 — from the ancient state of Zhao; surname of the Song emperors.",
+   "es": "赵 — del antiguo estado de Zhao; apellido de los emperadores Song."
+  }
+ },
+ {
+  "name": "Wu",
+  "origin": "chinese",
+  "meaning": {
+   "en": "吴 — from the ancient state of Wu in the Yangtze delta.",
+   "es": "吴 — del antiguo estado de Wu, en el delta del Yangtsé."
+  }
+ },
+ {
+  "name": "Zhou",
+  "origin": "chinese",
+  "meaning": {
+   "en": "周 — 'circle' or 'complete'; from the Zhou dynasty.",
+   "es": "周 — 'círculo' o 'completo'; de la dinastía Zhou."
+  }
+ },
+ {
+  "name": "Sun",
+  "origin": "chinese",
+  "meaning": {
+   "en": "孙 — 'grandson' or 'descendant'; the surname of Sun Tzu and Sun Yat-sen.",
+   "es": "孙 — 'nieto' o 'descendiente'; el apellido de Sun Tzu y Sun Yat-sen."
+  }
+ },
+ {
+  "name": "Ma",
+  "origin": "chinese",
+  "meaning": {
+   "en": "马 — 'horse'; possibly from a title for cavalry commanders.",
+   "es": "马 — 'caballo'; posiblemente de un título de jefes de caballería."
+  }
+ },
+ {
+  "name": "Zhu",
+  "origin": "chinese",
+  "meaning": {
+   "en": "朱 — 'vermilion' or 'red'; surname of the Ming emperors.",
+   "es": "朱 — 'bermellón' o 'rojo'; apellido de los emperadores Ming."
+  }
+ },
+ {
+  "name": "Lin",
+  "origin": "chinese",
+  "meaning": {
+   "en": "林 — 'forest' or 'grove', from two tree characters.",
+   "es": "林 — 'bosque' o 'arboleda', formado por dos caracteres de árbol."
+  }
+ },
+ {
+  "name": "Guo",
+  "origin": "chinese",
+  "meaning": {
+   "en": "郭 — 'outer city wall', possibly for families living by the walls.",
+   "es": "郭 — 'muralla exterior de la ciudad', posiblemente para familias que vivían junto a ella."
+  }
+ },
+ {
+  "name": "Gao",
+  "origin": "chinese",
+  "meaning": {
+   "en": "高 — 'high' or 'tall'; from an ancient noble clan of the state of Qi.",
+   "es": "高 — 'alto' o 'elevado'; de un antiguo clan noble del estado de Qi."
+  }
+ },
+ {
+  "name": "Luo",
+  "origin": "chinese",
+  "meaning": {
+   "en": "罗 — 'bird net'; from the ancient state of Luo.",
+   "es": "罗 — 'red para pájaros'; del antiguo estado de Luo."
+  }
+ },
+ {
+  "name": "Wong",
+  "origin": "chinese",
+  "meaning": {
+   "en": "Cantonese spelling of 黄 Huang, 'yellow', common among overseas Chinese.",
+   "es": "Grafía cantonesa de 黄 Huang, 'amarillo', común en la diáspora china."
+  }
+ },
+ {
+  "name": "Chan",
+  "origin": "chinese",
+  "meaning": {
+   "en": "Cantonese spelling of 陈 Chen, 'to display', common in Hong Kong.",
+   "es": "Grafía cantonesa de 陈 Chen, 'exponer', común en Hong Kong."
+  }
+ },
+ {
+  "name": "Sato",
+  "origin": "japanese",
+  "meaning": {
+   "en": "佐藤 — 'help' + 'wisteria', marking a branch of the Fujiwara clan.",
+   "es": "佐藤 — 'ayudar' + 'glicina', que señala una rama del clan Fujiwara."
+  }
+ },
+ {
+  "name": "Suzuki",
+  "origin": "japanese",
+  "meaning": {
+   "en": "鈴木 — 'bell tree'; possibly from sacred rice-harvest poles.",
+   "es": "鈴木 — 'árbol de campanas'; posiblemente de postes sagrados de la cosecha."
+  }
+ },
+ {
+  "name": "Takahashi",
+  "origin": "japanese",
+  "meaning": {
+   "en": "高橋 — 'high bridge', for a family living near a tall bridge.",
+   "es": "高橋 — 'puente alto', para una familia que vivía junto a un puente elevado."
+  }
+ },
+ {
+  "name": "Tanaka",
+  "origin": "japanese",
+  "meaning": {
+   "en": "田中 — 'middle of the rice field'.",
+   "es": "田中 — 'en medio del arrozal'."
+  }
+ },
+ {
+  "name": "Watanabe",
+  "origin": "japanese",
+  "meaning": {
+   "en": "渡辺 — 'ferry crossing area' or 'shore of the crossing'.",
+   "es": "渡辺 — 'zona del cruce' u 'orilla del vado'."
+  }
+ },
+ {
+  "name": "Ito",
+  "origin": "japanese",
+  "meaning": {
+   "en": "伊藤 — 'Ise' + 'wisteria', a Fujiwara branch from Ise province.",
+   "es": "伊藤 — 'Ise' + 'glicina', rama de los Fujiwara de la provincia de Ise."
+  }
+ },
+ {
+  "name": "Yamamoto",
+  "origin": "japanese",
+  "meaning": {
+   "en": "山本 — 'base of the mountain'.",
+   "es": "山本 — 'al pie de la montaña'."
+  }
+ },
+ {
+  "name": "Nakamura",
+  "origin": "japanese",
+  "meaning": {
+   "en": "中村 — 'middle village', for a family living in the central village.",
+   "es": "中村 — 'pueblo del medio', para una familia del pueblo central."
+  }
+ },
+ {
+  "name": "Kobayashi",
+  "origin": "japanese",
+  "meaning": {
+   "en": "小林 — 'small forest', for a family living by a small wood.",
+   "es": "小林 — 'bosque pequeño', para una familia que vivía junto a una arboleda."
+  }
+ },
+ {
+  "name": "Kato",
+  "origin": "japanese",
+  "meaning": {
+   "en": "加藤 — 'Kaga' + 'wisteria', a Fujiwara branch from Kaga province.",
+   "es": "加藤 — 'Kaga' + 'glicina', rama de los Fujiwara de la provincia de Kaga."
+  }
+ },
+ {
+  "name": "Yoshida",
+  "origin": "japanese",
+  "meaning": {
+   "en": "吉田 — 'lucky rice field' or 'good rice field'; also a common place name.",
+   "es": "吉田 — 'arrozal afortunado' o 'buen arrozal'; también un nombre de lugar común."
+  }
+ },
+ {
+  "name": "Yamada",
+  "origin": "japanese",
+  "meaning": {
+   "en": "山田 — 'mountain rice field', for a family farming terraced paddies.",
+   "es": "山田 — 'arrozal de montaña', para una familia que cultivaba terrazas."
+  }
+ },
+ {
+  "name": "Sasaki",
+  "origin": "japanese",
+  "meaning": {
+   "en": "佐々木 — from the place Sasaki in Omi province; characters mean 'help, help, tree'.",
+   "es": "佐々木 — del lugar Sasaki, en la provincia de Omi; los caracteres significan 'ayudar, ayudar, árbol'."
+  }
+ },
+ {
+  "name": "Yamaguchi",
+  "origin": "japanese",
+  "meaning": {
+   "en": "山口 — 'mouth of the mountain', the entrance to a mountain.",
+   "es": "山口 — 'boca de la montaña', la entrada a la montaña."
+  }
+ },
+ {
+  "name": "Matsumoto",
+  "origin": "japanese",
+  "meaning": {
+   "en": "松本 — 'base of the pine tree'.",
+   "es": "松本 — 'al pie del pino'."
+  }
+ },
+ {
+  "name": "Inoue",
+  "origin": "japanese",
+  "meaning": {
+   "en": "井上 — 'above the well', for a family living upslope from a well.",
+   "es": "井上 — 'sobre el pozo', para una familia que vivía cuesta arriba de un pozo."
+  }
+ },
+ {
+  "name": "Kimura",
+  "origin": "japanese",
+  "meaning": {
+   "en": "木村 — 'tree village', for a family from a wooded village.",
+   "es": "木村 — 'pueblo de los árboles', para una familia de una aldea arbolada."
+  }
+ },
+ {
+  "name": "Hayashi",
+  "origin": "japanese",
+  "meaning": {
+   "en": "林 — 'forest' or 'grove', for a family living near woodland.",
+   "es": "林 — 'bosque' o 'arboleda', para una familia que vivía cerca del bosque."
+  }
+ },
+ {
+  "name": "Shimizu",
+  "origin": "japanese",
+  "meaning": {
+   "en": "清水 — 'pure water' or 'clear spring'.",
+   "es": "清水 — 'agua pura' o 'manantial claro'."
+  }
+ },
+ {
+  "name": "Yamazaki",
+  "origin": "japanese",
+  "meaning": {
+   "en": "山崎 — 'mountain cape' or 'mountain promontory'.",
+   "es": "山崎 — 'cabo de montaña' o 'promontorio'."
+  }
+ },
+ {
+  "name": "Mori",
+  "origin": "japanese",
+  "meaning": {
+   "en": "森 — 'forest', for a family living near a dense or sacred wood.",
+   "es": "森 — 'bosque', para una familia que vivía junto a un bosque espeso o sagrado."
+  }
+ },
+ {
+  "name": "Ikeda",
+  "origin": "japanese",
+  "meaning": {
+   "en": "池田 — 'pond rice field', for paddies fed by a pond.",
+   "es": "池田 — 'arrozal del estanque', para arrozales regados por un estanque."
+  }
+ },
+ {
+  "name": "Hashimoto",
+  "origin": "japanese",
+  "meaning": {
+   "en": "橋本 — 'base of the bridge'.",
+   "es": "橋本 — 'al pie del puente'."
+  }
+ },
+ {
+  "name": "Ishikawa",
+  "origin": "japanese",
+  "meaning": {
+   "en": "石川 — 'stone river', for a family living by a rocky river.",
+   "es": "石川 — 'río de piedras', para una familia que vivía junto a un río pedregoso."
+  }
+ },
+ {
+  "name": "Ogawa",
+  "origin": "japanese",
+  "meaning": {
+   "en": "小川 — 'small river' or 'stream'.",
+   "es": "小川 — 'río pequeño' o 'arroyo'."
+  }
+ },
+ {
+  "name": "Fujiwara",
+  "origin": "japanese",
+  "meaning": {
+   "en": "藤原 — 'wisteria field'; the great aristocratic clan of Heian Japan.",
+   "es": "藤原 — 'campo de glicinas'; el gran clan aristocrático del Japón Heian."
+  }
+ },
+ {
+  "name": "Kuroda",
+  "origin": "japanese",
+  "meaning": {
+   "en": "黒田 — 'black rice field', perhaps for fields of dark, fertile soil.",
+   "es": "黒田 — 'arrozal negro', quizá por campos de tierra oscura y fértil."
+  }
+ },
+ {
+  "name": "Takeda",
+  "origin": "japanese",
+  "meaning": {
+   "en": "武田 — 'warrior rice field'; a famous samurai clan.",
+   "es": "武田 — 'arrozal del guerrero'; un famoso clan samurái."
+  }
+ },
+ {
+  "name": "Aoki",
+  "origin": "japanese",
+  "meaning": {
+   "en": "青木 — 'green tree' or 'blue tree'.",
+   "es": "青木 — 'árbol verde' o 'árbol azul'."
+  }
+ },
+ {
+  "name": "Kurosawa",
+  "origin": "japanese",
+  "meaning": {
+   "en": "黒沢 — 'black marsh' or 'dark swamp'.",
+   "es": "黒沢 — 'pantano negro' o 'ciénaga oscura'."
+  }
+ },
+ {
+  "name": "Hoshino",
+  "origin": "japanese",
+  "meaning": {
+   "en": "星野 — 'star field', a poetic name for an open plain.",
+   "es": "星野 — 'campo de estrellas', nombre poético para una llanura abierta."
+  }
+ },
+ {
+  "name": "Amano",
+  "origin": "japanese",
+  "meaning": {
+   "en": "天野 — 'heaven field', possibly for land linked to a shrine.",
+   "es": "天野 — 'campo del cielo', posiblemente por tierras vinculadas a un santuario."
+  }
+ },
+ {
+  "name": "Kitagawa",
+  "origin": "japanese",
+  "meaning": {
+   "en": "北川 — 'north river', for a family living by a northern river.",
+   "es": "北川 — 'río del norte', para una familia que vivía junto a un río al norte."
+  }
+ },
+ {
+  "name": "Miyazaki",
+  "origin": "japanese",
+  "meaning": {
+   "en": "宮崎 — 'shrine cape', for a family living near a shrine on a promontory.",
+   "es": "宮崎 — 'cabo del santuario', para una familia que vivía cerca de un santuario en un promontorio."
+  }
+ },
+ {
+  "name": "Kim",
+  "origin": "korean",
+  "meaning": {
+   "en": "金 — 'gold' or 'metal'; the most common Korean surname.",
+   "es": "金 — 'oro' o 'metal'; el apellido coreano más común."
+  }
+ },
+ {
+  "name": "Lee",
+  "origin": "korean",
+  "meaning": {
+   "en": "李 — 'plum tree'; surname of the Joseon dynasty kings.",
+   "es": "李 — 'ciruelo'; apellido de los reyes de la dinastía Joseon."
+  }
+ },
+ {
+  "name": "Park",
+  "origin": "korean",
+  "meaning": {
+   "en": "朴 — 'gourd' or 'simple'; legend says the founder hatched from a gourd-like egg.",
+   "es": "朴 — 'calabaza' o 'sencillo'; la leyenda dice que el fundador nació de un huevo con forma de calabaza."
+  }
+ },
+ {
+  "name": "Choi",
+  "origin": "korean",
+  "meaning": {
+   "en": "崔 — 'lofty' or 'high and towering'.",
+   "es": "崔 — 'elevado' o 'alto e imponente'."
+  }
+ },
+ {
+  "name": "Jung",
+  "origin": "korean",
+  "meaning": {
+   "en": "鄭 — from the ancient Chinese state of Zheng.",
+   "es": "鄭 — del antiguo estado chino de Zheng."
+  }
+ },
+ {
+  "name": "Kang",
+  "origin": "korean",
+  "meaning": {
+   "en": "姜 — linked to the Jiang River and to ginger in Chinese tradition.",
+   "es": "姜 — ligado al río Jiang y al jengibre en la tradición china."
+  }
+ },
+ {
+  "name": "Cho",
+  "origin": "korean",
+  "meaning": {
+   "en": "趙 — from the ancient Chinese state of Zhao.",
+   "es": "趙 — del antiguo estado chino de Zhao."
+  }
+ },
+ {
+  "name": "Yoon",
+  "origin": "korean",
+  "meaning": {
+   "en": "尹 — 'to govern' or 'official'.",
+   "es": "尹 — 'gobernar' o 'funcionario'."
+  }
+ },
+ {
+  "name": "Jang",
+  "origin": "korean",
+  "meaning": {
+   "en": "張 — 'to draw a bow'; the Korean reading of Chinese Zhang.",
+   "es": "張 — 'tensar el arco'; la lectura coreana del chino Zhang."
+  }
+ },
+ {
+  "name": "Lim",
+  "origin": "korean",
+  "meaning": {
+   "en": "林 — 'forest'; the Korean reading of Chinese Lin, with roots in Naju and Pyeongtaek clans.",
+   "es": "林 — 'bosque'; lectura coreana del chino Lin, con raíces en los clanes de Naju y Pyeongtaek."
+  }
+ },
+ {
+  "name": "Han",
+  "origin": "korean",
+  "meaning": {
+   "en": "韓 — the name of ancient Korean confederacies and states.",
+   "es": "韓 — nombre de antiguas confederaciones y estados coreanos."
+  }
+ },
+ {
+  "name": "Oh",
+  "origin": "korean",
+  "meaning": {
+   "en": "吳 — from the ancient Chinese state of Wu.",
+   "es": "吳 — del antiguo estado chino de Wu."
+  }
+ },
+ {
+  "name": "Seo",
+  "origin": "korean",
+  "meaning": {
+   "en": "徐 — 'slowly' or 'calm'; the largest clan is from Daegu.",
+   "es": "徐 — 'despacio' o 'sereno'; el clan más grande procede de Daegu."
+  }
+ },
+ {
+  "name": "Kwon",
+  "origin": "korean",
+  "meaning": {
+   "en": "權 — 'power' or 'authority'; the main clan is from Andong.",
+   "es": "權 — 'poder' o 'autoridad'; el clan principal procede de Andong."
+  }
+ },
+ {
+  "name": "Hwang",
+  "origin": "korean",
+  "meaning": {
+   "en": "黃 — 'yellow'; the largest clan traces its roots to Changwon.",
+   "es": "黃 — 'amarillo'; el clan más grande tiene sus raíces en Changwon."
+  }
+ },
+ {
+  "name": "Song",
+  "origin": "korean",
+  "meaning": {
+   "en": "宋 — from the Chinese state and dynasty of Song.",
+   "es": "宋 — del estado y la dinastía china Song."
+  }
+ },
+ {
+  "name": "Moon",
+  "origin": "korean",
+  "meaning": {
+   "en": "文 — 'writing' or 'literature'; the main clan is from Nampyeong.",
+   "es": "文 — 'escritura' o 'literatura'; el clan principal procede de Nampyeong."
+  }
+ },
+ {
+  "name": "Baek",
+  "origin": "korean",
+  "meaning": {
+   "en": "白 — 'white'; the main clan traces its roots to Suwon.",
+   "es": "白 — 'blanco'; el clan principal tiene sus raíces en Suwon."
+  }
+ },
+ {
+  "name": "Nguyen",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "阮 Nguyễn — from the Nguyễn dynasty; the character names a lute-like instrument.",
+   "es": "阮 Nguyễn — de la dinastía Nguyễn; el carácter designa un instrumento parecido al laúd."
+  }
+ },
+ {
+  "name": "Tran",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "陳 Trần — 'to display'; surname of the Trần dynasty.",
+   "es": "陳 Trần — 'exponer'; apellido de la dinastía Trần."
+  }
+ },
+ {
+  "name": "Le",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "黎 Lê — 'multitude' or 'dawn'; surname of the Lê dynasty.",
+   "es": "黎 Lê — 'multitud' o 'alba'; apellido de la dinastía Lê."
+  }
+ },
+ {
+  "name": "Pham",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "范 Phạm — 'model' or 'pattern'.",
+   "es": "范 Phạm — 'modelo' o 'pauta'."
+  }
+ },
+ {
+  "name": "Hoang",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "黃 Hoàng — 'yellow'; shared with Chinese Huang and Korean Hwang.",
+   "es": "黃 Hoàng — 'amarillo'; compartido con el chino Huang y el coreano Hwang."
+  }
+ },
+ {
+  "name": "Huynh",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "Huỳnh — southern form of Hoàng, 'yellow', changed to avoid a lord's taboo name.",
+   "es": "Huỳnh — forma sureña de Hoàng, 'amarillo', cambiada para evitar el nombre tabú de un señor."
+  }
+ },
+ {
+  "name": "Phan",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "潘 Phan — an ancient Chinese clan name; the character relates to rice water.",
+   "es": "潘 Phan — antiguo nombre de clan chino; el carácter se relaciona con el agua de arroz."
+  }
+ },
+ {
+  "name": "Vu",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "武 Vũ — 'martial' or 'military'.",
+   "es": "武 Vũ — 'marcial' o 'militar'."
+  }
+ },
+ {
+  "name": "Dang",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "鄧 Đặng — from the ancient Chinese state of Deng.",
+   "es": "鄧 Đặng — del antiguo estado chino de Deng."
+  }
+ },
+ {
+  "name": "Bui",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "裴 Bùi — 'flowing robe', an ancient clan name.",
+   "es": "裴 Bùi — 'túnica amplia', antiguo nombre de clan."
+  }
+ },
+ {
+  "name": "Do",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "杜 Đỗ — 'birchleaf pear tree'.",
+   "es": "杜 Đỗ — 'peral silvestre'."
+  }
+ },
+ {
+  "name": "Ho",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "胡 Hồ — an ancient clan name; surname of the short Hồ dynasty.",
+   "es": "胡 Hồ — antiguo nombre de clan; apellido de la breve dinastía Hồ."
+  }
+ },
+ {
+  "name": "Ngo",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "吳 Ngô — from the ancient state of Wu.",
+   "es": "吳 Ngô — del antiguo estado de Wu."
+  }
+ },
+ {
+  "name": "Duong",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "楊 Dương — 'poplar tree'; the same character as Chinese Yang.",
+   "es": "楊 Dương — 'álamo'; el mismo carácter que el chino Yang."
+  }
+ },
+ {
+  "name": "Ly",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "李 Lý — 'plum tree'; surname of the Lý dynasty.",
+   "es": "李 Lý — 'ciruelo'; apellido de la dinastía Lý."
+  }
+ },
+ {
+  "name": "Truong",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "張 Trương — 'to draw a bow'.",
+   "es": "張 Trương — 'tensar el arco'."
+  }
+ },
+ {
+  "name": "Mai",
+  "origin": "vietnamese",
+  "meaning": {
+   "en": "梅 Mai — 'plum' or 'apricot blossom', a symbol of the new year.",
+   "es": "梅 Mai — 'flor del ciruelo' o 'del albaricoque', símbolo del año nuevo."
+  }
+ },
+ {
+  "name": "Dela Cruz",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Spanish 'of the cross', widely assigned in the 1849 Clavería surname catalogue.",
+   "es": "Del español 'de la cruz', muy asignado en el catálogo de apellidos de Clavería de 1849."
+  }
+ },
+ {
+  "name": "Reyes",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Spanish 'kings', after the Three Kings; a top Filipino surname.",
+   "es": "Del español 'reyes', por los Reyes Magos; de los más comunes en Filipinas."
+  }
+ },
+ {
+  "name": "Bautista",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Spanish 'Baptist', after Saint John the Baptist.",
+   "es": "Del español 'Bautista', por San Juan Bautista."
+  }
+ },
+ {
+  "name": "Aquino",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Spanish form honoring Saint Thomas Aquinas, from Aquino in Italy.",
+   "es": "Forma española en honor a Santo Tomás de Aquino, de Aquino en Italia."
+  }
+ },
+ {
+  "name": "Manalo",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Tagalog 'to win' or 'to triumph'.",
+   "es": "Del tagalo 'ganar' o 'triunfar'."
+  }
+ },
+ {
+  "name": "Dimaculangan",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Tagalog 'never lacking' or 'cannot be outdone'.",
+   "es": "Del tagalo 'nunca falta' o 'no puede ser superado'."
+  }
+ },
+ {
+  "name": "Dimagiba",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Tagalog 'cannot be toppled' or 'cannot be defeated'.",
+   "es": "Del tagalo 'no puede ser derribado' o 'invencible'."
+  }
+ },
+ {
+  "name": "Dimaano",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Tagalog 'cannot be harmed' or 'untouchable'.",
+   "es": "Del tagalo 'no puede ser dañado' o 'intocable'."
+  }
+ },
+ {
+  "name": "Malakas",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Tagalog 'strong', echoing the Filipino creation myth of Malakas and Maganda.",
+   "es": "Del tagalo 'fuerte', como en el mito filipino de la creación de Malakas y Maganda."
+  }
+ },
+ {
+  "name": "Panganiban",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Tagalog for 'danger' or 'peril', a native surname from Luzon.",
+   "es": "Del tagalo 'peligro', apellido autóctono de Luzón."
+  }
+ },
+ {
+  "name": "Mangubat",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Visayan 'to wage war', from gubat, 'war'.",
+   "es": "Del bisayo 'hacer la guerra', de gubat, 'guerra'."
+  }
+ },
+ {
+  "name": "Lacsamana",
+  "origin": "filipino",
+  "meaning": {
+   "en": "From Malay laksamana, 'admiral', a title of noble rank.",
+   "es": "Del malayo laksamana, 'almirante', título de rango noble."
+  }
+ },
+ {
+  "name": "Sumulong",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Tagalog 'to advance' or 'to move forward'.",
+   "es": "Del tagalo 'avanzar' o 'seguir adelante'."
+  }
+ },
+ {
+  "name": "Magbanua",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Visayan 'to found a settlement', from banwa, 'town'.",
+   "es": "Del bisayo 'fundar un poblado', de banwa, 'pueblo'."
+  }
+ },
+ {
+  "name": "Tolentino",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Honors Saint Nicholas of Tolentino, from Tolentino in Italy.",
+   "es": "En honor a San Nicolás de Tolentino, de Tolentino en Italia."
+  }
+ },
+ {
+  "name": "Villareal",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Spanish 'royal town', from villa and real.",
+   "es": "Del español 'villa real'."
+  }
+ },
+ {
+  "name": "Pascual",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Spanish 'of Easter', from Latin paschalis, for someone born at Easter.",
+   "es": "Del español 'pascual', del latín paschalis, para alguien nacido en Pascua."
+  }
+ },
+ {
+  "name": "Ocampo",
+  "origin": "filipino",
+  "meaning": {
+   "en": "Galician-Spanish 'the field', from o campo.",
+   "es": "Del gallego 'el campo', de o campo."
+  }
+ }
+]

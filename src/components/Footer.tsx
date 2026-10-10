@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MODES, CATEGORIES } from "@/data/types";
+import { generatorsFor } from "@/data/generators/registry";
 import { Locale, localeBase, localizePath, defaultLocale } from "@/i18n/config";
 import { getDict, MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
 
@@ -25,6 +26,7 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
     { href: `${base}/most-likely-to`, label: `👉 ${t.footer.mostLikelyTo}` },
     { href: `${base}/two-truths-and-a-lie`, label: `🕵️ ${t.footer.twoTruthsAndALie}` },
     { href: localizePath("/press", locale) + "#embed", label: `🔗 ${t.footer.embedWidget}` },
+    ...generatorsFor(locale).map((g) => ({ href: g.href, label: `${g.emoji} ${g.label}` })),
     // English-only tool pages (no /es counterpart) — rendered only on the
     // English locale so the footer never links to a nonexistent /es route.
     ...(locale === "en"

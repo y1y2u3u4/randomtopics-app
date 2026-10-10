@@ -1,0 +1,1185 @@
+{
+  "adjectives": [
+    {
+      "en": "Swift",
+      "es": {
+        "m": "Veloces",
+        "f": "Veloces"
+      }
+    },
+    {
+      "en": "Mighty",
+      "es": {
+        "m": "Poderosos",
+        "f": "Poderosas"
+      }
+    },
+    {
+      "en": "Cosmic",
+      "es": {
+        "m": "Cósmicos",
+        "f": "Cósmicas"
+      }
+    },
+    {
+      "en": "Fearless",
+      "es": {
+        "m": "Intrépidos",
+        "f": "Intrépidas"
+      }
+    },
+    {
+      "en": "Golden",
+      "es": {
+        "m": "Dorados",
+        "f": "Doradas"
+      }
+    },
+    {
+      "en": "Brave",
+      "es": {
+        "m": "Valientes",
+        "f": "Valientes"
+      }
+    },
+    {
+      "en": "Bold",
+      "es": {
+        "m": "Audaces",
+        "f": "Audaces"
+      }
+    },
+    {
+      "en": "Clever",
+      "es": {
+        "m": "Astutos",
+        "f": "Astutas"
+      }
+    },
+    {
+      "en": "Daring",
+      "es": {
+        "m": "Atrevidos",
+        "f": "Atrevidas"
+      }
+    },
+    {
+      "en": "Electric",
+      "es": {
+        "m": "Eléctricos",
+        "f": "Eléctricas"
+      }
+    },
+    {
+      "en": "Fiery",
+      "es": {
+        "m": "Ardientes",
+        "f": "Ardientes"
+      }
+    },
+    {
+      "en": "Flying",
+      "es": {
+        "m": "Voladores",
+        "f": "Voladoras"
+      }
+    },
+    {
+      "en": "Galactic",
+      "es": {
+        "m": "Galácticos",
+        "f": "Galácticas"
+      }
+    },
+    {
+      "en": "Happy",
+      "es": {
+        "m": "Felices",
+        "f": "Felices"
+      }
+    },
+    {
+      "en": "Jolly",
+      "es": {
+        "m": "Joviales",
+        "f": "Joviales"
+      }
+    },
+    {
+      "en": "Lucky",
+      "es": {
+        "m": "Afortunados",
+        "f": "Afortunadas"
+      }
+    },
+    {
+      "en": "Magic",
+      "es": {
+        "m": "Mágicos",
+        "f": "Mágicas"
+      }
+    },
+    {
+      "en": "Mystic",
+      "es": {
+        "m": "Místicos",
+        "f": "Místicas"
+      }
+    },
+    {
+      "en": "Noble",
+      "es": {
+        "m": "Nobles",
+        "f": "Nobles"
+      }
+    },
+    {
+      "en": "Rapid",
+      "es": {
+        "m": "Rápidos",
+        "f": "Rápidas"
+      }
+    },
+    {
+      "en": "Royal",
+      "es": {
+        "m": "Reales",
+        "f": "Reales"
+      }
+    },
+    {
+      "en": "Silver",
+      "es": {
+        "m": "Plateados",
+        "f": "Plateadas"
+      }
+    },
+    {
+      "en": "Sparkling",
+      "es": {
+        "m": "Centelleantes",
+        "f": "Centelleantes"
+      }
+    },
+    {
+      "en": "Stellar",
+      "es": {
+        "m": "Estelares",
+        "f": "Estelares"
+      }
+    },
+    {
+      "en": "Thundering",
+      "es": {
+        "m": "Atronadores",
+        "f": "Atronadoras"
+      }
+    },
+    {
+      "en": "Wild",
+      "es": {
+        "m": "Salvajes",
+        "f": "Salvajes"
+      }
+    },
+    {
+      "en": "Wise",
+      "es": {
+        "m": "Sabios",
+        "f": "Sabias"
+      }
+    },
+    {
+      "en": "Nimble",
+      "es": {
+        "m": "Ágiles",
+        "f": "Ágiles"
+      }
+    },
+    {
+      "en": "Blazing",
+      "es": {
+        "m": "Llameantes",
+        "f": "Llameantes"
+      }
+    },
+    {
+      "en": "Bright",
+      "es": {
+        "m": "Luminosos",
+        "f": "Luminosas"
+      }
+    },
+    {
+      "en": "Brilliant",
+      "es": {
+        "m": "Brillantes",
+        "f": "Brillantes"
+      }
+    },
+    {
+      "en": "Radiant",
+      "es": {
+        "m": "Resplandecientes",
+        "f": "Resplandecientes"
+      }
+    },
+    {
+      "en": "Crimson",
+      "es": {
+        "m": "Carmesíes",
+        "f": "Carmesíes"
+      }
+    },
+    {
+      "en": "Dazzling",
+      "es": {
+        "m": "Deslumbrantes",
+        "f": "Deslumbrantes"
+      }
+    },
+    {
+      "en": "Dynamic",
+      "es": {
+        "m": "Dinámicos",
+        "f": "Dinámicas"
+      }
+    },
+    {
+      "en": "Epic",
+      "es": {
+        "m": "Épicos",
+        "f": "Épicas"
+      }
+    },
+    {
+      "en": "Fantastic",
+      "es": {
+        "m": "Fantásticos",
+        "f": "Fantásticas"
+      }
+    },
+    {
+      "en": "Fierce",
+      "es": {
+        "m": "Feroces",
+        "f": "Feroces"
+      }
+    },
+    {
+      "en": "Fabulous",
+      "es": {
+        "m": "Fabulosos",
+        "f": "Fabulosas"
+      }
+    },
+    {
+      "en": "Glorious",
+      "es": {
+        "m": "Gloriosos",
+        "f": "Gloriosas"
+      }
+    },
+    {
+      "en": "Heroic",
+      "es": {
+        "m": "Heroicos",
+        "f": "Heroicas"
+      }
+    },
+    {
+      "en": "Invincible",
+      "es": {
+        "m": "Invencibles",
+        "f": "Invencibles"
+      }
+    },
+    {
+      "en": "Legendary",
+      "es": {
+        "m": "Legendarios",
+        "f": "Legendarias"
+      }
+    },
+    {
+      "en": "Loyal",
+      "es": {
+        "m": "Leales",
+        "f": "Leales"
+      }
+    },
+    {
+      "en": "Majestic",
+      "es": {
+        "m": "Majestuosos",
+        "f": "Majestuosas"
+      }
+    },
+    {
+      "en": "Marvelous",
+      "es": {
+        "m": "Maravillosos",
+        "f": "Maravillosas"
+      }
+    },
+    {
+      "en": "Roaring",
+      "es": {
+        "m": "Rugientes",
+        "f": "Rugientes"
+      }
+    },
+    {
+      "en": "Speedy",
+      "es": {
+        "m": "Raudos",
+        "f": "Raudas"
+      }
+    },
+    {
+      "en": "Spirited",
+      "es": {
+        "m": "Animados",
+        "f": "Animadas"
+      }
+    },
+    {
+      "en": "Stormy",
+      "es": {
+        "m": "Tormentosos",
+        "f": "Tormentosas"
+      }
+    },
+    {
+      "en": "Supreme",
+      "es": {
+        "m": "Supremos",
+        "f": "Supremas"
+      }
+    },
+    {
+      "en": "Tireless",
+      "es": {
+        "m": "Incansables",
+        "f": "Incansables"
+      }
+    },
+    {
+      "en": "Unstoppable",
+      "es": {
+        "m": "Imparables",
+        "f": "Imparables"
+      }
+    },
+    {
+      "en": "Valiant",
+      "es": {
+        "m": "Gallardos",
+        "f": "Gallardas"
+      }
+    },
+    {
+      "en": "Victorious",
+      "es": {
+        "m": "Victoriosos",
+        "f": "Victoriosas"
+      }
+    },
+    {
+      "en": "Amazing",
+      "es": {
+        "m": "Asombrosos",
+        "f": "Asombrosas"
+      }
+    },
+    {
+      "en": "Awesome",
+      "es": {
+        "m": "Increíbles",
+        "f": "Increíbles"
+      }
+    },
+    {
+      "en": "Cheerful",
+      "es": {
+        "m": "Alegres",
+        "f": "Alegres"
+      }
+    },
+    {
+      "en": "Curious",
+      "es": {
+        "m": "Curiosos",
+        "f": "Curiosas"
+      }
+    },
+    {
+      "en": "Determined",
+      "es": {
+        "m": "Decididos",
+        "f": "Decididas"
+      }
+    },
+    {
+      "en": "Energetic",
+      "es": {
+        "m": "Enérgicos",
+        "f": "Enérgicas"
+      }
+    },
+    {
+      "en": "Free",
+      "es": {
+        "m": "Libres",
+        "f": "Libres"
+      }
+    },
+    {
+      "en": "Friendly",
+      "es": {
+        "m": "Amistosos",
+        "f": "Amistosas"
+      }
+    },
+    {
+      "en": "Giant",
+      "es": {
+        "m": "Gigantes",
+        "f": "Gigantes"
+      }
+    },
+    {
+      "en": "Icy",
+      "es": {
+        "m": "Helados",
+        "f": "Heladas"
+      }
+    },
+    {
+      "en": "Jumping",
+      "es": {
+        "m": "Saltarines",
+        "f": "Saltarinas"
+      }
+    },
+    {
+      "en": "Lunar",
+      "es": {
+        "m": "Lunares",
+        "f": "Lunares"
+      }
+    },
+    {
+      "en": "Solar",
+      "es": {
+        "m": "Solares",
+        "f": "Solares"
+      }
+    },
+    {
+      "en": "Polar",
+      "es": {
+        "m": "Polares",
+        "f": "Polares"
+      }
+    },
+    {
+      "en": "Powerful",
+      "es": {
+        "m": "Potentes",
+        "f": "Potentes"
+      }
+    },
+    {
+      "en": "Proud",
+      "es": {
+        "m": "Orgullosos",
+        "f": "Orgullosas"
+      }
+    },
+    {
+      "en": "Shining",
+      "es": {
+        "m": "Relucientes",
+        "f": "Relucientes"
+      }
+    },
+    {
+      "en": "Starry",
+      "es": {
+        "m": "Estrellados",
+        "f": "Estrelladas"
+      }
+    },
+    {
+      "en": "Steady",
+      "es": {
+        "m": "Firmes",
+        "f": "Firmes"
+      }
+    },
+    {
+      "en": "Strong",
+      "es": {
+        "m": "Fuertes",
+        "f": "Fuertes"
+      }
+    },
+    {
+      "en": "Smart",
+      "es": {
+        "m": "Inteligentes",
+        "f": "Inteligentes"
+      }
+    },
+    {
+      "en": "Tropical",
+      "es": {
+        "m": "Tropicales",
+        "f": "Tropicales"
+      }
+    },
+    {
+      "en": "Blue",
+      "es": {
+        "m": "Azules",
+        "f": "Azules"
+      }
+    },
+    {
+      "en": "Red",
+      "es": {
+        "m": "Rojos",
+        "f": "Rojas"
+      }
+    },
+    {
+      "en": "Green",
+      "es": {
+        "m": "Verdes",
+        "f": "Verdes"
+      }
+    },
+    {
+      "en": "Purple",
+      "es": {
+        "m": "Morados",
+        "f": "Moradas"
+      }
+    },
+    {
+      "en": "Atomic",
+      "es": {
+        "m": "Atómicos",
+        "f": "Atómicas"
+      }
+    },
+    {
+      "en": "Galloping",
+      "es": {
+        "m": "Galopantes",
+        "f": "Galopantes"
+      }
+    },
+    {
+      "en": "Rising",
+      "es": {
+        "m": "Ascendentes",
+        "f": "Ascendentes"
+      }
+    },
+    {
+      "en": "Spectacular",
+      "es": {
+        "m": "Espectaculares",
+        "f": "Espectaculares"
+      }
+    },
+    {
+      "en": "Unbeatable",
+      "es": {
+        "m": "Imbatibles",
+        "f": "Imbatibles"
+      }
+    },
+    {
+      "en": "Lively",
+      "es": {
+        "m": "Vivaces",
+        "f": "Vivaces"
+      }
+    }
+  ],
+  "nouns": [
+    {
+      "en": "Otters",
+      "es": "Nutrias",
+      "g": "f"
+    },
+    {
+      "en": "Comets",
+      "es": "Cometas",
+      "g": "m"
+    },
+    {
+      "en": "Thunderbolts",
+      "es": "Rayos",
+      "g": "m"
+    },
+    {
+      "en": "Dragons",
+      "es": "Dragones",
+      "g": "m"
+    },
+    {
+      "en": "Falcons",
+      "es": "Halcones",
+      "g": "m"
+    },
+    {
+      "en": "Wizards",
+      "es": "Magos",
+      "g": "m"
+    },
+    {
+      "en": "Eagles",
+      "es": "Águilas",
+      "g": "f"
+    },
+    {
+      "en": "Tigers",
+      "es": "Tigres",
+      "g": "m"
+    },
+    {
+      "en": "Lions",
+      "es": "Leones",
+      "g": "m"
+    },
+    {
+      "en": "Wolves",
+      "es": "Lobos",
+      "g": "m"
+    },
+    {
+      "en": "Bears",
+      "es": "Osos",
+      "g": "m"
+    },
+    {
+      "en": "Panthers",
+      "es": "Panteras",
+      "g": "f"
+    },
+    {
+      "en": "Sharks",
+      "es": "Tiburones",
+      "g": "m"
+    },
+    {
+      "en": "Dolphins",
+      "es": "Delfines",
+      "g": "m"
+    },
+    {
+      "en": "Penguins",
+      "es": "Pingüinos",
+      "g": "m"
+    },
+    {
+      "en": "Foxes",
+      "es": "Zorros",
+      "g": "m"
+    },
+    {
+      "en": "Owls",
+      "es": "Búhos",
+      "g": "m"
+    },
+    {
+      "en": "Hawks",
+      "es": "Gavilanes",
+      "g": "m"
+    },
+    {
+      "en": "Jaguars",
+      "es": "Jaguares",
+      "g": "m"
+    },
+    {
+      "en": "Cheetahs",
+      "es": "Guepardos",
+      "g": "m"
+    },
+    {
+      "en": "Pandas",
+      "es": "Pandas",
+      "g": "m"
+    },
+    {
+      "en": "Koalas",
+      "es": "Koalas",
+      "g": "m"
+    },
+    {
+      "en": "Rhinos",
+      "es": "Rinocerontes",
+      "g": "m"
+    },
+    {
+      "en": "Turtles",
+      "es": "Tortugas",
+      "g": "f"
+    },
+    {
+      "en": "Bees",
+      "es": "Abejas",
+      "g": "f"
+    },
+    {
+      "en": "Butterflies",
+      "es": "Mariposas",
+      "g": "f"
+    },
+    {
+      "en": "Dragonflies",
+      "es": "Libélulas",
+      "g": "f"
+    },
+    {
+      "en": "Squirrels",
+      "es": "Ardillas",
+      "g": "f"
+    },
+    {
+      "en": "Rabbits",
+      "es": "Conejos",
+      "g": "m"
+    },
+    {
+      "en": "Ravens",
+      "es": "Cuervos",
+      "g": "m"
+    },
+    {
+      "en": "Phoenixes",
+      "es": "Fénix",
+      "g": "m"
+    },
+    {
+      "en": "Unicorns",
+      "es": "Unicornios",
+      "g": "m"
+    },
+    {
+      "en": "Griffins",
+      "es": "Grifos",
+      "g": "m"
+    },
+    {
+      "en": "Giants",
+      "es": "Gigantes",
+      "g": "m"
+    },
+    {
+      "en": "Titans",
+      "es": "Titanes",
+      "g": "m"
+    },
+    {
+      "en": "Knights",
+      "es": "Caballeros",
+      "g": "m"
+    },
+    {
+      "en": "Pirates",
+      "es": "Piratas",
+      "g": "m"
+    },
+    {
+      "en": "Ninjas",
+      "es": "Ninjas",
+      "g": "m"
+    },
+    {
+      "en": "Guardians",
+      "es": "Guardianes",
+      "g": "m"
+    },
+    {
+      "en": "Rockets",
+      "es": "Cohetes",
+      "g": "m"
+    },
+    {
+      "en": "Meteors",
+      "es": "Meteoros",
+      "g": "m"
+    },
+    {
+      "en": "Stars",
+      "es": "Estrellas",
+      "g": "f"
+    },
+    {
+      "en": "Planets",
+      "es": "Planetas",
+      "g": "m"
+    },
+    {
+      "en": "Galaxies",
+      "es": "Galaxias",
+      "g": "f"
+    },
+    {
+      "en": "Moons",
+      "es": "Lunas",
+      "g": "f"
+    },
+    {
+      "en": "Astronauts",
+      "es": "Astronautas",
+      "g": "m"
+    },
+    {
+      "en": "Satellites",
+      "es": "Satélites",
+      "g": "m"
+    },
+    {
+      "en": "Nebulas",
+      "es": "Nebulosas",
+      "g": "f"
+    },
+    {
+      "en": "Asteroids",
+      "es": "Asteroides",
+      "g": "m"
+    },
+    {
+      "en": "Storms",
+      "es": "Tormentas",
+      "g": "f"
+    },
+    {
+      "en": "Hurricanes",
+      "es": "Huracanes",
+      "g": "m"
+    },
+    {
+      "en": "Tornadoes",
+      "es": "Tornados",
+      "g": "m"
+    },
+    {
+      "en": "Avalanches",
+      "es": "Avalanchas",
+      "g": "f"
+    },
+    {
+      "en": "Blizzards",
+      "es": "Ventiscas",
+      "g": "f"
+    },
+    {
+      "en": "Waves",
+      "es": "Olas",
+      "g": "f"
+    },
+    {
+      "en": "Volcanoes",
+      "es": "Volcanes",
+      "g": "m"
+    },
+    {
+      "en": "Flames",
+      "es": "Llamas",
+      "g": "f"
+    },
+    {
+      "en": "Sparks",
+      "es": "Chispas",
+      "g": "f"
+    },
+    {
+      "en": "Rainbows",
+      "es": "Arcoíris",
+      "g": "m"
+    },
+    {
+      "en": "Cyclones",
+      "es": "Ciclones",
+      "g": "m"
+    },
+    {
+      "en": "Colts",
+      "es": "Potros",
+      "g": "m"
+    },
+    {
+      "en": "Gorillas",
+      "es": "Gorilas",
+      "g": "m"
+    },
+    {
+      "en": "Lynxes",
+      "es": "Linces",
+      "g": "m"
+    },
+    {
+      "en": "Pumas",
+      "es": "Pumas",
+      "g": "m"
+    },
+    {
+      "en": "Cobras",
+      "es": "Cobras",
+      "g": "f"
+    },
+    {
+      "en": "Orcas",
+      "es": "Orcas",
+      "g": "f"
+    },
+    {
+      "en": "Whales",
+      "es": "Ballenas",
+      "g": "f"
+    },
+    {
+      "en": "Hornets",
+      "es": "Avispones",
+      "g": "m"
+    },
+    {
+      "en": "Ants",
+      "es": "Hormigas",
+      "g": "f"
+    },
+    {
+      "en": "Gazelles",
+      "es": "Gacelas",
+      "g": "f"
+    },
+    {
+      "en": "Zebras",
+      "es": "Cebras",
+      "g": "f"
+    },
+    {
+      "en": "Giraffes",
+      "es": "Jirafas",
+      "g": "f"
+    },
+    {
+      "en": "Parrots",
+      "es": "Loros",
+      "g": "m"
+    },
+    {
+      "en": "Flamingos",
+      "es": "Flamencos",
+      "g": "m"
+    },
+    {
+      "en": "Pelicans",
+      "es": "Pelícanos",
+      "g": "m"
+    },
+    {
+      "en": "Hummingbirds",
+      "es": "Colibríes",
+      "g": "m"
+    },
+    {
+      "en": "Seals",
+      "es": "Focas",
+      "g": "f"
+    },
+    {
+      "en": "Mammoths",
+      "es": "Mamuts",
+      "g": "m"
+    },
+    {
+      "en": "Dinosaurs",
+      "es": "Dinosaurios",
+      "g": "m"
+    },
+    {
+      "en": "Raptors",
+      "es": "Raptores",
+      "g": "m"
+    },
+    {
+      "en": "Sphinxes",
+      "es": "Esfinges",
+      "g": "f"
+    },
+    {
+      "en": "Mermaids",
+      "es": "Sirenas",
+      "g": "f"
+    },
+    {
+      "en": "Yetis",
+      "es": "Yetis",
+      "g": "m"
+    },
+    {
+      "en": "Elves",
+      "es": "Elfos",
+      "g": "m"
+    },
+    {
+      "en": "Sorcerers",
+      "es": "Hechiceros",
+      "g": "m"
+    },
+    {
+      "en": "Heroes",
+      "es": "Héroes",
+      "g": "m"
+    },
+    {
+      "en": "Champions",
+      "es": "Campeones",
+      "g": "m"
+    },
+    {
+      "en": "Explorers",
+      "es": "Exploradores",
+      "g": "m"
+    },
+    {
+      "en": "Inventors",
+      "es": "Inventores",
+      "g": "m"
+    },
+    {
+      "en": "Robots",
+      "es": "Robots",
+      "g": "m"
+    },
+    {
+      "en": "Vikings",
+      "es": "Vikingos",
+      "g": "m"
+    },
+    {
+      "en": "Spartans",
+      "es": "Espartanos",
+      "g": "m"
+    },
+    {
+      "en": "Pioneers",
+      "es": "Pioneros",
+      "g": "m"
+    },
+    {
+      "en": "Condors",
+      "es": "Cóndores",
+      "g": "m"
+    },
+    {
+      "en": "Swans",
+      "es": "Cisnes",
+      "g": "m"
+    },
+    {
+      "en": "Beavers",
+      "es": "Castores",
+      "g": "m"
+    },
+    {
+      "en": "Badgers",
+      "es": "Tejones",
+      "g": "m"
+    },
+    {
+      "en": "Hedgehogs",
+      "es": "Erizos",
+      "g": "m"
+    },
+    {
+      "en": "Octopuses",
+      "es": "Pulpos",
+      "g": "m"
+    },
+    {
+      "en": "Crocodiles",
+      "es": "Cocodrilos",
+      "g": "m"
+    },
+    {
+      "en": "Iguanas",
+      "es": "Iguanas",
+      "g": "f"
+    },
+    {
+      "en": "Chameleons",
+      "es": "Camaleones",
+      "g": "m"
+    },
+    {
+      "en": "Coyotes",
+      "es": "Coyotes",
+      "g": "m"
+    },
+    {
+      "en": "Leopards",
+      "es": "Leopardos",
+      "g": "m"
+    },
+    {
+      "en": "Buffaloes",
+      "es": "Búfalos",
+      "g": "m"
+    },
+    {
+      "en": "Narwhals",
+      "es": "Narvales",
+      "g": "m"
+    },
+    {
+      "en": "Quasars",
+      "es": "Cuásares",
+      "g": "m"
+    },
+    {
+      "en": "Supernovas",
+      "es": "Supernovas",
+      "g": "f"
+    },
+    {
+      "en": "Glaciers",
+      "es": "Glaciares",
+      "g": "m"
+    },
+    {
+      "en": "Geysers",
+      "es": "Géiseres",
+      "g": "m"
+    },
+    {
+      "en": "Fireflies",
+      "es": "Luciérnagas",
+      "g": "f"
+    },
+    {
+      "en": "Crickets",
+      "es": "Grillos",
+      "g": "m"
+    },
+    {
+      "en": "Kangaroos",
+      "es": "Canguros",
+      "g": "m"
+    },
+    {
+      "en": "Puffins",
+      "es": "Frailecillos",
+      "g": "m"
+    }
+  ]
+}

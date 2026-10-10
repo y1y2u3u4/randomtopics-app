@@ -16,7 +16,8 @@
     "billing:test": "node scripts/speech-billing-regression.mjs && node scripts/speech-purchase-regression.mjs && node scripts/speech-checkout-recovery-regression.mjs && node scripts/speech-session-recovery-regression.mjs",
     "speech:plan-browser": "node scripts/speech-plan-browser.mjs",
     "speech:round-browser": "node scripts/speech-round-browser.mjs",
-    "speech:timer-browser": "node scripts/speech-timer-bridge-browser.mjs"
+    "speech:timer-browser": "node scripts/speech-timer-bridge-browser.mjs",
+    "generators:test": "node scripts/random-generators-regression.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.116.0",
