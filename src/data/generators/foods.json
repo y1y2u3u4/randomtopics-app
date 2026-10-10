@@ -1,0 +1,4735 @@
+[
+  {
+    "id": "cheeseburger",
+    "name": "Cheeseburger",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "american",
+    "diet": [],
+    "blurb": "Juicy beef patty with melted cheddar, lettuce, tomato and pickles on a toasted bun."
+  },
+  {
+    "id": "buttermilk-pancakes",
+    "name": "Buttermilk pancakes",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Fluffy stacked griddle cakes served with butter and warm maple syrup."
+  },
+  {
+    "id": "southern-fried-chicken",
+    "name": "Southern fried chicken",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "american",
+    "diet": [],
+    "blurb": "Crispy buttermilk-brined chicken fried golden with a peppery, crunchy coating."
+  },
+  {
+    "id": "mac-and-cheese",
+    "name": "Mac and cheese",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Elbow pasta baked in a creamy, bubbling cheddar sauce with a golden top."
+  },
+  {
+    "id": "bbq-pulled-pork-sandwich",
+    "name": "BBQ pulled pork sandwich",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "american",
+    "diet": [],
+    "blurb": "Slow-smoked pork shoulder shredded with tangy barbecue sauce on a soft bun."
+  },
+  {
+    "id": "clam-chowder",
+    "name": "Clam chowder",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "american",
+    "diet": [],
+    "blurb": "Creamy New England soup loaded with tender clams, potatoes and smoky bacon."
+  },
+  {
+    "id": "buffalo-wings",
+    "name": "Buffalo wings",
+    "meals": [
+      "dinner",
+      "snack"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Crispy chicken wings tossed in buttery hot sauce with cool blue cheese dip."
+  },
+  {
+    "id": "eggs-benedict",
+    "name": "Eggs Benedict",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "american",
+    "diet": [],
+    "blurb": "Poached eggs and Canadian bacon on English muffins under silky hollandaise sauce."
+  },
+  {
+    "id": "apple-pie",
+    "name": "Apple pie",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Flaky double crust filled with cinnamon-spiced apples, best served warm with ice cream."
+  },
+  {
+    "id": "chocolate-chip-cookies",
+    "name": "Chocolate chip cookies",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Chewy, buttery cookies studded with melting pockets of semisweet chocolate."
+  },
+  {
+    "id": "cobb-salad",
+    "name": "Cobb salad",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Chopped lettuce with chicken, bacon, avocado, egg, tomato and blue cheese."
+  },
+  {
+    "id": "new-york-cheesecake",
+    "name": "New York cheesecake",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Dense, velvety cream cheese cake on a buttery graham cracker crust."
+  },
+  {
+    "id": "hot-dog",
+    "name": "Hot dog",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "american",
+    "diet": [],
+    "blurb": "Grilled frankfurter in a soft bun topped with mustard, ketchup and relish."
+  },
+  {
+    "id": "biscuits-and-gravy",
+    "name": "Biscuits and gravy",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "american",
+    "diet": [],
+    "blurb": "Fluffy buttermilk biscuits smothered in creamy, peppery sausage gravy."
+  },
+  {
+    "id": "meatloaf",
+    "name": "Meatloaf",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "american",
+    "diet": [],
+    "blurb": "Hearty baked loaf of seasoned ground beef glazed with sweet, tangy ketchup."
+  },
+  {
+    "id": "brownies",
+    "name": "Brownies",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Fudgy, rich chocolate squares with a crackly top and a gooey center."
+  },
+  {
+    "id": "philly-cheesesteak",
+    "name": "Philly cheesesteak",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "american",
+    "diet": [],
+    "blurb": "Thinly sliced griddled steak with onions and melted cheese in a hoagie roll."
+  },
+  {
+    "id": "waffles",
+    "name": "Waffles",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Crisp golden waffles with deep pockets for butter, berries and syrup."
+  },
+  {
+    "id": "buttered-popcorn",
+    "name": "Buttered popcorn",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Light, crunchy popped corn kernels tossed with melted butter and a pinch of salt."
+  },
+  {
+    "id": "lobster-roll",
+    "name": "Lobster roll",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "american",
+    "diet": [],
+    "blurb": "Chunks of sweet lobster dressed in butter or mayo in a toasted split-top bun."
+  },
+  {
+    "id": "french-toast",
+    "name": "French toast",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Thick bread slices soaked in cinnamon egg custard and griddled until golden."
+  },
+  {
+    "id": "bagel-and-lox",
+    "name": "Bagel and lox",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "american",
+    "diet": [],
+    "blurb": "Toasted bagel spread with cream cheese, topped with smoked salmon, capers and onion."
+  },
+  {
+    "id": "breakfast-burrito",
+    "name": "Breakfast burrito",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Flour tortilla stuffed with scrambled eggs, potatoes, cheese, salsa and sausage."
+  },
+  {
+    "id": "overnight-oats",
+    "name": "Overnight oats",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Rolled oats soaked overnight in milk with fruit, nuts and a drizzle of honey."
+  },
+  {
+    "id": "avocado-toast",
+    "name": "Avocado toast",
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Crusty toast piled with smashed avocado, lemon, chili flakes and flaky salt."
+  },
+  {
+    "id": "yogurt-parfait",
+    "name": "Yogurt parfait",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Layers of creamy yogurt, crunchy granola and fresh berries in a glass."
+  },
+  {
+    "id": "nachos",
+    "name": "Nachos",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "american",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Crispy tortilla chips loaded with melted cheese, jalapeños, beans and sour cream."
+  },
+  {
+    "id": "tacos-al-pastor",
+    "name": "Tacos al pastor",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Marinated spit-roasted pork with pineapple, onion and cilantro on warm corn tortillas."
+  },
+  {
+    "id": "chicken-enchiladas",
+    "name": "Chicken enchiladas",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "mexican",
+    "diet": [],
+    "blurb": "Corn tortillas rolled around chicken, smothered in chile sauce and melted cheese."
+  },
+  {
+    "id": "guacamole-and-chips",
+    "name": "Guacamole and chips",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Creamy mashed avocado with lime, onion and chili served with crisp tortilla chips."
+  },
+  {
+    "id": "chiles-rellenos",
+    "name": "Chiles rellenos",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Roasted poblano peppers stuffed with cheese, battered, fried and served in tomato sauce."
+  },
+  {
+    "id": "huevos-rancheros",
+    "name": "Huevos rancheros",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Fried eggs on corn tortillas with warm ranchero salsa, beans and avocado."
+  },
+  {
+    "id": "chilaquiles",
+    "name": "Chilaquiles",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Tortilla chips simmered in red or green salsa, topped with crema, cheese and eggs."
+  },
+  {
+    "id": "burrito",
+    "name": "Burrito",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Large flour tortilla wrapped around rice, beans, meat, salsa and cheese."
+  },
+  {
+    "id": "quesadilla",
+    "name": "Quesadilla",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Toasted tortilla folded over gooey melted cheese, often with peppers or chicken."
+  },
+  {
+    "id": "pozole",
+    "name": "Pozole",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Hearty hominy soup with pork in a red chile broth, topped with radish and cabbage."
+  },
+  {
+    "id": "mole-poblano",
+    "name": "Mole poblano",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "mexican",
+    "diet": [],
+    "blurb": "Chicken smothered in a rich, dark sauce of chilies, spices and chocolate."
+  },
+  {
+    "id": "tamales",
+    "name": "Tamales",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Steamed corn masa parcels filled with savory meat, cheese or chili sauce."
+  },
+  {
+    "id": "elote",
+    "name": "Elote",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Grilled corn on the cob slathered in mayo, cotija cheese, chili and lime."
+  },
+  {
+    "id": "churros",
+    "name": "Churros",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Crispy fried dough sticks rolled in cinnamon sugar, perfect for dunking in chocolate."
+  },
+  {
+    "id": "tres-leches-cake",
+    "name": "Tres leches cake",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Airy sponge cake soaked in three kinds of milk and topped with whipped cream."
+  },
+  {
+    "id": "carnitas",
+    "name": "Carnitas",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Pork slowly braised in its own fat until tender inside and crisp at the edges."
+  },
+  {
+    "id": "fish-tacos",
+    "name": "Fish tacos",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "mexican",
+    "diet": [],
+    "blurb": "Crispy battered fish in tortillas with cabbage slaw, crema and a squeeze of lime."
+  },
+  {
+    "id": "flan",
+    "name": "Flan",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Silky baked caramel custard that wobbles under a glossy amber sauce."
+  },
+  {
+    "id": "tortilla-soup",
+    "name": "Tortilla soup",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Tomato and chile broth with crispy tortilla strips, avocado, cheese and lime."
+  },
+  {
+    "id": "molletes",
+    "name": "Molletes",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "mexican",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Toasted bolillo rolls topped with refried beans, melted cheese and fresh pico de gallo."
+  },
+  {
+    "id": "spaghetti-carbonara",
+    "name": "Spaghetti carbonara",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "italian",
+    "diet": [],
+    "blurb": "Spaghetti tossed with egg yolk, pecorino, black pepper and crispy guanciale."
+  },
+  {
+    "id": "margherita-pizza",
+    "name": "Margherita pizza",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Thin, blistered crust topped with tomato, fresh mozzarella and basil leaves."
+  },
+  {
+    "id": "lasagna",
+    "name": "Lasagna",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Layers of pasta, rich meat ragù, béchamel and melted cheese baked until bubbling."
+  },
+  {
+    "id": "mushroom-risotto",
+    "name": "Mushroom risotto",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Creamy arborio rice cooked slowly with earthy mushrooms, white wine and parmesan."
+  },
+  {
+    "id": "osso-buco",
+    "name": "Osso buco",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "italian",
+    "diet": [],
+    "blurb": "Braised veal shanks in wine and broth, finished with bright lemony gremolata."
+  },
+  {
+    "id": "chicken-parmesan",
+    "name": "Chicken parmesan",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "italian",
+    "diet": [],
+    "blurb": "Breaded chicken cutlet baked under marinara sauce and melted mozzarella."
+  },
+  {
+    "id": "pesto-pasta",
+    "name": "Pesto pasta",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Pasta tossed in a vibrant sauce of basil, pine nuts, garlic and parmesan."
+  },
+  {
+    "id": "fettuccine-alfredo",
+    "name": "Fettuccine Alfredo",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Ribbons of fettuccine coated in a rich, silky butter and parmesan sauce."
+  },
+  {
+    "id": "minestrone",
+    "name": "Minestrone",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Hearty vegetable soup with beans, pasta and tomatoes, finished with olive oil."
+  },
+  {
+    "id": "bruschetta",
+    "name": "Bruschetta",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Grilled bread rubbed with garlic and topped with juicy diced tomato and basil."
+  },
+  {
+    "id": "arancini",
+    "name": "Arancini",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Golden fried risotto balls with a molten heart of mozzarella or meat ragù."
+  },
+  {
+    "id": "tiramisu",
+    "name": "Tiramisu",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Espresso-soaked ladyfingers layered with mascarpone cream and a dusting of cocoa."
+  },
+  {
+    "id": "panna-cotta",
+    "name": "Panna cotta",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Silky set cream dessert with a gentle wobble, served with a berry sauce."
+  },
+  {
+    "id": "gelato",
+    "name": "Gelato",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Dense, intensely flavored Italian ice cream in flavors like pistachio and hazelnut."
+  },
+  {
+    "id": "cannoli",
+    "name": "Cannoli",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Crisp fried pastry tubes piped with sweet ricotta cream and chocolate chips."
+  },
+  {
+    "id": "gnocchi-with-tomato-sauce",
+    "name": "Gnocchi with tomato sauce",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Pillowy potato dumplings in a simple, bright tomato and basil sauce."
+  },
+  {
+    "id": "caprese-salad",
+    "name": "Caprese salad",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Slices of ripe tomato and fresh mozzarella with basil, olive oil and salt."
+  },
+  {
+    "id": "frittata",
+    "name": "Frittata",
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Open-faced Italian omelet packed with vegetables, cheese and fresh herbs."
+  },
+  {
+    "id": "spaghetti-and-meatballs",
+    "name": "Spaghetti and meatballs",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "italian",
+    "diet": [],
+    "blurb": "Tender beef meatballs simmered in marinara and piled over spaghetti."
+  },
+  {
+    "id": "focaccia",
+    "name": "Focaccia",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Fluffy olive oil bread dimpled and baked with rosemary and flaky salt."
+  },
+  {
+    "id": "cornetto",
+    "name": "Cornetto",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "italian",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Soft, lightly sweet Italian croissant, often filled with jam or custard."
+  },
+  {
+    "id": "croissant",
+    "name": "Croissant",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Buttery, flaky laminated pastry with crisp golden layers and a tender center."
+  },
+  {
+    "id": "pain-au-chocolat",
+    "name": "Pain au chocolat",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Flaky croissant dough wrapped around two bars of dark chocolate."
+  },
+  {
+    "id": "croque-monsieur",
+    "name": "Croque monsieur",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "french",
+    "diet": [],
+    "blurb": "Toasted ham and gruyère sandwich topped with creamy béchamel and broiled."
+  },
+  {
+    "id": "quiche-lorraine",
+    "name": "Quiche Lorraine",
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "french",
+    "diet": [],
+    "blurb": "Buttery pastry shell filled with savory egg custard, bacon and gruyère."
+  },
+  {
+    "id": "coq-au-vin",
+    "name": "Coq au vin",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "french",
+    "diet": [],
+    "blurb": "Chicken braised slowly in red wine with mushrooms, onions and bacon."
+  },
+  {
+    "id": "beef-bourguignon",
+    "name": "Beef bourguignon",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "french",
+    "diet": [],
+    "blurb": "Beef stewed in Burgundy wine with carrots, pearl onions and mushrooms."
+  },
+  {
+    "id": "french-onion-soup",
+    "name": "French onion soup",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "french",
+    "diet": [],
+    "blurb": "Deeply caramelized onion broth topped with a crouton and bubbling gruyère."
+  },
+  {
+    "id": "ratatouille",
+    "name": "Ratatouille",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Provençal stew of tomato, eggplant, zucchini and peppers with fragrant herbs."
+  },
+  {
+    "id": "crepes",
+    "name": "Crêpes",
+    "meals": [
+      "breakfast",
+      "dessert"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Paper-thin pancakes folded around sweet fillings like Nutella, fruit or sugar."
+  },
+  {
+    "id": "steak-frites",
+    "name": "Steak frites",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Seared steak with herb butter alongside a heap of crispy golden fries."
+  },
+  {
+    "id": "bouillabaisse",
+    "name": "Bouillabaisse",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Marseille fish stew with saffron, fennel and tomato, served with garlicky rouille."
+  },
+  {
+    "id": "creme-brulee",
+    "name": "Crème brûlée",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Rich vanilla custard under a crackling layer of caramelized sugar."
+  },
+  {
+    "id": "macarons",
+    "name": "Macarons",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Delicate almond meringue cookies sandwiched with ganache or buttercream."
+  },
+  {
+    "id": "duck-confit",
+    "name": "Duck confit",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Duck legs slowly cooked in their own fat until meltingly tender with crisp skin."
+  },
+  {
+    "id": "salade-nicoise",
+    "name": "Salade niçoise",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Tuna, green beans, potatoes, olives, eggs and tomato with a mustard vinaigrette."
+  },
+  {
+    "id": "chocolate-mousse",
+    "name": "Chocolate mousse",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Airy, intensely chocolatey dessert whipped light with eggs and cream."
+  },
+  {
+    "id": "tarte-tatin",
+    "name": "Tarte Tatin",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Upside-down tart of buttery caramelized apples on a crisp pastry base."
+  },
+  {
+    "id": "madeleines",
+    "name": "Madeleines",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "french",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Small shell-shaped sponge cakes with a buttery crumb and a lemony aroma."
+  },
+  {
+    "id": "cassoulet",
+    "name": "Cassoulet",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "french",
+    "diet": [],
+    "blurb": "Slow-cooked white bean casserole with duck confit, sausage and pork."
+  },
+  {
+    "id": "paella-valenciana",
+    "name": "Paella valenciana",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Saffron rice cooked in a wide pan with chicken, rabbit, beans and a crispy base."
+  },
+  {
+    "id": "seafood-paella",
+    "name": "Seafood paella",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Saffron rice with prawns, mussels and squid, cooked to form a crispy socarrat."
+  },
+  {
+    "id": "tortilla-espanola",
+    "name": "Tortilla española",
+    "meals": [
+      "breakfast",
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Thick Spanish omelet of slow-cooked potatoes and onions, served in wedges."
+  },
+  {
+    "id": "gazpacho",
+    "name": "Gazpacho",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Chilled blended soup of ripe tomatoes, cucumber, peppers, garlic and olive oil."
+  },
+  {
+    "id": "patatas-bravas",
+    "name": "Patatas bravas",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Crispy fried potato cubes with smoky spicy tomato sauce and garlic aioli."
+  },
+  {
+    "id": "gambas-al-ajillo",
+    "name": "Gambas al ajillo",
+    "meals": [
+      "snack",
+      "dinner"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Sizzling prawns cooked in olive oil with plenty of garlic and chili."
+  },
+  {
+    "id": "crema-catalana",
+    "name": "Crema catalana",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Citrus and cinnamon custard with a crunchy caramelized sugar top."
+  },
+  {
+    "id": "jamon-iberico",
+    "name": "Jamón ibérico",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Thin slices of rich, nutty cured ham from acorn-fed Iberian pigs."
+  },
+  {
+    "id": "croquetas",
+    "name": "Croquetas",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "spanish",
+    "diet": [],
+    "blurb": "Crispy breaded croquettes with a creamy béchamel filling of ham or chicken."
+  },
+  {
+    "id": "pan-con-tomate",
+    "name": "Pan con tomate",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Toasted bread rubbed with ripe tomato and garlic, drizzled with olive oil and salt."
+  },
+  {
+    "id": "pulpo-a-la-gallega",
+    "name": "Pulpo a la gallega",
+    "meals": [
+      "snack",
+      "dinner"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Tender boiled octopus on potatoes with olive oil, sea salt and smoked paprika."
+  },
+  {
+    "id": "fabada-asturiana",
+    "name": "Fabada asturiana",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "spanish",
+    "diet": [],
+    "blurb": "Rich Asturian stew of white beans with chorizo, morcilla and pork."
+  },
+  {
+    "id": "albondigas",
+    "name": "Albóndigas",
+    "meals": [
+      "snack",
+      "dinner"
+    ],
+    "cuisine": "spanish",
+    "diet": [],
+    "blurb": "Spanish meatballs simmered in a savory tomato sauce, served as tapas."
+  },
+  {
+    "id": "basque-cheesecake",
+    "name": "Basque cheesecake",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Crustless cheesecake baked hot for a burnished top and a creamy center."
+  },
+  {
+    "id": "pimientos-de-padron",
+    "name": "Pimientos de padrón",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Blistered small green peppers sprinkled with sea salt; occasionally one is fiery."
+  },
+  {
+    "id": "torrijas",
+    "name": "Torrijas",
+    "meals": [
+      "breakfast",
+      "dessert"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Bread soaked in milk and egg, fried and dusted with cinnamon sugar."
+  },
+  {
+    "id": "fideua",
+    "name": "Fideuà",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "spanish",
+    "diet": [],
+    "blurb": "Seafood dish like paella, but made with short toasted noodles instead of rice."
+  },
+  {
+    "id": "churros-con-chocolate",
+    "name": "Churros con chocolate",
+    "meals": [
+      "breakfast",
+      "dessert"
+    ],
+    "cuisine": "spanish",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Hot fried churros served with a cup of thick, rich drinking chocolate."
+  },
+  {
+    "id": "fish-and-chips",
+    "name": "Fish and chips",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "british",
+    "diet": [],
+    "blurb": "Flaky cod in crisp beer batter with thick-cut chips and mushy peas."
+  },
+  {
+    "id": "full-english-breakfast",
+    "name": "Full English breakfast",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "british",
+    "diet": [],
+    "blurb": "Eggs, bacon, sausages, beans, grilled tomato, mushrooms and toast on one plate."
+  },
+  {
+    "id": "shepherds-pie",
+    "name": "Shepherd's pie",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "british",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Minced lamb in rich gravy under a fluffy, golden mashed potato topping."
+  },
+  {
+    "id": "bangers-and-mash",
+    "name": "Bangers and mash",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "british",
+    "diet": [],
+    "blurb": "Juicy pork sausages over creamy mashed potatoes with onion gravy."
+  },
+  {
+    "id": "sunday-roast",
+    "name": "Sunday roast",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "british",
+    "diet": [],
+    "blurb": "Roast beef with Yorkshire puddings, roast potatoes, vegetables and gravy."
+  },
+  {
+    "id": "beef-wellington",
+    "name": "Beef Wellington",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "british",
+    "diet": [],
+    "blurb": "Beef fillet wrapped in mushroom duxelles and puff pastry, baked golden."
+  },
+  {
+    "id": "cornish-pasty",
+    "name": "Cornish pasty",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "british",
+    "diet": [],
+    "blurb": "Hand-held pastry crimped around beef, potato, swede and onion."
+  },
+  {
+    "id": "sticky-toffee-pudding",
+    "name": "Sticky toffee pudding",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "british",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Moist date sponge drenched in warm toffee sauce with cream or custard."
+  },
+  {
+    "id": "scones-with-clotted-cream",
+    "name": "Scones with clotted cream",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "british",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Crumbly scones split and piled with clotted cream and strawberry jam."
+  },
+  {
+    "id": "eton-mess",
+    "name": "Eton mess",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "british",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Crushed meringue folded with whipped cream and fresh strawberries."
+  },
+  {
+    "id": "welsh-rarebit",
+    "name": "Welsh rarebit",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "british",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Toast smothered in a savory sauce of melted cheese, mustard and ale."
+  },
+  {
+    "id": "toad-in-the-hole",
+    "name": "Toad in the hole",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "british",
+    "diet": [],
+    "blurb": "Sausages baked in a puffy, golden Yorkshire pudding batter."
+  },
+  {
+    "id": "ploughmans-lunch",
+    "name": "Ploughman's lunch",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "british",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Cheddar, crusty bread, pickle, apple and pickled onions served as a cold platter."
+  },
+  {
+    "id": "victoria-sponge",
+    "name": "Victoria sponge",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "british",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Two light sponge cakes sandwiched with raspberry jam and buttercream."
+  },
+  {
+    "id": "bread-and-butter-pudding",
+    "name": "Bread and butter pudding",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "british",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Buttered bread baked in creamy vanilla custard with raisins and nutmeg."
+  },
+  {
+    "id": "beans-on-toast",
+    "name": "Beans on toast",
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "british",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Warm baked beans in tomato sauce spooned over hot buttered toast."
+  },
+  {
+    "id": "crumpets",
+    "name": "Crumpets",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "british",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Spongy griddle cakes full of little holes that soak up melted butter."
+  },
+  {
+    "id": "apple-crumble",
+    "name": "Apple crumble",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "british",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Baked spiced apples under a buttery, golden crumble topping."
+  },
+  {
+    "id": "kedgeree",
+    "name": "Kedgeree",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "british",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Curried rice with flaked smoked haddock, boiled eggs and fresh parsley."
+  },
+  {
+    "id": "sausage-roll",
+    "name": "Sausage roll",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "british",
+    "diet": [],
+    "blurb": "Seasoned pork sausage meat wrapped in flaky, golden puff pastry."
+  },
+  {
+    "id": "moussaka",
+    "name": "Moussaka",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "greek",
+    "diet": [],
+    "blurb": "Layers of eggplant, spiced lamb and creamy béchamel baked until golden."
+  },
+  {
+    "id": "souvlaki",
+    "name": "Souvlaki",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Grilled skewers of marinated pork or chicken with lemon and oregano."
+  },
+  {
+    "id": "gyro",
+    "name": "Gyro",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "greek",
+    "diet": [],
+    "blurb": "Shaved roasted meat in warm pita with tzatziki, tomato and onion."
+  },
+  {
+    "id": "greek-salad",
+    "name": "Greek salad",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Tomatoes, cucumber, onion, olives and a slab of feta with olive oil."
+  },
+  {
+    "id": "spanakopita",
+    "name": "Spanakopita",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Crisp phyllo pie filled with spinach, feta and fresh herbs."
+  },
+  {
+    "id": "tzatziki-with-pita",
+    "name": "Tzatziki with pita",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Cool yogurt dip with cucumber, garlic and dill, scooped up with warm pita."
+  },
+  {
+    "id": "baklava",
+    "name": "Baklava",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Layers of flaky phyllo, chopped nuts and honey syrup, sticky and sweet."
+  },
+  {
+    "id": "dolmades",
+    "name": "Dolmades",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Grape leaves rolled around herbed rice, served cool with lemon."
+  },
+  {
+    "id": "pastitsio",
+    "name": "Pastitsio",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "greek",
+    "diet": [],
+    "blurb": "Baked pasta with spiced meat sauce under a thick, creamy béchamel layer."
+  },
+  {
+    "id": "avgolemono-soup",
+    "name": "Avgolemono soup",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Silky chicken and rice soup thickened with egg and bright lemon."
+  },
+  {
+    "id": "loukoumades",
+    "name": "Loukoumades",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Golden fried dough puffs drenched in honey and sprinkled with cinnamon."
+  },
+  {
+    "id": "greek-yogurt-with-honey",
+    "name": "Greek yogurt with honey",
+    "meals": [
+      "breakfast",
+      "dessert"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Thick strained yogurt drizzled with honey and topped with walnuts."
+  },
+  {
+    "id": "gemista",
+    "name": "Gemista",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Tomatoes and peppers stuffed with herbed rice and baked in olive oil."
+  },
+  {
+    "id": "saganaki",
+    "name": "Saganaki",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Pan-fried cheese seared until golden and crisp, finished with a squeeze of lemon."
+  },
+  {
+    "id": "kleftiko",
+    "name": "Kleftiko",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Lamb slow-baked in parchment with garlic, lemon, potatoes and herbs."
+  },
+  {
+    "id": "galaktoboureko",
+    "name": "Galaktoboureko",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Crisp phyllo filled with semolina custard and soaked in fragrant syrup."
+  },
+  {
+    "id": "bougatsa",
+    "name": "Bougatsa",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Warm phyllo pastry with creamy custard filling, dusted with sugar and cinnamon."
+  },
+  {
+    "id": "fasolada",
+    "name": "Fasolada",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "greek",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Hearty white bean soup with tomato, carrot, celery and plenty of olive oil."
+  },
+  {
+    "id": "falafel-wrap",
+    "name": "Falafel wrap",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Crispy chickpea fritters in pita with tahini, pickles and fresh salad."
+  },
+  {
+    "id": "hummus",
+    "name": "Hummus",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Smooth purée of chickpeas, tahini, lemon and garlic, drizzled with olive oil."
+  },
+  {
+    "id": "shawarma",
+    "name": "Shawarma",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [],
+    "blurb": "Spiced meat roasted on a vertical spit, wrapped with garlic sauce and pickles."
+  },
+  {
+    "id": "shakshuka",
+    "name": "Shakshuka",
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Eggs poached in a spiced, simmering sauce of tomatoes and peppers."
+  },
+  {
+    "id": "tabbouleh",
+    "name": "Tabbouleh",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Fresh parsley salad with bulgur, tomato, mint, lemon and olive oil."
+  },
+  {
+    "id": "fattoush",
+    "name": "Fattoush",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Crunchy salad of greens, tomato and cucumber with toasted pita and sumac."
+  },
+  {
+    "id": "baba-ganoush",
+    "name": "Baba ganoush",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Smoky roasted eggplant dip blended with tahini, garlic and lemon."
+  },
+  {
+    "id": "shish-tawook",
+    "name": "Shish tawook",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Garlicky yogurt-marinated chicken skewers grilled until juicy and charred."
+  },
+  {
+    "id": "mansaf",
+    "name": "Mansaf",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [],
+    "blurb": "Lamb cooked in tangy fermented yogurt sauce over rice, Jordan's national dish."
+  },
+  {
+    "id": "kibbeh",
+    "name": "Kibbeh",
+    "meals": [
+      "snack",
+      "dinner"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [],
+    "blurb": "Torpedo-shaped bulgur shells stuffed with spiced minced lamb and pine nuts."
+  },
+  {
+    "id": "mujaddara",
+    "name": "Mujaddara",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Lentils and rice cooked together and topped with deeply caramelized onions."
+  },
+  {
+    "id": "manakish",
+    "name": "Manakish",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Warm flatbread baked with za'atar and olive oil or melted cheese."
+  },
+  {
+    "id": "ful-medames",
+    "name": "Ful medames",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Slow-cooked fava beans mashed with olive oil, lemon, garlic and cumin."
+  },
+  {
+    "id": "kunafa",
+    "name": "Kunafa",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Shredded pastry layered with stretchy sweet cheese and soaked in fragrant syrup."
+  },
+  {
+    "id": "maqluba",
+    "name": "Maqluba",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Upside-down rice dish with fried eggplant, cauliflower and tender chicken."
+  },
+  {
+    "id": "kofta-kebab",
+    "name": "Kofta kebab",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Spiced ground lamb shaped onto skewers and grilled over an open flame."
+  },
+  {
+    "id": "halva",
+    "name": "Halva",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Dense, crumbly sweet made from sesame tahini and sugar, often with pistachios."
+  },
+  {
+    "id": "muhammara",
+    "name": "Muhammara",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "middle-eastern",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Roasted red pepper and walnut dip sweetened with pomegranate molasses."
+  },
+  {
+    "id": "butter-chicken",
+    "name": "Butter chicken",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Tender tandoori chicken in a velvety, buttery tomato and cream sauce."
+  },
+  {
+    "id": "chicken-tikka-masala",
+    "name": "Chicken tikka masala",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Chargrilled chicken pieces in a creamy, spiced tomato masala sauce."
+  },
+  {
+    "id": "chana-masala",
+    "name": "Chana masala",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Chickpeas simmered in a tangy, spiced tomato and onion gravy."
+  },
+  {
+    "id": "palak-paneer",
+    "name": "Palak paneer",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Cubes of soft paneer cheese in a smooth, garlicky spinach sauce."
+  },
+  {
+    "id": "chicken-biryani",
+    "name": "Chicken biryani",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Fragrant layered basmati rice with spiced chicken, saffron and fried onions."
+  },
+  {
+    "id": "masala-dosa",
+    "name": "Masala dosa",
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Crispy fermented rice and lentil crepe filled with spiced potato."
+  },
+  {
+    "id": "samosas",
+    "name": "Samosas",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Crispy pastry triangles stuffed with spiced potatoes and peas."
+  },
+  {
+    "id": "dal-tadka",
+    "name": "Dal tadka",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Yellow lentils tempered with sizzling ghee, cumin, garlic and chili."
+  },
+  {
+    "id": "aloo-paratha",
+    "name": "Aloo paratha",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Whole wheat flatbread stuffed with spiced potato and griddled with butter."
+  },
+  {
+    "id": "idli-with-sambar",
+    "name": "Idli with sambar",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Soft steamed rice cakes served with tangy lentil stew and coconut chutney."
+  },
+  {
+    "id": "rogan-josh",
+    "name": "Rogan josh",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Kashmiri lamb curry braised in aromatic spices and vivid red chili."
+  },
+  {
+    "id": "pav-bhaji",
+    "name": "Pav bhaji",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Buttery mashed vegetable curry served with soft, toasted bread rolls."
+  },
+  {
+    "id": "gulab-jamun",
+    "name": "Gulab jamun",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Soft milk dumplings fried and soaked in rose and cardamom syrup."
+  },
+  {
+    "id": "mango-lassi",
+    "name": "Mango lassi",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Creamy yogurt drink blended with ripe mango and a hint of cardamom."
+  },
+  {
+    "id": "pakoras",
+    "name": "Pakoras",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Crispy chickpea flour fritters of onion, potato or spinach."
+  },
+  {
+    "id": "vindaloo",
+    "name": "Vindaloo",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Fiery Goan curry of pork cooked with vinegar, garlic and red chili."
+  },
+  {
+    "id": "kheer",
+    "name": "Kheer",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Creamy rice pudding simmered with milk, cardamom, saffron and nuts."
+  },
+  {
+    "id": "rajma-chawal",
+    "name": "Rajma chawal",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Kidney beans in a thick spiced tomato gravy served over steamed rice."
+  },
+  {
+    "id": "poha",
+    "name": "Poha",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Flattened rice tossed with turmeric, mustard seeds, peanuts and curry leaves."
+  },
+  {
+    "id": "pani-puri",
+    "name": "Pani puri",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "indian",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Crisp hollow puris filled with potato and tangy, spicy tamarind water."
+  },
+  {
+    "id": "kung-pao-chicken",
+    "name": "Kung pao chicken",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "chinese",
+    "diet": [],
+    "blurb": "Stir-fried chicken with peanuts, dried chilies and Sichuan pepper in a glossy sauce."
+  },
+  {
+    "id": "mapo-tofu",
+    "name": "Mapo tofu",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "chinese",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Silken tofu in a fiery, numbing sauce with minced pork and Sichuan peppercorns."
+  },
+  {
+    "id": "peking-duck",
+    "name": "Peking duck",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "chinese",
+    "diet": [],
+    "blurb": "Lacquered roast duck with crisp skin, wrapped in thin pancakes with hoisin."
+  },
+  {
+    "id": "xiaolongbao",
+    "name": "Xiaolongbao",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "chinese",
+    "diet": [],
+    "blurb": "Delicate soup dumplings filled with pork and a burst of hot, savory broth."
+  },
+  {
+    "id": "egg-fried-rice",
+    "name": "Egg fried rice",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "chinese",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Wok-fried rice with egg, scallions, vegetables and a touch of soy sauce."
+  },
+  {
+    "id": "sweet-and-sour-pork",
+    "name": "Sweet and sour pork",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "chinese",
+    "diet": [],
+    "blurb": "Crispy pork pieces tossed with peppers and pineapple in a tangy glaze."
+  },
+  {
+    "id": "char-siu",
+    "name": "Char siu",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "chinese",
+    "diet": [],
+    "blurb": "Cantonese barbecue pork glazed with honey and five-spice until sticky and red."
+  },
+  {
+    "id": "dan-dan-noodles",
+    "name": "Dan dan noodles",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "chinese",
+    "diet": [],
+    "blurb": "Noodles in a spicy chili oil sauce topped with seasoned pork and scallions."
+  },
+  {
+    "id": "hot-and-sour-soup",
+    "name": "Hot and sour soup",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "chinese",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Peppery, tangy soup with tofu, mushrooms, bamboo shoots and egg ribbons."
+  },
+  {
+    "id": "spring-rolls",
+    "name": "Spring rolls",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "chinese",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Crispy fried rolls filled with shredded vegetables and sometimes pork."
+  },
+  {
+    "id": "congee",
+    "name": "Congee",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "chinese",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Silky rice porridge topped with scallions, ginger and savory extras."
+  },
+  {
+    "id": "chow-mein",
+    "name": "Chow mein",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "chinese",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Stir-fried egg noodles with vegetables, bean sprouts and a savory sauce."
+  },
+  {
+    "id": "egg-tarts",
+    "name": "Egg tarts",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "chinese",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Flaky pastry cups filled with smooth, glossy baked egg custard."
+  },
+  {
+    "id": "scallion-pancakes",
+    "name": "Scallion pancakes",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "chinese",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Crispy, chewy flatbread laced with chopped green onions."
+  },
+  {
+    "id": "general-tsos-chicken",
+    "name": "General Tso's chicken",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "chinese",
+    "diet": [],
+    "blurb": "Crispy fried chicken tossed in a sweet, spicy and garlicky sauce."
+  },
+  {
+    "id": "wonton-soup",
+    "name": "Wonton soup",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "chinese",
+    "diet": [],
+    "blurb": "Silky pork and shrimp wontons floating in a clear, savory broth."
+  },
+  {
+    "id": "siu-mai",
+    "name": "Siu mai",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "chinese",
+    "diet": [],
+    "blurb": "Open-topped dim sum dumplings of pork and shrimp, steamed until juicy."
+  },
+  {
+    "id": "beef-and-broccoli",
+    "name": "Beef and broccoli",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "chinese",
+    "diet": [],
+    "blurb": "Tender sliced beef and crisp broccoli stir-fried in savory oyster sauce."
+  },
+  {
+    "id": "mooncakes",
+    "name": "Mooncakes",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "chinese",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Dense, golden pastries filled with sweet lotus seed or red bean paste."
+  },
+  {
+    "id": "jianbing",
+    "name": "Jianbing",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "chinese",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Savory crepe with egg, scallions, sauces and a crunchy cracker inside."
+  },
+  {
+    "id": "sushi",
+    "name": "Sushi",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "japanese",
+    "diet": [],
+    "blurb": "Vinegared rice paired with fresh raw fish, seafood or vegetables."
+  },
+  {
+    "id": "ramen",
+    "name": "Ramen",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "japanese",
+    "diet": [],
+    "blurb": "Springy noodles in rich broth with chashu pork, soft egg and scallions."
+  },
+  {
+    "id": "tonkatsu",
+    "name": "Tonkatsu",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "japanese",
+    "diet": [],
+    "blurb": "Panko-crusted pork cutlet fried until crisp, with tangy tonkatsu sauce."
+  },
+  {
+    "id": "tempura",
+    "name": "Tempura",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "japanese",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Shrimp and vegetables in a feather-light, crispy batter with dipping sauce."
+  },
+  {
+    "id": "chicken-teriyaki",
+    "name": "Chicken teriyaki",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "japanese",
+    "diet": [],
+    "blurb": "Juicy grilled chicken glazed in a glossy, sweet soy sauce."
+  },
+  {
+    "id": "okonomiyaki",
+    "name": "Okonomiyaki",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "japanese",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Savory cabbage pancake topped with sauce, mayo, bonito flakes and seaweed."
+  },
+  {
+    "id": "takoyaki",
+    "name": "Takoyaki",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "japanese",
+    "diet": [],
+    "blurb": "Crispy batter balls filled with octopus, drizzled with sauce and mayo."
+  },
+  {
+    "id": "gyoza",
+    "name": "Gyoza",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "japanese",
+    "diet": [],
+    "blurb": "Pan-fried dumplings with crisp bottoms and a juicy pork and cabbage filling."
+  },
+  {
+    "id": "miso-soup",
+    "name": "Miso soup",
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "japanese",
+    "diet": [],
+    "blurb": "Light broth of dashi and miso with tofu, seaweed and scallions."
+  },
+  {
+    "id": "katsu-curry",
+    "name": "Katsu curry",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "japanese",
+    "diet": [],
+    "blurb": "Crispy pork or chicken cutlet with mild, thick Japanese curry and rice."
+  },
+  {
+    "id": "udon",
+    "name": "Udon",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "japanese",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Thick, chewy wheat noodles in a savory dashi broth with toppings."
+  },
+  {
+    "id": "onigiri",
+    "name": "Onigiri",
+    "meals": [
+      "breakfast",
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "japanese",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Rice balls wrapped in nori with fillings like salmon or pickled plum."
+  },
+  {
+    "id": "mochi",
+    "name": "Mochi",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "japanese",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Soft, chewy rice cakes often filled with sweet red bean paste."
+  },
+  {
+    "id": "matcha-ice-cream",
+    "name": "Matcha ice cream",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "japanese",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Creamy ice cream with the earthy, slightly bitter flavor of green tea."
+  },
+  {
+    "id": "dorayaki",
+    "name": "Dorayaki",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "japanese",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Two fluffy honey pancakes sandwiched around sweet red bean paste."
+  },
+  {
+    "id": "yakitori",
+    "name": "Yakitori",
+    "meals": [
+      "dinner",
+      "snack"
+    ],
+    "cuisine": "japanese",
+    "diet": [],
+    "blurb": "Bite-size chicken skewers grilled over charcoal with salt or sweet tare."
+  },
+  {
+    "id": "oyakodon",
+    "name": "Oyakodon",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "japanese",
+    "diet": [],
+    "blurb": "Chicken and egg simmered in sweet dashi and served over a bowl of rice."
+  },
+  {
+    "id": "tamagoyaki",
+    "name": "Tamagoyaki",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "japanese",
+    "diet": [],
+    "blurb": "Sweet, layered rolled omelet sliced into soft, tender pieces."
+  },
+  {
+    "id": "taiyaki",
+    "name": "Taiyaki",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "japanese",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Fish-shaped waffle cakes filled with warm red bean paste or custard."
+  },
+  {
+    "id": "bibimbap",
+    "name": "Bibimbap",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "korean",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Rice bowl with seasoned vegetables, beef, a fried egg and spicy gochujang."
+  },
+  {
+    "id": "korean-fried-chicken",
+    "name": "Korean fried chicken",
+    "meals": [
+      "dinner",
+      "snack"
+    ],
+    "cuisine": "korean",
+    "diet": [],
+    "blurb": "Double-fried chicken with an ultra-crisp crust, glazed sweet and spicy."
+  },
+  {
+    "id": "bulgogi",
+    "name": "Bulgogi",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "korean",
+    "diet": [],
+    "blurb": "Thin slices of beef marinated in soy, pear and garlic, then grilled."
+  },
+  {
+    "id": "kimchi-jjigae",
+    "name": "Kimchi jjigae",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "korean",
+    "diet": [],
+    "blurb": "Bubbling stew of aged kimchi, pork and tofu in a spicy broth."
+  },
+  {
+    "id": "japchae",
+    "name": "Japchae",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "korean",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Glass noodles stir-fried with colorful vegetables, beef and sesame oil."
+  },
+  {
+    "id": "tteokbokki",
+    "name": "Tteokbokki",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "korean",
+    "diet": [],
+    "blurb": "Chewy rice cakes simmered in a sweet, spicy gochujang sauce."
+  },
+  {
+    "id": "kimbap",
+    "name": "Kimbap",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "korean",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Seaweed rice rolls packed with vegetables, egg and meat, sliced into rounds."
+  },
+  {
+    "id": "samgyeopsal",
+    "name": "Samgyeopsal",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "korean",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Thick slices of pork belly grilled at the table and wrapped in lettuce."
+  },
+  {
+    "id": "sundubu-jjigae",
+    "name": "Sundubu jjigae",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "korean",
+    "diet": [],
+    "blurb": "Spicy, silky soft tofu stew with seafood and a cracked egg."
+  },
+  {
+    "id": "haemul-pajeon",
+    "name": "Haemul pajeon",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "korean",
+    "diet": [],
+    "blurb": "Crispy savory pancake loaded with scallions and seafood."
+  },
+  {
+    "id": "galbi",
+    "name": "Galbi",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "korean",
+    "diet": [],
+    "blurb": "Marinated beef short ribs grilled until caramelized and smoky-sweet."
+  },
+  {
+    "id": "hotteok",
+    "name": "Hotteok",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "korean",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Chewy pan-fried pancakes filled with melted brown sugar, cinnamon and nuts."
+  },
+  {
+    "id": "bingsu",
+    "name": "Bingsu",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "korean",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Fluffy shaved milk ice piled with fruit, sweet red beans and condensed milk."
+  },
+  {
+    "id": "gyeran-ppang",
+    "name": "Gyeran-ppang",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "korean",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Fluffy, slightly sweet bread loaf baked with a whole egg on top."
+  },
+  {
+    "id": "samgyetang",
+    "name": "Samgyetang",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "korean",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Whole young chicken stuffed with rice, ginseng and jujubes in a light broth."
+  },
+  {
+    "id": "doenjang-jjigae",
+    "name": "Doenjang jjigae",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "korean",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Hearty soybean paste stew with tofu, zucchini and potatoes."
+  },
+  {
+    "id": "hobakjuk",
+    "name": "Hobakjuk",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "korean",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Smooth, sweet pumpkin porridge thickened with glutinous rice flour."
+  },
+  {
+    "id": "pad-thai",
+    "name": "Pad thai",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Stir-fried rice noodles with tamarind, egg, peanuts and lime."
+  },
+  {
+    "id": "green-curry",
+    "name": "Green curry",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Fragrant coconut curry with green chilies, Thai basil and chicken."
+  },
+  {
+    "id": "tom-yum-goong",
+    "name": "Tom yum goong",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Hot and sour soup with prawns, lemongrass, lime leaves and chili."
+  },
+  {
+    "id": "tom-kha-gai",
+    "name": "Tom kha gai",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Creamy coconut soup with chicken, galangal, lemongrass and lime."
+  },
+  {
+    "id": "massaman-curry",
+    "name": "Massaman curry",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Mild, rich curry with beef, potatoes and peanuts in coconut milk."
+  },
+  {
+    "id": "pad-see-ew",
+    "name": "Pad see ew",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Wide rice noodles stir-fried with soy sauce, egg and Chinese broccoli."
+  },
+  {
+    "id": "som-tam",
+    "name": "Som tam",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Green papaya salad pounded with chili, lime, fish sauce and peanuts."
+  },
+  {
+    "id": "mango-sticky-rice",
+    "name": "Mango sticky rice",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Sweet coconut sticky rice served with slices of ripe mango."
+  },
+  {
+    "id": "pad-kra-pao",
+    "name": "Pad kra pao",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "thai",
+    "diet": [],
+    "blurb": "Stir-fried minced pork with holy basil and chili, topped with a fried egg."
+  },
+  {
+    "id": "khao-soi",
+    "name": "Khao soi",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "thai",
+    "diet": [],
+    "blurb": "Northern Thai curry noodle soup in coconut broth, topped with crispy noodles."
+  },
+  {
+    "id": "larb",
+    "name": "Larb",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Zesty minced meat salad with lime, chili, mint and toasted rice powder."
+  },
+  {
+    "id": "red-curry",
+    "name": "Red curry",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Spicy coconut curry with red chili paste, bamboo shoots and basil."
+  },
+  {
+    "id": "chicken-satay",
+    "name": "Chicken satay",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "thai",
+    "diet": [],
+    "blurb": "Grilled skewers of marinated chicken served with creamy peanut sauce."
+  },
+  {
+    "id": "khao-man-gai",
+    "name": "Khao man gai",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "thai",
+    "diet": [],
+    "blurb": "Poached chicken over garlicky rice with a ginger and soybean sauce."
+  },
+  {
+    "id": "panang-curry",
+    "name": "Panang curry",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Thick, rich red curry with peanuts, kaffir lime and tender beef."
+  },
+  {
+    "id": "khao-pad",
+    "name": "Khao pad",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Jasmine fried rice with egg, onion and cucumber, served with lime."
+  },
+  {
+    "id": "kluay-buat-chee",
+    "name": "Kluay buat chee",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Ripe bananas gently simmered in sweet and slightly salty coconut milk."
+  },
+  {
+    "id": "thai-banana-roti",
+    "name": "Thai banana roti",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "thai",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Crispy pan-fried flatbread with banana, drizzled with condensed milk."
+  },
+  {
+    "id": "jok",
+    "name": "Jok",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "thai",
+    "diet": [],
+    "blurb": "Smooth Thai rice porridge with pork meatballs, ginger and a soft egg."
+  },
+  {
+    "id": "pho-bo",
+    "name": "Pho bo",
+    "meals": [
+      "breakfast",
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Aromatic beef noodle soup with star anise broth, fresh herbs and lime."
+  },
+  {
+    "id": "banh-mi",
+    "name": "Banh mi",
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Crusty baguette with pâté, grilled pork, pickles, cilantro and chili."
+  },
+  {
+    "id": "goi-cuon",
+    "name": "Goi cuon",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [],
+    "blurb": "Rice paper rolls with shrimp, pork, herbs and vermicelli, with peanut dip."
+  },
+  {
+    "id": "bun-cha",
+    "name": "Bun cha",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [],
+    "blurb": "Grilled pork patties in a sweet fish sauce broth with rice noodles and herbs."
+  },
+  {
+    "id": "com-tam",
+    "name": "Com tam",
+    "meals": [
+      "breakfast",
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [],
+    "blurb": "Broken rice with grilled pork chop, egg meatloaf and sweet fish sauce."
+  },
+  {
+    "id": "bun-bo-hue",
+    "name": "Bun bo Hue",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Spicy lemongrass beef noodle soup from the central city of Hue."
+  },
+  {
+    "id": "banh-xeo",
+    "name": "Banh xeo",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Crispy turmeric rice crepe stuffed with shrimp, pork and bean sprouts."
+  },
+  {
+    "id": "cha-gio",
+    "name": "Cha gio",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Crunchy fried rolls filled with pork, shrimp, mushroom and glass noodles."
+  },
+  {
+    "id": "ca-kho-to",
+    "name": "Ca kho to",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Caramelized fish braised in a clay pot with fish sauce and black pepper."
+  },
+  {
+    "id": "bun-thit-nuong",
+    "name": "Bun thit nuong",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Rice vermicelli bowl with grilled pork, herbs, peanuts and fish sauce."
+  },
+  {
+    "id": "banh-cuon",
+    "name": "Banh cuon",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Delicate steamed rice rolls filled with pork and wood ear mushrooms."
+  },
+  {
+    "id": "che-ba-mau",
+    "name": "Che ba mau",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Layered three-color dessert of beans, jelly and coconut milk over ice."
+  },
+  {
+    "id": "banh-flan",
+    "name": "Banh flan",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Vietnamese caramel custard often finished with a splash of strong coffee."
+  },
+  {
+    "id": "ca-ri-ga",
+    "name": "Ca ri ga",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Mild chicken curry with sweet potatoes and coconut milk, served with bread."
+  },
+  {
+    "id": "xoi",
+    "name": "Xoi",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [
+      "vegetarian-option",
+      "gluten-free"
+    ],
+    "blurb": "Sticky rice steamed with mung beans, peanuts or savory toppings."
+  },
+  {
+    "id": "mi-quang",
+    "name": "Mi Quang",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [],
+    "blurb": "Turmeric noodles with shrimp, pork, peanuts and crackers in a little broth."
+  },
+  {
+    "id": "bo-luc-lac",
+    "name": "Bo luc lac",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [],
+    "blurb": "Shaking beef: seared cubes of steak tossed with garlic, pepper and onions."
+  },
+  {
+    "id": "banh-bao",
+    "name": "Banh bao",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "vietnamese",
+    "diet": [],
+    "blurb": "Fluffy steamed buns filled with pork, egg and mushrooms."
+  },
+  {
+    "id": "chicken-adobo",
+    "name": "Chicken adobo",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "filipino",
+    "diet": [],
+    "blurb": "Chicken braised in vinegar, soy sauce, garlic and bay leaves until tender."
+  },
+  {
+    "id": "sinigang",
+    "name": "Sinigang",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "filipino",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Sour tamarind soup with pork, vegetables and long green chilies."
+  },
+  {
+    "id": "lechon",
+    "name": "Lechon",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "filipino",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Whole roast pig with crackling-crisp skin and juicy, tender meat."
+  },
+  {
+    "id": "pancit-canton",
+    "name": "Pancit canton",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "filipino",
+    "diet": [],
+    "blurb": "Stir-fried egg noodles with vegetables, pork, shrimp and soy sauce."
+  },
+  {
+    "id": "lumpia-shanghai",
+    "name": "Lumpia shanghai",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "filipino",
+    "diet": [],
+    "blurb": "Thin, crispy fried spring rolls filled with seasoned ground pork."
+  },
+  {
+    "id": "kare-kare",
+    "name": "Kare-kare",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "filipino",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Oxtail and vegetable stew in a thick peanut sauce, served with shrimp paste."
+  },
+  {
+    "id": "sisig",
+    "name": "Sisig",
+    "meals": [
+      "dinner",
+      "snack"
+    ],
+    "cuisine": "filipino",
+    "diet": [],
+    "blurb": "Sizzling chopped pork with onions, chili and calamansi on a hot plate."
+  },
+  {
+    "id": "tapsilog",
+    "name": "Tapsilog",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "filipino",
+    "diet": [],
+    "blurb": "Sweet cured beef with garlic fried rice and a sunny fried egg."
+  },
+  {
+    "id": "longsilog",
+    "name": "Longsilog",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "filipino",
+    "diet": [],
+    "blurb": "Sweet Filipino longganisa sausage with garlic rice and a fried egg."
+  },
+  {
+    "id": "halo-halo",
+    "name": "Halo-halo",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "filipino",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Shaved ice layered with beans, jellies, fruit, leche flan and ube ice cream."
+  },
+  {
+    "id": "leche-flan",
+    "name": "Leche flan",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "filipino",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Rich, dense caramel custard made with egg yolks and condensed milk."
+  },
+  {
+    "id": "ube-halaya",
+    "name": "Ube halaya",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "filipino",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Smooth purple yam jam cooked with coconut milk and condensed milk."
+  },
+  {
+    "id": "bibingka",
+    "name": "Bibingka",
+    "meals": [
+      "breakfast",
+      "dessert"
+    ],
+    "cuisine": "filipino",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Fluffy rice cake baked in banana leaves, topped with salted egg and cheese."
+  },
+  {
+    "id": "arroz-caldo",
+    "name": "Arroz caldo",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "filipino",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Ginger chicken rice porridge topped with fried garlic, scallions and egg."
+  },
+  {
+    "id": "turon",
+    "name": "Turon",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "filipino",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Banana and jackfruit wrapped in spring roll wrappers, fried with caramelized sugar."
+  },
+  {
+    "id": "bistek-tagalog",
+    "name": "Bistek tagalog",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "filipino",
+    "diet": [],
+    "blurb": "Thin beef slices braised in soy and calamansi with sweet onion rings."
+  },
+  {
+    "id": "champorado",
+    "name": "Champorado",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "filipino",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Sweet chocolate rice porridge, often served with a drizzle of evaporated milk."
+  },
+  {
+    "id": "pandesal",
+    "name": "Pandesal",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "filipino",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Soft, slightly sweet bread rolls dusted with breadcrumbs, best eaten warm."
+  },
+  {
+    "id": "jerk-chicken",
+    "name": "Jerk chicken",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Chicken marinated in scotch bonnet, allspice and thyme, grilled smoky and spicy."
+  },
+  {
+    "id": "ackee-and-saltfish",
+    "name": "Ackee and saltfish",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Jamaica's national dish of buttery ackee fruit sautéed with salt cod."
+  },
+  {
+    "id": "curry-goat",
+    "name": "Curry goat",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Tender goat slow-simmered in a fragrant Caribbean curry with potatoes."
+  },
+  {
+    "id": "rice-and-peas",
+    "name": "Rice and peas",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Rice cooked with kidney beans, coconut milk, thyme and allspice."
+  },
+  {
+    "id": "jamaican-beef-patty",
+    "name": "Jamaican beef patty",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "caribbean",
+    "diet": [],
+    "blurb": "Flaky golden turmeric pastry filled with spiced ground beef."
+  },
+  {
+    "id": "doubles",
+    "name": "Doubles",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Two fried flatbreads filled with curried chickpeas, a Trinidad street favorite."
+  },
+  {
+    "id": "ropa-vieja",
+    "name": "Ropa vieja",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Cuban shredded beef stewed in tomato sauce with peppers, onions and olives."
+  },
+  {
+    "id": "cuban-sandwich",
+    "name": "Cuban sandwich",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "caribbean",
+    "diet": [],
+    "blurb": "Pressed sandwich of roast pork, ham, Swiss cheese, pickles and mustard."
+  },
+  {
+    "id": "mofongo",
+    "name": "Mofongo",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Mashed fried plantains with garlic and pork cracklings, Puerto Rico's pride."
+  },
+  {
+    "id": "tostones",
+    "name": "Tostones",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Twice-fried green plantain slices, crisp outside and tender inside."
+  },
+  {
+    "id": "conch-fritters",
+    "name": "Conch fritters",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "caribbean",
+    "diet": [],
+    "blurb": "Fried batter bites studded with chopped conch and sweet peppers."
+  },
+  {
+    "id": "pastelon",
+    "name": "Pastelón",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Puerto Rican lasagna-style bake of sweet plantains, seasoned beef and cheese."
+  },
+  {
+    "id": "rum-cake",
+    "name": "Rum cake",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Moist butter cake soaked in a rich, boozy rum glaze."
+  },
+  {
+    "id": "festival",
+    "name": "Festival",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Sweet, golden fried Jamaican dumplings, perfect alongside jerk or fried fish."
+  },
+  {
+    "id": "callaloo",
+    "name": "Callaloo",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Leafy greens stewed with okra, coconut milk and hot peppers."
+  },
+  {
+    "id": "escovitch-fish",
+    "name": "Escovitch fish",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Fried whole fish topped with tangy pickled peppers, onions and carrots."
+  },
+  {
+    "id": "coconut-drops",
+    "name": "Coconut drops",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Chewy Jamaican candies of diced coconut cooked with ginger and brown sugar."
+  },
+  {
+    "id": "black-cake",
+    "name": "Black cake",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Dark, dense fruitcake soaked with rum and wine, a Caribbean holiday treat."
+  },
+  {
+    "id": "cornmeal-porridge",
+    "name": "Cornmeal porridge",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "caribbean",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Creamy Jamaican porridge of cornmeal, coconut milk, nutmeg and vanilla."
+  },
+  {
+    "id": "ceviche",
+    "name": "Ceviche",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Fresh fish cured in lime juice with red onion, chili and cilantro."
+  },
+  {
+    "id": "arepas",
+    "name": "Arepas",
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "vegetarian-option",
+      "gluten-free"
+    ],
+    "blurb": "Griddled corn cakes split and stuffed with cheese, beans or shredded beef."
+  },
+  {
+    "id": "empanadas",
+    "name": "Empanadas",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Baked or fried pastry turnovers filled with seasoned beef, chicken or cheese."
+  },
+  {
+    "id": "lomo-saltado",
+    "name": "Lomo saltado",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "latin-american",
+    "diet": [],
+    "blurb": "Peruvian stir-fry of beef, tomato and onion with soy sauce and fries."
+  },
+  {
+    "id": "feijoada",
+    "name": "Feijoada",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Brazilian black bean stew with pork and sausage, served with rice and orange."
+  },
+  {
+    "id": "pao-de-queijo",
+    "name": "Pão de queijo",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Chewy, cheesy Brazilian bread puffs made with tapioca flour."
+  },
+  {
+    "id": "pupusas",
+    "name": "Pupusas",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "vegetarian-option",
+      "gluten-free"
+    ],
+    "blurb": "Thick corn tortillas stuffed with cheese, beans or pork, served with curtido."
+  },
+  {
+    "id": "asado",
+    "name": "Asado",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Argentine barbecue of beef cuts slowly grilled over wood embers."
+  },
+  {
+    "id": "chimichurri-steak",
+    "name": "Chimichurri steak",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Grilled steak topped with a bright sauce of parsley, garlic, vinegar and oregano."
+  },
+  {
+    "id": "alfajores",
+    "name": "Alfajores",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Soft shortbread cookies sandwiching dulce de leche, rolled in coconut."
+  },
+  {
+    "id": "brigadeiros",
+    "name": "Brigadeiros",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Fudgy Brazilian chocolate truffles rolled in chocolate sprinkles."
+  },
+  {
+    "id": "pabellon-criollo",
+    "name": "Pabellón criollo",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Venezuelan plate of shredded beef, black beans, rice and fried plantains."
+  },
+  {
+    "id": "bandeja-paisa",
+    "name": "Bandeja paisa",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Colombian platter of beans, rice, chicharrón, chorizo, egg, arepa and plantain."
+  },
+  {
+    "id": "aji-de-gallina",
+    "name": "Ají de gallina",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "latin-american",
+    "diet": [],
+    "blurb": "Shredded chicken in a creamy, mildly spicy yellow pepper sauce."
+  },
+  {
+    "id": "choripan",
+    "name": "Choripán",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "latin-american",
+    "diet": [],
+    "blurb": "Grilled chorizo in crusty bread slathered with chimichurri."
+  },
+  {
+    "id": "picanha",
+    "name": "Picanha",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Brazilian sirloin cap grilled on skewers with a juicy, crisp fat cap."
+  },
+  {
+    "id": "coxinha",
+    "name": "Coxinha",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "latin-american",
+    "diet": [],
+    "blurb": "Teardrop-shaped Brazilian croquettes filled with creamy shredded chicken."
+  },
+  {
+    "id": "arroz-con-leche",
+    "name": "Arroz con leche",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "vegetarian",
+      "gluten-free"
+    ],
+    "blurb": "Creamy cinnamon rice pudding simmered slowly with milk and sugar."
+  },
+  {
+    "id": "saltenas",
+    "name": "Salteñas",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "latin-american",
+    "diet": [],
+    "blurb": "Bolivian baked pastries with a sweet crust and a juicy, saucy meat filling."
+  },
+  {
+    "id": "causa-limena",
+    "name": "Causa limeña",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "latin-american",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Layered cold potato terrine with lime and yellow chili, filled with chicken or tuna."
+  },
+  {
+    "id": "jollof-rice",
+    "name": "Jollof rice",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "West African tomato rice cooked with peppers, onions and warm spices."
+  },
+  {
+    "id": "doro-wat",
+    "name": "Doro wat",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Ethiopian spicy chicken stew with berbere spice and hard-boiled eggs."
+  },
+  {
+    "id": "injera-with-misir-wot",
+    "name": "Injera with misir wot",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Spongy teff flatbread served with a spicy red lentil stew."
+  },
+  {
+    "id": "bobotie",
+    "name": "Bobotie",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [],
+    "blurb": "South African baked spiced mince with dried fruit under a golden egg custard."
+  },
+  {
+    "id": "bunny-chow",
+    "name": "Bunny chow",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [],
+    "blurb": "Hollowed-out loaf of bread filled with spicy Durban curry."
+  },
+  {
+    "id": "lamb-tagine",
+    "name": "Lamb tagine",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Moroccan slow-cooked lamb stew with apricots, almonds and warm spices."
+  },
+  {
+    "id": "moroccan-couscous",
+    "name": "Moroccan couscous",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [],
+    "blurb": "Fluffy steamed semolina topped with vegetables, chickpeas and tender meat."
+  },
+  {
+    "id": "suya",
+    "name": "Suya",
+    "meals": [
+      "dinner",
+      "snack"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Nigerian grilled beef skewers coated in spicy, nutty suya spice."
+  },
+  {
+    "id": "egusi-soup",
+    "name": "Egusi soup",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Nigerian soup thickened with ground melon seeds, leafy greens and meat."
+  },
+  {
+    "id": "fufu",
+    "name": "Fufu",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Stretchy pounded cassava and plantain dough eaten with soups and stews."
+  },
+  {
+    "id": "chakalaka",
+    "name": "Chakalaka",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Spicy South African relish of beans, tomatoes, peppers and carrots."
+  },
+  {
+    "id": "peri-peri-chicken",
+    "name": "Peri-peri chicken",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Flame-grilled chicken basted in a fiery chili, garlic and lemon sauce."
+  },
+  {
+    "id": "puff-puff",
+    "name": "Puff-puff",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Fluffy, slightly sweet deep-fried dough balls popular across West Africa."
+  },
+  {
+    "id": "malva-pudding",
+    "name": "Malva pudding",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Warm, spongy South African apricot pudding soaked in a buttery cream sauce."
+  },
+  {
+    "id": "koshari",
+    "name": "Koshari",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Egyptian mix of rice, lentils, pasta and chickpeas with tomato sauce and fried onions."
+  },
+  {
+    "id": "akara",
+    "name": "Akara",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Crispy fried fritters of whipped black-eyed peas, onion and pepper."
+  },
+  {
+    "id": "mandazi",
+    "name": "Mandazi",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "East African fried dough triangles fragrant with coconut and cardamom."
+  },
+  {
+    "id": "biltong",
+    "name": "Biltong",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "South African air-dried cured beef, seasoned with coriander and vinegar."
+  },
+  {
+    "id": "pastilla",
+    "name": "Pastilla",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [],
+    "blurb": "Moroccan flaky pie of spiced chicken and almonds dusted with cinnamon sugar."
+  },
+  {
+    "id": "kelewele",
+    "name": "Kelewele",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "vegetarian",
+      "vegan",
+      "gluten-free"
+    ],
+    "blurb": "Ghanaian fried plantain cubes spiced with ginger, chili and cloves."
+  },
+  {
+    "id": "maafe",
+    "name": "Maafe",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "african",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "West African peanut stew with meat, tomato and sweet potato."
+  },
+  {
+    "id": "wiener-schnitzel",
+    "name": "Wiener schnitzel",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "german",
+    "diet": [],
+    "blurb": "Thin breaded veal cutlet fried golden, served with lemon and potato salad."
+  },
+  {
+    "id": "bratwurst",
+    "name": "Bratwurst",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "german",
+    "diet": [],
+    "blurb": "Grilled pork sausage in a crusty roll with mustard and sauerkraut."
+  },
+  {
+    "id": "sauerbraten",
+    "name": "Sauerbraten",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "german",
+    "diet": [],
+    "blurb": "Pot roast marinated for days in vinegar and spices, with a sweet-sour gravy."
+  },
+  {
+    "id": "soft-pretzel",
+    "name": "Soft pretzel",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "german",
+    "diet": [
+      "vegetarian",
+      "vegan"
+    ],
+    "blurb": "Chewy, glossy baked dough twist with a deep brown crust and coarse salt."
+  },
+  {
+    "id": "currywurst",
+    "name": "Currywurst",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "german",
+    "diet": [],
+    "blurb": "Sliced sausage smothered in curry ketchup, a Berlin street food classic."
+  },
+  {
+    "id": "kasespatzle",
+    "name": "Käsespätzle",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "german",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Soft egg noodles layered with melted mountain cheese and crispy onions."
+  },
+  {
+    "id": "german-potato-salad",
+    "name": "German potato salad",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "german",
+    "diet": [
+      "vegetarian-option",
+      "gluten-free"
+    ],
+    "blurb": "Warm potato salad dressed with vinegar, mustard, onions and bacon."
+  },
+  {
+    "id": "schweinshaxe",
+    "name": "Schweinshaxe",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "german",
+    "diet": [],
+    "blurb": "Roasted pork knuckle with crackling skin, served with sauerkraut and dumplings."
+  },
+  {
+    "id": "black-forest-cake",
+    "name": "Black Forest cake",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "german",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Chocolate sponge layered with cherries, kirsch and whipped cream."
+  },
+  {
+    "id": "apple-strudel",
+    "name": "Apple strudel",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "german",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Paper-thin pastry rolled around spiced apples, raisins and cinnamon."
+  },
+  {
+    "id": "rouladen",
+    "name": "Rouladen",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "german",
+    "diet": [],
+    "blurb": "Thin beef rolled around bacon, onion and pickles, braised in rich gravy."
+  },
+  {
+    "id": "potato-pancakes",
+    "name": "Potato pancakes",
+    "meals": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "german",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Crispy fried potato pancakes served with applesauce or sour cream."
+  },
+  {
+    "id": "bienenstich",
+    "name": "Bienenstich",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "german",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Bee sting cake: sweet yeast dough with custard and a crunchy honey-almond top."
+  },
+  {
+    "id": "leberkase",
+    "name": "Leberkäse",
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "german",
+    "diet": [],
+    "blurb": "Bavarian meatloaf of finely ground pork, sliced thick into a bread roll."
+  },
+  {
+    "id": "weisswurst",
+    "name": "Weisswurst",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "german",
+    "diet": [],
+    "blurb": "Bavarian white veal sausages with sweet mustard and pretzels, a breakfast treat."
+  },
+  {
+    "id": "berliner",
+    "name": "Berliner",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "german",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Pillowy yeast doughnuts filled with jam and dusted with sugar."
+  },
+  {
+    "id": "maultaschen",
+    "name": "Maultaschen",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "german",
+    "diet": [],
+    "blurb": "Swabian pasta pockets filled with meat, spinach and herbs."
+  },
+  {
+    "id": "kaiserschmarrn",
+    "name": "Kaiserschmarrn",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "german",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Fluffy shredded pancake caramelized and dusted with sugar, with plum compote."
+  },
+  {
+    "id": "flammkuchen",
+    "name": "Flammkuchen",
+    "meals": [
+      "dinner",
+      "snack"
+    ],
+    "cuisine": "german",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Thin, crispy flatbread with crème fraîche, onions and smoky bacon."
+  },
+  {
+    "id": "pierogi",
+    "name": "Pierogi",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Polish dumplings filled with potato and cheese, sauerkraut or meat."
+  },
+  {
+    "id": "borscht",
+    "name": "Borscht",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "vegetarian-option",
+      "gluten-free"
+    ],
+    "blurb": "Vibrant beet soup with cabbage and dill, topped with sour cream."
+  },
+  {
+    "id": "beef-stroganoff",
+    "name": "Beef stroganoff",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [],
+    "blurb": "Tender beef strips in a creamy mushroom and sour cream sauce."
+  },
+  {
+    "id": "goulash",
+    "name": "Goulash",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [],
+    "blurb": "Hungarian beef stew rich with paprika, onions and potatoes."
+  },
+  {
+    "id": "chicken-kiev",
+    "name": "Chicken Kiev",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [],
+    "blurb": "Breaded chicken breast filled with herby garlic butter that oozes when cut."
+  },
+  {
+    "id": "golabki",
+    "name": "Gołąbki",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Cabbage leaves wrapped around meat and rice, baked in tomato sauce."
+  },
+  {
+    "id": "blini",
+    "name": "Blini",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Thin buckwheat or wheat pancakes served with sour cream, jam or caviar."
+  },
+  {
+    "id": "syrniki",
+    "name": "Syrniki",
+    "meals": [
+      "breakfast"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Golden fried farmer cheese pancakes served with sour cream and jam."
+  },
+  {
+    "id": "pelmeni",
+    "name": "Pelmeni",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [],
+    "blurb": "Small Russian dumplings filled with seasoned meat, served with sour cream."
+  },
+  {
+    "id": "chicken-paprikash",
+    "name": "Chicken paprikash",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [],
+    "blurb": "Chicken simmered in a creamy paprika sauce, served over little dumplings."
+  },
+  {
+    "id": "cevapi",
+    "name": "Ćevapi",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [],
+    "blurb": "Grilled minced meat fingers in flatbread with raw onions and ajvar."
+  },
+  {
+    "id": "kielbasa",
+    "name": "Kielbasa",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Smoky Polish sausage grilled or pan-fried with onions and mustard."
+  },
+  {
+    "id": "bigos",
+    "name": "Bigos",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Hearty Polish hunter's stew of sauerkraut, cabbage and assorted meats."
+  },
+  {
+    "id": "paczki",
+    "name": "Pączki",
+    "meals": [
+      "snack",
+      "dessert"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Rich Polish doughnuts filled with rose jam or custard."
+  },
+  {
+    "id": "medovik",
+    "name": "Medovik",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Many-layered honey cake with soft, tangy sour cream frosting."
+  },
+  {
+    "id": "burek",
+    "name": "Burek",
+    "meals": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "vegetarian-option"
+    ],
+    "blurb": "Flaky phyllo pie from the Balkans filled with meat, cheese or spinach."
+  },
+  {
+    "id": "langos",
+    "name": "Lángos",
+    "meals": [
+      "snack"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Hungarian fried dough topped with garlic, sour cream and grated cheese."
+  },
+  {
+    "id": "olivier-salad",
+    "name": "Olivier salad",
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "gluten-free"
+    ],
+    "blurb": "Russian potato salad with peas, pickles, egg and ham in mayonnaise."
+  },
+  {
+    "id": "khachapuri",
+    "name": "Khachapuri",
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Georgian boat-shaped bread filled with molten cheese, butter and egg."
+  },
+  {
+    "id": "halusky",
+    "name": "Halušky",
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [],
+    "blurb": "Slovak potato dumplings tossed with tangy sheep cheese and crispy bacon."
+  },
+  {
+    "id": "kremowka",
+    "name": "Kremówka",
+    "meals": [
+      "dessert"
+    ],
+    "cuisine": "eastern-european",
+    "diet": [
+      "vegetarian"
+    ],
+    "blurb": "Polish cream pie of puff pastry layers filled with thick vanilla custard."
+  }
+]

@@ -1,0 +1,1538 @@
+{
+ "first": [
+  {
+   "name": "Fernbo",
+   "gender": "male",
+   "feel": "earthy, curious"
+  },
+  {
+   "name": "Mossrick",
+   "gender": "male",
+   "feel": "clockwork-precise"
+  },
+  {
+   "name": "Jinxnus",
+   "gender": "male",
+   "feel": "burrow-snug, clever"
+  },
+  {
+   "name": "Sprigson",
+   "gender": "male",
+   "feel": "bouncy, inventive"
+  },
+  {
+   "name": "Dobock",
+   "gender": "male",
+   "feel": "gear-happy, quick"
+  },
+  {
+   "name": "Clovnick",
+   "gender": "male",
+   "feel": "burrow-snug, clever"
+  },
+  {
+   "name": "Quillock",
+   "gender": "male",
+   "feel": "mossy, gentle"
+  },
+  {
+   "name": "Pozo",
+   "gender": "male",
+   "feel": "earthy, curious"
+  },
+  {
+   "name": "Sprigock",
+   "gender": "male",
+   "feel": "clockwork-precise"
+  },
+  {
+   "name": "Jinxpert",
+   "gender": "male",
+   "feel": "gear-happy, quick"
+  },
+  {
+   "name": "Brilbin",
+   "gender": "male",
+   "feel": "clockwork-precise"
+  },
+  {
+   "name": "Lumigle",
+   "gender": "male",
+   "feel": "mossy, gentle"
+  },
+  {
+   "name": "Mabbpert",
+   "gender": "male",
+   "feel": "mossy, gentle"
+  },
+  {
+   "name": "Burlbo",
+   "gender": "male",
+   "feel": "gear-happy, quick"
+  },
+  {
+   "name": "Wimpson",
+   "gender": "male",
+   "feel": "mossy, gentle"
+  },
+  {
+   "name": "Rimpnus",
+   "gender": "male",
+   "feel": "bouncy, inventive"
+  },
+  {
+   "name": "Pockrick",
+   "gender": "male",
+   "feel": "sparky, mischievous"
+  },
+  {
+   "name": "Sprignick",
+   "gender": "male",
+   "feel": "tinkerish, bright"
+  },
+  {
+   "name": "Tansygle",
+   "gender": "male",
+   "feel": "clockwork-precise"
+  },
+  {
+   "name": "Orlock",
+   "gender": "male",
+   "feel": "earthy, curious"
+  },
+  {
+   "name": "Nubbnus",
+   "gender": "male",
+   "feel": "earthy, curious"
+  },
+  {
+   "name": "Pellbin",
+   "gender": "male",
+   "feel": "mossy, gentle"
+  },
+  {
+   "name": "Nubbnick",
+   "gender": "male",
+   "feel": "earthy, curious"
+  },
+  {
+   "name": "Pimdle",
+   "gender": "male",
+   "feel": "bouncy, inventive"
+  },
+  {
+   "name": "Wrenster",
+   "gender": "male",
+   "feel": "sparky, mischievous"
+  },
+  {
+   "name": "Clovbo",
+   "gender": "male",
+   "feel": "bouncy, inventive"
+  },
+  {
+   "name": "Kipock",
+   "gender": "male",
+   "feel": "earthy, curious"
+  },
+  {
+   "name": "Bixrick",
+   "gender": "male",
+   "feel": "clockwork-precise"
+  },
+  {
+   "name": "Luminus",
+   "gender": "male",
+   "feel": "burrow-snug, clever"
+  },
+  {
+   "name": "Pozwick",
+   "gender": "male",
+   "feel": "tinkerish, bright"
+  },
+  {
+   "name": "Bixbin",
+   "gender": "male",
+   "feel": "burrow-snug, clever"
+  },
+  {
+   "name": "Zibster",
+   "gender": "male",
+   "feel": "mossy, gentle"
+  },
+  {
+   "name": "Jinxdor",
+   "gender": "male",
+   "feel": "bouncy, inventive"
+  },
+  {
+   "name": "Mabbnick",
+   "gender": "male",
+   "feel": "clockwork-precise"
+  },
+  {
+   "name": "Sprigster",
+   "gender": "male",
+   "feel": "earthy, curious"
+  },
+  {
+   "name": "Burlzo",
+   "gender": "male",
+   "feel": "bouncy, inventive"
+  },
+  {
+   "name": "Zellson",
+   "gender": "male",
+   "feel": "earthy, curious"
+  },
+  {
+   "name": "Lumirick",
+   "gender": "male",
+   "feel": "burrow-snug, clever"
+  },
+  {
+   "name": "Ebbson",
+   "gender": "male",
+   "feel": "sparky, mischievous"
+  },
+  {
+   "name": "Snibnus",
+   "gender": "male",
+   "feel": "gear-happy, quick"
+  },
+  {
+   "name": "Snibin",
+   "gender": "male",
+   "feel": "earthy, curious"
+  },
+  {
+   "name": "Wimpbin",
+   "gender": "male",
+   "feel": "mossy, gentle"
+  },
+  {
+   "name": "Wimpert",
+   "gender": "male",
+   "feel": "tinkerish, bright"
+  },
+  {
+   "name": "Burlock",
+   "gender": "male",
+   "feel": "bouncy, inventive"
+  },
+  {
+   "name": "Ebble",
+   "gender": "male",
+   "feel": "sparky, mischievous"
+  },
+  {
+   "name": "Lumibin",
+   "gender": "male",
+   "feel": "sparky, mischievous"
+  },
+  {
+   "name": "Mosster",
+   "gender": "male",
+   "feel": "mossy, gentle"
+  },
+  {
+   "name": "Poznus",
+   "gender": "male",
+   "feel": "bouncy, inventive"
+  },
+  {
+   "name": "Bodzo",
+   "gender": "male",
+   "feel": "mossy, gentle"
+  },
+  {
+   "name": "Snibock",
+   "gender": "male",
+   "feel": "earthy, curious"
+  },
+  {
+   "name": "Wrendle",
+   "gender": "male",
+   "feel": "sparky, mischievous"
+  },
+  {
+   "name": "Bodbin",
+   "gender": "male",
+   "feel": "mossy, gentle"
+  },
+  {
+   "name": "Dobwick",
+   "gender": "male",
+   "feel": "sparky, mischievous"
+  },
+  {
+   "name": "Pellpert",
+   "gender": "male",
+   "feel": "mossy, gentle"
+  },
+  {
+   "name": "Fernbin",
+   "gender": "male",
+   "feel": "earthy, curious"
+  },
+  {
+   "name": "Ferndor",
+   "gender": "male",
+   "feel": "mossy, gentle"
+  },
+  {
+   "name": "Kipble",
+   "gender": "male",
+   "feel": "bouncy, inventive"
+  },
+  {
+   "name": "Zellwick",
+   "gender": "male",
+   "feel": "sparky, mischievous"
+  },
+  {
+   "name": "Frenock",
+   "gender": "male",
+   "feel": "sparky, mischievous"
+  },
+  {
+   "name": "Clovzo",
+   "gender": "male",
+   "feel": "gear-happy, quick"
+  },
+  {
+   "name": "Fernwyn",
+   "gender": "female",
+   "feel": "zippy, inventive"
+  },
+  {
+   "name": "Pellbell",
+   "gender": "female",
+   "feel": "gleaming, nimble"
+  },
+  {
+   "name": "Jinxpa",
+   "gender": "female",
+   "feel": "whimsical, bright"
+  },
+  {
+   "name": "Tansyora",
+   "gender": "female",
+   "feel": "gleaming, nimble"
+  },
+  {
+   "name": "Quillette",
+   "gender": "female",
+   "feel": "whimsical, bright"
+  },
+  {
+   "name": "Noddette",
+   "gender": "female",
+   "feel": "whimsical, bright"
+  },
+  {
+   "name": "Tockabel",
+   "gender": "female",
+   "feel": "flower-soft, quick"
+  },
+  {
+   "name": "Burlbell",
+   "gender": "female",
+   "feel": "flower-soft, quick"
+  },
+  {
+   "name": "Glimpa",
+   "gender": "female",
+   "feel": "whimsical, bright"
+  },
+  {
+   "name": "Fipelly",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Bixina",
+   "gender": "female",
+   "feel": "gleaming, nimble"
+  },
+  {
+   "name": "Nubbly",
+   "gender": "female",
+   "feel": "dewy, forest-light"
+  },
+  {
+   "name": "Wizbell",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Boda",
+   "gender": "female",
+   "feel": "bubbly, curious"
+  },
+  {
+   "name": "Tansyelly",
+   "gender": "female",
+   "feel": "dewy, forest-light"
+  },
+  {
+   "name": "Lumie",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Fernelly",
+   "gender": "female",
+   "feel": "zippy, inventive"
+  },
+  {
+   "name": "Jinxie",
+   "gender": "female",
+   "feel": "whimsical, bright"
+  },
+  {
+   "name": "Fiply",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Brilbell",
+   "gender": "female",
+   "feel": "dewy, forest-light"
+  },
+  {
+   "name": "Glima",
+   "gender": "female",
+   "feel": "gleaming, nimble"
+  },
+  {
+   "name": "Noddora",
+   "gender": "female",
+   "feel": "dewy, forest-light"
+  },
+  {
+   "name": "Orlini",
+   "gender": "female",
+   "feel": "bubbly, curious"
+  },
+  {
+   "name": "Bixabel",
+   "gender": "female",
+   "feel": "whimsical, bright"
+  },
+  {
+   "name": "Noddini",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Ebbly",
+   "gender": "female",
+   "feel": "bubbly, curious"
+  },
+  {
+   "name": "Burlabel",
+   "gender": "female",
+   "feel": "flower-soft, quick"
+  },
+  {
+   "name": "Lumiella",
+   "gender": "female",
+   "feel": "flower-soft, quick"
+  },
+  {
+   "name": "Mossie",
+   "gender": "female",
+   "feel": "zippy, inventive"
+  },
+  {
+   "name": "Nubbora",
+   "gender": "female",
+   "feel": "zippy, inventive"
+  },
+  {
+   "name": "Tansyiss",
+   "gender": "female",
+   "feel": "bubbly, curious"
+  },
+  {
+   "name": "Pellina",
+   "gender": "female",
+   "feel": "gleaming, nimble"
+  },
+  {
+   "name": "Brily",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Bixie",
+   "gender": "female",
+   "feel": "gleaming, nimble"
+  },
+  {
+   "name": "Rimpina",
+   "gender": "female",
+   "feel": "gleaming, nimble"
+  },
+  {
+   "name": "Pellwyn",
+   "gender": "female",
+   "feel": "bubbly, curious"
+  },
+  {
+   "name": "Snibina",
+   "gender": "female",
+   "feel": "gleaming, nimble"
+  },
+  {
+   "name": "Kipelly",
+   "gender": "female",
+   "feel": "flower-soft, quick"
+  },
+  {
+   "name": "Sprigina",
+   "gender": "female",
+   "feel": "zippy, inventive"
+  },
+  {
+   "name": "Glimora",
+   "gender": "female",
+   "feel": "bubbly, curious"
+  },
+  {
+   "name": "Snibly",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Dobie",
+   "gender": "female",
+   "feel": "zippy, inventive"
+  },
+  {
+   "name": "Tansyabel",
+   "gender": "female",
+   "feel": "bubbly, curious"
+  },
+  {
+   "name": "Bodwyn",
+   "gender": "female",
+   "feel": "flower-soft, quick"
+  },
+  {
+   "name": "Lumipa",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Sprigella",
+   "gender": "female",
+   "feel": "flower-soft, quick"
+  },
+  {
+   "name": "Kipa",
+   "gender": "female",
+   "feel": "zippy, inventive"
+  },
+  {
+   "name": "Sprigly",
+   "gender": "female",
+   "feel": "bubbly, curious"
+  },
+  {
+   "name": "Tansyette",
+   "gender": "female",
+   "feel": "bubbly, curious"
+  },
+  {
+   "name": "Jinxella",
+   "gender": "female",
+   "feel": "bubbly, curious"
+  },
+  {
+   "name": "Zibwyn",
+   "gender": "female",
+   "feel": "gleaming, nimble"
+  },
+  {
+   "name": "Bixly",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Tockly",
+   "gender": "female",
+   "feel": "dewy, forest-light"
+  },
+  {
+   "name": "Cloviss",
+   "gender": "female",
+   "feel": "sparkly, clever"
+  },
+  {
+   "name": "Jinxelly",
+   "gender": "female",
+   "feel": "flower-soft, quick"
+  },
+  {
+   "name": "Ferna",
+   "gender": "female",
+   "feel": "zippy, inventive"
+  },
+  {
+   "name": "Clova",
+   "gender": "female",
+   "feel": "zippy, inventive"
+  },
+  {
+   "name": "Mabbella",
+   "gender": "female",
+   "feel": "gleaming, nimble"
+  },
+  {
+   "name": "Dobette",
+   "gender": "female",
+   "feel": "zippy, inventive"
+  },
+  {
+   "name": "Quillwyn",
+   "gender": "female",
+   "feel": "zippy, inventive"
+  },
+  {
+   "name": "Noddzy",
+   "gender": "neutral",
+   "feel": "soft, burrowy"
+  },
+  {
+   "name": "Pello",
+   "gender": "neutral",
+   "feel": "short, zippy"
+  },
+  {
+   "name": "Nubbo",
+   "gender": "neutral",
+   "feel": "pebble-small, bright"
+  },
+  {
+   "name": "Mosspip",
+   "gender": "neutral",
+   "feel": "short, zippy"
+  },
+  {
+   "name": "Quillo",
+   "gender": "neutral",
+   "feel": "pebble-small, bright"
+  },
+  {
+   "name": "Bodet",
+   "gender": "neutral",
+   "feel": "quirky, light"
+  },
+  {
+   "name": "Jinxpip",
+   "gender": "neutral",
+   "feel": "soft, burrowy"
+  },
+  {
+   "name": "Pozy",
+   "gender": "neutral",
+   "feel": "short, zippy"
+  },
+  {
+   "name": "Brilo",
+   "gender": "neutral",
+   "feel": "quirky, light"
+  },
+  {
+   "name": "Mabbet",
+   "gender": "neutral",
+   "feel": "short, zippy"
+  },
+  {
+   "name": "Lumiet",
+   "gender": "neutral",
+   "feel": "quirky, light"
+  },
+  {
+   "name": "Wrenix",
+   "gender": "neutral",
+   "feel": "short, zippy"
+  },
+  {
+   "name": "Wizy",
+   "gender": "neutral",
+   "feel": "soft, burrowy"
+  },
+  {
+   "name": "Zibix",
+   "gender": "neutral",
+   "feel": "soft, burrowy"
+  },
+  {
+   "name": "Tocket",
+   "gender": "neutral",
+   "feel": "short, zippy"
+  },
+  {
+   "name": "Glimzy",
+   "gender": "neutral",
+   "feel": "soft, burrowy"
+  },
+  {
+   "name": "Bodo",
+   "gender": "neutral",
+   "feel": "odd, cheerful"
+  },
+  {
+   "name": "Bixzy",
+   "gender": "neutral",
+   "feel": "pebble-small, bright"
+  },
+  {
+   "name": "Spriget",
+   "gender": "neutral",
+   "feel": "short, zippy"
+  },
+  {
+   "name": "Dobpip",
+   "gender": "neutral",
+   "feel": "odd, cheerful"
+  },
+  {
+   "name": "Bodix",
+   "gender": "neutral",
+   "feel": "pebble-small, bright"
+  },
+  {
+   "name": "Snibkit",
+   "gender": "neutral",
+   "feel": "pebble-small, bright"
+  },
+  {
+   "name": "Nubbpip",
+   "gender": "neutral",
+   "feel": "pebble-small, bright"
+  },
+  {
+   "name": "Rimpet",
+   "gender": "neutral",
+   "feel": "odd, cheerful"
+  },
+  {
+   "name": "Lumipip",
+   "gender": "neutral",
+   "feel": "odd, cheerful"
+  },
+  {
+   "name": "Noddpip",
+   "gender": "neutral",
+   "feel": "pebble-small, bright"
+  },
+  {
+   "name": "Ebbkit",
+   "gender": "neutral",
+   "feel": "soft, burrowy"
+  },
+  {
+   "name": "Noddo",
+   "gender": "neutral",
+   "feel": "odd, cheerful"
+  },
+  {
+   "name": "Bixix",
+   "gender": "neutral",
+   "feel": "odd, cheerful"
+  },
+  {
+   "name": "Kipix",
+   "gender": "neutral",
+   "feel": "odd, cheerful"
+  }
+ ],
+ "nicknames": [
+  {
+   "name": "Spindlegrin",
+   "meaning": "for grinning whenever spindles appear"
+  },
+  {
+   "name": "Tinkertoes",
+   "meaning": "for always tripping over tinkering"
+  },
+  {
+   "name": "Thimblekeeper",
+   "meaning": "for collecting far too many thimbles"
+  },
+  {
+   "name": "Sparkwhiz",
+   "meaning": "for mastering every trick with sparks"
+  },
+  {
+   "name": "Lanternwhiz",
+   "meaning": "for mastering every trick with lanterns"
+  },
+  {
+   "name": "Gearmuddle",
+   "meaning": "for once mixing up all the gears"
+  },
+  {
+   "name": "Acornnose",
+   "meaning": "for sniffing out trouble with acorns"
+  },
+  {
+   "name": "Gearheart",
+   "meaning": "for a lifelong love of gears"
+  },
+  {
+   "name": "Rivetwit",
+   "meaning": "for clever jokes about rivets"
+  },
+  {
+   "name": "Thimbleheart",
+   "meaning": "for a lifelong love of thimbles"
+  },
+  {
+   "name": "Sproutwhiz",
+   "meaning": "for mastering every trick with sprouts"
+  },
+  {
+   "name": "Beetlejumble",
+   "meaning": "for a workshop overflowing with beetles"
+  },
+  {
+   "name": "Sproutworth",
+   "meaning": "for building sprouts that never stop"
+  },
+  {
+   "name": "Kettlejumble",
+   "meaning": "for a workshop overflowing with kettles"
+  },
+  {
+   "name": "Clocktoes",
+   "meaning": "for always tripping over clocks"
+  },
+  {
+   "name": "Whistlepop",
+   "meaning": "for once losing a hundred whistles in one day"
+  },
+  {
+   "name": "Cogwit",
+   "meaning": "for clever jokes about cogs"
+  },
+  {
+   "name": "Springpop",
+   "meaning": "for once losing a hundred springs in one day"
+  },
+  {
+   "name": "Thimbleears",
+   "meaning": "for hearing thimbles from miles away"
+  },
+  {
+   "name": "Puddlewit",
+   "meaning": "for clever jokes about puddles"
+  },
+  {
+   "name": "Gadgettoes",
+   "meaning": "for always tripping over gadgets"
+  },
+  {
+   "name": "Whistleheart",
+   "meaning": "for a lifelong love of whistles"
+  },
+  {
+   "name": "Picklepop",
+   "meaning": "for once losing a hundred pickles in one day"
+  },
+  {
+   "name": "Kettlenose",
+   "meaning": "for sniffing out trouble with kettles"
+  },
+  {
+   "name": "Toadspinner",
+   "meaning": "for spinning tall tales about toads"
+  },
+  {
+   "name": "Beetleheart",
+   "meaning": "for a lifelong love of beetles"
+  },
+  {
+   "name": "Lanternjumble",
+   "meaning": "for a workshop overflowing with lanterns"
+  },
+  {
+   "name": "Gadgetgrin",
+   "meaning": "for grinning whenever gadgets appear"
+  },
+  {
+   "name": "Puddlejumble",
+   "meaning": "for a workshop overflowing with puddles"
+  },
+  {
+   "name": "Acornwhiz",
+   "meaning": "for mastering every trick with acorns"
+  },
+  {
+   "name": "Pebblegrin",
+   "meaning": "for grinning whenever pebbles appear"
+  },
+  {
+   "name": "Widgetpop",
+   "meaning": "for once losing a hundred widgets in one day"
+  },
+  {
+   "name": "Acornpop",
+   "meaning": "for once losing a hundred acorns in one day"
+  },
+  {
+   "name": "Fernspinner",
+   "meaning": "for spinning tall tales about ferns"
+  },
+  {
+   "name": "Fernmuddle",
+   "meaning": "for once mixing up all the ferns"
+  },
+  {
+   "name": "Badgermuddle",
+   "meaning": "for once mixing up all the badgers"
+  },
+  {
+   "name": "Tinkergrin",
+   "meaning": "for grinning whenever tinkering appear"
+  },
+  {
+   "name": "Beetlepop",
+   "meaning": "for once losing a hundred beetles in one day"
+  },
+  {
+   "name": "Sparknose",
+   "meaning": "for sniffing out trouble with sparks"
+  },
+  {
+   "name": "Beetlefingers",
+   "meaning": "for nimble work with beetles"
+  },
+  {
+   "name": "Bubblewhiz",
+   "meaning": "for mastering every trick with bubbles"
+  },
+  {
+   "name": "Rivetjumble",
+   "meaning": "for a workshop overflowing with rivets"
+  },
+  {
+   "name": "Widgetkeeper",
+   "meaning": "for collecting far too many widgets"
+  },
+  {
+   "name": "Fernnose",
+   "meaning": "for sniffing out trouble with ferns"
+  },
+  {
+   "name": "Fizzspinner",
+   "meaning": "for spinning tall tales about fizzing potions"
+  },
+  {
+   "name": "Kettletoes",
+   "meaning": "for always tripping over kettles"
+  },
+  {
+   "name": "Riddlekeeper",
+   "meaning": "for collecting far too many riddles"
+  },
+  {
+   "name": "Sparkwit",
+   "meaning": "for clever jokes about sparks"
+  },
+  {
+   "name": "Cogworth",
+   "meaning": "for building cogs that never stop"
+  },
+  {
+   "name": "Tinkerworth",
+   "meaning": "for building tinkering that never stop"
+  },
+  {
+   "name": "Kettlewhiz",
+   "meaning": "for mastering every trick with kettles"
+  },
+  {
+   "name": "Bubbleheart",
+   "meaning": "for a lifelong love of bubbles"
+  },
+  {
+   "name": "Puddleears",
+   "meaning": "for hearing puddles from miles away"
+  },
+  {
+   "name": "Ferntoes",
+   "meaning": "for always tripping over ferns"
+  },
+  {
+   "name": "Mushroomtoes",
+   "meaning": "for always tripping over mushrooms"
+  },
+  {
+   "name": "Tinkerwhiz",
+   "meaning": "for mastering every trick with tinkering"
+  },
+  {
+   "name": "Buttonheart",
+   "meaning": "for a lifelong love of buttons"
+  },
+  {
+   "name": "Fizzgrin",
+   "meaning": "for grinning whenever fizzing potions appear"
+  },
+  {
+   "name": "Tinkerwit",
+   "meaning": "for clever jokes about tinkering"
+  },
+  {
+   "name": "Pebblenose",
+   "meaning": "for sniffing out trouble with pebbles"
+  },
+  {
+   "name": "Mushroomheart",
+   "meaning": "for a lifelong love of mushrooms"
+  },
+  {
+   "name": "Fizznose",
+   "meaning": "for sniffing out trouble with fizzing potions"
+  },
+  {
+   "name": "Widgetwit",
+   "meaning": "for clever jokes about widgets"
+  },
+  {
+   "name": "Springtoes",
+   "meaning": "for always tripping over springs"
+  },
+  {
+   "name": "Gearpop",
+   "meaning": "for once losing a hundred gears in one day"
+  },
+  {
+   "name": "Fernkeeper",
+   "meaning": "for collecting far too many ferns"
+  },
+  {
+   "name": "Fizzkeeper",
+   "meaning": "for collecting far too many fizzing potions"
+  },
+  {
+   "name": "Riddlewhiz",
+   "meaning": "for mastering every trick with riddles"
+  },
+  {
+   "name": "Toadkeeper",
+   "meaning": "for collecting far too many toads"
+  },
+  {
+   "name": "Clockworth",
+   "meaning": "for building clocks that never stop"
+  },
+  {
+   "name": "Clockkeeper",
+   "meaning": "for collecting far too many clocks"
+  },
+  {
+   "name": "Gadgetwhiz",
+   "meaning": "for mastering every trick with gadgets"
+  },
+  {
+   "name": "Mushroomfingers",
+   "meaning": "for nimble work with mushrooms"
+  },
+  {
+   "name": "Cogjumble",
+   "meaning": "for a workshop overflowing with cogs"
+  },
+  {
+   "name": "Clockgrin",
+   "meaning": "for grinning whenever clocks appear"
+  },
+  {
+   "name": "Mothears",
+   "meaning": "for hearing moths from miles away"
+  },
+  {
+   "name": "Thimblemuddle",
+   "meaning": "for once mixing up all the thimbles"
+  },
+  {
+   "name": "Clockspinner",
+   "meaning": "for spinning tall tales about clocks"
+  },
+  {
+   "name": "Tinkerheart",
+   "meaning": "for a lifelong love of tinkering"
+  },
+  {
+   "name": "Gadgetkeeper",
+   "meaning": "for collecting far too many gadgets"
+  },
+  {
+   "name": "Dandelionjumble",
+   "meaning": "for a workshop overflowing with dandelions"
+  },
+  {
+   "name": "Mushroomgrin",
+   "meaning": "for grinning whenever mushrooms appear"
+  },
+  {
+   "name": "Whistleears",
+   "meaning": "for hearing whistles from miles away"
+  },
+  {
+   "name": "Toadears",
+   "meaning": "for hearing toads from miles away"
+  },
+  {
+   "name": "Riddlespinner",
+   "meaning": "for spinning tall tales about riddles"
+  },
+  {
+   "name": "Whistlenose",
+   "meaning": "for sniffing out trouble with whistles"
+  },
+  {
+   "name": "Rivetkeeper",
+   "meaning": "for collecting far too many rivets"
+  },
+  {
+   "name": "Lanternworth",
+   "meaning": "for building lanterns that never stop"
+  },
+  {
+   "name": "Buttonears",
+   "meaning": "for hearing buttons from miles away"
+  },
+  {
+   "name": "Rivetfingers",
+   "meaning": "for nimble work with rivets"
+  },
+  {
+   "name": "Acornspinner",
+   "meaning": "for spinning tall tales about acorns"
+  },
+  {
+   "name": "Sproutwit",
+   "meaning": "for clever jokes about sprouts"
+  },
+  {
+   "name": "Kettleheart",
+   "meaning": "for a lifelong love of kettles"
+  },
+  {
+   "name": "Spindleheart",
+   "meaning": "for a lifelong love of spindles"
+  },
+  {
+   "name": "Toadwhiz",
+   "meaning": "for mastering every trick with toads"
+  }
+ ],
+ "clans": [
+  {
+   "name": "Mossroot",
+   "meaning": "tinkers renowned for root-tunnel gardens and moss"
+  },
+  {
+   "name": "Embercap",
+   "meaning": "known for enchanted mushroom caps and a fondness for embers"
+  },
+  {
+   "name": "Tinburrow",
+   "meaning": "tinkers renowned for the coziest burrows and tin"
+  },
+  {
+   "name": "Puzzlecrank",
+   "meaning": "famed in every burrow for hand-cranked music boxes and puzzles"
+  },
+  {
+   "name": "Dapplebottle",
+   "meaning": "famed in every burrow for bottled lightning experiments and dappled shade"
+  },
+  {
+   "name": "Mosstwist",
+   "meaning": "famed in every burrow for twisting spring traps and moss"
+  },
+  {
+   "name": "Tinglen",
+   "meaning": "known for singing forest glens and a fondness for tin"
+  },
+  {
+   "name": "Toadstoolgear",
+   "meaning": "famed in every burrow for perfectly cut gears and toadstools"
+  },
+  {
+   "name": "Quartzlamp",
+   "meaning": "tinkers renowned for glowing lamps and quartz"
+  },
+  {
+   "name": "Gloamcap",
+   "meaning": "known for enchanted mushroom caps and a fondness for cave gloom"
+  },
+  {
+   "name": "Glimmerlens",
+   "meaning": "famed in every burrow for lenses that see in the dark and glimmering things"
+  },
+  {
+   "name": "Pebblegear",
+   "meaning": "known for perfectly cut gears and a fondness for pebbles"
+  },
+  {
+   "name": "Brassdial",
+   "meaning": "proud makers of dials that measure moods, fond of brass"
+  },
+  {
+   "name": "Hazelwick",
+   "meaning": "proud makers of candles that never melt, fond of hazelnuts"
+  },
+  {
+   "name": "Gildedbottle",
+   "meaning": "famed in every burrow for bottled lightning experiments and gold leaf"
+  },
+  {
+   "name": "Quartzdial",
+   "meaning": "proud makers of dials that measure moods, fond of quartz"
+  },
+  {
+   "name": "Tinhollow",
+   "meaning": "famed in every burrow for hollow-tree workshops and tin"
+  },
+  {
+   "name": "Brambleglen",
+   "meaning": "famed in every burrow for singing forest glens and brambles"
+  },
+  {
+   "name": "Pebbletwist",
+   "meaning": "known for twisting spring traps and a fondness for pebbles"
+  },
+  {
+   "name": "Tumblenook",
+   "meaning": "famed in every burrow for hidden map nooks and tumbling acrobatics"
+  },
+  {
+   "name": "Copperpocket",
+   "meaning": "famed in every burrow for coats with endless pockets and copper"
+  },
+  {
+   "name": "Toadstoolbottle",
+   "meaning": "famed in every burrow for bottled lightning experiments and toadstools"
+  },
+  {
+   "name": "Emberwhistle",
+   "meaning": "famed in every burrow for whistling steam contraptions and embers"
+  },
+  {
+   "name": "Emberlamp",
+   "meaning": "proud makers of glowing lamps, fond of embers"
+  },
+  {
+   "name": "Pebbleburrow",
+   "meaning": "tinkers renowned for the coziest burrows and pebbles"
+  },
+  {
+   "name": "Brassburrow",
+   "meaning": "famed in every burrow for the coziest burrows and brass"
+  },
+  {
+   "name": "Twinklenook",
+   "meaning": "tinkers renowned for hidden map nooks and starlight"
+  },
+  {
+   "name": "Copperlens",
+   "meaning": "proud makers of lenses that see in the dark, fond of copper"
+  },
+  {
+   "name": "Quartzbottle",
+   "meaning": "tinkers renowned for bottled lightning experiments and quartz"
+  },
+  {
+   "name": "Pebbleroot",
+   "meaning": "proud makers of root-tunnel gardens, fond of pebbles"
+  },
+  {
+   "name": "Dapplebolt",
+   "meaning": "tinkers renowned for bolts that tighten themselves and dappled shade"
+  },
+  {
+   "name": "Toadstoolhollow",
+   "meaning": "tinkers renowned for hollow-tree workshops and toadstools"
+  },
+  {
+   "name": "Dappledial",
+   "meaning": "known for dials that measure moods and a fondness for dappled shade"
+  },
+  {
+   "name": "Quartzhollow",
+   "meaning": "famed in every burrow for hollow-tree workshops and quartz"
+  },
+  {
+   "name": "Gildedcap",
+   "meaning": "tinkers renowned for enchanted mushroom caps and gold leaf"
+  },
+  {
+   "name": "Clovernook",
+   "meaning": "tinkers renowned for hidden map nooks and clover"
+  },
+  {
+   "name": "Hazeltwist",
+   "meaning": "famed in every burrow for twisting spring traps and hazelnuts"
+  },
+  {
+   "name": "Dapplelens",
+   "meaning": "tinkers renowned for lenses that see in the dark and dappled shade"
+  },
+  {
+   "name": "Toadstoollens",
+   "meaning": "proud makers of lenses that see in the dark, fond of toadstools"
+  },
+  {
+   "name": "Thistlehollow",
+   "meaning": "proud makers of hollow-tree workshops, fond of thistles"
+  },
+  {
+   "name": "Dapplegear",
+   "meaning": "famed in every burrow for perfectly cut gears and dappled shade"
+  },
+  {
+   "name": "Bramblegear",
+   "meaning": "tinkers renowned for perfectly cut gears and brambles"
+  },
+  {
+   "name": "Cloverbottle",
+   "meaning": "tinkers renowned for bottled lightning experiments and clover"
+  },
+  {
+   "name": "Pebbleglen",
+   "meaning": "known for singing forest glens and a fondness for pebbles"
+  },
+  {
+   "name": "Dapplenook",
+   "meaning": "famed in every burrow for hidden map nooks and dappled shade"
+  },
+  {
+   "name": "Gildedcrank",
+   "meaning": "famed in every burrow for hand-cranked music boxes and gold leaf"
+  },
+  {
+   "name": "Tinnook",
+   "meaning": "proud makers of hidden map nooks, fond of tin"
+  },
+  {
+   "name": "Gildedlens",
+   "meaning": "known for lenses that see in the dark and a fondness for gold leaf"
+  },
+  {
+   "name": "Fizzledial",
+   "meaning": "tinkers renowned for dials that measure moods and fizzing brews"
+  },
+  {
+   "name": "Copperburrow",
+   "meaning": "famed in every burrow for the coziest burrows and copper"
+  },
+  {
+   "name": "Hazelcrank",
+   "meaning": "proud makers of hand-cranked music boxes, fond of hazelnuts"
+  },
+  {
+   "name": "Fizzlelamp",
+   "meaning": "famed in every burrow for glowing lamps and fizzing brews"
+  },
+  {
+   "name": "Bramblespark",
+   "meaning": "known for safe-ish fireworks and a fondness for brambles"
+  },
+  {
+   "name": "Thistlespark",
+   "meaning": "tinkers renowned for safe-ish fireworks and thistles"
+  },
+  {
+   "name": "Cloverroot",
+   "meaning": "proud makers of root-tunnel gardens, fond of clover"
+  },
+  {
+   "name": "Twinkleglen",
+   "meaning": "proud makers of singing forest glens, fond of starlight"
+  },
+  {
+   "name": "Hazellens",
+   "meaning": "famed in every burrow for lenses that see in the dark and hazelnuts"
+  },
+  {
+   "name": "Quartzpocket",
+   "meaning": "known for coats with endless pockets and a fondness for quartz"
+  },
+  {
+   "name": "Cloverburrow",
+   "meaning": "proud makers of the coziest burrows, fond of clover"
+  },
+  {
+   "name": "Brasscap",
+   "meaning": "proud makers of enchanted mushroom caps, fond of brass"
+  },
+  {
+   "name": "Glimmerspark",
+   "meaning": "famed in every burrow for safe-ish fireworks and glimmering things"
+  },
+  {
+   "name": "Brasspocket",
+   "meaning": "famed in every burrow for coats with endless pockets and brass"
+  },
+  {
+   "name": "Puzzlehollow",
+   "meaning": "proud makers of hollow-tree workshops, fond of puzzles"
+  },
+  {
+   "name": "Emberburrow",
+   "meaning": "famed in every burrow for the coziest burrows and embers"
+  },
+  {
+   "name": "Ticktockburrow",
+   "meaning": "famed in every burrow for the coziest burrows and ticking clocks"
+  },
+  {
+   "name": "Brambledial",
+   "meaning": "proud makers of dials that measure moods, fond of brambles"
+  },
+  {
+   "name": "Pebblelens",
+   "meaning": "tinkers renowned for lenses that see in the dark and pebbles"
+  },
+  {
+   "name": "Fizzleroot",
+   "meaning": "known for root-tunnel gardens and a fondness for fizzing brews"
+  },
+  {
+   "name": "Mosspocket",
+   "meaning": "tinkers renowned for coats with endless pockets and moss"
+  },
+  {
+   "name": "Gloampocket",
+   "meaning": "tinkers renowned for coats with endless pockets and cave gloom"
+  },
+  {
+   "name": "Sprocketpocket",
+   "meaning": "known for coats with endless pockets and a fondness for sprockets"
+  },
+  {
+   "name": "Tumbleburrow",
+   "meaning": "famed in every burrow for the coziest burrows and tumbling acrobatics"
+  },
+  {
+   "name": "Glimmerglen",
+   "meaning": "known for singing forest glens and a fondness for glimmering things"
+  },
+  {
+   "name": "Coppergear",
+   "meaning": "known for perfectly cut gears and a fondness for copper"
+  },
+  {
+   "name": "Brambleburrow",
+   "meaning": "known for the coziest burrows and a fondness for brambles"
+  },
+  {
+   "name": "Brassspark",
+   "meaning": "famed in every burrow for safe-ish fireworks and brass"
+  },
+  {
+   "name": "Ticktocklamp",
+   "meaning": "proud makers of glowing lamps, fond of ticking clocks"
+  },
+  {
+   "name": "Bramblenook",
+   "meaning": "tinkers renowned for hidden map nooks and brambles"
+  },
+  {
+   "name": "Hazellamp",
+   "meaning": "tinkers renowned for glowing lamps and hazelnuts"
+  },
+  {
+   "name": "Sprocketlamp",
+   "meaning": "tinkers renowned for glowing lamps and sprockets"
+  },
+  {
+   "name": "Puzzleroot",
+   "meaning": "tinkers renowned for root-tunnel gardens and puzzles"
+  },
+  {
+   "name": "Sprocketwhistle",
+   "meaning": "proud makers of whistling steam contraptions, fond of sprockets"
+  },
+  {
+   "name": "Gloamcrank",
+   "meaning": "famed in every burrow for hand-cranked music boxes and cave gloom"
+  },
+  {
+   "name": "Quartzgear",
+   "meaning": "known for perfectly cut gears and a fondness for quartz"
+  },
+  {
+   "name": "Glimmerburrow",
+   "meaning": "proud makers of the coziest burrows, fond of glimmering things"
+  },
+  {
+   "name": "Dapplehollow",
+   "meaning": "famed in every burrow for hollow-tree workshops and dappled shade"
+  },
+  {
+   "name": "Quartztwist",
+   "meaning": "known for twisting spring traps and a fondness for quartz"
+  },
+  {
+   "name": "Thistlegear",
+   "meaning": "known for perfectly cut gears and a fondness for thistles"
+  },
+  {
+   "name": "Coppercap",
+   "meaning": "tinkers renowned for enchanted mushroom caps and copper"
+  },
+  {
+   "name": "Gloamburrow",
+   "meaning": "known for the coziest burrows and a fondness for cave gloom"
+  },
+  {
+   "name": "Bramblewick",
+   "meaning": "famed in every burrow for candles that never melt and brambles"
+  },
+  {
+   "name": "Thistlepocket",
+   "meaning": "proud makers of coats with endless pockets, fond of thistles"
+  },
+  {
+   "name": "Puzzledial",
+   "meaning": "known for dials that measure moods and a fondness for puzzles"
+  },
+  {
+   "name": "Tinpocket",
+   "meaning": "famed in every burrow for coats with endless pockets and tin"
+  },
+  {
+   "name": "Mossglen",
+   "meaning": "proud makers of singing forest glens, fond of moss"
+  },
+  {
+   "name": "Bramblepocket",
+   "meaning": "famed in every burrow for coats with endless pockets and brambles"
+  },
+  {
+   "name": "Hazelspark",
+   "meaning": "known for safe-ish fireworks and a fondness for hazelnuts"
+  },
+  {
+   "name": "Gildedpocket",
+   "meaning": "famed in every burrow for coats with endless pockets and gold leaf"
+  },
+  {
+   "name": "Thistlecrank",
+   "meaning": "tinkers renowned for hand-cranked music boxes and thistles"
+  },
+  {
+   "name": "Hazelnook",
+   "meaning": "proud makers of hidden map nooks, fond of hazelnuts"
+  }
+ ]
+}

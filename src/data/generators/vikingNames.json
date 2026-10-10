@@ -1,0 +1,2812 @@
+{
+  "names": [
+    {
+      "name": "Bjǫrn",
+      "ascii": "Bjorn",
+      "gender": "male",
+      "meaning": "bear"
+    },
+    {
+      "name": "Þórsteinn",
+      "ascii": "Thorstein",
+      "gender": "male",
+      "meaning": "Thor + stone"
+    },
+    {
+      "name": "Ragnarr",
+      "ascii": "Ragnar",
+      "gender": "male",
+      "meaning": "counsel + army"
+    },
+    {
+      "name": "Haraldr",
+      "ascii": "Harald",
+      "gender": "male",
+      "meaning": "army + ruler"
+    },
+    {
+      "name": "Óláfr",
+      "ascii": "Olaf",
+      "gender": "male",
+      "meaning": "ancestor + descendant"
+    },
+    {
+      "name": "Leifr",
+      "ascii": "Leif",
+      "gender": "male",
+      "meaning": "heir, descendant"
+    },
+    {
+      "name": "Eiríkr",
+      "ascii": "Erik",
+      "gender": "male",
+      "meaning": "ever + ruler"
+    },
+    {
+      "name": "Ívarr",
+      "ascii": "Ivar",
+      "gender": "male",
+      "meaning": "possibly yew + warrior"
+    },
+    {
+      "name": "Sigurðr",
+      "ascii": "Sigurd",
+      "gender": "male",
+      "meaning": "victory + guardian"
+    },
+    {
+      "name": "Gunnarr",
+      "ascii": "Gunnar",
+      "gender": "male",
+      "meaning": "war + army"
+    },
+    {
+      "name": "Hákon",
+      "ascii": "Hakon",
+      "gender": "male",
+      "meaning": "high + son, descendant"
+    },
+    {
+      "name": "Knútr",
+      "ascii": "Knut",
+      "gender": "male",
+      "meaning": "knot"
+    },
+    {
+      "name": "Sveinn",
+      "ascii": "Svein",
+      "gender": "male",
+      "meaning": "boy, young man"
+    },
+    {
+      "name": "Ulfr",
+      "ascii": "Ulf",
+      "gender": "male",
+      "meaning": "wolf"
+    },
+    {
+      "name": "Arnbjǫrn",
+      "ascii": "Arnbjorn",
+      "gender": "male",
+      "meaning": "eagle + bear"
+    },
+    {
+      "name": "Arnórr",
+      "ascii": "Arnor",
+      "gender": "male",
+      "meaning": "eagle + Thor"
+    },
+    {
+      "name": "Ásbjǫrn",
+      "ascii": "Asbjorn",
+      "gender": "male",
+      "meaning": "god + bear"
+    },
+    {
+      "name": "Ásgeirr",
+      "ascii": "Asgeir",
+      "gender": "male",
+      "meaning": "god + spear"
+    },
+    {
+      "name": "Áskell",
+      "ascii": "Askell",
+      "gender": "male",
+      "meaning": "god + helmet"
+    },
+    {
+      "name": "Ásmundr",
+      "ascii": "Asmund",
+      "gender": "male",
+      "meaning": "god + protection"
+    },
+    {
+      "name": "Atli",
+      "ascii": "Atli",
+      "gender": "male",
+      "meaning": "possibly little father"
+    },
+    {
+      "name": "Auðun",
+      "ascii": "Audun",
+      "gender": "male",
+      "meaning": "wealth + friend"
+    },
+    {
+      "name": "Bárðr",
+      "ascii": "Bard",
+      "gender": "male",
+      "meaning": "possibly battle + peace"
+    },
+    {
+      "name": "Bersi",
+      "ascii": "Bersi",
+      "gender": "male",
+      "meaning": "bear cub"
+    },
+    {
+      "name": "Bolli",
+      "ascii": "Bolli",
+      "gender": "male",
+      "meaning": "possibly bowl, round one"
+    },
+    {
+      "name": "Bragi",
+      "ascii": "Bragi",
+      "gender": "male",
+      "meaning": "poet, foremost"
+    },
+    {
+      "name": "Brandr",
+      "ascii": "Brand",
+      "gender": "male",
+      "meaning": "sword, firebrand"
+    },
+    {
+      "name": "Egill",
+      "ascii": "Egil",
+      "gender": "male",
+      "meaning": "possibly edge, blade"
+    },
+    {
+      "name": "Einarr",
+      "ascii": "Einar",
+      "gender": "male",
+      "meaning": "one + warrior, lone fighter"
+    },
+    {
+      "name": "Eyvindr",
+      "ascii": "Eyvind",
+      "gender": "male",
+      "meaning": "possibly island + wind"
+    },
+    {
+      "name": "Finnr",
+      "ascii": "Finn",
+      "gender": "male",
+      "meaning": "a Finn or Sami person"
+    },
+    {
+      "name": "Flóki",
+      "ascii": "Floki",
+      "gender": "male",
+      "meaning": "possibly tangled hair"
+    },
+    {
+      "name": "Freysteinn",
+      "ascii": "Freystein",
+      "gender": "male",
+      "meaning": "Freyr + stone"
+    },
+    {
+      "name": "Frosti",
+      "ascii": "Frosti",
+      "gender": "male",
+      "meaning": "frost"
+    },
+    {
+      "name": "Geirr",
+      "ascii": "Geir",
+      "gender": "male",
+      "meaning": "spear"
+    },
+    {
+      "name": "Glúmr",
+      "ascii": "Glum",
+      "gender": "male",
+      "meaning": "possibly dark-looking, sullen"
+    },
+    {
+      "name": "Grímr",
+      "ascii": "Grim",
+      "gender": "male",
+      "meaning": "mask, hooded one"
+    },
+    {
+      "name": "Guðmundr",
+      "ascii": "Gudmund",
+      "gender": "male",
+      "meaning": "god + protection"
+    },
+    {
+      "name": "Gunnbjǫrn",
+      "ascii": "Gunnbjorn",
+      "gender": "male",
+      "meaning": "war + bear"
+    },
+    {
+      "name": "Hallbjǫrn",
+      "ascii": "Hallbjorn",
+      "gender": "male",
+      "meaning": "rock + bear"
+    },
+    {
+      "name": "Halldórr",
+      "ascii": "Halldor",
+      "gender": "male",
+      "meaning": "rock + Thor"
+    },
+    {
+      "name": "Hallr",
+      "ascii": "Hall",
+      "gender": "male",
+      "meaning": "rock, stone"
+    },
+    {
+      "name": "Hálfdan",
+      "ascii": "Halfdan",
+      "gender": "male",
+      "meaning": "half-Dane"
+    },
+    {
+      "name": "Hárekr",
+      "ascii": "Harek",
+      "gender": "male",
+      "meaning": "army + ruler"
+    },
+    {
+      "name": "Hávarðr",
+      "ascii": "Havard",
+      "gender": "male",
+      "meaning": "high + guardian"
+    },
+    {
+      "name": "Helgi",
+      "ascii": "Helgi",
+      "gender": "male",
+      "meaning": "holy, sacred"
+    },
+    {
+      "name": "Herjólfr",
+      "ascii": "Herjolf",
+      "gender": "male",
+      "meaning": "army + wolf"
+    },
+    {
+      "name": "Hjalti",
+      "ascii": "Hjalti",
+      "gender": "male",
+      "meaning": "sword hilt"
+    },
+    {
+      "name": "Hrafn",
+      "ascii": "Hrafn",
+      "gender": "male",
+      "meaning": "raven"
+    },
+    {
+      "name": "Hrafnkell",
+      "ascii": "Hrafnkel",
+      "gender": "male",
+      "meaning": "raven + helmet"
+    },
+    {
+      "name": "Hrólfr",
+      "ascii": "Rolf",
+      "gender": "male",
+      "meaning": "fame + wolf"
+    },
+    {
+      "name": "Hróðgeirr",
+      "ascii": "Hrodgeir",
+      "gender": "male",
+      "meaning": "fame + spear"
+    },
+    {
+      "name": "Ingólfr",
+      "ascii": "Ingolf",
+      "gender": "male",
+      "meaning": "Ing (Freyr) + wolf"
+    },
+    {
+      "name": "Ingimundr",
+      "ascii": "Ingimund",
+      "gender": "male",
+      "meaning": "Ing + protection"
+    },
+    {
+      "name": "Ísleifr",
+      "ascii": "Isleif",
+      "gender": "male",
+      "meaning": "ice + heir"
+    },
+    {
+      "name": "Ketill",
+      "ascii": "Ketil",
+      "gender": "male",
+      "meaning": "cauldron, helmet"
+    },
+    {
+      "name": "Kolbeinn",
+      "ascii": "Kolbein",
+      "gender": "male",
+      "meaning": "coal + bone, dark-legged"
+    },
+    {
+      "name": "Kolr",
+      "ascii": "Kol",
+      "gender": "male",
+      "meaning": "coal, dark"
+    },
+    {
+      "name": "Kári",
+      "ascii": "Kari",
+      "gender": "male",
+      "meaning": "curly-haired, gust of wind"
+    },
+    {
+      "name": "Loðinn",
+      "ascii": "Lodin",
+      "gender": "male",
+      "meaning": "hairy, shaggy"
+    },
+    {
+      "name": "Magnús",
+      "ascii": "Magnus",
+      "gender": "male",
+      "meaning": "great (from Latin)"
+    },
+    {
+      "name": "Njáll",
+      "ascii": "Njal",
+      "gender": "male",
+      "meaning": "from Irish Niall, champion"
+    },
+    {
+      "name": "Oddr",
+      "ascii": "Odd",
+      "gender": "male",
+      "meaning": "point of a blade"
+    },
+    {
+      "name": "Ormr",
+      "ascii": "Orm",
+      "gender": "male",
+      "meaning": "serpent, dragon"
+    },
+    {
+      "name": "Ǫgmundr",
+      "ascii": "Ogmund",
+      "gender": "male",
+      "meaning": "awe + protection"
+    },
+    {
+      "name": "Ǫnundr",
+      "ascii": "Onund",
+      "gender": "male",
+      "meaning": "possibly spirit + wolf"
+    },
+    {
+      "name": "Rǫgnvaldr",
+      "ascii": "Ragnvald",
+      "gender": "male",
+      "meaning": "counsel of the gods + ruler"
+    },
+    {
+      "name": "Rúnólfr",
+      "ascii": "Runolf",
+      "gender": "male",
+      "meaning": "secret lore + wolf"
+    },
+    {
+      "name": "Sæmundr",
+      "ascii": "Saemund",
+      "gender": "male",
+      "meaning": "possibly sea + protection"
+    },
+    {
+      "name": "Skapti",
+      "ascii": "Skapti",
+      "gender": "male",
+      "meaning": "spear shaft"
+    },
+    {
+      "name": "Skeggi",
+      "ascii": "Skeggi",
+      "gender": "male",
+      "meaning": "bearded one"
+    },
+    {
+      "name": "Snorri",
+      "ascii": "Snorri",
+      "gender": "male",
+      "meaning": "possibly onslaught, quarrelsome"
+    },
+    {
+      "name": "Starkaðr",
+      "ascii": "Starkad",
+      "gender": "male",
+      "meaning": "strong + battle"
+    },
+    {
+      "name": "Steinarr",
+      "ascii": "Steinar",
+      "gender": "male",
+      "meaning": "stone + warrior"
+    },
+    {
+      "name": "Steinn",
+      "ascii": "Stein",
+      "gender": "male",
+      "meaning": "stone"
+    },
+    {
+      "name": "Styrr",
+      "ascii": "Styr",
+      "gender": "male",
+      "meaning": "battle, tumult"
+    },
+    {
+      "name": "Sumarliði",
+      "ascii": "Sumarlidi",
+      "gender": "male",
+      "meaning": "summer traveller, viking"
+    },
+    {
+      "name": "Sverrir",
+      "ascii": "Sverrir",
+      "gender": "male",
+      "meaning": "possibly swinging, wild"
+    },
+    {
+      "name": "Teitr",
+      "ascii": "Teit",
+      "gender": "male",
+      "meaning": "cheerful, glad"
+    },
+    {
+      "name": "Þorbjǫrn",
+      "ascii": "Thorbjorn",
+      "gender": "male",
+      "meaning": "Thor + bear"
+    },
+    {
+      "name": "Þorfinnr",
+      "ascii": "Thorfinn",
+      "gender": "male",
+      "meaning": "Thor + Finn"
+    },
+    {
+      "name": "Þorgeirr",
+      "ascii": "Thorgeir",
+      "gender": "male",
+      "meaning": "Thor + spear"
+    },
+    {
+      "name": "Þorgils",
+      "ascii": "Thorgils",
+      "gender": "male",
+      "meaning": "Thor + hostage, pledge"
+    },
+    {
+      "name": "Þorgrímr",
+      "ascii": "Thorgrim",
+      "gender": "male",
+      "meaning": "Thor + mask"
+    },
+    {
+      "name": "Þorkell",
+      "ascii": "Thorkel",
+      "gender": "male",
+      "meaning": "Thor + cauldron"
+    },
+    {
+      "name": "Þórir",
+      "ascii": "Thorir",
+      "gender": "male",
+      "meaning": "Thor + warrior"
+    },
+    {
+      "name": "Þórðr",
+      "ascii": "Thord",
+      "gender": "male",
+      "meaning": "possibly Thor + peace"
+    },
+    {
+      "name": "Þórólfr",
+      "ascii": "Thorolf",
+      "gender": "male",
+      "meaning": "Thor + wolf"
+    },
+    {
+      "name": "Þorvaldr",
+      "ascii": "Thorvald",
+      "gender": "male",
+      "meaning": "Thor + ruler"
+    },
+    {
+      "name": "Þorvarðr",
+      "ascii": "Thorvard",
+      "gender": "male",
+      "meaning": "Thor + guardian"
+    },
+    {
+      "name": "Þrándr",
+      "ascii": "Thrand",
+      "gender": "male",
+      "meaning": "thriving, growing"
+    },
+    {
+      "name": "Tóki",
+      "ascii": "Toki",
+      "gender": "male",
+      "meaning": "possibly pet form of Thorkel"
+    },
+    {
+      "name": "Úlfarr",
+      "ascii": "Ulfar",
+      "gender": "male",
+      "meaning": "wolf + warrior"
+    },
+    {
+      "name": "Ulfketill",
+      "ascii": "Ulfketil",
+      "gender": "male",
+      "meaning": "wolf + cauldron"
+    },
+    {
+      "name": "Vagn",
+      "ascii": "Vagn",
+      "gender": "male",
+      "meaning": "wagon"
+    },
+    {
+      "name": "Vigfúss",
+      "ascii": "Vigfus",
+      "gender": "male",
+      "meaning": "battle + eager"
+    },
+    {
+      "name": "Víglundr",
+      "ascii": "Viglund",
+      "gender": "male",
+      "meaning": "battle + grove"
+    },
+    {
+      "name": "Yngvarr",
+      "ascii": "Yngvar",
+      "gender": "male",
+      "meaning": "Yngvi (Freyr) + warrior"
+    },
+    {
+      "name": "Ari",
+      "ascii": "Ari",
+      "gender": "male",
+      "meaning": "eagle"
+    },
+    {
+      "name": "Arngrímr",
+      "ascii": "Arngrim",
+      "gender": "male",
+      "meaning": "eagle + mask"
+    },
+    {
+      "name": "Arnkell",
+      "ascii": "Arnkel",
+      "gender": "male",
+      "meaning": "eagle + helmet"
+    },
+    {
+      "name": "Ásgrímr",
+      "ascii": "Asgrim",
+      "gender": "male",
+      "meaning": "god + mask"
+    },
+    {
+      "name": "Ásvaldr",
+      "ascii": "Asvald",
+      "gender": "male",
+      "meaning": "god + ruler"
+    },
+    {
+      "name": "Ásólfr",
+      "ascii": "Asolf",
+      "gender": "male",
+      "meaning": "god + wolf"
+    },
+    {
+      "name": "Bergþórr",
+      "ascii": "Bergthor",
+      "gender": "male",
+      "meaning": "protection + Thor"
+    },
+    {
+      "name": "Bjarni",
+      "ascii": "Bjarni",
+      "gender": "male",
+      "meaning": "bear"
+    },
+    {
+      "name": "Bjartmarr",
+      "ascii": "Bjartmar",
+      "gender": "male",
+      "meaning": "bright + famous"
+    },
+    {
+      "name": "Bǫðvarr",
+      "ascii": "Bodvar",
+      "gender": "male",
+      "meaning": "battle + warrior"
+    },
+    {
+      "name": "Dagr",
+      "ascii": "Dag",
+      "gender": "male",
+      "meaning": "day"
+    },
+    {
+      "name": "Dýri",
+      "ascii": "Dyri",
+      "gender": "male",
+      "meaning": "animal, deer"
+    },
+    {
+      "name": "Eldgrímr",
+      "ascii": "Eldgrim",
+      "gender": "male",
+      "meaning": "fire + mask"
+    },
+    {
+      "name": "Erlingr",
+      "ascii": "Erling",
+      "gender": "male",
+      "meaning": "descendant of the earl"
+    },
+    {
+      "name": "Eyjólfr",
+      "ascii": "Eyjolf",
+      "gender": "male",
+      "meaning": "island, luck + wolf"
+    },
+    {
+      "name": "Eysteinn",
+      "ascii": "Eystein",
+      "gender": "male",
+      "meaning": "island, luck + stone"
+    },
+    {
+      "name": "Fasti",
+      "ascii": "Fasti",
+      "gender": "male",
+      "meaning": "steadfast, firm"
+    },
+    {
+      "name": "Gamli",
+      "ascii": "Gamli",
+      "gender": "male",
+      "meaning": "old one"
+    },
+    {
+      "name": "Gautr",
+      "ascii": "Gaut",
+      "gender": "male",
+      "meaning": "a Geat, a name of Odin"
+    },
+    {
+      "name": "Geirmundr",
+      "ascii": "Geirmund",
+      "gender": "male",
+      "meaning": "spear + protection"
+    },
+    {
+      "name": "Gestr",
+      "ascii": "Gest",
+      "gender": "male",
+      "meaning": "guest, stranger"
+    },
+    {
+      "name": "Grani",
+      "ascii": "Grani",
+      "gender": "male",
+      "meaning": "moustached one"
+    },
+    {
+      "name": "Gunnlaugr",
+      "ascii": "Gunnlaug",
+      "gender": "male",
+      "meaning": "war + oath, dedication"
+    },
+    {
+      "name": "Gunnsteinn",
+      "ascii": "Gunnstein",
+      "gender": "male",
+      "meaning": "war + stone"
+    },
+    {
+      "name": "Hafliði",
+      "ascii": "Haflidi",
+      "gender": "male",
+      "meaning": "sea + traveller"
+    },
+    {
+      "name": "Hallfreðr",
+      "ascii": "Hallfred",
+      "gender": "male",
+      "meaning": "rock + peace"
+    },
+    {
+      "name": "Hallsteinn",
+      "ascii": "Hallstein",
+      "gender": "male",
+      "meaning": "rock + stone"
+    },
+    {
+      "name": "Hámundr",
+      "ascii": "Hamund",
+      "gender": "male",
+      "meaning": "high + protection"
+    },
+    {
+      "name": "Hásteinn",
+      "ascii": "Hastein",
+      "gender": "male",
+      "meaning": "high + stone"
+    },
+    {
+      "name": "Hemingr",
+      "ascii": "Heming",
+      "gender": "male",
+      "meaning": "possibly shape-changer"
+    },
+    {
+      "name": "Hjǫrleifr",
+      "ascii": "Hjorleif",
+      "gender": "male",
+      "meaning": "sword + heir"
+    },
+    {
+      "name": "Hróarr",
+      "ascii": "Hroar",
+      "gender": "male",
+      "meaning": "fame + spear"
+    },
+    {
+      "name": "Ingjaldr",
+      "ascii": "Ingjald",
+      "gender": "male",
+      "meaning": "Ing + ruler"
+    },
+    {
+      "name": "Jǫkull",
+      "ascii": "Jokull",
+      "gender": "male",
+      "meaning": "glacier, icicle"
+    },
+    {
+      "name": "Karl",
+      "ascii": "Karl",
+      "gender": "male",
+      "meaning": "free man"
+    },
+    {
+      "name": "Ketilbjǫrn",
+      "ascii": "Ketilbjorn",
+      "gender": "male",
+      "meaning": "cauldron + bear"
+    },
+    {
+      "name": "Kormákr",
+      "ascii": "Kormak",
+      "gender": "male",
+      "meaning": "from Irish Cormac, possibly charioteer"
+    },
+    {
+      "name": "Kveldúlfr",
+      "ascii": "Kveldulf",
+      "gender": "male",
+      "meaning": "evening wolf"
+    },
+    {
+      "name": "Ljótr",
+      "ascii": "Ljot",
+      "gender": "male",
+      "meaning": "possibly bright, or ugly"
+    },
+    {
+      "name": "Mǫrðr",
+      "ascii": "Mord",
+      "gender": "male",
+      "meaning": "marten"
+    },
+    {
+      "name": "Narfi",
+      "ascii": "Narfi",
+      "gender": "male",
+      "meaning": "possibly narrow, thin"
+    },
+    {
+      "name": "Óttarr",
+      "ascii": "Ottar",
+      "gender": "male",
+      "meaning": "dread + army"
+    },
+    {
+      "name": "Ǫrn",
+      "ascii": "Orn",
+      "gender": "male",
+      "meaning": "eagle"
+    },
+    {
+      "name": "Ófeigr",
+      "ascii": "Ofeig",
+      "gender": "male",
+      "meaning": "not fated to die"
+    },
+    {
+      "name": "Refr",
+      "ascii": "Ref",
+      "gender": "male",
+      "meaning": "fox"
+    },
+    {
+      "name": "Sigmundr",
+      "ascii": "Sigmund",
+      "gender": "male",
+      "meaning": "victory + protection"
+    },
+    {
+      "name": "Sighvatr",
+      "ascii": "Sighvat",
+      "gender": "male",
+      "meaning": "victory + keen, bold"
+    },
+    {
+      "name": "Sigtryggr",
+      "ascii": "Sigtrygg",
+      "gender": "male",
+      "meaning": "victory + true"
+    },
+    {
+      "name": "Sigvaldi",
+      "ascii": "Sigvaldi",
+      "gender": "male",
+      "meaning": "victory + ruler"
+    },
+    {
+      "name": "Skúli",
+      "ascii": "Skuli",
+      "gender": "male",
+      "meaning": "protector, hidden one"
+    },
+    {
+      "name": "Sǫlvi",
+      "ascii": "Solvi",
+      "gender": "male",
+      "meaning": "possibly sallow, pale"
+    },
+    {
+      "name": "Steinþórr",
+      "ascii": "Steinthor",
+      "gender": "male",
+      "meaning": "stone + Thor"
+    },
+    {
+      "name": "Sturla",
+      "ascii": "Sturla",
+      "gender": "male",
+      "meaning": "possibly restless one"
+    },
+    {
+      "name": "Sveinbjǫrn",
+      "ascii": "Sveinbjorn",
+      "gender": "male",
+      "meaning": "young man + bear"
+    },
+    {
+      "name": "Torfi",
+      "ascii": "Torfi",
+      "gender": "male",
+      "meaning": "turf, peat"
+    },
+    {
+      "name": "Tryggvi",
+      "ascii": "Tryggvi",
+      "gender": "male",
+      "meaning": "faithful, trusty"
+    },
+    {
+      "name": "Úlfheðinn",
+      "ascii": "Ulfhedinn",
+      "gender": "male",
+      "meaning": "wolf-skin coat"
+    },
+    {
+      "name": "Végeirr",
+      "ascii": "Vegeir",
+      "gender": "male",
+      "meaning": "sanctuary + spear"
+    },
+    {
+      "name": "Vésteinn",
+      "ascii": "Vestein",
+      "gender": "male",
+      "meaning": "sanctuary + stone"
+    },
+    {
+      "name": "Þjóstólfr",
+      "ascii": "Thjostolf",
+      "gender": "male",
+      "meaning": "possibly fury + wolf"
+    },
+    {
+      "name": "Þorbrandr",
+      "ascii": "Thorbrand",
+      "gender": "male",
+      "meaning": "Thor + sword"
+    },
+    {
+      "name": "Þórarinn",
+      "ascii": "Thorarin",
+      "gender": "male",
+      "meaning": "Thor + eagle"
+    },
+    {
+      "name": "Þorleifr",
+      "ascii": "Thorleif",
+      "gender": "male",
+      "meaning": "Thor + heir"
+    },
+    {
+      "name": "Þorleikr",
+      "ascii": "Thorleik",
+      "gender": "male",
+      "meaning": "Thor + play"
+    },
+    {
+      "name": "Þormóðr",
+      "ascii": "Thormod",
+      "gender": "male",
+      "meaning": "Thor + courage"
+    },
+    {
+      "name": "Hrærekr",
+      "ascii": "Hrorek",
+      "gender": "male",
+      "meaning": "fame + ruler"
+    },
+    {
+      "name": "Sigfúss",
+      "ascii": "Sigfus",
+      "gender": "male",
+      "meaning": "victory + eager"
+    },
+    {
+      "name": "Agnarr",
+      "ascii": "Agnar",
+      "gender": "male",
+      "meaning": "edge + warrior"
+    },
+    {
+      "name": "Álfr",
+      "ascii": "Alf",
+      "gender": "male",
+      "meaning": "elf"
+    },
+    {
+      "name": "Álfgeirr",
+      "ascii": "Alfgeir",
+      "gender": "male",
+      "meaning": "elf + spear"
+    },
+    {
+      "name": "Áslákr",
+      "ascii": "Aslak",
+      "gender": "male",
+      "meaning": "god + play"
+    },
+    {
+      "name": "Auðólfr",
+      "ascii": "Audolf",
+      "gender": "male",
+      "meaning": "wealth + wolf"
+    },
+    {
+      "name": "Bjǫrgólfr",
+      "ascii": "Bjorgolf",
+      "gender": "male",
+      "meaning": "help + wolf"
+    },
+    {
+      "name": "Brynjólfr",
+      "ascii": "Brynjolf",
+      "gender": "male",
+      "meaning": "armour + wolf"
+    },
+    {
+      "name": "Dagfinnr",
+      "ascii": "Dagfinn",
+      "gender": "male",
+      "meaning": "day + Finn"
+    },
+    {
+      "name": "Eindriði",
+      "ascii": "Eindridi",
+      "gender": "male",
+      "meaning": "one + rider"
+    },
+    {
+      "name": "Eilífr",
+      "ascii": "Eilif",
+      "gender": "male",
+      "meaning": "ever + living"
+    },
+    {
+      "name": "Finnbogi",
+      "ascii": "Finnbogi",
+      "gender": "male",
+      "meaning": "Finn + bow"
+    },
+    {
+      "name": "Fróði",
+      "ascii": "Frodi",
+      "gender": "male",
+      "meaning": "wise, learned"
+    },
+    {
+      "name": "Geirleifr",
+      "ascii": "Geirleif",
+      "gender": "male",
+      "meaning": "spear + heir"
+    },
+    {
+      "name": "Gormr",
+      "ascii": "Gorm",
+      "gender": "male",
+      "meaning": "god + serpent (short form)"
+    },
+    {
+      "name": "Guthormr",
+      "ascii": "Guttorm",
+      "gender": "male",
+      "meaning": "god + serpent"
+    },
+    {
+      "name": "Gylfi",
+      "ascii": "Gylfi",
+      "gender": "male",
+      "meaning": "possibly wave, sea king"
+    },
+    {
+      "name": "Hrútr",
+      "ascii": "Hrut",
+      "gender": "male",
+      "meaning": "ram"
+    },
+    {
+      "name": "Ingvarr",
+      "ascii": "Ingvar",
+      "gender": "male",
+      "meaning": "Ing + warrior"
+    },
+    {
+      "name": "Kálfr",
+      "ascii": "Kalf",
+      "gender": "male",
+      "meaning": "calf"
+    },
+    {
+      "name": "Kjartan",
+      "ascii": "Kjartan",
+      "gender": "male",
+      "meaning": "possibly from Irish, sea ruler"
+    },
+    {
+      "name": "Oddbjǫrn",
+      "ascii": "Oddbjorn",
+      "gender": "male",
+      "meaning": "point + bear"
+    },
+    {
+      "name": "Oddgeirr",
+      "ascii": "Oddgeir",
+      "gender": "male",
+      "meaning": "point + spear"
+    },
+    {
+      "name": "Óspakr",
+      "ascii": "Ospak",
+      "gender": "male",
+      "meaning": "unwise, unruly"
+    },
+    {
+      "name": "Sindri",
+      "ascii": "Sindri",
+      "gender": "male",
+      "meaning": "sparkling, small"
+    },
+    {
+      "name": "Skarpheðinn",
+      "ascii": "Skarphedinn",
+      "gender": "male",
+      "meaning": "sharp + fur coat"
+    },
+    {
+      "name": "Snæbjǫrn",
+      "ascii": "Snaebjorn",
+      "gender": "male",
+      "meaning": "snow + bear"
+    },
+    {
+      "name": "Steinólfr",
+      "ascii": "Steinolf",
+      "gender": "male",
+      "meaning": "stone + wolf"
+    },
+    {
+      "name": "Svartr",
+      "ascii": "Svart",
+      "gender": "male",
+      "meaning": "black, dark"
+    },
+    {
+      "name": "Uni",
+      "ascii": "Uni",
+      "gender": "male",
+      "meaning": "content, satisfied"
+    },
+    {
+      "name": "Valr",
+      "ascii": "Val",
+      "gender": "male",
+      "meaning": "falcon"
+    },
+    {
+      "name": "Vémundr",
+      "ascii": "Vemund",
+      "gender": "male",
+      "meaning": "sanctuary + protection"
+    },
+    {
+      "name": "Þjóðólfr",
+      "ascii": "Thjodolf",
+      "gender": "male",
+      "meaning": "people + wolf"
+    },
+    {
+      "name": "Þjóðrekr",
+      "ascii": "Thjodrek",
+      "gender": "male",
+      "meaning": "people + ruler"
+    },
+    {
+      "name": "Gísli",
+      "ascii": "Gisli",
+      "gender": "male",
+      "meaning": "hostage, pledge"
+    },
+    {
+      "name": "Grettir",
+      "ascii": "Grettir",
+      "gender": "male",
+      "meaning": "possibly the snarler"
+    },
+    {
+      "name": "Hǫrðr",
+      "ascii": "Hord",
+      "gender": "male",
+      "meaning": "man from Hordaland"
+    },
+    {
+      "name": "Flosi",
+      "ascii": "Flosi",
+      "gender": "male",
+      "meaning": "possibly shaggy"
+    },
+    {
+      "name": "Ævarr",
+      "ascii": "Aevar",
+      "gender": "male",
+      "meaning": "possibly ever + warrior"
+    },
+    {
+      "name": "Hólmgeirr",
+      "ascii": "Holmgeir",
+      "gender": "male",
+      "meaning": "islet + spear"
+    },
+    {
+      "name": "Hólmsteinn",
+      "ascii": "Holmstein",
+      "gender": "male",
+      "meaning": "islet + stone"
+    },
+    {
+      "name": "Kolgrímr",
+      "ascii": "Kolgrim",
+      "gender": "male",
+      "meaning": "coal + mask"
+    },
+    {
+      "name": "Kolskeggr",
+      "ascii": "Kolskegg",
+      "gender": "male",
+      "meaning": "coal-black beard"
+    },
+    {
+      "name": "Steingrímr",
+      "ascii": "Steingrim",
+      "gender": "male",
+      "meaning": "stone + mask"
+    },
+    {
+      "name": "Sigbjǫrn",
+      "ascii": "Sigbjorn",
+      "gender": "male",
+      "meaning": "victory + bear"
+    },
+    {
+      "name": "Ásbrandr",
+      "ascii": "Asbrand",
+      "gender": "male",
+      "meaning": "god + sword"
+    },
+    {
+      "name": "Hallvarðr",
+      "ascii": "Hallvard",
+      "gender": "male",
+      "meaning": "rock + guardian"
+    },
+    {
+      "name": "Hallgrímr",
+      "ascii": "Hallgrim",
+      "gender": "male",
+      "meaning": "rock + mask"
+    },
+    {
+      "name": "Þórhallr",
+      "ascii": "Thorhall",
+      "gender": "male",
+      "meaning": "Thor + rock"
+    },
+    {
+      "name": "Þóroddr",
+      "ascii": "Thorodd",
+      "gender": "male",
+      "meaning": "Thor + point"
+    },
+    {
+      "name": "Ásgautr",
+      "ascii": "Asgaut",
+      "gender": "male",
+      "meaning": "god + Geat"
+    },
+    {
+      "name": "Arnfinnr",
+      "ascii": "Arnfinn",
+      "gender": "male",
+      "meaning": "eagle + Finn"
+    },
+    {
+      "name": "Arnsteinn",
+      "ascii": "Arnstein",
+      "gender": "male",
+      "meaning": "eagle + stone"
+    },
+    {
+      "name": "Arnviðr",
+      "ascii": "Arnvid",
+      "gender": "male",
+      "meaning": "eagle + tree"
+    },
+    {
+      "name": "Bjǫrnólfr",
+      "ascii": "Bjornolf",
+      "gender": "male",
+      "meaning": "bear + wolf"
+    },
+    {
+      "name": "Þorgautr",
+      "ascii": "Thorgaut",
+      "gender": "male",
+      "meaning": "Thor + Geat"
+    },
+    {
+      "name": "Óðinkárr",
+      "ascii": "Odinkar",
+      "gender": "male",
+      "meaning": "Odin + curly-haired"
+    },
+    {
+      "name": "Hjálmarr",
+      "ascii": "Hjalmar",
+      "gender": "male",
+      "meaning": "helmet + warrior"
+    },
+    {
+      "name": "Haukr",
+      "ascii": "Hauk",
+      "gender": "male",
+      "meaning": "hawk"
+    },
+    {
+      "name": "Hvítserkr",
+      "ascii": "Hvitserk",
+      "gender": "male",
+      "meaning": "white shirt"
+    },
+    {
+      "name": "Ubbi",
+      "ascii": "Ubbe",
+      "gender": "male",
+      "meaning": "possibly wild, unfriendly"
+    },
+    {
+      "name": "Stígr",
+      "ascii": "Stig",
+      "gender": "male",
+      "meaning": "wanderer, path"
+    },
+    {
+      "name": "Steinkell",
+      "ascii": "Steinkel",
+      "gender": "male",
+      "meaning": "stone + cauldron"
+    },
+    {
+      "name": "Áki",
+      "ascii": "Aki",
+      "gender": "male",
+      "meaning": "ancestor, forefather"
+    },
+    {
+      "name": "Búi",
+      "ascii": "Bui",
+      "gender": "male",
+      "meaning": "dweller, resident"
+    },
+    {
+      "name": "Eldjárn",
+      "ascii": "Eldjarn",
+      "gender": "male",
+      "meaning": "fire + iron"
+    },
+    {
+      "name": "Ingimarr",
+      "ascii": "Ingimar",
+      "gender": "male",
+      "meaning": "Ing + famous"
+    },
+    {
+      "name": "Sæbjǫrn",
+      "ascii": "Saebjorn",
+      "gender": "male",
+      "meaning": "sea + bear"
+    },
+    {
+      "name": "Skjǫldr",
+      "ascii": "Skjold",
+      "gender": "male",
+      "meaning": "shield"
+    },
+    {
+      "name": "Tumi",
+      "ascii": "Tumi",
+      "gender": "male",
+      "meaning": "from Thomas, twin"
+    },
+    {
+      "name": "Yngvi",
+      "ascii": "Yngvi",
+      "gender": "male",
+      "meaning": "a name of the god Freyr"
+    },
+    {
+      "name": "Hildir",
+      "ascii": "Hildir",
+      "gender": "male",
+      "meaning": "battle"
+    },
+    {
+      "name": "Hildibrandr",
+      "ascii": "Hildibrand",
+      "gender": "male",
+      "meaning": "battle + sword"
+    },
+    {
+      "name": "Hǫðr",
+      "ascii": "Hod",
+      "gender": "male",
+      "meaning": "warrior, battle"
+    },
+    {
+      "name": "Svanr",
+      "ascii": "Svan",
+      "gender": "male",
+      "meaning": "swan"
+    },
+    {
+      "name": "Hrani",
+      "ascii": "Hrani",
+      "gender": "male",
+      "meaning": "blusterer, rowdy"
+    },
+    {
+      "name": "Hrappr",
+      "ascii": "Hrapp",
+      "gender": "male",
+      "meaning": "possibly hasty one"
+    },
+    {
+      "name": "Kolbjǫrn",
+      "ascii": "Kolbjorn",
+      "gender": "male",
+      "meaning": "coal + bear"
+    },
+    {
+      "name": "Þorbergr",
+      "ascii": "Thorberg",
+      "gender": "male",
+      "meaning": "Thor + protection"
+    },
+    {
+      "name": "Þorgestr",
+      "ascii": "Thorgest",
+      "gender": "male",
+      "meaning": "Thor + guest"
+    },
+    {
+      "name": "Sigríðr",
+      "ascii": "Sigrid",
+      "gender": "female",
+      "meaning": "victory + beautiful"
+    },
+    {
+      "name": "Ástríðr",
+      "ascii": "Astrid",
+      "gender": "female",
+      "meaning": "god + beautiful"
+    },
+    {
+      "name": "Guðrún",
+      "ascii": "Gudrun",
+      "gender": "female",
+      "meaning": "god + secret lore"
+    },
+    {
+      "name": "Freydís",
+      "ascii": "Freydis",
+      "gender": "female",
+      "meaning": "Freyja + goddess"
+    },
+    {
+      "name": "Gunnhildr",
+      "ascii": "Gunnhild",
+      "gender": "female",
+      "meaning": "war + battle"
+    },
+    {
+      "name": "Ingibjǫrg",
+      "ascii": "Ingibjorg",
+      "gender": "female",
+      "meaning": "Ing + help"
+    },
+    {
+      "name": "Ragnhildr",
+      "ascii": "Ragnhild",
+      "gender": "female",
+      "meaning": "counsel + battle"
+    },
+    {
+      "name": "Helga",
+      "ascii": "Helga",
+      "gender": "female",
+      "meaning": "holy, sacred"
+    },
+    {
+      "name": "Þóra",
+      "ascii": "Thora",
+      "gender": "female",
+      "meaning": "Thor (feminine form)"
+    },
+    {
+      "name": "Þórdís",
+      "ascii": "Thordis",
+      "gender": "female",
+      "meaning": "Thor + goddess"
+    },
+    {
+      "name": "Þórunn",
+      "ascii": "Thorunn",
+      "gender": "female",
+      "meaning": "Thor + beloved"
+    },
+    {
+      "name": "Þorgerðr",
+      "ascii": "Thorgerd",
+      "gender": "female",
+      "meaning": "Thor + enclosure"
+    },
+    {
+      "name": "Þorbjǫrg",
+      "ascii": "Thorbjorg",
+      "gender": "female",
+      "meaning": "Thor + help"
+    },
+    {
+      "name": "Þuríðr",
+      "ascii": "Thurid",
+      "gender": "female",
+      "meaning": "Thor + beautiful"
+    },
+    {
+      "name": "Þorkatla",
+      "ascii": "Thorkatla",
+      "gender": "female",
+      "meaning": "Thor + cauldron"
+    },
+    {
+      "name": "Þórhildr",
+      "ascii": "Thorhild",
+      "gender": "female",
+      "meaning": "Thor + battle"
+    },
+    {
+      "name": "Þorlaug",
+      "ascii": "Thorlaug",
+      "gender": "female",
+      "meaning": "Thor + dedicated"
+    },
+    {
+      "name": "Þórey",
+      "ascii": "Thorey",
+      "gender": "female",
+      "meaning": "Thor + island, luck"
+    },
+    {
+      "name": "Álfhildr",
+      "ascii": "Alfhild",
+      "gender": "female",
+      "meaning": "elf + battle"
+    },
+    {
+      "name": "Arnbjǫrg",
+      "ascii": "Arnbjorg",
+      "gender": "female",
+      "meaning": "eagle + help"
+    },
+    {
+      "name": "Ása",
+      "ascii": "Asa",
+      "gender": "female",
+      "meaning": "goddess"
+    },
+    {
+      "name": "Ásdís",
+      "ascii": "Asdis",
+      "gender": "female",
+      "meaning": "god + goddess"
+    },
+    {
+      "name": "Áslaug",
+      "ascii": "Aslaug",
+      "gender": "female",
+      "meaning": "god + dedicated"
+    },
+    {
+      "name": "Ásgerðr",
+      "ascii": "Asgerd",
+      "gender": "female",
+      "meaning": "god + enclosure"
+    },
+    {
+      "name": "Ásný",
+      "ascii": "Asny",
+      "gender": "female",
+      "meaning": "god + new"
+    },
+    {
+      "name": "Auðr",
+      "ascii": "Aud",
+      "gender": "female",
+      "meaning": "wealth"
+    },
+    {
+      "name": "Bergljót",
+      "ascii": "Bergljot",
+      "gender": "female",
+      "meaning": "protection + light"
+    },
+    {
+      "name": "Bergþóra",
+      "ascii": "Bergthora",
+      "gender": "female",
+      "meaning": "protection + Thor"
+    },
+    {
+      "name": "Bóthildr",
+      "ascii": "Bothild",
+      "gender": "female",
+      "meaning": "remedy + battle"
+    },
+    {
+      "name": "Brynhildr",
+      "ascii": "Brynhild",
+      "gender": "female",
+      "meaning": "armour + battle"
+    },
+    {
+      "name": "Dagný",
+      "ascii": "Dagny",
+      "gender": "female",
+      "meaning": "day + new"
+    },
+    {
+      "name": "Eir",
+      "ascii": "Eir",
+      "gender": "female",
+      "meaning": "mercy, help"
+    },
+    {
+      "name": "Embla",
+      "ascii": "Embla",
+      "gender": "female",
+      "meaning": "possibly elm or vine"
+    },
+    {
+      "name": "Eydís",
+      "ascii": "Eydis",
+      "gender": "female",
+      "meaning": "island, luck + goddess"
+    },
+    {
+      "name": "Finna",
+      "ascii": "Finna",
+      "gender": "female",
+      "meaning": "Finnish woman"
+    },
+    {
+      "name": "Fríða",
+      "ascii": "Frida",
+      "gender": "female",
+      "meaning": "beautiful, beloved"
+    },
+    {
+      "name": "Geirríðr",
+      "ascii": "Geirrid",
+      "gender": "female",
+      "meaning": "spear + beautiful"
+    },
+    {
+      "name": "Gríma",
+      "ascii": "Grima",
+      "gender": "female",
+      "meaning": "mask"
+    },
+    {
+      "name": "Gróa",
+      "ascii": "Groa",
+      "gender": "female",
+      "meaning": "growing, thriving"
+    },
+    {
+      "name": "Gunnvǫr",
+      "ascii": "Gunnvor",
+      "gender": "female",
+      "meaning": "war + wary"
+    },
+    {
+      "name": "Guðríðr",
+      "ascii": "Gudrid",
+      "gender": "female",
+      "meaning": "god + beautiful"
+    },
+    {
+      "name": "Hallgerðr",
+      "ascii": "Hallgerd",
+      "gender": "female",
+      "meaning": "rock + enclosure"
+    },
+    {
+      "name": "Hallveig",
+      "ascii": "Hallveig",
+      "gender": "female",
+      "meaning": "rock + strength"
+    },
+    {
+      "name": "Hallbera",
+      "ascii": "Hallbera",
+      "gender": "female",
+      "meaning": "rock + she-bear"
+    },
+    {
+      "name": "Herdís",
+      "ascii": "Herdis",
+      "gender": "female",
+      "meaning": "army + goddess"
+    },
+    {
+      "name": "Hildr",
+      "ascii": "Hild",
+      "gender": "female",
+      "meaning": "battle"
+    },
+    {
+      "name": "Hildigunnr",
+      "ascii": "Hildigunn",
+      "gender": "female",
+      "meaning": "battle + war"
+    },
+    {
+      "name": "Hrefna",
+      "ascii": "Hrefna",
+      "gender": "female",
+      "meaning": "raven (feminine)"
+    },
+    {
+      "name": "Hróðný",
+      "ascii": "Hrodny",
+      "gender": "female",
+      "meaning": "fame + new"
+    },
+    {
+      "name": "Ingiríðr",
+      "ascii": "Ingrid",
+      "gender": "female",
+      "meaning": "Ing + beautiful"
+    },
+    {
+      "name": "Ingunn",
+      "ascii": "Ingunn",
+      "gender": "female",
+      "meaning": "Ing + beloved"
+    },
+    {
+      "name": "Jórunn",
+      "ascii": "Jorunn",
+      "gender": "female",
+      "meaning": "horse + beloved"
+    },
+    {
+      "name": "Katla",
+      "ascii": "Katla",
+      "gender": "female",
+      "meaning": "cauldron"
+    },
+    {
+      "name": "Ketilríðr",
+      "ascii": "Ketilrid",
+      "gender": "female",
+      "meaning": "cauldron + beautiful"
+    },
+    {
+      "name": "Kolfinna",
+      "ascii": "Kolfinna",
+      "gender": "female",
+      "meaning": "coal + Finnish woman"
+    },
+    {
+      "name": "Ragna",
+      "ascii": "Ragna",
+      "gender": "female",
+      "meaning": "counsel of the gods"
+    },
+    {
+      "name": "Ragnfríðr",
+      "ascii": "Ragnfrid",
+      "gender": "female",
+      "meaning": "counsel + beautiful"
+    },
+    {
+      "name": "Rannveig",
+      "ascii": "Rannveig",
+      "gender": "female",
+      "meaning": "house + strength"
+    },
+    {
+      "name": "Signý",
+      "ascii": "Signy",
+      "gender": "female",
+      "meaning": "victory + new"
+    },
+    {
+      "name": "Sigrún",
+      "ascii": "Sigrun",
+      "gender": "female",
+      "meaning": "victory + secret lore"
+    },
+    {
+      "name": "Sólveig",
+      "ascii": "Solveig",
+      "gender": "female",
+      "meaning": "possibly sun or house + strength"
+    },
+    {
+      "name": "Svanhildr",
+      "ascii": "Svanhild",
+      "gender": "female",
+      "meaning": "swan + battle"
+    },
+    {
+      "name": "Sæunn",
+      "ascii": "Saeunn",
+      "gender": "female",
+      "meaning": "possibly sea + beloved"
+    },
+    {
+      "name": "Steinunn",
+      "ascii": "Steinunn",
+      "gender": "female",
+      "meaning": "stone + beloved"
+    },
+    {
+      "name": "Tófa",
+      "ascii": "Tova",
+      "gender": "female",
+      "meaning": "possibly Thor + beautiful (pet form)"
+    },
+    {
+      "name": "Úlfhildr",
+      "ascii": "Ulfhild",
+      "gender": "female",
+      "meaning": "wolf + battle"
+    },
+    {
+      "name": "Valgerðr",
+      "ascii": "Valgerd",
+      "gender": "female",
+      "meaning": "possibly the slain + protection"
+    },
+    {
+      "name": "Vigdís",
+      "ascii": "Vigdis",
+      "gender": "female",
+      "meaning": "battle + goddess"
+    },
+    {
+      "name": "Yngvildr",
+      "ascii": "Yngvild",
+      "gender": "female",
+      "meaning": "Yngvi + battle"
+    },
+    {
+      "name": "Unnr",
+      "ascii": "Unn",
+      "gender": "female",
+      "meaning": "wave, or beloved"
+    },
+    {
+      "name": "Oddný",
+      "ascii": "Oddny",
+      "gender": "female",
+      "meaning": "point + new"
+    },
+    {
+      "name": "Ólǫf",
+      "ascii": "Olof",
+      "gender": "female",
+      "meaning": "ancestor + descendant"
+    },
+    {
+      "name": "Ásta",
+      "ascii": "Asta",
+      "gender": "female",
+      "meaning": "possibly love; short form of Astrid"
+    },
+    {
+      "name": "Bera",
+      "ascii": "Bera",
+      "gender": "female",
+      "meaning": "she-bear"
+    },
+    {
+      "name": "Birna",
+      "ascii": "Birna",
+      "gender": "female",
+      "meaning": "she-bear"
+    },
+    {
+      "name": "Bjǫrg",
+      "ascii": "Bjorg",
+      "gender": "female",
+      "meaning": "help, rescue"
+    },
+    {
+      "name": "Dalla",
+      "ascii": "Dalla",
+      "gender": "female",
+      "meaning": "possibly from dalr, valley"
+    },
+    {
+      "name": "Dýrfinna",
+      "ascii": "Dyrfinna",
+      "gender": "female",
+      "meaning": "precious + Finnish woman"
+    },
+    {
+      "name": "Gerðr",
+      "ascii": "Gerd",
+      "gender": "female",
+      "meaning": "enclosure, protection"
+    },
+    {
+      "name": "Geirlaug",
+      "ascii": "Geirlaug",
+      "gender": "female",
+      "meaning": "spear + dedicated"
+    },
+    {
+      "name": "Gjaflaug",
+      "ascii": "Gjaflaug",
+      "gender": "female",
+      "meaning": "gift + dedicated"
+    },
+    {
+      "name": "Gyða",
+      "ascii": "Gyda",
+      "gender": "female",
+      "meaning": "god, goddess (short form)"
+    },
+    {
+      "name": "Halla",
+      "ascii": "Halla",
+      "gender": "female",
+      "meaning": "rock, stone"
+    },
+    {
+      "name": "Hallfríðr",
+      "ascii": "Hallfrid",
+      "gender": "female",
+      "meaning": "rock + beautiful"
+    },
+    {
+      "name": "Heiðr",
+      "ascii": "Heid",
+      "gender": "female",
+      "meaning": "bright, clear sky"
+    },
+    {
+      "name": "Hervǫr",
+      "ascii": "Hervor",
+      "gender": "female",
+      "meaning": "army + wary"
+    },
+    {
+      "name": "Hlíf",
+      "ascii": "Hlif",
+      "gender": "female",
+      "meaning": "shelter, protection"
+    },
+    {
+      "name": "Hólmfríðr",
+      "ascii": "Holmfrid",
+      "gender": "female",
+      "meaning": "islet + beautiful"
+    },
+    {
+      "name": "Hrafnhildr",
+      "ascii": "Hrafnhild",
+      "gender": "female",
+      "meaning": "raven + battle"
+    },
+    {
+      "name": "Ingigerðr",
+      "ascii": "Ingigerd",
+      "gender": "female",
+      "meaning": "Ing + enclosure"
+    },
+    {
+      "name": "Jófríðr",
+      "ascii": "Jofrid",
+      "gender": "female",
+      "meaning": "horse + beautiful"
+    },
+    {
+      "name": "Nanna",
+      "ascii": "Nanna",
+      "gender": "female",
+      "meaning": "possibly daring, or mother"
+    },
+    {
+      "name": "Ósk",
+      "ascii": "Osk",
+      "gender": "female",
+      "meaning": "wish"
+    },
+    {
+      "name": "Ragnheiðr",
+      "ascii": "Ragnheid",
+      "gender": "female",
+      "meaning": "counsel + bright"
+    },
+    {
+      "name": "Rúna",
+      "ascii": "Runa",
+      "gender": "female",
+      "meaning": "secret lore, rune"
+    },
+    {
+      "name": "Saga",
+      "ascii": "Saga",
+      "gender": "female",
+      "meaning": "seeing one, story"
+    },
+    {
+      "name": "Sigþrúðr",
+      "ascii": "Sigthrud",
+      "gender": "female",
+      "meaning": "victory + strength"
+    },
+    {
+      "name": "Sigrlaug",
+      "ascii": "Siglaug",
+      "gender": "female",
+      "meaning": "victory + dedicated"
+    },
+    {
+      "name": "Svala",
+      "ascii": "Svala",
+      "gender": "female",
+      "meaning": "swallow (bird)"
+    },
+    {
+      "name": "Þyri",
+      "ascii": "Thyra",
+      "gender": "female",
+      "meaning": "possibly Thor + sanctuary"
+    },
+    {
+      "name": "Þjóðhildr",
+      "ascii": "Thjodhild",
+      "gender": "female",
+      "meaning": "people + battle"
+    },
+    {
+      "name": "Þórný",
+      "ascii": "Thorny",
+      "gender": "female",
+      "meaning": "Thor + new"
+    },
+    {
+      "name": "Þorgunna",
+      "ascii": "Thorgunna",
+      "gender": "female",
+      "meaning": "Thor + war"
+    },
+    {
+      "name": "Úlfrún",
+      "ascii": "Ulfrun",
+      "gender": "female",
+      "meaning": "wolf + secret lore"
+    },
+    {
+      "name": "Vala",
+      "ascii": "Vala",
+      "gender": "female",
+      "meaning": "possibly seeress, chosen one"
+    },
+    {
+      "name": "Valdís",
+      "ascii": "Valdis",
+      "gender": "female",
+      "meaning": "possibly the slain + goddess"
+    },
+    {
+      "name": "Véný",
+      "ascii": "Veny",
+      "gender": "female",
+      "meaning": "sanctuary + new"
+    },
+    {
+      "name": "Yrsa",
+      "ascii": "Yrsa",
+      "gender": "female",
+      "meaning": "she-bear (from Latin ursa)"
+    },
+    {
+      "name": "Álfdís",
+      "ascii": "Alfdis",
+      "gender": "female",
+      "meaning": "elf + goddess"
+    },
+    {
+      "name": "Álfrún",
+      "ascii": "Alfrun",
+      "gender": "female",
+      "meaning": "elf + secret lore"
+    },
+    {
+      "name": "Arnfríðr",
+      "ascii": "Arnfrid",
+      "gender": "female",
+      "meaning": "eagle + beautiful"
+    },
+    {
+      "name": "Arnóra",
+      "ascii": "Arnora",
+      "gender": "female",
+      "meaning": "eagle + Thor"
+    },
+    {
+      "name": "Auðbjǫrg",
+      "ascii": "Audbjorg",
+      "gender": "female",
+      "meaning": "wealth + help"
+    },
+    {
+      "name": "Auðhildr",
+      "ascii": "Audhild",
+      "gender": "female",
+      "meaning": "wealth + battle"
+    },
+    {
+      "name": "Bjartey",
+      "ascii": "Bjartey",
+      "gender": "female",
+      "meaning": "bright + island, luck"
+    },
+    {
+      "name": "Borghildr",
+      "ascii": "Borghild",
+      "gender": "female",
+      "meaning": "fortress + battle"
+    },
+    {
+      "name": "Droplaug",
+      "ascii": "Droplaug",
+      "gender": "female",
+      "meaning": "possibly drop + dedicated"
+    },
+    {
+      "name": "Eyja",
+      "ascii": "Eyja",
+      "gender": "female",
+      "meaning": "island"
+    },
+    {
+      "name": "Fastný",
+      "ascii": "Fastny",
+      "gender": "female",
+      "meaning": "firm + new"
+    },
+    {
+      "name": "Friðgerðr",
+      "ascii": "Fridgerd",
+      "gender": "female",
+      "meaning": "peace + enclosure"
+    },
+    {
+      "name": "Geirdís",
+      "ascii": "Geirdis",
+      "gender": "female",
+      "meaning": "spear + goddess"
+    },
+    {
+      "name": "Gyríðr",
+      "ascii": "Gyrid",
+      "gender": "female",
+      "meaning": "god + beautiful"
+    },
+    {
+      "name": "Hallkatla",
+      "ascii": "Hallkatla",
+      "gender": "female",
+      "meaning": "rock + cauldron"
+    },
+    {
+      "name": "Hallný",
+      "ascii": "Hallny",
+      "gender": "female",
+      "meaning": "rock + new"
+    },
+    {
+      "name": "Heiða",
+      "ascii": "Heida",
+      "gender": "female",
+      "meaning": "possibly heath, or bright"
+    },
+    {
+      "name": "Hjǫrdís",
+      "ascii": "Hjordis",
+      "gender": "female",
+      "meaning": "sword + goddess"
+    },
+    {
+      "name": "Ingveldr",
+      "ascii": "Ingveld",
+      "gender": "female",
+      "meaning": "Ing + power"
+    },
+    {
+      "name": "Málmfríðr",
+      "ascii": "Malmfrid",
+      "gender": "female",
+      "meaning": "metal + beautiful"
+    },
+    {
+      "name": "Sigvǫr",
+      "ascii": "Sigvor",
+      "gender": "female",
+      "meaning": "victory + wary"
+    },
+    {
+      "name": "Steinvǫr",
+      "ascii": "Steinvor",
+      "gender": "female",
+      "meaning": "stone + wary"
+    },
+    {
+      "name": "Svanlaug",
+      "ascii": "Svanlaug",
+      "gender": "female",
+      "meaning": "swan + dedicated"
+    },
+    {
+      "name": "Þorgríma",
+      "ascii": "Thorgrima",
+      "gender": "female",
+      "meaning": "Thor + mask"
+    },
+    {
+      "name": "Vilborg",
+      "ascii": "Vilborg",
+      "gender": "female",
+      "meaning": "will, desire + protection"
+    },
+    {
+      "name": "Guðlaug",
+      "ascii": "Gudlaug",
+      "gender": "female",
+      "meaning": "god + dedicated"
+    },
+    {
+      "name": "Freyja",
+      "ascii": "Freyja",
+      "gender": "female",
+      "meaning": "lady"
+    },
+    {
+      "name": "Una",
+      "ascii": "Una",
+      "gender": "female",
+      "meaning": "content, satisfied"
+    },
+    {
+      "name": "Védís",
+      "ascii": "Vedis",
+      "gender": "female",
+      "meaning": "sanctuary + goddess"
+    },
+    {
+      "name": "Arnhildr",
+      "ascii": "Arnhild",
+      "gender": "female",
+      "meaning": "eagle + battle"
+    },
+    {
+      "name": "Ásleif",
+      "ascii": "Asleif",
+      "gender": "female",
+      "meaning": "god + heir"
+    },
+    {
+      "name": "Bergdís",
+      "ascii": "Bergdis",
+      "gender": "female",
+      "meaning": "protection + goddess"
+    },
+    {
+      "name": "Dagrún",
+      "ascii": "Dagrun",
+      "gender": "female",
+      "meaning": "day + secret lore"
+    },
+    {
+      "name": "Eyvǫr",
+      "ascii": "Eyvor",
+      "gender": "female",
+      "meaning": "island, luck + wary"
+    },
+    {
+      "name": "Geirhildr",
+      "ascii": "Geirhild",
+      "gender": "female",
+      "meaning": "spear + battle"
+    },
+    {
+      "name": "Gunnbjǫrg",
+      "ascii": "Gunnbjorg",
+      "gender": "female",
+      "meaning": "war + help"
+    },
+    {
+      "name": "Hildríðr",
+      "ascii": "Hildrid",
+      "gender": "female",
+      "meaning": "battle + beautiful"
+    },
+    {
+      "name": "Ingileif",
+      "ascii": "Ingileif",
+      "gender": "female",
+      "meaning": "Ing + heir"
+    },
+    {
+      "name": "Járngerðr",
+      "ascii": "Jarngerd",
+      "gender": "female",
+      "meaning": "iron + enclosure"
+    },
+    {
+      "name": "Kolbrún",
+      "ascii": "Kolbrun",
+      "gender": "female",
+      "meaning": "coal-black brow"
+    },
+    {
+      "name": "Steinþóra",
+      "ascii": "Steinthora",
+      "gender": "female",
+      "meaning": "stone + Thor"
+    },
+    {
+      "name": "Svanhvít",
+      "ascii": "Svanhvit",
+      "gender": "female",
+      "meaning": "swan-white"
+    },
+    {
+      "name": "Þorhalla",
+      "ascii": "Thorhalla",
+      "gender": "female",
+      "meaning": "Thor + rock"
+    }
+  ],
+  "bynames": [
+    {
+      "text": "Fairhair",
+      "meaning": "known for long, fair, uncut hair"
+    },
+    {
+      "text": "Bloodaxe",
+      "meaning": "famed for a feared axe in war"
+    },
+    {
+      "text": "Forkbeard",
+      "meaning": "wore a beard split into two forks"
+    },
+    {
+      "text": "the Boneless",
+      "meaning": "possibly lame, or unusually supple"
+    },
+    {
+      "text": "the Deep-minded",
+      "meaning": "wise and thoughtful beyond others"
+    },
+    {
+      "text": "Ironside",
+      "meaning": "unbreakable in a fight"
+    },
+    {
+      "text": "Hairy-breeches",
+      "meaning": "wore shaggy fur trousers on campaign"
+    },
+    {
+      "text": "the Bold",
+      "meaning": "fearless in battle"
+    },
+    {
+      "text": "the Red",
+      "meaning": "red-haired or red-bearded"
+    },
+    {
+      "text": "the Lucky",
+      "meaning": "blessed by good fortune at sea"
+    },
+    {
+      "text": "the Unbowed",
+      "meaning": "never bent the knee to anyone"
+    },
+    {
+      "text": "Wolf-tongue",
+      "meaning": "sharp, biting speech that wounds like teeth"
+    },
+    {
+      "text": "the Wise",
+      "meaning": "known for sound counsel"
+    },
+    {
+      "text": "the Stout",
+      "meaning": "strong and heavily built"
+    },
+    {
+      "text": "the Tall",
+      "meaning": "towering over everyone in the hall"
+    },
+    {
+      "text": "the Black",
+      "meaning": "dark-haired or dark in temper"
+    },
+    {
+      "text": "the White",
+      "meaning": "pale-haired or fair-skinned"
+    },
+    {
+      "text": "Snake-in-the-Eye",
+      "meaning": "had a strange ring-shaped mark in one eye"
+    },
+    {
+      "text": "the Peaceful",
+      "meaning": "ruled long years without war"
+    },
+    {
+      "text": "Barefoot",
+      "meaning": "wore the bare-legged dress of the west"
+    },
+    {
+      "text": "Bluetooth",
+      "meaning": "possibly had one dark, dead tooth"
+    },
+    {
+      "text": "the Quiet",
+      "meaning": "spoke little but noticed everything"
+    },
+    {
+      "text": "the Far-travelled",
+      "meaning": "journeyed to lands few had seen"
+    },
+    {
+      "text": "Skull-splitter",
+      "meaning": "dealt crushing blows in battle"
+    },
+    {
+      "text": "the Mighty",
+      "meaning": "great in strength and power"
+    },
+    {
+      "text": "Hard-ruler",
+      "meaning": "governed with a stern, harsh hand"
+    },
+    {
+      "text": "the Old",
+      "meaning": "lived long past all of their peers"
+    },
+    {
+      "text": "the Young",
+      "meaning": "the younger of two sharing one name"
+    },
+    {
+      "text": "the Stern",
+      "meaning": "unbending and severe in judgment"
+    },
+    {
+      "text": "Shaggy-head",
+      "meaning": "had wild, unkempt hair"
+    },
+    {
+      "text": "Flatnose",
+      "meaning": "had a broad, flattened nose"
+    },
+    {
+      "text": "the Strong",
+      "meaning": "famed for great physical strength"
+    },
+    {
+      "text": "the Fair",
+      "meaning": "handsome and fair of face"
+    },
+    {
+      "text": "the Generous",
+      "meaning": "gave freely of gold and food"
+    },
+    {
+      "text": "the Saint",
+      "meaning": "later revered as holy"
+    },
+    {
+      "text": "Crowbone",
+      "meaning": "possibly skilled at reading omens"
+    },
+    {
+      "text": "Greycloak",
+      "meaning": "wore a fine grey cloak of foreign cloth"
+    },
+    {
+      "text": "Silkbeard",
+      "meaning": "kept a soft, well-groomed beard"
+    },
+    {
+      "text": "the Eloquent",
+      "meaning": "spoke with grace and great persuasion"
+    },
+    {
+      "text": "the Skald",
+      "meaning": "a court poet of high renown"
+    },
+    {
+      "text": "Sea-wolf",
+      "meaning": "a fierce raider of the sea lanes"
+    },
+    {
+      "text": "Storm-born",
+      "meaning": "born on the night of a great storm"
+    },
+    {
+      "text": "Frost-beard",
+      "meaning": "beard white with frost and age"
+    },
+    {
+      "text": "Iron-hand",
+      "meaning": "grip as hard as forged iron"
+    },
+    {
+      "text": "Shield-breaker",
+      "meaning": "split enemy shields in the front line"
+    },
+    {
+      "text": "Oath-keeper",
+      "meaning": "never once broke a sworn word"
+    },
+    {
+      "text": "Oath-breaker",
+      "meaning": "once broke a sworn promise and is remembered for it"
+    },
+    {
+      "text": "Half-troll",
+      "meaning": "huge, fearsome, and unusually strong"
+    },
+    {
+      "text": "the Hawk-eyed",
+      "meaning": "saw far and missed nothing"
+    },
+    {
+      "text": "Sharp-tongue",
+      "meaning": "quick with cutting words"
+    },
+    {
+      "text": "Silver-tongue",
+      "meaning": "could talk anyone into anything"
+    },
+    {
+      "text": "the Lame",
+      "meaning": "walked with a limp from an old wound"
+    },
+    {
+      "text": "the Thin",
+      "meaning": "lean, bony, and wiry"
+    },
+    {
+      "text": "Longbeard",
+      "meaning": "wore a beard reaching to the belt"
+    },
+    {
+      "text": "Short-cloak",
+      "meaning": "wore a short cloak, always ready to move"
+    },
+    {
+      "text": "the Grim",
+      "meaning": "seldom smiled and hard to read"
+    },
+    {
+      "text": "the Merry",
+      "meaning": "always laughing and cheerful"
+    },
+    {
+      "text": "the Proud",
+      "meaning": "carried themselves with great pride"
+    },
+    {
+      "text": "the Bear",
+      "meaning": "big and strong as a bear"
+    },
+    {
+      "text": "Bear-shirt",
+      "meaning": "fought wrapped in a bearskin like a berserker"
+    },
+    {
+      "text": "the Fox",
+      "meaning": "cunning and hard to catch"
+    },
+    {
+      "text": "the Raven",
+      "meaning": "dark, watchful, and clever"
+    },
+    {
+      "text": "Sea-king",
+      "meaning": "ruled ships rather than land"
+    },
+    {
+      "text": "the Wanderer",
+      "meaning": "never settled long in one place"
+    },
+    {
+      "text": "Rune-wise",
+      "meaning": "skilled at carving and reading runes"
+    },
+    {
+      "text": "the Seer",
+      "meaning": "said to glimpse what was to come"
+    },
+    {
+      "text": "Whale-road",
+      "meaning": "a fearless sailor of the open sea"
+    },
+    {
+      "text": "Ring-giver",
+      "meaning": "rewarded loyal followers with gold rings"
+    },
+    {
+      "text": "Gold-hand",
+      "meaning": "always had gold to spare"
+    },
+    {
+      "text": "the Shipbuilder",
+      "meaning": "built the finest ships in the fjord"
+    },
+    {
+      "text": "Ice-heart",
+      "meaning": "calm and cold under any pressure"
+    },
+    {
+      "text": "the Unafraid",
+      "meaning": "showed no fear in any danger"
+    },
+    {
+      "text": "Stone-fist",
+      "meaning": "struck as hard as falling stone"
+    },
+    {
+      "text": "the Swift",
+      "meaning": "quick on foot and quick to act"
+    },
+    {
+      "text": "Fire-hair",
+      "meaning": "had bright, flame-red hair"
+    },
+    {
+      "text": "the Hunter",
+      "meaning": "famed for tracking game through winter"
+    },
+    {
+      "text": "Wave-rider",
+      "meaning": "at home on the roughest seas"
+    },
+    {
+      "text": "the Brave",
+      "meaning": "faced danger without hesitation"
+    },
+    {
+      "text": "the Unlucky",
+      "meaning": "followed by misfortune wherever they went"
+    },
+    {
+      "text": "the Lawspeaker",
+      "meaning": "recited the law aloud at the assembly"
+    },
+    {
+      "text": "Hard-head",
+      "meaning": "stubborn and impossible to persuade"
+    },
+    {
+      "text": "the Gentle",
+      "meaning": "kind and soft-spoken despite great strength"
+    },
+    {
+      "text": "Wolf-coat",
+      "meaning": "wore a cloak of wolfskin"
+    },
+    {
+      "text": "the Peacemaker",
+      "meaning": "ended long feuds with wise words"
+    },
+    {
+      "text": "Night-walker",
+      "meaning": "travelled after dark, unseen by others"
+    },
+    {
+      "text": "the Watchful",
+      "meaning": "always on guard against trouble"
+    },
+    {
+      "text": "Thunder-voice",
+      "meaning": "had a booming voice that carried across fjords"
+    },
+    {
+      "text": "the Steady",
+      "meaning": "calm and reliable in hard times"
+    },
+    {
+      "text": "the Restless",
+      "meaning": "could never stay still for long"
+    },
+    {
+      "text": "Fjord-born",
+      "meaning": "raised among the steep western fjords"
+    },
+    {
+      "text": "Shield-maiden",
+      "meaning": "a woman who stood in the shield wall"
+    },
+    {
+      "text": "Bright-eye",
+      "meaning": "had keen, shining eyes"
+    },
+    {
+      "text": "the Learned",
+      "meaning": "well-versed in lore, law, and genealogy"
+    },
+    {
+      "text": "Hammer-hand",
+      "meaning": "strong as a smith at the anvil"
+    },
+    {
+      "text": "the Unyielding",
+      "meaning": "would not give a single step of ground"
+    },
+    {
+      "text": "Salt-beard",
+      "meaning": "long years at sea, salt in the beard"
+    },
+    {
+      "text": "the Ox",
+      "meaning": "patient and immensely strong"
+    },
+    {
+      "text": "the Eagle",
+      "meaning": "proud, high-minded, and far-seeing"
+    },
+    {
+      "text": "Iron-beard",
+      "meaning": "beard as dark and stiff as iron"
+    },
+    {
+      "text": "the Great",
+      "meaning": "towering in deeds and reputation"
+    },
+    {
+      "text": "the Silent",
+      "meaning": "rarely spoke a single word"
+    },
+    {
+      "text": "Horse-breaker",
+      "meaning": "could tame any wild horse"
+    },
+    {
+      "text": "the Clever",
+      "meaning": "quick-witted and resourceful"
+    },
+    {
+      "text": "Blue-cloak",
+      "meaning": "wore a costly dyed blue cloak"
+    },
+    {
+      "text": "the Hairy",
+      "meaning": "unusually hairy from head to toe"
+    },
+    {
+      "text": "Goat-beard",
+      "meaning": "had a thin, pointed beard"
+    },
+    {
+      "text": "Fair-cheek",
+      "meaning": "had a smooth and handsome face"
+    },
+    {
+      "text": "the Bald",
+      "meaning": "bald from a young age"
+    },
+    {
+      "text": "Strong-arm",
+      "meaning": "could pull any oar or draw any bow"
+    }
+  ]
+}

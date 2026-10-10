@@ -54,6 +54,9 @@ export const CUSTOM_SPANISH_ALTERNATES: Readonly<Record<string, string>> = {
   "/presentation-topic-generator": "/es/generador-de-temas-para-exponer",
   "/research-topic-generator": "/es/generador-de-temas-para-investigar",
   "/random-learning-topic-generator": "/es/generador-de-temas-para-estudiar",
+  "/random-team-generator": "/es/generador-de-equipos-aleatorios",
+  "/random-animal-generator": "/es/generador-de-animales-aleatorios",
+  "/last-name-generator": "/es/generador-de-apellidos",
 };
 
 export function spanishCounterpartPath(englishPath: string): string | null {
@@ -113,6 +116,10 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/deep-conversation-question-generator",
   "/5-minute-speech-topics",
   "/funny-question-of-the-day",
+  "/dnd-name-generator",
+  "/viking-name-generator",
+  "/character-name-generator",
+  "/random-character-generator",
 ]);
 
 /** Spanish-only editorial pages with no honest one-to-one English alternate. */

@@ -1,0 +1,5585 @@
+[
+  {
+    "id": "aardvark",
+    "en": "Aardvark",
+    "es": "Cerdo hormiguero",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Aardvarks can dig a burrow so fast that they disappear underground in just a few minutes.",
+      "es": "Los cerdos hormigueros cavan tan rápido que pueden desaparecer bajo tierra en solo unos minutos."
+    }
+  },
+  {
+    "id": "acorn-barnacle",
+    "en": "Acorn barnacle",
+    "es": "Bellota de mar",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Barnacles glue themselves head-first to rocks and kick food into their mouths with feathery legs.",
+      "es": "Los percebes y bellotas de mar se pegan a las rocas de cabeza y se llevan la comida a la boca con sus patas plumosas."
+    }
+  },
+  {
+    "id": "african-buffalo",
+    "en": "African buffalo",
+    "es": "Búfalo africano",
+    "class": "mammal",
+    "habitats": [
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "African buffalo herds seem to vote on where to go next, with adults standing and facing the direction they prefer.",
+      "es": "Las manadas de búfalo africano parecen votar adónde ir: los adultos se ponen de pie mirando hacia la dirección que prefieren."
+    }
+  },
+  {
+    "id": "african-clawed-frog",
+    "en": "African clawed frog",
+    "es": "Rana de uñas africana",
+    "class": "amphibian",
+    "habitats": [
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "African clawed frogs have no tongue, so they use their hands to shove food into their mouths.",
+      "es": "La rana de uñas africana no tiene lengua, así que usa las manos para meterse la comida en la boca."
+    }
+  },
+  {
+    "id": "african-elephant",
+    "en": "African elephant",
+    "es": "Elefante africano",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "An elephant's trunk has tens of thousands of muscles, so it can pick up a single peanut or lift a heavy log.",
+      "es": "La trompa del elefante tiene decenas de miles de músculos: puede recoger un solo cacahuete o levantar un tronco pesado."
+    }
+  },
+  {
+    "id": "african-grey-parrot",
+    "en": "African grey parrot",
+    "es": "Loro gris africano",
+    "class": "bird",
+    "habitats": [
+      "jungle",
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "African grey parrots are so smart that some learn hundreds of words and use them to answer simple questions.",
+      "es": "Los loros grises africanos son tan listos que algunos aprenden cientos de palabras y las usan para responder preguntas sencillas."
+    }
+  },
+  {
+    "id": "african-lungfish",
+    "en": "African lungfish",
+    "es": "Pez pulmonado africano",
+    "class": "fish",
+    "habitats": [
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "African lungfish survive dry seasons by burrowing into mud and breathing air inside a slimy cocoon.",
+      "es": "El pez pulmonado africano sobrevive a la sequía enterrándose en el barro y respirando aire dentro de un capullo de moco."
+    }
+  },
+  {
+    "id": "alligator-snapping-turtle",
+    "en": "Alligator snapping turtle",
+    "es": "Tortuga caimán",
+    "class": "reptile",
+    "habitats": [
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Alligator snapping turtles lure fish by wiggling a pink, worm-shaped flap on their tongue.",
+      "es": "La tortuga caimán atrae a los peces moviendo un apéndice rosado con forma de gusano que tiene en la lengua."
+    }
+  },
+  {
+    "id": "alpaca",
+    "en": "Alpaca",
+    "es": "Alpaca",
+    "class": "mammal",
+    "habitats": [
+      "farm",
+      "mountain"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Alpacas hum to talk to each other, and they make different hums when they feel curious, worried or calm.",
+      "es": "Las alpacas se comunican tarareando, y usan zumbidos distintos cuando sienten curiosidad, preocupación o calma."
+    }
+  },
+  {
+    "id": "alpine-ibex",
+    "en": "Alpine ibex",
+    "es": "Íbice de los Alpes",
+    "class": "mammal",
+    "habitats": [
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Alpine ibex can climb almost vertical dam walls to lick salt from the stones.",
+      "es": "Los íbices de los Alpes pueden trepar por paredes de presas casi verticales para lamer la sal de las piedras."
+    }
+  },
+  {
+    "id": "alpine-marmot",
+    "en": "Alpine marmot",
+    "es": "Marmota alpina",
+    "class": "mammal",
+    "habitats": [
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Alpine marmots give loud whistles to warn their family when an eagle or a fox comes near.",
+      "es": "Las marmotas alpinas silban fuerte para avisar a su familia cuando se acerca un águila o un zorro."
+    }
+  },
+  {
+    "id": "amazon-river-dolphin",
+    "en": "Amazon river dolphin",
+    "es": "Delfín rosado",
+    "class": "mammal",
+    "habitats": [
+      "freshwater",
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Amazon river dolphins are often pink, and their bendy necks let them weave through flooded forests.",
+      "es": "Los delfines rosados del Amazonas tienen un cuello flexible que les permite nadar entre los árboles del bosque inundado."
+    }
+  },
+  {
+    "id": "american-alligator",
+    "en": "American alligator",
+    "es": "Aligátor americano",
+    "class": "reptile",
+    "habitats": [
+      "wetland",
+      "freshwater"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Alligator mothers gently carry their tiny hatchlings in their mouths to bring them to the water.",
+      "es": "Las madres aligátor llevan con cuidado a sus crías recién nacidas en la boca para llevarlas al agua."
+    }
+  },
+  {
+    "id": "american-bison",
+    "en": "American bison",
+    "es": "Bisonte americano",
+    "class": "mammal",
+    "habitats": [
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Bison can weigh as much as a small car, yet they run surprisingly fast and can even jump over fences.",
+      "es": "Un bisonte puede pesar tanto como un coche pequeño y, aun así, corre sorprendentemente rápido e incluso salta vallas."
+    }
+  },
+  {
+    "id": "american-black-bear",
+    "en": "American black bear",
+    "es": "Oso negro americano",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Despite their name, American black bears can be brown, cinnamon colored, or even creamy white.",
+      "es": "A pesar de su nombre, los osos negros americanos pueden ser marrones, color canela o incluso blanco cremoso."
+    }
+  },
+  {
+    "id": "american-bullfrog",
+    "en": "American bullfrog",
+    "es": "Rana toro americana",
+    "class": "amphibian",
+    "habitats": [
+      "freshwater",
+      "wetland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "American bullfrogs will try to eat almost anything that fits in their mouths, including other frogs and even small snakes.",
+      "es": "La rana toro americana intenta comerse casi cualquier cosa que le quepa en la boca, incluso otras ranas y serpientes pequeñas."
+    }
+  },
+  {
+    "id": "american-cockroach",
+    "en": "American cockroach",
+    "es": "Cucaracha americana",
+    "class": "invertebrate",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Cockroaches are tough survivors that run very fast and can even stay alive for a while without their heads.",
+      "es": "Las cucarachas son supervivientes muy resistentes: corren rapidísimo y pueden seguir vivas un tiempo incluso sin cabeza."
+    }
+  },
+  {
+    "id": "american-lobster",
+    "en": "American lobster",
+    "es": "Bogavante americano",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "American lobsters can live for decades and smell and taste using tiny hairs on their legs and antennae.",
+      "es": "Los bogavantes americanos pueden vivir décadas y huelen y saborean con pelitos diminutos de sus patas y antenas."
+    }
+  },
+  {
+    "id": "american-robin",
+    "en": "American robin",
+    "es": "Zorzal robín",
+    "class": "bird",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "American robins hunt earthworms by watching the ground closely, tilting their heads to look for movement.",
+      "es": "Los zorzales robín cazan lombrices mirando el suelo con atención e inclinando la cabeza para ver cualquier movimiento."
+    }
+  },
+  {
+    "id": "antarctic-krill",
+    "en": "Antarctic krill",
+    "es": "Kril antártico",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean",
+      "polar"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Antarctic krill are tiny, but there are so many of them that they are one of the biggest animal populations on Earth.",
+      "es": "El kril antártico es diminuto, pero hay tantísimo que forma una de las mayores poblaciones animales del planeta."
+    }
+  },
+  {
+    "id": "archerfish",
+    "en": "Archerfish",
+    "es": "Pez arquero",
+    "class": "fish",
+    "habitats": [
+      "freshwater",
+      "wetland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Archerfish spit jets of water from their mouths to knock insects off leaves and into the water.",
+      "es": "El pez arquero escupe chorros de agua para derribar insectos de las hojas y hacerlos caer al agua."
+    }
+  },
+  {
+    "id": "arctic-fox",
+    "en": "Arctic fox",
+    "es": "Zorro ártico",
+    "class": "mammal",
+    "habitats": [
+      "polar"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Arctic fox fur changes color with the seasons, turning snowy white in winter and brown or gray in summer.",
+      "es": "El pelaje del zorro ártico cambia con las estaciones: es blanco como la nieve en invierno y marrón o gris en verano."
+    }
+  },
+  {
+    "id": "arctic-hare",
+    "en": "Arctic hare",
+    "es": "Liebre ártica",
+    "class": "mammal",
+    "habitats": [
+      "polar"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Arctic hares sometimes gather in huge groups of hundreds of animals, which may help them spot danger.",
+      "es": "Las liebres árticas a veces se reúnen en grupos enormes de cientos de animales, lo que puede ayudarles a detectar peligros."
+    }
+  },
+  {
+    "id": "arctic-tern",
+    "en": "Arctic tern",
+    "es": "Charrán ártico",
+    "class": "bird",
+    "habitats": [
+      "ocean",
+      "polar"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Arctic terns make the longest migration of any animal, flying from the Arctic to the Antarctic and back every year.",
+      "es": "El charrán ártico hace la migración más larga de todos los animales: vuela del Ártico a la Antártida y vuelve cada año."
+    }
+  },
+  {
+    "id": "armadillo",
+    "en": "Armadillo",
+    "es": "Armadillo",
+    "class": "mammal",
+    "habitats": [
+      "grassland",
+      "desert",
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Some armadillos can hold their breath for several minutes and simply walk along the bottom of a stream to cross it.",
+      "es": "Algunos armadillos aguantan la respiración varios minutos y cruzan los arroyos caminando por el fondo."
+    }
+  },
+  {
+    "id": "asian-elephant",
+    "en": "Asian elephant",
+    "es": "Elefante asiático",
+    "class": "mammal",
+    "habitats": [
+      "jungle",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Asian elephants have smaller ears than African elephants, and only some of the males grow long tusks.",
+      "es": "Los elefantes asiáticos tienen las orejas más pequeñas que los africanos, y solo algunos machos desarrollan colmillos largos."
+    }
+  },
+  {
+    "id": "asian-water-monitor",
+    "en": "Asian water monitor",
+    "es": "Varano acuático",
+    "class": "reptile",
+    "habitats": [
+      "wetland",
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Asian water monitors are powerful swimmers and are one of the largest lizards in the world, after the Komodo dragon.",
+      "es": "El varano acuático nada con mucha fuerza y es uno de los lagartos más grandes del mundo, después del dragón de Komodo."
+    }
+  },
+  {
+    "id": "atlantic-bluefin-tuna",
+    "en": "Atlantic bluefin tuna",
+    "es": "Atún rojo",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Atlantic bluefin tuna can keep their bodies warmer than the water around them, which helps them swim very fast.",
+      "es": "El atún rojo puede mantener su cuerpo más caliente que el agua que lo rodea, lo que le ayuda a nadar muy rápido."
+    }
+  },
+  {
+    "id": "atlantic-cod",
+    "en": "Atlantic cod",
+    "es": "Bacalao del Atlántico",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Atlantic cod can grunt by vibrating muscles against their swim bladder, especially during spawning season.",
+      "es": "El bacalao del Atlántico puede gruñir haciendo vibrar músculos contra su vejiga natatoria, sobre todo en época de freza."
+    }
+  },
+  {
+    "id": "atlantic-horseshoe-crab",
+    "en": "Atlantic horseshoe crab",
+    "es": "Cangrejo herradura",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Horseshoe crabs are more closely related to spiders than to true crabs, and they have blue blood.",
+      "es": "Los cangrejos herradura están más emparentados con las arañas que con los cangrejos de verdad, y tienen la sangre azul."
+    }
+  },
+  {
+    "id": "atlantic-mackerel",
+    "en": "Atlantic mackerel",
+    "es": "Caballa",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Atlantic mackerel have no swim bladder to help them float, so they must keep swimming to avoid sinking.",
+      "es": "La caballa no tiene vejiga natatoria que la ayude a flotar, así que debe seguir nadando para no hundirse."
+    }
+  },
+  {
+    "id": "atlantic-puffin",
+    "en": "Atlantic puffin",
+    "es": "Frailecillo atlántico",
+    "class": "bird",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Atlantic puffins can carry a whole row of small fish in their colorful beaks, holding them in place with their tongues.",
+      "es": "Los frailecillos pueden llevar una hilera de pececillos en su pico colorido, sujetándolos con la lengua."
+    }
+  },
+  {
+    "id": "atlantic-salmon",
+    "en": "Atlantic salmon",
+    "es": "Salmón atlántico",
+    "class": "fish",
+    "habitats": [
+      "ocean",
+      "freshwater"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Salmon hatch in rivers, travel to the sea, then use their sense of smell to find their way home to breed.",
+      "es": "Los salmones nacen en ríos, viajan al mar y luego usan el olfato para volver a casa a reproducirse."
+    }
+  },
+  {
+    "id": "atlas-moth",
+    "en": "Atlas moth",
+    "es": "Polilla atlas",
+    "class": "invertebrate",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Atlas moths have huge wings with tips that look like snake heads, and the adults have no mouth to eat with.",
+      "es": "Las polillas atlas tienen alas enormes con puntas que parecen cabezas de serpiente, y los adultos no tienen boca para comer."
+    }
+  },
+  {
+    "id": "australian-green-tree-frog",
+    "en": "Australian green tree frog",
+    "es": "Rana arborícola verde australiana",
+    "class": "amphibian",
+    "habitats": [
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Australian green tree frogs often live near houses, and some even hide in toilets, drainpipes and water tanks.",
+      "es": "Las ranas arborícolas verdes australianas suelen vivir cerca de las casas, y algunas se esconden en inodoros, bajantes y depósitos de agua."
+    }
+  },
+  {
+    "id": "axolotl",
+    "en": "Axolotl",
+    "es": "Ajolote",
+    "class": "amphibian",
+    "habitats": [
+      "freshwater",
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Axolotls can regrow lost legs, parts of their heart and even parts of their brain.",
+      "es": "Los ajolotes pueden regenerar patas perdidas, partes del corazón e incluso partes del cerebro."
+    }
+  },
+  {
+    "id": "aye-aye",
+    "en": "Aye-aye",
+    "es": "Aye-aye",
+    "class": "mammal",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The aye-aye taps on trees with its long, skinny middle finger and listens for grubs hiding inside the wood.",
+      "es": "El aye-aye golpea los árboles con su dedo corazón largo y fino y escucha para encontrar larvas escondidas en la madera."
+    }
+  },
+  {
+    "id": "baboon",
+    "en": "Baboon",
+    "es": "Babuino",
+    "class": "mammal",
+    "habitats": [
+      "savanna"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Baboons live in big groups called troops, which can include dozens or even hundreds of members.",
+      "es": "Los babuinos viven en grandes grupos llamados tropas, que pueden reunir a decenas o incluso cientos de miembros."
+    }
+  },
+  {
+    "id": "bactrian-camel",
+    "en": "Bactrian camel",
+    "es": "Camello bactriano",
+    "class": "mammal",
+    "habitats": [
+      "desert",
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Bactrian camels have two humps full of fat, not water, which they use as stored energy when food is scarce.",
+      "es": "Los camellos bactrianos tienen dos jorobas llenas de grasa, no de agua, que usan como reserva de energía cuando escasea la comida."
+    }
+  },
+  {
+    "id": "badger",
+    "en": "Badger",
+    "es": "Tejón",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "European badgers live in underground tunnel homes called setts, which families may use for many generations.",
+      "es": "Los tejones europeos viven en madrigueras de túneles bajo tierra que una misma familia puede usar durante muchas generaciones."
+    }
+  },
+  {
+    "id": "bald-eagle",
+    "en": "Bald eagle",
+    "es": "Águila calva",
+    "class": "bird",
+    "habitats": [
+      "forest",
+      "freshwater",
+      "mountain"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Bald eagle pairs add new sticks to their nest every year, until some nests become as big as a small car.",
+      "es": "Las parejas de águila calva añaden ramas a su nido cada año, hasta que algunos se vuelven tan grandes como un coche pequeño."
+    }
+  },
+  {
+    "id": "barn-owl",
+    "en": "Barn owl",
+    "es": "Lechuza común",
+    "class": "bird",
+    "habitats": [
+      "farm",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Barn owls can catch mice in total darkness, finding them using only their amazing hearing.",
+      "es": "Las lechuzas pueden cazar ratones en plena oscuridad, guiándose solo por su asombroso oído."
+    }
+  },
+  {
+    "id": "barn-swallow",
+    "en": "Barn swallow",
+    "es": "Golondrina común",
+    "class": "bird",
+    "habitats": [
+      "farm",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Barn swallows catch insects in midair and migrate thousands of kilometers between continents every year.",
+      "es": "Las golondrinas cazan insectos en pleno vuelo y cada año migran miles de kilómetros entre continentes."
+    }
+  },
+  {
+    "id": "bat",
+    "en": "Bat",
+    "es": "Murciélago",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Bats are the only mammals that can truly fly, and their wings are really long fingers covered with thin skin.",
+      "es": "Los murciélagos son los únicos mamíferos que vuelan de verdad, y sus alas son en realidad dedos largos cubiertos de piel fina."
+    }
+  },
+  {
+    "id": "bearded-dragon",
+    "en": "Bearded dragon",
+    "es": "Dragón barbudo",
+    "class": "reptile",
+    "habitats": [
+      "desert",
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Bearded dragons puff up and darken the spiky beard under their chin when they feel threatened.",
+      "es": "Los dragones barbudos inflan y oscurecen la barba espinosa bajo su barbilla cuando se sienten amenazados."
+    }
+  },
+  {
+    "id": "beaver",
+    "en": "Beaver",
+    "es": "Castor",
+    "class": "mammal",
+    "habitats": [
+      "freshwater",
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Beavers have orange front teeth that never stop growing, which lets them keep chewing through trees all their lives.",
+      "es": "Los castores tienen los dientes delanteros naranjas y no dejan de crecerles nunca, así que pueden roer árboles toda la vida."
+    }
+  },
+  {
+    "id": "beluga-sturgeon",
+    "en": "Beluga sturgeon",
+    "es": "Esturión beluga",
+    "class": "fish",
+    "habitats": [
+      "freshwater",
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Beluga sturgeon can live for more than a hundred years, and sturgeons have existed since the time of the dinosaurs.",
+      "es": "El esturión beluga puede vivir más de cien años, y los esturiones existen desde la época de los dinosaurios."
+    }
+  },
+  {
+    "id": "beluga-whale",
+    "en": "Beluga whale",
+    "es": "Ballena beluga",
+    "class": "mammal",
+    "habitats": [
+      "ocean",
+      "polar"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Belugas are nicknamed sea canaries because they chirp, whistle and click so much.",
+      "es": "A las belugas las llaman canarios del mar porque no paran de piar, silbar y chasquear."
+    }
+  },
+  {
+    "id": "bighorn-sheep",
+    "en": "Bighorn sheep",
+    "es": "Borrego cimarrón",
+    "class": "mammal",
+    "habitats": [
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Male bighorn sheep crash their huge curled horns together in head-butting contests that echo across the mountains.",
+      "es": "Los borregos cimarrones machos chocan sus enormes cuernos enroscados en duelos de cabezazos que resuenan por las montañas."
+    }
+  },
+  {
+    "id": "black-mamba",
+    "en": "Black mamba",
+    "es": "Mamba negra",
+    "class": "reptile",
+    "habitats": [
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Black mambas are named for the inky black inside of their mouths, not the color of their skin.",
+      "es": "La mamba negra debe su nombre al interior negro de su boca, no al color de su piel."
+    }
+  },
+  {
+    "id": "black-widow-spider",
+    "en": "Black widow spider",
+    "es": "Viuda negra",
+    "class": "invertebrate",
+    "habitats": [
+      "desert",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Female black widows have a red hourglass shape on their bellies that warns predators to stay away.",
+      "es": "Las hembras de viuda negra tienen un dibujo rojo en forma de reloj de arena en el abdomen que avisa a los depredadores."
+    }
+  },
+  {
+    "id": "blobfish",
+    "en": "Blobfish",
+    "es": "Pez borrón",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Blobfish look like normal fish in the deep sea; they only turn into a droopy blob when brought up to the surface.",
+      "es": "El pez borrón parece un pez normal en las profundidades; solo se convierte en una masa blanda cuando lo suben a la superficie."
+    }
+  },
+  {
+    "id": "blue-jay",
+    "en": "Blue jay",
+    "es": "Arrendajo azul",
+    "class": "bird",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Blue jays can copy the screams of hawks, possibly to warn other jays or scare other birds away from food.",
+      "es": "Los arrendajos azules imitan los gritos de los halcones, quizá para avisar a otros arrendajos o espantar a otras aves de la comida."
+    }
+  },
+  {
+    "id": "blue-morpho-butterfly",
+    "en": "Blue morpho butterfly",
+    "es": "Mariposa morfo azul",
+    "class": "invertebrate",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The blue morpho's wings have no blue pigment; tiny scales bounce light around to create the shimmering color.",
+      "es": "Las alas de la morfo azul no tienen pigmento azul: unas escamas diminutas reflejan la luz y crean ese color brillante."
+    }
+  },
+  {
+    "id": "blue-mussel",
+    "en": "Blue mussel",
+    "es": "Mejillón común",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Blue mussels cling to rocks with strong, stretchy threads that scientists study to make waterproof glues.",
+      "es": "Los mejillones se sujetan a las rocas con hilos fuertes y elásticos que los científicos estudian para crear pegamentos resistentes al agua."
+    }
+  },
+  {
+    "id": "blue-tang",
+    "en": "Blue tang",
+    "es": "Cirujano azul",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Blue tangs have a sharp spine near their tail, like a scalpel, which they use to defend themselves.",
+      "es": "El cirujano azul tiene una espina afilada junto a la cola, como un bisturí, que usa para defenderse."
+    }
+  },
+  {
+    "id": "blue-tit",
+    "en": "Blue tit",
+    "es": "Herrerillo común",
+    "class": "bird",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "In Britain, blue tits once learned to peck through the foil caps of milk bottles on doorsteps to drink the cream.",
+      "es": "En Gran Bretaña, los herrerillos aprendieron a perforar las tapas de las botellas de leche en las puertas para beberse la nata."
+    }
+  },
+  {
+    "id": "blue-whale",
+    "en": "Blue whale",
+    "es": "Ballena azul",
+    "class": "mammal",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "The blue whale is the largest animal known to have ever lived, even bigger than any dinosaur.",
+      "es": "La ballena azul es el animal más grande que ha existido jamás, incluso más que cualquier dinosaurio."
+    }
+  },
+  {
+    "id": "blue-footed-booby",
+    "en": "Blue-footed booby",
+    "es": "Piquero de patas azules",
+    "class": "bird",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Male blue-footed boobies show off their bright blue feet in a high-stepping dance to win a mate.",
+      "es": "Los machos de piquero de patas azules lucen sus patas azul brillante en un baile a pasitos altos para conquistar pareja."
+    }
+  },
+  {
+    "id": "blue-ringed-octopus",
+    "en": "Blue-ringed octopus",
+    "es": "Pulpo de anillos azules",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The tiny blue-ringed octopus flashes bright blue rings as a warning that it is extremely venomous.",
+      "es": "El pequeño pulpo de anillos azules hace brillar sus anillos como aviso de que es muy venenoso."
+    }
+  },
+  {
+    "id": "blue-tongued-skink",
+    "en": "Blue-tongued skink",
+    "es": "Escinco de lengua azul",
+    "class": "reptile",
+    "habitats": [
+      "grassland",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Blue-tongued skinks stick out their bright blue tongue and hiss to startle and scare away predators.",
+      "es": "Los escincos de lengua azul sacan su lengua azul brillante y bufan para sorprender y espantar a los depredadores."
+    }
+  },
+  {
+    "id": "boa-constrictor",
+    "en": "Boa constrictor",
+    "es": "Boa constrictora",
+    "class": "reptile",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Boa constrictors have no venom; they squeeze their prey and can even feel its heartbeat to know when to stop.",
+      "es": "Las boas no tienen veneno: aprietan a su presa e incluso notan su latido para saber cuándo dejar de apretar."
+    }
+  },
+  {
+    "id": "bobcat",
+    "en": "Bobcat",
+    "es": "Lince rojo",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "desert",
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Bobcats get their name from their short, bobbed tail, which looks as if it has been cut off.",
+      "es": "El lince rojo se llama bobcat en inglés por su cola corta, que parece recortada."
+    }
+  },
+  {
+    "id": "bonobo",
+    "en": "Bonobo",
+    "es": "Bonobo",
+    "class": "mammal",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Bonobos are among humans' closest living relatives and often calm arguments by sharing food and hugging.",
+      "es": "Los bonobos son de nuestros parientes vivos más cercanos y suelen calmar las peleas compartiendo comida y abrazándose."
+    }
+  },
+  {
+    "id": "bottlenose-dolphin",
+    "en": "Bottlenose dolphin",
+    "es": "Delfín mular",
+    "class": "mammal",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Bottlenose dolphins give themselves signature whistles that work a lot like names.",
+      "es": "Los delfines mulares tienen un silbido propio que funciona de forma muy parecida a un nombre."
+    }
+  },
+  {
+    "id": "brain-coral",
+    "en": "Brain coral",
+    "es": "Coral cerebro",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "A brain coral is a colony of thousands of tiny animals, and big ones can be hundreds of years old.",
+      "es": "Un coral cerebro es una colonia de miles de animales diminutos, y los más grandes pueden tener cientos de años."
+    }
+  },
+  {
+    "id": "brown-bear",
+    "en": "Brown bear",
+    "es": "Oso pardo",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "mountain"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Brown bears have an amazing sense of smell, even better than a dog's, and can sniff out food from far away.",
+      "es": "Los osos pardos tienen un olfato increíble, mejor incluso que el de un perro, y huelen la comida desde muy lejos."
+    }
+  },
+  {
+    "id": "brown-pelican",
+    "en": "Brown pelican",
+    "es": "Pelícano pardo",
+    "class": "bird",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Brown pelicans dive headfirst from the air into the sea and scoop up fish in their stretchy throat pouch.",
+      "es": "Los pelícanos pardos se lanzan en picado al mar y atrapan peces con la bolsa elástica de su garganta."
+    }
+  },
+  {
+    "id": "brown-rat",
+    "en": "Brown rat",
+    "es": "Rata parda",
+    "class": "mammal",
+    "habitats": [
+      "farm",
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Rats laugh when they are tickled, making squeaks that are too high for humans to hear.",
+      "es": "Las ratas se ríen cuando les hacen cosquillas, con chillidos tan agudos que los humanos no podemos oírlos."
+    }
+  },
+  {
+    "id": "budgerigar",
+    "en": "Budgerigar",
+    "es": "Periquito",
+    "class": "bird",
+    "habitats": [
+      "pet",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Pet budgies can learn to copy lots of words, while wild ones fly in huge chattering flocks across Australia.",
+      "es": "Los periquitos de compañía aprenden a imitar muchas palabras, y en libertad vuelan en enormes bandadas por Australia."
+    }
+  },
+  {
+    "id": "bumblebee",
+    "en": "Bumblebee",
+    "es": "Abejorro",
+    "class": "invertebrate",
+    "habitats": [
+      "grassland",
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Bumblebees can shiver their flight muscles to warm up, which lets them fly on chilly mornings.",
+      "es": "Los abejorros pueden hacer temblar sus músculos de vuelo para calentarse, y así volar en mañanas frías."
+    }
+  },
+  {
+    "id": "california-sea-lion",
+    "en": "California sea lion",
+    "es": "León marino de California",
+    "class": "mammal",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Unlike seals, sea lions can turn their back flippers forward and walk on land.",
+      "es": "A diferencia de las focas, los leones marinos pueden girar las aletas traseras hacia delante y caminar por tierra."
+    }
+  },
+  {
+    "id": "canada-goose",
+    "en": "Canada goose",
+    "es": "Barnacla canadiense",
+    "class": "bird",
+    "habitats": [
+      "wetland",
+      "freshwater",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Canada geese fly in a V shape, which saves energy because each bird gets a lift from the air off the one in front.",
+      "es": "Las barnaclas canadienses vuelan en forma de V para ahorrar energía, aprovechando el aire que mueve el ave de delante."
+    }
+  },
+  {
+    "id": "canary",
+    "en": "Canary",
+    "es": "Canario",
+    "class": "bird",
+    "habitats": [
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Canaries are named after the Canary Islands, where their wild relatives still live today.",
+      "es": "Los canarios deben su nombre a las islas Canarias, donde todavía viven sus parientes salvajes."
+    }
+  },
+  {
+    "id": "cane-toad",
+    "en": "Cane toad",
+    "es": "Sapo de caña",
+    "class": "amphibian",
+    "habitats": [
+      "grassland",
+      "wetland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Cane toads were brought to Australia to eat beetles, but they spread everywhere and became a huge problem.",
+      "es": "Los sapos de caña se llevaron a Australia para comer escarabajos, pero se extendieron por todas partes y se convirtieron en un gran problema."
+    }
+  },
+  {
+    "id": "capybara",
+    "en": "Capybara",
+    "es": "Capibara",
+    "class": "mammal",
+    "habitats": [
+      "wetland",
+      "freshwater",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Capybaras are the largest rodents in the world and can stay underwater for several minutes to hide.",
+      "es": "Los capibaras son los roedores más grandes del mundo y pueden quedarse varios minutos bajo el agua para esconderse."
+    }
+  },
+  {
+    "id": "caracal",
+    "en": "Caracal",
+    "es": "Caracal",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Caracals can leap high into the air and knock flying birds right out of the sky with their paws.",
+      "es": "Los caracales saltan muy alto y pueden derribar pájaros en pleno vuelo de un zarpazo."
+    }
+  },
+  {
+    "id": "cat",
+    "en": "Cat",
+    "es": "Gato",
+    "class": "mammal",
+    "habitats": [
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Cats spend a big part of their day asleep, often snoozing for twelve to sixteen hours.",
+      "es": "Los gatos pasan gran parte del día dormidos: a menudo duermen entre doce y dieciséis horas."
+    }
+  },
+  {
+    "id": "chambered-nautilus",
+    "en": "Chambered nautilus",
+    "es": "Nautilo",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Chambered nautiluses float up and down by changing the amount of gas and liquid inside the chambers of their shell.",
+      "es": "El nautilo sube y baja en el agua cambiando la cantidad de gas y líquido dentro de las cámaras de su concha."
+    }
+  },
+  {
+    "id": "channel-catfish",
+    "en": "Channel catfish",
+    "es": "Bagre de canal",
+    "class": "fish",
+    "habitats": [
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Catfish have taste buds all over their bodies, so they can taste food just by touching it.",
+      "es": "Los bagres tienen papilas gustativas por todo el cuerpo, así que pueden saborear la comida solo con tocarla."
+    }
+  },
+  {
+    "id": "cheetah",
+    "en": "Cheetah",
+    "es": "Guepardo",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "The cheetah is the fastest land animal and can go from standing still to highway speed in a few seconds.",
+      "es": "El guepardo es el animal terrestre más rápido y pasa de estar quieto a velocidad de autopista en pocos segundos."
+    }
+  },
+  {
+    "id": "chicken",
+    "en": "Chicken",
+    "es": "Gallina",
+    "class": "bird",
+    "habitats": [
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A mother hen clucks to her chicks while they are still inside their eggs, and the chicks peep back.",
+      "es": "La gallina cloquea a sus pollitos cuando aún están dentro del huevo, y ellos le responden piando."
+    }
+  },
+  {
+    "id": "chimpanzee",
+    "en": "Chimpanzee",
+    "es": "Chimpancé",
+    "class": "mammal",
+    "habitats": [
+      "jungle",
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Chimpanzees make and use tools, like poking sticks into termite mounds to fish out a tasty snack.",
+      "es": "Los chimpancés fabrican y usan herramientas, como palitos que meten en los termiteros para pescar termitas."
+    }
+  },
+  {
+    "id": "chinchilla",
+    "en": "Chinchilla",
+    "es": "Chinchilla",
+    "class": "mammal",
+    "habitats": [
+      "mountain",
+      "pet"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Chinchillas have incredibly thick fur and keep it clean by rolling in dust baths instead of water.",
+      "es": "Las chinchillas tienen un pelaje increíblemente denso y lo limpian revolcándose en baños de arena, no de agua."
+    }
+  },
+  {
+    "id": "chipmunk",
+    "en": "Chipmunk",
+    "es": "Ardilla listada",
+    "class": "mammal",
+    "habitats": [
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Chipmunks stuff food into stretchy cheek pouches that can expand until they are bigger than their heads.",
+      "es": "Las ardillas listadas llenan de comida unas bolsas elásticas en las mejillas que pueden hacerse más grandes que su cabeza."
+    }
+  },
+  {
+    "id": "cleaner-wrasse",
+    "en": "Cleaner wrasse",
+    "es": "Lábrido limpiador",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Cleaner wrasses run cleaning stations where bigger fish wait in line to have parasites picked off their bodies.",
+      "es": "Los lábridos limpiadores tienen estaciones de limpieza donde peces más grandes hacen cola para que les quiten los parásitos."
+    }
+  },
+  {
+    "id": "clownfish",
+    "en": "Clownfish",
+    "es": "Pez payaso",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Clownfish live safely among stinging sea anemones thanks to a special slimy coating on their skin.",
+      "es": "El pez payaso vive tranquilo entre anémonas urticantes gracias a una capa especial de mucosidad en su piel."
+    }
+  },
+  {
+    "id": "cockatiel",
+    "en": "Cockatiel",
+    "es": "Cacatúa ninfa",
+    "class": "bird",
+    "habitats": [
+      "pet"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Cockatiels raise or flatten the crest on their heads to show whether they feel excited, curious or scared.",
+      "es": "Las cacatúas ninfa suben o bajan la cresta para mostrar si están emocionadas, curiosas o asustadas."
+    }
+  },
+  {
+    "id": "coconut-crab",
+    "en": "Coconut crab",
+    "es": "Cangrejo de los cocoteros",
+    "class": "invertebrate",
+    "habitats": [
+      "jungle",
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Coconut crabs are the largest land crabs in the world and can crack open coconuts with their powerful claws.",
+      "es": "El cangrejo de los cocoteros es el cangrejo terrestre más grande del mundo y puede abrir cocos con sus potentes pinzas."
+    }
+  },
+  {
+    "id": "coelacanth",
+    "en": "Coelacanth",
+    "es": "Celacanto",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Coelacanths were thought to have died out with the dinosaurs until a living one was caught in 1938.",
+      "es": "Se creía que los celacantos se habían extinguido con los dinosaurios hasta que se pescó uno vivo en 1938."
+    }
+  },
+  {
+    "id": "common-basilisk",
+    "en": "Common basilisk",
+    "es": "Basilisco común",
+    "class": "reptile",
+    "habitats": [
+      "jungle",
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Young basilisk lizards can sprint across the surface of water on their back legs before they sink.",
+      "es": "Los basiliscos jóvenes pueden correr sobre la superficie del agua con las patas traseras antes de hundirse."
+    }
+  },
+  {
+    "id": "common-carp",
+    "en": "Common carp",
+    "es": "Carpa común",
+    "class": "fish",
+    "habitats": [
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Common carp use whisker-like feelers around their mouths to search for food in muddy water.",
+      "es": "Las carpas usan unos bigotes alrededor de la boca para buscar comida en el agua turbia."
+    }
+  },
+  {
+    "id": "common-cuttlefish",
+    "en": "Common cuttlefish",
+    "es": "Sepia común",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Cuttlefish can change both the color and the bumpy texture of their skin to blend in with rocks and seaweed.",
+      "es": "Las sepias pueden cambiar tanto el color como la textura de su piel para confundirse con rocas y algas."
+    }
+  },
+  {
+    "id": "common-garter-snake",
+    "en": "Common garter snake",
+    "es": "Culebra de jarretera",
+    "class": "reptile",
+    "habitats": [
+      "grassland",
+      "wetland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "In spring, thousands of garter snakes may wriggle out of their winter dens together in giant tangled piles.",
+      "es": "En primavera, miles de culebras de jarretera pueden salir juntas de sus refugios de invierno formando enormes montones enredados."
+    }
+  },
+  {
+    "id": "common-kestrel",
+    "en": "Common kestrel",
+    "es": "Cernícalo vulgar",
+    "class": "bird",
+    "habitats": [
+      "grassland",
+      "farm"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Kestrels can hover in one spot in the air while watching for mice, keeping their heads perfectly still.",
+      "es": "Los cernícalos pueden quedarse suspendidos en el aire en un mismo punto mientras buscan ratones, con la cabeza totalmente quieta."
+    }
+  },
+  {
+    "id": "common-kingfisher",
+    "en": "Common kingfisher",
+    "es": "Martín pescador común",
+    "class": "bird",
+    "habitats": [
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Kingfishers dive headfirst into water to catch fish, and their beak shape inspired the nose of a Japanese bullet train.",
+      "es": "El martín pescador se lanza de cabeza al agua para pescar, y la forma de su pico inspiró el morro de un tren bala japonés."
+    }
+  },
+  {
+    "id": "common-nightingale",
+    "en": "Common nightingale",
+    "es": "Ruiseñor común",
+    "class": "bird",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Common nightingales are famous for singing at night, and a single male can know hundreds of different song phrases.",
+      "es": "Los ruiseñores son famosos por cantar de noche, y un solo macho puede conocer cientos de frases musicales distintas."
+    }
+  },
+  {
+    "id": "common-octopus",
+    "en": "Common octopus",
+    "es": "Pulpo común",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Octopuses have three hearts and blue blood, and they can change their skin color in a fraction of a second.",
+      "es": "Los pulpos tienen tres corazones y sangre azul, y pueden cambiar el color de su piel en una fracción de segundo."
+    }
+  },
+  {
+    "id": "common-pheasant",
+    "en": "Common pheasant",
+    "es": "Faisán común",
+    "class": "bird",
+    "habitats": [
+      "grassland",
+      "farm",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Male pheasants have shimmering copper feathers and red face patches, while females are brown for camouflage.",
+      "es": "Los faisanes machos tienen plumas cobrizas brillantes y la cara roja, mientras que las hembras son pardas para camuflarse."
+    }
+  },
+  {
+    "id": "common-quail",
+    "en": "Common quail",
+    "es": "Codorniz común",
+    "class": "bird",
+    "habitats": [
+      "grassland",
+      "farm"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Quail chicks can run around and feed themselves just a few hours after hatching.",
+      "es": "Los pollitos de codorniz pueden correr y comer solos pocas horas después de salir del huevo."
+    }
+  },
+  {
+    "id": "common-raven",
+    "en": "Common raven",
+    "es": "Cuervo común",
+    "class": "bird",
+    "habitats": [
+      "mountain",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Ravens are puzzle-solving experts and can plan ahead, even saving a useful tool to use later.",
+      "es": "Los cuervos son expertos en resolver problemas y pueden planificar, incluso guardando una herramienta útil para más tarde."
+    }
+  },
+  {
+    "id": "common-shrew",
+    "en": "Common shrew",
+    "es": "Musaraña común",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Shrews burn energy so fast that they must eat almost nonstop, and a few hours without food can be deadly.",
+      "es": "Las musarañas gastan energía tan deprisa que tienen que comer casi sin parar; unas horas sin comida pueden ser mortales."
+    }
+  },
+  {
+    "id": "common-starling",
+    "en": "Common starling",
+    "es": "Estornino pinto",
+    "class": "bird",
+    "habitats": [
+      "farm",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Starlings gather in huge swirling flocks called murmurations that move together like a single living cloud.",
+      "es": "Los estorninos se reúnen en enormes bandadas que giran y se mueven a la vez como si fueran una sola nube viva."
+    }
+  },
+  {
+    "id": "common-toad",
+    "en": "Common toad",
+    "es": "Sapo común",
+    "class": "amphibian",
+    "habitats": [
+      "forest",
+      "grassland",
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Common toads often travel back to the very pond where they were born to lay their own eggs.",
+      "es": "Los sapos comunes suelen volver a la misma charca donde nacieron para poner sus propios huevos."
+    }
+  },
+  {
+    "id": "corn-snake",
+    "en": "Corn snake",
+    "es": "Serpiente del maíz",
+    "class": "reptile",
+    "habitats": [
+      "forest",
+      "farm",
+      "pet"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Corn snakes may be named for the checkered pattern on their bellies, which looks like kernels on a corn cob.",
+      "es": "Las serpientes del maíz podrían deber su nombre al dibujo a cuadros de su vientre, que recuerda a los granos de una mazorca."
+    }
+  },
+  {
+    "id": "cow",
+    "en": "Cow",
+    "es": "Vaca",
+    "class": "mammal",
+    "habitats": [
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A cow's stomach has four sections that work together to break down tough grass.",
+      "es": "El estómago de la vaca tiene cuatro partes que trabajan juntas para digerir la hierba dura."
+    }
+  },
+  {
+    "id": "coyote",
+    "en": "Coyote",
+    "es": "Coyote",
+    "class": "mammal",
+    "habitats": [
+      "grassland",
+      "desert",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Coyotes are so adaptable that they now live in many cities, including some of the biggest in North America.",
+      "es": "Los coyotes se adaptan tan bien que ahora viven en muchas ciudades, incluso en algunas de las más grandes de Norteamérica."
+    }
+  },
+  {
+    "id": "deep-sea-anglerfish",
+    "en": "Deep-sea anglerfish",
+    "es": "Rape abisal",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Deep-sea anglerfish dangle a glowing lure in front of their mouths to attract prey in the pitch-black ocean.",
+      "es": "El rape abisal cuelga un señuelo luminoso delante de su boca para atraer presas en la oscuridad total del océano."
+    }
+  },
+  {
+    "id": "desert-locust",
+    "en": "Desert locust",
+    "es": "Langosta del desierto",
+    "class": "invertebrate",
+    "habitats": [
+      "desert",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Desert locusts can form swarms of billions that eat enormous amounts of crops in a single day.",
+      "es": "Las langostas del desierto pueden formar enjambres de miles de millones que devoran cantidades enormes de cultivos en un solo día."
+    }
+  },
+  {
+    "id": "dingo",
+    "en": "Dingo",
+    "es": "Dingo",
+    "class": "mammal",
+    "habitats": [
+      "desert",
+      "grassland",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Dingoes rarely bark like pet dogs; instead they howl to keep in touch with the rest of their pack.",
+      "es": "Los dingos casi nunca ladran como los perros: prefieren aullar para mantenerse en contacto con su manada."
+    }
+  },
+  {
+    "id": "dog",
+    "en": "Dog",
+    "es": "Perro",
+    "class": "mammal",
+    "habitats": [
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Every dog has a nose print with its own unique pattern of ridges, just like a human fingerprint.",
+      "es": "Cada perro tiene en la nariz un dibujo de surcos único, igual que nuestras huellas dactilares."
+    }
+  },
+  {
+    "id": "donkey",
+    "en": "Donkey",
+    "es": "Burro",
+    "class": "mammal",
+    "habitats": [
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Donkeys have huge ears that help them hear calls from far away and also help keep them cool.",
+      "es": "Los burros tienen orejas enormes que les ayudan a oír llamadas lejanas y también a mantenerse frescos."
+    }
+  },
+  {
+    "id": "dromedary-camel",
+    "en": "Dromedary camel",
+    "es": "Dromedario",
+    "class": "mammal",
+    "habitats": [
+      "desert"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A very thirsty dromedary camel can drink an enormous amount of water in just a few minutes.",
+      "es": "Un dromedario muy sediento puede beberse una cantidad enorme de agua en solo unos minutos."
+    }
+  },
+  {
+    "id": "dugong",
+    "en": "Dugong",
+    "es": "Dugongo",
+    "class": "mammal",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Dugongs graze on underwater seagrass meadows, which is why they are sometimes called sea cows.",
+      "es": "Los dugongos pastan en praderas submarinas de hierbas marinas, por eso a veces los llaman vacas marinas."
+    }
+  },
+  {
+    "id": "dung-beetle",
+    "en": "Dung beetle",
+    "es": "Escarabajo pelotero",
+    "class": "invertebrate",
+    "habitats": [
+      "savanna",
+      "grassland",
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Some dung beetles use the Milky Way to steer their dung balls in a straight line at night.",
+      "es": "Algunos escarabajos peloteros se guían por la Vía Láctea para rodar sus bolas de estiércol en línea recta de noche."
+    }
+  },
+  {
+    "id": "earthworm",
+    "en": "Earthworm",
+    "es": "Lombriz de tierra",
+    "class": "invertebrate",
+    "habitats": [
+      "grassland",
+      "farm",
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Earthworms have no lungs and breathe through their damp skin, so they need to stay moist to survive.",
+      "es": "Las lombrices no tienen pulmones y respiran a través de su piel húmeda, así que necesitan mantenerse mojadas para sobrevivir."
+    }
+  },
+  {
+    "id": "eastern-box-turtle",
+    "en": "Eastern box turtle",
+    "es": "Tortuga de caja oriental",
+    "class": "reptile",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Eastern box turtles have a hinged shell, so they can close themselves up completely, like a box.",
+      "es": "La tortuga de caja oriental tiene un caparazón con bisagra y puede cerrarse por completo, como una caja."
+    }
+  },
+  {
+    "id": "echidna",
+    "en": "Echidna",
+    "es": "Equidna",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "grassland",
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Echidnas are one of only a few mammals that lay eggs; the platypus is another.",
+      "es": "Los equidnas son de los poquísimos mamíferos que ponen huevos; el ornitorrinco es otro."
+    }
+  },
+  {
+    "id": "electric-eel",
+    "en": "Electric eel",
+    "es": "Anguila eléctrica",
+    "class": "fish",
+    "habitats": [
+      "freshwater",
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Electric eels are not true eels at all; they are knifefish that can produce powerful electric shocks.",
+      "es": "Las anguilas eléctricas no son anguilas de verdad: son peces cuchillo capaces de producir potentes descargas eléctricas."
+    }
+  },
+  {
+    "id": "emperor-dragonfly",
+    "en": "Emperor dragonfly",
+    "es": "Libélula emperador",
+    "class": "invertebrate",
+    "habitats": [
+      "freshwater",
+      "wetland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Dragonflies are expert hunters that catch most of the insects they chase, and they can even fly backwards.",
+      "es": "Las libélulas son cazadoras expertas que atrapan casi todos los insectos que persiguen, e incluso pueden volar hacia atrás."
+    }
+  },
+  {
+    "id": "emperor-penguin",
+    "en": "Emperor penguin",
+    "es": "Pingüino emperador",
+    "class": "bird",
+    "habitats": [
+      "polar",
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Emperor penguin dads balance the egg on their feet and keep it warm through the dark Antarctic winter.",
+      "es": "Los papás pingüino emperador sostienen el huevo sobre las patas y lo mantienen caliente durante el oscuro invierno antártico."
+    }
+  },
+  {
+    "id": "emperor-scorpion",
+    "en": "Emperor scorpion",
+    "es": "Escorpión emperador",
+    "class": "invertebrate",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Scorpions glow blue-green under ultraviolet light, and scientists are still not sure why.",
+      "es": "Los escorpiones brillan de color verde azulado bajo luz ultravioleta, y los científicos todavía no saben bien por qué."
+    }
+  },
+  {
+    "id": "emu",
+    "en": "Emu",
+    "es": "Emú",
+    "class": "bird",
+    "habitats": [
+      "grassland",
+      "desert"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Emus cannot fly, but they can run fast and swim, and it is the fathers who sit on the eggs.",
+      "es": "Los emús no vuelan, pero corren rápido y nadan, y son los padres quienes incuban los huevos."
+    }
+  },
+  {
+    "id": "eurasian-lynx",
+    "en": "Eurasian lynx",
+    "es": "Lince europeo",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Eurasian lynx have tufts of black fur on the tips of their ears and huge furry paws that work like snowshoes.",
+      "es": "El lince europeo tiene pinceles de pelo negro en las orejas y unas patas enormes y peludas que funcionan como raquetas de nieve."
+    }
+  },
+  {
+    "id": "eurasian-magpie",
+    "en": "Eurasian magpie",
+    "es": "Urraca",
+    "class": "bird",
+    "habitats": [
+      "forest",
+      "farm",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Eurasian magpies are one of the few animals shown to recognize themselves in a mirror.",
+      "es": "La urraca es uno de los pocos animales que han demostrado reconocerse en un espejo."
+    }
+  },
+  {
+    "id": "eurasian-otter",
+    "en": "Eurasian otter",
+    "es": "Nutria europea",
+    "class": "mammal",
+    "habitats": [
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Eurasian otters mark their territory with droppings called spraints, which some people say smell like jasmine tea.",
+      "es": "Las nutrias europeas marcan su territorio con excrementos que, según algunos, huelen a té de jazmín."
+    }
+  },
+  {
+    "id": "eurasian-wren",
+    "en": "Eurasian wren",
+    "es": "Chochín común",
+    "class": "bird",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The tiny Eurasian wren has an amazingly loud song for a bird that weighs about as much as a coin or two.",
+      "es": "El diminuto chochín tiene un canto asombrosamente fuerte para un pájaro que pesa como una o dos monedas."
+    }
+  },
+  {
+    "id": "european-eel",
+    "en": "European eel",
+    "es": "Anguila europea",
+    "class": "fish",
+    "habitats": [
+      "freshwater",
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "European eels grow up in rivers, then swim thousands of kilometers to the Sargasso Sea to breed.",
+      "es": "Las anguilas europeas crecen en los ríos y luego nadan miles de kilómetros hasta el mar de los Sargazos para reproducirse."
+    }
+  },
+  {
+    "id": "european-garden-spider",
+    "en": "European garden spider",
+    "es": "Araña de jardín",
+    "class": "invertebrate",
+    "habitats": [
+      "grassland",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "European garden spiders often eat their old web before spinning a new one, recycling the silk.",
+      "es": "Las arañas de jardín suelen comerse su vieja telaraña antes de tejer una nueva, reciclando la seda."
+    }
+  },
+  {
+    "id": "european-hare",
+    "en": "European hare",
+    "es": "Liebre europea",
+    "class": "mammal",
+    "habitats": [
+      "grassland",
+      "farm"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "In spring, European hares box on their back legs, usually a female fending off a male who is too pushy.",
+      "es": "En primavera, las liebres europeas boxean de pie sobre las patas traseras, normalmente una hembra que se quita de encima a un macho pesado."
+    }
+  },
+  {
+    "id": "european-hornet",
+    "en": "European hornet",
+    "es": "Avispón europeo",
+    "class": "invertebrate",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "European hornets are among the few wasps that can hunt at night as well as during the day.",
+      "es": "El avispón europeo es una de las pocas avispas que cazan tanto de noche como de día."
+    }
+  },
+  {
+    "id": "european-robin",
+    "en": "European robin",
+    "es": "Petirrojo europeo",
+    "class": "bird",
+    "habitats": [
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "European robins sometimes sing at night near streetlights, so people mistake them for nightingales.",
+      "es": "Los petirrojos a veces cantan de noche cerca de las farolas, y la gente los confunde con ruiseñores."
+    }
+  },
+  {
+    "id": "fennec-fox",
+    "en": "Fennec fox",
+    "es": "Fénec",
+    "class": "mammal",
+    "habitats": [
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Fennec foxes have giant ears that help them hear prey under the sand and let extra heat escape.",
+      "es": "Los fénecs tienen orejas gigantes que les sirven para oír presas bajo la arena y para liberar calor."
+    }
+  },
+  {
+    "id": "ferret",
+    "en": "Ferret",
+    "es": "Hurón",
+    "class": "mammal",
+    "habitats": [
+      "pet"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "When excited, ferrets do a hopping, sideways war dance that makes them look like they are bouncing off the walls.",
+      "es": "Cuando están contentos, los hurones hacen una danza de guerra a saltitos y de lado, como si rebotaran por las paredes."
+    }
+  },
+  {
+    "id": "fiddler-crab",
+    "en": "Fiddler crab",
+    "es": "Cangrejo violinista",
+    "class": "invertebrate",
+    "habitats": [
+      "wetland",
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Male fiddler crabs wave one giant claw to attract females and warn rivals to back off.",
+      "es": "Los machos de cangrejo violinista agitan su pinza gigante para atraer a las hembras y advertir a sus rivales."
+    }
+  },
+  {
+    "id": "fire-salamander",
+    "en": "Fire salamander",
+    "es": "Salamandra común",
+    "class": "amphibian",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Fire salamanders have bright yellow and black skin that warns predators about the poison they can release.",
+      "es": "La salamandra común tiene la piel amarilla y negra, colores que avisan a los depredadores del veneno que puede soltar."
+    }
+  },
+  {
+    "id": "firefly",
+    "en": "Firefly",
+    "es": "Luciérnaga",
+    "class": "invertebrate",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Fireflies make cold light inside their bodies and flash special patterns to find a mate.",
+      "es": "Las luciérnagas producen una luz fría dentro de su cuerpo y emiten destellos especiales para encontrar pareja."
+    }
+  },
+  {
+    "id": "flying-fish",
+    "en": "Flying fish",
+    "es": "Pez volador",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Flying fish leap out of the water and glide through the air on wing-like fins to escape predators.",
+      "es": "Los peces voladores saltan fuera del agua y planean por el aire con sus aletas en forma de ala para huir de los depredadores."
+    }
+  },
+  {
+    "id": "flying-fox",
+    "en": "Flying fox",
+    "es": "Zorro volador",
+    "class": "mammal",
+    "habitats": [
+      "jungle",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Flying foxes are giant fruit-eating bats that spread seeds as they fly, helping forests grow.",
+      "es": "Los zorros voladores son murciélagos gigantes que comen fruta y esparcen semillas al volar, ayudando a que crezcan los bosques."
+    }
+  },
+  {
+    "id": "flying-squirrel",
+    "en": "Flying squirrel",
+    "es": "Ardilla voladora",
+    "class": "mammal",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Flying squirrels cannot really fly; they glide between trees using a furry flap of skin stretched between their legs.",
+      "es": "Las ardillas voladoras no vuelan de verdad: planean entre árboles con una membrana de piel peluda entre las patas."
+    }
+  },
+  {
+    "id": "freshwater-angelfish",
+    "en": "Freshwater angelfish",
+    "es": "Pez ángel de agua dulce",
+    "class": "fish",
+    "habitats": [
+      "freshwater",
+      "pet"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Freshwater angelfish parents guard their eggs together and fan them with their fins to keep them clean.",
+      "es": "Los padres de pez ángel cuidan juntos sus huevos y los abanican con las aletas para mantenerlos limpios."
+    }
+  },
+  {
+    "id": "frill-necked-lizard",
+    "en": "Frill-necked lizard",
+    "es": "Clamidosaurio",
+    "class": "reptile",
+    "habitats": [
+      "forest",
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "When scared, the frill-necked lizard opens a huge frill around its neck, hisses, then runs away on its back legs.",
+      "es": "Cuando se asusta, el clamidosaurio despliega un enorme volante alrededor del cuello, bufa y huye corriendo sobre las patas traseras."
+    }
+  },
+  {
+    "id": "galapagos-tortoise",
+    "en": "Galapagos tortoise",
+    "es": "Tortuga gigante de Galápagos",
+    "class": "reptile",
+    "habitats": [
+      "grassland",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Galapagos giant tortoises can live for more than a century and can survive for many months without food or water.",
+      "es": "Las tortugas gigantes de Galápagos pueden vivir más de cien años y aguantar muchos meses sin comer ni beber."
+    }
+  },
+  {
+    "id": "garden-snail",
+    "en": "Garden snail",
+    "es": "Caracol de jardín",
+    "class": "invertebrate",
+    "habitats": [
+      "grassland",
+      "farm",
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Garden snails have thousands of tiny teeth on a tongue-like ribbon that scrapes up their food.",
+      "es": "Los caracoles de jardín tienen miles de dientes diminutos en una especie de lengua que raspa la comida."
+    }
+  },
+  {
+    "id": "gentoo-penguin",
+    "en": "Gentoo penguin",
+    "es": "Pingüino papúa",
+    "class": "bird",
+    "habitats": [
+      "ocean",
+      "polar"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Gentoo penguins are the fastest swimming penguins and build their nests from carefully chosen pebbles.",
+      "es": "Los pingüinos papúa son los pingüinos que nadan más rápido y construyen sus nidos con piedrecitas bien escogidas."
+    }
+  },
+  {
+    "id": "gharial",
+    "en": "Gharial",
+    "es": "Gavial",
+    "class": "reptile",
+    "habitats": [
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Male gharials have a round bump on the tip of their long, thin snout that helps them make buzzing sounds.",
+      "es": "Los gaviales machos tienen un bulto redondo en la punta de su hocico largo y fino que les ayuda a emitir zumbidos."
+    }
+  },
+  {
+    "id": "giant-african-millipede",
+    "en": "Giant African millipede",
+    "es": "Milpiés gigante africano",
+    "class": "invertebrate",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Millipedes have two pairs of legs on most body segments and curl into a tight spiral when scared.",
+      "es": "Los milpiés tienen dos pares de patas en casi todos sus segmentos y se enrollan en espiral cuando se asustan."
+    }
+  },
+  {
+    "id": "giant-anteater",
+    "en": "Giant anteater",
+    "es": "Oso hormiguero gigante",
+    "class": "mammal",
+    "habitats": [
+      "grassland",
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Giant anteaters have no teeth, but their long sticky tongue can slurp up thousands of ants and termites a day.",
+      "es": "Los osos hormigueros gigantes no tienen dientes, pero con su larga lengua pegajosa atrapan miles de hormigas y termitas al día."
+    }
+  },
+  {
+    "id": "giant-clam",
+    "en": "Giant clam",
+    "es": "Almeja gigante",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Giant clams can live for over a hundred years and get food from tiny algae living in their colorful soft tissue.",
+      "es": "Las almejas gigantes pueden vivir más de cien años y se alimentan gracias a algas diminutas que viven en su manto de colores."
+    }
+  },
+  {
+    "id": "giant-manta-ray",
+    "en": "Giant manta ray",
+    "es": "Mantarraya gigante",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Manta rays have one of the biggest brains of any fish and may even recognize themselves in a mirror.",
+      "es": "Las mantarrayas tienen uno de los cerebros más grandes entre los peces y quizá se reconozcan en un espejo."
+    }
+  },
+  {
+    "id": "giant-oarfish",
+    "en": "Giant oarfish",
+    "es": "Pez remo",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The giant oarfish is the longest bony fish in the world and may have inspired old sea serpent legends.",
+      "es": "El pez remo es el pez óseo más largo del mundo y quizá inspiró las antiguas leyendas de serpientes marinas."
+    }
+  },
+  {
+    "id": "giant-panda",
+    "en": "Giant panda",
+    "es": "Panda gigante",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "mountain"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Giant pandas spend around half of each day eating, munching through huge piles of bamboo.",
+      "es": "Los pandas gigantes pasan más o menos la mitad del día comiendo montones enormes de bambú."
+    }
+  },
+  {
+    "id": "giant-squid",
+    "en": "Giant squid",
+    "es": "Calamar gigante",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Giant squid have some of the largest eyes in the animal kingdom, about the size of a dinner plate.",
+      "es": "El calamar gigante tiene unos de los ojos más grandes del reino animal, más o menos del tamaño de un plato."
+    }
+  },
+  {
+    "id": "gibbon",
+    "en": "Gibbon",
+    "es": "Gibón",
+    "class": "mammal",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Gibbons swing from branch to branch with their extra-long arms, zooming through the trees incredibly fast.",
+      "es": "Los gibones se balancean de rama en rama con sus brazos larguísimos y recorren los árboles a una velocidad increíble."
+    }
+  },
+  {
+    "id": "gila-monster",
+    "en": "Gila monster",
+    "es": "Monstruo de Gila",
+    "class": "reptile",
+    "habitats": [
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Gila monsters are venomous lizards that store fat in their tails and may only need to eat a few times a year.",
+      "es": "El monstruo de Gila es un lagarto venenoso que guarda grasa en la cola y puede bastarle con comer unas pocas veces al año."
+    }
+  },
+  {
+    "id": "giraffe",
+    "en": "Giraffe",
+    "es": "Jirafa",
+    "class": "mammal",
+    "habitats": [
+      "savanna"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A giraffe's tongue is dark bluish purple and long enough to reach around and clean its own ears.",
+      "es": "La lengua de la jirafa es de color morado azulado y tan larga que puede limpiarse las orejas con ella."
+    }
+  },
+  {
+    "id": "glass-frog",
+    "en": "Glass frog",
+    "es": "Rana de cristal",
+    "class": "amphibian",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Glass frogs have see-through skin on their bellies, so you can watch their hearts beating inside.",
+      "es": "Las ranas de cristal tienen la piel del vientre transparente, así que se les puede ver el corazón latiendo."
+    }
+  },
+  {
+    "id": "goat",
+    "en": "Goat",
+    "es": "Cabra",
+    "class": "mammal",
+    "habitats": [
+      "farm",
+      "mountain"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Goats have rectangular pupils that give them a very wide view, perfect for spotting danger around them.",
+      "es": "Las cabras tienen pupilas rectangulares que les dan una visión muy amplia, perfecta para detectar peligros."
+    }
+  },
+  {
+    "id": "golden-eagle",
+    "en": "Golden eagle",
+    "es": "Águila real",
+    "class": "bird",
+    "habitats": [
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Golden eagles have such sharp eyes that they can spot a rabbit moving from very far away.",
+      "es": "Las águilas reales tienen una vista tan aguda que pueden ver moverse un conejo desde muy lejos."
+    }
+  },
+  {
+    "id": "golden-jackal",
+    "en": "Golden jackal",
+    "es": "Chacal dorado",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "grassland",
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Golden jackal pairs often stay together for life and work as a team to hunt and raise their pups.",
+      "es": "Las parejas de chacal dorado suelen estar juntas toda la vida y trabajan en equipo para cazar y criar a sus cachorros."
+    }
+  },
+  {
+    "id": "golden-lion-tamarin",
+    "en": "Golden lion tamarin",
+    "es": "Tití león dorado",
+    "class": "mammal",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Golden lion tamarins have a shiny orange mane like a tiny lion, and fathers help carry the babies.",
+      "es": "Los titís león dorados tienen una melena naranja brillante como un león diminuto, y los padres ayudan a cargar a las crías."
+    }
+  },
+  {
+    "id": "golden-poison-frog",
+    "en": "Golden poison frog",
+    "es": "Rana dorada venenosa",
+    "class": "amphibian",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "The golden poison frog is one of the most toxic animals on Earth, yet it is only about as long as a paperclip.",
+      "es": "La rana dorada venenosa es uno de los animales más tóxicos del planeta, y aun así mide lo mismo que un clip."
+    }
+  },
+  {
+    "id": "goldfish",
+    "en": "Goldfish",
+    "es": "Pez dorado",
+    "class": "fish",
+    "habitats": [
+      "pet",
+      "freshwater"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Goldfish have much better memories than people think and can be trained to respond to sounds and colors.",
+      "es": "Los peces dorados tienen mucha más memoria de lo que se cree y se les puede enseñar a responder a sonidos y colores."
+    }
+  },
+  {
+    "id": "goose",
+    "en": "Goose",
+    "es": "Ganso",
+    "class": "bird",
+    "habitats": [
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Geese are such noisy watchers that people have used them as guard animals for thousands of years.",
+      "es": "Los gansos vigilan haciendo tanto ruido que la gente los ha usado como guardianes durante miles de años."
+    }
+  },
+  {
+    "id": "gorilla",
+    "en": "Gorilla",
+    "es": "Gorila",
+    "class": "mammal",
+    "habitats": [
+      "jungle",
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Gorillas build a fresh nest of leaves and branches to sleep in almost every single night.",
+      "es": "Los gorilas se construyen un nido nuevo de hojas y ramas para dormir casi todas las noches."
+    }
+  },
+  {
+    "id": "grasshopper",
+    "en": "Grasshopper",
+    "es": "Saltamontes",
+    "class": "invertebrate",
+    "habitats": [
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Grasshoppers hear with ears on their bellies and make music by rubbing their back legs against their wings.",
+      "es": "Los saltamontes oyen con unos oídos que tienen en el abdomen y hacen música frotando las patas traseras contra las alas."
+    }
+  },
+  {
+    "id": "gray-wolf",
+    "en": "Gray wolf",
+    "es": "Lobo gris",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "mountain",
+      "polar"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Gray wolves howl to find their pack mates and to tell other wolves to stay out of their territory.",
+      "es": "Los lobos grises aúllan para encontrar a su manada y para avisar a otros lobos de que no entren en su territorio."
+    }
+  },
+  {
+    "id": "great-barracuda",
+    "en": "Great barracuda",
+    "es": "Barracuda",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Great barracudas have rows of fang-like teeth and can burst forward at high speed to snatch fish.",
+      "es": "Las barracudas tienen hileras de dientes como colmillos y pueden lanzarse a gran velocidad para atrapar peces."
+    }
+  },
+  {
+    "id": "great-cormorant",
+    "en": "Great cormorant",
+    "es": "Cormorán grande",
+    "class": "bird",
+    "habitats": [
+      "ocean",
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Cormorant feathers are not fully waterproof, so after diving they often stand with their wings spread out to dry.",
+      "es": "Las plumas del cormorán no son del todo impermeables, así que tras bucear se quedan con las alas abiertas para secarse."
+    }
+  },
+  {
+    "id": "great-crested-newt",
+    "en": "Great crested newt",
+    "es": "Tritón crestado",
+    "class": "amphibian",
+    "habitats": [
+      "freshwater",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "During breeding season, male great crested newts grow a tall, wavy crest along their backs.",
+      "es": "En época de cría, a los machos de tritón crestado les crece una cresta alta y ondulada a lo largo del lomo."
+    }
+  },
+  {
+    "id": "great-hammerhead",
+    "en": "Great hammerhead",
+    "es": "Pez martillo gigante",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A hammerhead's wide head works like a metal detector, helping it find stingrays hidden in the sand.",
+      "es": "La cabeza ancha del pez martillo funciona como un detector de metales y le ayuda a encontrar rayas escondidas en la arena."
+    }
+  },
+  {
+    "id": "great-hornbill",
+    "en": "Great hornbill",
+    "es": "Cálao bicorne",
+    "class": "bird",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Female hornbills seal themselves inside a tree hole with mud while nesting, and the male feeds them through a slit.",
+      "es": "Las hembras de cálao se encierran con barro en un hueco del árbol para anidar, y el macho les pasa comida por una rendija."
+    }
+  },
+  {
+    "id": "great-horned-owl",
+    "en": "Great horned owl",
+    "es": "Búho americano",
+    "class": "bird",
+    "habitats": [
+      "forest",
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Great horned owls are one of the few hunters that regularly eat skunks, probably because birds have a weak sense of smell.",
+      "es": "El búho americano es de los pocos cazadores que comen mofetas a menudo, probablemente porque las aves tienen poco olfato."
+    }
+  },
+  {
+    "id": "great-white-shark",
+    "en": "Great white shark",
+    "es": "Tiburón blanco",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Great white sharks can sense the tiny electric fields made by living animals, helping them find prey they cannot see.",
+      "es": "El tiburón blanco detecta los pequeñísimos campos eléctricos de los animales vivos, lo que le ayuda a encontrar presas que no ve."
+    }
+  },
+  {
+    "id": "greater-flamingo",
+    "en": "Greater flamingo",
+    "es": "Flamenco común",
+    "class": "bird",
+    "habitats": [
+      "wetland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Flamingos hatch gray and slowly turn pink from natural colors in the shrimp and algae they eat.",
+      "es": "Los flamencos nacen grises y se vuelven rosados poco a poco por los pigmentos de los camarones y algas que comen."
+    }
+  },
+  {
+    "id": "greater-roadrunner",
+    "en": "Greater roadrunner",
+    "es": "Correcaminos grande",
+    "class": "bird",
+    "habitats": [
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Greater roadrunners prefer running to flying and are quick enough to catch lizards and even rattlesnakes.",
+      "es": "El correcaminos prefiere correr a volar y es tan rápido que caza lagartijas e incluso serpientes de cascabel."
+    }
+  },
+  {
+    "id": "green-anaconda",
+    "en": "Green anaconda",
+    "es": "Anaconda verde",
+    "class": "reptile",
+    "habitats": [
+      "wetland",
+      "jungle",
+      "freshwater"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Green anacondas are the heaviest snakes in the world and spend much of their time hiding in water.",
+      "es": "Las anacondas verdes son las serpientes más pesadas del mundo y pasan gran parte del tiempo escondidas en el agua."
+    }
+  },
+  {
+    "id": "green-iguana",
+    "en": "Green iguana",
+    "es": "Iguana verde",
+    "class": "reptile",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Green iguanas have a pale third eye on top of their heads that senses light and moving shadows.",
+      "es": "Las iguanas verdes tienen un tercer ojo claro en lo alto de la cabeza que detecta la luz y las sombras en movimiento."
+    }
+  },
+  {
+    "id": "green-moray",
+    "en": "Green moray",
+    "es": "Morena verde",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Green morays are actually brown or bluish; a yellowish slime covering their skin makes them look green.",
+      "es": "Las morenas verdes en realidad son marrones o azuladas; una capa de moco amarillento sobre la piel las hace parecer verdes."
+    }
+  },
+  {
+    "id": "green-sea-turtle",
+    "en": "Green sea turtle",
+    "es": "Tortuga verde",
+    "class": "reptile",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Green sea turtles are named for the greenish color of their body fat, which comes from the seagrass they eat.",
+      "es": "La tortuga verde se llama así por el color verdoso de su grasa, que viene de las hierbas marinas que come."
+    }
+  },
+  {
+    "id": "grey-heron",
+    "en": "Grey heron",
+    "es": "Garza real",
+    "class": "bird",
+    "habitats": [
+      "wetland",
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Grey herons stand perfectly still in shallow water, then strike like lightning to grab fish with their beaks.",
+      "es": "Las garzas reales se quedan totalmente quietas en el agua y luego atacan como un rayo para atrapar peces con el pico."
+    }
+  },
+  {
+    "id": "griffon-vulture",
+    "en": "Griffon vulture",
+    "es": "Buitre leonado",
+    "class": "bird",
+    "habitats": [
+      "mountain",
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Vultures help keep nature clean by eating dead animals, and their strong stomach acid destroys dangerous germs.",
+      "es": "Los buitres ayudan a limpiar la naturaleza comiendo animales muertos, y sus fuertes jugos gástricos destruyen gérmenes peligrosos."
+    }
+  },
+  {
+    "id": "guinea-pig",
+    "en": "Guinea pig",
+    "es": "Cobaya",
+    "class": "mammal",
+    "habitats": [
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Happy guinea pigs sometimes jump straight up and twist in the air, a move called popcorning.",
+      "es": "Cuando están felices, las cobayas a veces saltan en vertical y se retuercen en el aire, como palomitas de maíz."
+    }
+  },
+  {
+    "id": "guppy",
+    "en": "Guppy",
+    "es": "Guppy",
+    "class": "fish",
+    "habitats": [
+      "freshwater",
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Guppies give birth to live babies that can swim right away, instead of laying eggs like most fish.",
+      "es": "Los guppys dan a luz crías vivas que nadan desde el primer momento, en lugar de poner huevos como la mayoría de los peces."
+    }
+  },
+  {
+    "id": "hamster",
+    "en": "Hamster",
+    "es": "Hámster",
+    "class": "mammal",
+    "habitats": [
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Hamsters carry food in their cheek pouches and later empty them to build a secret snack pile.",
+      "es": "Los hámsteres llevan comida en los carrillos y luego la vacían para formar una despensa secreta."
+    }
+  },
+  {
+    "id": "harbor-seal",
+    "en": "Harbor seal",
+    "es": "Foca común",
+    "class": "mammal",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Harbor seals can nap underwater and float up to the surface to breathe without fully waking up.",
+      "es": "Las focas comunes pueden dormir bajo el agua y subir a respirar sin llegar a despertarse del todo."
+    }
+  },
+  {
+    "id": "harbour-porpoise",
+    "en": "Harbour porpoise",
+    "es": "Marsopa común",
+    "class": "mammal",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Harbour porpoises are shy relatives of dolphins and have spade-shaped teeth instead of cone-shaped ones.",
+      "es": "Las marsopas comunes son parientes tímidas de los delfines y tienen dientes en forma de pala en vez de cónicos."
+    }
+  },
+  {
+    "id": "hedgehog",
+    "en": "Hedgehog",
+    "es": "Erizo",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "grassland",
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A hedgehog's back is covered in thousands of spines, and it rolls into a prickly ball when it gets scared.",
+      "es": "El lomo del erizo está cubierto de miles de púas, y cuando se asusta se enrolla como una bola pinchuda."
+    }
+  },
+  {
+    "id": "helmeted-guineafowl",
+    "en": "Helmeted guineafowl",
+    "es": "Pintada común",
+    "class": "bird",
+    "habitats": [
+      "farm",
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Guineafowl are kept on some farms because they eat lots of ticks and make a loud racket when strangers arrive.",
+      "es": "En algunas granjas se crían pintadas porque comen muchas garrapatas y arman un gran escándalo cuando llegan extraños."
+    }
+  },
+  {
+    "id": "hermit-crab",
+    "en": "Hermit crab",
+    "es": "Cangrejo ermitaño",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Hermit crabs live in empty shells borrowed from snails and move into bigger ones as they grow.",
+      "es": "Los cangrejos ermitaños viven en conchas vacías de caracoles y se mudan a otras más grandes a medida que crecen."
+    }
+  },
+  {
+    "id": "herring-gull",
+    "en": "Herring gull",
+    "es": "Gaviota argéntea",
+    "class": "bird",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Herring gull chicks peck at a red spot on their parent's beak to ask for food.",
+      "es": "Los pollitos de gaviota argéntea picotean una mancha roja del pico de sus padres para pedir comida."
+    }
+  },
+  {
+    "id": "hippopotamus",
+    "en": "Hippopotamus",
+    "es": "Hipopótamo",
+    "class": "mammal",
+    "habitats": [
+      "freshwater",
+      "savanna"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Hippos ooze an oily reddish liquid onto their skin that works like a natural sunscreen.",
+      "es": "Los hipopótamos sueltan un líquido aceitoso rojizo sobre la piel que funciona como un protector solar natural."
+    }
+  },
+  {
+    "id": "honey-badger",
+    "en": "Honey badger",
+    "es": "Tejón de la miel",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Honey badgers are famously fearless and will raid beehives and even stand up to lions.",
+      "es": "Los tejones de la miel son famosos por no tener miedo a nada: asaltan colmenas e incluso se enfrentan a leones."
+    }
+  },
+  {
+    "id": "honey-bee",
+    "en": "Honey bee",
+    "es": "Abeja melífera",
+    "class": "invertebrate",
+    "habitats": [
+      "farm",
+      "grassland",
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Honey bees do a waggle dance to tell their hive mates exactly where to find the best flowers.",
+      "es": "Las abejas melíferas hacen un baile meneando el cuerpo para indicar a sus compañeras dónde están las mejores flores."
+    }
+  },
+  {
+    "id": "horse",
+    "en": "Horse",
+    "es": "Caballo",
+    "class": "mammal",
+    "habitats": [
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Horses can doze while standing up because special joints let their legs lock in place.",
+      "es": "Los caballos pueden dormitar de pie porque unas articulaciones especiales les permiten bloquear las patas."
+    }
+  },
+  {
+    "id": "house-centipede",
+    "en": "House centipede",
+    "es": "Ciempiés doméstico",
+    "class": "invertebrate",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Despite their name, centipedes never have exactly one hundred legs, because they always have an odd number of leg pairs.",
+      "es": "A pesar de su nombre, los ciempiés nunca tienen exactamente cien patas, porque siempre tienen un número impar de pares."
+    }
+  },
+  {
+    "id": "house-cricket",
+    "en": "House cricket",
+    "es": "Grillo doméstico",
+    "class": "invertebrate",
+    "habitats": [
+      "grassland",
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Male crickets chirp by rubbing their wings together, and they chirp faster when the weather is warmer.",
+      "es": "Los grillos machos cantan frotando sus alas, y cantan más deprisa cuando hace más calor."
+    }
+  },
+  {
+    "id": "house-mouse",
+    "en": "House mouse",
+    "es": "Ratón doméstico",
+    "class": "mammal",
+    "habitats": [
+      "farm",
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A mouse can squeeze through a gap only about as wide as a pencil.",
+      "es": "Un ratón puede colarse por un hueco no más ancho que un lápiz."
+    }
+  },
+  {
+    "id": "house-sparrow",
+    "en": "House sparrow",
+    "es": "Gorrión común",
+    "class": "bird",
+    "habitats": [
+      "farm",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "House sparrows have lived alongside people for thousands of years and now live on every continent except Antarctica.",
+      "es": "Los gorriones llevan miles de años viviendo junto a las personas y hoy están en todos los continentes salvo la Antártida."
+    }
+  },
+  {
+    "id": "housefly",
+    "en": "Housefly",
+    "es": "Mosca doméstica",
+    "class": "invertebrate",
+    "habitats": [
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Houseflies taste with their feet, so they walk all over things to check whether they are good to eat.",
+      "es": "Las moscas saborean con las patas, así que caminan por encima de las cosas para comprobar si se pueden comer."
+    }
+  },
+  {
+    "id": "howler-monkey",
+    "en": "Howler monkey",
+    "es": "Mono aullador",
+    "class": "mammal",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Howler monkeys are among the loudest land animals, and their calls can be heard for miles through the forest.",
+      "es": "Los monos aulladores están entre los animales terrestres más ruidosos: sus gritos se oyen a kilómetros por la selva."
+    }
+  },
+  {
+    "id": "hummingbird",
+    "en": "Hummingbird",
+    "es": "Colibrí",
+    "class": "bird",
+    "habitats": [
+      "forest",
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Hummingbirds can fly backwards, and their wings beat so fast that they make a humming sound.",
+      "es": "Los colibríes pueden volar hacia atrás, y baten las alas tan rápido que producen un zumbido."
+    }
+  },
+  {
+    "id": "humpback-whale",
+    "en": "Humpback whale",
+    "es": "Ballena jorobada",
+    "class": "mammal",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Male humpback whales sing long, complex songs that can travel huge distances underwater.",
+      "es": "Los machos de ballena jorobada cantan canciones largas y complejas que viajan enormes distancias bajo el agua."
+    }
+  },
+  {
+    "id": "impala",
+    "en": "Impala",
+    "es": "Impala",
+    "class": "mammal",
+    "habitats": [
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Impalas can leap several meters into the air and cover long distances in a single jump to escape predators.",
+      "es": "Los impalas saltan varios metros de altura y recorren grandes distancias de un solo brinco para huir de los depredadores."
+    }
+  },
+  {
+    "id": "jaguar",
+    "en": "Jaguar",
+    "es": "Jaguar",
+    "class": "mammal",
+    "habitats": [
+      "jungle",
+      "wetland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Jaguars love water and are strong swimmers, often hunting fish, turtles and even caimans.",
+      "es": "A los jaguares les encanta el agua y nadan muy bien; a menudo cazan peces, tortugas e incluso caimanes."
+    }
+  },
+  {
+    "id": "japanese-giant-salamander",
+    "en": "Japanese giant salamander",
+    "es": "Salamandra gigante japonesa",
+    "class": "amphibian",
+    "habitats": [
+      "freshwater",
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Japanese giant salamanders are among the largest amphibians in the world and breathe mostly through their wrinkly skin.",
+      "es": "La salamandra gigante japonesa es uno de los anfibios más grandes del mundo y respira sobre todo a través de su piel arrugada."
+    }
+  },
+  {
+    "id": "japanese-macaque",
+    "en": "Japanese macaque",
+    "es": "Macaco japonés",
+    "class": "mammal",
+    "habitats": [
+      "mountain",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Some Japanese macaques soak in natural hot springs during snowy winters to stay warm.",
+      "es": "Algunos macacos japoneses se bañan en aguas termales durante los inviernos nevados para no pasar frío."
+    }
+  },
+  {
+    "id": "kakapo",
+    "en": "Kakapo",
+    "es": "Kakapo",
+    "class": "bird",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The kakapo is the world's heaviest parrot and cannot fly, so it climbs trees using its beak and feet.",
+      "es": "El kakapo es el loro más pesado del mundo y no puede volar, así que trepa a los árboles con el pico y las patas."
+    }
+  },
+  {
+    "id": "king-cobra",
+    "en": "King cobra",
+    "es": "Cobra real",
+    "class": "reptile",
+    "habitats": [
+      "jungle",
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "The king cobra is the longest venomous snake in the world, and it mostly eats other snakes.",
+      "es": "La cobra real es la serpiente venenosa más larga del mundo, y se alimenta sobre todo de otras serpientes."
+    }
+  },
+  {
+    "id": "kinkajou",
+    "en": "Kinkajou",
+    "es": "Kinkajú",
+    "class": "mammal",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Kinkajous use a long tongue to sip nectar and a gripping tail to hang from branches.",
+      "es": "Los kinkajús usan su larga lengua para beber néctar y su cola prensil para colgarse de las ramas."
+    }
+  },
+  {
+    "id": "kiwi",
+    "en": "Kiwi",
+    "es": "Kiwi",
+    "class": "bird",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Kiwis have nostrils at the very tip of their long beak and use them to sniff out worms underground.",
+      "es": "Los kiwis tienen los orificios nasales en la punta de su largo pico y los usan para olfatear gusanos bajo tierra."
+    }
+  },
+  {
+    "id": "koala",
+    "en": "Koala",
+    "es": "Koala",
+    "class": "mammal",
+    "habitats": [
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Koalas sleep for most of the day because their eucalyptus leaf diet gives them very little energy.",
+      "es": "Los koalas duermen casi todo el día porque las hojas de eucalipto que comen les dan muy poca energía."
+    }
+  },
+  {
+    "id": "koi",
+    "en": "Koi",
+    "es": "Koi",
+    "class": "fish",
+    "habitats": [
+      "pet",
+      "freshwater"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Koi are colorful pond carp that can live for decades, and a few have lived for more than a century.",
+      "es": "Las koi son carpas de colores que pueden vivir décadas, y algunas han llegado a superar los cien años."
+    }
+  },
+  {
+    "id": "komodo-dragon",
+    "en": "Komodo dragon",
+    "es": "Dragón de Komodo",
+    "class": "reptile",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Komodo dragons are the largest living lizards and use their forked tongues to smell food from far away.",
+      "es": "Los dragones de Komodo son los lagartos más grandes que existen y usan su lengua bífida para oler comida desde lejos."
+    }
+  },
+  {
+    "id": "ladybug",
+    "en": "Ladybug",
+    "es": "Mariquita",
+    "class": "invertebrate",
+    "habitats": [
+      "grassland",
+      "farm",
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Ladybugs gobble up huge numbers of aphids, so gardeners love them for protecting their plants.",
+      "es": "Las mariquitas se comen muchísimos pulgones, por eso a los jardineros les encantan: protegen sus plantas."
+    }
+  },
+  {
+    "id": "laughing-kookaburra",
+    "en": "Laughing kookaburra",
+    "es": "Cucaburra común",
+    "class": "bird",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Laughing kookaburras are famous for their call, which sounds like loud human laughter ringing through the bush.",
+      "es": "Las cucaburras son famosas por su canto, que suena como carcajadas humanas resonando en el bosque."
+    }
+  },
+  {
+    "id": "leafcutter-ant",
+    "en": "Leafcutter ant",
+    "es": "Hormiga cortadora de hojas",
+    "class": "invertebrate",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Leafcutter ants do not eat the leaves they carry; they use them to grow a fungus garden that feeds the colony.",
+      "es": "Las hormigas cortadoras no se comen las hojas que cargan: las usan para cultivar un hongo que alimenta a la colonia."
+    }
+  },
+  {
+    "id": "leatherback-sea-turtle",
+    "en": "Leatherback sea turtle",
+    "es": "Tortuga laúd",
+    "class": "reptile",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Leatherbacks are the biggest turtles in the world, and their shell is rubbery and leathery instead of hard.",
+      "es": "La tortuga laúd es la tortuga más grande del mundo, y su caparazón es gomoso, como de cuero, en lugar de duro."
+    }
+  },
+  {
+    "id": "lemming",
+    "en": "Lemming",
+    "es": "Lemming",
+    "class": "mammal",
+    "habitats": [
+      "polar"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The story that lemmings jump off cliffs together is a myth, but their numbers really do boom and crash every few years.",
+      "es": "Lo de que los lemmings se tiran juntos por los acantilados es un mito, pero su población sí sube y baja mucho cada pocos años."
+    }
+  },
+  {
+    "id": "leopard",
+    "en": "Leopard",
+    "es": "Leopardo",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "forest",
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Leopards are so strong they can haul their prey up into trees to keep it safe from lions and hyenas.",
+      "es": "Los leopardos son tan fuertes que suben sus presas a los árboles para que no se las roben leones ni hienas."
+    }
+  },
+  {
+    "id": "leopard-gecko",
+    "en": "Leopard gecko",
+    "es": "Geco leopardo",
+    "class": "reptile",
+    "habitats": [
+      "desert",
+      "pet"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Leopard geckos store fat in their thick tails, and unlike many geckos, they have eyelids and can blink.",
+      "es": "Los gecos leopardo guardan grasa en su cola gruesa y, a diferencia de muchos gecos, tienen párpados y pueden parpadear."
+    }
+  },
+  {
+    "id": "leopard-slug",
+    "en": "Leopard slug",
+    "es": "Babosa leopardo",
+    "class": "invertebrate",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Leopard slugs can lower themselves from branches on a thick cord of slime.",
+      "es": "Las babosas leopardo pueden descolgarse de las ramas colgando de un grueso cordón de baba."
+    }
+  },
+  {
+    "id": "lion",
+    "en": "Lion",
+    "es": "León",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A lion's roar is so loud that it can be heard several kilometers away.",
+      "es": "El rugido del león es tan fuerte que se oye a varios kilómetros de distancia."
+    }
+  },
+  {
+    "id": "lions-mane-jellyfish",
+    "en": "Lion's mane jellyfish",
+    "es": "Medusa melena de león",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean",
+      "polar"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The lion's mane jellyfish is one of the largest jellyfish, and some have tentacles longer than a blue whale.",
+      "es": "La medusa melena de león es una de las medusas más grandes, y algunas tienen tentáculos más largos que una ballena azul."
+    }
+  },
+  {
+    "id": "little-penguin",
+    "en": "Little penguin",
+    "es": "Pingüino azul",
+    "class": "bird",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Little penguins are the smallest penguins in the world and waddle ashore after dark to avoid predators.",
+      "es": "El pingüino azul es el pingüino más pequeño del mundo y sale del mar al anochecer para evitar a los depredadores."
+    }
+  },
+  {
+    "id": "llama",
+    "en": "Llama",
+    "es": "Llama",
+    "class": "mammal",
+    "habitats": [
+      "farm",
+      "mountain"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Llamas are sometimes used to guard sheep because they bravely chase away foxes and coyotes.",
+      "es": "A veces se usan llamas para cuidar ovejas, porque espantan con valentía a zorros y coyotes."
+    }
+  },
+  {
+    "id": "loggerhead-sea-turtle",
+    "en": "Loggerhead sea turtle",
+    "es": "Tortuga boba",
+    "class": "reptile",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Loggerhead turtles have huge heads and powerful jaws that crush crabs, clams and other hard-shelled prey.",
+      "es": "Las tortugas bobas tienen una cabeza enorme y mandíbulas potentes que trituran cangrejos, almejas y otras presas con concha."
+    }
+  },
+  {
+    "id": "luna-moth",
+    "en": "Luna moth",
+    "es": "Polilla luna",
+    "class": "invertebrate",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Luna moths have long, twirling tails on their wings that confuse the sonar of hungry bats.",
+      "es": "Las polillas luna tienen largas colas en las alas que, al girar, confunden el sonar de los murciélagos."
+    }
+  },
+  {
+    "id": "magnificent-frigatebird",
+    "en": "Magnificent frigatebird",
+    "es": "Rabihorcado magnífico",
+    "class": "bird",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Male frigatebirds puff up a huge red throat pouch like a balloon to attract females.",
+      "es": "Los machos de rabihorcado inflan una enorme bolsa roja en la garganta, como un globo, para atraer a las hembras."
+    }
+  },
+  {
+    "id": "mallard",
+    "en": "Mallard",
+    "es": "Ánade real",
+    "class": "bird",
+    "habitats": [
+      "freshwater",
+      "wetland",
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Mallards are the wild ancestors of most farm ducks, and only the females make the classic loud quack.",
+      "es": "El ánade real es el antepasado salvaje de casi todos los patos de granja, y solo las hembras hacen el típico cuac fuerte."
+    }
+  },
+  {
+    "id": "manatee",
+    "en": "Manatee",
+    "es": "Manatí",
+    "class": "mammal",
+    "habitats": [
+      "ocean",
+      "freshwater"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Manatees are gentle plant eaters, and their closest living relatives are actually elephants.",
+      "es": "Los manatíes son tranquilos comedores de plantas, y sus parientes vivos más cercanos son los elefantes."
+    }
+  },
+  {
+    "id": "mandrill",
+    "en": "Mandrill",
+    "es": "Mandril",
+    "class": "mammal",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Male mandrills have bright red and blue faces, and the colors get even brighter when they are excited.",
+      "es": "Los mandriles machos tienen la cara de color rojo y azul intenso, y los colores se avivan aún más cuando se emocionan."
+    }
+  },
+  {
+    "id": "mantis-shrimp",
+    "en": "Mantis shrimp",
+    "es": "Camarón mantis",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Mantis shrimp punch so fast that the water near their claws briefly boils and gives off a tiny flash of light.",
+      "es": "El camarón mantis golpea tan rápido que el agua junto a sus pinzas hierve un instante y suelta un pequeño destello de luz."
+    }
+  },
+  {
+    "id": "marine-iguana",
+    "en": "Marine iguana",
+    "es": "Iguana marina",
+    "class": "reptile",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Marine iguanas are the only lizards that feed in the sea, and they sneeze out extra salt through their noses.",
+      "es": "Las iguanas marinas son los únicos lagartos que se alimentan en el mar, y estornudan para expulsar el exceso de sal."
+    }
+  },
+  {
+    "id": "medicinal-leech",
+    "en": "Medicinal leech",
+    "es": "Sanguijuela medicinal",
+    "class": "invertebrate",
+    "habitats": [
+      "freshwater",
+      "wetland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Medicinal leeches have three jaws with tiny teeth, and some doctors still use them to help healing after surgery.",
+      "es": "Las sanguijuelas medicinales tienen tres mandíbulas con dientecillos, y algunos médicos aún las usan para ayudar a curar tras una operación."
+    }
+  },
+  {
+    "id": "meerkat",
+    "en": "Meerkat",
+    "es": "Suricata",
+    "class": "mammal",
+    "habitats": [
+      "desert",
+      "savanna"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Meerkats take turns standing guard, and the lookout gives a warning call when it spots a predator.",
+      "es": "Las suricatas se turnan para vigilar, y la centinela lanza un aviso cuando ve a un depredador."
+    }
+  },
+  {
+    "id": "mexican-red-knee-tarantula",
+    "en": "Mexican red-knee tarantula",
+    "es": "Tarántula de rodillas rojas",
+    "class": "invertebrate",
+    "habitats": [
+      "desert",
+      "pet"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Red-knee tarantulas can flick tiny itchy hairs off their bodies at enemies to defend themselves.",
+      "es": "Las tarántulas de rodillas rojas lanzan pelitos urticantes de su cuerpo a sus enemigos para defenderse."
+    }
+  },
+  {
+    "id": "mole",
+    "en": "Mole",
+    "es": "Topo",
+    "class": "mammal",
+    "habitats": [
+      "grassland",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Moles dig tunnels very quickly, and their saliva can paralyze earthworms so they can be stored alive for later.",
+      "es": "Los topos cavan túneles muy deprisa, y su saliva puede paralizar lombrices para guardarlas vivas y comérselas después."
+    }
+  },
+  {
+    "id": "monarch-butterfly",
+    "en": "Monarch butterfly",
+    "es": "Mariposa monarca",
+    "class": "invertebrate",
+    "habitats": [
+      "grassland",
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Monarch butterflies fly thousands of kilometers each autumn to spend the winter in the mountain forests of Mexico.",
+      "es": "Las mariposas monarca vuelan miles de kilómetros cada otoño para pasar el invierno en los bosques de montaña de México."
+    }
+  },
+  {
+    "id": "mongoose",
+    "en": "Mongoose",
+    "es": "Mangosta",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Some mongooses are famous for fighting venomous snakes, using speed and thick fur to avoid being bitten.",
+      "es": "Algunas mangostas son famosas por enfrentarse a serpientes venenosas, usando su rapidez y su pelo denso para evitar mordiscos."
+    }
+  },
+  {
+    "id": "moon-jellyfish",
+    "en": "Moon jellyfish",
+    "es": "Medusa luna",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Moon jellyfish have no brain, heart or bones, and their bodies are made almost entirely of water.",
+      "es": "Las medusas luna no tienen cerebro, corazón ni huesos, y su cuerpo es casi todo agua."
+    }
+  },
+  {
+    "id": "moose",
+    "en": "Moose",
+    "es": "Alce",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "wetland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Moose are excellent swimmers and can even dive underwater to munch plants on the bottom of lakes.",
+      "es": "Los alces nadan de maravilla e incluso se sumergen para comer plantas del fondo de los lagos."
+    }
+  },
+  {
+    "id": "mosquito",
+    "en": "Mosquito",
+    "es": "Mosquito",
+    "class": "invertebrate",
+    "habitats": [
+      "wetland",
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Only female mosquitoes bite, because they need blood to make eggs; males drink sweet plant nectar instead.",
+      "es": "Solo pican las hembras de mosquito, porque necesitan sangre para producir huevos; los machos beben néctar de las plantas."
+    }
+  },
+  {
+    "id": "mountain-goat",
+    "en": "Mountain goat",
+    "es": "Cabra de las Rocosas",
+    "class": "mammal",
+    "habitats": [
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Mountain goats have rubbery pads on their hooves that grip steep rocks like climbing shoes.",
+      "es": "Las cabras de las Rocosas tienen almohadillas gomosas en las pezuñas que se agarran a las rocas como zapatillas de escalada."
+    }
+  },
+  {
+    "id": "mourning-dove",
+    "en": "Mourning dove",
+    "es": "Paloma huilota",
+    "class": "bird",
+    "habitats": [
+      "grassland",
+      "farm",
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Mourning dove wings make a whistling sound when the bird takes off, which can warn other doves of danger.",
+      "es": "Las alas de la paloma huilota silban cuando despega, y ese sonido puede alertar a otras palomas del peligro."
+    }
+  },
+  {
+    "id": "mudskipper",
+    "en": "Mudskipper",
+    "es": "Saltarín del fango",
+    "class": "fish",
+    "habitats": [
+      "wetland",
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Mudskippers are fish that spend much of their time out of water, hopping across the mud on their fins.",
+      "es": "Los saltarines del fango son peces que pasan mucho tiempo fuera del agua, dando saltitos por el barro con sus aletas."
+    }
+  },
+  {
+    "id": "mule",
+    "en": "Mule",
+    "es": "Mula",
+    "class": "mammal",
+    "habitats": [
+      "farm"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "A mule is the baby of a male donkey and a female horse, and it is famous for being sure-footed.",
+      "es": "La mula es la cría de un burro y una yegua, y es famosa por lo firme que pisa."
+    }
+  },
+  {
+    "id": "musk-ox",
+    "en": "Musk ox",
+    "es": "Buey almizclero",
+    "class": "mammal",
+    "habitats": [
+      "polar"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "When threatened, musk oxen form a circle with their horns facing out and their calves safely inside.",
+      "es": "Cuando se sienten amenazados, los bueyes almizcleros forman un círculo con los cuernos hacia fuera y las crías protegidas dentro."
+    }
+  },
+  {
+    "id": "mute-swan",
+    "en": "Mute swan",
+    "es": "Cisne vulgar",
+    "class": "bird",
+    "habitats": [
+      "freshwater",
+      "wetland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Despite their English name meaning silent, mute swans can hiss, snort and grunt, and their wings whoosh loudly in flight.",
+      "es": "Aunque en inglés se llaman cisnes mudos, bufan, resoplan y gruñen, y sus alas silban con fuerza al volar."
+    }
+  },
+  {
+    "id": "naked-mole-rat",
+    "en": "Naked mole-rat",
+    "es": "Rata topo desnuda",
+    "class": "mammal",
+    "habitats": [
+      "desert",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Naked mole-rats live underground in colonies ruled by a queen, much like ants and bees.",
+      "es": "Las ratas topo desnudas viven bajo tierra en colonias gobernadas por una reina, como las hormigas y las abejas."
+    }
+  },
+  {
+    "id": "narwhal",
+    "en": "Narwhal",
+    "es": "Narval",
+    "class": "mammal",
+    "habitats": [
+      "ocean",
+      "polar"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A narwhal's long spiral tusk is actually a tooth that grows out through its upper lip.",
+      "es": "El largo cuerno en espiral del narval es en realidad un diente que le sale atravesando el labio superior."
+    }
+  },
+  {
+    "id": "neon-tetra",
+    "en": "Neon tetra",
+    "es": "Tetra neón",
+    "class": "fish",
+    "habitats": [
+      "freshwater",
+      "pet"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Neon tetras have a glowing blue stripe that may help them keep together in dark jungle waters.",
+      "es": "Los tetras neón tienen una franja azul brillante que podría ayudarles a mantenerse juntos en las aguas oscuras de la selva."
+    }
+  },
+  {
+    "id": "nile-crocodile",
+    "en": "Nile crocodile",
+    "es": "Cocodrilo del Nilo",
+    "class": "reptile",
+    "habitats": [
+      "freshwater",
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "After a big meal, a Nile crocodile can go many months without eating again.",
+      "es": "Después de una gran comida, un cocodrilo del Nilo puede pasar muchos meses sin volver a comer."
+    }
+  },
+  {
+    "id": "northern-cardinal",
+    "en": "Northern cardinal",
+    "es": "Cardenal norteño",
+    "class": "bird",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Female northern cardinals sing too, sometimes from the nest, which is unusual among North American songbirds.",
+      "es": "Las hembras de cardenal norteño también cantan, a veces desde el nido, algo poco habitual en los pájaros de Norteamérica."
+    }
+  },
+  {
+    "id": "northern-elephant-seal",
+    "en": "Northern elephant seal",
+    "es": "Elefante marino del norte",
+    "class": "mammal",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Male elephant seals have a big floppy nose that they puff up to make loud, booming calls.",
+      "es": "Los machos de elefante marino tienen una gran nariz blanda que inflan para lanzar bramidos muy fuertes."
+    }
+  },
+  {
+    "id": "northern-mockingbird",
+    "en": "Northern mockingbird",
+    "es": "Sinsonte norteño",
+    "class": "bird",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Northern mockingbirds learn the songs of many other birds and can even copy car alarms.",
+      "es": "Los sinsontes norteños aprenden los cantos de muchas otras aves e incluso imitan alarmas de coche."
+    }
+  },
+  {
+    "id": "northern-pike",
+    "en": "Northern pike",
+    "es": "Lucio",
+    "class": "fish",
+    "habitats": [
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Northern pike lurk among water plants, then dart out to ambush fish, frogs and even ducklings.",
+      "es": "Los lucios acechan entre las plantas acuáticas y salen disparados para atrapar peces, ranas e incluso patitos."
+    }
+  },
+  {
+    "id": "nudibranch",
+    "en": "Nudibranch",
+    "es": "Nudibranquio",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Some nudibranchs eat stinging animals and store the stingers in their own bodies to use for defense.",
+      "es": "Algunos nudibranquios se comen animales urticantes y guardan sus células urticantes en su propio cuerpo para defenderse."
+    }
+  },
+  {
+    "id": "ocean-sunfish",
+    "en": "Ocean sunfish",
+    "es": "Pez luna",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The ocean sunfish is one of the heaviest bony fish, and a female can carry hundreds of millions of eggs.",
+      "es": "El pez luna es uno de los peces óseos más pesados, y una hembra puede llevar cientos de millones de huevos."
+    }
+  },
+  {
+    "id": "ocelot",
+    "en": "Ocelot",
+    "es": "Ocelote",
+    "class": "mammal",
+    "habitats": [
+      "jungle",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Every ocelot has a unique pattern of spots and stripes, so scientists can tell individuals apart from photos.",
+      "es": "Cada ocelote tiene un dibujo único de manchas y rayas, así que los científicos pueden distinguirlos por fotos."
+    }
+  },
+  {
+    "id": "okapi",
+    "en": "Okapi",
+    "es": "Okapi",
+    "class": "mammal",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The okapi has zebra-like stripes on its legs, but its closest relative is actually the giraffe.",
+      "es": "El okapi tiene rayas de cebra en las patas, pero su pariente más cercano es en realidad la jirafa."
+    }
+  },
+  {
+    "id": "old-world-swallowtail",
+    "en": "Old World swallowtail",
+    "es": "Macaón",
+    "class": "invertebrate",
+    "habitats": [
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Old World swallowtail caterpillars push out a smelly orange forked organ to scare away predators.",
+      "es": "Las orugas de la mariposa macaón sacan un órgano naranja en forma de horquilla que huele mal para espantar a los depredadores."
+    }
+  },
+  {
+    "id": "olm",
+    "en": "Olm",
+    "es": "Proteo",
+    "class": "amphibian",
+    "habitats": [
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Olms live in dark underground caves, are blind, and can survive for years without eating anything.",
+      "es": "Los proteos viven en cuevas subterráneas oscuras, son ciegos y pueden sobrevivir años sin comer nada."
+    }
+  },
+  {
+    "id": "orangutan",
+    "en": "Orangutan",
+    "es": "Orangután",
+    "class": "mammal",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Orangutans sometimes hold big leaves over their heads like umbrellas to stay dry in the rain.",
+      "es": "Los orangutanes a veces se ponen hojas grandes sobre la cabeza como paraguas para no mojarse."
+    }
+  },
+  {
+    "id": "orca",
+    "en": "Orca",
+    "es": "Orca",
+    "class": "mammal",
+    "habitats": [
+      "ocean",
+      "polar"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Despite the name killer whale, orcas are actually the largest members of the dolphin family.",
+      "es": "Aunque las llaman ballenas asesinas, las orcas son en realidad los miembros más grandes de la familia de los delfines."
+    }
+  },
+  {
+    "id": "ostrich",
+    "en": "Ostrich",
+    "es": "Avestruz",
+    "class": "bird",
+    "habitats": [
+      "savanna",
+      "desert"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "The ostrich lays the biggest egg of any living bird, as big as about two dozen chicken eggs.",
+      "es": "El avestruz pone el huevo más grande de todas las aves actuales, equivalente a unas dos docenas de huevos de gallina."
+    }
+  },
+  {
+    "id": "pacific-oyster",
+    "en": "Pacific oyster",
+    "es": "Ostra del Pacífico",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Oysters filter huge amounts of seawater each day, cleaning the water as they feed.",
+      "es": "Las ostras filtran enormes cantidades de agua de mar cada día y la limpian mientras se alimentan."
+    }
+  },
+  {
+    "id": "pangolin",
+    "en": "Pangolin",
+    "es": "Pangolín",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Pangolins are the only mammals covered in hard scales, and they roll into a tight ball for protection.",
+      "es": "Los pangolines son los únicos mamíferos cubiertos de escamas duras, y se enrollan como una bola para protegerse."
+    }
+  },
+  {
+    "id": "paper-wasp",
+    "en": "Paper wasp",
+    "es": "Avispa papelera",
+    "class": "invertebrate",
+    "habitats": [
+      "grassland",
+      "forest",
+      "farm"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Paper wasps build their nests by chewing wood and mixing it with saliva to make a kind of paper.",
+      "es": "Las avispas papeleras construyen sus nidos masticando madera y mezclándola con saliva para hacer una especie de papel."
+    }
+  },
+  {
+    "id": "parrotfish",
+    "en": "Parrotfish",
+    "es": "Pez loro",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Parrotfish crunch on coral and poop out fine white sand, helping to create sandy tropical beaches.",
+      "es": "Los peces loro mordisquean el coral y lo expulsan convertido en arena blanca fina, ayudando a formar playas tropicales."
+    }
+  },
+  {
+    "id": "peacock-spider",
+    "en": "Peacock spider",
+    "es": "Araña pavo real",
+    "class": "invertebrate",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Male peacock spiders raise a colorful flap on their bodies and dance to impress females.",
+      "es": "Los machos de araña pavo real levantan una solapa de colores de su cuerpo y bailan para impresionar a las hembras."
+    }
+  },
+  {
+    "id": "peafowl",
+    "en": "Peafowl",
+    "es": "Pavo real",
+    "class": "bird",
+    "habitats": [
+      "forest",
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Only male peafowl, called peacocks, have the dazzling tail, which they fan out and shake to impress females.",
+      "es": "Solo los machos del pavo real tienen la cola deslumbrante, que despliegan y hacen vibrar para impresionar a las hembras."
+    }
+  },
+  {
+    "id": "peregrine-falcon",
+    "en": "Peregrine falcon",
+    "es": "Halcón peregrino",
+    "class": "bird",
+    "habitats": [
+      "mountain",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "When it dives to catch prey, the peregrine falcon becomes the fastest animal on Earth.",
+      "es": "Cuando se lanza en picado a por una presa, el halcón peregrino se convierte en el animal más rápido del planeta."
+    }
+  },
+  {
+    "id": "periodical-cicada",
+    "en": "Periodical cicada",
+    "es": "Cigarra periódica",
+    "class": "invertebrate",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Periodical cicadas spend thirteen or seventeen years underground before coming out all at the same time.",
+      "es": "Las cigarras periódicas pasan trece o diecisiete años bajo tierra antes de salir todas a la vez."
+    }
+  },
+  {
+    "id": "pig",
+    "en": "Pig",
+    "es": "Cerdo",
+    "class": "mammal",
+    "habitats": [
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Pigs are very clever and can learn tricks, solve puzzles and even recognize their own names.",
+      "es": "Los cerdos son muy listos: aprenden trucos, resuelven rompecabezas e incluso reconocen su nombre."
+    }
+  },
+  {
+    "id": "pigeon",
+    "en": "Pigeon",
+    "es": "Paloma bravía",
+    "class": "bird",
+    "habitats": [
+      "farm",
+      "mountain"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Pigeons can find their way home from very far away, so people once used them to carry messages.",
+      "es": "Las palomas encuentran el camino a casa desde muy lejos, por eso antiguamente se usaban para llevar mensajes."
+    }
+  },
+  {
+    "id": "pill-woodlouse",
+    "en": "Pill woodlouse",
+    "es": "Cochinilla de la humedad",
+    "class": "invertebrate",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Pill woodlice are crustaceans related to crabs and shrimp, and they roll up into a ball when disturbed.",
+      "es": "Las cochinillas de la humedad son crustáceos, parientes de cangrejos y gambas, y se hacen una bola cuando las molestan."
+    }
+  },
+  {
+    "id": "plaice",
+    "en": "Plaice",
+    "es": "Solla",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Young plaice swim upright like other fish, but one eye slowly moves until both eyes sit on the same side.",
+      "es": "Las sollas jóvenes nadan derechas como otros peces, pero un ojo se desplaza poco a poco hasta quedar junto al otro."
+    }
+  },
+  {
+    "id": "platypus",
+    "en": "Platypus",
+    "es": "Ornitorrinco",
+    "class": "mammal",
+    "habitats": [
+      "freshwater"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Platypuses close their eyes underwater and find food by sensing tiny electric signals with their bills.",
+      "es": "Los ornitorrincos cierran los ojos bajo el agua y encuentran comida detectando pequeñas señales eléctricas con el pico."
+    }
+  },
+  {
+    "id": "polar-bear",
+    "en": "Polar bear",
+    "es": "Oso polar",
+    "class": "mammal",
+    "habitats": [
+      "polar",
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Polar bears look white, but their skin is black and each hair of their fur is actually see-through.",
+      "es": "Los osos polares parecen blancos, pero su piel es negra y cada pelo de su pelaje es transparente."
+    }
+  },
+  {
+    "id": "porcupine",
+    "en": "Porcupine",
+    "es": "Puercoespín",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "desert"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Porcupines cannot shoot their quills, but the quills come loose easily and stick into anything that touches them.",
+      "es": "Los puercoespines no disparan sus púas, pero se sueltan con facilidad y se clavan en todo lo que las toca."
+    }
+  },
+  {
+    "id": "portuguese-man-o-war",
+    "en": "Portuguese man o' war",
+    "es": "Carabela portuguesa",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "A Portuguese man o' war is not one animal but a colony of tiny creatures working together as a team.",
+      "es": "La carabela portuguesa no es un solo animal, sino una colonia de pequeños organismos que trabajan juntos."
+    }
+  },
+  {
+    "id": "prairie-dog",
+    "en": "Prairie dog",
+    "es": "Perrito de las praderas",
+    "class": "mammal",
+    "habitats": [
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Prairie dogs live in huge underground towns and greet each other with something that looks like a kiss.",
+      "es": "Los perritos de las praderas viven en enormes ciudades subterráneas y se saludan con algo parecido a un beso."
+    }
+  },
+  {
+    "id": "praying-mantis",
+    "en": "Praying mantis",
+    "es": "Mantis religiosa",
+    "class": "invertebrate",
+    "habitats": [
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Praying mantises can swivel their heads a long way around, letting them look over their own shoulders.",
+      "es": "La mantis religiosa puede girar mucho la cabeza, tanto que es capaz de mirar por encima de su hombro."
+    }
+  },
+  {
+    "id": "pronghorn",
+    "en": "Pronghorn",
+    "es": "Berrendo",
+    "class": "mammal",
+    "habitats": [
+      "grassland",
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The pronghorn is the fastest land animal in the Americas and can keep up its speed for a long distance.",
+      "es": "El berrendo es el animal terrestre más rápido de América y puede mantener su velocidad durante mucha distancia."
+    }
+  },
+  {
+    "id": "pufferfish",
+    "en": "Pufferfish",
+    "es": "Pez globo",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Pufferfish gulp water to blow up into a spiky ball that is very hard for predators to swallow.",
+      "es": "El pez globo traga agua para hincharse como una bola de pinchos muy difícil de tragar para los depredadores."
+    }
+  },
+  {
+    "id": "puma",
+    "en": "Puma",
+    "es": "Puma",
+    "class": "mammal",
+    "habitats": [
+      "mountain",
+      "forest",
+      "desert"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Pumas cannot roar; instead they purr, hiss, growl and make a call that sounds like a human scream.",
+      "es": "Los pumas no pueden rugir: ronronean, bufan, gruñen y lanzan un grito que suena como el de una persona."
+    }
+  },
+  {
+    "id": "purple-sea-urchin",
+    "en": "Purple sea urchin",
+    "es": "Erizo de mar morado",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Sea urchins walk using hundreds of tiny tube feet that poke out between their spines.",
+      "es": "Los erizos de mar caminan con cientos de pies diminutos en forma de tubo que asoman entre sus púas."
+    }
+  },
+  {
+    "id": "quokka",
+    "en": "Quokka",
+    "es": "Quokka",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Quokkas seem to smile because of the shape of their mouths, earning them the nickname happiest animal on Earth.",
+      "es": "Los quokkas parecen sonreír por la forma de su boca, y por eso los llaman el animal más feliz del mundo."
+    }
+  },
+  {
+    "id": "rabbit",
+    "en": "Rabbit",
+    "es": "Conejo",
+    "class": "mammal",
+    "habitats": [
+      "pet",
+      "farm",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A happy rabbit may do a binky, leaping into the air and twisting its body mid-jump.",
+      "es": "Un conejo feliz puede dar un brinco de alegría, saltando y girando el cuerpo en el aire."
+    }
+  },
+  {
+    "id": "raccoon",
+    "en": "Raccoon",
+    "es": "Mapache",
+    "class": "mammal",
+    "habitats": [
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Raccoons have super sensitive front paws and often seem to wash their food by rubbing it in water.",
+      "es": "Los mapaches tienen las patas delanteras muy sensibles y parecen lavar la comida frotándola en el agua."
+    }
+  },
+  {
+    "id": "rainbow-trout",
+    "en": "Rainbow trout",
+    "es": "Trucha arcoíris",
+    "class": "fish",
+    "habitats": [
+      "freshwater",
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Rainbow trout are named for the pinkish stripe along their sides that shimmers in the sunlight.",
+      "es": "La trucha arcoíris debe su nombre a la franja rosada de sus costados, que brilla con la luz del sol."
+    }
+  },
+  {
+    "id": "red-deer",
+    "en": "Red deer",
+    "es": "Ciervo rojo",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "grassland",
+      "mountain"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Male red deer shed their antlers every year and grow a brand new, often bigger, set.",
+      "es": "Los ciervos machos pierden la cornamenta cada año y les crece una nueva, muchas veces más grande."
+    }
+  },
+  {
+    "id": "red-fox",
+    "en": "Red fox",
+    "es": "Zorro rojo",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Red foxes can hear mice moving under the snow and pounce headfirst to catch them.",
+      "es": "Los zorros rojos oyen a los ratones moverse bajo la nieve y se lanzan de cabeza para atraparlos."
+    }
+  },
+  {
+    "id": "red-kangaroo",
+    "en": "Red kangaroo",
+    "es": "Canguro rojo",
+    "class": "mammal",
+    "habitats": [
+      "grassland",
+      "desert"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A baby kangaroo, called a joey, is only about the size of a jellybean when it is born.",
+      "es": "Una cría de canguro recién nacida es del tamaño de una gominola."
+    }
+  },
+  {
+    "id": "red-lionfish",
+    "en": "Red lionfish",
+    "es": "Pez león rojo",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Red lionfish have venomous spines and have spread into the Atlantic, where they gobble up many native fish.",
+      "es": "El pez león rojo tiene espinas venenosas y se ha extendido por el Atlántico, donde devora muchos peces autóctonos."
+    }
+  },
+  {
+    "id": "red-panda",
+    "en": "Red panda",
+    "es": "Panda rojo",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "mountain"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Red pandas wrap their fluffy tails around themselves like a warm blanket when they sleep.",
+      "es": "Los pandas rojos se envuelven con su cola esponjosa como si fuera una manta para dormir calentitos."
+    }
+  },
+  {
+    "id": "red-squirrel",
+    "en": "Red squirrel",
+    "es": "Ardilla roja",
+    "class": "mammal",
+    "habitats": [
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Red squirrels bury food for winter and forget some of it, which helps new trees sprout.",
+      "es": "Las ardillas rojas entierran comida para el invierno y olvidan parte de ella, lo que ayuda a que broten árboles nuevos."
+    }
+  },
+  {
+    "id": "red-bellied-piranha",
+    "en": "Red-bellied piranha",
+    "es": "Piraña de vientre rojo",
+    "class": "fish",
+    "habitats": [
+      "freshwater",
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Red-bellied piranhas are often quite timid, and they make a barking sound when they are caught.",
+      "es": "Las pirañas de vientre rojo suelen ser bastante miedosas y, cuando las atrapan, emiten un sonido parecido a un ladrido."
+    }
+  },
+  {
+    "id": "red-crowned-crane",
+    "en": "Red-crowned crane",
+    "es": "Grulla de Manchuria",
+    "class": "bird",
+    "habitats": [
+      "wetland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Red-crowned cranes perform graceful dances with their partners, leaping, bowing and flapping their wings.",
+      "es": "Las grullas de Manchuria bailan con su pareja de forma elegante: saltan, se inclinan y aletean."
+    }
+  },
+  {
+    "id": "red-eared-slider",
+    "en": "Red-eared slider",
+    "es": "Tortuga de orejas rojas",
+    "class": "reptile",
+    "habitats": [
+      "freshwater",
+      "pet"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Red-eared sliders get their name from the red stripe behind each eye and the way they slide off logs into water.",
+      "es": "La tortuga de orejas rojas debe su nombre a la franja roja detrás de cada ojo y a cómo se desliza de los troncos al agua."
+    }
+  },
+  {
+    "id": "red-eyed-tree-frog",
+    "en": "Red-eyed tree frog",
+    "es": "Rana de ojos rojos",
+    "class": "amphibian",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Red-eyed tree frogs suddenly flash their bright red eyes to startle predators and give themselves time to escape.",
+      "es": "Las ranas de ojos rojos abren de golpe sus ojos rojo intenso para sobresaltar a los depredadores y ganar tiempo para escapar."
+    }
+  },
+  {
+    "id": "red-necked-wallaby",
+    "en": "Red-necked wallaby",
+    "es": "Ualabí de cuello rojo",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Wallabies look like small kangaroos, and their mothers also carry their babies in a pouch.",
+      "es": "Los ualabíes parecen canguros pequeños, y sus madres también llevan a las crías en una bolsa."
+    }
+  },
+  {
+    "id": "red-tailed-hawk",
+    "en": "Red-tailed hawk",
+    "es": "Busardo colirrojo",
+    "class": "bird",
+    "habitats": [
+      "grassland",
+      "desert",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The red-tailed hawk's scream sounds so dramatic that movies often use it as the call of an eagle.",
+      "es": "El grito del busardo colirrojo suena tan impresionante que en las películas suelen usarlo como el chillido de un águila."
+    }
+  },
+  {
+    "id": "reindeer",
+    "en": "Reindeer",
+    "es": "Reno",
+    "class": "mammal",
+    "habitats": [
+      "polar"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Reindeer eyes change color with the seasons, from golden in summer to blue in winter, to see better in the dark.",
+      "es": "Los ojos del reno cambian de color con las estaciones, de dorados en verano a azules en invierno, para ver mejor en la oscuridad."
+    }
+  },
+  {
+    "id": "reticulated-python",
+    "en": "Reticulated python",
+    "es": "Pitón reticulada",
+    "class": "reptile",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Reticulated pythons are the longest snakes in the world, and the biggest can be longer than a car.",
+      "es": "Las pitones reticuladas son las serpientes más largas del mundo, y las más grandes miden más que un coche."
+    }
+  },
+  {
+    "id": "rhinoceros-beetle",
+    "en": "Rhinoceros beetle",
+    "es": "Escarabajo rinoceronte",
+    "class": "invertebrate",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Rhinoceros beetles are among the strongest animals for their size and use their horns to wrestle rivals.",
+      "es": "Los escarabajos rinoceronte están entre los animales más fuertes para su tamaño y usan sus cuernos para luchar con sus rivales."
+    }
+  },
+  {
+    "id": "ring-tailed-lemur",
+    "en": "Ring-tailed lemur",
+    "es": "Lémur de cola anillada",
+    "class": "mammal",
+    "habitats": [
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Male ring-tailed lemurs have stink fights, rubbing smelly scent on their tails and waving them at rivals.",
+      "es": "Los lémures machos de cola anillada hacen peleas de olores: se untan la cola con olor y la agitan ante sus rivales."
+    }
+  },
+  {
+    "id": "ringed-caecilian",
+    "en": "Ringed caecilian",
+    "es": "Cecilia anillada",
+    "class": "amphibian",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Caecilians are legless amphibians that look like big earthworms and spend most of their lives underground.",
+      "es": "Las cecilias son anfibios sin patas que parecen lombrices grandes y pasan casi toda la vida bajo tierra."
+    }
+  },
+  {
+    "id": "rock-hyrax",
+    "en": "Rock hyrax",
+    "es": "Damán roquero",
+    "class": "mammal",
+    "habitats": [
+      "mountain",
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Rock hyraxes look like big guinea pigs, but their closest living relatives include elephants and manatees.",
+      "es": "Los damanes roqueros parecen cobayas grandes, pero entre sus parientes vivos más cercanos están los elefantes y los manatíes."
+    }
+  },
+  {
+    "id": "rock-ptarmigan",
+    "en": "Rock ptarmigan",
+    "es": "Lagópodo alpino",
+    "class": "bird",
+    "habitats": [
+      "polar",
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Rock ptarmigans turn white in winter and grow feathery feet that work like snowshoes.",
+      "es": "Los lagópodos alpinos se vuelven blancos en invierno y tienen patas emplumadas que funcionan como raquetas de nieve."
+    }
+  },
+  {
+    "id": "saltwater-crocodile",
+    "en": "Saltwater crocodile",
+    "es": "Cocodrilo de agua salada",
+    "class": "reptile",
+    "habitats": [
+      "ocean",
+      "wetland",
+      "freshwater"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Saltwater crocodiles are the largest living reptiles and can swim far out to sea between islands.",
+      "es": "Los cocodrilos de agua salada son los reptiles más grandes que existen y pueden nadar mar adentro de isla en isla."
+    }
+  },
+  {
+    "id": "sardine",
+    "en": "Sardine",
+    "es": "Sardina",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Sardines swim in enormous shoals that twist and turn together to confuse hungry predators.",
+      "es": "Las sardinas nadan en bancos enormes que giran y cambian de rumbo a la vez para confundir a los depredadores."
+    }
+  },
+  {
+    "id": "scarlet-macaw",
+    "en": "Scarlet macaw",
+    "es": "Guacamayo rojo",
+    "class": "bird",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Scarlet macaws gather to eat clay from riverbanks, which may give them salt and help protect them from toxins in food.",
+      "es": "Los guacamayos rojos se reúnen para comer arcilla de las orillas de los ríos, que podría darles sal y protegerlos de toxinas."
+    }
+  },
+  {
+    "id": "sea-anemone",
+    "en": "Sea anemone",
+    "es": "Anémona de mar",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Sea anemones look like flowers, but they are animals that catch food with stinging tentacles.",
+      "es": "Las anémonas de mar parecen flores, pero son animales que atrapan su comida con tentáculos urticantes."
+    }
+  },
+  {
+    "id": "sea-cucumber",
+    "en": "Sea cucumber",
+    "es": "Pepino de mar",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "When threatened, some sea cucumbers shoot out sticky threads or even push out parts of their insides to escape.",
+      "es": "Cuando se sienten amenazados, algunos pepinos de mar lanzan hilos pegajosos o incluso expulsan parte de sus órganos para escapar."
+    }
+  },
+  {
+    "id": "sea-otter",
+    "en": "Sea otter",
+    "es": "Nutria marina",
+    "class": "mammal",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Sea otters often hold paws while they sleep on the water so they do not drift apart.",
+      "es": "Las nutrias marinas suelen dormir flotando agarradas de las patas para no separarse."
+    }
+  },
+  {
+    "id": "sea-sponge",
+    "en": "Sea sponge",
+    "es": "Esponja de mar",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Sea sponges are animals with no brain, no muscles and no organs, and they feed by filtering water.",
+      "es": "Las esponjas de mar son animales sin cerebro, sin músculos y sin órganos, que se alimentan filtrando agua."
+    }
+  },
+  {
+    "id": "seahorse",
+    "en": "Seahorse",
+    "es": "Caballito de mar",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Male seahorses carry the eggs in a special pouch and are the ones who give birth to the babies.",
+      "es": "Los caballitos de mar machos llevan los huevos en una bolsa especial y son ellos quienes dan a luz a las crías."
+    }
+  },
+  {
+    "id": "secretary-bird",
+    "en": "Secretary bird",
+    "es": "Serpentario",
+    "class": "bird",
+    "habitats": [
+      "savanna",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Secretary birds hunt snakes by stomping on them with powerful, lightning-fast kicks from their long legs.",
+      "es": "El serpentario caza serpientes pisoteándolas con patadas potentes y rapidísimas de sus largas patas."
+    }
+  },
+  {
+    "id": "sheep",
+    "en": "Sheep",
+    "es": "Oveja",
+    "class": "mammal",
+    "habitats": [
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Sheep can recognize the faces of dozens of other sheep and remember them for years.",
+      "es": "Las ovejas reconocen las caras de decenas de otras ovejas y las recuerdan durante años."
+    }
+  },
+  {
+    "id": "shoebill",
+    "en": "Shoebill",
+    "es": "Picozapato",
+    "class": "bird",
+    "habitats": [
+      "wetland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Shoebills stand as still as statues for a long time, then lunge to grab fish, frogs and even baby crocodiles.",
+      "es": "El picozapato se queda quieto como una estatua mucho rato y luego se abalanza sobre peces, ranas e incluso crías de cocodrilo."
+    }
+  },
+  {
+    "id": "siamese-fighting-fish",
+    "en": "Siamese fighting fish",
+    "es": "Pez betta",
+    "class": "fish",
+    "habitats": [
+      "pet",
+      "freshwater"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Male Siamese fighting fish build floating nests of bubbles to hold their eggs.",
+      "es": "Los machos de pez betta construyen nidos flotantes de burbujas para guardar sus huevos."
+    }
+  },
+  {
+    "id": "silkworm",
+    "en": "Silkworm",
+    "es": "Gusano de seda",
+    "class": "invertebrate",
+    "habitats": [
+      "farm"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "A silkworm spins its cocoon from one single thread of silk that can be hundreds of meters long.",
+      "es": "El gusano de seda teje su capullo con un único hilo de seda que puede medir cientos de metros."
+    }
+  },
+  {
+    "id": "slow-worm",
+    "en": "Slow worm",
+    "es": "Lución",
+    "class": "reptile",
+    "habitats": [
+      "grassland",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "The slow worm looks like a snake but is actually a legless lizard that can blink its eyelids.",
+      "es": "El lución parece una serpiente, pero en realidad es un lagarto sin patas que puede parpadear."
+    }
+  },
+  {
+    "id": "snow-leopard",
+    "en": "Snow leopard",
+    "es": "Leopardo de las nieves",
+    "class": "mammal",
+    "habitats": [
+      "mountain"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Snow leopards wrap their long, thick tails around their faces like a scarf to stay warm.",
+      "es": "Los leopardos de las nieves se tapan la cara con su cola larga y gruesa como si fuera una bufanda."
+    }
+  },
+  {
+    "id": "snowy-owl",
+    "en": "Snowy owl",
+    "es": "Búho nival",
+    "class": "bird",
+    "habitats": [
+      "polar",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Unlike most owls, snowy owls often hunt during the day, since Arctic summers have almost endless daylight.",
+      "es": "A diferencia de la mayoría de los búhos, el búho nival suele cazar de día, porque los veranos árticos casi no tienen noche."
+    }
+  },
+  {
+    "id": "southern-cassowary",
+    "en": "Southern cassowary",
+    "es": "Casuario común",
+    "class": "bird",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Cassowaries have a dagger-like inner claw on each foot and are considered one of the most dangerous birds in the world.",
+      "es": "Los casuarios tienen una garra como una daga en cada pata y se consideran de las aves más peligrosas del mundo."
+    }
+  },
+  {
+    "id": "southern-stingray",
+    "en": "Southern stingray",
+    "es": "Raya látigo americana",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Southern stingrays bury themselves in sand with only their eyes showing so predators cannot see them.",
+      "es": "Las rayas látigo se entierran en la arena dejando solo los ojos fuera para que los depredadores no las vean."
+    }
+  },
+  {
+    "id": "spectacled-bear",
+    "en": "Spectacled bear",
+    "es": "Oso de anteojos",
+    "class": "mammal",
+    "habitats": [
+      "mountain",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Spectacled bears are the only bears native to South America and are named for the pale rings around their eyes.",
+      "es": "El oso de anteojos es el único oso nativo de Sudamérica y debe su nombre a los círculos claros alrededor de sus ojos."
+    }
+  },
+  {
+    "id": "sperm-whale",
+    "en": "Sperm whale",
+    "es": "Cachalote",
+    "class": "mammal",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Sperm whales have the biggest brain of any animal and dive deep into the dark ocean to hunt squid.",
+      "es": "El cachalote tiene el cerebro más grande de todos los animales y se sumerge en las profundidades para cazar calamares."
+    }
+  },
+  {
+    "id": "spotted-hyena",
+    "en": "Spotted hyena",
+    "es": "Hiena manchada",
+    "class": "mammal",
+    "habitats": [
+      "savanna"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Spotted hyenas make a giggling sound that seems like laughter, but it usually means they are nervous or excited.",
+      "es": "Las hienas manchadas emiten un sonido que parece una risa, pero suele significar que están nerviosas o excitadas."
+    }
+  },
+  {
+    "id": "spring-peeper",
+    "en": "Spring peeper",
+    "es": "Rana de primavera",
+    "class": "amphibian",
+    "habitats": [
+      "wetland",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Spring peepers are tiny frogs, but their high peeping calls on spring nights can be heard from far away.",
+      "es": "Las ranas de primavera son diminutas, pero sus agudos cantos en las noches primaverales se oyen desde muy lejos."
+    }
+  },
+  {
+    "id": "springbok",
+    "en": "Springbok",
+    "es": "Gacela saltarina",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Springbok can get most of the water they need from the plants they eat, so they rarely need to drink.",
+      "es": "Las gacelas saltarinas obtienen casi toda el agua que necesitan de las plantas que comen, así que apenas tienen que beber."
+    }
+  },
+  {
+    "id": "starfish",
+    "en": "Starfish",
+    "es": "Estrella de mar",
+    "class": "invertebrate",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Starfish can regrow lost arms, and they eat by pushing their stomachs out of their bodies.",
+      "es": "Las estrellas de mar pueden regenerar brazos perdidos, y comen sacando el estómago fuera del cuerpo."
+    }
+  },
+  {
+    "id": "stick-insect",
+    "en": "Stick insect",
+    "es": "Insecto palo",
+    "class": "invertebrate",
+    "habitats": [
+      "forest",
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Stick insects look so much like twigs that they even sway gently to copy branches moving in the wind.",
+      "es": "Los insectos palo se parecen tanto a las ramitas que incluso se balancean para imitar las ramas movidas por el viento."
+    }
+  },
+  {
+    "id": "stoat",
+    "en": "Stoat",
+    "es": "Armiño",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "grassland",
+      "polar"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "In snowy places, stoats turn white in winter except for the tip of the tail, which stays black.",
+      "es": "En lugares con nieve, el armiño se vuelve blanco en invierno salvo la punta de la cola, que sigue negra."
+    }
+  },
+  {
+    "id": "striped-skunk",
+    "en": "Striped skunk",
+    "es": "Mofeta rayada",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Before spraying, a skunk usually warns its enemy by stamping its feet and raising its tail.",
+      "es": "Antes de rociar, la mofeta suele avisar a su enemigo pataleando y levantando la cola."
+    }
+  },
+  {
+    "id": "sugar-glider",
+    "en": "Sugar glider",
+    "es": "Petauro del azúcar",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "pet"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Sugar gliders glide from tree to tree and love to lick up sweet tree sap and flower nectar.",
+      "es": "Los petauros del azúcar planean de árbol en árbol y les encanta lamer savia dulce y néctar de flores."
+    }
+  },
+  {
+    "id": "sulcata-tortoise",
+    "en": "Sulcata tortoise",
+    "es": "Tortuga sulcata",
+    "class": "reptile",
+    "habitats": [
+      "desert",
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Sulcata tortoises dig deep burrows to escape the desert heat and are among the largest tortoises living on a mainland.",
+      "es": "Las tortugas sulcatas cavan madrigueras profundas para huir del calor y están entre las tortugas continentales más grandes."
+    }
+  },
+  {
+    "id": "sulphur-crested-cockatoo",
+    "en": "Sulphur-crested cockatoo",
+    "es": "Cacatúa galerita",
+    "class": "bird",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "In Sydney, sulphur-crested cockatoos have learned to flip open rubbish bin lids, and they copy the trick from each other.",
+      "es": "En Sídney, las cacatúas galeritas han aprendido a abrir los cubos de basura, y se copian el truco unas a otras."
+    }
+  },
+  {
+    "id": "sun-bear",
+    "en": "Sun bear",
+    "es": "Oso malayo",
+    "class": "mammal",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Sun bears are the smallest bears in the world and have extra-long tongues for licking honey out of beehives.",
+      "es": "El oso malayo es el oso más pequeño del mundo y tiene una lengua larguísima para lamer la miel de las colmenas."
+    }
+  },
+  {
+    "id": "superb-lyrebird",
+    "en": "Superb lyrebird",
+    "es": "Ave lira soberbia",
+    "class": "bird",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Superb lyrebirds can copy almost any sound they hear, including other birds, camera clicks and chainsaws.",
+      "es": "El ave lira soberbia imita casi cualquier sonido que oye, incluidos otros pájaros, cámaras de fotos y motosierras."
+    }
+  },
+  {
+    "id": "surinam-toad",
+    "en": "Surinam toad",
+    "es": "Sapo de Surinam",
+    "class": "amphibian",
+    "habitats": [
+      "freshwater",
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Baby Surinam toads grow inside little pockets in their mother's back and pop out as tiny toads.",
+      "es": "Las crías del sapo de Surinam se desarrollan en bolsitas de la espalda de su madre y salen ya convertidas en sapitos."
+    }
+  },
+  {
+    "id": "swordfish",
+    "en": "Swordfish",
+    "es": "Pez espada",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Swordfish warm up their eyes and brains so they can see better while hunting in cold, deep water.",
+      "es": "El pez espada calienta sus ojos y su cerebro para ver mejor mientras caza en aguas profundas y frías."
+    }
+  },
+  {
+    "id": "tapir",
+    "en": "Tapir",
+    "es": "Tapir",
+    "class": "mammal",
+    "habitats": [
+      "jungle",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "A tapir's short, bendy trunk is made from its nose and upper lip and helps it grab leaves.",
+      "es": "La trompa corta y flexible del tapir está formada por la nariz y el labio superior, y le sirve para agarrar hojas."
+    }
+  },
+  {
+    "id": "tardigrade",
+    "en": "Tardigrade",
+    "es": "Tardígrado",
+    "class": "invertebrate",
+    "habitats": [
+      "freshwater",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Tardigrades, also called water bears, can survive drying out, freezing solid and even a trip to outer space.",
+      "es": "Los tardígrados, también llamados osos de agua, sobreviven a la sequía, a la congelación e incluso a un viaje al espacio."
+    }
+  },
+  {
+    "id": "tarsier",
+    "en": "Tarsier",
+    "es": "Tarsero",
+    "class": "mammal",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Each of a tarsier's enormous eyes is about as big as its whole brain.",
+      "es": "Cada uno de los enormes ojos del tarsero es más o menos tan grande como todo su cerebro."
+    }
+  },
+  {
+    "id": "tasmanian-devil",
+    "en": "Tasmanian devil",
+    "es": "Demonio de Tasmania",
+    "class": "mammal",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "For its size, the Tasmanian devil has one of the strongest bites of any living mammal.",
+      "es": "Para su tamaño, el demonio de Tasmania tiene uno de los mordiscos más potentes de todos los mamíferos actuales."
+    }
+  },
+  {
+    "id": "termite",
+    "en": "Termite",
+    "es": "Termita",
+    "class": "invertebrate",
+    "habitats": [
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Some termites build giant mounds with air tunnels that help keep the inside at a steady temperature.",
+      "es": "Algunas termitas construyen termiteros gigantes con túneles de aire que mantienen una temperatura estable dentro."
+    }
+  },
+  {
+    "id": "texas-horned-lizard",
+    "en": "Texas horned lizard",
+    "es": "Lagarto cornudo texano",
+    "class": "reptile",
+    "habitats": [
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "To scare off predators like coyotes, Texas horned lizards can squirt blood from the corners of their eyes.",
+      "es": "Para espantar a depredadores como los coyotes, el lagarto cornudo texano puede lanzar chorros de sangre por los ojos."
+    }
+  },
+  {
+    "id": "thomsons-gazelle",
+    "en": "Thomson's gazelle",
+    "es": "Gacela de Thomson",
+    "class": "mammal",
+    "habitats": [
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "When chased, Thomson's gazelles may bounce straight up on stiff legs, called stotting, to show predators how fit they are.",
+      "es": "Cuando las persiguen, las gacelas de Thomson dan saltos con las patas rígidas para demostrar a los depredadores lo fuertes que están."
+    }
+  },
+  {
+    "id": "thorny-devil",
+    "en": "Thorny devil",
+    "es": "Diablo espinoso",
+    "class": "reptile",
+    "habitats": [
+      "desert"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Thorny devils can drink by touching damp sand, as tiny grooves in their skin pull water toward their mouths.",
+      "es": "El diablo espinoso puede beber tocando arena húmeda, porque unos surcos diminutos en su piel llevan el agua hasta su boca."
+    }
+  },
+  {
+    "id": "three-toed-sloth",
+    "en": "Three-toed sloth",
+    "es": "Perezoso de tres dedos",
+    "class": "mammal",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Sloths move so slowly that green algae grow in their fur, helping them hide among the leaves.",
+      "es": "Los perezosos se mueven tan despacio que les crecen algas verdes en el pelo, lo que les ayuda a camuflarse entre las hojas."
+    }
+  },
+  {
+    "id": "tiger",
+    "en": "Tiger",
+    "es": "Tigre",
+    "class": "mammal",
+    "habitats": [
+      "jungle",
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "No two tigers have the same stripes, and the stripes are on their skin as well as their fur.",
+      "es": "No hay dos tigres con las mismas rayas, y las rayas no solo están en el pelaje: también en la piel."
+    }
+  },
+  {
+    "id": "tiger-shark",
+    "en": "Tiger shark",
+    "es": "Tiburón tigre",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Tiger sharks will eat almost anything, and scientists have found license plates and tires inside their stomachs.",
+      "es": "Los tiburones tigre comen casi de todo, y los científicos han encontrado matrículas y neumáticos en sus estómagos."
+    }
+  },
+  {
+    "id": "toco-toucan",
+    "en": "Toco toucan",
+    "es": "Tucán toco",
+    "class": "bird",
+    "habitats": [
+      "jungle"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A toucan's huge beak is surprisingly light because it is hollow inside, and it helps the bird release body heat.",
+      "es": "El enorme pico del tucán es sorprendentemente ligero porque está hueco, y le ayuda a liberar calor del cuerpo."
+    }
+  },
+  {
+    "id": "tokay-gecko",
+    "en": "Tokay gecko",
+    "es": "Geco tokay",
+    "class": "reptile",
+    "habitats": [
+      "jungle",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Tokay geckos can climb up glass thanks to millions of microscopic hairs on their toes.",
+      "es": "Los gecos tokay pueden trepar por el cristal gracias a millones de pelitos microscópicos en los dedos."
+    }
+  },
+  {
+    "id": "tomato-frog",
+    "en": "Tomato frog",
+    "es": "Rana tomate",
+    "class": "amphibian",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Tomato frogs from Madagascar are bright red and puff themselves up like a balloon when threatened.",
+      "es": "Las ranas tomate de Madagascar son de un rojo intenso y se inflan como un globo cuando se sienten amenazadas."
+    }
+  },
+  {
+    "id": "tuatara",
+    "en": "Tuatara",
+    "es": "Tuátara",
+    "class": "reptile",
+    "habitats": [
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Tuataras look like lizards but are the last members of an ancient group of reptiles that lived alongside dinosaurs.",
+      "es": "Los tuátaras parecen lagartos, pero son los últimos miembros de un antiguo grupo de reptiles que convivió con los dinosaurios."
+    }
+  },
+  {
+    "id": "turkey",
+    "en": "Turkey",
+    "es": "Pavo",
+    "class": "bird",
+    "habitats": [
+      "farm"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A male turkey's bare head can change color from red to white to blue depending on its mood.",
+      "es": "La cabeza desnuda del pavo macho puede cambiar de rojo a blanco o azul según su estado de ánimo."
+    }
+  },
+  {
+    "id": "vampire-bat",
+    "en": "Vampire bat",
+    "es": "Murciélago vampiro",
+    "class": "mammal",
+    "habitats": [
+      "jungle",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Vampire bats share blood meals with hungry roost mates, and they remember who has shared with them before.",
+      "es": "Los murciélagos vampiro comparten su comida con compañeros hambrientos y recuerdan quién ha compartido con ellos antes."
+    }
+  },
+  {
+    "id": "veiled-chameleon",
+    "en": "Veiled chameleon",
+    "es": "Camaleón de Yemen",
+    "class": "reptile",
+    "habitats": [
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Chameleons can move each eye on its own, so they can look in two different directions at once.",
+      "es": "Los camaleones mueven cada ojo por separado, así que pueden mirar en dos direcciones a la vez."
+    }
+  },
+  {
+    "id": "virginia-opossum",
+    "en": "Virginia opossum",
+    "es": "Zarigüeya",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "farm"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "When badly frightened, an opossum may play dead, lying limp with its mouth open for a long time.",
+      "es": "Cuando se asusta mucho, la zarigüeya puede hacerse la muerta, quedándose inmóvil con la boca abierta durante mucho rato."
+    }
+  },
+  {
+    "id": "walrus",
+    "en": "Walrus",
+    "es": "Morsa",
+    "class": "mammal",
+    "habitats": [
+      "polar",
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Walruses use their long tusks like ice picks to haul themselves out of the water onto the ice.",
+      "es": "Las morsas usan sus largos colmillos como piolets para salir del agua y subirse al hielo."
+    }
+  },
+  {
+    "id": "wandering-albatross",
+    "en": "Wandering albatross",
+    "es": "Albatros viajero",
+    "class": "bird",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Wandering albatrosses have the longest wingspan of any living bird and can glide for hours without flapping.",
+      "es": "El albatros viajero tiene las alas más largas de todas las aves actuales y puede planear durante horas sin aletear."
+    }
+  },
+  {
+    "id": "warthog",
+    "en": "Warthog",
+    "es": "Facóquero",
+    "class": "mammal",
+    "habitats": [
+      "savanna"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Warthogs kneel down on padded front knees to nibble short grass and dig up roots.",
+      "es": "Los facóqueros se arrodillan sobre sus rodillas acolchadas para comer hierba corta y desenterrar raíces."
+    }
+  },
+  {
+    "id": "water-buffalo",
+    "en": "Water buffalo",
+    "es": "Búfalo de agua",
+    "class": "mammal",
+    "habitats": [
+      "farm",
+      "wetland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Water buffalo love to wallow in mud and water to cool down and protect their skin from insects.",
+      "es": "A los búfalos de agua les encanta revolcarse en el barro y el agua para refrescarse y protegerse de los insectos."
+    }
+  },
+  {
+    "id": "water-strider",
+    "en": "Water strider",
+    "es": "Zapatero",
+    "class": "invertebrate",
+    "habitats": [
+      "freshwater"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Water striders can walk on water thanks to thousands of tiny water-repellent hairs on their legs.",
+      "es": "Los zapateros caminan sobre el agua gracias a miles de pelitos diminutos que repelen el agua en sus patas."
+    }
+  },
+  {
+    "id": "weasel",
+    "en": "Weasel",
+    "es": "Comadreja",
+    "class": "mammal",
+    "habitats": [
+      "grassland",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Weasels have long, skinny bodies that let them chase mice and voles right into their tunnels.",
+      "es": "Las comadrejas tienen el cuerpo largo y delgado, ideal para perseguir ratones hasta dentro de sus túneles."
+    }
+  },
+  {
+    "id": "weaver-ant",
+    "en": "Weaver ant",
+    "es": "Hormiga tejedora",
+    "class": "invertebrate",
+    "habitats": [
+      "jungle",
+      "forest"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Weaver ants build nests by pulling leaves together and gluing them with silk made by their own larvae.",
+      "es": "Las hormigas tejedoras hacen nidos juntando hojas y pegándolas con la seda que producen sus propias larvas."
+    }
+  },
+  {
+    "id": "western-diamondback-rattlesnake",
+    "en": "Western diamondback rattlesnake",
+    "es": "Serpiente de cascabel diamantada",
+    "class": "reptile",
+    "habitats": [
+      "desert"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A rattlesnake adds a new segment to its rattle every time it sheds its skin.",
+      "es": "La serpiente de cascabel añade un nuevo anillo a su cascabel cada vez que muda la piel."
+    }
+  },
+  {
+    "id": "whale-shark",
+    "en": "Whale shark",
+    "es": "Tiburón ballena",
+    "class": "fish",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "The whale shark is the biggest fish in the world, yet it eats mostly tiny plankton.",
+      "es": "El tiburón ballena es el pez más grande del mundo, pero se alimenta sobre todo de plancton diminuto."
+    }
+  },
+  {
+    "id": "white-rhinoceros",
+    "en": "White rhinoceros",
+    "es": "Rinoceronte blanco",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "A rhino's horn is made of keratin, the same material as your hair and fingernails.",
+      "es": "El cuerno del rinoceronte está hecho de queratina, el mismo material que tu pelo y tus uñas."
+    }
+  },
+  {
+    "id": "white-stork",
+    "en": "White stork",
+    "es": "Cigüeña blanca",
+    "class": "bird",
+    "habitats": [
+      "wetland",
+      "farm",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "White storks build huge nests on rooftops and church towers and often return to the same nest year after year.",
+      "es": "Las cigüeñas blancas hacen nidos enormes en tejados y campanarios y suelen volver al mismo nido año tras año."
+    }
+  },
+  {
+    "id": "wildebeest",
+    "en": "Wildebeest",
+    "es": "Ñu",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Every year, huge herds of wildebeest travel across East Africa in one of the biggest animal migrations on Earth.",
+      "es": "Cada año, enormes manadas de ñus recorren el este de África en una de las mayores migraciones animales del planeta."
+    }
+  },
+  {
+    "id": "wolverine",
+    "en": "Wolverine",
+    "es": "Glotón",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "polar",
+      "mountain"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Wolverines are so tough for their size that they can chase much bigger animals, even bears, away from food.",
+      "es": "Los glotones son tan duros para su tamaño que pueden espantar de la comida a animales mucho más grandes, incluso osos."
+    }
+  },
+  {
+    "id": "wombat",
+    "en": "Wombat",
+    "es": "Wombat",
+    "class": "mammal",
+    "habitats": [
+      "forest",
+      "grassland"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Wombats make cube-shaped poop, which stays put on rocks and logs to mark their territory.",
+      "es": "Los wombats hacen cacas con forma de cubo, que no ruedan y les sirven para marcar su territorio en rocas y troncos."
+    }
+  },
+  {
+    "id": "wood-frog",
+    "en": "Wood frog",
+    "es": "Rana de bosque",
+    "class": "amphibian",
+    "habitats": [
+      "forest",
+      "polar"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Wood frogs can freeze almost solid in winter, with their hearts stopped, and thaw out alive in spring.",
+      "es": "La rana de bosque puede congelarse casi por completo en invierno, con el corazón parado, y descongelarse viva en primavera."
+    }
+  },
+  {
+    "id": "woodpecker",
+    "en": "Woodpecker",
+    "es": "Pájaro carpintero",
+    "class": "bird",
+    "habitats": [
+      "forest"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Woodpeckers can peck many times per second, and special features in their skulls help protect their brains.",
+      "es": "Los pájaros carpinteros picotean muchas veces por segundo, y su cráneo tiene adaptaciones especiales que protegen su cerebro."
+    }
+  },
+  {
+    "id": "yak",
+    "en": "Yak",
+    "es": "Yak",
+    "class": "mammal",
+    "habitats": [
+      "mountain",
+      "farm"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Yaks have such thick, shaggy coats that they can live high in the Himalayas in freezing temperatures.",
+      "es": "Los yaks tienen un pelaje tan espeso y largo que pueden vivir en lo alto del Himalaya con temperaturas heladas."
+    }
+  },
+  {
+    "id": "yellow-bellied-sea-snake",
+    "en": "Yellow-bellied sea snake",
+    "es": "Serpiente marina de vientre amarillo",
+    "class": "reptile",
+    "habitats": [
+      "ocean"
+    ],
+    "kids": false,
+    "fact": {
+      "en": "Yellow-bellied sea snakes spend their whole lives at sea and can take in some oxygen through their skin.",
+      "es": "La serpiente marina de vientre amarillo pasa toda su vida en el mar y puede absorber algo de oxígeno a través de la piel."
+    }
+  },
+  {
+    "id": "zebra",
+    "en": "Zebra",
+    "es": "Cebra",
+    "class": "mammal",
+    "habitats": [
+      "savanna",
+      "grassland"
+    ],
+    "kids": true,
+    "fact": {
+      "en": "Every zebra has its own stripe pattern, and scientists think the stripes may help keep biting flies away.",
+      "es": "Cada cebra tiene su propio dibujo de rayas, y los científicos creen que las rayas podrían ayudar a ahuyentar a las moscas que pican."
+    }
+  }
+]

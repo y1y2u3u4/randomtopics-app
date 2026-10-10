@@ -108,6 +108,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // Random generator pages (2026-10-10 inner-page batch).
+  for (const p of [
+    "random-team-generator",
+    "random-animal-generator",
+    "last-name-generator",
+    "dnd-name-generator",
+    "viking-name-generator",
+    "character-name-generator",
+    "random-character-generator",
+  ]) {
+    entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });
+  }
+
   for (const mode of MODES) entries.push({ path: `/${mode.slug}`, changeFrequency: "weekly", priority: 0.9 });
   for (const cat of CATEGORIES) entries.push({ path: `/categories/${cat.id}`, changeFrequency: "weekly", priority: 0.7 });
   for (const path of INDEXABLE_MODE_CATEGORY_PATHS) {
@@ -157,7 +170,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     result.push({
       url: esUrl,
       ...(customSpanishPath
-        ? { lastModified: "2026-08-31" }
+        ? { lastModified: e.esLastModified ?? e.lastModified ?? "2026-08-31" }
         : e.esLastModified || e.lastModified
           ? { lastModified: e.esLastModified ?? e.lastModified }
           : {}),
