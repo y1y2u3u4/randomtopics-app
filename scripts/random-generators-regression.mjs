@@ -344,4 +344,17 @@ test("word generator: ≥300 words per language, every filter respected", () => 
   }
 });
 
+test("every illustration listed exists on disk and matches a bank entry", () => {
+  for (const [set, bank] of [["animals", "animals.json"], ["foods", "foods.json"]]) {
+    const index = json[`@/data/generators/${set === "animals" ? "animal" : "food"}Images.json`];
+    const ids = new Set(json[`@/data/generators/${bank}`].map((x) => x.id));
+    const files = new Set(readdirSync(resolve(root, "public/generators", set)).map((f) => f.replace(/\.webp$/, "")));
+    assert.equal(index.length, ids.size, `${set}: every entry illustrated`);
+    for (const id of index) {
+      assert.ok(ids.has(id), `${set}: ${id} not in bank`);
+      assert.ok(files.has(id), `${set}: ${id}.webp missing`);
+    }
+  }
+});
+
 console.log(`✓ random generators: ${passed} tests passed`);
