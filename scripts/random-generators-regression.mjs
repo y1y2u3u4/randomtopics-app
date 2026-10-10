@@ -282,4 +282,47 @@ test("character names: genre + gender filters, surname shares a genre", () => {
   ], 300, CHAR_FIRST.length);
 });
 
+test("gnome names: ≥300 name parts, style filter respected", () => {
+  const { GNOME_FIRST, GNOME_NICKNAMES, GNOME_CLANS, gnomeGenerator } = mod("src/lib/generators/gnome.ts");
+  assert.ok(GNOME_FIRST.length + GNOME_NICKNAMES.length + GNOME_CLANS.length >= 300);
+  checkGenerator("gnome", gnomeGenerator, [
+    [{ style: ["clan"] }, (r) => !r.title.includes('"') && r.title.split(" ").length === 2],
+    [{ gender: ["female"] }, (r) => r.subtitle.endsWith("female") && r.title.includes('"')],
+  ], 140, GNOME_FIRST.length);
+});
+
+test("food generator: ≥300 dishes, meal/cuisine/diet filters respected", () => {
+  const { FOODS, foodGenerator } = mod("src/lib/generators/foods.ts");
+  const byId = new Map(FOODS.map((f) => [f.id, f]));
+  assert.equal(byId.size, FOODS.length);
+  checkGenerator("food", foodGenerator, [
+    [{ meal: ["breakfast"] }, (r) => byId.get(r.key).meals.includes("breakfast")],
+    [{ meal: ["dinner"], cuisine: ["thai", "mexican"] }, (r) => byId.get(r.key).meals.includes("dinner") && ["thai", "mexican"].includes(byId.get(r.key).cuisine)],
+    [{ diet: ["vegan"] }, (r) => byId.get(r.key).diet.includes("vegan")],
+  ]);
+});
+
+test("letter generator: sets, case and no repeats across a full alphabet", () => {
+  const { letterGenerator } = mod("src/lib/generators/letters.ts");
+  const gen = letterGenerator();
+  assert.equal(gen.poolSize({}), 26);
+  assert.equal(gen.poolSize({ set: ["vowels"] }), 5);
+  assert.equal(gen.poolSize({ set: ["easy"] }), 19);
+  const all = gen.generate({}, 26, [], 3).results.map((r) => r.title);
+  assert.equal(new Set(all).size, 26);
+  let used = [];
+  const seen = [];
+  for (let i = 0; i < 5; i++) {
+    const out = gen.generate({ set: ["easy"], case: ["lower"] }, 3, used, 10 + i);
+    used = out.used;
+    for (const r of out.results) {
+      assert.match(r.title, /^[a-z]$/);
+      assert.ok(!"qxzjkvy".includes(r.title));
+      seen.push(r.title);
+    }
+  }
+  assert.equal(new Set(seen).size, 15);
+  assert.equal(gen.resolve("q", { case: ["lower"] }).title, "q");
+});
+
 console.log(`✓ random generators: ${passed} tests passed`);

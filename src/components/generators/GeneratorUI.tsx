@@ -84,7 +84,7 @@ export interface GeneratorUIProps {
   generate: (filters: FilterState, count: number, used: string[], seed: number) => { results: GeneratorResult[]; used: string[] };
   resolve: (key: string, filters: FilterState) => GeneratorResult | null;
   /** Bigger cards with images (animals) vs compact name rows. */
-  layout?: "cards" | "list";
+  layout?: "cards" | "list" | "tiles";
   /** Optional extra action rendered next to Copy, e.g. a link to a related tool. */
   footer?: React.ReactNode;
 }
@@ -264,6 +264,15 @@ export default function GeneratorUI(props: GeneratorUIProps) {
                 </ul>
               )}
             </div>
+          ) : layout === "tiles" ? (
+            <ul className="flex flex-wrap justify-center gap-3">
+              {shown.map((r) => (
+                <li key={r.key} className="w-24 h-28 sm:w-28 sm:h-32 rounded-2xl border border-white/10 bg-white/[0.03] flex flex-col items-center justify-center">
+                  <span className="text-5xl sm:text-6xl font-extrabold gradient-text" style={{ fontFamily: "var(--font-display)" }}>{r.title}</span>
+                  {r.subtitle && <span className="text-[11px] text-[var(--text-muted)] mt-1">{r.subtitle}</span>}
+                </li>
+              ))}
+            </ul>
           ) : layout === "cards" ? (
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {shown.map((r) => (

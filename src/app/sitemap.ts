@@ -117,6 +117,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "viking-name-generator",
     "character-name-generator",
     "random-character-generator",
+    "gnome-name-generator",
+    "random-food-generator",
+    "random-letter-generator",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });
   }

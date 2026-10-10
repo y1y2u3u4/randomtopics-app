@@ -56,6 +56,24 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     label: { en: "Random Character Generator" },
     detail: { en: "Name, traits, motive & secret" },
   },
+  {
+    href: "/gnome-name-generator",
+    emoji: "⚙️",
+    label: { en: "Gnome Name Generator" },
+    detail: { en: "Names, nicknames & clans" },
+  },
+  {
+    href: "/random-food-generator",
+    emoji: "🍜",
+    label: { en: "Random Food Generator" },
+    detail: { en: "What should I eat today?" },
+  },
+  {
+    href: "/random-letter-generator",
+    emoji: "🔤",
+    label: { en: "Random Letter Generator" },
+    detail: { en: "A–Z with no repeats" },
+  },
 ];
 
 export function generatorsFor(locale: "en" | "es"): { href: string; emoji: string; label: string; detail: string }[] {

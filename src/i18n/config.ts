@@ -120,6 +120,9 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/viking-name-generator",
   "/character-name-generator",
   "/random-character-generator",
+  "/gnome-name-generator",
+  "/random-food-generator",
+  "/random-letter-generator",
 ]);
 
 /** Spanish-only editorial pages with no honest one-to-one English alternate. */
