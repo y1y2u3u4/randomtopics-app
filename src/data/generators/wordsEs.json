@@ -1,0 +1,7034 @@
+[
+  {
+    "w": "abajo",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "abeja",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "abnegación",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "abrazar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "abrigo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "abrir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "abrupto",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "absolutamente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "aburrido",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "acariciar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "acaso",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "acérrimo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "acordeón",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "acrecentar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "acuario",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "acueducto",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "adelante",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "adivinar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "adrede",
+    "pos": "adverb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "afeitar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ágil",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "agradable",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "aguacate",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ahora",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "ajo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "ajolote",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ala",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "alambique",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "alcanzar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "alce",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "alegre",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "alegría",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "allí",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "alrededor",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "alto",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "altruismo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "amable",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "amargo",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "amarillo",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "ambigüedad",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ambulancia",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "amedrentar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "amigo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "amistad",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "amor",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "ancho",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "ancla",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ánfora",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "anhelo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "anoche",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "antaño",
+    "pos": "adverb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "anteayer",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "antena",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "antes",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "antiguo",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "anunciar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "año",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "apacible",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "apaciblemente",
+    "pos": "adverb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "apaciguar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "apasionado",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "apenas",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "ápice",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "aplastar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "aplaudir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "apoyar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "aprender",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "aprovechar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "aquí",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "araña",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "árbol",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "arcoíris",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "ardilla",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "arena",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "armadillo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "armadura",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "aro",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "arpa",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "arpón",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "arrastrar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "arrebol",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "arriba",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "arroz",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "arrugado",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "asimismo",
+    "pos": "adverb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "áspero",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "aspiradora",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "astrolabio",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "astronauta",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "astuto",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "atento",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "atisbar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "atisbo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "atrapar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "atrás",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "atrevido",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "aumentar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "aún",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "aventura",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "averiguar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "avestruz",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ávido",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "avión",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "avizorar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ayer",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "ayuda",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "ayudar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "azul",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "bailar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "bajo",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "baladí",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "balanza",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ballena",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "bandera",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "bañar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "barajar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "barco",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "barrer",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "bastante",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "bastón",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "batidora",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "batir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "baúl",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "bebé",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "beber",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "belleza",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "besar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "biberón",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "bicicleta",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "bien",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "bigote",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "bisonte",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "blanco",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "blando",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "boca",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "bombero",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "bombilla",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "bonito",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "bostezar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "bota",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "botella",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "botón",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "boxear",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "brillante",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "brindar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "broma",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "bruja",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "brújula",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "bucear",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "bueno",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "bufanda",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "búho",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "bumerán",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "burro",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "bus",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "buscar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "buzón",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "caballete",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "caballo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cabra",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cactus",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cadena",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "caer",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "calabaza",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "calcetín",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "calculadora",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "caleidoscopio",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "cálido",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "caliente",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "calma",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "calor",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "cama",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "camaleón",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "cambiar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "camello",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "caminar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "camión",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "camisa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "campana",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "campanario",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "canción",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "candado",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "candelabro",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "cándido",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "cangrejo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "canguro",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "canoa",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "cansado",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "cantar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cañón",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "caracol",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cariñoso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "carrera",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "carrusel",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "casa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cascada",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "casco",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "casi",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "castillo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "castor",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "catalejo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "catapulta",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "cavar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cebolla",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cebra",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "celebrar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "cepillar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cepillo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cerca",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "cerdo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cereza",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cerrar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "chimenea",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "chimpancé",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "chupete",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "ciervo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cigüeña",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "cinta",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "cinturón",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "ciruela",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "cisne",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ciudad",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "claramente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "claro",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "clase",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "claudicar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "clemencia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "clepsidra",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "coche",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cocinar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "coco",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cocodrilo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "coherencia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "cohete",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "colaborar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "colegir",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "colibrí",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "colmena",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "color",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "columna",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "columpiar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "columpio",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "comer",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cometa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cómodo",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "compartir",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "compás",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "competir",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "comprar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "comunicación",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "concha",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "conducir",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "conejo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "confianza",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "conjeturar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "conocer",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "conocimiento",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "conseguir",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "conspicuo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "constantemente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "construir",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "contar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "contento",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "convencer",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "conversación",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "copa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "corazón",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "corona",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "correr",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cortar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "corto",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "cosa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "coser",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "costumbre",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "creativo",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "crecer",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "creer",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "crepúsculo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "crujiente",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "cuaderno",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cuadrado",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "cuchara",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cuchillo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "cuento",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "cuerda",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "cuervo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "cultura",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "cumpleaños",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "cuna",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "curiosidad",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "curioso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "dado",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "dar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "dardo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "deambular",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "debajo",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "débil",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "decidir",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "decir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "dedal",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "dedo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "defender",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "delante",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "delfín",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "delicioso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "demasiado",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "democracia",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "denostar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "dentro",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "deprisa",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "desaparecer",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "desarrollar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "desasosiego",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "describir",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "descubrimiento",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "descubrir",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "desdeñar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "deseo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "desidia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "desierto",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "desordenado",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "despacio",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "despistado",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "después",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "destino",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "detrás",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "día",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "diáfano",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "dibujar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "dicotomía",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "diente",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "difícil",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "dilucidar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "diminuto",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "dinosaurio",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "discernir",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "disfrutar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "distancia",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "divagar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "diversión",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "divertido",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "dormir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "dragón",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "dudar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "dulce",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "duro",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "economía",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "ecuánime",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ecuanimidad",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "educación",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "efímero",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "efluvio",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ejercicio",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "elefante",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "elegante",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "elegir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "elocuencia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "elocuente",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "elucubrar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "embudo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "emoción",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "emocionante",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "empatía",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "empero",
+    "pos": "adverb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "empezar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "empresa",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "empujar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "enaltecer",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "enchufe",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "encima",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "encontrar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "energía",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "enérgico",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "engañar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "enorme",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "enseguida",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "enseñar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "entelequia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "entender",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "entrar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "entrevista",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "entusiasmo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "epifanía",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "equilibrio",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "equilibrista",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "equipo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "esbozar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "escafandra",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "escalar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "escalera",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "escandaloso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "escarabajo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "escepticismo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "escoba",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "escribir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "escudo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "escudriñar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "escuela",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "escueto",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "esfuerzo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "esgrimir",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "espada",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "espantapájaros",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "esperanza",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "esperar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "espeso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "espinoso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "esponjoso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "esqueleto",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "esquiar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "esquivo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "estar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "estatua",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "estetoscopio",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "estirar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "estornudar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "estrategia",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "estrecho",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "estrella",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "estudiar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "estupor",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "etéreo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "exacerbar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "exactamente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "exiguo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "éxito",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "experiencia",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "explicar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "explorar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "exprimir",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "extraño",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "fácil",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "falda",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "familia",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "famoso",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "fantasma",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "faraón",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "faro",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "felicidad",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "feliz",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "felizmente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "feo",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "feroz",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "fervor",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "fiesta",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "fin",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "finalmente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "flamenco",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "flor",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "foca",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "fortuito",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "fotografiar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "fracaso",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "frágil",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "frambuesa",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "frecuentemente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "freír",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "fresa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "frío",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "fruición",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "fuera",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "fuerte",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "fugazmente",
+    "pos": "adverb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "furtivo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "fútil",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "futuro",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "galimatías",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "galleta",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "gallina",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "gallo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "galopar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ganar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "gárgola",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "garza",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "gatear",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "gato",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "gaviota",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "gélido",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "generosidad",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "generoso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "gigante",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "girar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "girasol",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "globo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "gol",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "golpear",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "gorra",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "gracioso",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "grande",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "granja",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "grapadora",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "gratitud",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "grifo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "gris",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "gritar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "guante",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "guepardo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "guitarra",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "gusano",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "gustar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "hablar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "hacer",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "hacha",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "hada",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "hálito",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "hamaca",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "hambre",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "hamburguesa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "hecatombe",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "helado",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "helicóptero",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "hermoso",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "herradura",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "hipocampo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "hipopótamo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "historia",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "hoja",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "honesto",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "honor",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "hora",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "hormiga",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "hornear",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "hosco",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "hoy",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "huevo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "húmedo",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "humor",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "idea",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "idiosincrasia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "iglú",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ignoto",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "igualdad",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "imaginación",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "imaginar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "imán",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "impaciente",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "impávido",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "impertérrito",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ímpetu",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "implacable",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "imposible",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "impresora",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "incertidumbre",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "incólume",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "increíble",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "increpar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "indolencia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "indómito",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "inefable",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "inercia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "inexorable",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "inferir",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "información",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "inhóspito",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "inmediatamente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "inmenso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "inocuo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "inquieto",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "insólito",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "inteligencia",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "intrépido",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "inventar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "inverosímil",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "investigación",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "investigar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "invierno",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "invisible",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "ir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "irascible",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ironía",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "isla",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "jabón",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "jamás",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "jarrón",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "jaula",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "jirafa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "joven",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "jovial",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "júbilo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "juego",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "jugar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "jugoso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "juguete",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "juguetón",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "justicia",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "karate",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "kayak",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "kétchup",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "kilogramo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "kilómetro",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "kiosco",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "kiwi",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "koala",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "lacónico",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ladrillo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "lagarto",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "lamer",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "lámpara",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "languidecer",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "lánguido",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "lanzar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "lápiz",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "largo",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "lavadora",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "lavar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "lazo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "leal",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "lealtad",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "lechuga",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "lechuza",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "leer",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "lejos",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "lentamente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "lento",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "león",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "leopardo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "letargo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "letra",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "levantar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "libélula",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "libertad",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "libro",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "limón",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "limpiar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "limpio",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "linterna",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "lisonja",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "listo",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "llamar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "llave",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "llegar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "lleno",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "llorar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "lluvia",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "lobo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "locuaz",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "loro",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "luego",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "lúgubre",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "luminoso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "luna",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "lupa",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "mágico",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "magnánimo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "mago",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "maíz",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "mal",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "malabarista",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "maleta",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "malo",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "mandolina",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "manguera",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "mano",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "manzana",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "mañana",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "mapa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "mapache",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "maquillar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "mar",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "maravilloso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "mariposa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "mariquita",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "marrón",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "martillo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "más",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "máscara",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "masticar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "medalla",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "médico",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "medusa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "mejorar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "melancolía",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "melifluo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "melón",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "memoria",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "menos",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "menoscabar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "menoscabo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "mentira",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "merecer",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "mermar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "mes",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "mesa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "metamorfosis",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "meticuloso",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "metrónomo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "micrófono",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "microondas",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "miedo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "mirar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "miríada",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "misterio",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "misterioso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "mitigar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "mochila",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "moderno",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "mojado",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "molino",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "mono",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "monóculo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "montaña",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "montar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "morado",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "mordaz",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "morder",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "morsa",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "mosca",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "mosquito",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "moto",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "mucho",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "mundo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "muñeca",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "murciélago",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "música",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "muy",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "nadar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "naranja",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "nariz",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "naturaleza",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "necesitar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "negociar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "negro",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "nervioso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "nevera",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "nido",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "nieve",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "nimiedad",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "nimio",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "noche",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "nombre",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "norte",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "nostalgia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "nube",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "nuevo",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "nuez",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "número",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "nunca",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "nutria",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ñame",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ñandú",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ñoño",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "ñu",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "oasis",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "obedecer",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "obelisco",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "óbice",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "observar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "obsoleto",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ocaso",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "oeste",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "ofrecer",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "oír",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "ojo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "ola",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "oler",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "olla",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "olvidar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "ominoso",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "oportunidad",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "opulento",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "oquedad",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ordenado",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "oreja",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "organizar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "orgullo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "orgulloso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "ornitorrinco",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "oruga",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "oscuro",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "oso",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "ostentar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ostracismo",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "otear",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "otoño",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "otrora",
+    "pos": "adverb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "oveja",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "oxidado",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "paciencia",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "paciente",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "pagar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "país",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "pájaro",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pala",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "palabra",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "palmera",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "palo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "paloma",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "pan",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "panda",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "paracaídas",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "paradoja",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "paraguas",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "parco",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "parque",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "parsimonia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "participar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "pasado",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "pastel",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "patear",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "patinar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pato",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "paulatinamente",
+    "pos": "adverb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "pavo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "payaso",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "paz",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "pedalear",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pedir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "pegajoso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "peinar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "peine",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pelar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pelícano",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "peligro",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "peligroso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "pellizcar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "pelota",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "peludo",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "pensar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "pepino",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pequeño",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "pera",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "perder",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "perenne",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "perezoso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "perfecto",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "pergamino",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "periscopio",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "permitir",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "perpetuar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "perro",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "personalidad",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "perspicacia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "perspicaz",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "pertinaz",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "pesado",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "pescar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pétalo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "pez",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "piano",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "picante",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "pie",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pijama",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pingüino",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pintar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "piña",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pirámide",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "pirata",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pizarra",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pizza",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "plácido",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "planchar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "planear",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "planeta",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "plátano",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "plato",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "playa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "plenitud",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "pobre",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "poco",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "poder",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "policía",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pollo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "poner",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "precioso",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "preferir",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "pregunta",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "preguntar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "premio",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "premisa",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "preocupar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "prestigio",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "primavera",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "princesa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "prístino",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "probablemente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "procrastinar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "pródigo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "pronto",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "propósito",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "propugnar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "proteger",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "pueblo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "puente",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "puercoespín",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "puerta",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "pulpo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "puntual",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "pusilánime",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "quebranto",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "quedamente",
+    "pos": "adverb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "querer",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "queso",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "quetzal",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "quimera",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "quimérico",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "quizás",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "raigambre",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "rana",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "rápidamente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "rápido",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "raqueta",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "raramente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "raro",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "rascacielos",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "rascar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "ratón",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "razón",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "realmente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "recabar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "recomendar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "recóndito",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "reconocer",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "recordar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "recreo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "recuerdo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "redondo",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "refutar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "regadera",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "regalo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "regar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "regla",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "reír",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "reloj",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "remar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "remo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "resiliencia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "resolver",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "respetar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "respeto",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "responsable",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "respuesta",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "reticencia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "rey",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "rico",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "riesgo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "rinoceronte",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "río",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "risa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "robot",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "rodar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "rojo",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "roncar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "rosa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "ruido",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "ruidoso",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "saber",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "sabiduría",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "sabio",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "sabroso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "sagaz",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "salado",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "salamandra",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "salir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "saltamontes",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "saltar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "salud",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "saludar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "salvaje",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "sandía",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "sándwich",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "sapiencia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "sapo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "sarcófago",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "saxofón",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "seco",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "secreto",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "sed",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "seguramente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "semáforo",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "semana",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "sempiterno",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "sencillo",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "sentimiento",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "sentir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "señalar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ser",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "serendipia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "serpiente",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "servir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "seta",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "sextante",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "sibilino",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "siempre",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "sigilosamente",
+    "pos": "adverb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "silbar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "silencio",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "silencioso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "silla",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "simpático",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "sincero",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "siquiera",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "sirena",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "sobrellevar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "sociedad",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "sofá",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "sol",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "solamente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "soledad",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "sombrero",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "sombrilla",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "sonreír",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "sopa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "sopesar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "soplar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "sorprendente",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "sorpresa",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "sosegado",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "sosiego",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "soslayar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "suave",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "suavemente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "subir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "súbitamente",
+    "pos": "adverb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "submarino",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "sucio",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "sueño",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "suerte",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "sugerir",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "superar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "superfluo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "sur",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "surfear",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "susurrar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "sutil",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "tácitamente",
+    "pos": "adverb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "taciturno",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "talante",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "talento",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "también",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "tambor",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tampoco",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "tarde",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "tarea",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "tarta",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "taxi",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "taza",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "té",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "teclado",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "teclear",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "tecnología",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "tejer",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "telescopio",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "temblar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "temporada",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "temprano",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "tenaz",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "tenedor",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tener",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "terco",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "terminar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "termómetro",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "tiburón",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tiempo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "tienda",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tierno",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "tigre",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tímido",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "timón",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "tiovivo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "tirar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tiza",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "toalla",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tobogán",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tocar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "todavía",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "tomate",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "toro",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "torre",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tortuga",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "toser",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tostadora",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "trabajar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "tractor",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tradición",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "tragar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tranquilamente",
+    "pos": "adverb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "tranquilo",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "transformar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "transigir",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "transparente",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "travieso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "tren",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "trepar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tridente",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "trineo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "triste",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "tristeza",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "trofeo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "trompeta",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "tropezar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "tucán",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "tulipán",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "ubicuidad",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ubicuo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ufano",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "último",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "umbral",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "unicornio",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "universo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "uña",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "urdir",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "usar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "utopía",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "uva",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "vaca",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "vacío",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "valiente",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "valioso",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "valor",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "vaso",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "vaticinar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "vehemencia",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "vehemente",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "vela",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "veloz",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "venir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "ventaja",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "ventana",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "ventilador",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "ver",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "verano",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "verdad",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "verde",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "verosímil",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "vestido",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "vestigio",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "vetusto",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "viajar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "viaje",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "vibrante",
+    "pos": "adjective",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "vicisitud",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "vida",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "viejo",
+    "pos": "adjective",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "vilipendiar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "violín",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "vislumbrar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "vivir",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "vocabulario",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "volar",
+    "pos": "verb",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "volcán",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "volver",
+    "pos": "verb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "vorágine",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "voraz",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "voz",
+    "pos": "noun",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "waterpolo",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "web",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "wifi",
+    "pos": "noun",
+    "level": "medium",
+    "draw": false
+  },
+  {
+    "w": "xilófono",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "xilografía",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "ya",
+    "pos": "adverb",
+    "level": "easy",
+    "draw": false
+  },
+  {
+    "w": "yate",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "yegua",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "yema",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "yermo",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "yogur",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "yoyó",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "yunque",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "yuxtaponer",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "yuxtaposición",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "zaherir",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "zalamero",
+    "pos": "adjective",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "zambullir",
+    "pos": "verb",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "zanahoria",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "zapatear",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "zapatilla",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "zapato",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "zarpar",
+    "pos": "verb",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "zepelín",
+    "pos": "noun",
+    "level": "hard",
+    "draw": true
+  },
+  {
+    "w": "zigzag",
+    "pos": "noun",
+    "level": "medium",
+    "draw": true
+  },
+  {
+    "w": "zorro",
+    "pos": "noun",
+    "level": "easy",
+    "draw": true
+  },
+  {
+    "w": "zozobra",
+    "pos": "noun",
+    "level": "hard",
+    "draw": false
+  },
+  {
+    "w": "zozobrar",
+    "pos": "verb",
+    "level": "hard",
+    "draw": false
+  }
+]

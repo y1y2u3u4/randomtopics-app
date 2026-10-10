@@ -120,6 +120,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "gnome-name-generator",
     "random-food-generator",
     "random-letter-generator",
+    "random-word-generator",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });
   }

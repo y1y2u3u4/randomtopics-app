@@ -12,6 +12,13 @@ export interface GeneratorLink {
 
 export const RANDOM_GENERATORS: GeneratorLink[] = [
   {
+    href: "/random-word-generator",
+    esHref: "/es/generador-de-palabras-aleatorias",
+    emoji: "🔠",
+    label: { en: "Random Word Generator", es: "Generador de palabras" },
+    detail: { en: "Nouns, verbs & adjectives by level", es: "Sustantivos, verbos y adjetivos" },
+  },
+  {
     href: "/random-team-generator",
     esHref: "/es/generador-de-equipos-aleatorios",
     emoji: "👥",
