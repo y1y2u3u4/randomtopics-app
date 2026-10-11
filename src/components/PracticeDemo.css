@@ -1,0 +1,58 @@
+/* Homepage practice-flow demo: a 7s silent CSS loop of four frames.
+   Poster state (before it is on screen, or with reduced motion) shows only
+   the final "compare" frame, so nothing moves or loads extra assets early. */
+.practice-demo { --demo-cycle: 7s; }
+.practice-demo__steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-bottom: 12px; }
+.practice-demo__step { display: flex; align-items: center; gap: 6px; font-size: 11px; line-height: 1.2; color: var(--text-muted); border-top: 2px solid rgba(255,255,255,0.1); padding-top: 6px; }
+.practice-demo__step span { flex: none; width: 18px; height: 18px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; border: 1px solid rgba(255,255,255,0.2); }
+.practice-demo__stage { position: relative; min-height: 210px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); overflow: hidden; }
+.practice-demo__frame { position: absolute; inset: 0; padding: 16px; display: flex; flex-direction: column; gap: 10px; opacity: 0; }
+.practice-demo__label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+.practice-demo__topic { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--text-primary); }
+.practice-demo__rec { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); }
+.practice-demo__dot { width: 9px; height: 9px; border-radius: 999px; background: var(--neon-pink); }
+.practice-demo__wave { display: inline-flex; align-items: center; gap: 3px; height: 22px; }
+.practice-demo__wave i { width: 3px; height: 30%; border-radius: 2px; background: var(--neon-cyan); opacity: 0.8; }
+.practice-demo__quote { border-left: 2px solid var(--neon-cyan); background: rgba(255,255,255,0.05); padding: 8px 10px; border-radius: 10px; font-size: 14px; color: var(--text-secondary); }
+.practice-demo__card { border: 1px solid rgba(0,229,255,0.3); border-radius: 12px; padding: 10px 12px; font-size: 13px; color: var(--text-secondary); }
+.practice-demo__card strong { color: var(--text-primary); }
+.practice-demo__result { font-weight: 700; color: var(--neon-green); }
+.practice-demo__compare { display: grid; gap: 8px; font-size: 13px; color: var(--text-secondary); }
+@media (min-width: 640px) { .practice-demo__compare { grid-template-columns: 1fr 1fr; } .practice-demo__stage { min-height: 180px; } }
+@media (max-width: 420px) { .practice-demo__stage { min-height: 250px; } }
+.practice-demo__compare blockquote { border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 8px 10px; }
+.practice-demo__compare blockquote:last-child { border-color: rgba(0,255,136,0.35); background: rgba(0,255,136,0.05); }
+.practice-demo__compare span { display: block; font-weight: 700; color: var(--text-primary); font-size: 12px; }
+
+/* Poster: final frame + last step highlighted. */
+.practice-demo.is-poster .f3 { opacity: 1; }
+.practice-demo.is-poster .s3 { color: var(--text-primary); border-top-color: var(--neon-cyan); }
+
+/* Playing: each frame owns a quarter of the cycle. */
+.practice-demo.is-playing .practice-demo__frame,
+.practice-demo.is-paused .practice-demo__frame { animation: practice-demo-frame var(--demo-cycle) infinite; }
+.practice-demo.is-playing .practice-demo__step,
+.practice-demo.is-paused .practice-demo__step { animation: practice-demo-step var(--demo-cycle) infinite; }
+.practice-demo .f1, .practice-demo .s1 { animation-delay: 1.75s !important; }
+.practice-demo .f2, .practice-demo .s2 { animation-delay: 3.5s !important; }
+.practice-demo .f3, .practice-demo .s3 { animation-delay: 5.25s !important; }
+.practice-demo.is-playing .f1, .practice-demo.is-playing .f2, .practice-demo.is-playing .f3 { opacity: 0; }
+.practice-demo.is-paused .practice-demo__frame,
+.practice-demo.is-paused .practice-demo__step,
+.practice-demo.is-paused .practice-demo__wave i { animation-play-state: paused; }
+.practice-demo.is-playing .practice-demo__wave i { animation: practice-demo-wave 700ms ease-in-out infinite alternate; }
+@keyframes practice-demo-frame {
+  0% { opacity: 0; transform: translateY(6px); }
+  4%, 23% { opacity: 1; transform: translateY(0); }
+  27%, 100% { opacity: 0; transform: translateY(-6px); }
+}
+@keyframes practice-demo-step {
+  0%, 25% { color: var(--text-primary); border-top-color: var(--neon-cyan); }
+  26%, 100% { color: var(--text-muted); border-top-color: rgba(255,255,255,0.1); }
+}
+@keyframes practice-demo-wave { from { height: 25%; } to { height: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  .practice-demo .practice-demo__frame, .practice-demo .practice-demo__step, .practice-demo .practice-demo__wave i { animation: none !important; }
+  .practice-demo .f3 { opacity: 1 !important; }
+  .practice-demo .s3 { color: var(--text-primary); border-top-color: var(--neon-cyan); }
+}
