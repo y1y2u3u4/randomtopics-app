@@ -46,13 +46,23 @@ export async function GET(request: NextRequest) {
     );
   }
 
+  let stage = "daily_report";
   try {
     const result = await syncAnalyticsReportToSheet();
+    stage = "sitewide_report";
     const sitewide = await syncSitewideReport();
     return NextResponse.json({ ...result, sitewide }, { headers: PRIVATE_HEADERS });
   } catch (error) {
+    const code = analyticsSheetErrorCode(error);
+    // Cron responses are not visible anywhere, so record the code and failing
+    // stage in the runtime log. Unexpected errors add a short message with
+    // long token-like strings redacted.
+    const detail = code === "unexpected_error" && error instanceof Error
+      ? ` type=${error.name} detail=${error.message.replace(/[A-Za-z0-9_\-]{32,}/g, "[redacted]").slice(0, 200)}`
+      : "";
+    console.error(`analytics_report_failed stage=${stage} code=${code}${detail}`);
     return NextResponse.json(
-      { error: analyticsSheetErrorCode(error) },
+      { error: code, stage },
       { status: 503, headers: PRIVATE_HEADERS }
     );
   }
