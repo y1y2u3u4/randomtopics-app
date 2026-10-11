@@ -4,17 +4,21 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import FoodGenerator from "@/components/generators/FoodGenerator";
 import { CUISINES, FOODS } from "@/lib/generators/foods";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/random-food-generator";
 const TITLE = "Random Food Generator — What Should I Eat Today?";
 const DESCRIPTION = `Can't decide what to eat? The random food generator picks from ${FOODS.length}+ real dishes from ${Object.keys(CUISINES).length} cuisines. Filter by breakfast, lunch, dinner, snack or dessert, cuisine and vegetarian, vegan or gluten-free.`;
+
+const SOCIAL = generatorSocial({ card: "random-food-generator", title: TITLE, description: DESCRIPTION, alt: "Random Food Generator — a spread of dishes from around the world" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["random food generator", "what should i eat", "what to eat today", "random meal generator", "random dinner generator", "food picker", "random dish generator"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [

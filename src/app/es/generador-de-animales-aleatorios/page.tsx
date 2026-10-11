@@ -4,17 +4,21 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import AnimalGenerator from "@/components/generators/AnimalGenerator";
 import { ANIMALS } from "@/lib/generators/animals";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/es/generador-de-animales-aleatorios";
 const TITLE = "Generador de Animales Aleatorios — Con Dibujo y Dato Curioso";
 const DESCRIPTION = `Generador de animales aleatorios gratis: más de ${ANIMALS.length} animales, cada uno con ilustración y un dato curioso. Filtra por mamíferos, aves, mar, granja o animales fáciles para niños. Ideal para dibujar y jugar a adivinar.`;
+
+const SOCIAL = generatorSocial({ card: "es-generador-de-animales-aleatorios", title: TITLE, description: DESCRIPTION, alt: "Generador de animales aleatorios — animales ilustrados con datos curiosos" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["generador de animales aleatorios", "animal aleatorio", "animal al azar", "generador de animales", "animales para dibujar", "datos curiosos de animales"],
   alternates: { canonical: PATH, languages: hreflangAlternates("/random-animal-generator") },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", locale: "es_ES", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", locale: "es_ES", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [

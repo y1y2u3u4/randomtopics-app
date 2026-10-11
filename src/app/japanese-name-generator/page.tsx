@@ -4,17 +4,21 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import JapaneseNameGenerator from "@/components/generators/JapaneseNameGenerator";
 import { JP_FAMILY, JP_GIVEN } from "@/lib/generators/japanese";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/japanese-name-generator";
 const TITLE = "Japanese Name Generator — Kanji, Kana, Romaji & Meanings";
 const DESCRIPTION = `Free Japanese name generator: ${JP_GIVEN.length}+ real given names and ${JP_FAMILY.length}+ surnames, each shown in kanji, hiragana and romaji with the meaning of the kanji. Filter by male, female or gender-neutral; Western or Japanese name order.`;
+
+const SOCIAL = generatorSocial({ card: "japanese-name-generator", title: TITLE, description: DESCRIPTION, alt: "Japanese Name Generator — cherry blossoms, torii gate and Mount Fuji" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["japanese name generator", "random japanese name", "japanese names with meanings", "japanese girl names", "japanese boy names", "anime name generator", "japanese surname generator"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [
@@ -53,6 +57,7 @@ export default function JapaneseNameGeneratorPage() {
       heading={["Japanese Name", "Generator"]}
       intro={`Real Japanese first and last names in kanji, hiragana and romaji — with what the kanji mean. ${JP_GIVEN.length}+ given names, ${JP_FAMILY.length}+ surnames.`}
       description={DESCRIPTION}
+      hero={{ src: "/generators/hero/japanese.webp", alt: "Cherry blossom branches, a red torii gate by a lake and Mount Fuji" }}
       updated="2026-10-11"
       faq={FAQ}
       related={[

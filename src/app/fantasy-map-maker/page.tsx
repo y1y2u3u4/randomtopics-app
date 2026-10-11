@@ -3,18 +3,22 @@ import Link from "next/link";
 import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/generators/GeneratorPageShell";
 import FantasyMapMaker from "@/components/generators/FantasyMapMaker";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/fantasy-map-maker";
 const TITLE = "Fantasy Map Maker — Random Fantasy Map Generator, Free PNG";
 const DESCRIPTION =
   "Free random fantasy map generator: one click makes a new continent, island chain or supercontinent with coasts, forests, mountains and named realms. Colored or parchment style, download as PNG, share by map number. No signup.";
 
+const SOCIAL = generatorSocial({ card: "fantasy-map-maker", title: TITLE, description: DESCRIPTION, alt: "Fantasy Map Maker — parchment map with compass" });
+
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["fantasy map maker", "fantasy map generator", "random fantasy map", "random map generator", "dnd map generator", "world map generator", "fantasy world map"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [

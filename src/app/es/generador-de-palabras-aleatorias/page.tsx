@@ -4,17 +4,21 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import WordGenerator from "@/components/generators/WordGenerator";
 import { WORDS } from "@/lib/generators/words";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/es/generador-de-palabras-aleatorias";
 const TITLE = "Generador de Palabras Aleatorias — Sustantivos, Verbos y Adjetivos";
 const DESCRIPTION = `Generador de palabras aleatorias gratis con más de ${WORDS.es.length} palabras en español. Filtra por sustantivo, verbo o adjetivo, dificultad, longitud y letra inicial, o solo palabras para dibujar y hacer mímica. Hasta 50 a la vez, sin repetir.`;
+
+const SOCIAL = generatorSocial({ card: "es-generador-de-palabras-aleatorias", title: TITLE, description: DESCRIPTION, alt: "Generador de palabras aleatorias — diccionario con tarjetas de palabras" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["generador de palabras aleatorias", "palabras aleatorias", "palabra al azar", "generador de palabras", "palabras para pictionary", "palabras para mímica", "sustantivos aleatorios"],
   alternates: { canonical: PATH, languages: hreflangAlternates("/random-word-generator") },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", locale: "es_ES", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", locale: "es_ES", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [

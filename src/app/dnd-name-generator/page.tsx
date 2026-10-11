@@ -4,17 +4,21 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import DndNameGenerator from "@/components/generators/DndNameGenerator";
 import { DND_FIRST, DND_FAMILY, RACES } from "@/lib/generators/dnd";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/dnd-name-generator";
 const TITLE = "D&D Name Generator — Fantasy Names by Race & Gender";
 const DESCRIPTION = `Free D&D name generator: ${DND_FIRST.length}+ original first names and ${DND_FAMILY.length}+ family and clan names for elves, dwarves, halflings, gnomes, tieflings, dragonborn, half-orcs and more. Filter by race and gender, no signup.`;
+
+const SOCIAL = generatorSocial({ card: "dnd-name-generator", title: TITLE, description: DESCRIPTION, alt: "D&D Name Generator — fantasy party of adventurers" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["dnd name generator", "d&d name generator", "dungeons and dragons name generator", "elf name generator", "dwarf name generator", "tiefling name generator", "dragonborn name generator", "fantasy name generator"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [
@@ -52,6 +56,7 @@ export default function DndNameGeneratorPage() {
       heading={["D&D Name", "Generator"]}
       intro={`${DND_FIRST.length}+ original fantasy names for ${RACES.length} races, each with a fitting family or clan name. Filter by race and gender, generate up to 20 at a time.`}
       description={DESCRIPTION}
+      hero={{ src: "/generators/hero/dnd.webp", alt: "A fantasy adventuring party — elf archer, dwarf, wizard and halfling — looking toward a distant castle" }}
       updated="2026-10-10"
       faq={FAQ}
       related={[

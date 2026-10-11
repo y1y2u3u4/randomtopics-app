@@ -4,18 +4,22 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import RandomCharacterGenerator from "@/components/generators/RandomCharacterGenerator";
 import { TRAITS } from "@/lib/generators/characters";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/random-character-generator";
 const TITLE = "Random Character Generator — Name, Personality, Secret & More";
 const DESCRIPTION =
   "Free random character generator for writers and role-players: each character gets a name, occupation, personality, distinctive look, motivation, secret, quirk and flaw. Fantasy, sci-fi, modern or historical. No signup.";
 
+const SOCIAL = generatorSocial({ card: "random-character-generator", title: TITLE, description: DESCRIPTION, alt: "Random Character Generator — character cards and dice" });
+
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["random character generator", "character generator", "random character", "character idea generator", "oc generator", "npc generator", "character creator for writers"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [
@@ -54,6 +58,7 @@ export default function RandomCharacterGeneratorPage() {
       heading={["Random Character", "Generator"]}
       intro="A complete character in one click: name, occupation, personality, looks, motivation, secret, quirk and flaw. Pick a genre or leave it open."
       description={DESCRIPTION}
+      hero={{ src: "/generators/hero/character.webp", alt: "Character cards with a sword, rocket, magnifying glass and crown, next to a pair of dice" }}
       updated="2026-10-10"
       faq={FAQ}
       related={[

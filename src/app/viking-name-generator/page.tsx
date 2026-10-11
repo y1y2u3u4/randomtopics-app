@@ -4,17 +4,21 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import VikingNameGenerator from "@/components/generators/VikingNameGenerator";
 import { BYNAMES, VIKING_NAMES } from "@/lib/generators/viking";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/viking-name-generator";
 const TITLE = "Viking Name Generator — Norse Names with Meanings & Bynames";
 const DESCRIPTION = `Free Viking name generator with ${VIKING_NAMES.length}+ real Old Norse names, patronymics (Haraldsson, Thorsdottir) and ${BYNAMES.length}+ bynames like Ironside or the Bold — every part with its meaning. Male and female names.`;
+
+const SOCIAL = generatorSocial({ card: "viking-name-generator", title: TITLE, description: DESCRIPTION, alt: "Viking Name Generator — longship sailing a fjord" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["viking name generator", "norse name generator", "viking names", "old norse names", "viking names with meanings", "female viking names", "viking nickname generator"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [
@@ -54,6 +58,7 @@ export default function VikingNameGeneratorPage() {
       heading={["Viking Name", "Generator"]}
       intro={`${VIKING_NAMES.length}+ authentic Old Norse names with patronymics and bynames — and the meaning of every part.`}
       description={DESCRIPTION}
+      hero={{ src: "/generators/hero/viking.webp", alt: "A viking longship with a striped sail and round shields sailing a fjord" }}
       updated="2026-10-10"
       faq={FAQ}
       related={[

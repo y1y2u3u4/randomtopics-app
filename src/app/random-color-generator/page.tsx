@@ -3,18 +3,22 @@ import Link from "next/link";
 import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/generators/GeneratorPageShell";
 import ColorGenerator from "@/components/generators/ColorGenerator";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/random-color-generator";
 const TITLE = "Random Color Generator — HEX, RGB & HSL Palettes, Lock & Copy";
 const DESCRIPTION =
   "Free random color generator: get up to 10 random colors at once in HEX, RGB and HSL, lock the ones you like, and build analogous, complementary, triadic, monochrome or pastel palettes. One-click copy, CSS export and share links.";
 
+const SOCIAL = generatorSocial({ card: "random-color-generator", title: TITLE, description: DESCRIPTION, alt: "Random Color Generator — paint swatches and palette" });
+
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["random color generator", "random colour generator", "random color", "color palette generator", "random hex color", "random rgb color", "color picker random"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [

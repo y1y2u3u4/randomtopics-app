@@ -4,17 +4,21 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import AnimalGenerator from "@/components/generators/AnimalGenerator";
 import { ANIMALS } from "@/lib/generators/animals";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/random-animal-generator";
 const TITLE = "Random Animal Generator — Pictures & Fun Facts, Free";
 const DESCRIPTION = `Free random animal generator with ${ANIMALS.length}+ animals, each with an illustration and a fun fact. Filter by mammals, birds, ocean, farm or easy animals for kids — great for drawing prompts and guessing games.`;
+
+const SOCIAL = generatorSocial({ card: "random-animal-generator", title: TITLE, description: DESCRIPTION, alt: "Random Animal Generator — illustrated animals with fun facts" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["random animal generator", "random animal", "animal generator", "random animal picker", "random animal to draw", "random animal facts", "random sea animal generator"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [

@@ -4,17 +4,21 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import CharacterNameGenerator from "@/components/generators/CharacterNameGenerator";
 import { CHAR_FIRST, CHAR_LAST } from "@/lib/generators/characters";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/character-name-generator";
 const TITLE = "Character Name Generator — Names for Stories, by Genre";
 const DESCRIPTION = `Free character name generator for writers: ${CHAR_FIRST.length}+ first names and ${CHAR_LAST.length}+ surnames for fantasy, sci-fi, modern and historical fiction, each with its meaning. Filter by genre and gender.`;
+
+const SOCIAL = generatorSocial({ card: "character-name-generator", title: TITLE, description: DESCRIPTION, alt: "Character Name Generator — characters rising from a writer's notebook" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["character name generator", "name generator for characters", "story character names", "fantasy character name generator", "sci fi name generator", "book character name generator", "names for writers"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [
@@ -53,6 +57,7 @@ export default function CharacterNameGeneratorPage() {
       heading={["Character Name", "Generator"]}
       intro={`Full names for fantasy, sci-fi, modern and historical stories — ${CHAR_FIRST.length}+ first names and ${CHAR_LAST.length}+ surnames, each with its meaning.`}
       description={DESCRIPTION}
+      hero={{ src: "/generators/hero/charactername.webp", alt: "A writer's notebook with a knight, an astronaut and a detective rising from its pages" }}
       updated="2026-10-10"
       faq={FAQ}
       related={[

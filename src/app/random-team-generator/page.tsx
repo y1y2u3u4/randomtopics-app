@@ -3,18 +3,22 @@ import Link from "next/link";
 import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/generators/GeneratorPageShell";
 import TeamGenerator from "@/components/generators/TeamGenerator";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/random-team-generator";
 const TITLE = "Random Team & Group Generator — Fair, Balanced Groups in One Click";
 const DESCRIPTION =
   "Free random team and group generator: paste a list of names and split it into random or balanced teams or groups by number of groups or people per group. Fun team names, lock players, full-screen mode, share link. No signup.";
 
+const SOCIAL = generatorSocial({ card: "random-team-generator", title: TITLE, description: DESCRIPTION, alt: "Random Team & Group Generator — names split into fair teams" });
+
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["random team generator", "random group generator", "group generator", "random group maker", "random groups for class", "team picker", "team generator", "random team maker", "split into groups", "balanced team generator"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [

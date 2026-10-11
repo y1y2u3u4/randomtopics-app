@@ -4,17 +4,21 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import LastNameGenerator from "@/components/generators/LastNameGenerator";
 import { LAST_NAMES, ORIGIN_LABELS } from "@/lib/generators/lastNames";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/es/generador-de-apellidos";
 const TITLE = "Generador de Apellidos — Apellidos al Azar con Significado";
 const DESCRIPTION = `Generador de apellidos gratis: más de ${LAST_NAMES.length} apellidos reales de ${Object.keys(ORIGIN_LABELS).length} culturas — español, italiano, inglés, irlandés, japonés, coreano y más — cada uno con su significado y origen.`;
+
+const SOCIAL = generatorSocial({ card: "es-generador-de-apellidos", title: TITLE, description: DESCRIPTION, alt: "Generador de apellidos — apellidos por origen con significado" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["generador de apellidos", "apellidos aleatorios", "apellidos al azar", "apellidos con significado", "generador de apellidos españoles", "apellidos japoneses"],
   alternates: { canonical: PATH, languages: hreflangAlternates("/last-name-generator") },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", locale: "es_ES", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", locale: "es_ES", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [

@@ -5,6 +5,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import { SITE_URL } from "@/i18n/config";
 import { generatorsFor } from "@/data/generators/registry";
+import heroSizes from "@/data/generators/heroImages.json";
 
 export interface FaqItem { question: string; answer: string }
 
@@ -22,6 +23,8 @@ interface Props {
   /** The long-form explainer under the tool. */
   content: React.ReactNode;
   related?: { href: string; label: string }[];
+  /** Themed illustration above the H1 (public/generators/hero, WebP; size in heroImages.json). */
+  hero?: { src: string; alt: string };
 }
 
 const UI = {
@@ -30,7 +33,7 @@ const UI = {
 };
 
 export default function GeneratorPageShell(props: Props) {
-  const { locale, path, name, heading, intro, description, updated, faq, children, content, related = [] } = props;
+  const { locale, path, name, heading, intro, description, updated, faq, children, content, related = [], hero } = props;
   const ui = UI[locale];
   const others = generatorsFor(locale).filter((g) => g.href !== path);
   const appSchema = {
@@ -56,6 +59,12 @@ export default function GeneratorPageShell(props: Props) {
       <main className="flex-1" {...(locale === "es" ? { lang: "es" } : {})}>
         <Breadcrumb items={[{ label: ui.home, href: locale === "es" ? "/es" : "/" }, { label: name }]} />
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-10 pb-6 text-center">
+          {hero && (
+            // eslint-disable-next-line @next/next/no-img-element -- small pre-sized WebP, no optimizer needed
+            <img src={hero.src} alt={hero.alt} decoding="async"
+              {...(heroSizes as Record<string, { width: number; height: number }>)[hero.src]}
+              className="mx-auto mb-6 h-28 sm:h-40 w-auto rounded-2xl" />
+          )}
           <h1 className="section-heading text-4xl sm:text-6xl font-extrabold mb-4" style={{ fontFamily: "var(--font-display)" }}>
             {heading[0]} <span className="gradient-text">{heading[1]}</span>
           </h1>

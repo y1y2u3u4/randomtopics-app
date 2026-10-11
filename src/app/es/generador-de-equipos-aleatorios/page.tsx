@@ -3,18 +3,22 @@ import Link from "next/link";
 import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/generators/GeneratorPageShell";
 import TeamGenerator from "@/components/generators/TeamGenerator";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/es/generador-de-equipos-aleatorios";
 const TITLE = "Generador de Equipos y Grupos Aleatorios — Grupos Justos en un Clic";
 const DESCRIPTION =
   "Generador de equipos y grupos aleatorios gratis: pega una lista de nombres y divídela en equipos o grupos al azar, por número de equipos o personas por equipo. Equilibra por género y nivel, fija jugadores, pantalla completa. Sin registro.";
 
+const SOCIAL = generatorSocial({ card: "es-generador-de-equipos-aleatorios", title: TITLE, description: DESCRIPTION, alt: "Generador de equipos y grupos aleatorios — nombres repartidos en equipos justos" });
+
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["generador de equipos aleatorios", "generador de grupos aleatorios", "hacer grupos al azar", "grupos aleatorios para clase", "generador de equipos", "hacer equipos al azar", "generador de grupos aleatorios", "sorteo de equipos", "dividir en grupos"],
   alternates: { canonical: PATH, languages: hreflangAlternates("/random-team-generator") },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", locale: "es_ES", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", locale: "es_ES", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [
