@@ -15,7 +15,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <SelectedTopicPractice returnSource="home" />
-        <TopicGenerator contentSource="homepage" />
+        <TopicGenerator contentSource="homepage" rollOnGenerate />
 
         {/* High-intent handoff: helps the dedicated subject page own its query
             instead of forcing Google to route "random subject generator" to /. */}

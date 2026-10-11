@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { Topic, CATEGORIES } from "@/data/types";
 import { Locale, defaultLocale } from "@/i18n/config";
 import { CATEGORY_LABELS, MODE_LABELS } from "@/i18n/dictionaries";
@@ -14,6 +14,8 @@ interface TopicCardProps {
   contentSource?: string;
   actionContext?: "generated_result" | "editorial_card" | "saved_library" | "spin_result";
   afterTitle?: ReactNode;
+  /** Decoy topics that scroll past before the real title settles (homepage draw animation). */
+  rollFrom?: string[];
 }
 
 const depthColors = {
@@ -41,6 +43,7 @@ export default function TopicCard({
   contentSource = "topic_card",
   actionContext = "editorial_card",
   afterTitle,
+  rollFrom,
 }: TopicCardProps) {
   const categoryEmoji = CATEGORIES.find((c) => c.id === topic.category)?.emoji;
   const categoryLabel = CATEGORY_LABELS[locale][topic.category]?.label;
@@ -116,7 +119,16 @@ export default function TopicCard({
           zIndex: 1,
         }}
       >
-        {topic.text}
+        {rollFrom?.length ? (
+          // The real title is the only readable text; the reel is decorative and
+          // disappears entirely under prefers-reduced-motion (see globals.css).
+          <span className="topic-roll" style={{ "--roll-n": rollFrom.length } as CSSProperties}>
+            <span className="topic-roll__final">{topic.text}</span>
+            <span className="topic-roll__reel" aria-hidden="true">
+              {rollFrom.map((text, i) => <span key={i}>{text}</span>)}
+            </span>
+          </span>
+        ) : topic.text}
       </h3>
 
       {afterTitle}

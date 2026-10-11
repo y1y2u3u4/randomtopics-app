@@ -34,6 +34,8 @@ interface TopicGeneratorProps {
   heroLinks?: ReactNode;
   /** Leave room for the Speech hub's optional privacy notice on phones. */
   compactMobileHero?: boolean;
+  /** Homepage only: scroll a few decoy titles before each new topic settles. */
+  rollOnGenerate?: boolean;
 }
 
 const DEPTH_KEYS: Record<Depth, "depthLight" | "depthMedium" | "depthDeep"> = {
@@ -41,6 +43,18 @@ const DEPTH_KEYS: Record<Depth, "depthLight" | "depthMedium" | "depthDeep"> = {
   medium: "depthMedium",
   deep: "depthDeep",
 };
+
+/** Three other titles from the same pool to scroll past before each new topic settles. */
+function pickRollDecoys(pool: Topic[], picked: Topic[]): Record<string, string[]> {
+  const taken = new Set(picked.map((topic) => topic.id));
+  const others = pool.filter((topic) => !taken.has(topic.id));
+  const out: Record<string, string[]> = {};
+  if (others.length === 0) return out;
+  for (const topic of picked) {
+    out[topic.id] = Array.from({ length: 3 }, () => others[Math.floor(Math.random() * others.length)].text);
+  }
+  return out;
+}
 
 export default function TopicGenerator({
   initialMode = null,
@@ -54,6 +68,7 @@ export default function TopicGenerator({
   speechTimerHref = "#speech-practice",
   heroLinks,
   compactMobileHero = false,
+  rollOnGenerate = false,
 }: TopicGeneratorProps) {
   const t = getDict(locale);
   const [selectedMode, setSelectedMode] = useState<Mode | null>(initialMode);
@@ -67,6 +82,8 @@ export default function TopicGenerator({
   const [copiedAll, setCopiedAll] = useState(false);
   const [manualCopyText, setManualCopyText] = useState<string | null>(null);
   const [copyingAll, setCopyingAll] = useState(false);
+  // Decoy titles per new topic id for the draw animation; empty for restored results.
+  const [rollDecoys, setRollDecoys] = useState<Record<string, string[]>>({});
   const copyInFlight = useRef(false);
   const copyVersion = useRef(0);
   useEffect(() => () => { copyVersion.current++; }, []);
@@ -131,6 +148,7 @@ export default function TopicGenerator({
     copyInFlight.current = false;
     setCopyingAll(false);
     setGeneratedTopics(nextTopics);
+    if (rollOnGenerate) setRollDecoys(pickRollDecoys(staticPool, nextTopics));
     setPracticeBatch((batch) => batch + 1);
     recordRecentTopics(nextTopics);
     if (nextTopics.length) saveTopicResult(sessionScope, {
@@ -156,7 +174,7 @@ export default function TopicGenerator({
       locale,
     });
     return nextTopics;
-  }, [selectedMode, selectedCategory, selectedDepth, count, contentSource, locale, sessionScope]);
+  }, [selectedMode, selectedCategory, selectedDepth, count, contentSource, locale, sessionScope, rollOnGenerate, staticPool]);
 
   const generate = useCallback(async () => {
     if (generating.current || !staticPool.length) return [];
@@ -420,7 +438,7 @@ export default function TopicGenerator({
         {hasGenerated && (!coachEnabled || generatedTopics.length === 0) && <motion.div key={generatedTopics.map((t) => t.id).join(",")}
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mb-4 space-y-4">
           {generatedTopics.length > 0 ? generatedTopics.map((topic, i) => (
-            <TopicCard key={topic.id} topic={topic} index={i} locale={locale} contentSource={contentSource} actionContext="generated_result" afterTitle={contentSource === "homepage" ? <PracticeSelectedTopic topic={topic} source="home" /> : contentSource === "debate_hub" ? <DebatePreparation topic={topic} /> : undefined} />
+            <TopicCard key={topic.id} topic={topic} index={i} locale={locale} contentSource={contentSource} actionContext="generated_result" rollFrom={rollDecoys[topic.id]} afterTitle={contentSource === "homepage" ? <PracticeSelectedTopic topic={topic} source="home" /> : contentSource === "debate_hub" ? <DebatePreparation topic={topic} /> : undefined} />
           )) : (
               <div className="glass-card text-center py-16 px-6">
                 <motion.p
