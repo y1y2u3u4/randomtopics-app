@@ -110,9 +110,12 @@ async function sheetsRequest<T>(
   throw new AnalyticsSheetError(errorCode);
 }
 
-async function getValues(sheetId: string, range: string): Promise<unknown[][]> {
+// FORMATTED_VALUE (the API default) returns every cell as display text, so a
+// number written as 23 reads back as "23". Callers that validate numeric cells
+// must ask for UNFORMATTED_VALUE.
+async function getValues(sheetId: string, range: string, render: "FORMATTED_VALUE" | "UNFORMATTED_VALUE" = "FORMATTED_VALUE"): Promise<unknown[][]> {
   const response = await sheetsRequest<ValueRangeResponse>(
-    `${sheetId}/values/${rangePath(range)}?majorDimension=ROWS`,
+    `${sheetId}/values/${rangePath(range)}?majorDimension=ROWS&valueRenderOption=${render}`,
     { method: "GET" },
     "sheet_values_read_failed"
   );
@@ -303,7 +306,9 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     getValues(sheetId, "'Daily Summary'!A2:A1000"),
     getValues(sheetId, "'Run Log'!A2:B1000"),
   ]);
-  const speechRows = await getValues(sheetId, `'${SPEECH_DAILY_TAB}'!A1:F${speechGrid.rowCount}`);
+  // Speech Daily v2 rows are validated as numbers; formatted reads made every
+  // existing row "unknown" and failed the whole daily sync from 2026-10-06.
+  const speechRows = await getValues(sheetId, `'${SPEECH_DAILY_TAB}'!A1:F${speechGrid.rowCount}`, "UNFORMATTED_VALUE");
   const speechWrite = planSpeechDailyWrite(speechRows, snapshot.reportDate, SPEECH_EVENTS, snapshot.ga4.eventsYesterday);
   if (speechWrite.requiredRows > speechGrid.rowCount) await sheetsRequest(`${sheetId}:batchUpdate`, {
     method: "POST", body: JSON.stringify({ requests: [{ appendDimension: {

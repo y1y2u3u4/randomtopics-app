@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { load } from './lib/load-typescript.mjs';
 const { SPEECH_DAILY_HEADERS: headers, SPEECH_DAILY_SCHEMA: schema, planSpeechDailyWrite: plan, readSpeechDailyRow: read } = load('src/lib/speech/dailySchema.ts');
@@ -25,4 +26,10 @@ assert.throws(()=>plan([headers,[date,schema,names[0],'',1]],date,names,metrics)
 assert.throws(()=>plan(existing,date,names,[{...metrics[0],eventCount:NaN}]),/metric_invalid/);
 assert.equal(read(existing[1]).eventName,'speech_checkout_request');
 assert.equal(read(existing[1]).eventCount,2);
+// Regression (2026-10-06 → 10-11): formatted reads return numbers as strings,
+// which made every existing row unknown and failed the whole daily sync.
+assert.throws(()=>plan([headers,[date,schema,names[0],'23','19']],'2026-10-05',names,metrics),/row_unknown/,'Display-text counts are not trusted as numbers');
+const sheetSource = readFileSync(new URL('../src/lib/analyticsSheet.ts', import.meta.url), 'utf8');
+assert.match(sheetSource,/SPEECH_DAILY_TAB\}'!A1:F\$\{speechGrid\.rowCount\}`, "UNFORMATTED_VALUE"\)/,'Speech Daily rows must be read unformatted');
+assert.match(sheetSource,/valueRenderOption=\$\{render\}/,'getValues passes the render option to the API');
 console.log('PASS Speech Daily schema: fixed named rows, retry upsert, event reordering/addition, historical preservation, duplicate/unknown/missing values fail closed.');

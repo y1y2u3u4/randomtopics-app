@@ -1,0 +1,4299 @@
+{
+ "given": [
+  {
+   "romaji": "Haruto",
+   "kana": "はると",
+   "kanji": "陽翔",
+   "gender": "male",
+   "meaning": "sun + soar"
+  },
+  {
+   "romaji": "Sota",
+   "kana": "そうた",
+   "kanji": "颯太",
+   "gender": "male",
+   "meaning": "brisk + big"
+  },
+  {
+   "romaji": "Riku",
+   "kana": "りく",
+   "kanji": "陸",
+   "gender": "male",
+   "meaning": "land"
+  },
+  {
+   "romaji": "Yuto",
+   "kana": "ゆうと",
+   "kanji": "悠斗",
+   "gender": "male",
+   "meaning": "calm + dipper"
+  },
+  {
+   "romaji": "Minato",
+   "kana": "みなと",
+   "kanji": "湊",
+   "gender": "male",
+   "meaning": "harbor"
+  },
+  {
+   "romaji": "Yamato",
+   "kana": "やまと",
+   "kanji": "大和",
+   "gender": "male",
+   "meaning": "great harmony"
+  },
+  {
+   "romaji": "Haruki",
+   "kana": "はるき",
+   "kanji": "春樹",
+   "gender": "male",
+   "meaning": "spring + tree"
+  },
+  {
+   "romaji": "Kaito",
+   "kana": "かいと",
+   "kanji": "海斗",
+   "gender": "male",
+   "meaning": "sea + dipper"
+  },
+  {
+   "romaji": "Hayato",
+   "kana": "はやと",
+   "kanji": "隼人",
+   "gender": "male",
+   "meaning": "falcon + person"
+  },
+  {
+   "romaji": "Daiki",
+   "kana": "だいき",
+   "kanji": "大輝",
+   "gender": "male",
+   "meaning": "great + radiance"
+  },
+  {
+   "romaji": "Takumi",
+   "kana": "たくみ",
+   "kanji": "匠",
+   "gender": "male",
+   "meaning": "artisan"
+  },
+  {
+   "romaji": "Yuma",
+   "kana": "ゆうま",
+   "kanji": "悠真",
+   "gender": "male",
+   "meaning": "calm + truth"
+  },
+  {
+   "romaji": "Asahi",
+   "kana": "あさひ",
+   "kanji": "朝陽",
+   "gender": "male",
+   "meaning": "morning + sun"
+  },
+  {
+   "romaji": "Kenta",
+   "kana": "けんた",
+   "kanji": "健太",
+   "gender": "male",
+   "meaning": "healthy + big"
+  },
+  {
+   "romaji": "Shota",
+   "kana": "しょうた",
+   "kanji": "翔太",
+   "gender": "male",
+   "meaning": "soar + big"
+  },
+  {
+   "romaji": "Ryota",
+   "kana": "りょうた",
+   "kanji": "涼太",
+   "gender": "male",
+   "meaning": "cool + big"
+  },
+  {
+   "romaji": "Kosuke",
+   "kana": "こうすけ",
+   "kanji": "康介",
+   "gender": "male",
+   "meaning": "peace + mediate"
+  },
+  {
+   "romaji": "Daisuke",
+   "kana": "だいすけ",
+   "kanji": "大輔",
+   "gender": "male",
+   "meaning": "great + help"
+  },
+  {
+   "romaji": "Takeshi",
+   "kana": "たけし",
+   "kanji": "武",
+   "gender": "male",
+   "meaning": "warrior, military"
+  },
+  {
+   "romaji": "Hiroshi",
+   "kana": "ひろし",
+   "kanji": "博",
+   "gender": "male",
+   "meaning": "broad, extensive"
+  },
+  {
+   "romaji": "Kenji",
+   "kana": "けんじ",
+   "kanji": "健二",
+   "gender": "male",
+   "meaning": "healthy + second"
+  },
+  {
+   "romaji": "Kazuya",
+   "kana": "かずや",
+   "kanji": "和也",
+   "gender": "male",
+   "meaning": "harmony + also"
+  },
+  {
+   "romaji": "Tatsuya",
+   "kana": "たつや",
+   "kanji": "達也",
+   "gender": "male",
+   "meaning": "accomplish + also"
+  },
+  {
+   "romaji": "Naoki",
+   "kana": "なおき",
+   "kanji": "直樹",
+   "gender": "male",
+   "meaning": "honest + tree"
+  },
+  {
+   "romaji": "Yusuke",
+   "kana": "ゆうすけ",
+   "kanji": "祐介",
+   "gender": "male",
+   "meaning": "divine help + mediate"
+  },
+  {
+   "romaji": "Takuya",
+   "kana": "たくや",
+   "kanji": "拓也",
+   "gender": "male",
+   "meaning": "open up + also"
+  },
+  {
+   "romaji": "Kazuki",
+   "kana": "かずき",
+   "kanji": "一輝",
+   "gender": "male",
+   "meaning": "one + radiance"
+  },
+  {
+   "romaji": "Ryo",
+   "kana": "りょう",
+   "kanji": "亮",
+   "gender": "male",
+   "meaning": "clear, bright"
+  },
+  {
+   "romaji": "Sho",
+   "kana": "しょう",
+   "kanji": "翔",
+   "gender": "male",
+   "meaning": "soar"
+  },
+  {
+   "romaji": "Hideki",
+   "kana": "ひでき",
+   "kanji": "英樹",
+   "gender": "male",
+   "meaning": "excellent + tree"
+  },
+  {
+   "romaji": "Masashi",
+   "kana": "まさし",
+   "kanji": "雅史",
+   "gender": "male",
+   "meaning": "elegant + history"
+  },
+  {
+   "romaji": "Satoshi",
+   "kana": "さとし",
+   "kanji": "聡",
+   "gender": "male",
+   "meaning": "wise"
+  },
+  {
+   "romaji": "Takashi",
+   "kana": "たかし",
+   "kanji": "隆",
+   "gender": "male",
+   "meaning": "prosperous"
+  },
+  {
+   "romaji": "Hiroki",
+   "kana": "ひろき",
+   "kanji": "弘樹",
+   "gender": "male",
+   "meaning": "wide + tree"
+  },
+  {
+   "romaji": "Koji",
+   "kana": "こうじ",
+   "kanji": "浩二",
+   "gender": "male",
+   "meaning": "vast + second"
+  },
+  {
+   "romaji": "Shinji",
+   "kana": "しんじ",
+   "kanji": "慎二",
+   "gender": "male",
+   "meaning": "careful + second"
+  },
+  {
+   "romaji": "Kenichi",
+   "kana": "けんいち",
+   "kanji": "健一",
+   "gender": "male",
+   "meaning": "healthy + first"
+  },
+  {
+   "romaji": "Shinichi",
+   "kana": "しんいち",
+   "kanji": "真一",
+   "gender": "male",
+   "meaning": "true + first"
+  },
+  {
+   "romaji": "Koichi",
+   "kana": "こういち",
+   "kanji": "浩一",
+   "gender": "male",
+   "meaning": "vast + first"
+  },
+  {
+   "romaji": "Junichi",
+   "kana": "じゅんいち",
+   "kanji": "純一",
+   "gender": "male",
+   "meaning": "pure + first"
+  },
+  {
+   "romaji": "Yoichi",
+   "kana": "よういち",
+   "kanji": "陽一",
+   "gender": "male",
+   "meaning": "sun + first"
+  },
+  {
+   "romaji": "Ichiro",
+   "kana": "いちろう",
+   "kanji": "一郎",
+   "gender": "male",
+   "meaning": "first + son"
+  },
+  {
+   "romaji": "Jiro",
+   "kana": "じろう",
+   "kanji": "次郎",
+   "gender": "male",
+   "meaning": "next + son"
+  },
+  {
+   "romaji": "Saburo",
+   "kana": "さぶろう",
+   "kanji": "三郎",
+   "gender": "male",
+   "meaning": "third + son"
+  },
+  {
+   "romaji": "Taro",
+   "kana": "たろう",
+   "kanji": "太郎",
+   "gender": "male",
+   "meaning": "big + son"
+  },
+  {
+   "romaji": "Kentaro",
+   "kana": "けんたろう",
+   "kanji": "健太郎",
+   "gender": "male",
+   "meaning": "healthy + big + son"
+  },
+  {
+   "romaji": "Shintaro",
+   "kana": "しんたろう",
+   "kanji": "慎太郎",
+   "gender": "male",
+   "meaning": "careful + big + son"
+  },
+  {
+   "romaji": "Kotaro",
+   "kana": "こたろう",
+   "kanji": "虎太郎",
+   "gender": "male",
+   "meaning": "tiger + big + son"
+  },
+  {
+   "romaji": "Rintaro",
+   "kana": "りんたろう",
+   "kanji": "倫太郎",
+   "gender": "male",
+   "meaning": "ethics + big + son"
+  },
+  {
+   "romaji": "Yutaro",
+   "kana": "ゆうたろう",
+   "kanji": "勇太郎",
+   "gender": "male",
+   "meaning": "brave + big + son"
+  },
+  {
+   "romaji": "Masaru",
+   "kana": "まさる",
+   "kanji": "勝",
+   "gender": "male",
+   "meaning": "victory"
+  },
+  {
+   "romaji": "Minoru",
+   "kana": "みのる",
+   "kanji": "実",
+   "gender": "male",
+   "meaning": "fruit, truth"
+  },
+  {
+   "romaji": "Osamu",
+   "kana": "おさむ",
+   "kanji": "修",
+   "gender": "male",
+   "meaning": "discipline, study"
+  },
+  {
+   "romaji": "Isamu",
+   "kana": "いさむ",
+   "kanji": "勇",
+   "gender": "male",
+   "meaning": "courage"
+  },
+  {
+   "romaji": "Susumu",
+   "kana": "すすむ",
+   "kanji": "進",
+   "gender": "male",
+   "meaning": "advance"
+  },
+  {
+   "romaji": "Tsutomu",
+   "kana": "つとむ",
+   "kanji": "勉",
+   "gender": "male",
+   "meaning": "effort"
+  },
+  {
+   "romaji": "Mamoru",
+   "kana": "まもる",
+   "kanji": "守",
+   "gender": "male",
+   "meaning": "protect"
+  },
+  {
+   "romaji": "Noboru",
+   "kana": "のぼる",
+   "kanji": "昇",
+   "gender": "male",
+   "meaning": "rise"
+  },
+  {
+   "romaji": "Yutaka",
+   "kana": "ゆたか",
+   "kanji": "豊",
+   "gender": "male",
+   "meaning": "abundant"
+  },
+  {
+   "romaji": "Tadashi",
+   "kana": "ただし",
+   "kanji": "正",
+   "gender": "male",
+   "meaning": "correct, righteous"
+  },
+  {
+   "romaji": "Kiyoshi",
+   "kana": "きよし",
+   "kanji": "清",
+   "gender": "male",
+   "meaning": "pure"
+  },
+  {
+   "romaji": "Hiroyuki",
+   "kana": "ひろゆき",
+   "kanji": "博之",
+   "gender": "male",
+   "meaning": "broad + of"
+  },
+  {
+   "romaji": "Toshiyuki",
+   "kana": "としゆき",
+   "kanji": "俊之",
+   "gender": "male",
+   "meaning": "talented + of"
+  },
+  {
+   "romaji": "Masayuki",
+   "kana": "まさゆき",
+   "kanji": "正幸",
+   "gender": "male",
+   "meaning": "correct + happiness"
+  },
+  {
+   "romaji": "Takayuki",
+   "kana": "たかゆき",
+   "kanji": "隆之",
+   "gender": "male",
+   "meaning": "prosperous + of"
+  },
+  {
+   "romaji": "Nobuyuki",
+   "kana": "のぶゆき",
+   "kanji": "信之",
+   "gender": "male",
+   "meaning": "trust + of"
+  },
+  {
+   "romaji": "Kazuo",
+   "kana": "かずお",
+   "kanji": "和夫",
+   "gender": "male",
+   "meaning": "harmony + man"
+  },
+  {
+   "romaji": "Yoshio",
+   "kana": "よしお",
+   "kanji": "義男",
+   "gender": "male",
+   "meaning": "righteous + man"
+  },
+  {
+   "romaji": "Tetsuya",
+   "kana": "てつや",
+   "kanji": "哲也",
+   "gender": "male",
+   "meaning": "philosophy + also"
+  },
+  {
+   "romaji": "Shunsuke",
+   "kana": "しゅんすけ",
+   "kanji": "俊介",
+   "gender": "male",
+   "meaning": "talented + mediate"
+  },
+  {
+   "romaji": "Ryosuke",
+   "kana": "りょうすけ",
+   "kanji": "亮介",
+   "gender": "male",
+   "meaning": "clear + mediate"
+  },
+  {
+   "romaji": "Keisuke",
+   "kana": "けいすけ",
+   "kanji": "圭介",
+   "gender": "male",
+   "meaning": "jewel + mediate"
+  },
+  {
+   "romaji": "Kyosuke",
+   "kana": "きょうすけ",
+   "kanji": "恭介",
+   "gender": "male",
+   "meaning": "respectful + mediate"
+  },
+  {
+   "romaji": "Sosuke",
+   "kana": "そうすけ",
+   "kanji": "蒼介",
+   "gender": "male",
+   "meaning": "blue + mediate"
+  },
+  {
+   "romaji": "Yosuke",
+   "kana": "ようすけ",
+   "kanji": "洋介",
+   "gender": "male",
+   "meaning": "ocean + mediate"
+  },
+  {
+   "romaji": "Ryunosuke",
+   "kana": "りゅうのすけ",
+   "kanji": "龍之介",
+   "gender": "male",
+   "meaning": "dragon + of + mediate"
+  },
+  {
+   "romaji": "Shinnosuke",
+   "kana": "しんのすけ",
+   "kanji": "慎之介",
+   "gender": "male",
+   "meaning": "careful + of + mediate"
+  },
+  {
+   "romaji": "Haruma",
+   "kana": "はるま",
+   "kanji": "陽真",
+   "gender": "male",
+   "meaning": "sun + truth"
+  },
+  {
+   "romaji": "Yuito",
+   "kana": "ゆいと",
+   "kanji": "結翔",
+   "gender": "male",
+   "meaning": "tie + soar"
+  },
+  {
+   "romaji": "Aoto",
+   "kana": "あおと",
+   "kanji": "碧斗",
+   "gender": "male",
+   "meaning": "jade blue + dipper"
+  },
+  {
+   "romaji": "Arata",
+   "kana": "あらた",
+   "kanji": "新",
+   "gender": "male",
+   "meaning": "new"
+  },
+  {
+   "romaji": "Eita",
+   "kana": "えいた",
+   "kanji": "瑛太",
+   "gender": "male",
+   "meaning": "crystal + big"
+  },
+  {
+   "romaji": "Ryusei",
+   "kana": "りゅうせい",
+   "kanji": "琉星",
+   "gender": "male",
+   "meaning": "lapis + star"
+  },
+  {
+   "romaji": "Kota",
+   "kana": "こうた",
+   "kanji": "康太",
+   "gender": "male",
+   "meaning": "peace + big"
+  },
+  {
+   "romaji": "Yuta",
+   "kana": "ゆうた",
+   "kanji": "優太",
+   "gender": "male",
+   "meaning": "gentle + big"
+  },
+  {
+   "romaji": "Keita",
+   "kana": "けいた",
+   "kanji": "啓太",
+   "gender": "male",
+   "meaning": "enlighten + big"
+  },
+  {
+   "romaji": "Shunta",
+   "kana": "しゅんた",
+   "kanji": "駿太",
+   "gender": "male",
+   "meaning": "swift horse + big"
+  },
+  {
+   "romaji": "Taiga",
+   "kana": "たいが",
+   "kanji": "大河",
+   "gender": "male",
+   "meaning": "great river"
+  },
+  {
+   "romaji": "Kakeru",
+   "kana": "かける",
+   "kanji": "翔",
+   "gender": "male",
+   "meaning": "soar, fly"
+  },
+  {
+   "romaji": "Hayate",
+   "kana": "はやて",
+   "kanji": "颯",
+   "gender": "male",
+   "meaning": "brisk wind"
+  },
+  {
+   "romaji": "Wataru",
+   "kana": "わたる",
+   "kanji": "渉",
+   "gender": "male",
+   "meaning": "cross over"
+  },
+  {
+   "romaji": "Masato",
+   "kana": "まさと",
+   "kanji": "雅人",
+   "gender": "male",
+   "meaning": "elegant + person"
+  },
+  {
+   "romaji": "Naoto",
+   "kana": "なおと",
+   "kanji": "直人",
+   "gender": "male",
+   "meaning": "honest + person"
+  },
+  {
+   "romaji": "Yuji",
+   "kana": "ゆうじ",
+   "kanji": "雄二",
+   "gender": "male",
+   "meaning": "masculine + second"
+  },
+  {
+   "romaji": "Eiji",
+   "kana": "えいじ",
+   "kanji": "英二",
+   "gender": "male",
+   "meaning": "excellent + second"
+  },
+  {
+   "romaji": "Seiji",
+   "kana": "せいじ",
+   "kanji": "誠司",
+   "gender": "male",
+   "meaning": "sincere + govern"
+  },
+  {
+   "romaji": "Shuji",
+   "kana": "しゅうじ",
+   "kanji": "修司",
+   "gender": "male",
+   "meaning": "discipline + govern"
+  },
+  {
+   "romaji": "Ryuji",
+   "kana": "りゅうじ",
+   "kanji": "竜二",
+   "gender": "male",
+   "meaning": "dragon + second"
+  },
+  {
+   "romaji": "Joji",
+   "kana": "じょうじ",
+   "kanji": "譲二",
+   "gender": "male",
+   "meaning": "yield + second"
+  },
+  {
+   "romaji": "Goro",
+   "kana": "ごろう",
+   "kanji": "五郎",
+   "gender": "male",
+   "meaning": "fifth + son"
+  },
+  {
+   "romaji": "Akihiro",
+   "kana": "あきひろ",
+   "kanji": "明宏",
+   "gender": "male",
+   "meaning": "bright + wide"
+  },
+  {
+   "romaji": "Toshiaki",
+   "kana": "としあき",
+   "kanji": "俊明",
+   "gender": "male",
+   "meaning": "talented + bright"
+  },
+  {
+   "romaji": "Takahiro",
+   "kana": "たかひろ",
+   "kanji": "貴大",
+   "gender": "male",
+   "meaning": "noble + great"
+  },
+  {
+   "romaji": "Tomoya",
+   "kana": "ともや",
+   "kanji": "智也",
+   "gender": "male",
+   "meaning": "wisdom + also"
+  },
+  {
+   "romaji": "Kazuma",
+   "kana": "かずま",
+   "kanji": "和真",
+   "gender": "male",
+   "meaning": "harmony + truth"
+  },
+  {
+   "romaji": "Soma",
+   "kana": "そうま",
+   "kanji": "颯真",
+   "gender": "male",
+   "meaning": "brisk + truth"
+  },
+  {
+   "romaji": "Toma",
+   "kana": "とうま",
+   "kanji": "冬馬",
+   "gender": "male",
+   "meaning": "winter + horse"
+  },
+  {
+   "romaji": "Ryoma",
+   "kana": "りょうま",
+   "kanji": "竜馬",
+   "gender": "male",
+   "meaning": "dragon + horse"
+  },
+  {
+   "romaji": "Takuma",
+   "kana": "たくま",
+   "kanji": "拓真",
+   "gender": "male",
+   "meaning": "open up + truth"
+  },
+  {
+   "romaji": "Yusei",
+   "kana": "ゆうせい",
+   "kanji": "悠成",
+   "gender": "male",
+   "meaning": "calm + become"
+  },
+  {
+   "romaji": "Issei",
+   "kana": "いっせい",
+   "kanji": "一成",
+   "gender": "male",
+   "meaning": "one + become"
+  },
+  {
+   "romaji": "Kosei",
+   "kana": "こうせい",
+   "kanji": "康成",
+   "gender": "male",
+   "meaning": "peace + become"
+  },
+  {
+   "romaji": "Taichi",
+   "kana": "たいち",
+   "kanji": "太一",
+   "gender": "male",
+   "meaning": "big + one"
+  },
+  {
+   "romaji": "Kenshin",
+   "kana": "けんしん",
+   "kanji": "謙信",
+   "gender": "male",
+   "meaning": "humble + trust"
+  },
+  {
+   "romaji": "Ryuta",
+   "kana": "りゅうた",
+   "kanji": "隆太",
+   "gender": "male",
+   "meaning": "prosperous + big"
+  },
+  {
+   "romaji": "Shogo",
+   "kana": "しょうご",
+   "kanji": "翔吾",
+   "gender": "male",
+   "meaning": "soar + I"
+  },
+  {
+   "romaji": "Daigo",
+   "kana": "だいご",
+   "kanji": "大吾",
+   "gender": "male",
+   "meaning": "great + I"
+  },
+  {
+   "romaji": "Kengo",
+   "kana": "けんご",
+   "kanji": "健吾",
+   "gender": "male",
+   "meaning": "healthy + I"
+  },
+  {
+   "romaji": "Yugo",
+   "kana": "ゆうご",
+   "kanji": "悠吾",
+   "gender": "male",
+   "meaning": "calm + I"
+  },
+  {
+   "romaji": "Keigo",
+   "kana": "けいご",
+   "kanji": "圭吾",
+   "gender": "male",
+   "meaning": "jewel + I"
+  },
+  {
+   "romaji": "Atsushi",
+   "kana": "あつし",
+   "kanji": "敦",
+   "gender": "male",
+   "meaning": "sincere, kind"
+  },
+  {
+   "romaji": "Hitoshi",
+   "kana": "ひとし",
+   "kanji": "仁",
+   "gender": "male",
+   "meaning": "benevolence"
+  },
+  {
+   "romaji": "Takao",
+   "kana": "たかお",
+   "kanji": "隆夫",
+   "gender": "male",
+   "meaning": "prosperous + man"
+  },
+  {
+   "romaji": "Shigeru",
+   "kana": "しげる",
+   "kanji": "茂",
+   "gender": "male",
+   "meaning": "luxuriant, thriving"
+  },
+  {
+   "romaji": "Akio",
+   "kana": "あきお",
+   "kanji": "昭夫",
+   "gender": "male",
+   "meaning": "bright + man"
+  },
+  {
+   "romaji": "Haruo",
+   "kana": "はるお",
+   "kanji": "春男",
+   "gender": "male",
+   "meaning": "spring + man"
+  },
+  {
+   "romaji": "Kunio",
+   "kana": "くにお",
+   "kanji": "邦夫",
+   "gender": "male",
+   "meaning": "country + man"
+  },
+  {
+   "romaji": "Tetsuo",
+   "kana": "てつお",
+   "kanji": "哲夫",
+   "gender": "male",
+   "meaning": "philosophy + man"
+  },
+  {
+   "romaji": "Yasushi",
+   "kana": "やすし",
+   "kanji": "靖",
+   "gender": "male",
+   "meaning": "peaceful"
+  },
+  {
+   "romaji": "Tomohiro",
+   "kana": "ともひろ",
+   "kanji": "智宏",
+   "gender": "male",
+   "meaning": "wisdom + wide"
+  },
+  {
+   "romaji": "Masahiro",
+   "kana": "まさひろ",
+   "kanji": "雅弘",
+   "gender": "male",
+   "meaning": "elegant + wide"
+  },
+  {
+   "romaji": "Norihiro",
+   "kana": "のりひろ",
+   "kanji": "典弘",
+   "gender": "male",
+   "meaning": "law + wide"
+  },
+  {
+   "romaji": "Kazuhiro",
+   "kana": "かずひろ",
+   "kanji": "和弘",
+   "gender": "male",
+   "meaning": "harmony + wide"
+  },
+  {
+   "romaji": "Yoshiki",
+   "kana": "よしき",
+   "kanji": "佳樹",
+   "gender": "male",
+   "meaning": "good + tree"
+  },
+  {
+   "romaji": "Genki",
+   "kana": "げんき",
+   "kanji": "元気",
+   "gender": "male",
+   "meaning": "origin + spirit"
+  },
+  {
+   "romaji": "Gaku",
+   "kana": "がく",
+   "kanji": "岳",
+   "gender": "male",
+   "meaning": "mountain peak"
+  },
+  {
+   "romaji": "Jin",
+   "kana": "じん",
+   "kanji": "仁",
+   "gender": "male",
+   "meaning": "benevolence"
+  },
+  {
+   "romaji": "Ken",
+   "kana": "けん",
+   "kanji": "健",
+   "gender": "male",
+   "meaning": "healthy"
+  },
+  {
+   "romaji": "Shin",
+   "kana": "しん",
+   "kanji": "真",
+   "gender": "male",
+   "meaning": "truth"
+  },
+  {
+   "romaji": "Dai",
+   "kana": "だい",
+   "kanji": "大",
+   "gender": "male",
+   "meaning": "great"
+  },
+  {
+   "romaji": "Hiro",
+   "kana": "ひろ",
+   "kanji": "寛",
+   "gender": "male",
+   "meaning": "generous, tolerant"
+  },
+  {
+   "romaji": "Tomoki",
+   "kana": "ともき",
+   "kanji": "友樹",
+   "gender": "male",
+   "meaning": "friend + tree"
+  },
+  {
+   "romaji": "Haruya",
+   "kana": "はるや",
+   "kanji": "晴也",
+   "gender": "male",
+   "meaning": "clear weather + also"
+  },
+  {
+   "romaji": "Shuto",
+   "kana": "しゅうと",
+   "kanji": "柊斗",
+   "gender": "male",
+   "meaning": "holly + dipper"
+  },
+  {
+   "romaji": "Yuya",
+   "kana": "ゆうや",
+   "kanji": "雄也",
+   "gender": "male",
+   "meaning": "masculine + also"
+  },
+  {
+   "romaji": "Shuhei",
+   "kana": "しゅうへい",
+   "kanji": "修平",
+   "gender": "male",
+   "meaning": "discipline + peace"
+  },
+  {
+   "romaji": "Kohei",
+   "kana": "こうへい",
+   "kanji": "康平",
+   "gender": "male",
+   "meaning": "peace + level"
+  },
+  {
+   "romaji": "Ryohei",
+   "kana": "りょうへい",
+   "kanji": "良平",
+   "gender": "male",
+   "meaning": "good + peace"
+  },
+  {
+   "romaji": "Junpei",
+   "kana": "じゅんぺい",
+   "kanji": "純平",
+   "gender": "male",
+   "meaning": "pure + level"
+  },
+  {
+   "romaji": "Shohei",
+   "kana": "しょうへい",
+   "kanji": "翔平",
+   "gender": "male",
+   "meaning": "soar + level"
+  },
+  {
+   "romaji": "Yohei",
+   "kana": "ようへい",
+   "kanji": "洋平",
+   "gender": "male",
+   "meaning": "ocean + level"
+  },
+  {
+   "romaji": "Teppei",
+   "kana": "てっぺい",
+   "kanji": "哲平",
+   "gender": "male",
+   "meaning": "philosophy + level"
+  },
+  {
+   "romaji": "Kaname",
+   "kana": "かなめ",
+   "kanji": "要",
+   "gender": "male",
+   "meaning": "pivot, essential"
+  },
+  {
+   "romaji": "Musashi",
+   "kana": "むさし",
+   "kanji": "武蔵",
+   "gender": "male",
+   "meaning": "military + storehouse"
+  },
+  {
+   "romaji": "Tsuyoshi",
+   "kana": "つよし",
+   "kanji": "剛",
+   "gender": "male",
+   "meaning": "strong, sturdy"
+  },
+  {
+   "romaji": "Hotaka",
+   "kana": "ほたか",
+   "kanji": "穂高",
+   "gender": "male",
+   "meaning": "ear of grain + high"
+  },
+  {
+   "romaji": "Ryuto",
+   "kana": "りゅうと",
+   "kanji": "隆斗",
+   "gender": "male",
+   "meaning": "prosperous + dipper"
+  },
+  {
+   "romaji": "Hiroto",
+   "kana": "ひろと",
+   "kanji": "大翔",
+   "gender": "male",
+   "meaning": "great + soar"
+  },
+  {
+   "romaji": "Fumiya",
+   "kana": "ふみや",
+   "kanji": "文哉",
+   "gender": "male",
+   "meaning": "writing + exclamation"
+  },
+  {
+   "romaji": "Naoya",
+   "kana": "なおや",
+   "kanji": "直哉",
+   "gender": "male",
+   "meaning": "honest + exclamation"
+  },
+  {
+   "romaji": "Takeru",
+   "kana": "たける",
+   "kanji": "尊",
+   "gender": "male",
+   "meaning": "noble, precious"
+  },
+  {
+   "romaji": "Manato",
+   "kana": "まなと",
+   "kanji": "愛斗",
+   "gender": "male",
+   "meaning": "love + dipper"
+  },
+  {
+   "romaji": "Kaisei",
+   "kana": "かいせい",
+   "kanji": "海成",
+   "gender": "male",
+   "meaning": "sea + become"
+  },
+  {
+   "romaji": "Rikuto",
+   "kana": "りくと",
+   "kanji": "陸斗",
+   "gender": "male",
+   "meaning": "land + dipper"
+  },
+  {
+   "romaji": "Kyohei",
+   "kana": "きょうへい",
+   "kanji": "恭平",
+   "gender": "male",
+   "meaning": "respectful + level"
+  },
+  {
+   "romaji": "Raito",
+   "kana": "らいと",
+   "kanji": "雷斗",
+   "gender": "male",
+   "meaning": "thunder + dipper"
+  },
+  {
+   "romaji": "Yoshiro",
+   "kana": "よしろう",
+   "kanji": "義郎",
+   "gender": "male",
+   "meaning": "righteous + son"
+  },
+  {
+   "romaji": "Toshiro",
+   "kana": "としろう",
+   "kanji": "俊郎",
+   "gender": "male",
+   "meaning": "talented + son"
+  },
+  {
+   "romaji": "Shiro",
+   "kana": "しろう",
+   "kanji": "史郎",
+   "gender": "male",
+   "meaning": "history + son"
+  },
+  {
+   "romaji": "Hayao",
+   "kana": "はやお",
+   "kanji": "駿",
+   "gender": "male",
+   "meaning": "swift horse"
+  },
+  {
+   "romaji": "Akito",
+   "kana": "あきと",
+   "kanji": "明人",
+   "gender": "male",
+   "meaning": "bright + person"
+  },
+  {
+   "romaji": "Sotaro",
+   "kana": "そうたろう",
+   "kanji": "壮太郎",
+   "gender": "male",
+   "meaning": "robust + big + son"
+  },
+  {
+   "romaji": "Toru",
+   "kana": "とおる",
+   "kanji": "徹",
+   "gender": "male",
+   "meaning": "penetrate, thorough"
+  },
+  {
+   "romaji": "Noriaki",
+   "kana": "のりあき",
+   "kanji": "典明",
+   "gender": "male",
+   "meaning": "law + bright"
+  },
+  {
+   "romaji": "Mitsuru",
+   "kana": "みつる",
+   "kanji": "満",
+   "gender": "male",
+   "meaning": "full, satisfied"
+  },
+  {
+   "romaji": "Hajime",
+   "kana": "はじめ",
+   "kanji": "一",
+   "gender": "male",
+   "meaning": "first, beginning"
+  },
+  {
+   "romaji": "Kazuhiko",
+   "kana": "かずひこ",
+   "kanji": "和彦",
+   "gender": "male",
+   "meaning": "harmony + prince"
+  },
+  {
+   "romaji": "Akihiko",
+   "kana": "あきひこ",
+   "kanji": "明彦",
+   "gender": "male",
+   "meaning": "bright + prince"
+  },
+  {
+   "romaji": "Masahiko",
+   "kana": "まさひこ",
+   "kanji": "正彦",
+   "gender": "male",
+   "meaning": "correct + prince"
+  },
+  {
+   "romaji": "Haruhiko",
+   "kana": "はるひこ",
+   "kanji": "晴彦",
+   "gender": "male",
+   "meaning": "clear weather + prince"
+  },
+  {
+   "romaji": "Nobuo",
+   "kana": "のぶお",
+   "kanji": "信夫",
+   "gender": "male",
+   "meaning": "trust + man"
+  },
+  {
+   "romaji": "Yukio",
+   "kana": "ゆきお",
+   "kanji": "幸雄",
+   "gender": "male",
+   "meaning": "happiness + masculine"
+  },
+  {
+   "romaji": "Michio",
+   "kana": "みちお",
+   "kanji": "道夫",
+   "gender": "male",
+   "meaning": "path + man"
+  },
+  {
+   "romaji": "Kanata",
+   "kana": "かなた",
+   "kanji": "奏多",
+   "gender": "male",
+   "meaning": "play music + many"
+  },
+  {
+   "romaji": "Yui",
+   "kana": "ゆい",
+   "kanji": "結衣",
+   "gender": "female",
+   "meaning": "tie + garment"
+  },
+  {
+   "romaji": "Mei",
+   "kana": "めい",
+   "kanji": "芽依",
+   "gender": "female",
+   "meaning": "sprout + rely on"
+  },
+  {
+   "romaji": "Hina",
+   "kana": "ひな",
+   "kanji": "陽菜",
+   "gender": "female",
+   "meaning": "sun + greens"
+  },
+  {
+   "romaji": "Himari",
+   "kana": "ひまり",
+   "kanji": "陽葵",
+   "gender": "female",
+   "meaning": "sun + hollyhock"
+  },
+  {
+   "romaji": "Mio",
+   "kana": "みお",
+   "kanji": "澪",
+   "gender": "female",
+   "meaning": "waterway"
+  },
+  {
+   "romaji": "Rin",
+   "kana": "りん",
+   "kanji": "凛",
+   "gender": "female",
+   "meaning": "dignified"
+  },
+  {
+   "romaji": "Sakura",
+   "kana": "さくら",
+   "kanji": "桜",
+   "gender": "female",
+   "meaning": "cherry blossom"
+  },
+  {
+   "romaji": "Yuna",
+   "kana": "ゆな",
+   "kanji": "結菜",
+   "gender": "female",
+   "meaning": "tie + greens"
+  },
+  {
+   "romaji": "Koharu",
+   "kana": "こはる",
+   "kanji": "心春",
+   "gender": "female",
+   "meaning": "heart + spring"
+  },
+  {
+   "romaji": "Tsumugi",
+   "kana": "つむぎ",
+   "kanji": "紬",
+   "gender": "female",
+   "meaning": "pongee silk"
+  },
+  {
+   "romaji": "Akari",
+   "kana": "あかり",
+   "kanji": "朱里",
+   "gender": "female",
+   "meaning": "vermilion + village"
+  },
+  {
+   "romaji": "Ema",
+   "kana": "えま",
+   "kanji": "恵麻",
+   "gender": "female",
+   "meaning": "blessing + hemp"
+  },
+  {
+   "romaji": "Hana",
+   "kana": "はな",
+   "kanji": "花",
+   "gender": "female",
+   "meaning": "flower"
+  },
+  {
+   "romaji": "Rio",
+   "kana": "りお",
+   "kanji": "莉央",
+   "gender": "female",
+   "meaning": "jasmine + center"
+  },
+  {
+   "romaji": "Saki",
+   "kana": "さき",
+   "kanji": "咲希",
+   "gender": "female",
+   "meaning": "bloom + hope"
+  },
+  {
+   "romaji": "Ichika",
+   "kana": "いちか",
+   "kanji": "一花",
+   "gender": "female",
+   "meaning": "one + flower"
+  },
+  {
+   "romaji": "Mitsuki",
+   "kana": "みつき",
+   "kanji": "美月",
+   "gender": "female",
+   "meaning": "beauty + moon"
+  },
+  {
+   "romaji": "Kokona",
+   "kana": "ここな",
+   "kanji": "心菜",
+   "gender": "female",
+   "meaning": "heart + greens"
+  },
+  {
+   "romaji": "Mana",
+   "kana": "まな",
+   "kanji": "愛",
+   "gender": "female",
+   "meaning": "love"
+  },
+  {
+   "romaji": "Iroha",
+   "kana": "いろは",
+   "kanji": "彩葉",
+   "gender": "female",
+   "meaning": "color + leaf"
+  },
+  {
+   "romaji": "Riko",
+   "kana": "りこ",
+   "kanji": "莉子",
+   "gender": "female",
+   "meaning": "jasmine + child"
+  },
+  {
+   "romaji": "Honoka",
+   "kana": "ほのか",
+   "kanji": "穂乃花",
+   "gender": "female",
+   "meaning": "ear of grain + of + flower"
+  },
+  {
+   "romaji": "Nanami",
+   "kana": "ななみ",
+   "kanji": "七海",
+   "gender": "female",
+   "meaning": "seven + seas"
+  },
+  {
+   "romaji": "Misaki",
+   "kana": "みさき",
+   "kanji": "美咲",
+   "gender": "female",
+   "meaning": "beauty + bloom"
+  },
+  {
+   "romaji": "Ayaka",
+   "kana": "あやか",
+   "kanji": "彩花",
+   "gender": "female",
+   "meaning": "color + flower"
+  },
+  {
+   "romaji": "Haruka",
+   "kana": "はるか",
+   "kanji": "遥",
+   "gender": "female",
+   "meaning": "distant, far"
+  },
+  {
+   "romaji": "Asuka",
+   "kana": "あすか",
+   "kanji": "明日香",
+   "gender": "female",
+   "meaning": "tomorrow + fragrance"
+  },
+  {
+   "romaji": "Airi",
+   "kana": "あいり",
+   "kanji": "愛莉",
+   "gender": "female",
+   "meaning": "love + jasmine"
+  },
+  {
+   "romaji": "Erika",
+   "kana": "えりか",
+   "kanji": "絵里香",
+   "gender": "female",
+   "meaning": "picture + village + fragrance"
+  },
+  {
+   "romaji": "Kaede",
+   "kana": "かえで",
+   "kanji": "楓",
+   "gender": "female",
+   "meaning": "maple"
+  },
+  {
+   "romaji": "Momoka",
+   "kana": "ももか",
+   "kanji": "桃花",
+   "gender": "female",
+   "meaning": "peach + flower"
+  },
+  {
+   "romaji": "Nana",
+   "kana": "なな",
+   "kanji": "菜々",
+   "gender": "female",
+   "meaning": "greens (repeated)"
+  },
+  {
+   "romaji": "Moe",
+   "kana": "もえ",
+   "kanji": "萌",
+   "gender": "female",
+   "meaning": "sprout, bud"
+  },
+  {
+   "romaji": "Rena",
+   "kana": "れな",
+   "kanji": "玲奈",
+   "gender": "female",
+   "meaning": "tinkling jade + apple tree"
+  },
+  {
+   "romaji": "Yua",
+   "kana": "ゆあ",
+   "kanji": "結愛",
+   "gender": "female",
+   "meaning": "tie + love"
+  },
+  {
+   "romaji": "Noa",
+   "kana": "のあ",
+   "kanji": "乃愛",
+   "gender": "female",
+   "meaning": "of + love"
+  },
+  {
+   "romaji": "Sara",
+   "kana": "さら",
+   "kanji": "紗良",
+   "gender": "female",
+   "meaning": "gauze + good"
+  },
+  {
+   "romaji": "Kanon",
+   "kana": "かのん",
+   "kanji": "花音",
+   "gender": "female",
+   "meaning": "flower + sound"
+  },
+  {
+   "romaji": "Kotone",
+   "kana": "ことね",
+   "kanji": "琴音",
+   "gender": "female",
+   "meaning": "koto harp + sound"
+  },
+  {
+   "romaji": "Shiori",
+   "kana": "しおり",
+   "kanji": "栞",
+   "gender": "female",
+   "meaning": "bookmark"
+  },
+  {
+   "romaji": "Megumi",
+   "kana": "めぐみ",
+   "kanji": "恵",
+   "gender": "female",
+   "meaning": "blessing"
+  },
+  {
+   "romaji": "Ai",
+   "kana": "あい",
+   "kanji": "藍",
+   "gender": "female",
+   "meaning": "indigo"
+  },
+  {
+   "romaji": "Yuka",
+   "kana": "ゆか",
+   "kanji": "由佳",
+   "gender": "female",
+   "meaning": "reason + good"
+  },
+  {
+   "romaji": "Yuko",
+   "kana": "ゆうこ",
+   "kanji": "優子",
+   "gender": "female",
+   "meaning": "gentle + child"
+  },
+  {
+   "romaji": "Keiko",
+   "kana": "けいこ",
+   "kanji": "恵子",
+   "gender": "female",
+   "meaning": "blessing + child"
+  },
+  {
+   "romaji": "Yumiko",
+   "kana": "ゆみこ",
+   "kanji": "由美子",
+   "gender": "female",
+   "meaning": "reason + beauty + child"
+  },
+  {
+   "romaji": "Kazuko",
+   "kana": "かずこ",
+   "kanji": "和子",
+   "gender": "female",
+   "meaning": "harmony + child"
+  },
+  {
+   "romaji": "Michiko",
+   "kana": "みちこ",
+   "kanji": "美智子",
+   "gender": "female",
+   "meaning": "beauty + wisdom + child"
+  },
+  {
+   "romaji": "Sachiko",
+   "kana": "さちこ",
+   "kanji": "幸子",
+   "gender": "female",
+   "meaning": "happiness + child"
+  },
+  {
+   "romaji": "Hiroko",
+   "kana": "ひろこ",
+   "kanji": "裕子",
+   "gender": "female",
+   "meaning": "abundant + child"
+  },
+  {
+   "romaji": "Naoko",
+   "kana": "なおこ",
+   "kanji": "直子",
+   "gender": "female",
+   "meaning": "honest + child"
+  },
+  {
+   "romaji": "Tomoko",
+   "kana": "ともこ",
+   "kanji": "智子",
+   "gender": "female",
+   "meaning": "wisdom + child"
+  },
+  {
+   "romaji": "Akiko",
+   "kana": "あきこ",
+   "kanji": "明子",
+   "gender": "female",
+   "meaning": "bright + child"
+  },
+  {
+   "romaji": "Noriko",
+   "kana": "のりこ",
+   "kanji": "典子",
+   "gender": "female",
+   "meaning": "law + child"
+  },
+  {
+   "romaji": "Junko",
+   "kana": "じゅんこ",
+   "kanji": "純子",
+   "gender": "female",
+   "meaning": "pure + child"
+  },
+  {
+   "romaji": "Kyoko",
+   "kana": "きょうこ",
+   "kanji": "京子",
+   "gender": "female",
+   "meaning": "capital + child"
+  },
+  {
+   "romaji": "Reiko",
+   "kana": "れいこ",
+   "kanji": "麗子",
+   "gender": "female",
+   "meaning": "lovely + child"
+  },
+  {
+   "romaji": "Emiko",
+   "kana": "えみこ",
+   "kanji": "恵美子",
+   "gender": "female",
+   "meaning": "blessing + beauty + child"
+  },
+  {
+   "romaji": "Mariko",
+   "kana": "まりこ",
+   "kanji": "真理子",
+   "gender": "female",
+   "meaning": "truth + reason + child"
+  },
+  {
+   "romaji": "Masako",
+   "kana": "まさこ",
+   "kanji": "雅子",
+   "gender": "female",
+   "meaning": "elegant + child"
+  },
+  {
+   "romaji": "Fumiko",
+   "kana": "ふみこ",
+   "kanji": "文子",
+   "gender": "female",
+   "meaning": "writing + child"
+  },
+  {
+   "romaji": "Haruko",
+   "kana": "はるこ",
+   "kanji": "春子",
+   "gender": "female",
+   "meaning": "spring + child"
+  },
+  {
+   "romaji": "Yoko",
+   "kana": "ようこ",
+   "kanji": "洋子",
+   "gender": "female",
+   "meaning": "ocean + child"
+  },
+  {
+   "romaji": "Ryoko",
+   "kana": "りょうこ",
+   "kanji": "涼子",
+   "gender": "female",
+   "meaning": "cool + child"
+  },
+  {
+   "romaji": "Eiko",
+   "kana": "えいこ",
+   "kanji": "英子",
+   "gender": "female",
+   "meaning": "excellent + child"
+  },
+  {
+   "romaji": "Setsuko",
+   "kana": "せつこ",
+   "kanji": "節子",
+   "gender": "female",
+   "meaning": "season, virtue + child"
+  },
+  {
+   "romaji": "Chiyoko",
+   "kana": "ちよこ",
+   "kanji": "千代子",
+   "gender": "female",
+   "meaning": "thousand generations + child"
+  },
+  {
+   "romaji": "Kumiko",
+   "kana": "くみこ",
+   "kanji": "久美子",
+   "gender": "female",
+   "meaning": "long time + beauty + child"
+  },
+  {
+   "romaji": "Mayumi",
+   "kana": "まゆみ",
+   "kanji": "真由美",
+   "gender": "female",
+   "meaning": "truth + reason + beauty"
+  },
+  {
+   "romaji": "Ayumi",
+   "kana": "あゆみ",
+   "kanji": "歩",
+   "gender": "female",
+   "meaning": "walk, step"
+  },
+  {
+   "romaji": "Yumi",
+   "kana": "ゆみ",
+   "kanji": "由美",
+   "gender": "female",
+   "meaning": "reason + beauty"
+  },
+  {
+   "romaji": "Kaori",
+   "kana": "かおり",
+   "kanji": "香織",
+   "gender": "female",
+   "meaning": "fragrance + weave"
+  },
+  {
+   "romaji": "Satomi",
+   "kana": "さとみ",
+   "kanji": "里美",
+   "gender": "female",
+   "meaning": "village + beauty"
+  },
+  {
+   "romaji": "Tomomi",
+   "kana": "ともみ",
+   "kanji": "友美",
+   "gender": "female",
+   "meaning": "friend + beauty"
+  },
+  {
+   "romaji": "Naomi",
+   "kana": "なおみ",
+   "kanji": "直美",
+   "gender": "female",
+   "meaning": "honest + beauty"
+  },
+  {
+   "romaji": "Hitomi",
+   "kana": "ひとみ",
+   "kanji": "瞳",
+   "gender": "female",
+   "meaning": "pupil of the eye"
+  },
+  {
+   "romaji": "Nozomi",
+   "kana": "のぞみ",
+   "kanji": "希",
+   "gender": "female",
+   "meaning": "hope"
+  },
+  {
+   "romaji": "Chika",
+   "kana": "ちか",
+   "kanji": "千佳",
+   "gender": "female",
+   "meaning": "thousand + good"
+  },
+  {
+   "romaji": "Chie",
+   "kana": "ちえ",
+   "kanji": "千恵",
+   "gender": "female",
+   "meaning": "thousand + blessing"
+  },
+  {
+   "romaji": "Rie",
+   "kana": "りえ",
+   "kanji": "理恵",
+   "gender": "female",
+   "meaning": "reason + blessing"
+  },
+  {
+   "romaji": "Mie",
+   "kana": "みえ",
+   "kanji": "美恵",
+   "gender": "female",
+   "meaning": "beauty + blessing"
+  },
+  {
+   "romaji": "Sae",
+   "kana": "さえ",
+   "kanji": "紗英",
+   "gender": "female",
+   "meaning": "gauze + excellent"
+  },
+  {
+   "romaji": "Kana",
+   "kana": "かな",
+   "kanji": "佳奈",
+   "gender": "female",
+   "meaning": "good + apple tree"
+  },
+  {
+   "romaji": "Ami",
+   "kana": "あみ",
+   "kanji": "亜美",
+   "gender": "female",
+   "meaning": "second + beauty"
+  },
+  {
+   "romaji": "Emi",
+   "kana": "えみ",
+   "kanji": "恵美",
+   "gender": "female",
+   "meaning": "blessing + beauty"
+  },
+  {
+   "romaji": "Mami",
+   "kana": "まみ",
+   "kanji": "麻美",
+   "gender": "female",
+   "meaning": "hemp + beauty"
+  },
+  {
+   "romaji": "Asami",
+   "kana": "あさみ",
+   "kanji": "朝美",
+   "gender": "female",
+   "meaning": "morning + beauty"
+  },
+  {
+   "romaji": "Ayano",
+   "kana": "あやの",
+   "kanji": "綾乃",
+   "gender": "female",
+   "meaning": "twill silk + of"
+  },
+  {
+   "romaji": "Ayane",
+   "kana": "あやね",
+   "kanji": "彩音",
+   "gender": "female",
+   "meaning": "color + sound"
+  },
+  {
+   "romaji": "Aya",
+   "kana": "あや",
+   "kanji": "彩",
+   "gender": "female",
+   "meaning": "color"
+  },
+  {
+   "romaji": "Miyu",
+   "kana": "みゆ",
+   "kanji": "美優",
+   "gender": "female",
+   "meaning": "beauty + gentle"
+  },
+  {
+   "romaji": "Miu",
+   "kana": "みう",
+   "kanji": "美羽",
+   "gender": "female",
+   "meaning": "beauty + feather"
+  },
+  {
+   "romaji": "Mayu",
+   "kana": "まゆ",
+   "kanji": "真由",
+   "gender": "female",
+   "meaning": "truth + reason"
+  },
+  {
+   "romaji": "Yuzuki",
+   "kana": "ゆずき",
+   "kanji": "柚月",
+   "gender": "female",
+   "meaning": "citron + moon"
+  },
+  {
+   "romaji": "Yuzu",
+   "kana": "ゆず",
+   "kanji": "柚",
+   "gender": "female",
+   "meaning": "citron"
+  },
+  {
+   "romaji": "Mai",
+   "kana": "まい",
+   "kanji": "舞",
+   "gender": "female",
+   "meaning": "dance"
+  },
+  {
+   "romaji": "Misa",
+   "kana": "みさ",
+   "kanji": "美沙",
+   "gender": "female",
+   "meaning": "beauty + sand"
+  },
+  {
+   "romaji": "Risa",
+   "kana": "りさ",
+   "kanji": "理沙",
+   "gender": "female",
+   "meaning": "reason + sand"
+  },
+  {
+   "romaji": "Arisa",
+   "kana": "ありさ",
+   "kanji": "有紗",
+   "gender": "female",
+   "meaning": "exist + gauze"
+  },
+  {
+   "romaji": "Marina",
+   "kana": "まりな",
+   "kanji": "真里奈",
+   "gender": "female",
+   "meaning": "truth + village + apple tree"
+  },
+  {
+   "romaji": "Karin",
+   "kana": "かりん",
+   "kanji": "花梨",
+   "gender": "female",
+   "meaning": "flower + Chinese quince"
+  },
+  {
+   "romaji": "Rina",
+   "kana": "りな",
+   "kanji": "莉奈",
+   "gender": "female",
+   "meaning": "jasmine + apple tree"
+  },
+  {
+   "romaji": "Runa",
+   "kana": "るな",
+   "kanji": "瑠菜",
+   "gender": "female",
+   "meaning": "lapis lazuli + greens"
+  },
+  {
+   "romaji": "Kokoro",
+   "kana": "こころ",
+   "kanji": "心",
+   "gender": "female",
+   "meaning": "heart"
+  },
+  {
+   "romaji": "Hikari",
+   "kana": "ひかり",
+   "kanji": "光",
+   "gender": "female",
+   "meaning": "light"
+  },
+  {
+   "romaji": "Akane",
+   "kana": "あかね",
+   "kanji": "茜",
+   "gender": "female",
+   "meaning": "madder red"
+  },
+  {
+   "romaji": "Tsubaki",
+   "kana": "つばき",
+   "kanji": "椿",
+   "gender": "female",
+   "meaning": "camellia"
+  },
+  {
+   "romaji": "Sumire",
+   "kana": "すみれ",
+   "kanji": "菫",
+   "gender": "female",
+   "meaning": "violet"
+  },
+  {
+   "romaji": "Ayame",
+   "kana": "あやめ",
+   "kanji": "彩芽",
+   "gender": "female",
+   "meaning": "color + sprout"
+  },
+  {
+   "romaji": "Momo",
+   "kana": "もも",
+   "kanji": "桃",
+   "gender": "female",
+   "meaning": "peach"
+  },
+  {
+   "romaji": "Hotaru",
+   "kana": "ほたる",
+   "kanji": "蛍",
+   "gender": "female",
+   "meaning": "firefly"
+  },
+  {
+   "romaji": "Shizuka",
+   "kana": "しずか",
+   "kanji": "静香",
+   "gender": "female",
+   "meaning": "quiet + fragrance"
+  },
+  {
+   "romaji": "Madoka",
+   "kana": "まどか",
+   "kanji": "円",
+   "gender": "female",
+   "meaning": "circle, round"
+  },
+  {
+   "romaji": "Chiharu",
+   "kana": "ちはる",
+   "kanji": "千春",
+   "gender": "female",
+   "meaning": "thousand + spring"
+  },
+  {
+   "romaji": "Chinatsu",
+   "kana": "ちなつ",
+   "kanji": "千夏",
+   "gender": "female",
+   "meaning": "thousand + summer"
+  },
+  {
+   "romaji": "Natsumi",
+   "kana": "なつみ",
+   "kanji": "夏美",
+   "gender": "female",
+   "meaning": "summer + beauty"
+  },
+  {
+   "romaji": "Kiyomi",
+   "kana": "きよみ",
+   "kanji": "清美",
+   "gender": "female",
+   "meaning": "pure + beauty"
+  },
+  {
+   "romaji": "Harumi",
+   "kana": "はるみ",
+   "kanji": "晴美",
+   "gender": "female",
+   "meaning": "clear weather + beauty"
+  },
+  {
+   "romaji": "Tomoe",
+   "kana": "ともえ",
+   "kanji": "巴",
+   "gender": "female",
+   "meaning": "swirl, comma shape"
+  },
+  {
+   "romaji": "Nanako",
+   "kana": "ななこ",
+   "kanji": "菜々子",
+   "gender": "female",
+   "meaning": "greens + child"
+  },
+  {
+   "romaji": "Rika",
+   "kana": "りか",
+   "kanji": "梨花",
+   "gender": "female",
+   "meaning": "pear + flower"
+  },
+  {
+   "romaji": "Ruri",
+   "kana": "るり",
+   "kanji": "瑠璃",
+   "gender": "female",
+   "meaning": "lapis lazuli"
+  },
+  {
+   "romaji": "Kurumi",
+   "kana": "くるみ",
+   "kanji": "胡桃",
+   "gender": "female",
+   "meaning": "walnut"
+  },
+  {
+   "romaji": "Nene",
+   "kana": "ねね",
+   "kanji": "寧々",
+   "gender": "female",
+   "meaning": "peaceful (repeated)"
+  },
+  {
+   "romaji": "Hinako",
+   "kana": "ひなこ",
+   "kanji": "陽菜子",
+   "gender": "female",
+   "meaning": "sun + greens + child"
+  },
+  {
+   "romaji": "Shiho",
+   "kana": "しほ",
+   "kanji": "志保",
+   "gender": "female",
+   "meaning": "aspiration + protect"
+  },
+  {
+   "romaji": "Kaho",
+   "kana": "かほ",
+   "kanji": "果歩",
+   "gender": "female",
+   "meaning": "fruit + walk"
+  },
+  {
+   "romaji": "Miho",
+   "kana": "みほ",
+   "kanji": "美穂",
+   "gender": "female",
+   "meaning": "beauty + ear of grain"
+  },
+  {
+   "romaji": "Mizuho",
+   "kana": "みずほ",
+   "kanji": "瑞穂",
+   "gender": "female",
+   "meaning": "auspicious + ear of grain"
+  },
+  {
+   "romaji": "Honami",
+   "kana": "ほなみ",
+   "kanji": "穂波",
+   "gender": "female",
+   "meaning": "ear of grain + wave"
+  },
+  {
+   "romaji": "Minami",
+   "kana": "みなみ",
+   "kanji": "美波",
+   "gender": "female",
+   "meaning": "beauty + wave"
+  },
+  {
+   "romaji": "Suzu",
+   "kana": "すず",
+   "kanji": "鈴",
+   "gender": "female",
+   "meaning": "bell"
+  },
+  {
+   "romaji": "Suzuka",
+   "kana": "すずか",
+   "kanji": "涼花",
+   "gender": "female",
+   "meaning": "cool + flower"
+  },
+  {
+   "romaji": "Azusa",
+   "kana": "あずさ",
+   "kanji": "梓",
+   "gender": "female",
+   "meaning": "catalpa tree"
+  },
+  {
+   "romaji": "Yuri",
+   "kana": "ゆり",
+   "kanji": "百合",
+   "gender": "female",
+   "meaning": "lily"
+  },
+  {
+   "romaji": "Erina",
+   "kana": "えりな",
+   "kanji": "恵里奈",
+   "gender": "female",
+   "meaning": "blessing + village + apple tree"
+  },
+  {
+   "romaji": "Wakana",
+   "kana": "わかな",
+   "kanji": "若菜",
+   "gender": "female",
+   "meaning": "young + greens"
+  },
+  {
+   "romaji": "Kanako",
+   "kana": "かなこ",
+   "kanji": "加奈子",
+   "gender": "female",
+   "meaning": "add + apple tree + child"
+  },
+  {
+   "romaji": "Manami",
+   "kana": "まなみ",
+   "kanji": "愛美",
+   "gender": "female",
+   "meaning": "love + beauty"
+  },
+  {
+   "romaji": "Ayako",
+   "kana": "あやこ",
+   "kanji": "綾子",
+   "gender": "female",
+   "meaning": "twill silk + child"
+  },
+  {
+   "romaji": "Sayaka",
+   "kana": "さやか",
+   "kanji": "沙也加",
+   "gender": "female",
+   "meaning": "sand + also + add"
+  },
+  {
+   "romaji": "Sayuri",
+   "kana": "さゆり",
+   "kanji": "小百合",
+   "gender": "female",
+   "meaning": "small + lily"
+  },
+  {
+   "romaji": "Saori",
+   "kana": "さおり",
+   "kanji": "沙織",
+   "gender": "female",
+   "meaning": "sand + weave"
+  },
+  {
+   "romaji": "Shino",
+   "kana": "しの",
+   "kanji": "志乃",
+   "gender": "female",
+   "meaning": "aspiration + of"
+  },
+  {
+   "romaji": "Hanako",
+   "kana": "はなこ",
+   "kanji": "花子",
+   "gender": "female",
+   "meaning": "flower + child"
+  },
+  {
+   "romaji": "Uta",
+   "kana": "うた",
+   "kanji": "詩",
+   "gender": "female",
+   "meaning": "poem, song"
+  },
+  {
+   "romaji": "Ena",
+   "kana": "えな",
+   "kanji": "恵那",
+   "gender": "female",
+   "meaning": "blessing + what"
+  },
+  {
+   "romaji": "Yuina",
+   "kana": "ゆいな",
+   "kanji": "唯菜",
+   "gender": "female",
+   "meaning": "only + greens"
+  },
+  {
+   "romaji": "Riho",
+   "kana": "りほ",
+   "kanji": "里穂",
+   "gender": "female",
+   "meaning": "village + ear of grain"
+  },
+  {
+   "romaji": "Shizuku",
+   "kana": "しずく",
+   "kanji": "雫",
+   "gender": "female",
+   "meaning": "droplet"
+  },
+  {
+   "romaji": "Kasumi",
+   "kana": "かすみ",
+   "kanji": "霞",
+   "gender": "female",
+   "meaning": "mist, haze"
+  },
+  {
+   "romaji": "Miyuki",
+   "kana": "みゆき",
+   "kanji": "美雪",
+   "gender": "female",
+   "meaning": "beauty + snow"
+  },
+  {
+   "romaji": "Yukiko",
+   "kana": "ゆきこ",
+   "kanji": "雪子",
+   "gender": "female",
+   "meaning": "snow + child"
+  },
+  {
+   "romaji": "Yukari",
+   "kana": "ゆかり",
+   "kanji": "紫",
+   "gender": "female",
+   "meaning": "purple"
+  },
+  {
+   "romaji": "Kanae",
+   "kana": "かなえ",
+   "kanji": "叶",
+   "gender": "female",
+   "meaning": "grant (a wish)"
+  },
+  {
+   "romaji": "Miku",
+   "kana": "みく",
+   "kanji": "美玖",
+   "gender": "female",
+   "meaning": "beauty + black jade"
+  },
+  {
+   "romaji": "Rinka",
+   "kana": "りんか",
+   "kanji": "凛花",
+   "gender": "female",
+   "meaning": "dignified + flower"
+  },
+  {
+   "romaji": "Sana",
+   "kana": "さな",
+   "kanji": "紗奈",
+   "gender": "female",
+   "meaning": "gauze + apple tree"
+  },
+  {
+   "romaji": "Minori",
+   "kana": "みのり",
+   "kanji": "実里",
+   "gender": "female",
+   "meaning": "fruit + village"
+  },
+  {
+   "romaji": "Mikoto",
+   "kana": "みこと",
+   "kanji": "美琴",
+   "gender": "female",
+   "meaning": "beauty + koto harp"
+  },
+  {
+   "romaji": "Ren",
+   "kana": "れん",
+   "kanji": "蓮",
+   "gender": "neutral",
+   "meaning": "lotus"
+  },
+  {
+   "romaji": "Hinata",
+   "kana": "ひなた",
+   "kanji": "陽向",
+   "gender": "neutral",
+   "meaning": "sun + facing"
+  },
+  {
+   "romaji": "Sora",
+   "kana": "そら",
+   "kanji": "空",
+   "gender": "neutral",
+   "meaning": "sky"
+  },
+  {
+   "romaji": "Aoi",
+   "kana": "あおい",
+   "kanji": "葵",
+   "gender": "neutral",
+   "meaning": "hollyhock"
+  },
+  {
+   "romaji": "Yuki",
+   "kana": "ゆき",
+   "kanji": "雪",
+   "gender": "neutral",
+   "meaning": "snow"
+  },
+  {
+   "romaji": "Hikaru",
+   "kana": "ひかる",
+   "kanji": "光",
+   "gender": "neutral",
+   "meaning": "light"
+  },
+  {
+   "romaji": "Makoto",
+   "kana": "まこと",
+   "kanji": "誠",
+   "gender": "neutral",
+   "meaning": "sincerity"
+  },
+  {
+   "romaji": "Akira",
+   "kana": "あきら",
+   "kanji": "明",
+   "gender": "neutral",
+   "meaning": "bright"
+  },
+  {
+   "romaji": "Jun",
+   "kana": "じゅん",
+   "kanji": "純",
+   "gender": "neutral",
+   "meaning": "pure"
+  },
+  {
+   "romaji": "Kaoru",
+   "kana": "かおる",
+   "kanji": "薫",
+   "gender": "neutral",
+   "meaning": "fragrance"
+  },
+  {
+   "romaji": "Tsubasa",
+   "kana": "つばさ",
+   "kanji": "翼",
+   "gender": "neutral",
+   "meaning": "wings"
+  },
+  {
+   "romaji": "Rei",
+   "kana": "れい",
+   "kanji": "玲",
+   "gender": "neutral",
+   "meaning": "tinkling of jade"
+  },
+  {
+   "romaji": "Kei",
+   "kana": "けい",
+   "kanji": "慧",
+   "gender": "neutral",
+   "meaning": "wisdom"
+  },
+  {
+   "romaji": "Mizuki",
+   "kana": "みずき",
+   "kanji": "瑞希",
+   "gender": "neutral",
+   "meaning": "auspicious + hope"
+  },
+  {
+   "romaji": "Natsuki",
+   "kana": "なつき",
+   "kanji": "夏希",
+   "gender": "neutral",
+   "meaning": "summer + hope"
+  },
+  {
+   "romaji": "Chihiro",
+   "kana": "ちひろ",
+   "kanji": "千尋",
+   "gender": "neutral",
+   "meaning": "thousand + fathom"
+  },
+  {
+   "romaji": "Hiromi",
+   "kana": "ひろみ",
+   "kanji": "裕美",
+   "gender": "neutral",
+   "meaning": "abundant + beauty"
+  },
+  {
+   "romaji": "Kazumi",
+   "kana": "かずみ",
+   "kanji": "和美",
+   "gender": "neutral",
+   "meaning": "harmony + beauty"
+  },
+  {
+   "romaji": "Masami",
+   "kana": "まさみ",
+   "kanji": "雅美",
+   "gender": "neutral",
+   "meaning": "elegant + beauty"
+  },
+  {
+   "romaji": "Nao",
+   "kana": "なお",
+   "kanji": "直",
+   "gender": "neutral",
+   "meaning": "honest, straight"
+  },
+  {
+   "romaji": "Rui",
+   "kana": "るい",
+   "kanji": "塁",
+   "gender": "neutral",
+   "meaning": "fort, base"
+  },
+  {
+   "romaji": "Ritsu",
+   "kana": "りつ",
+   "kanji": "律",
+   "gender": "neutral",
+   "meaning": "law, rhythm"
+  },
+  {
+   "romaji": "Shion",
+   "kana": "しおん",
+   "kanji": "紫苑",
+   "gender": "neutral",
+   "meaning": "purple + garden (aster)"
+  },
+  {
+   "romaji": "Ibuki",
+   "kana": "いぶき",
+   "kanji": "伊吹",
+   "gender": "neutral",
+   "meaning": "breath (that + blow)"
+  },
+  {
+   "romaji": "Nagisa",
+   "kana": "なぎさ",
+   "kanji": "渚",
+   "gender": "neutral",
+   "meaning": "shore, beach"
+  },
+  {
+   "romaji": "Mirai",
+   "kana": "みらい",
+   "kanji": "未来",
+   "gender": "neutral",
+   "meaning": "future"
+  },
+  {
+   "romaji": "Tsukasa",
+   "kana": "つかさ",
+   "kanji": "司",
+   "gender": "neutral",
+   "meaning": "director, official"
+  },
+  {
+   "romaji": "Mahiro",
+   "kana": "まひろ",
+   "kanji": "真尋",
+   "gender": "neutral",
+   "meaning": "truth + fathom"
+  },
+  {
+   "romaji": "Haru",
+   "kana": "はる",
+   "kanji": "春",
+   "gender": "neutral",
+   "meaning": "spring"
+  },
+  {
+   "romaji": "Yu",
+   "kana": "ゆう",
+   "kanji": "悠",
+   "gender": "neutral",
+   "meaning": "calm, distant"
+  },
+  {
+   "romaji": "Satsuki",
+   "kana": "さつき",
+   "kanji": "皐月",
+   "gender": "neutral",
+   "meaning": "fifth month"
+  },
+  {
+   "romaji": "Shinobu",
+   "kana": "しのぶ",
+   "kanji": "忍",
+   "gender": "neutral",
+   "meaning": "endurance"
+  },
+  {
+   "romaji": "Izumi",
+   "kana": "いずみ",
+   "kanji": "泉",
+   "gender": "neutral",
+   "meaning": "spring (of water)"
+  },
+  {
+   "romaji": "Yoshimi",
+   "kana": "よしみ",
+   "kanji": "佳美",
+   "gender": "neutral",
+   "meaning": "good + beauty"
+  },
+  {
+   "romaji": "Ao",
+   "kana": "あお",
+   "kanji": "蒼",
+   "gender": "neutral",
+   "meaning": "blue"
+  },
+  {
+   "romaji": "Toa",
+   "kana": "とあ",
+   "kanji": "永遠",
+   "gender": "neutral",
+   "meaning": "eternity"
+  },
+  {
+   "romaji": "Itsuki",
+   "kana": "いつき",
+   "kanji": "樹",
+   "gender": "neutral",
+   "meaning": "tree"
+  },
+  {
+   "romaji": "Chiaki",
+   "kana": "ちあき",
+   "kanji": "千秋",
+   "gender": "neutral",
+   "meaning": "thousand + autumns"
+  },
+  {
+   "romaji": "Masumi",
+   "kana": "ますみ",
+   "kanji": "真澄",
+   "gender": "neutral",
+   "meaning": "truth + clear"
+  },
+  {
+   "romaji": "Tamaki",
+   "kana": "たまき",
+   "kanji": "環",
+   "gender": "neutral",
+   "meaning": "ring, circle"
+  },
+  {
+   "romaji": "Tomo",
+   "kana": "とも",
+   "kanji": "友",
+   "gender": "neutral",
+   "meaning": "friend"
+  },
+  {
+   "romaji": "Aki",
+   "kana": "あき",
+   "kanji": "秋",
+   "gender": "neutral",
+   "meaning": "autumn"
+  },
+  {
+   "romaji": "Nagi",
+   "kana": "なぎ",
+   "kanji": "凪",
+   "gender": "neutral",
+   "meaning": "calm sea"
+  }
+ ],
+ "family": [
+  {
+   "romaji": "Sato",
+   "kana": "さとう",
+   "kanji": "佐藤",
+   "meaning": "assist + wisteria"
+  },
+  {
+   "romaji": "Suzuki",
+   "kana": "すずき",
+   "kanji": "鈴木",
+   "meaning": "bell + tree"
+  },
+  {
+   "romaji": "Takahashi",
+   "kana": "たかはし",
+   "kanji": "高橋",
+   "meaning": "high + bridge"
+  },
+  {
+   "romaji": "Tanaka",
+   "kana": "たなか",
+   "kanji": "田中",
+   "meaning": "middle of the rice field"
+  },
+  {
+   "romaji": "Watanabe",
+   "kana": "わたなべ",
+   "kanji": "渡辺",
+   "meaning": "cross + vicinity"
+  },
+  {
+   "romaji": "Ito",
+   "kana": "いとう",
+   "kanji": "伊藤",
+   "meaning": "this + wisteria"
+  },
+  {
+   "romaji": "Yamamoto",
+   "kana": "やまもと",
+   "kanji": "山本",
+   "meaning": "mountain + base"
+  },
+  {
+   "romaji": "Nakamura",
+   "kana": "なかむら",
+   "kanji": "中村",
+   "meaning": "middle + village"
+  },
+  {
+   "romaji": "Kobayashi",
+   "kana": "こばやし",
+   "kanji": "小林",
+   "meaning": "small + forest"
+  },
+  {
+   "romaji": "Kato",
+   "kana": "かとう",
+   "kanji": "加藤",
+   "meaning": "add + wisteria"
+  },
+  {
+   "romaji": "Yoshida",
+   "kana": "よしだ",
+   "kanji": "吉田",
+   "meaning": "good luck + rice field"
+  },
+  {
+   "romaji": "Yamada",
+   "kana": "やまだ",
+   "kanji": "山田",
+   "meaning": "mountain + rice field"
+  },
+  {
+   "romaji": "Sasaki",
+   "kana": "ささき",
+   "kanji": "佐々木",
+   "meaning": "assist + tree"
+  },
+  {
+   "romaji": "Yamaguchi",
+   "kana": "やまぐち",
+   "kanji": "山口",
+   "meaning": "mountain + mouth"
+  },
+  {
+   "romaji": "Matsumoto",
+   "kana": "まつもと",
+   "kanji": "松本",
+   "meaning": "pine + base"
+  },
+  {
+   "romaji": "Inoue",
+   "kana": "いのうえ",
+   "kanji": "井上",
+   "meaning": "above the well"
+  },
+  {
+   "romaji": "Kimura",
+   "kana": "きむら",
+   "kanji": "木村",
+   "meaning": "tree + village"
+  },
+  {
+   "romaji": "Hayashi",
+   "kana": "はやし",
+   "kanji": "林",
+   "meaning": "forest"
+  },
+  {
+   "romaji": "Shimizu",
+   "kana": "しみず",
+   "kanji": "清水",
+   "meaning": "pure water"
+  },
+  {
+   "romaji": "Yamazaki",
+   "kana": "やまざき",
+   "kanji": "山崎",
+   "meaning": "mountain + cape"
+  },
+  {
+   "romaji": "Mori",
+   "kana": "もり",
+   "kanji": "森",
+   "meaning": "forest"
+  },
+  {
+   "romaji": "Abe",
+   "kana": "あべ",
+   "kanji": "阿部",
+   "meaning": "corner + section"
+  },
+  {
+   "romaji": "Ikeda",
+   "kana": "いけだ",
+   "kanji": "池田",
+   "meaning": "pond + rice field"
+  },
+  {
+   "romaji": "Hashimoto",
+   "kana": "はしもと",
+   "kanji": "橋本",
+   "meaning": "bridge + base"
+  },
+  {
+   "romaji": "Yamashita",
+   "kana": "やました",
+   "kanji": "山下",
+   "meaning": "below the mountain"
+  },
+  {
+   "romaji": "Ishikawa",
+   "kana": "いしかわ",
+   "kanji": "石川",
+   "meaning": "stone + river"
+  },
+  {
+   "romaji": "Nakajima",
+   "kana": "なかじま",
+   "kanji": "中島",
+   "meaning": "middle + island"
+  },
+  {
+   "romaji": "Maeda",
+   "kana": "まえだ",
+   "kanji": "前田",
+   "meaning": "front + rice field"
+  },
+  {
+   "romaji": "Fujita",
+   "kana": "ふじた",
+   "kanji": "藤田",
+   "meaning": "wisteria + rice field"
+  },
+  {
+   "romaji": "Ogawa",
+   "kana": "おがわ",
+   "kanji": "小川",
+   "meaning": "small river"
+  },
+  {
+   "romaji": "Goto",
+   "kana": "ごとう",
+   "kanji": "後藤",
+   "meaning": "behind + wisteria"
+  },
+  {
+   "romaji": "Okada",
+   "kana": "おかだ",
+   "kanji": "岡田",
+   "meaning": "hill + rice field"
+  },
+  {
+   "romaji": "Hasegawa",
+   "kana": "はせがわ",
+   "kanji": "長谷川",
+   "meaning": "long + valley + river"
+  },
+  {
+   "romaji": "Murakami",
+   "kana": "むらかみ",
+   "kanji": "村上",
+   "meaning": "village + above"
+  },
+  {
+   "romaji": "Kondo",
+   "kana": "こんどう",
+   "kanji": "近藤",
+   "meaning": "near + wisteria"
+  },
+  {
+   "romaji": "Ishii",
+   "kana": "いしい",
+   "kanji": "石井",
+   "meaning": "stone + well"
+  },
+  {
+   "romaji": "Saito",
+   "kana": "さいとう",
+   "kanji": "斎藤",
+   "meaning": "purification + wisteria"
+  },
+  {
+   "romaji": "Sakamoto",
+   "kana": "さかもと",
+   "kanji": "坂本",
+   "meaning": "slope + base"
+  },
+  {
+   "romaji": "Endo",
+   "kana": "えんどう",
+   "kanji": "遠藤",
+   "meaning": "far + wisteria"
+  },
+  {
+   "romaji": "Aoki",
+   "kana": "あおき",
+   "kanji": "青木",
+   "meaning": "green + tree"
+  },
+  {
+   "romaji": "Fujii",
+   "kana": "ふじい",
+   "kanji": "藤井",
+   "meaning": "wisteria + well"
+  },
+  {
+   "romaji": "Nishimura",
+   "kana": "にしむら",
+   "kanji": "西村",
+   "meaning": "west + village"
+  },
+  {
+   "romaji": "Fukuda",
+   "kana": "ふくだ",
+   "kanji": "福田",
+   "meaning": "fortune + rice field"
+  },
+  {
+   "romaji": "Ota",
+   "kana": "おおた",
+   "kanji": "太田",
+   "meaning": "big + rice field"
+  },
+  {
+   "romaji": "Miura",
+   "kana": "みうら",
+   "kanji": "三浦",
+   "meaning": "three + bay"
+  },
+  {
+   "romaji": "Fujiwara",
+   "kana": "ふじわら",
+   "kanji": "藤原",
+   "meaning": "wisteria + plain"
+  },
+  {
+   "romaji": "Okamoto",
+   "kana": "おかもと",
+   "kanji": "岡本",
+   "meaning": "hill + base"
+  },
+  {
+   "romaji": "Matsuda",
+   "kana": "まつだ",
+   "kanji": "松田",
+   "meaning": "pine + rice field"
+  },
+  {
+   "romaji": "Nakagawa",
+   "kana": "なかがわ",
+   "kanji": "中川",
+   "meaning": "middle + river"
+  },
+  {
+   "romaji": "Nakano",
+   "kana": "なかの",
+   "kanji": "中野",
+   "meaning": "middle + field"
+  },
+  {
+   "romaji": "Harada",
+   "kana": "はらだ",
+   "kanji": "原田",
+   "meaning": "plain + rice field"
+  },
+  {
+   "romaji": "Ono",
+   "kana": "おの",
+   "kanji": "小野",
+   "meaning": "small + field"
+  },
+  {
+   "romaji": "Tamura",
+   "kana": "たむら",
+   "kanji": "田村",
+   "meaning": "rice field + village"
+  },
+  {
+   "romaji": "Takeuchi",
+   "kana": "たけうち",
+   "kanji": "竹内",
+   "meaning": "bamboo + inside"
+  },
+  {
+   "romaji": "Kaneko",
+   "kana": "かねこ",
+   "kanji": "金子",
+   "meaning": "gold + child"
+  },
+  {
+   "romaji": "Wada",
+   "kana": "わだ",
+   "kanji": "和田",
+   "meaning": "harmony + rice field"
+  },
+  {
+   "romaji": "Nakayama",
+   "kana": "なかやま",
+   "kanji": "中山",
+   "meaning": "middle + mountain"
+  },
+  {
+   "romaji": "Ishida",
+   "kana": "いしだ",
+   "kanji": "石田",
+   "meaning": "stone + rice field"
+  },
+  {
+   "romaji": "Ueda",
+   "kana": "うえだ",
+   "kanji": "上田",
+   "meaning": "upper + rice field"
+  },
+  {
+   "romaji": "Morita",
+   "kana": "もりた",
+   "kanji": "森田",
+   "meaning": "forest + rice field"
+  },
+  {
+   "romaji": "Hara",
+   "kana": "はら",
+   "kanji": "原",
+   "meaning": "plain, field"
+  },
+  {
+   "romaji": "Shibata",
+   "kana": "しばた",
+   "kanji": "柴田",
+   "meaning": "brushwood + rice field"
+  },
+  {
+   "romaji": "Sakai",
+   "kana": "さかい",
+   "kanji": "酒井",
+   "meaning": "sake + well"
+  },
+  {
+   "romaji": "Kudo",
+   "kana": "くどう",
+   "kanji": "工藤",
+   "meaning": "craft + wisteria"
+  },
+  {
+   "romaji": "Yokoyama",
+   "kana": "よこやま",
+   "kanji": "横山",
+   "meaning": "side + mountain"
+  },
+  {
+   "romaji": "Miyazaki",
+   "kana": "みやざき",
+   "kanji": "宮崎",
+   "meaning": "shrine + cape"
+  },
+  {
+   "romaji": "Miyamoto",
+   "kana": "みやもと",
+   "kanji": "宮本",
+   "meaning": "shrine + base"
+  },
+  {
+   "romaji": "Uchida",
+   "kana": "うちだ",
+   "kanji": "内田",
+   "meaning": "inside + rice field"
+  },
+  {
+   "romaji": "Takagi",
+   "kana": "たかぎ",
+   "kanji": "高木",
+   "meaning": "tall tree"
+  },
+  {
+   "romaji": "Ando",
+   "kana": "あんどう",
+   "kanji": "安藤",
+   "meaning": "peace + wisteria"
+  },
+  {
+   "romaji": "Taniguchi",
+   "kana": "たにぐち",
+   "kanji": "谷口",
+   "meaning": "valley + mouth"
+  },
+  {
+   "romaji": "Maruyama",
+   "kana": "まるやま",
+   "kanji": "丸山",
+   "meaning": "round mountain"
+  },
+  {
+   "romaji": "Imai",
+   "kana": "いまい",
+   "kanji": "今井",
+   "meaning": "now + well"
+  },
+  {
+   "romaji": "Takada",
+   "kana": "たかだ",
+   "kanji": "高田",
+   "meaning": "high + rice field"
+  },
+  {
+   "romaji": "Fujimoto",
+   "kana": "ふじもと",
+   "kanji": "藤本",
+   "meaning": "wisteria + base"
+  },
+  {
+   "romaji": "Takeda",
+   "kana": "たけだ",
+   "kanji": "武田",
+   "meaning": "military + rice field"
+  },
+  {
+   "romaji": "Murata",
+   "kana": "むらた",
+   "kanji": "村田",
+   "meaning": "village + rice field"
+  },
+  {
+   "romaji": "Ueno",
+   "kana": "うえの",
+   "kanji": "上野",
+   "meaning": "upper + field"
+  },
+  {
+   "romaji": "Sugiyama",
+   "kana": "すぎやま",
+   "kanji": "杉山",
+   "meaning": "cedar + mountain"
+  },
+  {
+   "romaji": "Masuda",
+   "kana": "ますだ",
+   "kanji": "増田",
+   "meaning": "increase + rice field"
+  },
+  {
+   "romaji": "Sugawara",
+   "kana": "すがわら",
+   "kanji": "菅原",
+   "meaning": "sedge + plain"
+  },
+  {
+   "romaji": "Hirano",
+   "kana": "ひらの",
+   "kanji": "平野",
+   "meaning": "flat + field"
+  },
+  {
+   "romaji": "Otsuka",
+   "kana": "おおつか",
+   "kanji": "大塚",
+   "meaning": "big + mound"
+  },
+  {
+   "romaji": "Chiba",
+   "kana": "ちば",
+   "kanji": "千葉",
+   "meaning": "thousand leaves"
+  },
+  {
+   "romaji": "Kubo",
+   "kana": "くぼ",
+   "kanji": "久保",
+   "meaning": "long time + protect"
+  },
+  {
+   "romaji": "Matsui",
+   "kana": "まつい",
+   "kanji": "松井",
+   "meaning": "pine + well"
+  },
+  {
+   "romaji": "Iwasaki",
+   "kana": "いわさき",
+   "kanji": "岩崎",
+   "meaning": "rock + cape"
+  },
+  {
+   "romaji": "Sakurai",
+   "kana": "さくらい",
+   "kanji": "桜井",
+   "meaning": "cherry + well"
+  },
+  {
+   "romaji": "Kinoshita",
+   "kana": "きのした",
+   "kanji": "木下",
+   "meaning": "under the tree"
+  },
+  {
+   "romaji": "Noguchi",
+   "kana": "のぐち",
+   "kanji": "野口",
+   "meaning": "field + mouth"
+  },
+  {
+   "romaji": "Matsuo",
+   "kana": "まつお",
+   "kanji": "松尾",
+   "meaning": "pine + tail"
+  },
+  {
+   "romaji": "Kikuchi",
+   "kana": "きくち",
+   "kanji": "菊地",
+   "meaning": "chrysanthemum + ground"
+  },
+  {
+   "romaji": "Nomura",
+   "kana": "のむら",
+   "kanji": "野村",
+   "meaning": "field + village"
+  },
+  {
+   "romaji": "Arai",
+   "kana": "あらい",
+   "kanji": "新井",
+   "meaning": "new + well"
+  },
+  {
+   "romaji": "Sano",
+   "kana": "さの",
+   "kanji": "佐野",
+   "meaning": "assist + field"
+  },
+  {
+   "romaji": "Onishi",
+   "kana": "おおにし",
+   "kanji": "大西",
+   "meaning": "big + west"
+  },
+  {
+   "romaji": "Sugimoto",
+   "kana": "すぎもと",
+   "kanji": "杉本",
+   "meaning": "cedar + base"
+  },
+  {
+   "romaji": "Hamada",
+   "kana": "はまだ",
+   "kanji": "浜田",
+   "meaning": "beach + rice field"
+  },
+  {
+   "romaji": "Ichikawa",
+   "kana": "いちかわ",
+   "kanji": "市川",
+   "meaning": "market + river"
+  },
+  {
+   "romaji": "Furukawa",
+   "kana": "ふるかわ",
+   "kanji": "古川",
+   "meaning": "old river"
+  },
+  {
+   "romaji": "Mizuno",
+   "kana": "みずの",
+   "kanji": "水野",
+   "meaning": "water + field"
+  },
+  {
+   "romaji": "Komatsu",
+   "kana": "こまつ",
+   "kanji": "小松",
+   "meaning": "small pine"
+  },
+  {
+   "romaji": "Shimada",
+   "kana": "しまだ",
+   "kanji": "島田",
+   "meaning": "island + rice field"
+  },
+  {
+   "romaji": "Koyama",
+   "kana": "こやま",
+   "kanji": "小山",
+   "meaning": "small mountain"
+  },
+  {
+   "romaji": "Takano",
+   "kana": "たかの",
+   "kanji": "高野",
+   "meaning": "high + field"
+  },
+  {
+   "romaji": "Yamauchi",
+   "kana": "やまうち",
+   "kanji": "山内",
+   "meaning": "inside the mountains"
+  },
+  {
+   "romaji": "Nishida",
+   "kana": "にしだ",
+   "kanji": "西田",
+   "meaning": "west + rice field"
+  },
+  {
+   "romaji": "Nishikawa",
+   "kana": "にしかわ",
+   "kanji": "西川",
+   "meaning": "west + river"
+  },
+  {
+   "romaji": "Igarashi",
+   "kana": "いがらし",
+   "kanji": "五十嵐",
+   "meaning": "fifty + storm"
+  },
+  {
+   "romaji": "Kitamura",
+   "kana": "きたむら",
+   "kanji": "北村",
+   "meaning": "north + village"
+  },
+  {
+   "romaji": "Yasuda",
+   "kana": "やすだ",
+   "kanji": "安田",
+   "meaning": "peace + rice field"
+  },
+  {
+   "romaji": "Nakata",
+   "kana": "なかた",
+   "kanji": "中田",
+   "meaning": "middle + rice field"
+  },
+  {
+   "romaji": "Kawaguchi",
+   "kana": "かわぐち",
+   "kanji": "川口",
+   "meaning": "river mouth"
+  },
+  {
+   "romaji": "Hirata",
+   "kana": "ひらた",
+   "kanji": "平田",
+   "meaning": "flat + rice field"
+  },
+  {
+   "romaji": "Kawasaki",
+   "kana": "かわさき",
+   "kanji": "川崎",
+   "meaning": "river + cape"
+  },
+  {
+   "romaji": "Iida",
+   "kana": "いいだ",
+   "kanji": "飯田",
+   "meaning": "cooked rice + rice field"
+  },
+  {
+   "romaji": "Yoshikawa",
+   "kana": "よしかわ",
+   "kanji": "吉川",
+   "meaning": "good luck + river"
+  },
+  {
+   "romaji": "Honda",
+   "kana": "ほんだ",
+   "kanji": "本田",
+   "meaning": "origin + rice field"
+  },
+  {
+   "romaji": "Kubota",
+   "kana": "くぼた",
+   "kanji": "久保田",
+   "meaning": "long time + protect + rice field"
+  },
+  {
+   "romaji": "Sawada",
+   "kana": "さわだ",
+   "kanji": "沢田",
+   "meaning": "marsh + rice field"
+  },
+  {
+   "romaji": "Tsuji",
+   "kana": "つじ",
+   "kanji": "辻",
+   "meaning": "crossroads"
+  },
+  {
+   "romaji": "Seki",
+   "kana": "せき",
+   "kanji": "関",
+   "meaning": "barrier, checkpoint"
+  },
+  {
+   "romaji": "Yoshimura",
+   "kana": "よしむら",
+   "kanji": "吉村",
+   "meaning": "good luck + village"
+  },
+  {
+   "romaji": "Iwata",
+   "kana": "いわた",
+   "kanji": "岩田",
+   "meaning": "rock + rice field"
+  },
+  {
+   "romaji": "Nakanishi",
+   "kana": "なかにし",
+   "kanji": "中西",
+   "meaning": "middle + west"
+  },
+  {
+   "romaji": "Hattori",
+   "kana": "はっとり",
+   "kanji": "服部",
+   "meaning": "clothing + section"
+  },
+  {
+   "romaji": "Higuchi",
+   "kana": "ひぐち",
+   "kanji": "樋口",
+   "meaning": "water pipe + mouth"
+  },
+  {
+   "romaji": "Fukushima",
+   "kana": "ふくしま",
+   "kanji": "福島",
+   "meaning": "fortune + island"
+  },
+  {
+   "romaji": "Kawakami",
+   "kana": "かわかみ",
+   "kanji": "川上",
+   "meaning": "upriver"
+  },
+  {
+   "romaji": "Nagai",
+   "kana": "ながい",
+   "kanji": "永井",
+   "meaning": "eternal + well"
+  },
+  {
+   "romaji": "Matsuoka",
+   "kana": "まつおか",
+   "kanji": "松岡",
+   "meaning": "pine + hill"
+  },
+  {
+   "romaji": "Taguchi",
+   "kana": "たぐち",
+   "kanji": "田口",
+   "meaning": "rice field + mouth"
+  },
+  {
+   "romaji": "Yamanaka",
+   "kana": "やまなか",
+   "kanji": "山中",
+   "meaning": "in the mountains"
+  },
+  {
+   "romaji": "Morimoto",
+   "kana": "もりもと",
+   "kanji": "森本",
+   "meaning": "forest + base"
+  },
+  {
+   "romaji": "Tsuchiya",
+   "kana": "つちや",
+   "kanji": "土屋",
+   "meaning": "earth + house"
+  },
+  {
+   "romaji": "Yano",
+   "kana": "やの",
+   "kanji": "矢野",
+   "meaning": "arrow + field"
+  },
+  {
+   "romaji": "Hirose",
+   "kana": "ひろせ",
+   "kanji": "広瀬",
+   "meaning": "wide + rapids"
+  },
+  {
+   "romaji": "Akiyama",
+   "kana": "あきやま",
+   "kanji": "秋山",
+   "meaning": "autumn + mountain"
+  },
+  {
+   "romaji": "Ishihara",
+   "kana": "いしはら",
+   "kanji": "石原",
+   "meaning": "stone + plain"
+  },
+  {
+   "romaji": "Matsushita",
+   "kana": "まつした",
+   "kanji": "松下",
+   "meaning": "under the pine"
+  },
+  {
+   "romaji": "Oshima",
+   "kana": "おおしま",
+   "kanji": "大島",
+   "meaning": "big island"
+  },
+  {
+   "romaji": "Kojima",
+   "kana": "こじま",
+   "kanji": "小島",
+   "meaning": "small island"
+  },
+  {
+   "romaji": "Nishiyama",
+   "kana": "にしやま",
+   "kanji": "西山",
+   "meaning": "west + mountain"
+  },
+  {
+   "romaji": "Kuroda",
+   "kana": "くろだ",
+   "kanji": "黒田",
+   "meaning": "black + rice field"
+  },
+  {
+   "romaji": "Okubo",
+   "kana": "おおくぼ",
+   "kanji": "大久保",
+   "meaning": "big + long time + protect"
+  },
+  {
+   "romaji": "Kurosawa",
+   "kana": "くろさわ",
+   "kanji": "黒沢",
+   "meaning": "black + marsh"
+  },
+  {
+   "romaji": "Shirai",
+   "kana": "しらい",
+   "kanji": "白井",
+   "meaning": "white + well"
+  },
+  {
+   "romaji": "Amano",
+   "kana": "あまの",
+   "kanji": "天野",
+   "meaning": "heaven + field"
+  },
+  {
+   "romaji": "Takenaka",
+   "kana": "たけなか",
+   "kanji": "竹中",
+   "meaning": "bamboo + middle"
+  },
+  {
+   "romaji": "Hoshino",
+   "kana": "ほしの",
+   "kanji": "星野",
+   "meaning": "star + field"
+  },
+  {
+   "romaji": "Tsukamoto",
+   "kana": "つかもと",
+   "kanji": "塚本",
+   "meaning": "mound + base"
+  },
+  {
+   "romaji": "Kitagawa",
+   "kana": "きたがわ",
+   "kanji": "北川",
+   "meaning": "north + river"
+  },
+  {
+   "romaji": "Asano",
+   "kana": "あさの",
+   "kanji": "浅野",
+   "meaning": "shallow + field"
+  },
+  {
+   "romaji": "Hosokawa",
+   "kana": "ほそかわ",
+   "kanji": "細川",
+   "meaning": "narrow river"
+  },
+  {
+   "romaji": "Mochizuki",
+   "kana": "もちづき",
+   "kanji": "望月",
+   "meaning": "full moon"
+  },
+  {
+   "romaji": "Nagata",
+   "kana": "ながた",
+   "kanji": "永田",
+   "meaning": "eternal + rice field"
+  },
+  {
+   "romaji": "Kanda",
+   "kana": "かんだ",
+   "kanji": "神田",
+   "meaning": "god + rice field"
+  },
+  {
+   "romaji": "Miyake",
+   "kana": "みやけ",
+   "kanji": "三宅",
+   "meaning": "three + house"
+  },
+  {
+   "romaji": "Kawamura",
+   "kana": "かわむら",
+   "kanji": "川村",
+   "meaning": "river + village"
+  },
+  {
+   "romaji": "Nagano",
+   "kana": "ながの",
+   "kanji": "長野",
+   "meaning": "long + field"
+  },
+  {
+   "romaji": "Kishi",
+   "kana": "きし",
+   "kanji": "岸",
+   "meaning": "shore"
+  },
+  {
+   "romaji": "Sekiguchi",
+   "kana": "せきぐち",
+   "kanji": "関口",
+   "meaning": "barrier + mouth"
+  },
+  {
+   "romaji": "Kono",
+   "kana": "こうの",
+   "kanji": "河野",
+   "meaning": "river + field"
+  },
+  {
+   "romaji": "Okumura",
+   "kana": "おくむら",
+   "kanji": "奥村",
+   "meaning": "interior + village"
+  },
+  {
+   "romaji": "Kurihara",
+   "kana": "くりはら",
+   "kanji": "栗原",
+   "meaning": "chestnut + plain"
+  },
+  {
+   "romaji": "Minami",
+   "kana": "みなみ",
+   "kanji": "南",
+   "meaning": "south"
+  },
+  {
+   "romaji": "Ozawa",
+   "kana": "おざわ",
+   "kanji": "小沢",
+   "meaning": "small marsh"
+  },
+  {
+   "romaji": "Sakata",
+   "kana": "さかた",
+   "kanji": "坂田",
+   "meaning": "slope + rice field"
+  },
+  {
+   "romaji": "Kawai",
+   "kana": "かわい",
+   "kanji": "河合",
+   "meaning": "river + join"
+  },
+  {
+   "romaji": "Hirai",
+   "kana": "ひらい",
+   "kanji": "平井",
+   "meaning": "flat + well"
+  },
+  {
+   "romaji": "Tanabe",
+   "kana": "たなべ",
+   "kanji": "田辺",
+   "meaning": "rice field + vicinity"
+  },
+  {
+   "romaji": "Takayama",
+   "kana": "たかやま",
+   "kanji": "高山",
+   "meaning": "high mountain"
+  },
+  {
+   "romaji": "Fujimura",
+   "kana": "ふじむら",
+   "kanji": "藤村",
+   "meaning": "wisteria + village"
+  },
+  {
+   "romaji": "Iwamoto",
+   "kana": "いわもと",
+   "kanji": "岩本",
+   "meaning": "rock + base"
+  },
+  {
+   "romaji": "Nakai",
+   "kana": "なかい",
+   "kanji": "中井",
+   "meaning": "middle + well"
+  },
+  {
+   "romaji": "Imamura",
+   "kana": "いまむら",
+   "kanji": "今村",
+   "meaning": "now + village"
+  },
+  {
+   "romaji": "Shinohara",
+   "kana": "しのはら",
+   "kanji": "篠原",
+   "meaning": "bamboo grass + plain"
+  },
+  {
+   "romaji": "Fukui",
+   "kana": "ふくい",
+   "kanji": "福井",
+   "meaning": "fortune + well"
+  },
+  {
+   "romaji": "Aizawa",
+   "kana": "あいざわ",
+   "kanji": "相沢",
+   "meaning": "mutual + marsh"
+  },
+  {
+   "romaji": "Kawano",
+   "kana": "かわの",
+   "kanji": "川野",
+   "meaning": "river + field"
+  },
+  {
+   "romaji": "Tachibana",
+   "kana": "たちばな",
+   "kanji": "橘",
+   "meaning": "mandarin orange"
+  },
+  {
+   "romaji": "Kishimoto",
+   "kana": "きしもと",
+   "kanji": "岸本",
+   "meaning": "shore + base"
+  },
+  {
+   "romaji": "Kanazawa",
+   "kana": "かなざわ",
+   "kanji": "金沢",
+   "meaning": "gold + marsh"
+  },
+  {
+   "romaji": "Kamata",
+   "kana": "かまた",
+   "kanji": "鎌田",
+   "meaning": "sickle + rice field"
+  },
+  {
+   "romaji": "Kitano",
+   "kana": "きたの",
+   "kanji": "北野",
+   "meaning": "north + field"
+  },
+  {
+   "romaji": "Mizutani",
+   "kana": "みずたに",
+   "kanji": "水谷",
+   "meaning": "water + valley"
+  },
+  {
+   "romaji": "Morikawa",
+   "kana": "もりかわ",
+   "kanji": "森川",
+   "meaning": "forest + river"
+  },
+  {
+   "romaji": "Yoshioka",
+   "kana": "よしおか",
+   "kanji": "吉岡",
+   "meaning": "good luck + hill"
+  },
+  {
+   "romaji": "Tsuda",
+   "kana": "つだ",
+   "kanji": "津田",
+   "meaning": "harbor + rice field"
+  },
+  {
+   "romaji": "Kuwahara",
+   "kana": "くわはら",
+   "kanji": "桑原",
+   "meaning": "mulberry + plain"
+  },
+  {
+   "romaji": "Aoyama",
+   "kana": "あおやま",
+   "kanji": "青山",
+   "meaning": "blue + mountain"
+  },
+  {
+   "romaji": "Uchiyama",
+   "kana": "うちやま",
+   "kanji": "内山",
+   "meaning": "inside + mountain"
+  },
+  {
+   "romaji": "Kawabata",
+   "kana": "かわばた",
+   "kanji": "川端",
+   "meaning": "riverside"
+  },
+  {
+   "romaji": "Kamiya",
+   "kana": "かみや",
+   "kanji": "神谷",
+   "meaning": "god + valley"
+  },
+  {
+   "romaji": "Kageyama",
+   "kana": "かげやま",
+   "kanji": "影山",
+   "meaning": "shadow + mountain"
+  },
+  {
+   "romaji": "Asakura",
+   "kana": "あさくら",
+   "kanji": "朝倉",
+   "meaning": "morning + storehouse"
+  },
+  {
+   "romaji": "Kanzaki",
+   "kana": "かんざき",
+   "kanji": "神崎",
+   "meaning": "god + cape"
+  },
+  {
+   "romaji": "Shiraishi",
+   "kana": "しらいし",
+   "kanji": "白石",
+   "meaning": "white stone"
+  },
+  {
+   "romaji": "Kurokawa",
+   "kana": "くろかわ",
+   "kanji": "黒川",
+   "meaning": "black river"
+  },
+  {
+   "romaji": "Kirishima",
+   "kana": "きりしま",
+   "kanji": "霧島",
+   "meaning": "mist + island"
+  },
+  {
+   "romaji": "Hanazawa",
+   "kana": "はなざわ",
+   "kanji": "花沢",
+   "meaning": "flower + marsh"
+  },
+  {
+   "romaji": "Sakuragi",
+   "kana": "さくらぎ",
+   "kanji": "桜木",
+   "meaning": "cherry tree"
+  },
+  {
+   "romaji": "Minamoto",
+   "kana": "みなもと",
+   "kanji": "源",
+   "meaning": "source, origin"
+  },
+  {
+   "romaji": "Taira",
+   "kana": "たいら",
+   "kanji": "平",
+   "meaning": "flat, peaceful"
+  },
+  {
+   "romaji": "Oda",
+   "kana": "おだ",
+   "kanji": "織田",
+   "meaning": "weave + rice field"
+  },
+  {
+   "romaji": "Tokugawa",
+   "kana": "とくがわ",
+   "kanji": "徳川",
+   "meaning": "virtue + river"
+  },
+  {
+   "romaji": "Toyotomi",
+   "kana": "とよとみ",
+   "kanji": "豊臣",
+   "meaning": "abundant + retainer"
+  },
+  {
+   "romaji": "Date",
+   "kana": "だて",
+   "kanji": "伊達",
+   "meaning": "this + reach"
+  },
+  {
+   "romaji": "Uesugi",
+   "kana": "うえすぎ",
+   "kanji": "上杉",
+   "meaning": "upper + cedar"
+  },
+  {
+   "romaji": "Sanada",
+   "kana": "さなだ",
+   "kanji": "真田",
+   "meaning": "true + rice field"
+  },
+  {
+   "romaji": "Kusunoki",
+   "kana": "くすのき",
+   "kanji": "楠",
+   "meaning": "camphor tree"
+  },
+  {
+   "romaji": "Akechi",
+   "kana": "あけち",
+   "kanji": "明智",
+   "meaning": "bright + wisdom"
+  },
+  {
+   "romaji": "Hojo",
+   "kana": "ほうじょう",
+   "kanji": "北条",
+   "meaning": "north + article"
+  },
+  {
+   "romaji": "Ashikaga",
+   "kana": "あしかが",
+   "kanji": "足利",
+   "meaning": "foot + profit"
+  },
+  {
+   "romaji": "Imagawa",
+   "kana": "いまがわ",
+   "kanji": "今川",
+   "meaning": "now + river"
+  },
+  {
+   "romaji": "Kagawa",
+   "kana": "かがわ",
+   "kanji": "香川",
+   "meaning": "fragrance + river"
+  },
+  {
+   "romaji": "Natsume",
+   "kana": "なつめ",
+   "kanji": "夏目",
+   "meaning": "summer + eye"
+  },
+  {
+   "romaji": "Akutagawa",
+   "kana": "あくたがわ",
+   "kanji": "芥川",
+   "meaning": "mustard + river"
+  },
+  {
+   "romaji": "Mishima",
+   "kana": "みしま",
+   "kanji": "三島",
+   "meaning": "three islands"
+  },
+  {
+   "romaji": "Tanizaki",
+   "kana": "たにざき",
+   "kanji": "谷崎",
+   "meaning": "valley + cape"
+  },
+  {
+   "romaji": "Dazai",
+   "kana": "だざい",
+   "kanji": "太宰",
+   "meaning": "great + steward"
+  },
+  {
+   "romaji": "Shinoda",
+   "kana": "しのだ",
+   "kanji": "篠田",
+   "meaning": "bamboo grass + rice field"
+  },
+  {
+   "romaji": "Matsunaga",
+   "kana": "まつなが",
+   "kanji": "松永",
+   "meaning": "pine + eternal"
+  },
+  {
+   "romaji": "Ichinose",
+   "kana": "いちのせ",
+   "kanji": "一ノ瀬",
+   "meaning": "one + rapids"
+  },
+  {
+   "romaji": "Mikami",
+   "kana": "みかみ",
+   "kanji": "三上",
+   "meaning": "three + above"
+  },
+  {
+   "romaji": "Kazama",
+   "kana": "かざま",
+   "kanji": "風間",
+   "meaning": "wind + space"
+  },
+  {
+   "romaji": "Takigawa",
+   "kana": "たきがわ",
+   "kanji": "滝川",
+   "meaning": "waterfall + river"
+  },
+  {
+   "romaji": "Kitajima",
+   "kana": "きたじま",
+   "kanji": "北島",
+   "meaning": "north + island"
+  },
+  {
+   "romaji": "Yamagishi",
+   "kana": "やまぎし",
+   "kanji": "山岸",
+   "meaning": "mountain + shore"
+  },
+  {
+   "romaji": "Fujisaki",
+   "kana": "ふじさき",
+   "kanji": "藤崎",
+   "meaning": "wisteria + cape"
+  },
+  {
+   "romaji": "Shirakawa",
+   "kana": "しらかわ",
+   "kanji": "白川",
+   "meaning": "white river"
+  },
+  {
+   "romaji": "Hayakawa",
+   "kana": "はやかわ",
+   "kanji": "早川",
+   "meaning": "early + river"
+  },
+  {
+   "romaji": "Ninomiya",
+   "kana": "にのみや",
+   "kanji": "二宮",
+   "meaning": "second + shrine"
+  },
+  {
+   "romaji": "Amamiya",
+   "kana": "あまみや",
+   "kanji": "雨宮",
+   "meaning": "rain + shrine"
+  },
+  {
+   "romaji": "Mizushima",
+   "kana": "みずしま",
+   "kanji": "水島",
+   "meaning": "water + island"
+  },
+  {
+   "romaji": "Okazaki",
+   "kana": "おかざき",
+   "kanji": "岡崎",
+   "meaning": "hill + cape"
+  },
+  {
+   "romaji": "Umeda",
+   "kana": "うめだ",
+   "kanji": "梅田",
+   "meaning": "plum + rice field"
+  },
+  {
+   "romaji": "Matsubara",
+   "kana": "まつばら",
+   "kanji": "松原",
+   "meaning": "pine + plain"
+  },
+  {
+   "romaji": "Yanagi",
+   "kana": "やなぎ",
+   "kanji": "柳",
+   "meaning": "willow"
+  },
+  {
+   "romaji": "Yanagida",
+   "kana": "やなぎだ",
+   "kanji": "柳田",
+   "meaning": "willow + rice field"
+  },
+  {
+   "romaji": "Kaneshiro",
+   "kana": "かねしろ",
+   "kanji": "金城",
+   "meaning": "gold + castle"
+  },
+  {
+   "romaji": "Higa",
+   "kana": "ひが",
+   "kanji": "比嘉",
+   "meaning": "compare + praise"
+  },
+  {
+   "romaji": "Ogura",
+   "kana": "おぐら",
+   "kanji": "小倉",
+   "meaning": "small + storehouse"
+  },
+  {
+   "romaji": "Kumagai",
+   "kana": "くまがい",
+   "kanji": "熊谷",
+   "meaning": "bear + valley"
+  },
+  {
+   "romaji": "Nonaka",
+   "kana": "のなか",
+   "kanji": "野中",
+   "meaning": "middle of the field"
+  },
+  {
+   "romaji": "Morioka",
+   "kana": "もりおか",
+   "kanji": "森岡",
+   "meaning": "forest + hill"
+  },
+  {
+   "romaji": "Kataoka",
+   "kana": "かたおか",
+   "kanji": "片岡",
+   "meaning": "one side + hill"
+  },
+  {
+   "romaji": "Hirayama",
+   "kana": "ひらやま",
+   "kanji": "平山",
+   "meaning": "flat + mountain"
+  },
+  {
+   "romaji": "Ishibashi",
+   "kana": "いしばし",
+   "kanji": "石橋",
+   "meaning": "stone bridge"
+  },
+  {
+   "romaji": "Kitahara",
+   "kana": "きたはら",
+   "kanji": "北原",
+   "meaning": "north + plain"
+  },
+  {
+   "romaji": "Yamane",
+   "kana": "やまね",
+   "kanji": "山根",
+   "meaning": "mountain + root"
+  },
+  {
+   "romaji": "Shimamura",
+   "kana": "しまむら",
+   "kanji": "島村",
+   "meaning": "island + village"
+  },
+  {
+   "romaji": "Kanno",
+   "kana": "かんの",
+   "kanji": "菅野",
+   "meaning": "sedge + field"
+  },
+  {
+   "romaji": "Arakawa",
+   "kana": "あらかわ",
+   "kanji": "荒川",
+   "meaning": "wild river"
+  },
+  {
+   "romaji": "Tominaga",
+   "kana": "とみなが",
+   "kanji": "富永",
+   "meaning": "wealth + eternal"
+  },
+  {
+   "romaji": "Toyoda",
+   "kana": "とよだ",
+   "kanji": "豊田",
+   "meaning": "abundant + rice field"
+  },
+  {
+   "romaji": "Saeki",
+   "kana": "さえき",
+   "kanji": "佐伯",
+   "meaning": "assist + chief"
+  },
+  {
+   "romaji": "Kamei",
+   "kana": "かめい",
+   "kanji": "亀井",
+   "meaning": "turtle + well"
+  },
+  {
+   "romaji": "Tsuruta",
+   "kana": "つるた",
+   "kanji": "鶴田",
+   "meaning": "crane + rice field"
+  },
+  {
+   "romaji": "Hanyu",
+   "kana": "はにゅう",
+   "kanji": "羽生",
+   "meaning": "feather + life"
+  },
+  {
+   "romaji": "Mukai",
+   "kana": "むかい",
+   "kanji": "向井",
+   "meaning": "facing + well"
+  },
+  {
+   "romaji": "Kuroki",
+   "kana": "くろき",
+   "kanji": "黒木",
+   "meaning": "black tree"
+  },
+  {
+   "romaji": "Ohashi",
+   "kana": "おおはし",
+   "kanji": "大橋",
+   "meaning": "big bridge"
+  },
+  {
+   "romaji": "Shiina",
+   "kana": "しいな",
+   "kanji": "椎名",
+   "meaning": "chinquapin + name"
+  }
+ ]
+}
