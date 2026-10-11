@@ -3,18 +3,22 @@ import Link from "next/link";
 import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/generators/GeneratorPageShell";
 import LetterGenerator from "@/components/generators/LetterGenerator";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/random-letter-generator";
 const TITLE = "Random Letter Generator — Pick a Letter A–Z, No Repeats";
 const DESCRIPTION =
   "Free random letter generator: pick one or several random letters from A to Z, uppercase or lowercase, vowels only, consonants only, or without hard letters like Q, X and Z. No repeats until every letter is drawn.";
 
+const SOCIAL = generatorSocial({ card: "random-letter-generator", title: TITLE, description: DESCRIPTION, alt: "Random Letter Generator — colorful alphabet blocks" });
+
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["random letter generator", "random letter", "letter picker", "random alphabet generator", "pick a random letter", "random letter a-z"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [

@@ -4,17 +4,21 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import GnomeNameGenerator from "@/components/generators/GnomeNameGenerator";
 import { GNOME_CLANS, GNOME_FIRST, GNOME_NICKNAMES } from "@/lib/generators/gnome";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/gnome-name-generator";
 const TITLE = "Gnome Name Generator — Names, Nicknames & Clan Names";
 const DESCRIPTION = `Free gnome name generator for D&D and fantasy stories: ${GNOME_FIRST.length}+ gnome first names, ${GNOME_NICKNAMES.length}+ nicknames and ${GNOME_CLANS.length}+ clan names, each with what it means. Rock, forest and tinker gnomes.`;
+
+const SOCIAL = generatorSocial({ card: "gnome-name-generator", title: TITLE, description: DESCRIPTION, alt: "Gnome Name Generator — a gnome tinkering at a workbench" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["gnome name generator", "dnd gnome names", "gnome names", "rock gnome name generator", "forest gnome names", "gnome clan names"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [
@@ -49,6 +53,7 @@ export default function GnomeNameGeneratorPage() {
       heading={["Gnome Name", "Generator"]}
       intro={`Playful gnome names with nicknames and clan names — ${GNOME_FIRST.length}+ first names, each part with its meaning.`}
       description={DESCRIPTION}
+      hero={{ src: "/generators/hero/gnome.webp", alt: "A cheerful gnome in a red pointy hat tinkering at a workbench beside mushrooms" }}
       updated="2026-10-10"
       faq={FAQ}
       related={[

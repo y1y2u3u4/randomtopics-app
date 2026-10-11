@@ -1,0 +1,26 @@
+{
+  "/generators/hero/dnd.webp": {
+    "width": 430,
+    "height": 400
+  },
+  "/generators/hero/viking.webp": {
+    "width": 371,
+    "height": 400
+  },
+  "/generators/hero/japanese.webp": {
+    "width": 351,
+    "height": 400
+  },
+  "/generators/hero/gnome.webp": {
+    "width": 369,
+    "height": 400
+  },
+  "/generators/hero/charactername.webp": {
+    "width": 398,
+    "height": 400
+  },
+  "/generators/hero/character.webp": {
+    "width": 358,
+    "height": 400
+  }
+}

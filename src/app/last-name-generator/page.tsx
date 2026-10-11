@@ -4,17 +4,21 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import LastNameGenerator from "@/components/generators/LastNameGenerator";
 import { LAST_NAMES, ORIGIN_LABELS } from "@/lib/generators/lastNames";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/last-name-generator";
 const TITLE = "Last Name Generator — Random Surnames by Origin, with Meanings";
 const DESCRIPTION = `Free last name generator with ${LAST_NAMES.length}+ real surnames from ${Object.keys(ORIGIN_LABELS).length} cultures — English, Irish, Italian, Spanish, Japanese, Korean and more — each with its meaning and origin. For characters, games and family-tree curiosity.`;
+
+const SOCIAL = generatorSocial({ card: "last-name-generator", title: TITLE, description: DESCRIPTION, alt: "Last Name Generator — surnames by origin with meanings" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["last name generator", "surname generator", "random last name generator", "random surname", "last names with meanings", "family name generator", "irish last name generator", "japanese last name generator"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [

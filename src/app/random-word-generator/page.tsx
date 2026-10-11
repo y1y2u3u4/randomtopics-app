@@ -4,17 +4,21 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import WordGenerator from "@/components/generators/WordGenerator";
 import { WORDS } from "@/lib/generators/words";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/random-word-generator";
 const TITLE = "Random Word Generator — Nouns, Verbs & Adjectives by Difficulty";
 const DESCRIPTION = `Free random word generator with ${WORDS.en.length}+ hand-picked English words. Filter by noun, verb or adjective, difficulty, length and first letter, or get only drawable words for Pictionary and charades. Generate up to 50 at once, no repeats, one-click copy.`;
+
+const SOCIAL = generatorSocial({ card: "random-word-generator", title: TITLE, description: DESCRIPTION, alt: "Random Word Generator — dictionary with word cards" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["random word generator", "random word", "random noun generator", "random verb generator", "random adjective generator", "pictionary word generator", "random words list"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  twitter: SOCIAL.twitter,
 };
 
 const FAQ = [
