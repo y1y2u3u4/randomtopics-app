@@ -81,6 +81,35 @@ export function retireAdDocument() {
   window.location.replace(adRetirementUrl(window.location.href));
 }
 
+/**
+ * Run `task` after the page has painted and settled: the first of window load
+ * + idle time, the visitor's first interaction, or `maxWaitMs` after the call.
+ */
+export function afterPageSettles(task: () => void, maxWaitMs = 4000) {
+  let done = false;
+  const interactions = ["pointerdown", "keydown", "touchstart", "scroll"] as const;
+  const cleanup = () => {
+    window.clearTimeout(timer);
+    window.removeEventListener("load", onLoad);
+    interactions.forEach((name) => window.removeEventListener(name, run));
+  };
+  const run = () => {
+    if (done) return;
+    done = true;
+    cleanup();
+    task();
+  };
+  const idle = () => {
+    if (typeof window.requestIdleCallback === "function") window.requestIdleCallback(run, { timeout: 1500 });
+    else window.setTimeout(run, 200);
+  };
+  const onLoad = () => idle();
+  const timer = window.setTimeout(run, maxWaitMs);
+  interactions.forEach((name) => window.addEventListener(name, run, { passive: true, once: true }));
+  if (document.readyState === "complete") idle();
+  else window.addEventListener("load", onLoad, { once: true });
+}
+
 export function loadAdSense() {
   if (retired) return Promise.reject(new Error("Advertising retired"));
   if (loading) return loading;
@@ -151,33 +180,38 @@ export function loadAdSense() {
     // paused AdSense tag does not reliably start its own CMP bootstrap.
     // This is the message entrypoint used by Google's publisher SDK (ers=2),
     // with the same public publisher ID; it creates no messages/settings.
-    if (!document.querySelector('iframe[name="googlefcPresent"]')) {
-      const marker = document.createElement("iframe");
-      marker.name = "googlefcPresent";
-      marker.title = "Google privacy message availability";
-      marker.style.display = "none";
-      document.body.appendChild(marker);
-    }
-    const cmpScript = document.createElement("script");
-    cmpScript.async = true;
-    cmpScript.dataset.rtCmp = "published-google-message";
-    cmpScript.src = `https://fundingchoicesmessages.google.com/i/${ADSENSE_CLIENT.slice(3)}?ers=2`;
-    if (location.pathname === "/es" || location.pathname.startsWith("/es/")) cmpScript.src += "&hl=es";
-    document.head.appendChild(cmpScript);
-    const script = document.createElement("script");
-    script.async = true;
-    script.crossOrigin = "anonymous";
-    script.referrerPolicy = "no-referrer";
-    script.setAttribute("data-privacy-treatments", "disablePersonalization");
-    // Apply the same RDP treatment to Auto ads before a manual unit is pushed.
-    script.setAttribute("data-restrict-data-processing", "1");
-    script.setAttribute("data-rt-adsense", "reviewed-public-v1");
-    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
-    const fail = () => { scriptFailed = true; pauseAdRequests(); reject(new Error("Advertising unavailable")); };
-    const timeout = window.setTimeout(fail, 10000);
-    script.onload = () => { window.clearTimeout(timeout); if (!scriptFailed) { scriptReady = true; complete(); } };
-    script.onerror = () => { window.clearTimeout(timeout); fail(); };
-    document.head.appendChild(script);
+    // Fetch the CMP and AdSense only once the page has rendered: started any
+    // earlier, ~400 KB of third-party script lands in the LCP critical path
+    // (PSI mobile LCP 6–7 s vs ~3 s when it started later). See afterPageSettles.
+    afterPageSettles(() => {
+      if (!document.querySelector('iframe[name="googlefcPresent"]')) {
+        const marker = document.createElement("iframe");
+        marker.name = "googlefcPresent";
+        marker.title = "Google privacy message availability";
+        marker.style.display = "none";
+        document.body.appendChild(marker);
+      }
+      const cmpScript = document.createElement("script");
+      cmpScript.async = true;
+      cmpScript.dataset.rtCmp = "published-google-message";
+      cmpScript.src = `https://fundingchoicesmessages.google.com/i/${ADSENSE_CLIENT.slice(3)}?ers=2`;
+      if (location.pathname === "/es" || location.pathname.startsWith("/es/")) cmpScript.src += "&hl=es";
+      document.head.appendChild(cmpScript);
+      const script = document.createElement("script");
+      script.async = true;
+      script.crossOrigin = "anonymous";
+      script.referrerPolicy = "no-referrer";
+      script.setAttribute("data-privacy-treatments", "disablePersonalization");
+      // Apply the same RDP treatment to Auto ads before a manual unit is pushed.
+      script.setAttribute("data-restrict-data-processing", "1");
+      script.setAttribute("data-rt-adsense", "reviewed-public-v1");
+      script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
+      const fail = () => { scriptFailed = true; pauseAdRequests(); reject(new Error("Advertising unavailable")); };
+      const timeout = window.setTimeout(fail, 10000);
+      script.onload = () => { window.clearTimeout(timeout); if (!scriptFailed) { scriptReady = true; complete(); } };
+      script.onerror = () => { window.clearTimeout(timeout); fail(); };
+      document.head.appendChild(script);
+    });
   });
   return loading;
 }

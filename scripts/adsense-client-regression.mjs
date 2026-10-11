@@ -19,9 +19,9 @@ function fixture(){
  const slot=element();slot.setAttribute('data-restrict-data-processing','1');
  const add=(registry)=>(name,callback)=>{const listeners=registry.get(name)||[];listeners.push(callback);registry.set(name,listeners)};
  const location=new URL('https://randomtopics.app/');location.replace=url=>stats.replacements.push(url);
- const document={hidden:false,head:{appendChild:script=>scripts.push(script)},body:{appendChild:frame=>frames.push(frame)},createElement:element,querySelector:selector=>selector==='iframe[name="googlefcPresent"]'?frames.find(frame=>frame.name==='googlefcPresent')??null:null,addEventListener:add(documentListeners)};
+ const document={hidden:false,readyState:'complete',head:{appendChild:script=>scripts.push(script)},body:{appendChild:frame=>frames.push(frame)},createElement:element,querySelector:selector=>selector==='iframe[name="googlefcPresent"]'?frames.find(frame=>frame.name==='googlefcPresent')??null:null,addEventListener:add(documentListeners)};
  const navigator={globalPrivacyControl:false};
- const window={adsbygoogle:queue,location,setTimeout(callback,ms){const id=++timerId;timers.set(id,{callback,ms});return id},clearTimeout:id=>timers.delete(id),addEventListener:add(windowListeners)};
+ const window={adsbygoogle:queue,location,setTimeout(callback,ms){const id=++timerId;timers.set(id,{callback,ms});return id},clearTimeout:id=>timers.delete(id),addEventListener:add(windowListeners),removeEventListener:(name,callback)=>{const listeners=windowListeners.get(name)||[];windowListeners.set(name,listeners.filter(l=>l!==callback))},requestIdleCallback:callback=>callback()};
  const sessionStorage={getItem:key=>storage.get(key)??null};
  for(const [name,value] of Object.entries({window,document,location,navigator,sessionStorage}))Object.defineProperty(globalThis,name,{value,writable:true,configurable:true});
  const runtime=load('src/lib/adsenseClient.ts',{},new Map());
@@ -39,10 +39,24 @@ function fixture(){
   initial.forEach(run);
   return loading;
  };
- return {runtime,stats,queue,window,document,location,navigator,storage,slot,scripts,timers,sdk,boot,pause:()=>pause,reopened:()=>reopened,consent:(data,success=true)=>tcfListeners.forEach(callback=>callback(data,success)),focus:()=>fire(windowListeners,'focus'),visible:()=>fire(documentListeners,'visibilitychange')};
+ return {windowListeners,runtime,stats,queue,window,document,location,navigator,storage,slot,scripts,timers,sdk,boot,pause:()=>pause,reopened:()=>reopened,consent:(data,success=true)=>tcfListeners.forEach(callback=>callback(data,success)),focus:()=>fire(windowListeners,'focus'),visible:()=>fire(documentListeners,'visibilitychange')};
 }
 
 const results=[];
+await test('Third-party ad scripts wait until the page has loaded (LCP)',async f=>{
+ f.document.readyState='loading';
+ f.boot();
+ assert.equal(f.scripts.length,0,'No CMP/SDK request before load');
+ f.document.readyState='complete';
+ [...(f.windowListeners.get('load')||[])].forEach(callback=>callback());
+ assert.equal(f.scripts.length,2,'CMP and SDK start after load + idle');
+});
+await test('A first interaction starts ads before load completes',async f=>{
+ f.document.readyState='loading';
+ f.boot();
+ [...(f.windowListeners.get('pointerdown')||[])].forEach(callback=>callback());
+ assert.equal(f.scripts.length,2);
+});
 async function test(name,check){const f=fixture();try{await check(f);results.push({name,pass:true})}finally{restore()}}
 await test('SDK and CMP can start before a manual slot is prepared',async f=>{
  const loading=f.boot();assert.equal(f.scripts.length,2);assert.equal(f.stats.pushes,0);assert.equal(f.pause(),1);
