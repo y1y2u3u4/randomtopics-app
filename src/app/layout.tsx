@@ -108,10 +108,19 @@ export default function RootLayout({
             window.gtag = gtag;
             gtag('js', new Date());
             gtag('config', 'G-C23RTYX4QS', { send_page_view: false });
-            var ga = document.createElement('script'); ga.async = true;
-            ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-C23RTYX4QS'; document.head.appendChild(ga);
-            var usage = document.createElement('script'); usage.async = true;
-            usage.src = 'https://analytics.flashcardmaker.me/script.js'; usage.setAttribute('data-website-id','15509cd4-881c-4ed8-8dd6-bb64822993ee'); document.head.appendChild(usage);
+            // gtag() calls queue in dataLayer immediately; the libraries are
+            // fetched after load so they stay out of the mobile LCP path.
+            var loadAnalytics = function () {
+              if (window.__rtAnalyticsLoaded) return; window.__rtAnalyticsLoaded = true;
+              var ga = document.createElement('script'); ga.async = true;
+              ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-C23RTYX4QS'; document.head.appendChild(ga);
+              var usage = document.createElement('script'); usage.async = true;
+              usage.src = 'https://analytics.flashcardmaker.me/script.js'; usage.setAttribute('data-website-id','15509cd4-881c-4ed8-8dd6-bb64822993ee'); document.head.appendChild(usage);
+            };
+            var scheduleAnalytics = function () { (window.requestIdleCallback || function (cb) { setTimeout(cb, 200); })(loadAnalytics, { timeout: 1500 }); };
+            if (document.readyState === 'complete') scheduleAnalytics(); else window.addEventListener('load', scheduleAnalytics, { once: true });
+            ['pointerdown', 'keydown', 'touchstart'].forEach(function (name) { window.addEventListener(name, loadAnalytics, { once: true, passive: true }); });
+            setTimeout(loadAnalytics, 4000);
             }
           `}
         </Script>
