@@ -71,6 +71,7 @@ const snapshot = {
   growthPages: [page],
 };
 const calls = [];
+let sheetValues = [["2026-09-05", "Success"]];
 const fakeFetch = async (url, init) => {
   const body = init.body ? JSON.parse(init.body) : null;
   calls.push({ url: decodeURIComponent(url), body });
@@ -78,13 +79,13 @@ const fakeFetch = async (url, init) => {
   if (url.includes("?fields=")) data = { sheets: ["Overview", "Daily Summary", "Landing Pages", "Query Opportunities", "Run Log"].map((title, sheetId) => ({ properties: { title, sheetId, gridProperties: { columnCount: title === "Daily Summary" ? 29 : 15 } } })) };
   else if (body?.requests?.[0]?.addSheet) data = { replies: [{ addSheet: { properties: { sheetId: 99, gridProperties: { rowCount: 1000, columnCount: 6 } } } }] };
   else if (decodeURIComponent(url).includes("'Speech Daily v2'!")) data = { values: [] };
-  else if (url.includes("majorDimension")) data = { values: [["2026-09-05", "Success"]] };
+  else if (url.includes("majorDimension")) data = { values: sheetValues };
   return { ok: true, status: 200, json: async () => data };
 };
 const code = ts.transpileModule(readFileSync(new URL("../src/lib/analyticsSheet.ts", import.meta.url), "utf8"), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
 const testModule = { exports: {} };
 const require = createRequire(import.meta.url);
-const stubRequire = (id) => id === "@/lib/speech/dailySchema" ? speechDaily : id === "@/lib/speech/events" ? speechEvents : id === "server-only" ? {} : id === "@/lib/growthOpportunities" ? opportunities : id === "@/lib/googleReporting" ? { getAnalyticsSheetSnapshot: async () => snapshot, getGoogleReportingAccessToken: async () => "test-only-token" } : require(id);
+const stubRequire = (id) => id === "@/lib/speech/dailySchema" ? speechDaily : id === "@/lib/speech/events" ? speechEvents : id === "server-only" ? {} : id === "@/lib/growthOpportunities" ? opportunities : id === "@/lib/googleReporting" ? { getAnalyticsSheetSnapshot: async () => snapshot, getDailyRowSnapshot: async (reportDate, latestGscDate) => ({ generatedAt: snapshot.generatedAt, reportDate, ga4: { yesterday: snapshot.ga4.yesterday, eventsYesterday: events }, searchConsole: { latestDate: reportDate <= latestGscDate ? reportDate : latestGscDate, latestDay: page.searchConsole.current7 } }), getGoogleReportingAccessToken: async () => "test-only-token" } : require(id);
 new Function("require", "module", "exports", "fetch", "process", code)(stubRequire, testModule, testModule.exports, fakeFetch, { env: { ANALYTICS_REPORT_SHEET_ID: "test_only_sheet_identifier" } });
 await testModule.exports.syncAnalyticsReportToSheet();
 const expansion = calls.find((c) => c.body?.requests)?.body.requests;
@@ -137,8 +138,32 @@ for (const [reportDate, expected] of [
   snapshot.reportDate = reportDate;
   await testModule.exports.syncAnalyticsReportToSheet();
   const batch = calls.find(c => c.body?.valueInputOption);
-  const row = batch.body.data.find(d => /^'Daily Summary'!A\d+:AD\d+$/.test(d.range)).values[0];
+  const row = batch.body.data.find(d => /^'Daily Summary'!A\d+:AD\d+$/.test(d.range) && d.values[0][0] === reportDate).values[0];
   assert.equal(row[22], expected);
   assert.ok(batch.body.data.every(d => !d.range.startsWith("'Speech Daily'!")));
 }
 console.log('PASS daily visibility version: legacy, LA partial cutover, and qualified exposure remain distinguishable.');
+
+// Self-healing backfill (2026-10-11): failed days inside the last 14 days are
+// written as their own Daily Summary + Speech Daily rows before today's row;
+// days before the first recorded day are never invented.
+calls.length = 0;
+sheetValues = [["2026-09-01"], ["2026-09-02"]];
+snapshot.reportDate = "2026-09-05";
+await testModule.exports.syncAnalyticsReportToSheet();
+{
+  const batch = calls.find(c => c.body?.valueInputOption);
+  const dailyWrites = batch.body.data.filter(d => /^'Daily Summary'!A\d+:AD\d+$/.test(d.range)).map(d => [d.range, d.values[0][0]]);
+  assert.deepEqual(dailyWrites, [["'Daily Summary'!A4:AD4", "2026-09-03"], ["'Daily Summary'!A5:AD5", "2026-09-04"], ["'Daily Summary'!A6:AD6", "2026-09-05"]]);
+  const speechDates = new Set(batch.body.data.filter(d => d.range.startsWith("'Speech Daily v2'!")).flatMap(d => d.values.map(v => v[0])).filter(v => /^\d{4}-/.test(v)));
+  assert.deepEqual([...speechDates].sort(), ["2026-09-03", "2026-09-04", "2026-09-05"]);
+  const backfillGsc = batch.body.data.find(d => d.range === "'Daily Summary'!A4:AD4").values[0][16];
+  assert.equal(backfillGsc, "2026-09-03", "Backfilled rows use that day's final GSC data when it exists");
+  const runLog = batch.body.data.find(d => d.range.startsWith("'Run Log'!")).values[0];
+  assert.match(runLog[7], /Backfilled daily rows: 2026-09-03, 2026-09-04\./);
+}
+calls.length = 0;
+sheetValues = [["2026-09-05", "Success"]];
+await testModule.exports.syncAnalyticsReportToSheet();
+assert.equal(calls.find(c => c.body?.valueInputOption).body.data.filter(d => /^'Daily Summary'!A\d+:AD\d+$/.test(d.range)).length, 1, "No backfill without a gap");
+console.log('PASS daily backfill: missed days rewritten from explicit dates, ordered before the live row, no invented history.');
