@@ -81,6 +81,7 @@ export default function HomeEs() {
       <main className="flex-1" lang="es">
         <TopicGenerator
           locale="es"
+          rollOnGenerate
           title="Generador de Temas Aleatorios"
           subtitle="Genera temas al azar para conversar, escribir, debatir, practicar discursos o romper el hielo — más de 500 ideas, gratis y sin registro."
         />

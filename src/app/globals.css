@@ -422,3 +422,44 @@ footer {
    blocked so content never jumps; no slot/space is rendered while rollout is off. */
 .rt-article-ad { width: 100%; height: 456px; padding: 24px 0; margin: 0 auto 40px; }
 @media (max-width: 319px) { .rt-article-ad { display: none; } }
+
+/* Homepage draw: decoy topics scroll past for ~360ms, then the real topic settles.
+   Pure CSS so it costs no JS on the main thread; the reel is aria-hidden and the
+   real title keeps its layout from the first frame (no layout shift). */
+.topic-roll {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.topic-roll__final {
+  display: block;
+  animation: topic-roll-land 360ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.topic-roll__reel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  animation: topic-roll-reel 300ms cubic-bezier(0.4, 0, 0.6, 1) both;
+}
+.topic-roll__reel > span {
+  flex: 0 0 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--text-secondary);
+}
+@keyframes topic-roll-reel {
+  from { transform: translateY(0); opacity: 0.7; }
+  90% { opacity: 0.5; }
+  to { transform: translateY(calc(-100% * var(--roll-n, 3))); opacity: 0; }
+}
+@keyframes topic-roll-land {
+  0%, 70% { opacity: 0; transform: translateY(40%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topic-roll__reel { display: none; }
+  .topic-roll__final { animation: none; }
+}
