@@ -1,7 +1,7 @@
 import "server-only";
 
 import {
-  getAnalyticsSheetSnapshot,
+  getAnalyticsSheetSnapshot, getDailyRowSnapshot,
   getGoogleReportingAccessToken,
   type GaEventRow,
   type AnalyticsSheetSnapshot,
@@ -297,25 +297,12 @@ function nextRunLogRow(rows: unknown[][]): number {
   return rows.length + 2;
 }
 
-export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncResult> {
-  const sheetId = requiredSheetId();
-  const speechGrid = await assertExpectedTabs(sheetId);
+type DailyRowInput = Pick<AnalyticsSheetSnapshot, "generatedAt" | "reportDate"> & {
+  ga4: Pick<AnalyticsSheetSnapshot["ga4"], "yesterday" | "eventsYesterday">;
+  searchConsole: Pick<AnalyticsSheetSnapshot["searchConsole"], "latestDate" | "latestDay">;
+};
 
-  const snapshot = await getAnalyticsSheetSnapshot(true);
-  const [dailyDates, runLog] = await Promise.all([
-    getValues(sheetId, "'Daily Summary'!A2:A1000"),
-    getValues(sheetId, "'Run Log'!A2:B1000"),
-  ]);
-  // Speech Daily v2 rows are validated as numbers; formatted reads made every
-  // existing row "unknown" and failed the whole daily sync from 2026-10-06.
-  const speechRows = await getValues(sheetId, `'${SPEECH_DAILY_TAB}'!A1:F${speechGrid.rowCount}`, "UNFORMATTED_VALUE");
-  const speechWrite = planSpeechDailyWrite(speechRows, snapshot.reportDate, SPEECH_EVENTS, snapshot.ga4.eventsYesterday);
-  if (speechWrite.requiredRows > speechGrid.rowCount) await sheetsRequest(`${sheetId}:batchUpdate`, {
-    method: "POST", body: JSON.stringify({ requests: [{ appendDimension: {
-      sheetId: speechGrid.sheetId, dimension: "ROWS", length: Math.max(1000, speechWrite.requiredRows - speechGrid.rowCount),
-    } }] }),
-  }, "speech_daily_rows_expand_failed");
-
+function buildDailyRow(snapshot: DailyRowInput): unknown[] {
   const start = eventByName(snapshot.ga4.eventsYesterday, "generate_start");
   const success = eventByName(snapshot.ga4.eventsYesterday, "generate_success");
   const copy = eventByName(snapshot.ga4.eventsYesterday, "copy_result");
@@ -346,7 +333,7 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
       ? `${STRICT_CONVERSION_VERSION}-partial-cutover`
       : STRICT_CONVERSION_VERSION;
   const strictValue = (value: number) => strictVersion ? value : "";
-  const dailyRow = [
+  return [
     snapshot.reportDate,
     snapshot.generatedAt,
     users,
@@ -379,6 +366,73 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     strictValue(postGenerateActionView.totalUsers),
   ];
 
+}
+
+/** Apply a planned Speech Daily write to a local copy of the tab's rows. */
+function applySpeechPlan(rows: unknown[][], ranges: Array<{ range: string; values: unknown[][] }>): unknown[][] {
+  const next = rows.map((row) => row.slice());
+  for (const { range, values } of ranges) {
+    const start = Number(/!A(\d+)/.exec(range)?.[1] ?? 0);
+    values.forEach((value, i) => { next[start - 1 + i] = value; });
+  }
+  return next;
+}
+
+/** Report dates missing from Daily Summary in the last `days` days before `reportDate`. */
+export function missingReportDates(present: readonly string[], reportDate: string, days = 14): string[] {
+  const have = new Set(present);
+  const out: string[] = [];
+  for (let i = days; i >= 1; i--) {
+    const d = new Date(`${reportDate}T00:00:00Z`);
+    d.setUTCDate(d.getUTCDate() - i);
+    const iso = d.toISOString().slice(0, 10);
+    if (!have.has(iso)) out.push(iso);
+  }
+  return out;
+}
+
+export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncResult> {
+  const sheetId = requiredSheetId();
+  const speechGrid = await assertExpectedTabs(sheetId);
+
+  const snapshot = await getAnalyticsSheetSnapshot(true);
+  const [dailyDates, runLog] = await Promise.all([
+    getValues(sheetId, "'Daily Summary'!A2:A1000"),
+    getValues(sheetId, "'Run Log'!A2:B1000"),
+  ]);
+  // Speech Daily v2 rows are validated as numbers; formatted reads made every
+  // existing row "unknown" and failed the whole daily sync from 2026-10-06.
+  const speechRows = await getValues(sheetId, `'${SPEECH_DAILY_TAB}'!A1:F${speechGrid.rowCount}`, "UNFORMATTED_VALUE");
+  // Self-heal: if earlier runs failed, write the missing per-date rows (Daily
+  // Summary + Speech Daily v2) for up to 14 days before today's report date.
+  // Snapshot tabs (Landing Pages, Query Opportunities, sitewide) only ever
+  // reflect the latest run and are not backfilled.
+  const presentDates = dailyDates.map((row) => String(row[0] ?? "")).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d));
+  const firstDate = presentDates.slice().sort()[0];
+  const missing = firstDate
+    ? missingReportDates(presentDates, snapshot.reportDate).filter((d) => d > firstDate)
+    : [];
+  const dailyDatesAfter = dailyDates.map((row) => row.slice());
+  const backfillRanges: Array<{ range: string; values: unknown[][] }> = [];
+  let speechState = speechRows;
+  for (const date of missing) {
+    const day = await getDailyRowSnapshot(date, snapshot.searchConsole.latestDate);
+    const row = nextRowForDate(dailyDatesAfter, date);
+    dailyDatesAfter[row - 2] = [date];
+    backfillRanges.push({ range: `'Daily Summary'!A${row}:AD${row}`, values: [buildDailyRow(day)] });
+    const plan = planSpeechDailyWrite(speechState, date, SPEECH_EVENTS, day.ga4.eventsYesterday);
+    backfillRanges.push(...plan.ranges);
+    speechState = applySpeechPlan(speechState, plan.ranges);
+  }
+  const speechWrite = planSpeechDailyWrite(speechState, snapshot.reportDate, SPEECH_EVENTS, snapshot.ga4.eventsYesterday);
+  if (speechWrite.requiredRows > speechGrid.rowCount) await sheetsRequest(`${sheetId}:batchUpdate`, {
+    method: "POST", body: JSON.stringify({ requests: [{ appendDimension: {
+      sheetId: speechGrid.sheetId, dimension: "ROWS", length: Math.max(1000, speechWrite.requiredRows - speechGrid.rowCount),
+    } }] }),
+  }, "speech_daily_rows_expand_failed");
+
+  const dailyRow = buildDailyRow(snapshot);
+
   const pageRows = landingPageRows(
     snapshot.growthPages,
     snapshot
@@ -388,7 +442,7 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     snapshot.searchConsole.current28Range
   );
   const opportunityRows = opportunities.values;
-  const dailyTargetRow = nextRowForDate(dailyDates, snapshot.reportDate);
+  const dailyTargetRow = nextRowForDate(dailyDatesAfter, snapshot.reportDate);
   const runTargetRow = nextRunLogRow(runLog);
 
   await clearRanges(sheetId, [
@@ -396,6 +450,7 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     "'Query Opportunities'!A2:Q1000",
   ]);
   await writeRanges(sheetId, [
+    ...backfillRanges,
     ...speechWrite.ranges,
     { range: "'Landing Pages'!C1:C1", values: [["Visited Page (GA4 pagePath)"]] },
     {
@@ -444,7 +499,7 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
         1,
         pageRows.length,
         opportunityRows.length,
-        `Synchronized. Filtered ${opportunities.excludedRows} noisy query/page rows. Query window: 28 days; page window: 7 days.`,
+        `Synchronized. Filtered ${opportunities.excludedRows} noisy query/page rows. Query window: 28 days; page window: 7 days.${missing.length ? ` Backfilled daily rows: ${missing.join(", ")}.` : ""}`,
       ]],
     },
   ]);
@@ -453,7 +508,7 @@ export async function syncAnalyticsReportToSheet(): Promise<AnalyticsSheetSyncRe
     generatedAt: snapshot.generatedAt,
     reportDate: snapshot.reportDate,
     gscDate: snapshot.searchConsole.latestDate,
-    dailyRows: 1,
+    dailyRows: 1 + missing.length,
     pageRows: pageRows.length,
     queryRows: opportunityRows.length,
   };

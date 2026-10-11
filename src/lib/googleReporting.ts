@@ -1158,6 +1158,26 @@ function gaDateToIso(value?: string): string {
   return toIsoDate(yesterday);
 }
 
+/**
+ * Per-date figures for one Daily Summary / Speech Daily row, using explicit
+ * dates so a missed day can be written later. GSC uses the same day when its
+ * final data exists, otherwise the latest final GSC day (as the live row does).
+ */
+export async function getDailyRowSnapshot(reportDate: string, latestGscDate: string) {
+  const gscDate = reportDate <= latestGscDate ? reportDate : latestGscDate;
+  const [yesterday, eventsYesterday, latestDay] = await Promise.all([
+    getGaSummary(reportDate, reportDate),
+    getGaEvents(reportDate, reportDate),
+    getGscSummary(gscDate, gscDate),
+  ]);
+  return {
+    generatedAt: new Date().toISOString(),
+    reportDate,
+    ga4: { yesterday, eventsYesterday },
+    searchConsole: { latestDate: gscDate, latestDay },
+  };
+}
+
 export async function getAnalyticsSheetSnapshot(
   forceRefresh = true
 ): Promise<AnalyticsSheetSnapshot> {
