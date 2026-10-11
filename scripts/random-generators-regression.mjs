@@ -357,4 +357,86 @@ test("every illustration listed exists on disk and matches a bank entry", () => 
   }
 });
 
+test("Japanese names: kanji + kana + romaji for every result, gender and order filters", () => {
+  const { JP_GIVEN, JP_FAMILY, japaneseNameGenerator, withOrder } = mod("src/lib/generators/japanese.ts");
+  assert.ok(JP_GIVEN.length >= 300 && JP_FAMILY.length >= 200);
+  for (const n of [...JP_GIVEN, ...JP_FAMILY]) {
+    assert.match(n.kana, /^[\u3041-\u309Fー]+$/u, `kana ${n.romaji}`);
+    assert.match(n.kanji, /[\u4E00-\u9FFF々]/u, `kanji ${n.romaji}`);
+  }
+  const gen = withOrder(japaneseNameGenerator());
+  const given = new Map(JP_GIVEN.map((g) => [`${g.romaji}-${g.gender}`, g]));
+  checkGenerator("japanese", gen, [
+    [{ gender: ["female"] }, (r) => given.get(r.key.split("|")[0]).gender === "female"],
+    [{ order: ["japanese"] }, (r) => r.title.split(" ")[0] === r.key.split("|")[1]],
+    [{ order: ["western"] }, (r) => r.title.split(" ")[0] === given.get(r.key.split("|")[0]).romaji],
+  ], 300, JP_GIVEN.length);
+});
+
+test("color generator: conversions round-trip, palette rules, locks kept, all distinct", () => {
+  const c = mod("src/lib/generators/colors.ts");
+  for (const hex of ["#000000", "#FFFFFF", "#FF0000", "#12AB9F", "#7F3C2A"]) {
+    const rgb = c.hexToRgb(hex);
+    assert.equal(c.rgbToHex(rgb), hex);
+    const back = c.rgbToHex(c.hslToRgb(c.rgbToHsl(rgb)));
+    const diff = c.hexToRgb(back).map((v, i) => Math.abs(v - rgb[i]));
+    assert.ok(Math.max(...diff) <= 3, `${hex} → ${back}`);
+  }
+  assert.equal(c.formatColor("#FF0000").rgb, "rgb(255, 0, 0)");
+  assert.equal(c.formatColor("#FF0000").hsl, "hsl(0, 100%, 50%)");
+  assert.equal(c.readableText("#FFFFFF"), "#000000");
+  assert.equal(c.readableText("#101010"), "#FFFFFF");
+  for (let seed = 1; seed <= 100; seed++) {
+    for (const mode of c.PALETTE_MODES.map((m) => m.id)) {
+      const p = c.generatePalette(mode, [], new Set(), 8, rg.createRng(seed));
+      assert.equal(p.length, 8);
+      assert.equal(new Set(p).size, 8, `${mode} distinct`);
+      for (const hex of p) assert.match(hex, /^#[0-9A-F]{6}$/);
+      if (mode === "pastel") for (const hex of p) assert.ok(c.rgbToHsl(c.hexToRgb(hex)).l >= 74, `pastel ${hex}`);
+      if (mode === "monochrome") {
+        const hues = p.map((hex) => c.rgbToHsl(c.hexToRgb(hex)));
+        const ls = hues.map((h) => h.l);
+        assert.ok(Math.max(...ls) - Math.min(...ls) >= 40, "monochrome spans lightness");
+      }
+    }
+  }
+  const first = c.generatePalette("random", [], new Set(), 5, rg.createRng(3));
+  const next = c.generatePalette("triadic", first, new Set([0, 3]), 5, rg.createRng(4));
+  assert.equal(next[0], first[0]);
+  assert.equal(next[3], first[3]);
+  assert.notDeepEqual(next, first);
+});
+
+test("fantasy map: deterministic by seed, sensible land share, labels in place", () => {
+  const f = mod("src/lib/generators/fantasyMap.ts");
+  const a = f.generateFantasyMap(42, "continent");
+  const b = f.generateFantasyMap(42, "continent");
+  assert.deepEqual(Array.from(a.elevation.slice(0, 500)), Array.from(b.elevation.slice(0, 500)));
+  assert.deepEqual(a.labels, b.labels);
+  assert.notDeepEqual(Array.from(f.generateFantasyMap(43).elevation.slice(0, 500)), Array.from(a.elevation.slice(0, 500)));
+  const ratios = { continent: [], archipelago: [], pangaea: [] };
+  for (let seed = 1; seed <= 30; seed++) for (const shape of Object.keys(ratios)) {
+    const m = f.generateFantasyMap(seed, shape);
+    ratios[shape].push(m.landRatio);
+    for (const l of m.labels) {
+      const e = m.elevation[l.y * m.width + l.x];
+      if (l.kind === "sea") assert.ok(e < f.SEA_LEVEL, "sea label on water");
+      else assert.ok(e >= f.SEA_LEVEL, `${l.kind} label on land`);
+      assert.match(l.name, /^[A-Z]/);
+    }
+    // Edges stay water so every map has a coastline.
+    const corners = [0, m.width - 1, (m.height - 1) * m.width, m.height * m.width - 1].map((i) => m.elevation[i]);
+    if (shape !== "pangaea") assert.ok(corners.every((e) => e < f.SEA_LEVEL), `${shape} corners are sea`);
+  }
+  const median = (xs) => xs.slice().sort((x, y) => x - y)[Math.floor(xs.length / 2)];
+  assert.ok(median(ratios.continent) > 0.15 && median(ratios.continent) < 0.6, `continent land ${median(ratios.continent)}`);
+  assert.ok(median(ratios.pangaea) > median(ratios.continent), "supercontinent has more land");
+  assert.ok(median(ratios.archipelago) < median(ratios.pangaea), "islands have less land");
+  for (let seed = 1; seed <= 2000; seed++) assert.notEqual(f.placeName(rg.createRng(seed)).toLowerCase(), "mordor");
+  for (const style of ["color", "parchment"]) for (const e of [0.1, 0.49, 0.5, 0.75, 0.9]) {
+    const rgb = f.cellColor(e, 0.5, style);
+    assert.ok(rgb.every((v) => v >= 0 && v <= 255));
+  }
+});
+
 console.log(`✓ random generators: ${passed} tests passed`);

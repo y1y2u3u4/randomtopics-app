@@ -128,6 +128,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "random-food-generator",
     "random-letter-generator",
     "random-word-generator",
+    "japanese-name-generator",
+    "random-color-generator",
+    "fantasy-map-maker",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });
   }

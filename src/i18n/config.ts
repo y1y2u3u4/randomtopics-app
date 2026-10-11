@@ -131,6 +131,9 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/gnome-name-generator",
   "/random-food-generator",
   "/random-letter-generator",
+  "/japanese-name-generator",
+  "/random-color-generator",
+  "/fantasy-map-maker",
 ]);
 
 /** Spanish-only editorial pages with no honest one-to-one English alternate. */

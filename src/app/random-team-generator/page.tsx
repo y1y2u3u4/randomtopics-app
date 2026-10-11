@@ -5,14 +5,14 @@ import TeamGenerator from "@/components/generators/TeamGenerator";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 
 const PATH = "/random-team-generator";
-const TITLE = "Random Team Generator — Fair, Balanced Teams in One Click";
+const TITLE = "Random Team & Group Generator — Fair, Balanced Groups in One Click";
 const DESCRIPTION =
-  "Free random team generator: paste a list of names and split it into random or balanced teams by number of teams or people per team. Fun team names, lock players, full-screen mode, share link. No signup.";
+  "Free random team and group generator: paste a list of names and split it into random or balanced teams or groups by number of groups or people per group. Fun team names, lock players, full-screen mode, share link. No signup.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ["random team generator", "random group generator", "team picker", "team generator", "random team maker", "split into groups", "balanced team generator"],
+  keywords: ["random team generator", "random group generator", "group generator", "random group maker", "random groups for class", "team picker", "team generator", "random team maker", "split into groups", "balanced team generator"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
 };
@@ -39,6 +39,11 @@ const FAQ = [
       "Nothing is uploaded. Saved lists live only in your browser's local storage, so you can reload Period 3 tomorrow on the same device. A share link encodes the finished teams in the URL itself, so anyone who opens it sees exactly the same teams.",
   },
   {
+    question: "How do I make random groups for a class?",
+    answer:
+      "Paste your class list, choose People per team and set the group size — 2 for pairs, 3 or 4 for small groups — then press Make teams. The generator spreads leftovers so no group is more than one student bigger than another. Turn on Balance teams to mix ability levels, lock a student who needs a particular partner, then press Full screen to show the groups on the board.",
+  },
+  {
     question: "What's the difference between a random team generator and a random group generator?",
     answer:
       "Nothing, really — teachers often say groups, coaches say teams. Use People per team for small groups (pairs, trios, groups of four) and Number of teams when you need a fixed number of sides, such as two teams for a quiz or four houses for sports day.",
@@ -50,9 +55,9 @@ export default function RandomTeamGeneratorPage() {
     <GeneratorPageShell
       locale="en"
       path={PATH}
-      name="Random Team Generator"
-      heading={["Random Team", "Generator"]}
-      intro="Paste names, pick the number of teams or people per team, and get fair random teams — balanced by gender or skill if you want, with fun team names."
+      name="Random Team & Group Generator"
+      heading={["Random Team &", "Group Generator"]}
+      intro="Paste names, pick the number of teams or people per group, and get fair random teams or groups in one click — balanced by gender or skill if you want, with fun team names."
       description={DESCRIPTION}
       updated="2026-10-10"
       faq={FAQ}

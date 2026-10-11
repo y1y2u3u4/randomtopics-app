@@ -60,6 +60,7 @@ export default function CharacterNameGeneratorPage() {
         { href: "/writing", label: "Writing prompt generator" },
         { href: "/writing-topic-generator", label: "Writing topic generator" },
         { href: "/last-name-generator", label: "Last name generator" },
+        { href: "/japanese-name-generator", label: "Japanese name generator" },
       ]}
       content={
         <>

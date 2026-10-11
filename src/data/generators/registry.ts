@@ -22,7 +22,7 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     href: "/random-team-generator",
     esHref: "/es/generador-de-equipos-aleatorios",
     emoji: "👥",
-    label: { en: "Random Team Generator", es: "Generador de equipos" },
+    label: { en: "Random Team & Group Generator", es: "Generador de equipos y grupos" },
     detail: { en: "Split a list into fair teams", es: "Divide una lista en equipos justos" },
   },
   {
@@ -80,6 +80,24 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     emoji: "🔤",
     label: { en: "Random Letter Generator" },
     detail: { en: "A–Z with no repeats" },
+  },
+  {
+    href: "/japanese-name-generator",
+    emoji: "🎌",
+    label: { en: "Japanese Name Generator" },
+    detail: { en: "Kanji, kana, romaji & meaning" },
+  },
+  {
+    href: "/random-color-generator",
+    emoji: "🎨",
+    label: { en: "Random Color Generator" },
+    detail: { en: "HEX/RGB/HSL palettes, lock & copy" },
+  },
+  {
+    href: "/fantasy-map-maker",
+    emoji: "🗺️",
+    label: { en: "Fantasy Map Maker" },
+    detail: { en: "Random worlds, download PNG" },
   },
 ];
 
