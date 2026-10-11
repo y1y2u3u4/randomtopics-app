@@ -5,14 +5,14 @@ import TeamGenerator from "@/components/generators/TeamGenerator";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 
 const PATH = "/es/generador-de-equipos-aleatorios";
-const TITLE = "Generador de Equipos Aleatorios — Equipos Justos en un Clic";
+const TITLE = "Generador de Equipos y Grupos Aleatorios — Grupos Justos en un Clic";
 const DESCRIPTION =
-  "Generador de equipos aleatorios gratis: pega una lista de nombres y divídela en equipos o grupos al azar, por número de equipos o personas por equipo. Equilibra por género y nivel, fija jugadores, pantalla completa. Sin registro.";
+  "Generador de equipos y grupos aleatorios gratis: pega una lista de nombres y divídela en equipos o grupos al azar, por número de equipos o personas por equipo. Equilibra por género y nivel, fija jugadores, pantalla completa. Sin registro.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ["generador de equipos aleatorios", "generador de equipos", "hacer equipos al azar", "generador de grupos aleatorios", "sorteo de equipos", "dividir en grupos"],
+  keywords: ["generador de equipos aleatorios", "generador de grupos aleatorios", "hacer grupos al azar", "grupos aleatorios para clase", "generador de equipos", "hacer equipos al azar", "generador de grupos aleatorios", "sorteo de equipos", "dividir en grupos"],
   alternates: { canonical: PATH, languages: hreflangAlternates("/random-team-generator") },
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", locale: "es_ES", type: "website" },
 };
@@ -39,6 +39,11 @@ const FAQ = [
       "No se sube nada. Las listas guardadas viven solo en el almacenamiento local de tu navegador. El enlace para compartir lleva los equipos dentro de la propia URL, así quien lo abra ve exactamente los mismos equipos.",
   },
   {
+    question: "¿Cómo hago grupos aleatorios para una clase?",
+    answer:
+      "Pega la lista de la clase, elige Personas por equipo y pon el tamaño del grupo — 2 para parejas, 3 o 4 para grupos pequeños — y pulsa Hacer equipos. Los grupos nunca se diferencian en más de un alumno. Activa Equilibrar equipos para mezclar niveles, fija a quien necesite un compañero concreto y pulsa Pantalla completa para proyectarlos en la pizarra.",
+  },
+  {
     question: "¿Sirve para hacer grupos de trabajo en clase?",
     answer:
       "Sí. Usa Personas por equipo para parejas, tríos o grupos de cuatro, y Número de equipos cuando necesitas un número fijo de bandos, como dos equipos para un concurso o cuatro casas para la jornada deportiva.",
@@ -50,9 +55,9 @@ export default function GeneradorDeEquiposPage() {
     <GeneratorPageShell
       locale="es"
       path={PATH}
-      name="Generador de Equipos Aleatorios"
-      heading={["Generador de Equipos", "Aleatorios"]}
-      intro="Pega los nombres, elige cuántos equipos o cuántas personas por equipo y obtén equipos al azar y justos — equilibrados por género o nivel si quieres, con nombres de equipo divertidos."
+      name="Generador de Equipos y Grupos Aleatorios"
+      heading={["Generador de Equipos y", "Grupos Aleatorios"]}
+      intro="Pega los nombres, elige cuántos equipos o cuántas personas por grupo y obtén equipos o grupos al azar y justos — equilibrados por género o nivel si quieres, con nombres de equipo divertidos."
       description={DESCRIPTION}
       updated="2026-10-10"
       faq={FAQ}

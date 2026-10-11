@@ -56,6 +56,7 @@ export default function LastNameGeneratorPage() {
       updated="2026-10-10"
       faq={FAQ}
       related={[
+        { href: "/japanese-name-generator", label: "Japanese name generator" },
         { href: "/writing", label: "Writing prompt generator" },
         { href: "/writing-topic-generator", label: "Writing topic generator" },
         { href: "/topics/writing-prompts-for-kids", label: "Writing prompts for kids" },

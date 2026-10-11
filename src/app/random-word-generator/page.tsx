@@ -57,6 +57,7 @@ export default function RandomWordGeneratorPage() {
       faq={FAQ}
       related={[
         { href: "/random-drawing-generator", label: "Random drawing generator" },
+        { href: "/random-color-generator", label: "Random color generator" },
         { href: "/charades", label: "Charades generator" },
         { href: "/writing", label: "Writing prompt generator" },
         { href: "/random-letter-generator", label: "Random letter generator" },
