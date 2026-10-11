@@ -33,29 +33,37 @@ export default function PracticeDemo() {
     const el = root.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    let inView = false;
     let timer: ReturnType<typeof setTimeout> | undefined;
+    // demo_view = at least half the demo on screen for one continuous second
+    // while the tab is in the foreground; leaving either condition restarts it.
+    const sync = () => {
+      const qualifies = inView && document.visibilityState === "visible" && !viewed.current;
+      if (qualifies && !timer) {
+        timer = setTimeout(() => {
+          timer = undefined;
+          viewed.current = true;
+          track("demo_view", { demo: "practice_flow", exposure_rule: "visible_50_1s", content_source: "homepage" });
+        }, 1000);
+      } else if (!qualifies && timer) {
+        clearTimeout(timer);
+        timer = undefined;
+      }
+    };
     const observer = new IntersectionObserver(([entry]) => {
-      const visible = entry.isIntersecting && entry.intersectionRatio >= 0.5;
-      if (visible && !reduce && !started.current) {
+      inView = entry.isIntersecting && entry.intersectionRatio >= 0.5;
+      if (inView && !reduce && !started.current) {
         started.current = true;
         setPlaying(true);
         track("demo_play", { demo: "practice_flow", trigger: "auto", content_source: "homepage" });
       }
-      if (visible && !viewed.current && !timer) {
-        timer = setTimeout(() => {
-          if (document.visibilityState !== "visible") { timer = undefined; return; }
-          viewed.current = true;
-          track("demo_view", { demo: "practice_flow", exposure_rule: "visible_50_1s", content_source: "homepage" });
-        }, 1000);
-      }
-      if (!visible && timer) {
-        clearTimeout(timer);
-        timer = undefined;
-      }
+      sync();
     }, { threshold: [0, 0.5, 1] });
     observer.observe(el);
+    document.addEventListener("visibilitychange", sync);
     return () => {
       observer.disconnect();
+      document.removeEventListener("visibilitychange", sync);
       if (timer) clearTimeout(timer);
     };
   }, []);
