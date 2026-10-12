@@ -137,6 +137,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "my-9-movies",
     "my-9-books",
     "my-9-grid",
+    "asa-citation-generator",
+    "acs-citation-generator",
+    "chicago-citation-generator",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });
   }
