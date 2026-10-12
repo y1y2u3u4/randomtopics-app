@@ -134,6 +134,10 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/japanese-name-generator",
   "/random-color-generator",
   "/fantasy-map-maker",
+  "/my-9-albums",
+  "/my-9-games",
+  "/my-9-anime",
+  "/my-9-grid",
 ]);
 
 /** Spanish-only editorial pages with no honest one-to-one English alternate. */

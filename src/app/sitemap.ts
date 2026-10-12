@@ -131,6 +131,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "japanese-name-generator",
     "random-color-generator",
     "fantasy-map-maker",
+    "my-9-albums",
+    "my-9-games",
+    "my-9-anime",
+    "my-9-grid",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });
   }
