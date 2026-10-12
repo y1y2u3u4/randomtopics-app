@@ -137,6 +137,8 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/my-9-albums",
   "/my-9-games",
   "/my-9-anime",
+  "/my-9-movies",
+  "/my-9-books",
   "/my-9-grid",
 ]);
 

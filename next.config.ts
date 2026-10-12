@@ -72,6 +72,12 @@ const nextConfig: NextConfig = {
         destination: "/es",
         permanent: true,
       },
+      // "my 9 albums template" is covered by /my-9-albums; one page per intent.
+      {
+        source: "/my-9-albums-template",
+        destination: "/my-9-albums",
+        permanent: true,
+      },
     ];
   },
 };

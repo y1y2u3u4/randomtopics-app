@@ -484,12 +484,19 @@ test("my 9: placing fills the chosen or first empty square and refuses a full gr
 test("my 9: layout keeps nine tiles inside the canvas and crop fills the tile", () => {
   for (const aspect of [1, 4 / 3]) for (const captions of [true, false]) {
     const L = ng.gridLayout(aspect, captions, true);
+    assert.equal(L.width, 1080);
+    assert.equal(L.height, 1080, "square export");
     assert.equal(L.tiles.length, 9);
+    assert.ok(Math.abs(L.tileH / L.tileW - aspect) < 0.02);
     for (const t of L.tiles) {
       assert.ok(t.x >= 0 && t.x + L.tileW <= L.width);
       assert.ok(t.y >= L.header && t.y + L.tileH + L.caption <= L.height);
     }
   }
+  const story = ng.gridLayout(1, true, true, 1920);
+  assert.equal(story.height, 1920);
+  assert.ok(story.tiles[0].y > 300, "story grid is centred vertically");
+  assert.ok(story.tiles[8].y + story.tileH + story.caption <= 1920 - story.pad);
   const c = ng.coverCrop(1000, 500, 300, 400);
   assert.ok(Math.abs(c.sw / c.sh - 300 / 400) < 1e-9);
   assert.ok(c.sx > 0 && c.sy === 0);
@@ -497,6 +504,28 @@ test("my 9: layout keeps nine tiles inside the canvas and crop fills the tile", 
 
 const asyncTests = [];
 asyncTests.push((async () => {
+  // Albums: Deezer via our route first, iTunes when the route returns nothing or fails.
+  const dz = ng.fromDeezer([
+    { id: 12114240, title: "The Dark Side of the Moon", artist: { name: "Pink Floyd" }, cover_xl: "https://cdn-images.dzcdn.net/x/1000.jpg", cover_medium: "https://cdn-images.dzcdn.net/x/250.jpg", record_type: "album" },
+    { id: 5, title: "A single", artist: { name: "X" }, cover_xl: "https://cdn-images.dzcdn.net/s.jpg", record_type: "single" },
+    { id: 6, title: "No cover", artist: { name: "X" } },
+  ]);
+  assert.deepEqual(ng.fromDeezer([
+    { id: 1, title: "Physical Graffiti (Remaster)", cover_xl: "c" },
+    { id: 2, title: "Since I Left You (20th Anniversary Deluxe Edition)", cover_xl: "c" },
+    { id: 3, title: "Mezzanine", cover_xl: "c" },
+    { id: 4, title: "Abbey Road (Super Deluxe Edition) [2019 Mix]", cover_xl: "c" },
+  ]).map((a) => a.title), ["Physical Graffiti", "Since I Left You", "Mezzanine", "Abbey Road (Super Deluxe Edition)"]);
+  assert.deepEqual(dz, [{ id: "d12114240", title: "The Dark Side of the Moon", subtitle: "Pink Floyd", image: "https://cdn-images.dzcdn.net/x/1000.jpg", thumb: "https://cdn-images.dzcdn.net/x/250.jpg" }]);
+  const routed = fakeFetch({ items: dz });
+  assert.equal((await ng.searchItems("albums", "dark side", routed))[0].id, "d12114240");
+  assert.equal(routed.calls[0].url, "/api/my9/albums?q=dark+side");
+  assert.equal(routed.calls.length, 1, "no iTunes call when the route answers");
+  assert.deepEqual(ng.decodeShare("?i=d12114240.1097861387").ids.slice(0, 2), ["d12114240", "1097861387"], "Deezer and legacy iTunes ids");
+  const mixed = async (url) => ({ ok: true, json: async () => (String(url).startsWith("/api/") ? { items: dz } : { results: [{ wrapperType: "collection", collectionId: 77, collectionName: "Kid A", artistName: "Radiohead", artworkUrl100: "https://is1-ssl.mzstatic.com/k/100x100bb.jpg" }] }) });
+  const both = await ng.lookupItems("albums", ["d12114240", "77"], mixed);
+  assert.equal(both.get("d12114240").subtitle, "Pink Floyd");
+  assert.equal(both.get("77").title, "Kid A");
   const f = fakeFetch({ results: [
     { wrapperType: "collection", collectionId: 1, collectionName: "Abbey Road", artistName: "The Beatles", artworkUrl100: "https://is1-ssl.mzstatic.com/a/100x100bb.jpg" },
     { wrapperType: "collection", collectionId: 2, collectionName: "No art", artistName: "X" },
@@ -504,7 +533,8 @@ asyncTests.push((async () => {
   ] });
   const albums = await ng.searchItems("albums", "abbey", f);
   assert.deepEqual(albums, [{ id: "1", title: "Abbey Road", subtitle: "The Beatles", image: "https://is1-ssl.mzstatic.com/a/600x600bb.jpg", thumb: "https://is1-ssl.mzstatic.com/a/200x200bb.jpg" }]);
-  assert.match(f.calls[0].url, /entity=album/);
+  assert.match(f.calls[0].url, /^\/api\/my9\/albums/);
+  assert.match(f.calls[1].url, /itunes\.apple\.com\/search.*entity=album/, "iTunes fallback");
   assert.deepEqual(await ng.searchItems("albums", "a", f), [], "one letter does not search");
 
   const w = fakeFetch({ query: { pages: {
@@ -516,6 +546,12 @@ asyncTests.push((async () => {
   assert.deepEqual(games.map((g) => g.title), ["Doom", "Halo 3"], "ordered by relevance, no-cover pages dropped, disambiguator removed");
   assert.equal(new URL(w.calls[0].url).searchParams.get("gsrsearch"), `doom hastemplate:"Infobox video game"`);
   assert.match(w.calls[0].url, /origin=\*/);
+  const m = fakeFetch({ query: { pages: { "5": { pageid: 5, index: 1, title: "Paprika (2006 film)", thumbnail: { source: "https://upload.wikimedia.org/p.jpg" } } } } });
+  assert.equal((await ng.searchItems("movies", "paprika", m))[0].title, "Paprika");
+  assert.equal(new URL(m.calls[0].url).searchParams.get("gsrsearch"), `paprika hastemplate:"Infobox film"`);
+  const bk = fakeFetch({ query: { pages: {} } });
+  await ng.searchItems("books", "dune", bk);
+  assert.equal(new URL(bk.calls[0].url).searchParams.get("gsrsearch"), `dune hastemplate:"Infobox book"`);
 
   const a = fakeFetch({ data: { Page: { media: [
     { id: 20, title: { english: null, romaji: "NARUTO" }, coverImage: { extraLarge: "https://s4.anilist.co/x.jpg" }, startDate: { year: 2002 }, format: "TV" },

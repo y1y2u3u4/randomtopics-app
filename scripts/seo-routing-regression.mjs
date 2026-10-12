@@ -141,6 +141,7 @@ for (const [source, destination] of [
   ["/article/:slug", "/topics/:slug"],
   ["/topic-generator", "/"],
   ["/es/topic-generator", "/es"],
+  ["/my-9-albums-template", "/my-9-albums"],
 ]) {
   const rule = redirects.find((candidate) => candidate.source === source);
   assert.ok(rule, "legacy redirect missing: " + source);
@@ -154,7 +155,7 @@ for (const [source, destination] of [
 }
 console.log("SEO routing regression passed: " + CATEGORIES.length + " rendered Spanish categories, " +
   renderedLinks + " rendered links, " + sitemap.length + " sitemap URLs, " +
-  alternates + " alternates, 3 legacy redirect rules. No production HTTP/GSC assertions.");
+  alternates + " alternates, 4 legacy redirect rules. No production HTTP/GSC assertions.");
 
 if (process.env.SEO_BASE_URL) {
   const base = new URL(process.env.SEO_BASE_URL);
@@ -177,6 +178,7 @@ if (process.env.SEO_BASE_URL) {
     ["/article/deep-philosophical-questions", "/topics/deep-philosophical-questions"],
     ["/topic-generator", "/"],
     ["/es/topic-generator", "/es"],
+    ["/my-9-albums-template", "/my-9-albums"],
   ]) {
     const response = await get(source + "?utm_source=routing-regression");
     assert.ok([301, 308].includes(response.status), "HTTP permanent redirect: " + source);
@@ -198,6 +200,6 @@ if (process.env.SEO_BASE_URL) {
   assert.equal(new URL(legacyMissing.headers.get("location"), base).pathname,
     "/topics/nonexistent-seo-regression-slug");
   console.log("HTTP routing regression passed: " + sitemap.length +
-    " sitemap URLs return 200; 3 permanent redirects preserve queries and end at 200; " +
+    " sitemap URLs return 200; 4 permanent redirects preserve queries and end at 200; " +
     "nonexistent pages remain 404. Test server only, no production/GSC assertion.");
 }
