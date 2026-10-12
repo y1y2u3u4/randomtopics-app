@@ -40,9 +40,15 @@ const CARDS = [
   { id: "word", slug: "es-generador-de-palabras-aleatorias", lang: "es", title: "Generador de Palabras Aleatorias", line: "Sustantivos, verbos y adjetivos por dificultad", chips: ["mariposa", "paraguas", "efímero"].map((w) => by(wordsEs, "w", w).w) },
   { id: "japanese", slug: "japanese-name-generator", title: "Japanese Name Generator", line: "Kanji, kana, romaji & meanings", chips: [["Haruto", "Tanaka"], ["Yui", "Sato"], ["Ren", "Kurosawa"]].map(([g, f]) => { const gg = jp.given.find((x) => x.romaji === g) ?? jp.given[0]; const ff = jp.family.find((x) => x.romaji === f) ?? jp.family[0]; return `${ff.kanji}${gg.kanji} · ${gg.romaji} ${ff.romaji}`; }) },
   { id: "color", slug: "random-color-generator", title: "Random Color Generator", line: "HEX, RGB & HSL palettes — lock & copy", chips: ["#F98743", "#39ABBC", "#AADE68"], swatches: true },
+  // My 9 pages: no illustration, a code-drawn 3×3 mosaic (real covers are not site art).
+  { id: "my9", slug: "my-9-albums", title: "My 9 Albums", line: "Your 3×3 album grid — free, no watermark", chips: ["Search any album", "Tap 9 covers", "Download PNG"], mosaic: true },
+  { id: "my9", slug: "my-9-games", title: "My 9 Games", line: "Your 3×3 favorite games grid — free", chips: ["Console, PC & retro", "Tap 9 covers", "Download PNG"], mosaic: true },
+  { id: "my9", slug: "my-9-anime", title: "My 9 Anime", line: "Your 3×3 favorite anime grid — free", chips: ["Series & films", "Tap 9 posters", "Download PNG"], mosaic: true },
+  { id: "my9", slug: "my-9-grid", title: "My 9 Grid Maker", line: "Any 9 pictures in one 3×3 image", chips: ["Movies, books, foods…", "Stays in your browser", "No watermark"], mosaic: true },
   { id: "map", slug: "fantasy-map-maker", title: "Fantasy Map Maker", line: "Random fantasy worlds — download PNG", chips: ["Continent", "Islands", "Parchment"] },
 ];
 
+const MOSAIC_COLORS = ["#F7C9B6", "#BFE3DA", "#F6E3A6", "#D5CCF2", "#F4B9C8", "#BCD7F2", "#CDE8B9", "#F9D7A8", "#E3D0C2"];
 const escape = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
 function cardHtml(card, bgPath) {
@@ -60,7 +66,11 @@ function cardHtml(card, bgPath) {
   ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;margin-top:30px}
   li{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:#fff;border:2px solid #e3ddcf;border-radius:14px;padding:10px 18px;font-size:24px;font-weight:600;color:#2b3040;box-shadow:0 2px 0 #e3ddcf}
   li i{width:26px;height:26px;border-radius:7px;display:inline-block}
-  </style></head><body><div class="bg"></div><div class="fade"></div><div class="text">
+  .mosaic{position:absolute;right:64px;top:50%;transform:translateY(-50%);display:grid;grid-template-columns:repeat(3,146px);gap:14px}
+  .mosaic b{height:146px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:800;color:rgba(31,36,51,.55);box-shadow:0 3px 0 rgba(0,0,0,.08)}
+  </style></head><body>${card.mosaic
+    ? `<div class="mosaic">${MOSAIC_COLORS.map((c, i) => `<b style="background:${c}">${i + 1}</b>`).join("")}</div>`
+    : `<div class="bg"></div><div class="fade"></div>`}<div class="text">
   <div class="brand">🎲 RandomTopics.app</div><h1>${escape(card.title)}</h1><p>${escape(card.line)}</p><ul>${chips}</ul></div></body></html>`;
 }
 
@@ -87,7 +97,7 @@ async function screenshot(html, shot) {
 for (const card of CARDS) {
   if (only.length && !only.includes(card.id)) continue;
   const src = join(resolve(srcDir), `rt-og-${card.id}.png`);
-  if (!existsSync(src)) { console.log(`skip ${card.slug}: no background`); continue; }
+  if (!card.mosaic && !existsSync(src)) { console.log(`skip ${card.slug}: no background`); continue; }
   const html = join(work, `${card.slug}.html`);
   const shot = join(work, `${card.slug}.png`);
   writeFileSync(html, cardHtml(card, src));

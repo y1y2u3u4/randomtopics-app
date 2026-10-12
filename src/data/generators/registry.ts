@@ -99,6 +99,30 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     label: { en: "Fantasy Map Maker" },
     detail: { en: "Random worlds, download PNG" },
   },
+  {
+    href: "/my-9-albums",
+    emoji: "💿",
+    label: { en: "My 9 Albums" },
+    detail: { en: "3×3 album cover grid, PNG" },
+  },
+  {
+    href: "/my-9-games",
+    emoji: "🎮",
+    label: { en: "My 9 Games" },
+    detail: { en: "3×3 favorite games grid" },
+  },
+  {
+    href: "/my-9-anime",
+    emoji: "🌸",
+    label: { en: "My 9 Anime" },
+    detail: { en: "3×3 favorite anime grid" },
+  },
+  {
+    href: "/my-9-grid",
+    emoji: "🔳",
+    label: { en: "My 9 Grid Maker" },
+    detail: { en: "Any 9 pictures in one image" },
+  },
 ];
 
 export function generatorsFor(locale: "en" | "es"): { href: string; emoji: string; label: string; detail: string }[] {

@@ -439,4 +439,95 @@ test("fantasy map: deterministic by seed, sensible land share, labels in place",
   }
 });
 
+/* ---------------- My 9 grid maker ---------------- */
+
+const ng = mod("src/lib/generators/nineGrid.ts");
+const fakeFetch = (body) => {
+  const f = async (url, init) => { f.calls.push({ url: String(url), init }); return { ok: true, json: async () => body }; };
+  f.calls = [];
+  return f;
+};
+
+test("my 9: share link round-trips ids, empty and uploaded slots, and custom titles", () => {
+  const slots = Array(9).fill(null);
+  slots[0] = { id: "111", title: "A", image: "x" };
+  slots[2] = { title: "upload", image: "blob:x" };
+  slots[4] = { id: "555", title: "E", image: "y" };
+  const qs = ng.encodeShare(slots, "My 9 Albums", "My 9 Albums");
+  assert.equal(qs, "i=111._._._.555");
+  const back = ng.decodeShare(`?${qs}`);
+  assert.deepEqual(back.ids, ["111", "", "", "", "555", "", "", "", ""]);
+  assert.equal(back.title, undefined);
+  assert.equal(ng.decodeShare(`?${ng.encodeShare(slots, "Albums that made me", "My 9 Albums")}`).title, "Albums that made me");
+  assert.equal(ng.encodeShare(Array(9).fill(null), "My 9 Albums", "My 9 Albums"), "");
+  // Hostile input is ignored rather than reaching the APIs.
+  assert.deepEqual(ng.decodeShare("?i=1;drop.<x>.12.1.2.3.4.5.6.7.8.9").ids, ["", "", "12", "1", "2", "3", "4", "5", "6"]);
+});
+
+test("my 9: placing fills the chosen or first empty square and refuses a full grid", () => {
+  let slots = Array(9).fill(null);
+  const item = (n) => ({ id: String(n), title: `T${n}`, image: "i" });
+  const a = ng.placeItem(slots, item(1), null);
+  assert.equal(a.index, 0);
+  const b = ng.placeItem(a.slots, item(2), 5);
+  assert.equal(b.index, 5);
+  assert.equal(b.slots[0].id, "1");
+  assert.equal(slots[0], null, "input not mutated");
+  slots = Array.from({ length: 9 }, (_, i) => item(i));
+  assert.equal(ng.placeItem(slots, item(99), null), null);
+  assert.equal(ng.placeItem(slots, item(99), 3).slots[3].id, "99", "a chosen square is replaced");
+  const swapped = ng.swapSlots(slots, 0, 8);
+  assert.equal(swapped[0].id, "8");
+  assert.equal(swapped[8].id, "0");
+});
+
+test("my 9: layout keeps nine tiles inside the canvas and crop fills the tile", () => {
+  for (const aspect of [1, 4 / 3]) for (const captions of [true, false]) {
+    const L = ng.gridLayout(aspect, captions, true);
+    assert.equal(L.tiles.length, 9);
+    for (const t of L.tiles) {
+      assert.ok(t.x >= 0 && t.x + L.tileW <= L.width);
+      assert.ok(t.y >= L.header && t.y + L.tileH + L.caption <= L.height);
+    }
+  }
+  const c = ng.coverCrop(1000, 500, 300, 400);
+  assert.ok(Math.abs(c.sw / c.sh - 300 / 400) < 1e-9);
+  assert.ok(c.sx > 0 && c.sy === 0);
+});
+
+const asyncTests = [];
+asyncTests.push((async () => {
+  const f = fakeFetch({ results: [
+    { wrapperType: "collection", collectionId: 1, collectionName: "Abbey Road", artistName: "The Beatles", artworkUrl100: "https://is1-ssl.mzstatic.com/a/100x100bb.jpg" },
+    { wrapperType: "collection", collectionId: 2, collectionName: "No art", artistName: "X" },
+    { wrapperType: "collection", collectionId: 3, collectionName: "Something - Single", artistName: "The Beatles", artworkUrl100: "https://is1-ssl.mzstatic.com/s/100x100bb.jpg" },
+  ] });
+  const albums = await ng.searchItems("albums", "abbey", f);
+  assert.deepEqual(albums, [{ id: "1", title: "Abbey Road", subtitle: "The Beatles", image: "https://is1-ssl.mzstatic.com/a/600x600bb.jpg", thumb: "https://is1-ssl.mzstatic.com/a/200x200bb.jpg" }]);
+  assert.match(f.calls[0].url, /entity=album/);
+  assert.deepEqual(await ng.searchItems("albums", "a", f), [], "one letter does not search");
+
+  const w = fakeFetch({ query: { pages: {
+    "9": { pageid: 9, index: 2, title: "Halo 3", description: "2007 video game", thumbnail: { source: "https://upload.wikimedia.org/h.jpg" } },
+    "7": { pageid: 7, index: 1, title: "Doom (1993 video game)", thumbnail: { source: "https://upload.wikimedia.org/d.jpg" } },
+    "8": { pageid: 8, index: 3, title: "Minecraft" },
+  } } });
+  const games = await ng.searchItems("games", "doom", w);
+  assert.deepEqual(games.map((g) => g.title), ["Doom", "Halo 3"], "ordered by relevance, no-cover pages dropped, disambiguator removed");
+  assert.equal(new URL(w.calls[0].url).searchParams.get("gsrsearch"), `doom hastemplate:"Infobox video game"`);
+  assert.match(w.calls[0].url, /origin=\*/);
+
+  const a = fakeFetch({ data: { Page: { media: [
+    { id: 20, title: { english: null, romaji: "NARUTO" }, coverImage: { extraLarge: "https://s4.anilist.co/x.jpg" }, startDate: { year: 2002 }, format: "TV" },
+  ] } } });
+  const anime = await ng.searchItems("anime", "naruto", a);
+  assert.deepEqual(anime[0], { id: "20", title: "NARUTO", subtitle: "2002 · TV", image: "https://s4.anilist.co/x.jpg", thumb: undefined });
+  assert.equal(JSON.parse(a.calls[0].init.body).variables.q, "naruto");
+  const looked = await ng.lookupItems("anime", ["20", "", "20"], a);
+  assert.equal(looked.get("20").title, "NARUTO");
+  assert.deepEqual(JSON.parse(a.calls[1].init.body).variables.ids, [20], "deduplicated numeric ids");
+  passed++;
+})());
+await Promise.all(asyncTests);
+
 console.log(`✓ random generators: ${passed} tests passed`);
