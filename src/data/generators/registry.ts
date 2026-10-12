@@ -8,6 +8,8 @@ export interface GeneratorLink {
   emoji: string;
   label: { en: string; es?: string };
   detail: { en: string; es?: string };
+  /** Only linked from other generator pages, not the homepage group or footer. */
+  crossLinkOnly?: boolean;
 }
 
 export const RANDOM_GENERATORS: GeneratorLink[] = [
@@ -104,29 +106,47 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     emoji: "💿",
     label: { en: "My 9 Albums" },
     detail: { en: "3×3 album cover grid, PNG" },
+    crossLinkOnly: true,
   },
   {
     href: "/my-9-games",
     emoji: "🎮",
     label: { en: "My 9 Games" },
     detail: { en: "3×3 favorite games grid" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/my-9-movies",
+    emoji: "🎬",
+    label: { en: "My 9 Movies" },
+    detail: { en: "3×3 favorite movies grid" },
+    crossLinkOnly: true,
   },
   {
     href: "/my-9-anime",
     emoji: "🌸",
     label: { en: "My 9 Anime" },
     detail: { en: "3×3 favorite anime grid" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/my-9-books",
+    emoji: "📚",
+    label: { en: "My 9 Books" },
+    detail: { en: "3×3 favorite books grid" },
+    crossLinkOnly: true,
   },
   {
     href: "/my-9-grid",
     emoji: "🔳",
     label: { en: "My 9 Grid Maker" },
     detail: { en: "Any 9 pictures in one image" },
+    crossLinkOnly: true,
   },
 ];
 
-export function generatorsFor(locale: "en" | "es"): { href: string; emoji: string; label: string; detail: string }[] {
-  return RANDOM_GENERATORS.filter((g) => locale === "en" || g.esHref).map((g) => ({
+export function generatorsFor(locale: "en" | "es", opts: { crossLinks?: boolean } = {}): { href: string; emoji: string; label: string; detail: string }[] {
+  return RANDOM_GENERATORS.filter((g) => (locale === "en" || g.esHref) && (opts.crossLinks || !g.crossLinkOnly)).map((g) => ({
     href: locale === "es" ? (g.esHref as string) : g.href,
     emoji: g.emoji,
     label: (locale === "es" ? g.label.es : undefined) ?? g.label.en,

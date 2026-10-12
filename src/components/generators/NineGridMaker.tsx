@@ -27,9 +27,10 @@ function fitText(ctx: CanvasRenderingContext2D, text: string, max: number): stri
   return `${t.trimEnd()}…`;
 }
 
-async function renderGrid(slots: Slots, kind: GridKind, title: string, byline: string, captions: boolean, light: boolean): Promise<Blob | null> {
+async function renderGrid(slots: Slots, kind: GridKind, title: string, byline: string, captions: boolean, light: boolean, story: boolean): Promise<Blob | null> {
   const cfg = KINDS[kind];
-  const L = gridLayout(cfg.aspect, captions, Boolean(byline.trim()));
+  const L = gridLayout(cfg.aspect, captions, Boolean(byline.trim()), story ? 1920 : 1080);
+  const titleY = L.header - (byline.trim() ? 64 : 34);
   const canvas = document.createElement("canvas");
   canvas.width = L.width;
   canvas.height = L.height;
@@ -43,11 +44,11 @@ async function renderGrid(slots: Slots, kind: GridKind, title: string, byline: s
   ctx.textBaseline = "alphabetic";
   ctx.fillStyle = ink;
   ctx.font = font(800, 60);
-  ctx.fillText(fitText(ctx, title.trim() || cfg.defaultTitle, L.width - L.pad * 2), L.width / 2, 86);
+  ctx.fillText(fitText(ctx, title.trim() || cfg.defaultTitle, L.width - L.pad * 2), L.width / 2, titleY);
   if (byline.trim()) {
     ctx.fillStyle = muted;
     ctx.font = font(500, 28);
-    ctx.fillText(fitText(ctx, byline.trim(), L.width - L.pad * 2), L.width / 2, 126);
+    ctx.fillText(fitText(ctx, byline.trim(), L.width - L.pad * 2), L.width / 2, titleY + 40);
   }
   const images = await Promise.all(slots.map((s) => (s ? loadImage(s.image) : Promise.resolve(null))));
   slots.forEach((slot, i) => {
@@ -86,6 +87,7 @@ export default function NineGridMaker({ kind }: { kind: GridKind }) {
   const [byline, setByline] = useState("");
   const [captions, setCaptions] = useState(kind !== "any");
   const [light, setLight] = useState(false);
+  const [story, setStory] = useState(false);
   const [note, setNote] = useState("");
   const [busy, setBusy] = useState(false);
   const [added, setAdded] = useState("");
@@ -180,12 +182,12 @@ export default function NineGridMaker({ kind }: { kind: GridKind }) {
   const exportPng = async (mode: "download" | "share") => {
     if (!slots.some(Boolean)) { flash(`Add at least one ${cfg.noun} first.`); return; }
     setBusy(true);
-    const blob = await renderGrid(slots, kind, title, byline, captions, light);
+    const blob = await renderGrid(slots, kind, title, byline, captions, light, story);
     setBusy(false);
     if (!blob) { flash("Could not create the image — try removing a cover that did not load."); return; }
     const name = `${(title.trim() || cfg.defaultTitle).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "my-9"}.png`;
     const file = new File([blob], name, { type: "image/png" });
-    track("generate_success", { tool_type: cfg.toolType, generator_mode: mode, result_count: slots.filter(Boolean).length, locale: "en" });
+    track("generate_success", { tool_type: cfg.toolType, generator_mode: story ? `${mode}_story` : mode, result_count: slots.filter(Boolean).length, locale: "en" });
     if (mode === "share" && navigator.canShare?.({ files: [file] })) {
       try { await navigator.share({ files: [file], title: title.trim() || cfg.defaultTitle }); return; } catch { /* cancelled: fall through to download */ }
     }
@@ -249,6 +251,7 @@ export default function NineGridMaker({ kind }: { kind: GridKind }) {
           <div className="flex flex-wrap items-center gap-4 mt-4 text-sm text-[var(--text-secondary)]">
             <label className="flex items-center gap-2"><input type="checkbox" checked={captions} onChange={(e) => setCaptions(e.target.checked)} /> Show titles</label>
             <label className="flex items-center gap-2"><input type="checkbox" checked={light} onChange={(e) => setLight(e.target.checked)} /> Light background</label>
+            <label className="flex items-center gap-2"><input type="checkbox" checked={story} onChange={(e) => setStory(e.target.checked)} /> Story size (1080×1920)</label>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 mt-5">

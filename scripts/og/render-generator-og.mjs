@@ -43,6 +43,8 @@ const CARDS = [
   // My 9 pages: no illustration, a code-drawn 3×3 mosaic (real covers are not site art).
   { id: "my9", slug: "my-9-albums", title: "My 9 Albums", line: "Your 3×3 album grid — free, no watermark", chips: ["Search any album", "Tap 9 covers", "Download PNG"], mosaic: true },
   { id: "my9", slug: "my-9-games", title: "My 9 Games", line: "Your 3×3 favorite games grid — free", chips: ["Console, PC & retro", "Tap 9 covers", "Download PNG"], mosaic: true },
+  { id: "my9", slug: "my-9-movies", title: "My 9 Movies", line: "Your 3×3 favorite movies grid — free", chips: ["Search any film", "Tap 9 posters", "Square or story PNG"], mosaic: true },
+  { id: "my9", slug: "my-9-books", title: "My 9 Books", line: "Your 3×3 favorite books grid — free", chips: ["Search any book", "Tap 9 covers", "Square or story PNG"], mosaic: true },
   { id: "my9", slug: "my-9-anime", title: "My 9 Anime", line: "Your 3×3 favorite anime grid — free", chips: ["Series & films", "Tap 9 posters", "Download PNG"], mosaic: true },
   { id: "my9", slug: "my-9-grid", title: "My 9 Grid Maker", line: "Any 9 pictures in one 3×3 image", chips: ["Movies, books, foods…", "Stays in your browser", "No watermark"], mosaic: true },
   { id: "map", slug: "fantasy-map-maker", title: "Fantasy Map Maker", line: "Random fantasy worlds — download PNG", chips: ["Continent", "Islands", "Parchment"] },

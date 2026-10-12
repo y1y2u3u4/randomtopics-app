@@ -134,6 +134,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "my-9-albums",
     "my-9-games",
     "my-9-anime",
+    "my-9-movies",
+    "my-9-books",
     "my-9-grid",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });

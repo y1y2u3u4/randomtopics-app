@@ -25,6 +25,10 @@ interface Props {
   related?: { href: string; label: string }[];
   /** Themed illustration above the H1 (public/generators/hero, WebP; size in heroImages.json). */
   hero?: { src: string; alt: string };
+  /** Two-to-three sentence answer shown first in the explainer ("In short"). */
+  inShort?: React.ReactNode;
+  /** Extra sections between the tool and the explainer. */
+  afterTool?: React.ReactNode;
 }
 
 const UI = {
@@ -33,9 +37,9 @@ const UI = {
 };
 
 export default function GeneratorPageShell(props: Props) {
-  const { locale, path, name, heading, intro, description, updated, faq, children, content, related = [], hero } = props;
+  const { locale, path, name, heading, intro, description, updated, faq, children, content, related = [], hero, inShort, afterTool } = props;
   const ui = UI[locale];
-  const others = generatorsFor(locale).filter((g) => g.href !== path);
+  const others = generatorsFor(locale, { crossLinks: true }).filter((g) => g.href !== path);
   const appSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -73,9 +77,17 @@ export default function GeneratorPageShell(props: Props) {
 
         {children}
 
+        {afterTool}
+
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-14">
           <div className="glass-card p-7 sm:p-10">
             <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed generator-copy">
+              {inShort && (
+                <div className="rounded-xl border border-[var(--neon-cyan)]/30 bg-[rgba(0,229,255,0.05)] p-4">
+                  <p className="text-xs uppercase tracking-widest text-[var(--neon-cyan)] mb-1">In short</p>
+                  <p className="text-[var(--text-primary)]">{inShort}</p>
+                </div>
+              )}
               {content}
               <h2 className="text-xl font-semibold text-[var(--text-primary)] pt-4" style={{ fontFamily: "var(--font-display)" }}>{ui.faq}</h2>
               {faq.map((item) => (
