@@ -140,6 +140,9 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/my-9-movies",
   "/my-9-books",
   "/my-9-grid",
+  "/asa-citation-generator",
+  "/acs-citation-generator",
+  "/chicago-citation-generator",
 ]);
 
 /** Spanish-only editorial pages with no honest one-to-one English alternate. */

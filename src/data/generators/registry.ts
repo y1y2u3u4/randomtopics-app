@@ -143,6 +143,27 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Any 9 pictures in one image" },
     crossLinkOnly: true,
   },
+  {
+    href: "/asa-citation-generator",
+    emoji: "📑",
+    label: { en: "ASA Citation Generator" },
+    detail: { en: "ASA 7th ed. references from a DOI" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/acs-citation-generator",
+    emoji: "🧪",
+    label: { en: "ACS Citation Generator" },
+    detail: { en: "Numbered ACS references" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/chicago-citation-generator",
+    emoji: "📚",
+    label: { en: "Chicago Citation Generator" },
+    detail: { en: "Footnotes, bibliography, author-date" },
+    crossLinkOnly: true,
+  },
 ];
 
 export function generatorsFor(locale: "en" | "es", opts: { crossLinks?: boolean } = {}): { href: string; emoji: string; label: string; detail: string }[] {

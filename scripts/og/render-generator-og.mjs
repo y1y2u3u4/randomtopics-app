@@ -47,6 +47,13 @@ const CARDS = [
   { id: "my9", slug: "my-9-books", title: "My 9 Books", line: "Your 3×3 favorite books grid — free", chips: ["Search any book", "Tap 9 covers", "Square or story PNG"], mosaic: true },
   { id: "my9", slug: "my-9-anime", title: "My 9 Anime", line: "Your 3×3 favorite anime grid — free", chips: ["Series & films", "Tap 9 posters", "Download PNG"], mosaic: true },
   { id: "my9", slug: "my-9-grid", title: "My 9 Grid Maker", line: "Any 9 pictures in one 3×3 image", chips: ["Movies, books, foods…", "Stays in your browser", "No watermark"], mosaic: true },
+  // Citation generators: a code-drawn reference-list card (real example entries).
+  { id: "cite", slug: "asa-citation-generator", title: "ASA Citation Generator", line: "ASA 7th edition — from a DOI, ISBN or URL", chips: ["References list", "(Desmond 2012:95)", "Copy with italics"],
+    paper: ["Desmond, Matthew. 2012. “Eviction and the Reproduction of Urban Poverty.” <i>American Journal of Sociology</i> 118(1):88–133.", "Innocente, Nathan, and Jayne Baker. 2018. “The Sociology Teaching Fellowship.” <i>Teaching Sociology</i> 46(4):335–345."] },
+  { id: "cite", slug: "acs-citation-generator", title: "ACS Citation Generator", line: "Numbered ACS references & bibliography", chips: ["Bold year, italic volume", "Superscript numbers", "DOI lookup"],
+    paper: ["(1) Marucho, M.; Kelley, C. T.; Pettitt, B. M. Solutions of the Optimized Closure Integral Equation Theory. <i>J. Chem. Theory Comput.</i> <b>2008</b>, <i>4</i> (3), 385–396.", "(2) Chen, Z. Graphical Representation of Hückel Molecular Orbitals. <i>J. Chem. Educ.</i> <b>2020</b>, <i>97</i> (2), 448–456."] },
+  { id: "cite", slug: "chicago-citation-generator", title: "Chicago Citation Generator", line: "18th edition — notes, bibliography, author-date", chips: ["Footnotes & short notes", "Bibliography", "Author-date"],
+    paper: ["Desmond, Matthew. <i>Evicted: Poverty and Profit in the American City</i>. Crown, 2016.", "Desmond, Matthew. “Eviction and the Reproduction of Urban Poverty.” <i>American Journal of Sociology</i> 118, no. 1 (2012): 88–133."] },
   { id: "map", slug: "fantasy-map-maker", title: "Fantasy Map Maker", line: "Random fantasy worlds — download PNG", chips: ["Continent", "Islands", "Parchment"] },
 ];
 
@@ -61,7 +68,7 @@ function cardHtml(card, bgPath) {
   *{margin:0;box-sizing:border-box} body{width:1200px;height:630px;overflow:hidden;font-family:"Avenir Next","Hiragino Sans","Helvetica Neue",Arial,sans-serif;background:#F3EFE6}
   .bg{position:absolute;inset:0;background:url("file://${bgPath}") right center/auto 100% no-repeat}
   .fade{position:absolute;inset:0;background:linear-gradient(90deg,#F3EFE6 0%,#F3EFE6 34%,rgba(243,239,230,0.85) 48%,rgba(243,239,230,0) 64%)}
-  .text{position:absolute;left:64px;top:0;bottom:0;width:600px;display:flex;flex-direction:column;justify-content:center;color:#1f2433}
+  .text{position:absolute;left:64px;top:0;bottom:0;width:${card.paper ? 560 : 600}px;display:flex;flex-direction:column;justify-content:center;color:#1f2433}
   .brand{font-size:24px;font-weight:700;letter-spacing:.02em;color:#6b5bd2;margin-bottom:22px}
   h1{font-size:${card.title.length > 30 ? 52 : 62}px;line-height:1.05;font-weight:800;letter-spacing:-.01em}
   p{font-size:28px;line-height:1.3;margin-top:18px;color:#454b5c}
@@ -70,7 +77,12 @@ function cardHtml(card, bgPath) {
   li i{width:26px;height:26px;border-radius:7px;display:inline-block}
   .mosaic{position:absolute;right:64px;top:50%;transform:translateY(-50%);display:grid;grid-template-columns:repeat(3,146px);gap:14px}
   .mosaic b{height:146px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:800;color:rgba(31,36,51,.55);box-shadow:0 3px 0 rgba(0,0,0,.08)}
-  </style></head><body>${card.mosaic
+  .paper{position:absolute;right:56px;top:70px;width:470px;height:490px;background:#fffdf8;border-radius:16px;box-shadow:0 10px 30px rgba(31,36,51,.12);padding:34px 30px;font-family:Georgia,"Times New Roman",serif;color:#2b3040}
+  .paper h3{font-family:Georgia,serif;font-size:24px;text-align:center;margin-bottom:20px;font-weight:700}
+  .paper p{font-size:19px;line-height:1.45;margin:0 0 18px 0;padding-left:28px;text-indent:-28px;color:#2b3040}
+  </style></head><body>${card.paper
+    ? `<div class="paper"><h3>References</h3>${card.paper.map((l) => `<p>${l}</p>`).join("")}</div>`
+    : card.mosaic
     ? `<div class="mosaic">${MOSAIC_COLORS.map((c, i) => `<b style="background:${c}">${i + 1}</b>`).join("")}</div>`
     : `<div class="bg"></div><div class="fade"></div>`}<div class="text">
   <div class="brand">🎲 RandomTopics.app</div><h1>${escape(card.title)}</h1><p>${escape(card.line)}</p><ul>${chips}</ul></div></body></html>`;
@@ -99,7 +111,7 @@ async function screenshot(html, shot) {
 for (const card of CARDS) {
   if (only.length && !only.includes(card.id)) continue;
   const src = join(resolve(srcDir), `rt-og-${card.id}.png`);
-  if (!card.mosaic && !existsSync(src)) { console.log(`skip ${card.slug}: no background`); continue; }
+  if (!card.mosaic && !card.paper && !existsSync(src)) { console.log(`skip ${card.slug}: no background`); continue; }
   const html = join(work, `${card.slug}.html`);
   const shot = join(work, `${card.slug}.png`);
   writeFileSync(html, cardHtml(card, src));

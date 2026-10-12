@@ -502,6 +502,106 @@ test("my 9: layout keeps nine tiles inside the canvas and crop fills the tile", 
   assert.ok(c.sx > 0 && c.sy === 0);
 });
 
+/* ---------------- citation generators ---------------- */
+
+const cf = mod("src/lib/citations/format.ts");
+const cl = mod("src/lib/citations/lookup.ts");
+const su = mod("src/lib/citations/safeUrl.ts");
+const P = (given, family) => ({ given, family });
+const desmond = { type: "journal", authors: [P("Matthew", "Desmond")], title: "Eviction and the Reproduction of Urban Poverty", container: "American Journal of Sociology", volume: "118", issue: "1", pages: "88-133", year: "2012", doi: "10.1086/666082" };
+const marucho = { type: "journal", authors: [P("M.", "Marucho"), P("C. T.", "Kelley"), P("B. Montgomery", "Pettitt")], title: "Solutions of the Optimized Closure Integral Equation Theory:  Heteronuclear Polyatomic Fluids", container: "Journal of Chemical Theory and Computation", containerShort: "J. Chem. Theory Comput.", volume: "4", issue: "3", pages: "385-396", year: "2008", doi: "10.1021/ct700202h" };
+const book = { type: "book", authors: [P("Lanny D.", "Schmidt")], title: "The Engineering of Chemical Reactions", edition: "2", publisher: "Oxford University Press", year: "2005" };
+const chapter = { type: "chapter", authors: [P("Robin R. R.", "Gray")], title: "Repatriation and Decolonization", container: "The Oxford Handbook of Musical Repatriation", editors: [P("Frank", "Gunderson"), P("Robert C.", "Lancefield"), P("Bret", "Woods")], pages: "722-738", publisher: "Oxford University Press", year: "2018", doi: "10.1093/oxfordhb/9780190659806.013.39" };
+const many = (n) => Array.from({ length: n }, (_, i) => P(`Given${i}`, `Family${i}`));
+const txt = (style, src, opts = {}) => cf.plainText(cf.formatCitation(style, src, opts).reference);
+const inText = (style, src, opts = {}) => cf.formatCitation(style, src, opts).inText.map((t) => cf.plainText(t.value));
+
+test("citations: ASA 7th journal, book, chapter and in-text rules", () => {
+  assert.equal(txt("asa", desmond), "Desmond, Matthew. 2012. “Eviction and the Reproduction of Urban Poverty.” American Journal of Sociology 118(1):88–133. https://doi.org/10.1086/666082");
+  assert.deepEqual(inText("asa", desmond, { page: "95" }), ["(Desmond 2012:95)"]);
+  assert.equal(txt("asa", { ...desmond, authors: [P("Nathan", "Innocente"), P("Jayne", "Baker")] }).split(". 2012")[0], "Innocente, Nathan, and Jayne Baker");
+  assert.deepEqual(inText("asa", marucho), ["(Marucho, Kelley, and Pettitt 2008)", "(Marucho et al. 2008)"], "three authors: all, then et al.");
+  assert.deepEqual(inText("asa", { ...marucho, authors: many(4) }), ["(Family0 et al. 2008)"]);
+  assert.match(txt("asa", { ...marucho, authors: many(11) }), /Given6 Family6, et al\. 2008/, "more than ten authors: first seven");
+  assert.equal(txt("asa", { ...book, place: "New York" }), "Schmidt, Lanny D. 2005. The Engineering of Chemical Reactions. 2nd ed. New York: Oxford University Press.");
+  assert.match(txt("asa", chapter), /“Repatriation and Decolonization\.” Pp\. 722–738 in The Oxford Handbook of Musical Repatriation, edited by Frank Gunderson, Robert C\. Lancefield, and Bret Woods\./);
+  assert.deepEqual(inText("asa", { type: "web", authors: [], title: "What Is Climate Change?" }), ["(“What Is Climate Change?” n.d.)".replace(" n.d.", ", n.d.")]);
+  // Italics: journal and book titles only.
+  const segs = cf.formatCitation("asa", desmond).reference;
+  assert.deepEqual(segs.filter((x) => x.i).map((x) => x.t), ["American Journal of Sociology"]);
+});
+
+test("citations: ACS journal, book and chapter match the guide's examples", () => {
+  assert.equal(txt("acs", marucho), "Marucho, M.; Kelley, C. T.; Pettitt, B. M. Solutions of the Optimized Closure Integral Equation Theory: Heteronuclear Polyatomic Fluids. J. Chem. Theory Comput. 2008, 4 (3), 385–396. DOI: 10.1021/ct700202h");
+  const segs = cf.formatCitation("acs", marucho).reference;
+  assert.deepEqual(segs.filter((x) => x.b).map((x) => x.t), ["2008"], "bold year");
+  assert.deepEqual(segs.filter((x) => x.i).map((x) => x.t), ["J. Chem. Theory Comput.", "4"], "italic journal and volume");
+  assert.equal(txt("acs", book), "Schmidt, L. D. The Engineering of Chemical Reactions, 2nd ed.; Oxford University Press, 2005.");
+  assert.equal(txt("acs", { ...book, place: "Boca Raton, FL", publisher: "CRC Press", edition: "3" }), "Schmidt, L. D. The Engineering of Chemical Reactions, 3rd ed.; CRC Press: Boca Raton, FL, 2005.");
+  assert.equal(txt("acs", chapter), "Gray, R. R. R. Repatriation and Decolonization. In The Oxford Handbook of Musical Repatriation; Gunderson, F., Lancefield, R. C., Woods, B., Eds.; Oxford University Press, 2018; pp 722–738. DOI: 10.1093/oxfordhb/9780190659806.013.39");
+  assert.match(txt("acs", { ...marucho, authors: many(12) }), /Family9, G\.; et al\. Solutions/, "ten authors then et al.");
+  assert.equal(txt("acs", { type: "web", authors: [{ given: "", family: "U.S. Environmental Protection Agency", org: true }], title: "Toxics Release Inventory (TRI) Program", url: "https://www.epa.gov/toxics-release-inventory-tri-program", accessed: "2019-02-21" }),
+    "U.S. Environmental Protection Agency. Toxics Release Inventory (TRI) Program. https://www.epa.gov/toxics-release-inventory-tri-program (accessed 2019-02-21).");
+  assert.deepEqual(inText("acs", marucho, { number: 3 }), ["3", "(3)"]);
+  assert.equal(cf.initials("Jean-Paul"), "J.-P.");
+  assert.equal(cf.cleanText("van der Walt, St&#233;fan J. &amp; Co&#x2019;s"), "van der Walt, Stéfan J. & Co’s");
+});
+
+test("citations: Chicago 18th notes-bibliography and author-date", () => {
+  assert.equal(txt("chicago-nb", desmond), "Desmond, Matthew. “Eviction and the Reproduction of Urban Poverty.” American Journal of Sociology 118, no. 1 (2012): 88–133. https://doi.org/10.1086/666082.");
+  const [full, short] = inText("chicago-nb", desmond, { page: "95" });
+  assert.equal(full, "Matthew Desmond, “Eviction and the Reproduction of Urban Poverty,” American Journal of Sociology 118, no. 1 (2012): 95, https://doi.org/10.1086/666082.");
+  assert.equal(short, "Desmond, “Eviction and the Reproduction,” 95.");
+  assert.equal(txt("chicago-nb", book), "Schmidt, Lanny D. The Engineering of Chemical Reactions. 2nd ed. Oxford University Press, 2005.", "no place of publication (18th ed.)");
+  assert.equal(inText("chicago-nb", book, { page: "40" })[0], "Lanny D. Schmidt, The Engineering of Chemical Reactions, 2nd ed. (Oxford University Press, 2005), 40.");
+  assert.match(inText("chicago-nb", marucho)[0], /^M\. Marucho et al\., /, "three or more authors in notes: et al.");
+  assert.match(txt("chicago-nb", { ...desmond, authors: many(6) }), /Given4 Family4, and Given5 Family5\./, "up to six authors listed");
+  assert.match(txt("chicago-nb", { ...desmond, authors: many(7) }), /^Family0, Given0, Given1 Family1, Given2 Family2, et al\. “/, "more than six: first three et al.");
+  assert.equal(txt("chicago-ad", desmond), "Desmond, Matthew. 2012. “Eviction and the Reproduction of Urban Poverty.” American Journal of Sociology 118 (1): 88–133. https://doi.org/10.1086/666082.");
+  assert.deepEqual(inText("chicago-ad", marucho, { page: "390" }), ["(Marucho et al. 2008, 390)"]);
+  assert.doesNotMatch(inText("chicago-nb", { ...desmond, title: "Who Did It?" })[0], /\?,/, "no comma after a question mark");
+  const web = { type: "web", authors: [{ given: "", family: "United Nations", org: true }], title: "What Is Climate Change?", container: "United Nations", url: "https://www.un.org/en/climatechange/what-is-climate-change", accessed: "2026-10-12" };
+  assert.equal(inText("chicago-nb", web, { page: "2" })[1], "United Nations, “What Is Climate Change?” 2.");
+  assert.equal(txt("chicago-nb", web), "United Nations. “What Is Climate Change?” United Nations. Accessed October 12, 2026. https://www.un.org/en/climatechange/what-is-climate-change.");
+});
+
+test("citations: headline case, names and sorting", () => {
+  assert.equal(cf.headlineCase("eviction and the reproduction of urban poverty: a study of the iPhone in NYC"), "Eviction and the Reproduction of Urban Poverty: A Study of the iPhone in NYC");
+  assert.equal(cf.headlineCase("what is it for"), "What Is It For");
+  assert.deepEqual(cf.parsePerson("Julio de Paula"), { given: "Julio", family: "de Paula" });
+  assert.deepEqual(cf.parsePerson("Desmond, Matthew"), { family: "Desmond", given: "Matthew" });
+  const sorted = cf.sortForStyle("asa", [{ source: marucho }, { source: desmond }]).map((x) => x.source.authors[0].family);
+  assert.deepEqual(sorted, ["Desmond", "Marucho"]);
+  assert.deepEqual(cf.sortForStyle("acs", [{ source: marucho }, { source: desmond }]).map((x) => x.source.authors[0].family), ["Marucho", "Desmond"], "ACS keeps citation order");
+});
+
+test("citations: input detection, metadata mapping and the URL guard", () => {
+  assert.deepEqual(cl.detectInput("https://doi.org/10.1086/666082"), { kind: "doi", value: "10.1086/666082" });
+  assert.deepEqual(cl.detectInput("doi:10.1021/ct700202h."), { kind: "doi", value: "10.1021/ct700202h" });
+  assert.deepEqual(cl.detectInput("978-0-553-44743-9"), { kind: "isbn", value: "9780553447439" });
+  assert.equal(cl.detectInput("978-0-553-44743-8").kind, "unknown", "bad ISBN check digit");
+  assert.equal(cl.detectInput("https://pubs.acs.org/doi/10.1021/ct700202h").kind, "doi");
+  assert.equal(cl.detectInput("https://www.un.org/en/climatechange/what-is-climate-change").kind, "url");
+  const work = cl.fromCrossref({ type: "journal-article", title: ["Solutions of the Optimized Closure Integral Equation Theory:  Heteronuclear <i>Polyatomic</i> Fluids"], "container-title": ["Journal of Chemical Theory and Computation"], "short-container-title": ["J. Chem. Theory Comput."], volume: "4", issue: "3", page: "385-396", issued: { "date-parts": [[2008, 2, 21]] }, author: [{ given: "M.", family: "Marucho" }], DOI: "10.1021/ct700202h" });
+  assert.equal(work.title, "Solutions of the Optimized Closure Integral Equation Theory: Heteronuclear Polyatomic Fluids");
+  assert.equal(work.containerShort, "J. Chem. Theory Comput.");
+  assert.equal(cl.fromCrossref({ type: "journal-article", title: ["T"], "short-container-title": ["Speculum"] }).containerShort, undefined, "only real abbreviations");
+  assert.equal(cl.fromCrossref({ type: "reference-entry", title: ["T"] }).type, "chapter");
+  const ol = cl.fromOpenLibrary({ title: "Evicted", subtitle: "Poverty and Profit in the American City", authors: [{ name: "Matthew Desmond" }], publishers: [{ name: "Crown Publishers" }], publish_places: [{ name: "New York" }], publish_date: "March 1, 2016" });
+  assert.deepEqual([ol.title, ol.authors[0].family, ol.year, ol.place], ["Evicted: Poverty and Profit in the American City", "Desmond", "2016", "New York"]);
+  const meta = cl.parsePageMeta(`<html><head><title>x</title><meta property="og:title" content="What Is Climate Change? | United Nations"><meta property="og:site_name" content="United Nations"><meta name="author" content="United Nations"><meta property="article:published_time" content="2023-05-04T10:00:00Z"></head></html>`, "https://www.un.org/x");
+  assert.deepEqual([meta.title, meta.site, meta.date], ["What Is Climate Change?", "United Nations", "2023-05-04T10:00:00Z"]);
+  const web = cl.fromPageMeta(meta, "2026-10-12");
+  assert.deepEqual([web.type, web.year, web.month, web.day, web.accessed], ["web", "2023", 5, 4, "2026-10-12"]);
+  const sch = cl.parsePageMeta(`<meta name="citation_title" content="A"><meta name="citation_author" content="Kelley, C. T."><meta name="citation_author" content="Marucho, M."><meta name="citation_doi" content="10.1021/ct700202h"><meta name="citation_journal_title" content="JCTC"><meta name="citation_volume" content="4">`, "https://pubs.acs.org/x");
+  assert.deepEqual([sch.doi, sch.authors.length], ["10.1021/ct700202h", 2]);
+  for (const bad of ["http://localhost/", "http://127.0.0.1/", "http://10.0.0.5/", "http://169.254.169.254/latest/meta-data", "http://[::1]/", "file:///etc/passwd", "http://example.com:8080/", "http://user:pw@example.com/", "http://intranet/", "http://192.168.1.1/"]) assert.equal(su.urlAllowed(bad), null, bad);
+  assert.ok(su.urlAllowed("https://www.un.org/en/climatechange/what-is-climate-change"));
+  for (const ip of ["10.1.2.3", "172.20.0.1", "100.64.0.1", "198.18.0.5", "::ffff:127.0.0.1", "fd00::1", "fe80::1", "0.0.0.0"]) assert.ok(su.ipBlocked(ip), ip);
+  assert.equal(su.ipBlocked("198.18.0.5", true), false, "benchmark range allowed only off production");
+  assert.equal(su.ipBlocked("151.101.1.140"), false);
+});
+
 const asyncTests = [];
 asyncTests.push((async () => {
   // Albums: Deezer via our route first, iTunes when the route returns nothing or fails.
