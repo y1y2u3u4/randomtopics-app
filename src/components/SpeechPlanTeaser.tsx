@@ -27,7 +27,11 @@ export default function SpeechPlanTeaser({ attempt, contentSource, visible, comp
     return observeVisibleContent(card.current, () => {
       seen.current.add(surface);
       trackSpeech(compact ? "speech_plan_hint_view" : "speech_plan_view", { content_source: contentSource, attempt, purpose });
-      if (!compact) trackSpeech("speech_plan_v2_view", { content_source: contentSource, attempt, purpose });
+      if (!compact) {
+        trackSpeech("speech_plan_v2_view", { content_source: contentSource, attempt, purpose });
+        // The $12 offer is visible under the feedback card.
+        trackSpeech("speech_checkout_offer_view", { content_source: contentSource, attempt, purpose });
+      }
     });
   }, [available, visible, contentSource, attempt, compact, purpose]);
   if (!available) return null;

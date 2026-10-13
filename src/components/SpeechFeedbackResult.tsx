@@ -178,7 +178,7 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
       {!canRetry && <p className="text-xs text-[var(--text-muted)]">Your goal stays in practice history. {result.allowance?.paid ? "Submitting another recording needs available attempts." : result.allowance?.returnTrial?.state === "scheduled" ? "Your extra free recording opens at the time shown above. Choose a plan only if you want more practice before then." : "Your free attempts are used. Another recording requires a plan; reviewing your result stays free."}</p>}
     </aside>}
     {!result.allowance?.paid && !recovery && next.mode !== "review" && <SpeechPlanTeaser attempt={attempt} contentSource={contentSource} visible={visible}
-      compact={!repeated && canRetry} purpose={purpose} nextCheck={next.check} onReview={openEvidence} attemptId={result.id} focusLabel={drill ? focusLabels[drill.target] : undefined} />}
+      compact={false} purpose={purpose} nextCheck={next.check} onReview={openEvidence} attemptId={result.id} focusLabel={drill ? focusLabels[drill.target] : undefined} />}
     {result.allowance?.paid && !canRetry && <p className="text-sm">You’ve used this billing month’s included attempts. Your saved feedback is still available. <Link className="underline" href="/speech/account">View your account and renewal date</Link>.</p>}
     <div className="text-sm">
       {!finished ? <button type="button" className={`${button} border-transparent`} onClick={() => {

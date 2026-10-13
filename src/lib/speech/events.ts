@@ -79,7 +79,7 @@ export const SPEECH_EVENTS = [
   "speech_compare_improved", "speech_compare_similar", "speech_compare_mixed",
   "speech_compare_insufficient", "speech_replay_allowed", "speech_replay_declined",
   "speech_checkout_offer_view", "speech_checkout_start", "speech_checkout_email_required", "speech_checkout_request", "speech_checkout_redirect",
-  "speech_checkout_error", "speech_portal_start", "speech_portal_redirect", "speech_portal_error",
+  "speech_checkout_error", "speech_purchase_claimed", "speech_portal_start", "speech_portal_redirect", "speech_portal_error",
   "speech_plan_view", "speech_plan_click", "speech_checkout_email_step_view", "speech_checkout_resume_view", "speech_checkout_continue",
   "speech_checkout_email_start", "speech_checkout_email_sent",
   "speech_email_link_start", "speech_email_link_sent", "speech_email_link_error", "speech_email_verified",
