@@ -97,6 +97,7 @@ export default function WouldYouRatherPage() {
                 try <Link href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>,
                 the <Link href="/question-generator" className="text-[var(--neon-cyan)] hover:underline">random question generator</Link>,
                 or <Link href="/funny" className="text-[var(--neon-cyan)] hover:underline">funny topics</Link>.
+                Can&apos;t decide what to eat after the game? Let the <Link href="/random-food-generator" className="text-[var(--neon-cyan)] hover:underline">random food generator</Link> pick, or settle a debate with a <Link href="/random-animal-generator" className="text-[var(--neon-cyan)] hover:underline">random animal</Link>.
               </p>
 
               <h3

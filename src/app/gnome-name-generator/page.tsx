@@ -5,6 +5,8 @@ import GnomeNameGenerator from "@/components/generators/GnomeNameGenerator";
 import { GNOME_CLANS, GNOME_FIRST, GNOME_NICKNAMES } from "@/lib/generators/gnome";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
+import GeneratorExamples from "@/components/generators/GeneratorExamples";
+import { gnomeGenerator } from "@/lib/generators/gnome";
 
 const PATH = "/gnome-name-generator";
 const TITLE = "Gnome Name Generator — Names, Nicknames & Clan Names";
@@ -20,6 +22,13 @@ export const metadata: Metadata = {
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
+
+// Real output from the generator with fixed seeds.
+const EXAMPLES = [
+  { label: "Full name", results: gnomeGenerator.generate({ style: ["full"] }, 4, [], 51).results },
+  { label: "With clan", results: gnomeGenerator.generate({ style: ["clan"] }, 4, [], 52).results },
+  { label: "Female gnomes", results: gnomeGenerator.generate({ gender: ["female"] }, 4, [], 53).results },
+];
 
 const FAQ = [
   {
@@ -79,6 +88,8 @@ export default function GnomeNameGeneratorPage() {
             dwarves, halflings, tieflings and more, and the <Link href="/random-character-generator" className={linkClass}>random character
             generator</Link> adds a personality and a secret.
           </p>
+          <SectionTitle>Examples</SectionTitle>
+          <GeneratorExamples note={"Four names in each style:"} sets={EXAMPLES} />
         </>
       }
     >

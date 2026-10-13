@@ -5,6 +5,8 @@ import LastNameGenerator from "@/components/generators/LastNameGenerator";
 import { LAST_NAMES, ORIGIN_LABELS } from "@/lib/generators/lastNames";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
+import GeneratorExamples from "@/components/generators/GeneratorExamples";
+import { lastNameGenerator } from "@/lib/generators/lastNames";
 
 const PATH = "/last-name-generator";
 const TITLE = "Last Name Generator — Random Surnames by Origin, with Meanings";
@@ -20,6 +22,13 @@ export const metadata: Metadata = {
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
+
+// Real output from the generator with fixed seeds.
+const EXAMPLES = [
+  { label: "Irish", results: lastNameGenerator("en").generate({ origin: ["irish"] }, 4, [], 71).results },
+  { label: "Italian", results: lastNameGenerator("en").generate({ origin: ["italian"] }, 4, [], 72).results },
+  { label: "Japanese", results: lastNameGenerator("en").generate({ origin: ["japanese"] }, 4, [], 73).results },
+];
 
 const FAQ = [
   {
@@ -93,6 +102,8 @@ export default function LastNameGeneratorPage() {
             Read the full name aloud — a two-syllable first name often pairs best with a longer surname and vice versa. Avoid alliteration
             unless you want a comic-book feel (Peter Parker). Search the full name once to make sure it is not already a well-known person.
           </p>
+          <SectionTitle>Examples</SectionTitle>
+          <GeneratorExamples note={"Four surnames from three origins, each with its meaning:"} sets={EXAMPLES} />
         </>
       }
     >

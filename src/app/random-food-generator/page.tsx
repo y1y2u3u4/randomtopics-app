@@ -5,6 +5,8 @@ import FoodGenerator from "@/components/generators/FoodGenerator";
 import { CUISINES, FOODS } from "@/lib/generators/foods";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
+import GeneratorExamples from "@/components/generators/GeneratorExamples";
+import { foodGenerator } from "@/lib/generators/foods";
 
 const PATH = "/random-food-generator";
 const TITLE = "Random Food Generator — What Should I Eat Today?";
@@ -20,6 +22,13 @@ export const metadata: Metadata = {
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
+
+// Real output from the generator with fixed seeds.
+const EXAMPLES = [
+  { label: "Breakfast", results: foodGenerator.generate({ meal: ["breakfast"] }, 4, [], 91).results },
+  { label: "Vegetarian dinner", results: foodGenerator.generate({ meal: ["dinner"], diet: ["vegetarian"] }, 4, [], 92).results },
+  { label: "Japanese", results: foodGenerator.generate({ cuisine: ["japanese"] }, 4, [], 93).results },
+];
 
 const FAQ = [
   {
@@ -80,6 +89,8 @@ export default function RandomFoodGeneratorPage() {
             <li><strong>Party games</strong> — food rounds of <Link href="/this-or-that" className={linkClass}>this or that</Link> or{" "}
               <Link href="/would-you-rather" className={linkClass}>would you rather</Link>.</li>
           </ul>
+          <SectionTitle>Examples</SectionTitle>
+          <GeneratorExamples note={"Three ways people use the filters:"} sets={EXAMPLES} />
         </>
       }
     >

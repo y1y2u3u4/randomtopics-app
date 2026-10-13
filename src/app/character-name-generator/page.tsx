@@ -5,6 +5,8 @@ import CharacterNameGenerator from "@/components/generators/CharacterNameGenerat
 import { CHAR_FIRST, CHAR_LAST } from "@/lib/generators/characters";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
+import GeneratorExamples from "@/components/generators/GeneratorExamples";
+import { characterNameGenerator } from "@/lib/generators/characters";
 
 const PATH = "/character-name-generator";
 const TITLE = "Character Name Generator — Names for Stories, by Genre";
@@ -20,6 +22,13 @@ export const metadata: Metadata = {
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
+
+// Real output from the generator with fixed seeds.
+const EXAMPLES = [
+  { label: "Fantasy", results: characterNameGenerator.generate({ genre: ["fantasy"] }, 4, [], 21).results },
+  { label: "Sci-fi", results: characterNameGenerator.generate({ genre: ["scifi"] }, 4, [], 22).results },
+  { label: "Historical", results: characterNameGenerator.generate({ genre: ["historical"] }, 4, [], 23).results },
+];
 
 const FAQ = [
   {
@@ -94,6 +103,8 @@ export default function CharacterNameGeneratorPage() {
             Stuck on the story itself? Try the <Link href="/writing" className={linkClass}>writing prompt generator</Link>, or build a
             complete cast with the <Link href="/random-character-generator" className={linkClass}>random character generator</Link>.
           </p>
+          <SectionTitle>Examples</SectionTitle>
+          <GeneratorExamples note={"Three genres, four names each, straight from the generator:"} sets={EXAMPLES} />
         </>
       }
     >

@@ -5,6 +5,8 @@ import RandomCharacterGenerator from "@/components/generators/RandomCharacterGen
 import { TRAITS } from "@/lib/generators/characters";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
+import GeneratorExamples from "@/components/generators/GeneratorExamples";
+import { randomCharacterGenerator } from "@/lib/generators/characters";
 
 const PATH = "/random-character-generator";
 const TITLE = "Random Character Generator — Name, Personality, Secret & More";
@@ -21,6 +23,13 @@ export const metadata: Metadata = {
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
+
+// Real output from the generator with fixed seeds.
+const EXAMPLES = [
+  { label: "Fantasy", results: randomCharacterGenerator.generate({ genre: ["fantasy"] }, 1, [], 31).results },
+  { label: "Modern", results: randomCharacterGenerator.generate({ genre: ["modern"] }, 1, [], 32).results },
+  { label: "Sci-fi", results: randomCharacterGenerator.generate({ genre: ["scifi"] }, 1, [], 33).results },
+];
 
 const FAQ = [
   {
@@ -94,6 +103,8 @@ export default function RandomCharacterGeneratorPage() {
             Want just a name? Use the <Link href="/character-name-generator" className={linkClass}>character name generator</Link>, or the{" "}
             <Link href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link> for elves, dwarves and tieflings.
           </p>
+          <SectionTitle>Examples</SectionTitle>
+          <GeneratorExamples note={"Three complete characters generated with the genre filter — each comes with a job, personality, motivation, secret, quirk and flaw:"} sets={EXAMPLES} />
         </>
       }
     >

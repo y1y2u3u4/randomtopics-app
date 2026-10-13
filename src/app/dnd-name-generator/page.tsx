@@ -5,6 +5,8 @@ import DndNameGenerator from "@/components/generators/DndNameGenerator";
 import { DND_FIRST, DND_FAMILY, RACES } from "@/lib/generators/dnd";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
+import GeneratorExamples from "@/components/generators/GeneratorExamples";
+import { dndGenerator } from "@/lib/generators/dnd";
 
 const PATH = "/dnd-name-generator";
 const TITLE = "D&D Name Generator — Fantasy Names by Race & Gender";
@@ -20,6 +22,13 @@ export const metadata: Metadata = {
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
+
+// Real output from the generator with fixed seeds.
+const EXAMPLES = [
+  { label: "Elf", results: dndGenerator.generate({ race: ["elf"] }, 4, [], 41).results },
+  { label: "Dwarf", results: dndGenerator.generate({ race: ["dwarf"] }, 4, [], 42).results },
+  { label: "Tiefling", results: dndGenerator.generate({ race: ["tiefling"] }, 4, [], 43).results },
+];
 
 const FAQ = [
   {
@@ -88,6 +97,8 @@ export default function DndNameGeneratorPage() {
             and a secret, and the <Link href="/viking-name-generator" className={linkClass}>Viking name generator</Link> covers Norse-flavoured
             campaigns.
           </p>
+          <SectionTitle>Examples</SectionTitle>
+          <GeneratorExamples note={"A party’s worth of names for three races, with what each part of the name suggests:"} sets={EXAMPLES} />
         </>
       }
     >
