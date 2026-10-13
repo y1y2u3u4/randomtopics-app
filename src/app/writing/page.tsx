@@ -13,9 +13,9 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
-  title: { absolute: "Random Topics to Write About — Writing Prompt Generator | Random Topics" },
+  title: { absolute: "Writing Prompt Generator — 500+ Random Topics to Write About" },
   description:
-    "Get a random topic to write about in one click: 500+ free writing prompts — narrative, persuasive, descriptive & expository — for essays, journaling, blogs and stories. No signup, unlimited generation.",
+    "Need a topic to write about? Tap once for a random writing prompt — 500+ ideas for stories, essays, journaling and blogs, from light to deep. Free, unlimited, no signup.",
   keywords: [
     "random topics to write about",
     "random topic generator to write about",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/writing"),
   },
   openGraph: {
-    title: "Random Topics to Write About — Writing Prompt Generator",
+    title: "Writing Prompt Generator — 500+ Random Topics to Write About",
     description:
-      "Get a random topic to write about in one click for essays, journals, blogs and stories.",
+      "Need a topic to write about? Tap once for a random writing prompt for stories, essays, journaling and blogs.",
     url: `${SITE_URL}/writing`,
     siteName: "Random Topics",
     type: "website",
