@@ -45,6 +45,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/viking-name-generator", label: "Viking Name Generator", emoji: "🛡️", blurb: "Old Norse names", groups: ["names"] },
   { href: "/japanese-name-generator", label: "Japanese Name Generator", emoji: "🎌", blurb: "Kanji, kana and meaning", groups: ["names"] },
   { href: "/gnome-name-generator", label: "Gnome Name Generator", emoji: "⚙️", blurb: "Names, nicknames, clans", groups: ["names"] },
+  { href: "/western-baby-name-generator", label: "Western Baby Name Generator", emoji: "🤠", blurb: "Cowboy & country names", groups: ["names"] },
   { href: "/last-name-generator", label: "Last Name Generator", emoji: "🏷️", blurb: "Surnames with meanings", groups: ["names"] },
   { href: "/dragon-name-generator", label: "Dragon Name Generator", emoji: "🐲", blurb: "Names for dragons", groups: ["names"] },
   { href: "/band-name-generator", label: "Band Name Generator", emoji: "🎸", blurb: "Names for your band", groups: ["names", "party"] },

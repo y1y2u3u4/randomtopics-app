@@ -6,7 +6,7 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/my-9-grid";
-const TITLE = "My 9 Grid Maker — Make a 3×3 Picture Grid from Any 9 Images, Free";
+const TITLE = "3x3 Grid Maker (My 9 Template) — Make a 3×3 Picture Grid, Free";
 const DESCRIPTION =
   "Free 3×3 grid maker for the My 9 trend: add any 9 pictures — K-pop, characters, foods, places — rearrange them and download one 1080×1080 PNG or story image. Works in your browser, no upload, no signup, no watermark.";
 
@@ -15,7 +15,7 @@ const SOCIAL = generatorSocial({ card: "my-9-grid", title: TITLE, description: D
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ["my 9 grid", "3x3 grid maker", "9 grid template", "my 9 template", "3x3 picture grid", "9 picture collage", "my top 9 maker"],
+  keywords: ["3x3 maker", "3x3 grid maker", "3x3 generator", "my 9 grid", "9 grid template", "my 9 template", "3x3 picture grid", "9 picture collage", "my top 9 maker"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
@@ -40,7 +40,7 @@ export default function MyNineGridPage() {
       updated="2026-10-12"
       faq={FAQ}
       related={[{ href: "/my-9-albums", label: "My 9 Albums" }, { href: "/my-9-games", label: "My 9 Games" }, { href: "/my-9-movies", label: "My 9 Movies" }, { href: "/my-9-anime", label: "My 9 Anime" }, { href: "/my-9-books", label: "My 9 Books" }, { href: "/random-food-generator", label: "Random food generator" }]}
-      inShort="Choose up to nine pictures from your device, reorder them by tapping two squares, give the grid a title and download a 1080×1080 PNG or a story-size image. Everything happens in your browser — your pictures are never uploaded."
+      inShort="A free 3x3 maker (also called a 3x3 grid maker or 3x3 generator): choose up to nine pictures from your device, reorder them by tapping two squares, give the grid a title and download a 1080×1080 PNG or a story-size image. Everything happens in your browser — your pictures are never uploaded."
       content={
         <>
           <SectionTitle>Any topic, nine pictures</SectionTitle>

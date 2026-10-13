@@ -59,6 +59,8 @@ const CARDS = [
     paper: ["Ava", "Ben", "<b>✓ Chloe</b>", "Diego", "Emma", "Finn"], paperTitle: "Picked" },
   { id: "meta", slug: "ai-metadata-remover", title: "AI Metadata Remover", line: "Strip EXIF, GPS, C2PA & prompts — no upload", chips: ["JPG · PNG · WebP", "Batch + ZIP", "Lossless"],
     paper: ["📍 GPS location — <s>40.44610, -79.98222</s>", "📷 Camera model — <s>EOS R5</s>", "🤖 Stable Diffusion parameters — <s>prompt, seed…</s>", "🔏 Content Credentials (C2PA) — <s>removed</s>", "<b>✓ Clean copy · image unchanged</b>"], paperTitle: "Found in the file" },
+  { id: "western", slug: "western-baby-name-generator", title: "Western Baby Name Generator", line: "Cowboy, country & Yellowstone-style names", chips: ["Boy · Girl · Neutral", "5 styles", "Every name with meaning"],
+    paper: ["<b>Waylon</b> — land by the road", "<b>Clementine</b> — merciful", "<b>Wyatt</b> — brave in war", "<b>Laramie</b> — after the Wyoming city", "<b>Sage</b> — sagebrush of the plains"], paperTitle: "Western names" },
   { id: "map", slug: "fantasy-map-maker", title: "Fantasy Map Maker", line: "Random fantasy worlds — download PNG", chips: ["Continent", "Islands", "Parchment"] },
 ];
 

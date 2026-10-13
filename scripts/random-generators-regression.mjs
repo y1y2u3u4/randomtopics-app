@@ -649,6 +649,24 @@ test("name picker and number randomizer", () => {
   for (let f = 1; f <= 6; f++) { const c = dice.filter((d) => d === f).length; assert.ok(c > 850 && c < 1150, `face ${f}: ${c}`); }
 });
 
+test("western baby names: data quality and filters", () => {
+  const wn = mod("src/lib/generators/westernNames.ts");
+  const names = wn.WESTERN_NAMES;
+  assert.ok(names.length >= 120);
+  assert.equal(new Set(names.map((n) => n.name.toLowerCase())).size, names.length, "unique names");
+  for (const n of names) {
+    assert.ok(["boy", "girl", "unisex"].includes(n.gender), n.name);
+    assert.ok(n.styles.length && n.styles.every((s) => s in wn.STYLE_LABELS), n.name);
+    assert.ok(n.meaning.length > 8 && /[.”]$/.test(n.meaning), `${n.name} meaning`);
+  }
+  for (const g of ["boy", "girl", "unisex"]) assert.ok(names.filter((n) => n.gender === g).length >= 15, g);
+  for (const s of Object.keys(wn.STYLE_LABELS)) assert.ok(names.filter((n) => n.styles.includes(s)).length >= 10, s);
+  const gen = wn.westernNameGenerator();
+  const out = gen.generate({ gender: ["girl"], style: ["yellowstone"] }, 10, [], 7).results;
+  assert.ok(out.length >= 3 && out.every((r) => r.subtitle.startsWith("Girl") && /Yellowstone/.test(r.subtitle)));
+  assert.equal(gen.resolve("Waylon", {}).title, "Waylon");
+});
+
 const asyncTests = [];
 asyncTests.push((async () => {
   // Albums: Deezer via our route first, iTunes when the route returns nothing or fails.

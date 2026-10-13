@@ -1,0 +1,175 @@
+// Western / cowboy baby names — curated in-house 2026-10. Common given names
+// only (no quotes or plots from any show). Meanings are the usual etymology or
+// the well-known reason the name feels Western; "yellowstone" marks names
+// popularised by ranch dramas such as Yellowstone.
+import { listGenerator } from "./core";
+import type { FilterGroup } from "@/components/generators/GeneratorUI";
+
+export type Gender = "boy" | "girl" | "unisex";
+export type Style = "yellowstone" | "cowboy" | "country" | "vintage" | "southern";
+
+export interface WesternName { name: string; gender: Gender; styles: Style[]; meaning: string }
+
+const n = (name: string, gender: Gender, styles: Style[], meaning: string): WesternName => ({ name, gender, styles, meaning });
+
+export const WESTERN_NAMES: WesternName[] = [
+  // Boys
+  n("Dutton", "boy", ["yellowstone"], "English surname from a place name, “Dudda's settlement”; now known as a ranching family name."),
+  n("Kayce", "boy", ["yellowstone", "cowboy"], "Spelling of Casey, from the Irish Ó Cathasaigh, “watchful, vigilant”."),
+  n("Rip", "boy", ["yellowstone", "cowboy"], "Short, tough-sounding nickname; also short for Ripley, Old English for “strip clearing”."),
+  n("Lloyd", "boy", ["yellowstone", "vintage"], "Welsh llwyd, “grey” or “grey-haired”."),
+  n("Tate", "boy", ["yellowstone"], "Old Norse–English surname often read as “cheerful”."),
+  n("Walker", "boy", ["yellowstone", "country"], "English occupational name for someone who fulled (thickened) cloth by walking on it."),
+  n("Colby", "boy", ["yellowstone"], "English place name from Old Norse, “Koli's farm”."),
+  n("Carter", "boy", ["yellowstone"], "English occupational name, “cart driver”."),
+  n("Jimmy", "boy", ["yellowstone", "vintage"], "Pet form of James, from Hebrew Jacob, “supplanter”."),
+  n("Waylon", "boy", ["country", "cowboy"], "From Wayland, Old English, often given as “land by the road”; made famous by outlaw-country singer Waylon Jennings."),
+  n("Maverick", "boy", ["cowboy"], "After Texas rancher Samuel Maverick, who left his calves unbranded; now means “independent thinker”."),
+  n("Colt", "boy", ["cowboy"], "English word for a young horse; also the classic Western revolver."),
+  n("Wyatt", "boy", ["cowboy"], "From the medieval name Wyot, Old English “brave in war”; Wyatt Earp made it a frontier name."),
+  n("Cody", "boy", ["cowboy"], "Irish surname Ó Cuidighthigh, “helpful”; Cody, Wyoming, is named after Buffalo Bill Cody."),
+  n("Wade", "boy", ["cowboy", "southern"], "Old English, “to go” or “river ford”."),
+  n("Boone", "boy", ["cowboy", "southern"], "From Old French bon, “good”; frontiersman Daniel Boone."),
+  n("Bowie", "boy", ["cowboy"], "Scottish Gaelic, “yellow-haired”; the Bowie knife and Jim Bowie of the Alamo."),
+  n("Ryder", "boy", ["cowboy"], "English, “mounted rider, horseman”."),
+  n("Ranger", "boy", ["cowboy"], "English word for a keeper of open land; brings to mind the Texas Rangers."),
+  n("Rowdy", "boy", ["cowboy"], "English, “boisterous”; a rodeo-arena favourite."),
+  n("Tex", "boy", ["cowboy"], "Nickname for someone from Texas."),
+  n("Duke", "boy", ["cowboy", "vintage"], "From Latin dux, “leader”; John Wayne's lifelong nickname."),
+  n("Jesse", "boy", ["cowboy", "vintage"], "Hebrew, “gift”."),
+  n("Levi", "boy", ["cowboy", "vintage"], "Hebrew, “joined, attached”; also Levi Strauss of denim jeans."),
+  n("Dallas", "boy", ["cowboy", "southern"], "Scottish place name, “meadow dwelling”; also the Texas city."),
+  n("Austin", "boy", ["cowboy", "southern"], "From Augustine, Latin “great, venerable”; the capital of Texas."),
+  n("Ridge", "boy", ["cowboy"], "English, a long mountain ridge."),
+  n("Wilder", "boy", ["cowboy"], "English, “wild, untamed”."),
+  n("Wes", "boy", ["cowboy", "vintage"], "Short for Wesley, Old English “western meadow”."),
+  n("Weston", "boy", ["cowboy"], "Old English, “western town”."),
+  n("Hank", "boy", ["country", "vintage"], "Pet form of Henry, “home ruler”; Hank Williams."),
+  n("Cash", "boy", ["country"], "English word for money; a nod to Johnny Cash."),
+  n("Garth", "boy", ["country"], "Old Norse garðr, “enclosure, garden”."),
+  n("Merle", "boy", ["country", "vintage"], "From French merle, “blackbird”; Merle Haggard."),
+  n("Dwight", "boy", ["country", "vintage"], "English surname of uncertain origin, possibly from Dionysius."),
+  n("Hayes", "boy", ["country"], "English and Irish, “hedged enclosure”."),
+  n("Tucker", "boy", ["country", "southern"], "English occupational name for a cloth fuller."),
+  n("Brooks", "boy", ["country"], "English, “of the brook”."),
+  n("Clay", "boy", ["country", "southern"], "English, a worker in clay or someone living on clay soil."),
+  n("Lane", "boy", ["country"], "English, “narrow road”."),
+  n("Grady", "boy", ["country", "southern"], "Irish Ó Grádaigh, often given as “noble”."),
+  n("Luke", "boy", ["country"], "Greek, “man from Lucania”."),
+  n("Beau", "boy", ["southern"], "French, “handsome”."),
+  n("Rhett", "boy", ["southern"], "From a Dutch surname meaning “advice”; Rhett Butler made it Southern."),
+  n("Crockett", "boy", ["southern", "cowboy"], "Surname of frontiersman Davy Crockett."),
+  n("Jackson", "boy", ["southern"], "English, “son of Jack”."),
+  n("Augustus", "boy", ["vintage", "cowboy"], "Latin, “great, venerable”; often shortened to Gus on the trail."),
+  n("Gus", "boy", ["vintage", "cowboy"], "Short for Augustus or Angus."),
+  n("Amos", "boy", ["vintage"], "Hebrew, “carried by God”."),
+  n("Jed", "boy", ["vintage"], "Short for Jedidiah, Hebrew “beloved of God”."),
+  n("Silas", "boy", ["vintage"], "Latin Silvanus, “of the forest”."),
+  n("Emmett", "boy", ["vintage", "cowboy"], "From German Emma, “whole, universal”."),
+  n("Virgil", "boy", ["vintage", "cowboy"], "From the Roman family name Vergilius."),
+  n("Ezra", "boy", ["vintage"], "Hebrew, “help”."),
+  n("Abner", "boy", ["vintage"], "Hebrew, “father of light”."),
+  n("Calvin", "boy", ["vintage"], "From Latin calvus, “bald”."),
+  n("Holden", "boy", ["vintage"], "Old English, “deep valley”."),
+  n("Hudson", "boy", ["country"], "English, “son of Hugh”."),
+  n("Sawyer", "boy", ["country"], "English occupational name, “woodcutter”."),
+  n("Archer", "boy", ["cowboy"], "English, “bowman”."),
+  n("Jasper", "boy", ["vintage"], "Possibly Persian, “treasurer”; also a red gemstone."),
+  n("Cassidy", "boy", ["cowboy"], "Irish Ó Caiside, “curly-haired”; outlaw Butch Cassidy."),
+  // Girls
+  n("Beth", "girl", ["yellowstone", "vintage"], "Short for Elizabeth, Hebrew “God is my oath”."),
+  n("Monica", "girl", ["yellowstone"], "Late Latin name of uncertain origin, often linked to “advisor”."),
+  n("Evelyn", "girl", ["yellowstone", "vintage"], "From the Norman name Aveline; an old English surname turned first name."),
+  n("Laramie", "girl", ["yellowstone", "cowboy"], "After the Wyoming city, named for French-Canadian trapper Jacques La Ramée."),
+  n("Dolly", "girl", ["country", "vintage"], "Pet form of Dorothy, Greek “gift of God”; Dolly Parton."),
+  n("Reba", "girl", ["country"], "Short for Rebecca, Hebrew, often given as “to bind”; Reba McEntire."),
+  n("Loretta", "girl", ["country", "vintage"], "Italian diminutive of Laura, “laurel”; Loretta Lynn."),
+  n("Patsy", "girl", ["country", "vintage"], "Pet form of Patricia, Latin “noble”; Patsy Cline."),
+  n("June", "girl", ["country", "vintage"], "From the month, named for the Roman goddess Juno; June Carter Cash."),
+  n("Emmylou", "girl", ["country"], "Blend of Emmy and Lou, made famous by Emmylou Harris."),
+  n("Annie", "girl", ["cowboy", "vintage"], "Pet form of Anne, Hebrew “grace”; sharpshooter Annie Oakley."),
+  n("Belle", "girl", ["cowboy", "southern"], "French, “beautiful”; Western outlaw Belle Starr."),
+  n("Clementine", "girl", ["cowboy", "vintage"], "Latin, “merciful”; the old Western ballad “Oh My Darling, Clementine”."),
+  n("Josephine", "girl", ["vintage", "cowboy"], "Hebrew, “God will increase”."),
+  n("Hattie", "girl", ["vintage", "southern"], "Pet form of Harriet, “home ruler”."),
+  n("Opal", "girl", ["vintage"], "Gemstone; from Sanskrit upala, “precious stone”."),
+  n("Pearl", "girl", ["vintage"], "The gem; a frontier-era favourite."),
+  n("Ruby", "girl", ["vintage", "country"], "The red gem, from Latin ruber, “red”."),
+  n("Etta", "girl", ["vintage"], "Short for Henrietta, “home ruler”; outlaw-era Etta Place."),
+  n("Mae", "girl", ["vintage", "southern"], "Spelling of May, the month; also short for Mary or Margaret."),
+  n("Lucille", "girl", ["vintage", "country"], "French form of Lucilla, Latin “light”."),
+  n("Hazel", "girl", ["vintage"], "The hazel tree."),
+  n("Della", "girl", ["vintage"], "Short for Adela, Germanic “noble”."),
+  n("Cora", "girl", ["vintage"], "Greek Kore, “maiden”."),
+  n("Adeline", "girl", ["vintage"], "Germanic, “noble”."),
+  n("Daisy", "girl", ["country", "vintage"], "The flower, Old English “day's eye”."),
+  n("Rose", "girl", ["country", "vintage"], "The flower."),
+  n("Savannah", "girl", ["southern"], "Spanish sabana, “treeless plain”; the Georgia city."),
+  n("Georgia", "girl", ["southern"], "Greek, “farmer”; the Southern state."),
+  n("Magnolia", "girl", ["southern"], "The flowering tree of the American South, named for botanist Pierre Magnol."),
+  n("Scarlett", "girl", ["southern"], "English, “scarlet cloth”; Scarlett O'Hara."),
+  n("Carolina", "girl", ["southern"], "Feminine of Charles, “free man”; the Carolinas."),
+  n("Virginia", "girl", ["southern", "vintage"], "From the Roman family name Verginius; the state."),
+  n("Charlotte", "girl", ["southern"], "French feminine of Charles, “free man”."),
+  n("Lainey", "girl", ["country"], "Short for Elaine, from Helen, Greek “torch, bright light”."),
+  n("Wynonna", "girl", ["country", "cowboy"], "From Winona, Dakota Sioux “firstborn daughter”."),
+  n("Tallulah", "girl", ["southern"], "Choctaw place name often given as “leaping water”."),
+  n("Sierra", "girl", ["cowboy"], "Spanish, “mountain range”."),
+  n("Willow", "girl", ["country"], "The willow tree."),
+  n("Juniper", "girl", ["cowboy"], "The evergreen shrub of Western hills."),
+  n("Ivy", "girl", ["country", "vintage"], "The climbing plant."),
+  n("Harlow", "girl", ["country"], "Old English, “army hill”."),
+  n("Kinsley", "girl", ["country"], "Old English, “king's meadow”."),
+  n("Blakely", "girl", ["country", "southern"], "Old English, “dark meadow”."),
+  n("Paisley", "girl", ["country"], "The swirling textile pattern, named after Paisley in Scotland."),
+  n("Raelynn", "girl", ["country"], "Modern blend of Rae and Lynn."),
+  // Unisex
+  n("Dakota", "unisex", ["cowboy"], "Dakota Sioux, “friend, ally”; the two Dakotas."),
+  n("Cheyenne", "unisex", ["cowboy"], "From the Cheyenne people; also Wyoming's capital."),
+  n("Montana", "unisex", ["cowboy", "yellowstone"], "Spanish montaña, “mountain”; the state where Yellowstone's ranch country lies."),
+  n("Wyoming", "unisex", ["cowboy"], "From a Lenape phrase often given as “at the big river flat”."),
+  n("Oakley", "unisex", ["cowboy", "country"], "Old English, “oak clearing”; Annie Oakley."),
+  n("Sage", "unisex", ["cowboy"], "The sagebrush of the Western plains; also “wise”."),
+  n("Aspen", "unisex", ["cowboy"], "The quaking aspen tree of the Rockies."),
+  n("Casey", "unisex", ["country", "cowboy"], "Irish Ó Cathasaigh, “watchful”."),
+  n("Shelby", "unisex", ["southern", "country"], "Old Norse–English place name, “willow farm”."),
+  n("Reese", "unisex", ["southern"], "From Welsh Rhys, “ardour, enthusiasm”."),
+  n("Jessie", "unisex", ["cowboy", "vintage"], "Pet form of Jesse or Jessica."),
+  n("Charlie", "unisex", ["country", "vintage"], "Pet form of Charles or Charlotte, “free”."),
+  n("Bailey", "unisex", ["country"], "English, “bailiff, steward”."),
+  n("Harper", "unisex", ["southern"], "English, “harp player”; Harper Lee."),
+  n("Sutton", "unisex", ["southern", "country"], "Old English, “southern town”."),
+  n("Rio", "unisex", ["cowboy"], "Spanish, “river”; the Rio Grande."),
+  n("River", "unisex", ["cowboy", "country"], "Nature name, the river."),
+  n("Rowan", "unisex", ["country"], "Irish Ó Ruadháin, “little red one”; also the rowan tree."),
+];
+
+export const GENDER_LABELS: Record<Gender, string> = { boy: "Boy", girl: "Girl", unisex: "Gender-neutral" };
+export const STYLE_LABELS: Record<Style, string> = {
+  yellowstone: "Yellowstone-style ranch",
+  cowboy: "Cowboy & frontier",
+  country: "Country music",
+  vintage: "Vintage Western",
+  southern: "Southern",
+};
+
+export function westernFilters(): FilterGroup[] {
+  return [
+    { id: "gender", label: "Gender", multi: true, options: Object.entries(GENDER_LABELS).map(([value, label]) => ({ value, label })) },
+    { id: "style", label: "Style", multi: true, options: Object.entries(STYLE_LABELS).map(([value, label]) => ({ value, label })) },
+  ];
+}
+
+export function westernNameGenerator() {
+  return listGenerator<WesternName>({
+    items: WESTERN_NAMES,
+    key: (w) => w.name,
+    facets: { gender: (w) => [w.gender], style: (w) => w.styles },
+    toResult: (w) => ({
+      key: w.name,
+      title: w.name,
+      subtitle: `${GENDER_LABELS[w.gender]} · ${w.styles.map((s) => STYLE_LABELS[s]).join(", ")}`,
+      detail: w.meaning,
+    }),
+  });
+}

@@ -145,6 +145,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/random-name-picker",
   "/number-randomizer",
   "/ai-metadata-remover",
+  "/western-baby-name-generator",
 ]);
 
 /** Spanish-only editorial pages with no honest one-to-one English alternate. */
