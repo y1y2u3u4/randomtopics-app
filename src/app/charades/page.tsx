@@ -10,9 +10,9 @@ import { CHARADES_WORDS, CHARADES_CATEGORIES } from "@/data/charades";
 import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
-  title: "Charades Generator — Random Charades Words with Timer & Categories",
+  title: { absolute: "Charades Generator — 528 Free Words, Timer & Printable Cards" },
   description:
-    "Free charades generator with 528 words, 9 categories and easy-to-hard filters. Hide the word, start your round timer when ready, or print cards. No signup.",
+    "Tap for a random charades word: 528 actable words for kids, parties and class, easy to hard, with a hide-the-word timer and printable cards. Free, no signup.",
   keywords: [
     "charades generator",
     "charades word generator",
