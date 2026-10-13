@@ -49,6 +49,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/dragon-name-generator", label: "Dragon Name Generator", emoji: "🐲", blurb: "Names for dragons", groups: ["names"] },
   { href: "/band-name-generator", label: "Band Name Generator", emoji: "🎸", blurb: "Names for your band", groups: ["names", "party"] },
   { href: "/country-name-generator", label: "Country Name Generator", emoji: "🏳️", blurb: "Fictional nations", groups: ["names", "creative"] },
+  { href: "/ai-metadata-remover", label: "AI Metadata Remover", emoji: "🧹", blurb: "Strip EXIF, GPS and prompts", groups: ["creative", "my9"] },
   { href: "/my-9-albums", label: "My 9 Albums", emoji: "💿", blurb: "3×3 album cover grid", groups: ["my9"] },
   { href: "/my-9-games", label: "My 9 Games", emoji: "🎮", blurb: "3×3 favorite games", groups: ["my9"] },
   { href: "/my-9-movies", label: "My 9 Movies", emoji: "🎬", blurb: "3×3 favorite movies", groups: ["my9"] },

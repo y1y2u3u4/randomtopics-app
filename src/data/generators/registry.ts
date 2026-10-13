@@ -178,6 +178,13 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Random numbers in any range" },
     crossLinkOnly: true,
   },
+  {
+    href: "/ai-metadata-remover",
+    emoji: "🧹",
+    label: { en: "AI Metadata Remover" },
+    detail: { en: "Strip EXIF, GPS, C2PA, prompts" },
+    crossLinkOnly: true,
+  },
 ];
 
 export function generatorsFor(locale: "en" | "es", opts: { crossLinks?: boolean } = {}): { href: string; emoji: string; label: string; detail: string }[] {

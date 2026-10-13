@@ -74,6 +74,11 @@ const nextConfig: NextConfig = {
       },
       // "my 9 albums template" is covered by /my-9-albums; one page per intent.
       {
+        source: "/remove-ai-metadata",
+        destination: "/ai-metadata-remover",
+        permanent: true,
+      },
+      {
         source: "/my-9-albums-template",
         destination: "/my-9-albums",
         permanent: true,

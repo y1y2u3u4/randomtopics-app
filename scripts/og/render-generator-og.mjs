@@ -57,6 +57,8 @@ const CARDS = [
   { id: "pick", slug: "number-randomizer", title: "Number Randomizer", line: "Random numbers in any range", chips: ["1–100 in one tap", "No repeats", "Up to 1,000 at once"], mosaic: true },
   { id: "pick", slug: "random-name-picker", title: "Random Name Picker", line: "Draw names from a hat — no repeats", chips: ["Paste a class list", "Pick 1 or 10", "Random order"],
     paper: ["Ava", "Ben", "<b>✓ Chloe</b>", "Diego", "Emma", "Finn"], paperTitle: "Picked" },
+  { id: "meta", slug: "ai-metadata-remover", title: "AI Metadata Remover", line: "Strip EXIF, GPS, C2PA & prompts — no upload", chips: ["JPG · PNG · WebP", "Batch + ZIP", "Lossless"],
+    paper: ["📍 GPS location — <s>40.44610, -79.98222</s>", "📷 Camera model — <s>EOS R5</s>", "🤖 Stable Diffusion parameters — <s>prompt, seed…</s>", "🔏 Content Credentials (C2PA) — <s>removed</s>", "<b>✓ Clean copy · image unchanged</b>"], paperTitle: "Found in the file" },
   { id: "map", slug: "fantasy-map-maker", title: "Fantasy Map Maker", line: "Random fantasy worlds — download PNG", chips: ["Continent", "Islands", "Parchment"] },
 ];
 
