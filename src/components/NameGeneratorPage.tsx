@@ -7,6 +7,7 @@ import NameGenerator from "@/components/NameGenerator";
 import { NAME_STYLES, nameRecipes, type NameKind } from "@/data/nameGenerators";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import styles from "./NameGeneratorPage.module.css";
+import KeepPlaying from "@/components/KeepPlaying";
 
 const pages = {
   band: {
@@ -94,5 +95,5 @@ export default function NameGeneratorPage({ kind }: { kind: NameKind }) {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "WebApplication",
       name: page.name, url: SITE_URL + path, description: page.description, applicationCategory: "EntertainmentApplication", operatingSystem: "Any",
       isAccessibleForFree: true, offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, featureList: ["Style and length filters", "No-repeat rounds", "Copy", "Local shortlist", "Share"] }) }} />
-  </main><Footer /></div>;
+  <KeepPlaying path={path} /></main><Footer /></div>;
 }

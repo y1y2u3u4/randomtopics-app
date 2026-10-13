@@ -10,6 +10,7 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: { absolute: "Random Topics to Write About — Writing Prompt Generator | Random Topics" },
@@ -296,6 +297,7 @@ export default function WritingPage() {
           <Link className="min-h-11 py-2 underline" href="/dragon-name-generator">Name a dragon for your story</Link>
           <Link className="min-h-11 py-2 underline" href="/band-name-generator">Name a band for your music project</Link>
         </nav>
+        <KeepPlaying path="/writing" />
       </main>
       <Footer />
     </>

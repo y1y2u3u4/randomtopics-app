@@ -9,6 +9,7 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { WOULD_YOU_RATHER } from "@/data/partyQuestions";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: { absolute: "Would You Rather Generator — 60+ Questions | Random Topics" },
@@ -148,6 +149,7 @@ export default function WouldYouRatherPage() {
           intro="The full curated deck, numbered for easy reference. Mix of everyday dilemmas and impossible hypotheticals, all clean and party-safe."
           questions={WOULD_YOU_RATHER}
         />
+        <KeepPlaying path="/would-you-rather" />
       </main>
       <Footer />
     </>

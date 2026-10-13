@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import DrawingGenerator from "@/components/DrawingGenerator";
 import { DRAWING_CATEGORIES, DRAWING_PROMPTS } from "@/data/drawingPrompts";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import KeepPlaying from "@/components/KeepPlaying";
 const title = "Random Drawing Generator — What to Draw & Drawing Prompts | Random Topics";
 const description = "Not sure what to draw? Get free random drawing ideas and drawing prompts with sketch tips. Pick a subject and difficulty; draw without repeats. No signup.";
 export const metadata: Metadata = {
@@ -30,5 +31,6 @@ export default function RandomDrawingGeneratorPage() {
       <section className="mt-8"><h2 className="font-bold">Try another creative direction</h2><p className="mt-3"><Link href="/random-object-generator" className="text-[var(--neon-cyan)] underline">Random Object Generator</Link> for a simple physical subject, the <Link href="/random-word-generator?use=draw" className="text-[var(--neon-cyan)] underline">Random Word Generator</Link> (turn on drawable words) for Pictionary rounds, the <Link href="/random-color-generator" className="text-[var(--neon-cyan)] underline">Random Color Generator</Link> for a limited palette, or <Link href="/writing-topic-generator" className="text-[var(--neon-cyan)] underline">Writing Topic Generator</Link> for stories and journals, or <Link href="/categories/art-culture" className="text-[var(--neon-cyan)] underline">Art &amp; Culture topics</Link> for discussion.</p></section>
     </div>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify({"@context":"https://schema.org","@type":"WebApplication",name:"Random Drawing Generator",url:`${SITE_URL}/random-drawing-generator`,description,applicationCategory:"EntertainmentApplication",operatingSystem:"Any",offers:{"@type":"Offer",price:"0",priceCurrency:"USD"}})}} />
-    </main><Footer /></>;
+      <KeepPlaying path="/random-drawing-generator" />
+      </main><Footer /></>;
 }

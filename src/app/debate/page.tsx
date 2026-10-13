@@ -10,6 +10,7 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: { absolute: "Debate Topic Generator — 300+ Random Debate Topics | Random Topics" },
@@ -342,6 +343,7 @@ export default function DebatePage() {
           intro="Eight motions from the debate pool, Light through Deep. The talking points give both sides their opening arguments — copy a motion with its prep straight into your round sheet."
           topics={pickModeTopics("debate")}
         />
+        <KeepPlaying path="/debate" />
       </main>
       <Footer />
     </>

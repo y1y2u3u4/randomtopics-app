@@ -11,6 +11,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { hreflangAlternates } from "@/i18n/config";
 import { THIS_OR_THAT } from "@/data/partyGames";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: { absolute: "This or That Generator — 38 Fun Questions | Random Topics" },
@@ -126,6 +127,7 @@ export default function ThisOrThatPage() {
         />
         <PublicAdPlacement path="/this-or-that" />
 
+        <KeepPlaying path="/this-or-that" />
       </main>
       <Footer />
     </>

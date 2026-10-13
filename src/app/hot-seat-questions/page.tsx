@@ -8,6 +8,7 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { HOT_SEAT_QUESTIONS } from "@/data/hotSeat";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: "Hot Seat Questions — Spicy (but Clean) Questions to Ask Friends",
@@ -144,6 +145,7 @@ export default function HotSeatPage() {
           intro="The complete interview deck, roughly ordered from warm-up to deep &mdash; pick your intensity or run it top to bottom."
           questions={HOT_SEAT_QUESTIONS}
         />
+        <KeepPlaying path="/hot-seat-questions" />
       </main>
       <Footer />
     </>

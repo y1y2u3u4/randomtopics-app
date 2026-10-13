@@ -2,7 +2,7 @@
 // balanced tags/levels, locks), no-repeat drawing, filters and data banks.
 // Run: npm run generators:test
 import assert from "node:assert/strict";
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { load } from "./lib/load-typescript.mjs";
 
@@ -600,6 +600,19 @@ test("citations: input detection, metadata mapping and the URL guard", () => {
   for (const ip of ["10.1.2.3", "172.20.0.1", "100.64.0.1", "198.18.0.5", "::ffff:127.0.0.1", "fd00::1", "fe80::1", "0.0.0.0"]) assert.ok(su.ipBlocked(ip), ip);
   assert.equal(su.ipBlocked("198.18.0.5", true), false, "benchmark range allowed only off production");
   assert.equal(su.ipBlocked("151.101.1.140"), false);
+});
+
+test("keep playing: three different tools, never the page itself, all routed", () => {
+  const rt = mod("src/data/relatedTools.ts");
+  for (const tool of rt.RELATED_TOOLS) {
+    const picks = rt.keepPlaying(tool.href);
+    assert.equal(picks.length, 3, tool.href);
+    assert.equal(new Set(picks.map((t) => t.href)).size, 3);
+    assert.ok(!picks.some((t) => t.href === tool.href), `${tool.href} recommends itself`);
+    assert.ok(existsSync(resolve(root, `src/app${tool.href}/page.tsx`)), `no route for ${tool.href}`);
+  }
+  assert.deepEqual(rt.keepPlaying("/not-a-tool"), []);
+  assert.notDeepEqual(rt.keepPlaying("/charades").map((t) => t.href), rt.keepPlaying("/this-or-that").map((t) => t.href), "neighbours differ");
 });
 
 const asyncTests = [];

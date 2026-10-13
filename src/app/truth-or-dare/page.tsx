@@ -10,6 +10,7 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { TRUTH_OR_DARE } from "@/data/partyGames";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: { absolute: "Truth or Dare Generator — Clean Questions & Dares | Random Topics" },
@@ -132,6 +133,7 @@ export default function TruthOrDarePage() {
         />
         <PublicAdPlacement path="/truth-or-dare" />
 
+        <KeepPlaying path="/truth-or-dare" />
       </main>
       <Footer />
     </>

@@ -6,6 +6,7 @@ import FaqSchema from "@/components/FaqSchema";
 import { SITE_URL } from "@/i18n/config";
 import { generatorsFor } from "@/data/generators/registry";
 import heroSizes from "@/data/generators/heroImages.json";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export interface FaqItem { question: string; answer: string }
 
@@ -113,6 +114,8 @@ export default function GeneratorPageShell(props: Props) {
             </div>
           </div>
         </section>
+
+        <KeepPlaying path={path} />
 
         {others.length > 0 && (
           <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-16">

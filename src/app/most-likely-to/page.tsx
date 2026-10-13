@@ -8,6 +8,7 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { MOST_LIKELY_TO } from "@/data/partyGames";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: "Most Likely To Questions Generator — Fun & Clean Party Prompts",
@@ -118,6 +119,7 @@ export default function MostLikelyToPage() {
           intro="The full deck &mdash; superlatives your group will actually argue about, kept kind by design."
           questions={MOST_LIKELY_TO}
         />
+        <KeepPlaying path="/most-likely-to" />
       </main>
       <Footer />
     </>

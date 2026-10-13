@@ -10,6 +10,7 @@ import { hreflangAlternates } from "@/i18n/config";
 import { PartyIllustration } from "@/components/CategoryIllustration";
 import { CATEGORIES } from "@/data/types";
 import { topics } from "@/data/topics";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: "Spin the Wheel — Random Topic Wheel Generator, Free & No Signup",
@@ -180,6 +181,7 @@ export default function SpinTheWheelPage() {
             </div>
           </div>
         </section>
+        <KeepPlaying path="/spin-the-wheel" />
       </main>
       <Footer />
     </>
