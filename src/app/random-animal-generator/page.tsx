@@ -5,6 +5,8 @@ import AnimalGenerator from "@/components/generators/AnimalGenerator";
 import { ANIMALS } from "@/lib/generators/animals";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
+import GeneratorExamples from "@/components/generators/GeneratorExamples";
+import { animalGenerator } from "@/lib/generators/animals";
 
 const PATH = "/random-animal-generator";
 const TITLE = "Random Animal Generator — Pictures & Fun Facts, Free";
@@ -20,6 +22,13 @@ export const metadata: Metadata = {
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
+
+// Real output from the generator with fixed seeds.
+const EXAMPLES = [
+  { label: "Ocean animals", results: animalGenerator("en").generate({ where: ["ocean"] }, 4, [], 81).results },
+  { label: "Easy for kids", results: animalGenerator("en").generate({ level: ["kids"] }, 4, [], 82).results },
+  { label: "Birds", results: animalGenerator("en").generate({ type: ["bird"] }, 4, [], 83).results },
+];
 
 const FAQ = [
   {
@@ -92,6 +101,8 @@ export default function RandomAnimalGeneratorPage() {
             The full list covers more than a hundred mammals, dozens of birds, ocean life from clownfish to blue whales, and the insects and
             spiders kids love to find. Generate as many as you like — the same animal will not come back until you have seen them all.
           </p>
+          <SectionTitle>Examples</SectionTitle>
+          <GeneratorExamples note={"Three filtered draws, four animals each:"} sets={EXAMPLES} />
         </>
       }
     >

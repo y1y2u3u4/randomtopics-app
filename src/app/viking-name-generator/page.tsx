@@ -5,6 +5,8 @@ import VikingNameGenerator from "@/components/generators/VikingNameGenerator";
 import { BYNAMES, VIKING_NAMES } from "@/lib/generators/viking";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
+import GeneratorExamples from "@/components/generators/GeneratorExamples";
+import { vikingGenerator } from "@/lib/generators/viking";
 
 const PATH = "/viking-name-generator";
 const TITLE = "Viking Name Generator — Norse Names with Meanings & Bynames";
@@ -20,6 +22,13 @@ export const metadata: Metadata = {
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
+
+// Real output from the generator with fixed seeds.
+const EXAMPLES = [
+  { label: "Full Norse name", results: vikingGenerator.generate({ style: ["full"] }, 4, [], 61).results },
+  { label: "Patronymic", results: vikingGenerator.generate({ style: ["patronymic"] }, 4, [], 62).results },
+  { label: "Shieldmaiden with a byname", results: vikingGenerator.generate({ gender: ["female"], style: ["byname"] }, 4, [], 63).results },
+];
 
 const FAQ = [
   {
@@ -87,6 +96,8 @@ export default function VikingNameGeneratorPage() {
             <Link href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link>, or the{" "}
             <Link href="/last-name-generator" className={linkClass}>last name generator</Link> for modern Scandinavian surnames.
           </p>
+          <SectionTitle>Examples</SectionTitle>
+          <GeneratorExamples note={"Real Old Norse names in three styles:"} sets={EXAMPLES} />
         </>
       }
     >

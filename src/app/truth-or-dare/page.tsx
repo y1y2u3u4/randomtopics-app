@@ -97,6 +97,7 @@ export default function TruthOrDarePage() {
                 <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">Charades</Link>,{" "}
                 <Link href="/hot-seat-questions" className="text-[var(--neon-cyan)] hover:underline">Hot Seat</Link>, or the{" "}
                 <Link href="/question-generator" className="text-[var(--neon-cyan)] hover:underline">random question generator</Link>.
+                Playing in teams? Split the group fairly with the <Link href="/random-team-generator" className="text-[var(--neon-cyan)] hover:underline">random team generator</Link>.
               </p>
 
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>

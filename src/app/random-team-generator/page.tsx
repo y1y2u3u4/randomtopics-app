@@ -4,6 +4,9 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import TeamGenerator from "@/components/generators/TeamGenerator";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
+import GeneratorExamples from "@/components/generators/GeneratorExamples";
+import { createRng, makeTeams } from "@/lib/randomGenerators";
+import { makeTeamNames } from "@/lib/generators/teamNames";
 
 const PATH = "/random-team-generator";
 const TITLE = "Random Team & Group Generator — Fair, Balanced Groups in One Click";
@@ -20,6 +23,20 @@ export const metadata: Metadata = {
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
+
+// Real splits from the same team logic with fixed seeds.
+const CLASS = ["Ava", "Ben", "Chloe", "Diego", "Emma", "Finn", "Grace", "Hiro", "Isla", "Jonah", "Kai", "Luna", "Mateo", "Nia", "Omar", "Priya"];
+function exampleSplit(label: string, count: number, mode: "teams" | "size", value: number, seed: number) {
+  const people = CLASS.slice(0, count).map((name) => ({ id: name, name }));
+  const teams = makeTeams(people, { mode, value }, createRng(seed));
+  const names = makeTeamNames(teams.length, "en", createRng(seed + 1));
+  return { label, results: teams.map((t, i) => ({ title: names[i], detail: t.map((p) => p.name).join(", ") })) };
+}
+const EXAMPLES = [
+  exampleSplit("12 names → 3 teams", 12, "teams", 3, 101),
+  exampleSplit("10 names → pairs", 10, "size", 2, 102),
+  exampleSplit("16 names → 4 groups", 16, "teams", 4, 103),
+];
 
 const FAQ = [
   {
@@ -105,6 +122,8 @@ export default function RandomTeamGeneratorPage() {
             <li>Breakout rooms in online meetings and workshop tables.</li>
             <li>Need one person, not teams? Use the <Link href="/random-name-picker" className={linkClass}>random name picker</Link> — or the <Link href="/number-randomizer" className={linkClass}>number randomizer</Link> for numbered students.</li>
           </ul>
+          <SectionTitle>Examples</SectionTitle>
+          <GeneratorExamples note="Real splits made with this generator, with the random team names it suggests:" sets={EXAMPLES} />
         </>
       }
     >
