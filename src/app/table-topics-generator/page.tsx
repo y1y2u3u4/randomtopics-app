@@ -6,6 +6,7 @@ import SpeechTimer from "@/components/SpeechTimer";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: "Table Topics Generator — Toastmasters Questions + Timer",
@@ -147,6 +148,7 @@ export default function TableTopicsPage() {
             </div>
           </div>
         </section>
+        <KeepPlaying path="/table-topics-generator" />
       </main>
       <Footer />
     </>

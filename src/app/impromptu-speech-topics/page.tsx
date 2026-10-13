@@ -8,6 +8,7 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { IMPROMPTU_GROUPS, IMPROMPTU_TOPIC_COUNT } from "@/data/impromptuTopics";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: { absolute: "Impromptu Speech Topics: 120 Ideas by Category, With Tips & Timer | Random Topics" },
@@ -180,6 +181,7 @@ export default function ImpromptuSpeechPage() {
         </section>
         <PublicAdPlacement path="/impromptu-speech-topics" />
 
+        <KeepPlaying path="/impromptu-speech-topics" />
       </main>
       <Footer />
     </>

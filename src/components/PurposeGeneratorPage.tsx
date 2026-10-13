@@ -7,6 +7,7 @@ import FaqSchema from "@/components/FaqSchema";
 import PurposeTopicGenerator from "@/components/PurposeTopicGenerator";
 import type { PurposeGeneratorConfig } from "@/data/purposeGenerators";
 import { SITE_URL } from "@/i18n/config";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export default function PurposeGeneratorPage({ config }: { config: PurposeGeneratorConfig }) {
   const isSpanish = config.locale === "es";
@@ -129,6 +130,7 @@ export default function PurposeGeneratorPage({ config }: { config: PurposeGenera
             }),
           }}
         />
+      {!isSpanish && <KeepPlaying path={basePath} />}
       </main>
       <Footer locale={isSpanish ? "es" : "en"} />
     </>

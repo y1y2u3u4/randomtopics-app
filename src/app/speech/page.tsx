@@ -11,6 +11,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import FaqSchema from "@/components/FaqSchema";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: { absolute: "Speech Topic Generator & Practice Timer | Random Topics" },
@@ -334,6 +335,7 @@ export default function SpeechPage() {
             </div>
           </div>
         </section>
+        <KeepPlaying path="/speech" />
       </main>
       <Footer />
     </>

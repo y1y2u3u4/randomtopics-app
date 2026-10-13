@@ -8,6 +8,7 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { TWO_TRUTHS_AND_A_LIE } from "@/data/partyGames";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: "Two Truths and a Lie — Idea Generator & Prompts",
@@ -124,6 +125,7 @@ export default function TwoTruthsAndALiePage() {
           intro="Stuck on what to claim? Thirty ready-made angles &mdash; travel stories, odd skills, brushes with fame &mdash; to build your two truths and one lie around."
           questions={TWO_TRUTHS_AND_A_LIE}
         />
+        <KeepPlaying path="/two-truths-and-a-lie" />
       </main>
       <Footer />
     </>

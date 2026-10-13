@@ -8,6 +8,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { QOTD_QUESTIONS, QOTD_CATEGORIES, qotdIndexForDate } from "@/data/questionOfTheDay";
 import QotdListActions from "@/components/QotdListActions";
+import KeepPlaying from "@/components/KeepPlaying";
 
 // ISR: regenerate hourly so the server-rendered "today's question" (UTC) stays
 // current and crawlers always see a real question in the HTML, not a placeholder.
@@ -192,6 +193,7 @@ export default function QuestionOfTheDayPage() {
             </div>
           </div>
         </section>
+        <KeepPlaying path="/question-of-the-day" />
       </main>
       <Footer />
     </>

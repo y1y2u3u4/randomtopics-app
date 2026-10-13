@@ -7,6 +7,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { hreflangAlternates } from "@/i18n/config";
 import { CHARADES_WORDS, CHARADES_CATEGORIES } from "@/data/charades";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: "Charades Generator — Random Charades Words with Timer & Categories",
@@ -208,6 +209,7 @@ export default function CharadesPage() {
             </div>
           </div>
         </section>
+        <KeepPlaying path="/charades" />
       </main>
       <Footer />
     </>

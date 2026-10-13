@@ -8,6 +8,7 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { NEVER_HAVE_I_EVER } from "@/data/partyQuestions";
+import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
   title: "Never Have I Ever Generator — 60+ Clean Questions",
@@ -144,6 +145,7 @@ export default function NeverHaveIEverPage() {
           intro="The complete clean deck &mdash; embarrassing-but-innocent territory, safe for classrooms, families, and mixed company."
           questions={NEVER_HAVE_I_EVER}
         />
+        <KeepPlaying path="/never-have-i-ever" />
       </main>
       <Footer />
     </>

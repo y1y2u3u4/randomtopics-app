@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import YoMamaRandomizer from "@/components/YoMamaRandomizer";
 import { YO_MAMA_JOKES, YO_MAMA_THEMES, YO_MAMA_SETUPS, YO_MAMA_ENDINGS } from "@/data/yoMama";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
+import KeepPlaying from "@/components/KeepPlaying";
 
 const path = "/yo-mama-randomizer";
 const title = "Yo Mama Randomizer — Clean Jokes & Text Remixes";
@@ -80,5 +81,6 @@ export default function Page() {
       </div></section>
     </div>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "WebApplication", name: "Yo Mama Randomizer", url: SITE_URL + path, description, applicationCategory: "EntertainmentApplication", operatingSystem: "Any", inLanguage: "en", isAccessibleForFree: true, offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } }) }} />
-  </main><Footer /></>;
+    <KeepPlaying path="/yo-mama-randomizer" />
+      </main><Footer /></>;
 }
