@@ -1,5 +1,5 @@
 export type SpeechAllowance = {
-  remaining: number; included: number; paid: boolean;
+  remaining: number; included: number; paid: boolean; packCredits?: number;
   returnTrial?: { availableAt: string; state: "scheduled" | "available" | "used" };
 };
 

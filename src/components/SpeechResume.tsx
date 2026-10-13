@@ -76,7 +76,7 @@ export default function SpeechResume({ attemptId, next = false, topics = [] }: {
     </details>}
     {saved && (saved.allowance?.remaining === 0 ? <div className="mt-5 space-y-4">
       {topic && <p><strong>{transfer ? "Suggested new topic: " : "Your topic: "}</strong>{topic.text}</p>}
-      <p>Your saved feedback is still available. {saved.allowance.paid ? "You’ve used this billing month’s included attempts. Check your account for the renewal date." : saved.allowance.returnTrial?.state === "scheduled" ? "Your extra free recording opens at the time shown above. Return here after that time; choose a plan only if you want more practice before then." : "Your free attempts are used; choose a plan to submit another recording. Return through practice history to continue this goal."}</p>
+      <p>Your saved feedback is still available. {saved.allowance.paid ? "You’ve used this billing month’s included attempts. Check your account for the renewal date." : saved.allowance.returnTrial?.state === "scheduled" ? "Your extra free recording opens at the time shown above. Return here after that time; choose a plan only if you want more practice before then." : "Your free attempts are used; buy a feedback pack to submit another recording. Return through practice history to continue this goal."}</p>
       {!saved.allowance.paid && goal?.mode !== "review" && <SpeechPlanTeaser attempt={2} attemptId={saved.id} purpose={speechPurpose(saved.purpose)} nextCheck={goal?.check} visible contentSource="speech_resume" />}
     </div> : topic ? <SpeechCoach key={`${saved.id}-${transfer ? "transfer" : "retry"}`} topic={topic}
       topics={transfer ? choices : []} onTopicChange={setChosen} contentSource="speech_resume" visible

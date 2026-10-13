@@ -1,4 +1,5 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
+import ClassroomPackDoor from "@/components/ClassroomPackDoor";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -95,6 +96,7 @@ export default function DebatePage() {
           title="Debate Topic Generator"
           subtitle="Find thought-provoking debate topics with clear arguments for both sides."
         />
+        <ClassroomPackDoor page="/debate" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
           <div className="glass-card p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-cyan)]/20">

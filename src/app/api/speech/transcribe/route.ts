@@ -78,7 +78,7 @@ export async function POST(request: Request) {
       goalTarget = next.target;
       purpose = purposeFromUsage(source.usage);
     }
-    const reservation = await db.rpc("reserve_speech_attempt_v6", {
+    const reservation = await db.rpc("reserve_speech_attempt_v7", {
       p_id: body.id,
       p_user: user.id,
       p_topic: body.topic,

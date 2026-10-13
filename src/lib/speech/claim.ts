@@ -37,7 +37,24 @@ export async function claimGuestPurchases(api: Stripe, db: SupabaseClient, user:
     if (alreadyPaid && mine?.customer_id && mine.customer_id !== customer.id) continue; // keep one plan per account
     const subs = await api.subscriptions.list({ customer: customer.id, status: "all", limit: 20 });
     const sub = subs.data.find((s) => s.metadata.product === SPEECH_PRODUCT && !["canceled", "incomplete_expired"].includes(s.status));
-    if (!sub) continue;
+    if (!sub) {
+      // Pack-only guest: move the pack rounds, practice and Stripe ownership.
+      if (owner === user.id) continue;
+      const { count } = await db.from("speech_pack_grants").select("session_id", { count: "exact", head: true }).eq("user_id", owner);
+      if (!count) continue;
+      await api.customers.update(customer.id, { metadata: { ...customer.metadata, user_id: user.id, claimed_from: owner } });
+      const freed = await db.from("speech_accounts").update({ customer_id: null }).eq("user_id", owner);
+      if (freed.error) throw freed.error;
+      if (!mine?.customer_id) {
+        const linked = await db.from("speech_accounts").upsert({ user_id: user.id, customer_id: customer.id }, { onConflict: "user_id" });
+        if (linked.error) throw linked.error;
+      }
+      await db.from("speech_attempts").update({ user_id: user.id }).eq("user_id", owner);
+      const packsMoved = await db.from("speech_pack_grants").update({ user_id: user.id }).eq("user_id", owner);
+      if (packsMoved.error) throw packsMoved.error;
+      claimed++;
+      break;
+    }
 
     // Stripe first: later webhooks then target the new owner.
     if (owner !== user.id) {
@@ -65,8 +82,10 @@ export async function claimGuestPurchases(api: Stripe, db: SupabaseClient, user:
     }, { onConflict: "user_id" });
     if (moved.error) throw moved.error;
     if (owner !== user.id) {
-      // Bring the guest's saved practice along; the purchase matters most, so this is best effort.
+      // Bring the guest's saved practice and pack rounds along.
       await db.from("speech_attempts").update({ user_id: user.id }).eq("user_id", owner);
+      const packsMoved = await db.from("speech_pack_grants").update({ user_id: user.id }).eq("user_id", owner);
+      if (packsMoved.error) throw packsMoved.error;
     }
     claimed++;
     break;

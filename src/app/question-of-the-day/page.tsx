@@ -1,4 +1,5 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
+import ClassroomPackDoor from "@/components/ClassroomPackDoor";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -96,6 +97,7 @@ export default function QuestionOfTheDayPage() {
         </section>
 
         <QuestionOfTheDay initialIdx={initialIdx} initialDateLabel={initialDateLabel} />
+        <ClassroomPackDoor page="/question-of-the-day" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

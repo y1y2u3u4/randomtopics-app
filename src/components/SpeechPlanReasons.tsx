@@ -15,7 +15,7 @@ const choices: readonly [SpeechPlanNeed, string][] = [
 const responses: Record<SpeechPlanNeed, string> = {
   done: "Your feedback stays saved. You can finish here without subscribing.",
   value: "Check the quoted evidence against your answer. You can skip a suggestion that does not help; reviewing your result uses no attempts.",
-  subscription: "Your preference is recorded. The current paid option renews monthly; you can still review your saved feedback without subscribing.",
+  subscription: "Your preference is recorded. Paid practice is a one-time pack with no subscription; you can still review your saved feedback without buying.",
   price: "Your preference is recorded. Reviewing your saved feedback remains free.",
   later: "Your result stays in practice history in this browser. Open that practice when you want to continue.",
 };
