@@ -143,6 +143,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "random-name-picker",
     "number-randomizer",
     "ai-metadata-remover",
+    "western-baby-name-generator",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });
   }
