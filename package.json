@@ -18,7 +18,7 @@
     "speech:plan-browser": "node scripts/speech-plan-browser.mjs",
     "speech:round-browser": "node scripts/speech-round-browser.mjs",
     "speech:timer-browser": "node scripts/speech-timer-bridge-browser.mjs",
-    "generators:test": "node scripts/random-generators-regression.mjs"
+    "generators:test": "node scripts/random-generators-regression.mjs && node scripts/metadata-regression.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.116.0",

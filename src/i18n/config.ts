@@ -144,6 +144,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/chicago-citation-generator",
   "/random-name-picker",
   "/number-randomizer",
+  "/ai-metadata-remover",
 ]);
 
 /** Spanish-only editorial pages with no honest one-to-one English alternate. */

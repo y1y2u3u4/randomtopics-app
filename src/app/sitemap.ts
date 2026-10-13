@@ -142,6 +142,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "chicago-citation-generator",
     "random-name-picker",
     "number-randomizer",
+    "ai-metadata-remover",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });
   }

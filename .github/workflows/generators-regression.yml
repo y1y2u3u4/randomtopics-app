@@ -6,6 +6,10 @@ on:
       - 'src/lib/generators/**'
       - 'src/data/generators/**'
       - 'scripts/random-generators-regression.mjs'
+      - 'scripts/metadata-regression.mjs'
+      - 'src/lib/metadata/**'
+      - 'src/lib/citations/**'
+      - 'src/data/relatedTools.ts'
       - '.github/workflows/generators-regression.yml'
   push:
     branches: [main]
@@ -14,6 +18,10 @@ on:
       - 'src/lib/generators/**'
       - 'src/data/generators/**'
       - 'scripts/random-generators-regression.mjs'
+      - 'scripts/metadata-regression.mjs'
+      - 'src/lib/metadata/**'
+      - 'src/lib/citations/**'
+      - 'src/data/relatedTools.ts'
 permissions:
   contents: read
 jobs:
