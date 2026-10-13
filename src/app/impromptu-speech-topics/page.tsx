@@ -7,18 +7,20 @@ import SpeechTimer from "@/components/SpeechTimer";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { IMPROMPTU_GROUPS, IMPROMPTU_TOPIC_COUNT } from "@/data/impromptuTopics";
 
 export const metadata: Metadata = {
-  title: "Impromptu Speech Topics Generator — Practice With a Timer",
+  title: { absolute: "Impromptu Speech Topics: 120 Ideas by Category, With Tips & Timer | Random Topics" },
   description:
-    "Generate random impromptu speech topics and practice against a built-in timer. Nearly 300 curated speech prompts for class, forensics, Toastmasters, and interview prep — free, no signup.",
+    "120 impromptu speech topics you can talk about with no research — personal stories, everyday opinions, hypotheticals, one-word prompts, proverbs, funny topics, student and interview questions — plus a 30-second prep method and practice timer.",
   keywords: [
     "impromptu speech topics",
-    "impromptu speech topics generator",
-    "extemporaneous speech topics",
-    "random speech topics",
-    "1 minute speech topics",
     "impromptu speaking topics",
+    "impromptu speech ideas",
+    "1 minute speech topics",
+    "extemporaneous speech topics",
+    "impromptu topics for students",
+    "table topics ideas",
   ],
   alternates: { canonical: "/impromptu-speech-topics" },
 };
@@ -37,7 +39,7 @@ const FAQ_ITEMS = [
   {
     question: "What are good impromptu speech topics?",
     answer:
-      "The best impromptu topics are ones anyone can speak about without research: personal experiences, opinions on everyday questions, abstract words (courage, failure, luck), proverbs, and light hypotheticals. Our generator lets you filter by category and depth to match your audience.",
+      "The best impromptu topics are ones anyone can speak about without research: personal experiences, opinions on everyday questions, abstract words (courage, failure, luck), proverbs, and light hypotheticals. The list on this page groups 120 of them by type, from beginner-friendly personal stories to harder one-word prompts.",
   },
   {
     question: "How do I structure an impromptu speech quickly?",
@@ -45,9 +47,9 @@ const FAQ_ITEMS = [
       "Use PREP: Point (state your answer), Reason (why you believe it), Example (a short story or fact), Point (restate to close). With 30 seconds of thinking time, decide your Point and your Example — the rest fills itself in as you speak.",
   },
   {
-    question: "Is this impromptu speech generator free?",
+    question: "Are these impromptu speech topics free to use?",
     answer:
-      "Yes — topic generation, category and depth filters, and the practice timer are free with no signup. Optional AI feedback includes two free recorded attempts, including retries; more recorded practice is available on the monthly plan.",
+      "Yes — the full list, the random picker with category and depth filters, and the practice timer are free with no signup. Teachers can use the topics in class. Optional AI feedback includes two free recorded attempts, including retries; more recorded practice is available on the monthly plan.",
   },
 ];
 
@@ -69,13 +71,37 @@ export default function ImpromptuSpeechPage() {
           contentSource="impromptu_speech_generator"
           speechFeedback
           speechTimerHref="#impromptu-timer"
-          title="Impromptu Speech Topics Generator"
-          subtitle="Get a surprise topic and try a 60-second answer with AI feedback, or practice speaking on your feet with the free timer."
+          title="Impromptu Speech Topics"
+          subtitle={`${IMPROMPTU_TOPIC_COUNT} no-research topics sorted by category below. Or draw one at random, try a 60-second answer and get feedback.`}
         />
 
         {/* Speech Timer */}
         <section id="impromptu-timer" className="max-w-3xl mx-auto scroll-mt-20 px-4 sm:px-6 pb-4">
           <SpeechTimer defaultSeconds={120} contentSource="impromptu_speech_generator" />
+        </section>
+
+        {/* The list */}
+        <section id="impromptu-topic-list" className="max-w-3xl mx-auto px-4 sm:px-6 pt-10 scroll-mt-20">
+          <h2 className="section-heading text-2xl sm:text-3xl mb-2 text-[var(--text-primary)]">{IMPROMPTU_TOPIC_COUNT} Impromptu Speech Topics by Category</h2>
+          <p className="text-sm text-[var(--text-muted)] mb-5">Every topic works without research: answer from your own experience or opinion. Start with personal experiences if you are new, and move to quotes and one-word prompts for harder rounds.</p>
+          <nav aria-label="Impromptu topic categories" className="flex flex-wrap gap-2 mb-5">
+            {IMPROMPTU_GROUPS.map((g) => <a key={g.id} href={`#impromptu-${g.id}`} className="inline-flex min-h-11 items-center rounded-xl border border-white/10 px-3 py-2 text-sm text-[var(--neon-cyan)]">{g.title} · {g.topics.length}</a>)}
+          </nav>
+          <div className="space-y-4">
+            {IMPROMPTU_GROUPS.map((g) => (
+              <div key={g.id} id={`impromptu-${g.id}`} className="glass-card p-5 sm:p-6 scroll-mt-24">
+                <h3 className="text-lg font-semibold text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>{g.title}</h3>
+                <p className="text-xs text-[var(--text-muted)] mt-1 mb-3">{g.note}</p>
+                <ol className="grid gap-x-6 gap-y-1.5 sm:grid-cols-2 list-decimal pl-5 text-sm text-[var(--text-secondary)]">
+                  {g.topics.map((t) => <li key={t}>{t}</li>)}
+                </ol>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-[var(--text-secondary)] mt-5">
+            Preparing a researched talk instead of speaking on the spot? Use the{" "}
+            <Link href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> for persuasive, informative and presentation topics.
+          </p>
         </section>
 
         {/* SEO Content */}
@@ -88,9 +114,9 @@ export default function ImpromptuSpeechPage() {
               <p>
                 Impromptu speaking feels like a talent, but it&apos;s a trainable skill with a simple
                 formula: <strong>reps under time pressure</strong>. Reading tips doesn&apos;t make you
-                better — speaking does. This page pairs a <strong>random impromptu speech topic
-                generator</strong> with a <strong>practice timer</strong> so you can run realistic drills:
-                generate a topic, give yourself 15-30 seconds to think, then speak until the timer ends.
+                better — speaking does. Pick a topic from the <strong>list above</strong> (or draw one at random),
+                start the <strong>practice timer</strong>, give yourself 15-30 seconds to think, then speak until
+                the timer ends.
               </p>
               <p>
                 Impromptu formats show up everywhere: speech class assignments, NSDA and forensics Limited

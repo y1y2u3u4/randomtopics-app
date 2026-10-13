@@ -47,7 +47,7 @@ const DATA = {
   es: { words: CHARADES_WORDS_ES, categories: CHARADES_CATEGORIES_ES, eventParams: { tool_type: "charades_generator", content_source: "charades_hub", locale: "es" } },
 };
 
-export default function CharadesGenerator({ locale = "en" }: { locale?: "en" | "es" }) {
+export default function CharadesGenerator({ locale = "en" }: { locale?: "en" | "es" } = {}) {
   const t = UI[locale];
   const { words: WORDS, categories: CATEGORIES, eventParams } = DATA[locale];
   const DIFFICULTIES = t.difficulties.map((label, id) => ({ id: id as 0 | 1 | 2 | 3, label }));
