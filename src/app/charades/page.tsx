@@ -5,6 +5,7 @@ import CharadesGenerator from "@/components/CharadesGenerator";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { hreflangAlternates } from "@/i18n/config";
 import { CHARADES_WORDS, CHARADES_CATEGORIES } from "@/data/charades";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     "random word for charades",
     "charades timer",
   ],
-  alternates: { canonical: "/charades" },
+  alternates: { canonical: "/charades", languages: hreflangAlternates("/charades") },
 };
 
 const FAQ_ITEMS = [

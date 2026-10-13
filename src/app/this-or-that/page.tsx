@@ -9,6 +9,7 @@ import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { hreflangAlternates } from "@/i18n/config";
 import { THIS_OR_THAT } from "@/data/partyGames";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     "fun this or that questions",
     "hard this or that questions",
   ],
-  alternates: { canonical: "/this-or-that" },
+  alternates: { canonical: "/this-or-that", languages: hreflangAlternates("/this-or-that") },
 };
 
 const FAQ_ITEMS = [

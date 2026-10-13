@@ -110,7 +110,6 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/debate/motions",
   "/speech/persuasive",
   "/speech/informative",
-  "/charades",
   "/journal-prompts",
   "/hot-seat-questions",
   "/group-discussion-topics",
