@@ -615,6 +615,40 @@ test("keep playing: three different tools, never the page itself, all routed", (
   assert.notDeepEqual(rt.keepPlaying("/charades").map((t) => t.href), rt.keepPlaying("/this-or-that").map((t) => t.href), "neighbours differ");
 });
 
+test("name picker and number randomizer", () => {
+  const pk = mod("src/lib/generators/picker.ts");
+  const names = ["Ava", "Ben", "Chloe", "Diego", "Emma"];
+  let pool = names;
+  const seen = [];
+  for (let i = 0; i < 5; i++) {
+    const r = pk.pickNames(pool, 1, true, rg.createRng(100 + i));
+    seen.push(...r.picked);
+    pool = r.remaining;
+  }
+  assert.deepEqual([...seen].sort(), [...names].sort(), "no repeats until everyone is picked");
+  assert.equal(pool.length, 0);
+  assert.deepEqual(pk.pickNames(["A", "A", "B"], 1, true, rg.createRng(3)).remaining.length, 2, "duplicates are separate tickets");
+  assert.equal(pk.pickNames(names, 10, false, rg.createRng(1)).picked.length, 5, "count capped at pool size");
+  assert.deepEqual([...pk.randomOrder(names, rg.createRng(9))].sort(), [...names].sort());
+  // Fairness: each name wins about 1/5 of 5,000 draws.
+  const wins = Object.fromEntries(names.map((n) => [n, 0]));
+  for (let i = 0; i < 5000; i++) wins[pk.pickNames(names, 1, false, rg.createRng(i + 1)).picked[0]]++;
+  for (const n of names) assert.ok(wins[n] > 850 && wins[n] < 1150, `${n}: ${wins[n]}`);
+
+  const uniq = pk.drawNumbers(1, 100, 100, true, rg.createRng(5)).numbers;
+  assert.deepEqual([...uniq].sort((a, b) => a - b), Array.from({ length: 100 }, (_, i) => i + 1));
+  const big = pk.drawNumbers(1, 1_000_000_000, 1000, true, rg.createRng(6)).numbers;
+  assert.equal(new Set(big).size, 1000);
+  assert.ok(big.every((n) => n >= 1 && n <= 1_000_000_000));
+  assert.match(pk.drawNumbers(1, 5, 6, true, rg.createRng(1)).error, /only 5 numbers/);
+  assert.equal(pk.drawNumbers(1, 5, 6, false, rg.createRng(1)).numbers.length, 6, "repeats allowed");
+  assert.deepEqual(pk.drawNumbers(10, 1, 10, true, rg.createRng(2)).numbers.slice().sort((a, b) => a - b), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "reversed range");
+  assert.ok(pk.drawNumbers(1, 6, 2000, false, rg.createRng(1)).error, "count limit");
+  assert.ok(pk.drawNumbers(1.5, 6, 1, false, rg.createRng(1)).error, "whole numbers only");
+  const dice = Array.from({ length: 6 }, (_, k) => pk.drawNumbers(1, 6, 1000, false, rg.createRng(80 + k)).numbers).flat();
+  for (let f = 1; f <= 6; f++) { const c = dice.filter((d) => d === f).length; assert.ok(c > 850 && c < 1150, `face ${f}: ${c}`); }
+});
+
 const asyncTests = [];
 asyncTests.push((async () => {
   // Albums: Deezer via our route first, iTunes when the route returns nothing or fails.

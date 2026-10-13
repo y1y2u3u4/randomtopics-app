@@ -140,6 +140,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "asa-citation-generator",
     "acs-citation-generator",
     "chicago-citation-generator",
+    "random-name-picker",
+    "number-randomizer",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });
   }

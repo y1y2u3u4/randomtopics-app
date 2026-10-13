@@ -164,6 +164,20 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Footnotes, bibliography, author-date" },
     crossLinkOnly: true,
   },
+  {
+    href: "/random-name-picker",
+    emoji: "🎩",
+    label: { en: "Random Name Picker" },
+    detail: { en: "Draw names, no repeats" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/number-randomizer",
+    emoji: "🔢",
+    label: { en: "Number Randomizer" },
+    detail: { en: "Random numbers in any range" },
+    crossLinkOnly: true,
+  },
 ];
 
 export function generatorsFor(locale: "en" | "es", opts: { crossLinks?: boolean } = {}): { href: string; emoji: string; label: string; detail: string }[] {

@@ -142,6 +142,8 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/asa-citation-generator",
   "/acs-citation-generator",
   "/chicago-citation-generator",
+  "/random-name-picker",
+  "/number-randomizer",
 ]);
 
 /** Spanish-only editorial pages with no honest one-to-one English alternate. */
