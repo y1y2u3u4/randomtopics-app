@@ -61,6 +61,7 @@ export default function JapaneseNameGeneratorPage() {
       updated="2026-10-11"
       faq={FAQ}
       related={[
+        { href: "/western-baby-name-generator", label: "Western baby name generator" },
         { href: "/last-name-generator", label: "Last name generator" },
         { href: "/character-name-generator", label: "Character name generator" },
         { href: "/random-character-generator", label: "Random character generator" },

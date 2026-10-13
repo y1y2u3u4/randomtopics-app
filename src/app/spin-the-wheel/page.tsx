@@ -136,7 +136,9 @@ export default function SpinTheWheelPage() {
                 <Link href="/question-generator" className="text-[var(--neon-cyan)] hover:underline">
                   random question generator
                 </Link>
-                .
+                . Spinning for a person instead of a topic? Paste names into the{" "}
+                <Link href="/random-name-picker" className="text-[var(--neon-cyan)] hover:underline">random name picker</Link> or pick a number with the{" "}
+                <Link href="/number-randomizer" className="text-[var(--neon-cyan)] hover:underline">number randomizer</Link>.
               </p>
 
               <h3

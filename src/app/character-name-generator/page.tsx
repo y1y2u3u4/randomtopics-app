@@ -89,6 +89,7 @@ export default function CharacterNameGeneratorPage() {
             <li>Check the meaning — then decide whether irony or a hint works better.</li>
             <li>Search the full name once so you don&apos;t accidentally name a famous person.</li>
           </ol>
+          <p>Naming a real baby rather than a character? Browse cowboy, country and Southern names with meanings in the <Link href="/western-baby-name-generator" className={linkClass}>Western baby name generator</Link>.</p>
           <p>
             Stuck on the story itself? Try the <Link href="/writing" className={linkClass}>writing prompt generator</Link>, or build a
             complete cast with the <Link href="/random-character-generator" className={linkClass}>random character generator</Link>.

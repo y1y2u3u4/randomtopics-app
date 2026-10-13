@@ -117,6 +117,7 @@ export default function ThisOrThatPage() {
               <p><strong className="text-[var(--text-primary)]">Couples predict.</strong> Write your answer down, then guess your partner&apos;s. A point per correct guess &mdash; low stakes, weirdly revealing.</p>
               <p><strong className="text-[var(--text-primary)]">Road trip mode.</strong> Passenger reads, everyone answers in seat order, driver breaks ties. The no-wrong-answers format is exactly what hour three of a drive needs.</p>
               <p className="text-xs text-[var(--text-muted)]">Facilitator tip: alternate easy comfort picks (coffee or tea) with genuinely hard ones &mdash; the rhythm keeps both kids and adults locked in.</p>
+              <p>After the picks, share your favourites as a 3×3 grid: <Link href="/my-9-albums" className="text-[var(--neon-cyan)] hover:underline">My 9 Albums</Link>, <Link href="/my-9-games" className="text-[var(--neon-cyan)] hover:underline">My 9 Games</Link>, <Link href="/my-9-movies" className="text-[var(--neon-cyan)] hover:underline">My 9 Movies</Link>, <Link href="/my-9-anime" className="text-[var(--neon-cyan)] hover:underline">My 9 Anime</Link>, <Link href="/my-9-books" className="text-[var(--neon-cyan)] hover:underline">My 9 Books</Link> or the <Link href="/my-9-grid" className="text-[var(--neon-cyan)] hover:underline">3x3 grid maker</Link>.</p>
             </div>
           </div>
         </section>
