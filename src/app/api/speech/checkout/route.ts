@@ -1,3 +1,5 @@
+import type { NextRequest } from "next/server";
+import { rateLimit } from "@/lib/rateLimit";
 import { actor, failure, response, SpeechError } from "@/lib/speech/server";
 import { purchaseTransactionId } from "@/lib/speech/purchases";
 import {
@@ -9,12 +11,12 @@ import {
 } from "@/lib/speech/billing";
 export async function POST(request: Request) {
   try {
+    // Guests may subscribe: Stripe Checkout collects the email, and the webhook
+    // emails a sign-in link so the plan can be recovered on any device.
+    const limited = rateLimit(request as NextRequest, "speech-checkout", { limit: 8, windowSeconds: 600 });
+    if (limited) return limited;
     const { db, user } = await actor(request);
-    if (user.is_anonymous || !user.email_confirmed_at || !user.email)
-      throw new SpeechError(
-        401,
-        "Verify your email before subscribing so you can recover your purchases.",
-      );
+    const verifiedEmail = !user.is_anonymous && user.email_confirmed_at && user.email ? user.email : undefined;
     const api = stripe();
     const price = await speechPrice(api);
     const created = await db
@@ -44,7 +46,7 @@ export async function POST(request: Request) {
       (
         await api.customers.create(
           {
-            email: user.email,
+            ...(verifiedEmail ? { email: verifiedEmail } : {}),
             metadata: { product: SPEECH_PRODUCT, user_id: user.id },
           },
           { idempotencyKey: `randomtopics-customer-${user.id}` },

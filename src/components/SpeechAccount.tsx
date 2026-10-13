@@ -57,6 +57,7 @@ export default function SpeechAccount() {
   const verified = useRef(false);
   const verifiedReported = useRef(false);
   const checkoutButton = useRef<HTMLButtonElement>(null);
+  const claimTried = useRef(false);
   const emailSubmit = useRef<HTMLButtonElement>(null);
   const actionSeen = useRef(new Set<string>());
   const emailStep = useRef<HTMLElement>(null);
@@ -99,8 +100,8 @@ export default function SpeechAccount() {
   }, [loaded, checkoutMode, subscription.active, billing, emailVerified]);
   useEffect(() => {
     if (!loaded || !billing || subscription.active || busy || loadError) return;
-    const step = emailVerified ? "checkout" : checkoutMode ? "email" : "choose_plan";
-    const action = step === "email" ? emailSubmit.current : checkoutButton.current;
+    const step = emailVerified || checkoutMode ? "checkout" : "choose_plan";
+    const action = checkoutButton.current;
     if (!action || actionSeen.current.has(step)) return;
     return observeVisibleAction(action, () => {
       actionSeen.current.add(step);
@@ -144,9 +145,11 @@ export default function SpeechAccount() {
       trackSpeech(`speech_${destination}_redirect`, { content_source: "speech_account" });
       window.location.assign(data.url);
     } catch (error) {
+      const status = (error as { status?: number } | null)?.status;
       trackSpeech(`speech_${destination}_error`, {
         content_source: "speech_account",
         error_code: speechErrorCode(error),
+        ...(typeof status === "number" ? { status_code: status } : {}),
       });
       throw error;
     }
@@ -156,6 +159,16 @@ export default function SpeechAccount() {
     const startedAt = performance.now();
     trackSpeech("speech_account_load_start", { content_source: "speech_account" });
     try {
+      // A guest purchase moves to this account once the buyer signs in with the
+      // email they gave Stripe. No-op for guests and accounts without one.
+      if (!claimTried.current) {
+        claimTried.current = true;
+        const claim = await practiceFetch("claim", {}, undefined, { existingSessionOnly: true, timeoutMs: 15000 }).catch(() => null);
+        if (claim?.claimed > 0) {
+          trackSpeech("speech_purchase_claimed", { content_source: "speech_account" });
+          setMessage("Your purchase is now linked to this email. You can manage it from any device.");
+        }
+      }
       const id = practiceReference.current;
       const data = await practiceFetch(id ? `history?id=${encodeURIComponent(id)}` : "history", undefined, undefined,
         { existingSessionOnly: existingSessionOnly.current, timeoutMs: 15000 });
@@ -373,11 +386,11 @@ export default function SpeechAccount() {
   const emailPanel = (
         <section ref={emailStep} className={checkoutMode && loaded && billing ? "space-y-3 border-t border-white/15 pt-4" : "glass-card space-y-4 p-5"}>
           <h2 className="text-xl font-semibold">
-            {loadError === "session" ? "Sign in to your linked account" : checkoutMode ? "Step 1 · Confirm your email" : "Keep your practice across devices"}
+            {loadError === "session" ? "Sign in to your linked account" : checkoutMode ? "Already linked an email? (optional)" : "Keep your practice across devices"}
           </h2>
           <p className="text-sm text-[var(--text-muted)]">
             {loadError === "session" ? "Use an email you already linked to your practice. We won’t create a replacement guest session." : checkoutMode
-              ? "Confirm your email, then review and pay with Stripe. No payment is taken now."
+              ? "You can pay without this. Sign in first only if you want the plan on an account you already use."
               : "Free practice works without an email. Link an email before clearing browser data or switching devices so you can recover your saved feedback."}
           </p>
           <form
@@ -465,7 +478,7 @@ export default function SpeechAccount() {
             through your paid period. Unused attempts do not roll over.
           </p>
           <div className="flex flex-wrap gap-3">
-            {billing && !subscription.active && (!checkoutMode || emailVerified) && (
+            {billing && !subscription.active && (
               <button
                 ref={checkoutButton}
                 className={`${button} bg-[var(--neon-cyan)] text-black`}
@@ -475,23 +488,16 @@ export default function SpeechAccount() {
                   clearHistoryReturn();
                   rememberCheckoutIntent(speechQaSession(), undefined, practiceReference.current ?? null,
                     speechPurpose(attempts.find(item => item.id === practiceReference.current)?.purpose));
-                  if (!emailVerified) focusedStep.current = "plan";
                   setCheckoutMode(true);
-                  if (!emailVerified) {
-                    trackSpeech("speech_checkout_start", { content_source: "speech_account" });
-                    trackSpeech("speech_checkout_email_required", { content_source: "speech_account" });
-                    setMessage("Confirm your email below, then continue to secure checkout. Your plan stays selected.");
-                    emailInput.current?.scrollIntoView({ block: "center", behavior: "smooth" });
-                    emailInput.current?.focus({ preventScroll: true });
-                    return;
-                  }
+                  // No email step first: Stripe collects the email, and we send a sign-in link after payment.
+                  if (!emailVerified) trackSpeech("speech_checkout_start", { content_source: "speech_account" });
                   void run(async () => {
                     trackSpeech("speech_checkout_continue", { content_source: "speech_account" });
                     await openBilling("checkout");
                   });
                 }}
               >
-                {busy ? "Please wait…" : emailVerified ? "Continue to secure checkout" : "Continue with email"}
+                {busy ? "Please wait…" : "Continue to secure checkout"}
               </button>
             )}
             {subscription.manageable && (
@@ -507,10 +513,13 @@ export default function SpeechAccount() {
             )}
           </div>
           {checkoutMode && !emailVerified && !subscription.active && emailAvailable && emailPanel}
-          {!emailVerified && !subscription.active && !checkoutMode && (
+          {!emailVerified && !subscription.active && (
             <p className="text-sm">
-              1. Confirm your email · 2. Review and pay securely with Stripe
+              Pay securely with Stripe. After payment we email you a sign-in link so you can keep this plan on any device.
             </p>
+          )}
+          {subscription.active && anonymous && (
+            <p className="text-sm">Check your email for the sign-in link from your purchase to keep this plan on other devices and manage it.</p>
           )}
         </section>
       )}

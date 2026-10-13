@@ -2,9 +2,11 @@ import { database, response } from "@/lib/speech/server";
 import {
   billingConfiguration,
   matchesSpeechPrice,
+  siteUrl,
   stripe,
   SPEECH_PRODUCT,
 } from "@/lib/speech/billing";
+import { sendGuestRecoveryLink } from "@/lib/speech/claim";
 export async function POST(request: Request) {
   try {
     const api = stripe(false);
@@ -79,6 +81,24 @@ export async function POST(request: Request) {
       .eq("customer_id", customer)
       .lte("billing_event_time", event.created);
     if (error) return response({ error: "Please retry" }, 503);
+    // A guest bought without an email: send a sign-in link to the address they
+    // gave Stripe so the plan can be kept and recovered. Once per subscription;
+    // a failure here never blocks the billing update above.
+    if (item && subscription.status === "active" && subscription.metadata.recovery_email !== "sent") {
+      try {
+        const { data: ownerUser } = await db.auth.admin.getUserById(userId);
+        if (ownerUser?.user?.is_anonymous) {
+          const customerRecord = await api.customers.retrieve(customer);
+          const email = !customerRecord.deleted ? customerRecord.email : null;
+          if (email) {
+            await sendGuestRecoveryLink(db, email, siteUrl());
+            await api.subscriptions.update(subscription.id, { metadata: { ...subscription.metadata, recovery_email: "sent" } });
+          }
+        }
+      } catch {
+        // Stripe retries are not needed for the email; the buyer can also use "Sign in".
+      }
+    }
     return response({ received: true });
   } catch {
     return response({ error: "Please retry" }, 503);

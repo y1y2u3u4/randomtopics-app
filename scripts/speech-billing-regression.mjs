@@ -150,7 +150,13 @@ function query() {
     },
   };
 }
-const db = { from: () => query() };
+const auth = {
+  owner: { is_anonymous: false },
+  otp: [],
+  admin: { getUserById: async () => ({ data: { user: auth.owner }, error: null }) },
+  signInWithOtp: async (args) => { auth.otp.push(args); return { error: null }; },
+};
+const db = { from: () => query(), auth };
 const sdk = new Stripe("rk_test_fixture");
 let currentSubscription;
 const api = {
@@ -166,6 +172,11 @@ const api = {
     list: async () => ({ data: subscriptions }),
     retrieve: async () => {
       calls.retrieve++;
+      return currentSubscription;
+    },
+    update: async (id, params) => {
+      calls.subscriptionUpdates = (calls.subscriptionUpdates ?? 0) + 1;
+      currentSubscription.metadata = params.metadata;
       return currentSubscription;
     },
   },
@@ -210,9 +221,24 @@ const request = () =>
     method: "POST",
   });
 
+// Guests can subscribe: Stripe Checkout collects the email (no verify-first wall).
 user.is_anonymous = true;
-assert.equal((await checkout.POST(request())).status, 401);
-assert.equal(calls.checkout.length, 0);
+account.customer_id = null;
+let createdCustomer;
+api.customers.create = async (params) => { calls.customerCreates++; createdCustomer = params; return customer; };
+assert.equal((await checkout.POST(request())).status, 200);
+assert.equal(calls.customerCreates, 1);
+assert.equal(createdCustomer.email, undefined, "no unverified email is put on the customer");
+assert.equal(createdCustomer.metadata.user_id, user.id);
+assert.equal(calls.checkout[0][0].client_reference_id, user.id);
+assert.equal(calls.checkout[0][0].customer, "cus_speech", "still one customer per account");
+reset();
+user.email_confirmed_at = "2026-09-01";
+account.customer_id = null;
+api.customers.create = async (params) => { calls.customerCreates++; createdCustomer = params; return customer; };
+await checkout.POST(request());
+assert.equal(createdCustomer.email, user.email, "a verified email is prefilled");
+api.customers.create = async () => { calls.customerCreates++; return customer; };
 reset();
 offeredPrice.product.metadata.product = "flashcardmaker";
 assert.equal((await checkout.POST(request())).status, 503);
@@ -325,6 +351,26 @@ assert.equal(
   true,
   "signed callbacks still work with new sales disabled",
 );
+assert.equal(auth.otp.length, 0, "verified owners get no guest recovery email");
+// Guest owner: one sign-in link to the email collected by Stripe Checkout.
+auth.owner = { is_anonymous: true };
+customer.email = "buyer@example.test";
+currentSubscription.metadata = { ...metadata };
+assert.equal((await deliver({ ...baseEvent, created: 100 })).status, 200);
+assert.equal(auth.otp.length, 1);
+assert.equal(auth.otp[0].email, "buyer@example.test");
+assert.equal(auth.otp[0].options.shouldCreateUser, true);
+assert.match(auth.otp[0].options.emailRedirectTo, /^https:\/\/speech\.example\.test\/speech\/account\?claim=1$/);
+assert.equal(currentSubscription.metadata.recovery_email, "sent");
+await deliver({ ...baseEvent, created: 100 });
+assert.equal(auth.otp.length, 1, "the recovery email is sent once");
+auth.signInWithOtp = async () => { throw new Error("mail down"); };
+currentSubscription.metadata = { ...metadata };
+assert.equal((await deliver({ ...baseEvent, created: 100 })).status, 200, "a mail failure never blocks billing");
+auth.signInWithOtp = async (args) => { auth.otp.push(args); return { error: null }; };
+auth.owner = { is_anonymous: false };
+delete customer.email;
+currentSubscription.metadata = metadata;
 const firstState = structuredClone(account);
 assert.equal((await deliver(baseEvent)).status, 200);
 assert.deepEqual(

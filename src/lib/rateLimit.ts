@@ -20,6 +20,8 @@ let cleanupInterval: ReturnType<typeof setInterval> | null = null;
 function ensureCleanup() {
   if (!cleanupInterval) {
     cleanupInterval = setInterval(cleanup, 60_000);
+    // Never keep a process alive just for cleanup (tests, scripts).
+    (cleanupInterval as { unref?: () => void }).unref?.();
   }
 }
 
