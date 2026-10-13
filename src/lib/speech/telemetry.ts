@@ -14,6 +14,8 @@ type Properties = {
   elapsed_ms?: number;
   error_code?: string;
   status_code?: number;
+  /** One-time pack size (5 or 20). */
+  pack?: number;
   transcript_edited?: boolean;
   outcome?: string;
   reason?: string;
@@ -31,7 +33,7 @@ export function trackSpeech(event: SpeechEvent, properties: Properties) {
     const value = properties[key];
     if (typeof value === "string" && /^[a-z0-9_]{1,80}$/.test(value)) safe[key] = value;
   }
-  for (const key of ["attempt", "duration_seconds", "elapsed_ms", "status_code"] as const) {
+  for (const key of ["attempt", "duration_seconds", "elapsed_ms", "status_code", "pack"] as const) {
     const value = properties[key];
     if (typeof value === "number" && Number.isFinite(value) && value >= 0) safe[key] = value;
   }

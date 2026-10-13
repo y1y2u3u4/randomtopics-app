@@ -23,9 +23,10 @@ const db=new PGlite();
 await db.exec('create schema auth; create table auth.users(id uuid primary key); create role anon; create role authenticated; create role service_role;');
 await db.exec(readFileSync('supabase/migrations/20260919_speech.sql','utf8'));
 await db.exec(readFileSync('supabase/migrations/20261001003000_speech_return_trial.sql','utf8'));
+await db.exec(readFileSync('supabase/migrations/20261014090000_speech_packs_classroom.sql','utf8'));
 const newUser=async()=>{const id=randomUUID();await db.query('insert into auth.users values($1)',[id]);return id;};
 const reserve=async(user,id=randomUUID(),prev=null,topic='A useful habit')=>{
- await db.query('select reserve_speech_attempt_v6($1,$2,$3,$4,20,$5)',[id,user,topic,prev,`network-${user}`]);return id;
+ await db.query('select reserve_speech_attempt_v7($1,$2,$3,$4,20,$5)',[id,user,topic,prev,`network-${user}`]);return id;
 };
 const complete=async(id,version='task_v1')=>db.query("update speech_attempts set usage=jsonb_build_object('context',jsonb_build_object('journeyVersion',$2::text)),status='complete',updated_at=now() where id=$1",[id,version]);
 const trial=async user=>(await db.query('select return_trial_at from speech_accounts where user_id=$1',[user])).rows[0].return_trial_at;
@@ -36,7 +37,7 @@ const scheduled=await trial(user);assert.ok(new Date(scheduled)>new Date(Date.no
 await assert.rejects(()=>reserve(user),/quota_exceeded/);
 await db.query("update speech_accounts set return_trial_at=now()-interval '1 second' where user_id=$1",[user]);
 const returned=await reserve(user);assert.equal((await db.query('select allowance_kind from speech_attempts where id=$1',[returned])).rows[0].allowance_kind,'return_trial');
-const dup=await db.query('select reserve_speech_attempt_v6($1,$2,$3,null,20,$4)',[returned,user,'A useful habit',`network-${user}`]);assert.equal(dup.rows[0].reserve_speech_attempt_v6,false);
+const dup=await db.query('select reserve_speech_attempt_v7($1,$2,$3,null,20,$4)',[returned,user,'A useful habit',`network-${user}`]);assert.equal(dup.rows[0].reserve_speech_attempt_v7,false);
 await assert.rejects(()=>reserve(user),/quota_exceeded/);
 await db.query("update speech_attempts set status='failed' where id=$1",[returned]);
 const replacement=await reserve(user);await complete(replacement);
@@ -53,12 +54,40 @@ await assert.rejects(()=>reserve(paid),/quota_exceeded/);
 assert.equal(await trial(paid),null);
 // Exercise the real allowance reader against the same database records.
 const { speechAllowance }=load('src/lib/speech/allowance.ts');
-const adapter={from(table){let filters=[],count=false;return{select(_cols,opts){count=!!opts?.count;return this;},eq(k,v){filters.push([k,'=',v]);return this;},neq(k,v){filters.push([k,'<>',v]);return this;},gte(k,v){filters.push([k,'>=',v]);return this;},async maybeSingle(){return {data:JSON.parse(JSON.stringify((await db.query('select * from speech_accounts where user_id=$1',[filters[0][2]])).rows[0]??null))};},then(resolve,reject){const sql=`select ${count?'count(*)::integer as count':'*'} from ${table} where `+filters.map(([k,op],i)=>`${k} ${op} $${i+1}`).join(' and ');return db.query(sql,filters.map(f=>f[2])).then(r=>resolve({count:r.rows[0].count}),reject);}};}};
+const adapter={from(table){let filters=[],count=false;return{select(_cols,opts){count=!!opts?.count;return this;},eq(k,v){filters.push([k,'=',v]);return this;},neq(k,v){filters.push([k,'<>',v]);return this;},gte(k,v){filters.push([k,'>=',v]);return this;},async maybeSingle(){return {data:JSON.parse(JSON.stringify((await db.query('select * from speech_accounts where user_id=$1',[filters[0][2]])).rows[0]??null))};},then(resolve,reject){const sql=`select ${count?'count(*)::integer as count':'*'} from ${table} where `+filters.map(([k,op],i)=>`${k} ${op} $${i+1}`).join(' and ');return db.query(sql,filters.map(f=>f[2])).then(r=>resolve(count?{count:r.rows[0].count}:{data:r.rows,error:null}),reject);}};}};
 assert.equal((await speechAllowance(adapter,user)).remaining,0);
 assert.equal((await speechAllowance(adapter,user)).returnTrial.state,'used');
 assert.equal((await speechAllowance(adapter,legacy)).included,2);
 assert.equal((await speechAllowance(adapter,paid)).included,40);
+// One-time packs: purchased rounds extend the free allowance; a failed attempt refunds itself.
+const buyer=await newUser();const b1=await reserve(buyer);await complete(b1);const b2=await reserve(buyer,undefined,b1);await complete(b2);
+await assert.rejects(()=>reserve(buyer),/quota_exceeded/);
+const grant=await db.query("select grant_speech_pack('cs_test_pack_1',$1,5,5,299,false) as ok",[buyer]);assert.equal(grant.rows[0].ok,true);
+const again=await db.query("select grant_speech_pack('cs_test_pack_1',$1,5,5,299,false) as ok",[buyer]);assert.equal(again.rows[0].ok,false,'a session grants once');
+const packIds=[];for(let i=0;i<5;i++) packIds.push(await reserve(buyer));
+assert.equal((await db.query("select count(*)::int as n from speech_attempts where user_id=$1 and allowance_kind='pack'",[buyer])).rows[0].n,5);
+await assert.rejects(()=>reserve(buyer),/quota_exceeded/);
+await db.query("update speech_attempts set status='failed' where id=$1",[packIds[4]]);
+await reserve(buyer);
+await assert.rejects(()=>reserve(buyer),/quota_exceeded/,'refunded round used once');
+assert.equal((await speechAllowance(adapter,buyer)).included,7);
+assert.equal((await speechAllowance(adapter,buyer)).packCredits,5);
+assert.equal((await speechAllowance(adapter,buyer)).remaining,0);
+const subscriber=await newUser();await db.query("insert into speech_accounts(user_id,subscription_active,period_start,period_end) values($1,true,now()-interval '1 day',now()+interval '1 day')",[subscriber]);
+await db.query("select grant_speech_pack('cs_test_pack_2',$1,20,20,699,false)",[subscriber]);
+assert.equal((await speechAllowance(adapter,subscriber)).included,40,'subscription allowance unchanged by packs');
+for(const fn of ['reserve_speech_attempt_v7(uuid,uuid,text,uuid,integer,text)','grant_speech_pack(text,uuid,integer,integer,integer,boolean)']){
+  const p=await db.query(`select has_function_privilege('anon','${fn}','execute') as anon,has_function_privilege('authenticated','${fn}','execute') as auth,has_function_privilege('service_role','${fn}','execute') as service`);
+  assert.deepEqual(p.rows[0],{anon:false,auth:false,service:true},fn);
+}
+for(const t of ['speech_pack_grants','classroom_pack_waitlist']){
+  const p=await db.query(`select has_table_privilege('anon','${t}','select') as anon,has_table_privilege('authenticated','${t}','insert') as auth`);
+  assert.deepEqual(p.rows[0],{anon:false,auth:false},t);
+}
+await db.query("insert into classroom_pack_waitlist(email,page) values('t@example.test','/debate')");
+await assert.rejects(()=>db.query("insert into classroom_pack_waitlist(email,page) values('t@example.test','/debate')"),/duplicate|unique/);
+await assert.rejects(()=>db.query("insert into classroom_pack_waitlist(email,page) values('t@example.test','javascript:1')"),/check/);
 const privileges=await db.query("select has_function_privilege('anon','reserve_speech_attempt_v6(uuid,uuid,text,uuid,integer,text)','execute') as anon,has_function_privilege('authenticated','reserve_speech_attempt_v6(uuid,uuid,text,uuid,integer,text)','execute') as auth,has_function_privilege('service_role','reserve_speech_attempt_v6(uuid,uuid,text,uuid,integer,text)','execute') as service");
 assert.deepEqual(privileges.rows[0],{anon:false,auth:false,service:true});
 await db.close();
-console.log('PASS: saved-content card; actual PostgreSQL migrations, completed-pair eligibility, 24-hour gate, one extra attempt, idempotency, failed-attempt release, deletion resistance, foreign/pending source rejection, old-cohort exclusion, paid cap, API/SQL parity and RPC permissions.');
+console.log('PASS: saved-content card; actual PostgreSQL migrations, completed-pair eligibility, 24-hour gate, one extra attempt, idempotency, failed-attempt release, deletion resistance, foreign/pending source rejection, old-cohort exclusion, paid cap, API/SQL parity and RPC permissions; v7 packs: extra rounds, single grant per session, failed-attempt refund, subscriptions unchanged, waitlist constraints.');

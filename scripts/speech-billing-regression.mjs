@@ -216,9 +216,13 @@ const overrides = {
 const checkout = load("src/app/api/speech/checkout/route.ts", overrides);
 const portal = load("src/app/api/speech/portal/route.ts", overrides);
 const webhook = load("src/app/api/speech/webhook/route.ts", overrides);
+// Distinct client addresses so the checkout rate limit doesn't trip in tests.
+let clientIp = 0;
+const ipHeaders = () => ({ "x-forwarded-for": `198.51.100.${(clientIp++ % 250) + 1}` });
 const request = () =>
   new Request("https://speech.example.test/api/speech/checkout", {
     method: "POST",
+    headers: ipHeaders(),
   });
 
 // Guests can subscribe: Stripe Checkout collects the email (no verify-first wall).
@@ -278,6 +282,25 @@ subscriptions = [
   { status: "active", metadata: { product: "randomtopics_speech" } },
 ];
 assert.equal((await checkout.POST(request())).status, 409);
+
+// One-time pack: payment mode, inline USD price, same single customer, no subscription price lookup.
+reset();
+const packRequest = (pack) => new Request("https://speech.example.test/api/speech/checkout", { method: "POST", headers: ipHeaders(), body: JSON.stringify({ pack }) });
+assert.equal((await checkout.POST(packRequest(20))).status, 200);
+const [packParams, packOptions] = calls.checkout.at(-1);
+assert.equal(packParams.mode, "payment");
+assert.equal(packParams.customer, "cus_speech");
+assert.deepEqual(packParams.line_items[0].price_data.unit_amount, 699);
+assert.equal(packParams.line_items[0].price_data.currency, "usd");
+assert.equal(packParams.metadata.pack, "20");
+assert.equal(packParams.metadata.product, "randomtopics_speech_pack");
+assert.match(packParams.success_url, /pack_session=\{CHECKOUT_SESSION_ID\}$/);
+assert.match(packOptions.idempotencyKey, /pack-v1-user_fixture-20/);
+offeredPrice.active = false;
+assert.equal((await checkout.POST(packRequest(5))).status, 200, "packs do not depend on the subscription price");
+account.subscription_active = true; account.period_end = "2999-01-01";
+assert.equal((await checkout.POST(packRequest(5))).status, 409, "subscribers do not buy packs");
+reset();
 
 process.env.SPEECH_BILLING_ENABLED = "false";
 assert.equal((await checkout.POST(request())).status, 503);

@@ -175,7 +175,7 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
           onClick={() => trackSpeech("speech_round_next_click", { content_source: contentSource, attempt, purpose, outcome: next.mode })}>
           {!canRetry ? "Preview my next round" : next.mode === "transfer" ? "Choose a new topic for this goal" : "Open my next practice"}
         </Link>}
-      {!canRetry && <p className="text-xs text-[var(--text-muted)]">Your goal stays in practice history. {result.allowance?.paid ? "Submitting another recording needs available attempts." : result.allowance?.returnTrial?.state === "scheduled" ? "Your extra free recording opens at the time shown above. Choose a plan only if you want more practice before then." : "Your free attempts are used. Another recording requires a plan; reviewing your result stays free."}</p>}
+      {!canRetry && <p className="text-xs text-[var(--text-muted)]">Your goal stays in practice history. {result.allowance?.paid ? "Submitting another recording needs available attempts." : result.allowance?.returnTrial?.state === "scheduled" ? "Your extra free recording opens at the time shown above. Choose a plan only if you want more practice before then." : "Your free attempts are used. Another recording needs a feedback pack; reviewing your result stays free."}</p>}
     </aside>}
     {!result.allowance?.paid && !recovery && next.mode !== "review" && <SpeechPlanTeaser attempt={attempt} contentSource={contentSource} visible={visible}
       compact={false} purpose={purpose} nextCheck={next.check} onReview={openEvidence} attemptId={result.id} focusLabel={drill ? focusLabels[drill.target] : undefined} />}

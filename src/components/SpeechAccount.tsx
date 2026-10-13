@@ -10,6 +10,7 @@ import { watchSpeechAccount } from "@/lib/speech/accountChanges";
 import { observeVisibleAction, observeVisibleContent } from "@/lib/speech/visibleAction";
 import { resumeHistoryFeedback } from "@/lib/speech/historyFeedback";
 import SpeechHistorySummary from "./SpeechHistorySummary";
+import SpeechPackOffer from "./SpeechPackOffer";
 import SpeechCheckoutContext from "./SpeechCheckoutContext";
 import { nextRound } from "@/lib/speech/nextRound";
 import { speechPurpose, type SpeechPurpose } from "@/lib/speech/purpose";
@@ -58,6 +59,7 @@ export default function SpeechAccount() {
   const verifiedReported = useRef(false);
   const checkoutButton = useRef<HTMLButtonElement>(null);
   const claimTried = useRef(false);
+  const packConfirmed = useRef(0);
   const emailSubmit = useRef<HTMLButtonElement>(null);
   const actionSeen = useRef(new Set<string>());
   const emailStep = useRef<HTMLElement>(null);
@@ -169,6 +171,13 @@ export default function SpeechAccount() {
           setMessage("Your purchase is now linked to this email. You can manage it from any device.");
         }
       }
+      // One-time packs: grant the session we returned from, plus any paid one never granted.
+      const packSession = new URLSearchParams(window.location.search).get("pack_session");
+      const packs = await practiceFetch("packs", packSession ? { sessionId: packSession } : {}, undefined, { existingSessionOnly: true, timeoutMs: 15000 }).catch(() => null);
+      if (packs?.granted?.length) {
+        for (const pack of packs.granted as number[]) trackSpeech("speech_payment_confirmed", { content_source: "speech_account", pack });
+        packConfirmed.current = (packs.granted as number[]).reduce((n, p) => n + p, 0);
+      }
       const id = practiceReference.current;
       const data = await practiceFetch(id ? `history?id=${encodeURIComponent(id)}` : "history", undefined, undefined,
         { existingSessionOnly: existingSessionOnly.current, timeoutMs: 15000 });
@@ -198,7 +207,12 @@ export default function SpeechAccount() {
       } else if (data.emailVerified && checkoutIntent.current) {
         setMessage("Your email is confirmed. Continue with your selected plan to review and pay securely with Stripe.");
       }
-      if (new URLSearchParams(window.location.search).get("payment") === "return") {
+      const returnParams = new URLSearchParams(window.location.search);
+      if (returnParams.get("pack_session")) {
+        setMessage(packConfirmed.current
+          ? `Payment received: ${packConfirmed.current} AI feedback rounds added. They never expire.`
+          : "Your payment is not confirmed yet. If you completed it, refresh in a moment. Do not pay again while confirmation is pending.");
+      } else if (returnParams.get("payment") === "return") {
         setMessage(data.subscription.active
           ? "Your subscription is active. You can continue practicing."
           : "Your subscription is not confirmed yet. If you completed payment, refresh in a moment. Do not pay again while confirmation is pending.");
@@ -457,7 +471,7 @@ export default function SpeechAccount() {
           <h2 className="text-xl font-semibold">
             {subscription.active
               ? "Your speech subscription"
-              : "Keep practicing · $12/month"}
+              : "Practice before your speech tomorrow"}
           </h2>
           {subscription.active && subscription.periodEnd && (
             <p role="status">
@@ -469,37 +483,20 @@ export default function SpeechAccount() {
           {checkoutMode && practiceReference.current && !context && <p className="text-sm">
             This saved goal is not available in this account. You can review the plan for this account; signing in does not transfer another account’s practice.
           </p>}
-          <p>
-            40 recordings per billing month, including retries · up to 2 minutes each.
-            Includes transcription and feedback.
-          </p>
-          <p className="text-sm text-[var(--text-muted)]">
-            Renews monthly. Cancel anytime through Manage subscription; access lasts
-            through your paid period. Unused attempts do not roll over.
-          </p>
+          {subscription.active ? <>
+            <p>
+              40 recordings per billing month, including retries · up to 2 minutes each.
+              Includes transcription and feedback.
+            </p>
+            <p className="text-sm text-[var(--text-muted)]">
+              Renews monthly. Cancel anytime through Manage subscription; access lasts
+              through your paid period. Unused attempts do not roll over.
+            </p>
+          </> : billing && <>
+            {allowance && typeof allowance.remaining === "number" && <p className="text-sm">You have {allowance.remaining} recorded {allowance.remaining === 1 ? "attempt" : "attempts"} left{allowance.packCredits ? `, including ${allowance.packCredits} purchased ${allowance.packCredits === 1 ? "round" : "rounds"} in total` : ""}.</p>}
+            <SpeechPackOffer contentSource="speech_account" heading={false} />
+          </>}
           <div className="flex flex-wrap gap-3">
-            {billing && !subscription.active && (
-              <button
-                ref={checkoutButton}
-                className={`${button} bg-[var(--neon-cyan)] text-black`}
-                disabled={busy}
-                onClick={() => {
-                  checkoutIntent.current = true;
-                  clearHistoryReturn();
-                  rememberCheckoutIntent(speechQaSession(), undefined, practiceReference.current ?? null,
-                    speechPurpose(attempts.find(item => item.id === practiceReference.current)?.purpose));
-                  setCheckoutMode(true);
-                  // No email step first: Stripe collects the email, and we send a sign-in link after payment.
-                  if (!emailVerified) trackSpeech("speech_checkout_start", { content_source: "speech_account" });
-                  void run(async () => {
-                    trackSpeech("speech_checkout_continue", { content_source: "speech_account" });
-                    await openBilling("checkout");
-                  });
-                }}
-              >
-                {busy ? "Please wait…" : "Continue to secure checkout"}
-              </button>
-            )}
             {subscription.manageable && (
               <button
                 className={button}
