@@ -6,6 +6,7 @@ import WheelGenerator from "@/components/WheelGenerator";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { hreflangAlternates } from "@/i18n/config";
 import { PartyIllustration } from "@/components/CategoryIllustration";
 import { CATEGORIES } from "@/data/types";
 import { topics } from "@/data/topics";
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     "random wheel picker",
     "topic wheel generator",
   ],
-  alternates: { canonical: "/spin-the-wheel" },
+  alternates: { canonical: "/spin-the-wheel", languages: hreflangAlternates("/spin-the-wheel") },
 };
 
 const FAQ_ITEMS = [
