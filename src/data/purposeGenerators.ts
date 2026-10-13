@@ -216,6 +216,8 @@ export const PURPOSE_GENERATORS = {
       { question: "Does this generator provide sources?", answer: "No. It generates editor-written research questions and scope notes. Use your library databases, primary records, scholarly search tools, and your instructor's source requirements to build the evidence base." },
     ],
     relatedLinks: [
+      { label: "Chicago Citation Generator", href: "/chicago-citation-generator", emoji: "📚" },
+      { label: "ASA Citation Generator", href: "/asa-citation-generator", emoji: "📑" },
       { emoji: "🧠", label: "Learning Topic Generator", href: "/random-learning-topic-generator" },
       { emoji: "🧪", label: "Random Subject Generator", href: "/random-subject-generator" },
       { emoji: "🎓", label: "College Essay Topics", href: "/topics/random-essay-topics-for-college" },
