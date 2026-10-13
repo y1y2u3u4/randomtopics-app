@@ -17,6 +17,8 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/spin-the-wheel", label: "Spin the Wheel", emoji: "🎡", blurb: "Pick a topic or a person", groups: ["party", "classroom"] },
   { href: "/yo-mama-randomizer", label: "Yo Mama Randomizer", emoji: "😂", blurb: "Clean roast jokes", groups: ["party"] },
   { href: "/hot-seat-questions", label: "Hot Seat Questions", emoji: "🔥", blurb: "Rapid-fire questions", groups: ["party", "classroom"] },
+  { href: "/random-name-picker", label: "Random Name Picker", emoji: "🎩", blurb: "Draw names, no repeats", groups: ["classroom", "party"] },
+  { href: "/number-randomizer", label: "Number Randomizer", emoji: "🔢", blurb: "Random numbers in any range", groups: ["classroom", "party"] },
   { href: "/random-team-generator", label: "Random Team Generator", emoji: "👥", blurb: "Split names into fair teams", groups: ["classroom", "party"] },
   { href: "/random-word-generator", label: "Random Word Generator", emoji: "🔠", blurb: "Words for games and writing", groups: ["classroom", "creative"] },
   { href: "/random-letter-generator", label: "Random Letter Generator", emoji: "🔤", blurb: "A–Z for Scattergories", groups: ["classroom", "party"] },

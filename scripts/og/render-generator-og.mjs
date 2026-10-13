@@ -54,6 +54,9 @@ const CARDS = [
     paper: ["(1) Marucho, M.; Kelley, C. T.; Pettitt, B. M. Solutions of the Optimized Closure Integral Equation Theory. <i>J. Chem. Theory Comput.</i> <b>2008</b>, <i>4</i> (3), 385–396.", "(2) Chen, Z. Graphical Representation of Hückel Molecular Orbitals. <i>J. Chem. Educ.</i> <b>2020</b>, <i>97</i> (2), 448–456."] },
   { id: "cite", slug: "chicago-citation-generator", title: "Chicago Citation Generator", line: "18th edition — notes, bibliography, author-date", chips: ["Footnotes & short notes", "Bibliography", "Author-date"],
     paper: ["Desmond, Matthew. <i>Evicted: Poverty and Profit in the American City</i>. Crown, 2016.", "Desmond, Matthew. “Eviction and the Reproduction of Urban Poverty.” <i>American Journal of Sociology</i> 118, no. 1 (2012): 88–133."] },
+  { id: "pick", slug: "number-randomizer", title: "Number Randomizer", line: "Random numbers in any range", chips: ["1–100 in one tap", "No repeats", "Up to 1,000 at once"], mosaic: true },
+  { id: "pick", slug: "random-name-picker", title: "Random Name Picker", line: "Draw names from a hat — no repeats", chips: ["Paste a class list", "Pick 1 or 10", "Random order"],
+    paper: ["Ava", "Ben", "<b>✓ Chloe</b>", "Diego", "Emma", "Finn"], paperTitle: "Picked" },
   { id: "map", slug: "fantasy-map-maker", title: "Fantasy Map Maker", line: "Random fantasy worlds — download PNG", chips: ["Continent", "Islands", "Parchment"] },
 ];
 
@@ -81,7 +84,7 @@ function cardHtml(card, bgPath) {
   .paper h3{font-family:Georgia,serif;font-size:24px;text-align:center;margin-bottom:20px;font-weight:700}
   .paper p{font-size:19px;line-height:1.45;margin:0 0 18px 0;padding-left:28px;text-indent:-28px;color:#2b3040}
   </style></head><body>${card.paper
-    ? `<div class="paper"><h3>References</h3>${card.paper.map((l) => `<p>${l}</p>`).join("")}</div>`
+    ? `<div class="paper"><h3>${card.paperTitle ?? "References"}</h3>${card.paper.map((l) => `<p>${l}</p>`).join("")}</div>`
     : card.mosaic
     ? `<div class="mosaic">${MOSAIC_COLORS.map((c, i) => `<b style="background:${c}">${i + 1}</b>`).join("")}</div>`
     : `<div class="bg"></div><div class="fade"></div>`}<div class="text">
