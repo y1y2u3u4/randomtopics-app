@@ -4,6 +4,7 @@ import { createRequire } from "node:module";
 import * as React from "react";
 import ts from "typescript";
 import * as bank from "../src/data/charades.ts";
+import * as bankEs from "../src/data/charades.es.ts";
 import * as pool from "../src/lib/topicPool.ts";
 const require = createRequire(import.meta.url);
 const state = [], effects = [], memo = [], events = [], intervals = new Map(), listeners = new Map();
@@ -25,6 +26,7 @@ const code = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKi
 new Function("require", "module", "exports", "Date", "setInterval", "clearInterval", "document", code)((id) => {
   if (id === "react") return react;
   if (id === "@/data/charades") return bank;
+  if (id === "@/data/charades.es") return bankEs;
   if (id === "@/lib/topicPool") return pool;
   if (id === "@/lib/track") return { track: (name, params) => events.push({ name, params }) };
   if (id === "./PrintButton") return { default: "print-button" };
@@ -43,6 +45,10 @@ function tick(ms) { now += ms; [...intervals.values()].forEach((fn) => fn()); re
 const result = () => text(descend(render()).find((n) => n.props?.["data-charades-result"]));
 const count = (name) => events.filter((event) => event.name === name).length;
 assert.equal(new Set(bank.CHARADES_WORDS.map((w) => w.w.toLowerCase())).size, 528);
+// Spanish deck: unique words, every category used, valid difficulty tags.
+assert.equal(new Set(bankEs.CHARADES_WORDS_ES.map((w) => w.w.toLowerCase())).size, bankEs.CHARADES_WORDS_ES.length);
+assert.deepEqual(new Set(bankEs.CHARADES_WORDS_ES.map((w) => w.c)), new Set(bankEs.CHARADES_CATEGORIES_ES.map((c) => c.id)));
+assert.ok(bankEs.CHARADES_WORDS_ES.every((w) => [1, 2, 3].includes(w.d)) && bankEs.CHARADES_WORDS_ES.length >= 240);
 render(); assert.equal(count("generate_success"), 0);
 click("Hard"); click("🧸 Kids & Family");
 shown("No words match"); assert.equal(button("🎭 Deal a Word").props.disabled, true);

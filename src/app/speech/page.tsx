@@ -15,11 +15,11 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 export const metadata: Metadata = {
   title: { absolute: "Speech Topic Generator & Practice Timer | Random Topics" },
   description:
-    "Free speech topic generator with a built-in practice timer. Get prompts for impromptu speaking, presentations, Toastmasters, persuasive speeches, and public speaking practice.",
+    "Free speech topic generator: one click gives you a random topic for public speaking, presentations, Toastmasters, persuasive or informative speeches — with talking points and a built-in practice timer.",
   keywords: [
     "speech topic generator",
     "random speech topics",
-    "impromptu speech topics",
+    "random topic generator for public speaking",
     "public speaking topics",
     "toastmasters table topics",
     "table topics generator",
@@ -295,7 +295,7 @@ export default function SpeechPage() {
               { title: "80 Five-Minute Speech Topics + Timer", href: "/5-minute-speech-topics" },
               { title: "100+ Persuasive Speech Topics", href: "/speech/persuasive" },
               { title: "100+ Informative Speech Topics", href: "/speech/informative" },
-              { title: "Impromptu Speech Topics with Timer", href: "/impromptu-speech-topics" },
+              { title: "120 Impromptu Speech Topics (No Research Needed)", href: "/impromptu-speech-topics" },
               { title: "Toastmasters Table Topics Generator", href: "/table-topics-generator" },
               { title: "120 Toastmasters Table Topics + Practice Drill", href: "/topics/toastmasters-table-topics" },
               { title: "75 Speech Topics for College Students", href: "/topics/speech-topics-for-college-students" },
