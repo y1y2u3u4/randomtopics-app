@@ -48,6 +48,12 @@ const CARDS = [
   { id: "my9", slug: "my-9-anime", title: "My 9 Anime", line: "Your 3×3 favorite anime grid — free", chips: ["Series & films", "Tap 9 posters", "Download PNG"], mosaic: true },
   { id: "my9", slug: "my-9-grid", title: "My 9 Grid Maker", line: "Any 9 pictures in one 3×3 image", chips: ["Movies, books, foods…", "Stays in your browser", "No watermark"], mosaic: true },
   // Citation generators: a code-drawn reference-list card (real example entries).
+  { id: "cite", slug: "apa-citation-generator", title: "APA Citation Generator", line: "APA 7 references & a full reference page", chips: ["Paste many DOIs at once", "(Desmond, 2012, p. 95)", "Download for Word"],
+    paper: ["Desmond, M. (2012). Eviction and the reproduction of urban poverty. <i>American Journal of Sociology, 118</i>(1), 88–133.", "Innocente, N., &amp; Baker, J. (2018). The sociology teaching fellowship. <i>Teaching Sociology, 46</i>(4), 335–345."] },
+  { id: "movie", slug: "random-movie-generator", title: "Random Movie Generator", line: "What should I watch? Pick by genre & decade", chips: ["705 movies, 1950–2025", "3 similar picks", "Netflix & Apple originals"],
+    paper: ["<b>Klaus</b> (2019) · animation · 96 min", "<b>Harold and Maude</b> (1971) · comedy · 91 min", "<b>The Hurt Locker</b> (2008) · war · 131 min", "<b>Independence Day</b> (1996) · sci-fi · 145 min", "<b>All About Eve</b> (1950) · drama · 138 min"], paperTitle: "Tonight's picks" },
+  { id: "wutang", slug: "wu-tang-name-generator", title: "Wu-Tang Name Generator", line: "What's your Wu-Tang name? Same name, same result", chips: ["Type your name", "Random mode", "Share card PNG"],
+    paper: ["Alex → <b>Patient Tiger</b>", "Maria → <b>Eastern Griffin</b>", "Jordan → <b>Deadly Storyteller</b>", "Sam → <b>Mythic Baker</b>", "Priya → <b>Lurking Codebreaker</b>"], paperTitle: "Wu-Tang names" },
   { id: "cite", slug: "asa-citation-generator", title: "ASA Citation Generator", line: "ASA 7th edition — from a DOI, ISBN or URL", chips: ["References list", "(Desmond 2012:95)", "Copy with italics"],
     paper: ["Desmond, Matthew. 2012. “Eviction and the Reproduction of Urban Poverty.” <i>American Journal of Sociology</i> 118(1):88–133.", "Innocente, Nathan, and Jayne Baker. 2018. “The Sociology Teaching Fellowship.” <i>Teaching Sociology</i> 46(4):335–345."] },
   { id: "cite", slug: "acs-citation-generator", title: "ACS Citation Generator", line: "Numbered ACS references & bibliography", chips: ["Bold year, italic volume", "Superscript numbers", "DOI lookup"],

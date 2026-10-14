@@ -144,6 +144,13 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     crossLinkOnly: true,
   },
   {
+    href: "/apa-citation-generator",
+    emoji: "📝",
+    label: { en: "APA Citation Generator" },
+    detail: { en: "APA 7 reference page & in-text" },
+    crossLinkOnly: true,
+  },
+  {
     href: "/asa-citation-generator",
     emoji: "📑",
     label: { en: "ASA Citation Generator" },
@@ -162,6 +169,20 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     emoji: "📚",
     label: { en: "Chicago Citation Generator" },
     detail: { en: "Footnotes, bibliography, author-date" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/random-movie-generator",
+    emoji: "🎬",
+    label: { en: "Random Movie Generator" },
+    detail: { en: "Pick a movie by genre & decade" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/wu-tang-name-generator",
+    emoji: "🥋",
+    label: { en: "Wu-Tang Name Generator" },
+    detail: { en: "What's your Wu-Tang name?" },
     crossLinkOnly: true,
   },
   {
