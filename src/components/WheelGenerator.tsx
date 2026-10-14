@@ -133,9 +133,9 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
       </div>
 
       {locale === "en" && !mode && !result && <SelectedTopicPractice returnSource="wheel" />}
-      <div className="glass-card p-6 sm:p-10 flex flex-col items-center">
+      <div className="glass-card p-6 sm:p-8 flex flex-col items-center">
         {/* Wheel + pointer */}
-        <div className="relative" style={{ width: "min(100%, 340px, 46vh)" }}>
+        <div className="relative" style={{ width: "min(100%, 340px, 40vh)" }}>
           {/* Pointer */}
           <div
             className="absolute left-1/2 -translate-x-1/2 z-10"
