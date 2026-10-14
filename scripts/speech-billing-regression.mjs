@@ -295,7 +295,7 @@ assert.equal(packParams.line_items[0].price_data.currency, "usd");
 assert.equal(packParams.metadata.pack, "20");
 assert.equal(packParams.metadata.product, "randomtopics_speech_pack");
 assert.match(packParams.success_url, /pack_session=\{CHECKOUT_SESSION_ID\}$/);
-assert.match(packOptions.idempotencyKey, /pack-v1-user_fixture-20/);
+assert.match(packOptions.idempotencyKey, /pack-v2-user_fixture-20/);
 offeredPrice.active = false;
 assert.equal((await checkout.POST(packRequest(5))).status, 200, "packs do not depend on the subscription price");
 account.subscription_active = true; account.period_end = "2999-01-01";

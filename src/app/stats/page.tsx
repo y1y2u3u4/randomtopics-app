@@ -95,8 +95,9 @@ export default function StatsPage() {
         </section>
 
 
-        {/* Usage Insights — REAL telemetry only. Until the first monthly pull,
-            this renders an honest "collecting" state (see data/usageInsights.ts). */}
+        {/* Usage Insights — REAL telemetry only. Hidden until the first monthly
+            pull sets `updated` (see data/usageInsights.ts); no placeholder. */}
+        {usageInsights.updated && (
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
           <div className="glass-card p-8 sm:p-10">
             <h2
@@ -105,7 +106,6 @@ export default function StatsPage() {
             >
               Usage Insights
             </h2>
-            {usageInsights.updated ? (
               <>
                 <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">
                   What people actually generate on this site — real, measured numbers for{" "}
@@ -137,18 +137,9 @@ export default function StatsPage() {
                   </div>
                 </div>
               </>
-            ) : (
-              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                Coming soon — and honestly. We started measuring real usage (which categories,
-                modes, and depth levels people actually generate, and which party decks get
-                copied) on <strong className="text-[var(--text-primary)]">July 23, 2026</strong>.
-                Once a full month of data is in, this section will show the real numbers —
-                measured, never estimated. Everything above this line describes the curated
-                database itself, not usage.
-              </p>
-            )}
           </div>
         </section>
+        )}
 
         {/* Topics by category */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">

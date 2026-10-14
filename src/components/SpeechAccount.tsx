@@ -404,7 +404,7 @@ export default function SpeechAccount() {
           </h2>
           <p className="text-sm text-[var(--text-muted)]">
             {loadError === "session" ? "Use an email you already linked to your practice. We won’t create a replacement guest session." : checkoutMode
-              ? "You can pay without this. Sign in first only if you want the plan on an account you already use."
+              ? "You can pay without this. Sign in first only if you want the rounds on an account you already use."
               : "Free practice works without an email. Link an email before clearing browser data or switching devices so you can recover your saved feedback."}
           </p>
           <form
@@ -512,7 +512,7 @@ export default function SpeechAccount() {
           {checkoutMode && !emailVerified && !subscription.active && emailAvailable && emailPanel}
           {!emailVerified && !subscription.active && (
             <p className="text-sm">
-              Pay securely with Stripe. After payment we email you a sign-in link so you can keep this plan on any device.
+              Pay securely with Stripe. After payment we email you a sign-in link so you can keep your rounds on any device.
             </p>
           )}
           {subscription.active && anonymous && (

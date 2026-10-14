@@ -119,8 +119,8 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
   }, [mode, locale, sessionScope]);
 
   return (
-    <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 sm:pt-20">
-      <div className="text-center mb-6 sm:mb-10">
+    <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12">
+      <div className="text-center mb-6 sm:mb-8">
         <h1
           className="section-heading text-4xl sm:text-6xl font-extrabold mb-4"
           style={{ fontFamily: "var(--font-display)" }}
@@ -135,7 +135,7 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
       {locale === "en" && !mode && !result && <SelectedTopicPractice returnSource="wheel" />}
       <div className="glass-card p-6 sm:p-10 flex flex-col items-center">
         {/* Wheel + pointer */}
-        <div className="relative" style={{ width: "min(100%, 340px)" }}>
+        <div className="relative" style={{ width: "min(100%, 340px, 46vh)" }}>
           {/* Pointer */}
           <div
             className="absolute left-1/2 -translate-x-1/2 z-10"

@@ -47,8 +47,9 @@ export async function POST(request: Request) {
         success_url: `${siteUrl()}/account?classroom_session={CHECKOUT_SESSION_ID}`,
         cancel_url: `${siteUrl()}/classroom-packs`,
         allow_promotion_codes: false,
+        custom_text: { submit: { message: "After payment you return to randomtopics.app/account to download the PPTX and PDF. We also email you a sign-in link so you can download them again on any device." } },
       },
-      { idempotencyKey: `randomtopics-classroom-v1-${user.id}-${purchase}-${Math.floor(Date.now() / 1800000)}` },
+      { idempotencyKey: `randomtopics-classroom-v2-${user.id}-${purchase}-${Math.floor(Date.now() / 1800000)}` },
     );
     if (!session.url) throw new SpeechError(503, "Checkout is temporarily unavailable. Please try again.");
     return response({ url: session.url });
