@@ -105,7 +105,7 @@ export default function TermsPage() {
               users aged 13 or older.
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              The introductory allowance includes two recorded attempts. When paid
+              The introductory allowance includes two attempts, recorded or typed. When paid
               subscriptions are available, the displayed offer is $12 USD per month
               for 40 attempts per billing month, including retries, with a maximum
               of two minutes per attempt. Unused attempts do not roll over. The
@@ -115,7 +115,7 @@ export default function TermsPage() {
               Subscriptions remain unavailable until checkout is enabled.
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              One-time feedback packs (5 or 20 recorded attempts) are a single
+              One-time feedback packs (5 or 20 attempts, recorded or typed) are a single
               payment with no renewal. Pack attempts do not expire, and an attempt
               that fails to process is not counted.
             </p>

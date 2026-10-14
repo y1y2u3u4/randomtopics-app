@@ -33,11 +33,11 @@ export default function SpeechPlanTeaser({ attempt, contentSource, visible, comp
     });
   }, [available, visible, contentSource, attempt, compact, purpose]);
   if (!available) return null;
-  if (compact) return <section ref={card} aria-label="More speech practice"><p className="text-sm text-[var(--text-muted)]">Your first two recorded attempts are free, including retries. Need more? 5 AI feedback rounds for $2.99 — one-time, no subscription.</p></section>;
+  if (compact) return <section ref={card} aria-label="More speech practice"><p className="text-sm text-[var(--text-muted)]">Your first two attempts are free (spoken or typed), including retries. Need more? 5 AI feedback rounds for $2.99 — one-time, no subscription.</p></section>;
   return <><section ref={card} aria-label="Keep practicing" className="space-y-3 rounded-xl border border-[var(--neon-cyan)]/30 bg-[var(--neon-cyan)]/5 p-5">
     {purpose && purpose !== "unspecified" && <p className="text-xs text-[var(--text-muted)]">Your purpose: {purposeLabels[purpose]}</p>}
     {nextCheck && <p className="text-sm"><strong>Your next recording would check: </strong>{nextCheck}</p>}
-    {attempt === 1 && <p className="text-sm text-[var(--text-muted)]">Your first two recorded attempts are free, including retries.</p>}
+    {attempt === 1 && <p className="text-sm text-[var(--text-muted)]">Your first two attempts are free (spoken or typed), including retries.</p>}
     <SpeechPackOffer contentSource={contentSource} attempt={attempt} />
   </section>
     <SpeechPlanReasons key={attempt} visible={visible} attempt={attempt} contentSource={contentSource} purpose={purpose} onReview={onReview} />

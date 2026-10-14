@@ -127,6 +127,53 @@ const invalid = await transcribe.POST(
 assert.equal(invalid.status, 400);
 assert.equal(calls, 0, "Bad audio must not consume quota or model calls");
 
+// Typed answers: validated before any reservation, never sent to the transcription model.
+for (const body of [
+  { text: "Too short to coach." },
+  { text: "This answer has enough characters but few words", audio: Buffer.alloc(200).toString("base64") },
+  { text: "one two three four five six seven" },
+]) {
+  const rejected = await transcribe.POST(new Request("https://example.test/api/speech/transcribe", {
+    method: "POST", body: JSON.stringify({ id, topic: "Practice", previousId: null, ...body }),
+  }));
+  assert.equal(rejected.status, 400, JSON.stringify(body));
+}
+assert.equal(calls, 0, "Invalid typed answers must not consume quota");
+{
+  const typedText = "One habit that helps me is a short walk after lunch. For example, last Tuesday I walked for ten minutes and came back calmer and more focused.";
+  const typedUpdates = [];
+  const reservations = [];
+  let modelCalls = 0;
+  const typedChain = {
+    update(value) { typedUpdates.push(value); return this; },
+    eq() { return this; },
+    then(resolve) { resolve({ error: null }); },
+  };
+  const typedRoute = load("src/app/api/speech/transcribe/route.ts", {
+    "@/lib/speech/server": {
+      ...server,
+      actor: async () => ({ user: { id: "owner" }, db: {
+        rpc: async (name, args) => { reservations.push({ name, args }); return { data: true, error: null }; },
+        from: () => typedChain,
+      } }),
+      networkHash: () => "test-network",
+      modelCall: async () => { modelCalls++; throw new Error("typed answers must not be transcribed"); },
+    },
+  });
+  const typedResult = await typedRoute.POST(new Request("https://example.test/api/speech/transcribe", {
+    method: "POST", body: JSON.stringify({ id, topic: "Practice", previousId: null, text: typedText }),
+  }));
+  assert.equal(typedResult.status, 200);
+  const typedBody = await typedResult.json();
+  assert.equal(typedBody.transcript, typedText);
+  assert.equal(typedBody.status, "transcribed");
+  assert.equal(modelCalls, 0);
+  assert.equal(reservations.length, 1, "A typed answer uses exactly one attempt");
+  assert.equal(reservations[0].args.p_duration, 11, "28 words ≈ 11 seconds spoken");
+  assert.equal(typedUpdates.at(-1).status, "transcribed");
+  assert.equal(typedUpdates.at(-1).usage.context.inputMethod, "typed");
+}
+
 // A failed transcription must release its reservation before allowing a new ID.
 const wav = Buffer.alloc(44 + 6 * 24000);
 wav.write("RIFF");

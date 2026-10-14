@@ -51,7 +51,7 @@ const FAQ_ITEMS = [
   {
     question: "Are these impromptu speech topics free to use?",
     answer:
-      "Yes — the full list, the random picker with category and depth filters, and the practice timer are free with no signup. Teachers can use the topics in class. Optional AI feedback includes two free recorded attempts, including retries; more recorded practice is available on the monthly plan.",
+      "Yes — the full list, the random picker with category and depth filters, and the practice timer are free with no signup. Teachers can use the topics in class. Optional AI feedback includes two free attempts (spoken or typed), including retries; more recorded practice is available on the monthly plan.",
   },
 ];
 

@@ -9,7 +9,7 @@ type Properties = {
   content_source: string;
   entry_surface?: "primary" | "example" | "desktop_nav" | "mobile_nav";
   attempt?: number;
-  input_method?: "microphone" | "upload";
+  input_method?: "microphone" | "upload" | "typed";
   duration_seconds?: number;
   elapsed_ms?: number;
   error_code?: string;

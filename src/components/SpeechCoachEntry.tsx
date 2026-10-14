@@ -184,7 +184,7 @@ export default function SpeechCoachEntry({ topics, contentSource, requestTopics,
         <p className="mt-1"><span className="font-semibold text-[var(--neon-cyan)]">A 20-second change:</span> Name one walk and what changed afterward. Re-record just that example and compare.</p>
       </div>}
       <a href={timerHref} onClick={() => track("practice_timer_entry", { tool_type: "speech_practice", content_source: contentSource, locale: "en" })} className="mt-3 inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Practice aloud with the timer · no recording</a>
-      <p className="mt-3 text-xs leading-relaxed text-[var(--text-muted)]">Two free recorded attempts, including retries. No sign-up or card. Feedback on your words and structure.</p>
+      <p className="mt-3 text-xs leading-relaxed text-[var(--text-muted)]">Two free attempts — speak or type — including retries. No sign-up or card. Feedback on your words and structure.</p>
     </div>;
   return (
     <section className="mb-6" aria-label="Free speech feedback">
