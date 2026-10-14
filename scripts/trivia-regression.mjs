@@ -97,7 +97,7 @@ test("T3 counts: total ≥ 800, halloween ≥ 50, each category ≥ 60 with ever
 });
 
 test("T3 content stays evergreen (no 'current/latest/reigning' wording)", () => {
-  const bad = /\b(current(ly)?|latest|reigning|nowadays|this year|right now|as of)\b/i;
+  const bad = /(?<!electric |alternating |direct )\b(current(ly)?|latest|reigning|nowadays|this year|right now|as of)\b/i;
   for (const q of all) assert.ok(!bad.test(q.question) && !bad.test(q.answer), `${q.id}: ${q.question}`);
 });
 

@@ -21,6 +21,9 @@ const ghostBtn =
 const scoreBtn =
   "h-9 w-9 shrink-0 rounded-lg border border-white/10 text-lg font-bold text-[var(--text-primary)] hover:border-[var(--neon-cyan)]/50 hover:text-[var(--neon-cyan)]";
 
+const select =
+  "min-h-10 rounded-lg border border-white/10 bg-transparent px-2.5 py-1.5 text-sm normal-case tracking-normal text-[var(--text-primary)] focus:border-[var(--neon-cyan)]/60";
+
 const DIFF_LABEL: Record<Difficulty, string> = { easy: "Easy", medium: "Medium", hard: "Hard" };
 const CATEGORY_LABEL = (c: TriviaBank) => (c === "halloween" ? "Halloween" : TRIVIA_CATEGORIES[c].label);
 const CATEGORY_EMOJI = (c: TriviaBank) => (c === "halloween" ? "🎃" : TRIVIA_CATEGORIES[c].emoji);
@@ -33,15 +36,6 @@ interface Props {
 }
 
 interface Card { q: TriviaQuestion; choices: string[] }
-
-function Filters({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="mb-3">
-      <p className="text-[11px] uppercase tracking-widest text-[var(--text-muted)] mb-1.5">{label}</p>
-      <div className="flex flex-wrap gap-1.5">{children}</div>
-    </div>
-  );
-}
 
 export default function TriviaGame({ bank = "categories", seed }: Props) {
   const pool = bank === "halloween" ? TRIVIA_BANKS.halloween : CATEGORY_TRIVIA;
@@ -180,7 +174,7 @@ export default function TriviaGame({ bank = "categories", seed }: Props) {
           {card.q.question}
         </p>
         {multipleChoice && (
-          <div className={`grid gap-2 mt-4 ${big ? "sm:grid-cols-2" : "grid-cols-1 sm:grid-cols-2"}`}>
+          <div className="grid grid-cols-2 gap-2 mt-4">
             {card.choices.map((c, i) => {
               const isAnswer = c === card.q.answer;
               const state = revealed ? (isAnswer ? "right" : picked === c ? "wrong" : "idle") : "idle";
@@ -189,7 +183,7 @@ export default function TriviaGame({ bank = "categories", seed }: Props) {
                   key={c}
                   type="button"
                   onClick={() => { if (!revealed) { setPicked(c); reveal(); } }}
-                  className={`min-h-11 rounded-xl border px-4 py-2.5 text-left text-sm sm:text-base font-semibold transition-colors ${
+                  className={`min-h-11 rounded-xl border px-3 py-2 text-left text-sm sm:text-base font-semibold transition-colors ${
                     state === "right"
                       ? "border-emerald-400 bg-emerald-400/15 text-emerald-200"
                       : state === "wrong"
@@ -197,7 +191,7 @@ export default function TriviaGame({ bank = "categories", seed }: Props) {
                         : "border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/50"
                   }`}
                 >
-                  <span className="text-[var(--text-muted)] mr-2">{String.fromCharCode(65 + i)}.</span>{c}
+                  <span className="text-[var(--text-muted)] mr-1.5">{String.fromCharCode(65 + i)}.</span>{c}
                 </button>
               );
             })}
@@ -229,33 +223,40 @@ export default function TriviaGame({ bank = "categories", seed }: Props) {
   return (
     <section className="max-w-3xl mx-auto px-4 sm:px-6" aria-label="Trivia game">
       <div className="glass-card p-4 sm:p-7">
-        <div className="mb-1">
+        <div className="mb-4 flex flex-wrap items-end gap-2 border-b border-white/5 pb-4">
           {bank === "categories" && (
-            <Filters label="Category">
-              <button type="button" className={chip(filters.category === "all")} onClick={() => changeFilters({ ...filters, category: "all" })}>🎲 Mixed</button>
-              {TRIVIA_CATEGORY_IDS.map((c) => (
-                <button key={c} type="button" className={chip(filters.category === c)} onClick={() => changeFilters({ ...filters, category: c })}>
-                  {TRIVIA_CATEGORIES[c].emoji} {TRIVIA_CATEGORIES[c].label}
-                </button>
-              ))}
-            </Filters>
+            <label className="flex flex-col gap-1 text-[11px] uppercase tracking-widest text-[var(--text-muted)]">
+              Category
+              <select
+                value={filters.category}
+                onChange={(e) => changeFilters({ ...filters, category: e.target.value as TriviaFilters["category"] })}
+                className={select}
+              >
+                <option value="all" className="bg-black">🎲 Mixed</option>
+                {TRIVIA_CATEGORY_IDS.map((c) => (
+                  <option key={c} value={c} className="bg-black">{TRIVIA_CATEGORIES[c].emoji} {TRIVIA_CATEGORIES[c].label}</option>
+                ))}
+              </select>
+            </label>
           )}
-          <div className="flex flex-wrap gap-x-6">
-            <Filters label="Difficulty">
-              {(["all", ...DIFFICULTIES] as const).map((d) => (
-                <button key={d} type="button" className={chip(filters.difficulty === d)} onClick={() => changeFilters({ ...filters, difficulty: d })}>
-                  {d === "all" ? "Any" : DIFF_LABEL[d]}
-                </button>
-              ))}
-            </Filters>
-            <Filters label="Answers">
-              <button type="button" className={chip(multipleChoice)} onClick={() => setMultipleChoice(true)} aria-pressed={multipleChoice}>Multiple choice</button>
-              <button type="button" className={chip(!multipleChoice)} onClick={() => setMultipleChoice(false)} aria-pressed={!multipleChoice}>Open answer</button>
-            </Filters>
+          <label className="flex flex-col gap-1 text-[11px] uppercase tracking-widest text-[var(--text-muted)]">
+            Difficulty
+            <select
+              value={filters.difficulty}
+              onChange={(e) => changeFilters({ ...filters, difficulty: e.target.value as TriviaFilters["difficulty"] })}
+              className={select}
+            >
+              <option value="all" className="bg-black">Any</option>
+              {DIFFICULTIES.map((d) => <option key={d} value={d} className="bg-black">{DIFF_LABEL[d]}</option>)}
+            </select>
+          </label>
+          <div className="flex gap-1" role="group" aria-label="Answer style">
+            <button type="button" className={chip(multipleChoice)} onClick={() => setMultipleChoice(true)} aria-pressed={multipleChoice}>Choices</button>
+            <button type="button" className={chip(!multipleChoice)} onClick={() => setMultipleChoice(false)} aria-pressed={!multipleChoice}>Open</button>
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-4">{questionCard(false)}</div>
+        {questionCard(false)}
         {card && actions}
 
         <div className="mt-5 flex flex-wrap items-center gap-3 border-t border-white/5 pt-4">
@@ -338,8 +339,8 @@ export default function TriviaGame({ bank = "categories", seed }: Props) {
                       />
                       <div className="mt-1.5 flex items-center gap-2">
                         <button type="button" className={scoreBtn} onClick={() => setBoard((b) => adjustScore(b, i, -1))} aria-label={`${t.name} minus one`}>−</button>
-                        <span className="flex-1 text-center text-2xl font-extrabold tabular-nums text-[var(--text-primary)]">
-                          {lead.includes(i) && <span aria-label="leading">👑 </span>}{t.score}
+                        <span className="flex-1 whitespace-nowrap text-center text-2xl font-extrabold tabular-nums text-[var(--text-primary)]">
+                          {lead.includes(i) && <span aria-label="leading" className="text-sm align-middle">👑</span>}{t.score}
                         </span>
                         <button type="button" className={scoreBtn} onClick={() => setBoard((b) => adjustScore(b, i, 1))} aria-label={`${t.name} plus one`}>+</button>
                       </div>

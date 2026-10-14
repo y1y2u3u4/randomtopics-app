@@ -62,7 +62,7 @@ export default function TriviaQuestionsPage() {
       path={PATH}
       name="Trivia Questions"
       heading={["Trivia", "Questions"]}
-      intro={`${COUNT} trivia questions and answers. Pick a category, draw a question, play multiple choice or host a game night with a timer and team scores.`}
+      intro={`${COUNT} trivia questions and answers. Draw one, play multiple choice, or host a game night with a timer and team scores.`}
       description={DESCRIPTION}
       updated="2026-10-14"
       faq={FAQ}

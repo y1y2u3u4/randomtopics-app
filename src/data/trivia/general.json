@@ -1,0 +1,990 @@
+[
+  {
+    "id": "general-001",
+    "question": "Which kitchen appliance was developed after engineer Percy Spencer noticed radar equipment had melted a candy bar in his pocket?",
+    "answer": "Microwave oven",
+    "distractors": [
+      "Toaster",
+      "Refrigerator",
+      "Dishwasher"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Percy Spencer of Raytheon filed a patent for microwave cooking in 1945 after noticing a magnetron had melted his candy bar."
+  },
+  {
+    "id": "general-002",
+    "question": "Which punctuation mark shows possession, as in \"the dog's bone\"?",
+    "answer": "Apostrophe",
+    "distractors": [
+      "Comma",
+      "Hyphen",
+      "Quotation mark"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "An apostrophe followed by s shows that something belongs to someone."
+  },
+  {
+    "id": "general-003",
+    "question": "How many days are in a leap year?",
+    "answer": "366",
+    "distractors": [
+      "365",
+      "364",
+      "367"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "A leap year adds February 29 to the usual 365 days, making 366."
+  },
+  {
+    "id": "general-004",
+    "question": "What is a shortened word like \"can't\" or \"it's\", made by joining two words, called?",
+    "answer": "Contraction",
+    "distractors": [
+      "Abbreviation",
+      "Compound word",
+      "Acronym"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "A contraction joins two words and replaces missing letters with an apostrophe."
+  },
+  {
+    "id": "general-005",
+    "question": "In which city does the Eiffel Tower stand?",
+    "answer": "Paris",
+    "distractors": [
+      "Rome",
+      "London",
+      "Madrid"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "The Eiffel Tower was built on the Champ de Mars in Paris for the 1889 World's Fair."
+  },
+  {
+    "id": "general-006",
+    "question": "What do you call a place where people can borrow books for free?",
+    "answer": "Library",
+    "distractors": [
+      "Museum",
+      "Bakery",
+      "Gallery"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "A library lends books and other materials to its members."
+  },
+  {
+    "id": "general-007",
+    "question": "Which Leonardo da Vinci painting shows a woman with a famously mysterious smile?",
+    "answer": "Mona Lisa",
+    "distractors": [
+      "The Last Supper",
+      "Girl with a Pearl Earring",
+      "The Birth of Venus"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "The Mona Lisa, painted by Leonardo da Vinci, is famous for its subject's enigmatic smile."
+  },
+  {
+    "id": "general-008",
+    "question": "Which word is spelled by the first six letters on the top row of a standard English keyboard?",
+    "answer": "QWERTY",
+    "distractors": [
+      "ASDFGH",
+      "ZXCVBN",
+      "QWERTZ"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "Standard English keyboards are called QWERTY keyboards after the first six letters of the top letter row."
+  },
+  {
+    "id": "general-009",
+    "question": "What does a thermometer measure?",
+    "answer": "Temperature",
+    "distractors": [
+      "Air pressure",
+      "Humidity",
+      "Wind speed"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "A thermometer is an instrument for measuring how hot or cold something is."
+  },
+  {
+    "id": "general-010",
+    "question": "What is the main language spoken in Brazil?",
+    "answer": "Portuguese",
+    "distractors": [
+      "Spanish",
+      "French",
+      "Italian"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "Brazil was colonized by Portugal, and Portuguese is its official and most widely spoken language."
+  },
+  {
+    "id": "general-011",
+    "question": "Which toy brand from Denmark is famous for its interlocking plastic bricks?",
+    "answer": "LEGO",
+    "distractors": [
+      "K'NEX",
+      "Meccano",
+      "Tinkertoy"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "LEGO is a Danish company known for its interlocking plastic building bricks."
+  },
+  {
+    "id": "general-012",
+    "question": "What do you call a person whose job is designing buildings?",
+    "answer": "Architect",
+    "distractors": [
+      "Carpenter",
+      "Plumber",
+      "Surveyor"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "An architect plans and designs buildings before they are built."
+  },
+  {
+    "id": "general-013",
+    "question": "Which fruit is dried to make a raisin?",
+    "answer": "Grape",
+    "distractors": [
+      "Plum",
+      "Fig",
+      "Date"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "Raisins are simply grapes that have been dried."
+  },
+  {
+    "id": "general-014",
+    "question": "What do you call a word that means the opposite of another word?",
+    "answer": "Antonym",
+    "distractors": [
+      "Synonym",
+      "Homonym",
+      "Acronym"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "An antonym is a word with the opposite meaning, such as \"hot\" and \"cold\"."
+  },
+  {
+    "id": "general-015",
+    "question": "What shape is a standard stop sign in the United States?",
+    "answer": "Octagon",
+    "distractors": [
+      "Hexagon",
+      "Pentagon",
+      "Circle"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "US stop signs are red octagons, a shape reserved for that sign."
+  },
+  {
+    "id": "general-016",
+    "question": "In \"The Three Little Pigs\", what is the strongest house made of?",
+    "answer": "Bricks",
+    "distractors": [
+      "Straw",
+      "Sticks",
+      "Mud"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "The wolf blows down the straw and stick houses but cannot blow down the house of bricks."
+  },
+  {
+    "id": "general-017",
+    "question": "What does \"www\" stand for in a web address?",
+    "answer": "World Wide Web",
+    "distractors": [
+      "Wide World Web",
+      "World Web Wide",
+      "Web World Wide"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "The \"www\" prefix stands for World Wide Web, the system of linked web pages."
+  },
+  {
+    "id": "general-018",
+    "question": "Which instrument is used to look at very small things like cells?",
+    "answer": "Microscope",
+    "distractors": [
+      "Telescope",
+      "Periscope",
+      "Stethoscope"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "A microscope magnifies tiny objects such as cells that are too small to see with the naked eye."
+  },
+  {
+    "id": "general-019",
+    "question": "What is a group of lions called?",
+    "answer": "A pride",
+    "distractors": [
+      "A pack",
+      "A herd",
+      "A flock"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "Lions live in social groups known as prides."
+  },
+  {
+    "id": "general-020",
+    "question": "In chess, which piece can only move diagonally?",
+    "answer": "Bishop",
+    "distractors": [
+      "Rook",
+      "Knight",
+      "King"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "The bishop moves any number of squares, but only along diagonals."
+  },
+  {
+    "id": "general-021",
+    "question": "Which honey-loving bear lives in the Hundred Acre Wood?",
+    "answer": "Winnie-the-Pooh",
+    "distractors": [
+      "Paddington Bear",
+      "Baloo",
+      "Yogi Bear"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "Winnie-the-Pooh, created by A. A. Milne, lives in the Hundred Acre Wood."
+  },
+  {
+    "id": "general-022",
+    "question": "Which white bird is widely used as a symbol of peace?",
+    "answer": "Dove",
+    "distractors": [
+      "Eagle",
+      "Swan",
+      "Owl"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "The white dove, often shown with an olive branch, is a common symbol of peace."
+  },
+  {
+    "id": "general-023",
+    "question": "Which tool uses Earth's magnetic field to show direction?",
+    "answer": "Compass",
+    "distractors": [
+      "Barometer",
+      "Sextant",
+      "Odometer"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "A compass needle is magnetized and lines up with Earth's magnetic field, pointing north."
+  },
+  {
+    "id": "general-024",
+    "question": "What is the name of Sherlock Holmes's friend and assistant?",
+    "answer": "Dr. Watson",
+    "distractors": [
+      "Professor Moriarty",
+      "Inspector Lestrade",
+      "Mrs. Hudson"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "Dr. John Watson is Holmes's companion and the narrator of most of the stories."
+  },
+  {
+    "id": "general-025",
+    "question": "Which famous Australian building has a roof shaped like white sails?",
+    "answer": "Sydney Opera House",
+    "distractors": [
+      "Royal Albert Hall",
+      "Guggenheim Museum",
+      "Lincoln Center"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "The Sydney Opera House is known for its sail-like white roof shells on Sydney Harbour."
+  },
+  {
+    "id": "general-026",
+    "question": "Which Italian city is famous for its leaning bell tower?",
+    "answer": "Pisa",
+    "distractors": [
+      "Florence",
+      "Venice",
+      "Rome"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "The Leaning Tower of Pisa tilts because its foundation was built on soft ground."
+  },
+  {
+    "id": "general-027",
+    "question": "In the fairy tale, what does Cinderella leave behind at the ball?",
+    "answer": "A glass slipper",
+    "distractors": [
+      "A golden crown",
+      "A silk glove",
+      "A pearl necklace"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "The prince uses the glass slipper Cinderella left behind to find her."
+  },
+  {
+    "id": "general-028",
+    "question": "Which board game has properties called Boardwalk and Park Place?",
+    "answer": "Monopoly",
+    "distractors": [
+      "Clue",
+      "Risk",
+      "Scrabble"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "Boardwalk and Park Place are the most expensive properties on the US Monopoly board."
+  },
+  {
+    "id": "general-029",
+    "question": "Origami is the Japanese art of folding what?",
+    "answer": "Paper",
+    "distractors": [
+      "Cloth",
+      "Wire",
+      "Leaves"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "Origami means \"folding paper\" and traditionally creates shapes from paper without cutting or gluing."
+  },
+  {
+    "id": "general-030",
+    "question": "Who wrote the play \"Romeo and Juliet\"?",
+    "answer": "William Shakespeare",
+    "distractors": [
+      "Christopher Marlowe",
+      "Charles Dickens",
+      "Geoffrey Chaucer"
+    ],
+    "category": "general",
+    "difficulty": "easy",
+    "explanation": "Romeo and Juliet is a tragedy written by William Shakespeare in the 1590s."
+  },
+  {
+    "id": "general-031",
+    "question": "What is a word that sounds like another but has a different spelling and meaning, like \"flour\" and \"flower\"?",
+    "answer": "Homophone",
+    "distractors": [
+      "Synonym",
+      "Antonym",
+      "Acronym"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Homophones sound alike but differ in spelling and meaning."
+  },
+  {
+    "id": "general-032",
+    "question": "What is the syllable pattern of the three lines of a traditional haiku?",
+    "answer": "5-7-5",
+    "distractors": [
+      "7-5-7",
+      "5-5-7",
+      "3-5-3"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "A traditional haiku has three lines of 5, 7 and 5 syllables."
+  },
+  {
+    "id": "general-033",
+    "question": "What is the alphabetical list of topics and page numbers at the back of a book called?",
+    "answer": "Index",
+    "distractors": [
+      "Glossary",
+      "Appendix",
+      "Preface"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "A book's index lists topics alphabetically with the pages where they appear."
+  },
+  {
+    "id": "general-034",
+    "question": "How many squares are on a standard chessboard?",
+    "answer": "64",
+    "distractors": [
+      "32",
+      "81",
+      "100"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "A chessboard is an 8-by-8 grid, giving 64 squares."
+  },
+  {
+    "id": "general-035",
+    "question": "What is a word, like \"level\" or \"radar\", that reads the same backward and forward?",
+    "answer": "Palindrome",
+    "distractors": [
+      "Anagram",
+      "Acronym",
+      "Homophone"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "A palindrome reads the same in both directions."
+  },
+  {
+    "id": "general-036",
+    "question": "What is a word formed from the first letters of other words, like \"NASA\", called?",
+    "answer": "Acronym",
+    "distractors": [
+      "Anagram",
+      "Synonym",
+      "Palindrome"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "An acronym is built from initial letters and pronounced as a word, as with NASA."
+  },
+  {
+    "id": "general-037",
+    "question": "What color are airplane \"black box\" flight recorders actually painted?",
+    "answer": "Bright orange",
+    "distractors": [
+      "Black",
+      "Yellow",
+      "Silver"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Flight recorders are painted bright orange so they are easier to find."
+  },
+  {
+    "id": "general-038",
+    "question": "What is the hobby of collecting stamps called?",
+    "answer": "Philately",
+    "distractors": [
+      "Numismatics",
+      "Cartography",
+      "Calligraphy"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Philately is the collection and study of postage stamps."
+  },
+  {
+    "id": "general-039",
+    "question": "Which Dutch artist painted \"The Starry Night\"?",
+    "answer": "Vincent van Gogh",
+    "distractors": [
+      "Rembrandt",
+      "Johannes Vermeer",
+      "Piet Mondrian"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Vincent van Gogh painted The Starry Night in 1889."
+  },
+  {
+    "id": "general-040",
+    "question": "What is the nickname of the great bell in London's Elizabeth Tower?",
+    "answer": "Big Ben",
+    "distractors": [
+      "Great Tom",
+      "Old Tom",
+      "Bow Bell"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Big Ben is the nickname of the Great Bell housed in the Elizabeth Tower at Westminster."
+  },
+  {
+    "id": "general-041",
+    "question": "Which letter appears most often in written English?",
+    "answer": "E",
+    "distractors": [
+      "T",
+      "A",
+      "S"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Letter-frequency studies consistently show E is the most common letter in English text."
+  },
+  {
+    "id": "general-042",
+    "question": "How many hearts does an octopus have?",
+    "answer": "3",
+    "distractors": [
+      "1",
+      "2",
+      "8"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "An octopus has one main heart for the body and two hearts that pump blood through its gills."
+  },
+  {
+    "id": "general-043",
+    "question": "Which is the only mammal capable of true sustained flight?",
+    "answer": "Bat",
+    "distractors": [
+      "Flying squirrel",
+      "Sugar glider",
+      "Colugo"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Bats fly with powered wings, while flying squirrels and similar animals can only glide."
+  },
+  {
+    "id": "general-044",
+    "question": "In which country was paper first invented?",
+    "answer": "China",
+    "distractors": [
+      "Egypt",
+      "Greece",
+      "India"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Papermaking was developed in ancient China, traditionally credited to the Han dynasty around 105 CE."
+  },
+  {
+    "id": "general-045",
+    "question": "What is a scientist who studies insects called?",
+    "answer": "Entomologist",
+    "distractors": [
+      "Ornithologist",
+      "Herpetologist",
+      "Ichthyologist"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Entomology is the scientific study of insects."
+  },
+  {
+    "id": "general-046",
+    "question": "What are the three primary colors of light?",
+    "answer": "Red, green, blue",
+    "distractors": [
+      "Red, yellow, blue",
+      "Cyan, magenta, yellow",
+      "Red, green, yellow"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Mixing red, green and blue light in different amounts produces the colors on screens."
+  },
+  {
+    "id": "general-047",
+    "question": "What is the heaviest internal organ in the human body?",
+    "answer": "Liver",
+    "distractors": [
+      "Brain",
+      "Heart",
+      "Kidney"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "The adult liver weighs about 1.5 kg, more than any other internal organ."
+  },
+  {
+    "id": "general-048",
+    "question": "What is the name for an extreme fear of spiders?",
+    "answer": "Arachnophobia",
+    "distractors": [
+      "Acrophobia",
+      "Claustrophobia",
+      "Agoraphobia"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Arachnophobia comes from the Greek word \"arachne\", meaning spider."
+  },
+  {
+    "id": "general-049",
+    "question": "Which fictional Belgian detective with a famous mustache was created by Agatha Christie?",
+    "answer": "Hercule Poirot",
+    "distractors": [
+      "Sherlock Holmes",
+      "Sam Spade",
+      "Philip Marlowe"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Hercule Poirot is Agatha Christie's Belgian detective, known for his \"little grey cells\"."
+  },
+  {
+    "id": "general-050",
+    "question": "How many items are in a \"baker's dozen\"?",
+    "answer": "13",
+    "distractors": [
+      "12",
+      "14",
+      "15"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "A baker's dozen is 13, one more than a regular dozen."
+  },
+  {
+    "id": "general-051",
+    "question": "What is the traditional name for a person who makes and repairs shoes?",
+    "answer": "Cobbler",
+    "distractors": [
+      "Cooper",
+      "Tanner",
+      "Chandler"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "A cobbler mends shoes, while a cooper makes barrels and a chandler makes candles."
+  },
+  {
+    "id": "general-052",
+    "question": "In standard English Scrabble, how many points is the letter Q worth?",
+    "answer": "10",
+    "distractors": [
+      "5",
+      "8",
+      "12"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Q and Z are the highest-scoring tiles in English Scrabble, at 10 points each."
+  },
+  {
+    "id": "general-053",
+    "question": "What does a sommelier specialize in?",
+    "answer": "Wine",
+    "distractors": [
+      "Cheese",
+      "Coffee",
+      "Bread"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "A sommelier is a trained wine professional who advises on wine selection and pairing."
+  },
+  {
+    "id": "general-054",
+    "question": "What is the traditional name for a group of crows?",
+    "answer": "A murder",
+    "distractors": [
+      "A parliament",
+      "A pride",
+      "A gaggle"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "A group of crows is traditionally called a \"murder\" of crows."
+  },
+  {
+    "id": "general-055",
+    "question": "What is the term for a word that imitates a sound, like \"buzz\" or \"sizzle\"?",
+    "answer": "Onomatopoeia",
+    "distractors": [
+      "Alliteration",
+      "Hyperbole",
+      "Metaphor"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Onomatopoeia describes words that sound like the noise they name."
+  },
+  {
+    "id": "general-056",
+    "question": "Which material is traditionally associated with a 25th wedding anniversary?",
+    "answer": "Silver",
+    "distractors": [
+      "Gold",
+      "Ruby",
+      "Pearl"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "A 25th anniversary is a silver anniversary, while gold marks the 50th."
+  },
+  {
+    "id": "general-057",
+    "question": "Which art movement is Salvador Dali best known for?",
+    "answer": "Surrealism",
+    "distractors": [
+      "Cubism",
+      "Impressionism",
+      "Pop Art"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Dali was a leading Surrealist, famous for dreamlike images such as melting clocks."
+  },
+  {
+    "id": "general-058",
+    "question": "What is the Japanese art of growing miniature trees in containers called?",
+    "answer": "Bonsai",
+    "distractors": [
+      "Ikebana",
+      "Kirigami",
+      "Haiku"
+    ],
+    "category": "general",
+    "difficulty": "medium",
+    "explanation": "Bonsai is the practice of cultivating small, shaped trees in pots."
+  },
+  {
+    "id": "general-059",
+    "question": "Which is the only letter of the alphabet that does not appear in any US state name?",
+    "answer": "Q",
+    "distractors": [
+      "Z",
+      "X",
+      "J"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "Letters like Z (Arizona), X (Texas) and J (New Jersey) appear in state names, but Q appears in none."
+  },
+  {
+    "id": "general-060",
+    "question": "What is the small dot over a lowercase \"i\" or \"j\" called?",
+    "answer": "Tittle",
+    "distractors": [
+      "Jot",
+      "Serif",
+      "Umlaut"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "The dot above a lowercase i or j is called a tittle."
+  },
+  {
+    "id": "general-061",
+    "question": "What is a sentence that uses every letter of the alphabet at least once called?",
+    "answer": "Pangram",
+    "distractors": [
+      "Palindrome",
+      "Lipogram",
+      "Anagram"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "A pangram, such as \"The quick brown fox jumps over the lazy dog\", contains every letter."
+  },
+  {
+    "id": "general-062",
+    "question": "What is the chemical symbol for tungsten?",
+    "answer": "W",
+    "distractors": [
+      "Tu",
+      "Tn",
+      "Tg"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "Tungsten's symbol W comes from its other name, wolfram."
+  },
+  {
+    "id": "general-063",
+    "question": "What is the small plastic or metal tube at the end of a shoelace called?",
+    "answer": "Aglet",
+    "distractors": [
+      "Eyelet",
+      "Grommet",
+      "Bodkin"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "An aglet is the sheath that stops a shoelace end from fraying and helps thread it."
+  },
+  {
+    "id": "general-064",
+    "question": "What is the vertical groove between the nose and the upper lip called?",
+    "answer": "Philtrum",
+    "distractors": [
+      "Septum",
+      "Glabella",
+      "Columella"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "The philtrum is the groove running from the base of the nose to the upper lip."
+  },
+  {
+    "id": "general-065",
+    "question": "Which Spanish artist co-founded Cubism with Georges Braque?",
+    "answer": "Pablo Picasso",
+    "distractors": [
+      "Joan Miro",
+      "Salvador Dali",
+      "Diego Velazquez"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "Picasso and Braque developed Cubism together in the years around 1907 to 1914."
+  },
+  {
+    "id": "general-066",
+    "question": "What is the \"&\" symbol called?",
+    "answer": "Ampersand",
+    "distractors": [
+      "Asterisk",
+      "Octothorpe",
+      "Tilde"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "The & sign, meaning \"and\", is called an ampersand."
+  },
+  {
+    "id": "general-067",
+    "question": "What does a numismatist collect or study?",
+    "answer": "Coins",
+    "distractors": [
+      "Stamps",
+      "Butterflies",
+      "Fossils"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "Numismatics is the study and collecting of coins, banknotes and medals."
+  },
+  {
+    "id": "general-068",
+    "question": "What does the acronym SCUBA stand for?",
+    "answer": "Self-Contained Underwater Breathing Apparatus",
+    "distractors": [
+      "Submerged Coastal Underwater Breathing Aid",
+      "Self-Controlled Undersea Buoyancy Apparatus",
+      "Standard Compressed Underwater Breathing Air"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "SCUBA stands for Self-Contained Underwater Breathing Apparatus."
+  },
+  {
+    "id": "general-069",
+    "question": "What is the national animal of Scotland?",
+    "answer": "Unicorn",
+    "distractors": [
+      "Red deer",
+      "Golden eagle",
+      "Highland cow"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "The unicorn has been a heraldic symbol of Scotland for centuries and is its national animal."
+  },
+  {
+    "id": "general-070",
+    "question": "Which gemstone is the blue variety of the mineral corundum?",
+    "answer": "Sapphire",
+    "distractors": [
+      "Topaz",
+      "Aquamarine",
+      "Tanzanite"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "Blue corundum is sapphire, while red corundum is ruby."
+  },
+  {
+    "id": "general-071",
+    "question": "Which Dutch artist painted \"Girl with a Pearl Earring\"?",
+    "answer": "Johannes Vermeer",
+    "distractors": [
+      "Rembrandt",
+      "Frans Hals",
+      "Jan Steen"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "Girl with a Pearl Earring was painted by Johannes Vermeer around 1665."
+  },
+  {
+    "id": "general-072",
+    "question": "What is the scientific study of fungi called?",
+    "answer": "Mycology",
+    "distractors": [
+      "Virology",
+      "Botany",
+      "Bryology"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "Mycology comes from the Greek \"mykes\", meaning fungus."
+  },
+  {
+    "id": "general-073",
+    "question": "What word describes animals that are mainly active at dawn and dusk?",
+    "answer": "Crepuscular",
+    "distractors": [
+      "Nocturnal",
+      "Diurnal",
+      "Cathemeral"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "Crepuscular animals, such as many rabbits and deer, are most active during twilight."
+  },
+  {
+    "id": "general-074",
+    "question": "Bluetooth technology is named after a medieval king of which country?",
+    "answer": "Denmark",
+    "distractors": [
+      "Iceland",
+      "Finland",
+      "Netherlands"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "Bluetooth is named after Harald \"Bluetooth\" Gormsson, a 10th-century king of Denmark."
+  },
+  {
+    "id": "general-075",
+    "question": "What is the point in the sky directly below an observer, opposite the zenith, called?",
+    "answer": "Nadir",
+    "distractors": [
+      "Apex",
+      "Azimuth",
+      "Horizon"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "The nadir is the point directly beneath an observer, opposite the zenith overhead."
+  },
+  {
+    "id": "general-076",
+    "question": "What does a lexicographer do?",
+    "answer": "Writes dictionaries",
+    "distractors": [
+      "Draws maps",
+      "Collects coins",
+      "Studies handwriting"
+    ],
+    "category": "general",
+    "difficulty": "hard",
+    "explanation": "A lexicographer compiles and edits dictionaries."
+  }
+]

@@ -495,16 +495,16 @@
   },
   {
     "id": "history-039",
-    "question": "In what year were the first modern Olympic Games held in Athens?",
-    "answer": "1896",
+    "question": "Which French educator founded the International Olympic Committee in 1894?",
+    "answer": "Pierre de Coubertin",
     "distractors": [
-      "1900",
-      "1888",
-      "1912"
+      "Gustave Eiffel",
+      "Louis Pasteur",
+      "Jules Verne"
     ],
     "category": "history",
     "difficulty": "medium",
-    "explanation": "The first modern Olympic Games took place in Athens in April 1896."
+    "explanation": "Pierre de Coubertin organized the 1894 Paris congress that created the International Olympic Committee and revived the Olympic Games."
   },
   {
     "id": "history-040",
