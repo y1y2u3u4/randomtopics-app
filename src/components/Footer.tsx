@@ -36,6 +36,7 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
           { href: "/journal-prompts", label: "📓 Journal Prompts" },
           { href: "/hot-seat-questions", label: "🔥 Hot Seat Questions" },
           { href: "/paranoia-questions", label: "🤫 Paranoia Questions" },
+          { href: "/trivia-questions", label: "❓ Trivia Questions" },
           { href: "/essay-topic-generator", label: "📝 Essay Topic Generator" },
           { href: "/random-subject-generator", label: "🧪 Random Subject Generator" },
           { href: "/random-learning-topic-generator", label: "🧠 Learning Topic Generator" },

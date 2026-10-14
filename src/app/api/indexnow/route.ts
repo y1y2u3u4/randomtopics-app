@@ -62,6 +62,8 @@ function getPaths(): string[] {
     "/5-minute-speech-topics",
     "/funny-question-of-the-day",
     "/paranoia-questions",
+    "/trivia-questions",
+    "/trivia-questions/halloween",
     "/question-generator",
     "/would-you-rather",
     "/never-have-i-ever",

@@ -1,0 +1,990 @@
+[
+  {
+    "id": "food-001",
+    "question": "Which creamy green fruit is the main ingredient in guacamole?",
+    "answer": "Avocado",
+    "distractors": [
+      "Cucumber",
+      "Green pea",
+      "Zucchini"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Guacamole is a Mexican dip made by mashing ripe avocados, usually with lime, onion and salt."
+  },
+  {
+    "id": "food-002",
+    "question": "Which common salad ingredient is botanically a fruit because it grows from a flower and holds seeds?",
+    "answer": "Tomato",
+    "distractors": [
+      "Lettuce",
+      "Celery",
+      "Spinach"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "A tomato develops from the ovary of the flower and contains seeds, which makes it a fruit in botanical terms."
+  },
+  {
+    "id": "food-003",
+    "question": "Which legume is blended with tahini, lemon and garlic to make hummus?",
+    "answer": "Chickpeas",
+    "distractors": [
+      "Lentils",
+      "Black beans",
+      "Green peas"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Hummus is a puree of cooked chickpeas mixed with sesame tahini, lemon juice and garlic."
+  },
+  {
+    "id": "food-004",
+    "question": "What kind of vinegar is traditionally used to season sushi rice?",
+    "answer": "Rice vinegar",
+    "distractors": [
+      "Apple cider vinegar",
+      "Balsamic vinegar",
+      "Malt vinegar"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Sushi rice is seasoned with a mixture of rice vinegar, sugar and salt."
+  },
+  {
+    "id": "food-005",
+    "question": "Which fragrant herb is the star ingredient of classic Genovese pesto?",
+    "answer": "Basil",
+    "distractors": [
+      "Parsley",
+      "Mint",
+      "Cilantro"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Pesto alla genovese is made by crushing basil leaves with pine nuts, garlic, cheese and olive oil."
+  },
+  {
+    "id": "food-006",
+    "question": "In which country was the Margherita pizza created?",
+    "answer": "Italy",
+    "distractors": [
+      "Greece",
+      "France",
+      "Spain"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "The Margherita pizza comes from Naples, Italy, and is topped with tomato, mozzarella and basil."
+  },
+  {
+    "id": "food-007",
+    "question": "Tofu is made by curdling the milk of which bean?",
+    "answer": "Soybean",
+    "distractors": [
+      "Kidney bean",
+      "Lima bean",
+      "Fava bean"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Tofu is produced by coagulating soy milk and pressing the curds into blocks."
+  },
+  {
+    "id": "food-008",
+    "question": "Raisins are made by drying which fruit?",
+    "answer": "Grapes",
+    "distractors": [
+      "Plums",
+      "Figs",
+      "Cherries"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Raisins are simply grapes that have been dried, either in the sun or by machine."
+  },
+  {
+    "id": "food-009",
+    "question": "Prunes are the dried form of which fruit?",
+    "answer": "Plums",
+    "distractors": [
+      "Grapes",
+      "Apricots",
+      "Dates"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Prunes are dried plums, usually from varieties grown specifically for drying."
+  },
+  {
+    "id": "food-010",
+    "question": "What does it mean when pasta is cooked \"al dente\"?",
+    "answer": "Firm to the bite",
+    "distractors": [
+      "Very soft",
+      "Cooked in butter",
+      "Served cold"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "The Italian phrase al dente means \"to the tooth,\" describing pasta that is cooked but still slightly firm."
+  },
+  {
+    "id": "food-011",
+    "question": "What makes a popcorn kernel burst open when heated?",
+    "answer": "Water turning to steam",
+    "distractors": [
+      "Trapped air",
+      "Melting sugar",
+      "Hot oil inside"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "The tiny amount of water inside each kernel turns to steam, building pressure until the hard hull bursts."
+  },
+  {
+    "id": "food-012",
+    "question": "Marzipan is a sweet paste made mainly from sugar and which ground nut?",
+    "answer": "Almonds",
+    "distractors": [
+      "Walnuts",
+      "Cashews",
+      "Pecans"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Marzipan is made from finely ground almonds mixed with sugar or honey."
+  },
+  {
+    "id": "food-013",
+    "question": "Despite its name, the peanut is botanically a member of which plant group?",
+    "answer": "Legumes",
+    "distractors": [
+      "Tree nuts",
+      "Grasses",
+      "Palms"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Peanuts grow in pods underground and belong to the legume family, like beans and peas."
+  },
+  {
+    "id": "food-014",
+    "question": "Which spice gives many curry powders their bright yellow color?",
+    "answer": "Turmeric",
+    "distractors": [
+      "Cinnamon",
+      "Paprika",
+      "Cumin"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Turmeric is a yellow-orange root spice that colors curry powders and many rice dishes."
+  },
+  {
+    "id": "food-015",
+    "question": "Which dairy product is made by churning cream?",
+    "answer": "Butter",
+    "distractors": [
+      "Yogurt",
+      "Cheese",
+      "Ice cream"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Churning cream causes its fat globules to clump together into butter, leaving buttermilk behind."
+  },
+  {
+    "id": "food-016",
+    "question": "Sushi is a traditional food from which country?",
+    "answer": "Japan",
+    "distractors": [
+      "China",
+      "Korea",
+      "Thailand"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Sushi, vinegared rice served with fish or other toppings, is a classic dish of Japanese cuisine."
+  },
+  {
+    "id": "food-017",
+    "question": "Tacos are a traditional food from which country?",
+    "answer": "Mexico",
+    "distractors": [
+      "Spain",
+      "Peru",
+      "Cuba"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Tacos, tortillas wrapped around a filling, are a staple of Mexican cuisine."
+  },
+  {
+    "id": "food-018",
+    "question": "Risotto is a creamy Italian dish made mainly from which grain?",
+    "answer": "Rice",
+    "distractors": [
+      "Barley",
+      "Couscous",
+      "Oats"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Risotto is made by slowly cooking short-grain rice, such as Arborio, while stirring in broth."
+  },
+  {
+    "id": "food-019",
+    "question": "Which tiny fungus is used to make bread dough rise?",
+    "answer": "Yeast",
+    "distractors": [
+      "Mold",
+      "Moss",
+      "Algae"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Yeast ferments sugars in the dough and releases carbon dioxide gas, which makes bread rise."
+  },
+  {
+    "id": "food-020",
+    "question": "Sauerkraut is made by fermenting which vegetable?",
+    "answer": "Cabbage",
+    "distractors": [
+      "Lettuce",
+      "Cucumber",
+      "Turnip"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Sauerkraut is finely shredded cabbage fermented with salt by lactic acid bacteria."
+  },
+  {
+    "id": "food-021",
+    "question": "Classic dill pickles are made from which vegetable?",
+    "answer": "Cucumbers",
+    "distractors": [
+      "Zucchini",
+      "Carrots",
+      "Green beans"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Dill pickles are cucumbers preserved in a brine or vinegar solution flavored with dill."
+  },
+  {
+    "id": "food-022",
+    "question": "Which red fruit is famous for having its tiny seeds on the outside?",
+    "answer": "Strawberry",
+    "distractors": [
+      "Raspberry",
+      "Cherry",
+      "Cranberry"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "The little specks on a strawberry's surface are achenes, each holding a single seed."
+  },
+  {
+    "id": "food-023",
+    "question": "Paella, a rice dish cooked in a wide shallow pan, comes from which country?",
+    "answer": "Spain",
+    "distractors": [
+      "Portugal",
+      "Mexico",
+      "Italy"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Paella originated in the Valencia region of eastern Spain."
+  },
+  {
+    "id": "food-024",
+    "question": "What is the main ingredient of an omelet?",
+    "answer": "Eggs",
+    "distractors": [
+      "Flour",
+      "Potatoes",
+      "Milk"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "An omelet is made of beaten eggs cooked in a pan and often folded around a filling."
+  },
+  {
+    "id": "food-025",
+    "question": "What sweet food do honeybees make from flower nectar?",
+    "answer": "Honey",
+    "distractors": [
+      "Maple syrup",
+      "Molasses",
+      "Jam"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Honeybees collect nectar and turn it into honey by adding enzymes and evaporating its water."
+  },
+  {
+    "id": "food-026",
+    "question": "Which tree's sap is boiled down to make a famous syrup popular in Canada?",
+    "answer": "Maple",
+    "distractors": [
+      "Oak",
+      "Pine",
+      "Willow"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Maple syrup is made by boiling down the sap of maple trees, especially the sugar maple."
+  },
+  {
+    "id": "food-027",
+    "question": "Which vegetable is known for making people's eyes water when it is cut?",
+    "answer": "Onion",
+    "distractors": [
+      "Garlic",
+      "Carrot",
+      "Celery"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Cutting an onion releases a sulfur compound that irritates the eyes and triggers tears."
+  },
+  {
+    "id": "food-028",
+    "question": "Chocolate is made from the beans of which plant?",
+    "answer": "Cacao",
+    "distractors": [
+      "Coffee",
+      "Vanilla",
+      "Carob"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Chocolate is made by fermenting, roasting and grinding the seeds of the cacao tree."
+  },
+  {
+    "id": "food-029",
+    "question": "Which baked Italian dish is made of flat pasta sheets layered with sauce and cheese?",
+    "answer": "Lasagna",
+    "distractors": [
+      "Ravioli",
+      "Gnocchi",
+      "Risotto"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "Lasagna is built from layers of wide pasta sheets, sauce and cheese baked together."
+  },
+  {
+    "id": "food-030",
+    "question": "What is the yellow part inside an egg called?",
+    "answer": "Yolk",
+    "distractors": [
+      "Albumen",
+      "Shell",
+      "Membrane"
+    ],
+    "category": "food",
+    "difficulty": "easy",
+    "explanation": "The yolk is the yellow center of an egg, while the clear part around it is the albumen, or white."
+  },
+  {
+    "id": "food-031",
+    "question": "Saffron threads are harvested from which part of the crocus flower?",
+    "answer": "Stigmas",
+    "distractors": [
+      "Petals",
+      "Roots",
+      "Seeds"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Saffron consists of the dried red stigmas of the saffron crocus, picked by hand."
+  },
+  {
+    "id": "food-032",
+    "question": "Traditional mozzarella di bufala is made from the milk of which animal?",
+    "answer": "Water buffalo",
+    "distractors": [
+      "Goat",
+      "Sheep",
+      "Camel"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Mozzarella di bufala is made from the milk of domestic water buffalo, especially in southern Italy."
+  },
+  {
+    "id": "food-033",
+    "question": "Cheddar cheese is named after a village in which country?",
+    "answer": "England",
+    "distractors": [
+      "Ireland",
+      "Scotland",
+      "Wales"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Cheddar cheese takes its name from the village of Cheddar in Somerset, England."
+  },
+  {
+    "id": "food-034",
+    "question": "Roquefort blue cheese is made from which kind of milk?",
+    "answer": "Sheep's milk",
+    "distractors": [
+      "Cow's milk",
+      "Goat's milk",
+      "Buffalo milk"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Roquefort is a French blue cheese made from sheep's milk and aged in caves near Roquefort-sur-Soulzon."
+  },
+  {
+    "id": "food-035",
+    "question": "Real wasabi belongs to the same plant family as which vegetable?",
+    "answer": "Cabbage",
+    "distractors": [
+      "Ginger",
+      "Onion",
+      "Potato"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Wasabi is a member of the mustard family, Brassicaceae, which also includes cabbage and broccoli."
+  },
+  {
+    "id": "food-036",
+    "question": "The French flavor base called mirepoix is made of onions, carrots and what?",
+    "answer": "Celery",
+    "distractors": [
+      "Garlic",
+      "Leeks",
+      "Potatoes"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Classic mirepoix is a mix of diced onion, carrot and celery cooked slowly in fat."
+  },
+  {
+    "id": "food-037",
+    "question": "The Cajun and Creole \"holy trinity\" is onion, celery and which vegetable?",
+    "answer": "Bell pepper",
+    "distractors": [
+      "Carrot",
+      "Garlic",
+      "Tomato"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Louisiana cooks swap the carrot of French mirepoix for green bell pepper in their \"holy trinity.\""
+  },
+  {
+    "id": "food-038",
+    "question": "When a cook cuts vegetables \"julienne,\" what shape are the pieces?",
+    "answer": "Thin matchsticks",
+    "distractors": [
+      "Small cubes",
+      "Thin rounds",
+      "Large wedges"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Julienne is a knife cut that turns vegetables into long, thin, matchstick-shaped strips."
+  },
+  {
+    "id": "food-039",
+    "question": "A roux, used to thicken sauces, is cooked from equal parts of what?",
+    "answer": "Flour and fat",
+    "distractors": [
+      "Eggs and milk",
+      "Sugar and water",
+      "Rice and broth"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "A roux is made by cooking flour in a fat such as butter before adding liquid."
+  },
+  {
+    "id": "food-040",
+    "question": "What chemical reaction between amino acids and sugars browns seared meat and toasted bread?",
+    "answer": "Maillard reaction",
+    "distractors": [
+      "Fermentation",
+      "Emulsification",
+      "Hydrogenation"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "The Maillard reaction between amino acids and sugars creates the brown color and rich flavor of seared and baked foods."
+  },
+  {
+    "id": "food-041",
+    "question": "Mayonnaise is an emulsion of oil, an acid such as lemon juice, and what?",
+    "answer": "Egg yolks",
+    "distractors": [
+      "Milk",
+      "Butter",
+      "Gelatin"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Lecithin in egg yolks helps hold tiny oil droplets suspended in the acid, forming mayonnaise."
+  },
+  {
+    "id": "food-042",
+    "question": "Botanically speaking, a banana is classified as what kind of fruit?",
+    "answer": "A berry",
+    "distractors": [
+      "A drupe",
+      "A pome",
+      "A legume"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "A banana develops from a single flower ovary and has a fleshy wall with seeds inside, which makes it a berry botanically."
+  },
+  {
+    "id": "food-043",
+    "question": "Which popular spice is made from the dried inner bark of a tree?",
+    "answer": "Cinnamon",
+    "distractors": [
+      "Nutmeg",
+      "Cloves",
+      "Black pepper"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Cinnamon is the inner bark of Cinnamomum trees, dried until it curls into quills."
+  },
+  {
+    "id": "food-044",
+    "question": "Nutmeg and which other spice come from the same fruit?",
+    "answer": "Mace",
+    "distractors": [
+      "Cloves",
+      "Allspice",
+      "Cardamom"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Nutmeg is the seed of the nutmeg tree, and mace is the lacy red covering that surrounds that seed."
+  },
+  {
+    "id": "food-045",
+    "question": "Whole cloves are which part of the clove tree?",
+    "answer": "Dried flower buds",
+    "distractors": [
+      "Seeds",
+      "Bark",
+      "Roots"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Cloves are the unopened flower buds of the clove tree, picked and dried."
+  },
+  {
+    "id": "food-046",
+    "question": "Which vegetable gives borscht its deep red color?",
+    "answer": "Beets",
+    "distractors": [
+      "Tomatoes",
+      "Red peppers",
+      "Red cabbage"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Borscht, a soup of Eastern Europe, gets its deep red color from beets."
+  },
+  {
+    "id": "food-047",
+    "question": "Which tomato-based Spanish soup is traditionally served cold?",
+    "answer": "Gazpacho",
+    "distractors": [
+      "Minestrone",
+      "Bouillabaisse",
+      "Pozole"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Gazpacho, from Andalusia in southern Spain, is a chilled soup of raw blended tomatoes and other vegetables."
+  },
+  {
+    "id": "food-048",
+    "question": "Tahini is a paste made from which ground seeds?",
+    "answer": "Sesame seeds",
+    "distractors": [
+      "Sunflower seeds",
+      "Pumpkin seeds",
+      "Flax seeds"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Tahini is made by grinding hulled, usually toasted, sesame seeds into a smooth paste."
+  },
+  {
+    "id": "food-049",
+    "question": "Kimchi, a spicy fermented vegetable dish, is a staple of which country's cuisine?",
+    "answer": "Korea",
+    "distractors": [
+      "Japan",
+      "Vietnam",
+      "Thailand"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Kimchi, usually made from napa cabbage and radish with chili, is a cornerstone of Korean cooking."
+  },
+  {
+    "id": "food-050",
+    "question": "Which chemical compound makes chili peppers taste hot?",
+    "answer": "Capsaicin",
+    "distractors": [
+      "Caffeine",
+      "Piperine",
+      "Menthol"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Capsaicin binds to heat-sensing receptors in the mouth, creating the burning feeling of chili peppers."
+  },
+  {
+    "id": "food-051",
+    "question": "Vichyssoise is a creamy soup made mainly from potatoes and which vegetable?",
+    "answer": "Leeks",
+    "distractors": [
+      "Carrots",
+      "Tomatoes",
+      "Peas"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Vichyssoise is a smooth puree of leeks, potatoes, onions and cream that is usually served cold."
+  },
+  {
+    "id": "food-052",
+    "question": "In ceviche, raw fish is \"cooked\" by soaking it in what?",
+    "answer": "Citrus juice",
+    "distractors": [
+      "Salt brine",
+      "Soy sauce",
+      "Olive oil"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "The acid in lime or lemon juice firms up and turns the fish opaque in ceviche without heat."
+  },
+  {
+    "id": "food-053",
+    "question": "Which light, airy pastry is used to make éclairs and cream puffs?",
+    "answer": "Choux pastry",
+    "distractors": [
+      "Puff pastry",
+      "Phyllo dough",
+      "Shortcrust pastry"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Choux pastry puffs up and becomes hollow in the oven because its high moisture turns to steam."
+  },
+  {
+    "id": "food-054",
+    "question": "Which sweet pastry is made with layers of phyllo dough, chopped nuts and honey or syrup?",
+    "answer": "Baklava",
+    "distractors": [
+      "Tiramisu",
+      "Cannoli",
+      "Churros"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Baklava is built from many thin sheets of phyllo layered with nuts and soaked in syrup or honey."
+  },
+  {
+    "id": "food-055",
+    "question": "Which Italian dessert's name means \"pick me up\"?",
+    "answer": "Tiramisu",
+    "distractors": [
+      "Panna cotta",
+      "Cannoli",
+      "Gelato"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Tiramisu comes from the Italian phrase \"tirami su,\" meaning \"pick me up,\" a nod to its coffee and cocoa."
+  },
+  {
+    "id": "food-056",
+    "question": "Brie and Camembert are soft cheeses from which country?",
+    "answer": "France",
+    "distractors": [
+      "Belgium",
+      "Switzerland",
+      "Italy"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Brie is named after a region near Paris and Camembert after a village in Normandy, both in France."
+  },
+  {
+    "id": "food-057",
+    "question": "A cashew nut grows hanging from the bottom of what?",
+    "answer": "A cashew apple",
+    "distractors": [
+      "A coconut husk",
+      "A pine cone",
+      "A banana flower"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Each cashew nut grows in a shell attached to the base of a fleshy fruit called the cashew apple."
+  },
+  {
+    "id": "food-058",
+    "question": "What is the cooking technique of briefly boiling food and then plunging it into ice water?",
+    "answer": "Blanching",
+    "distractors": [
+      "Braising",
+      "Poaching",
+      "Searing"
+    ],
+    "category": "food",
+    "difficulty": "medium",
+    "explanation": "Blanching cooks food quickly in boiling water and then stops the cooking with an ice bath."
+  },
+  {
+    "id": "food-059",
+    "question": "Which Swiss cheese is famous for large holes, called \"eyes,\" formed by gas from bacteria?",
+    "answer": "Emmental",
+    "distractors": [
+      "Cheddar",
+      "Gouda",
+      "Brie"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Bacteria in Emmental release carbon dioxide while the cheese ripens, forming its large round eyes."
+  },
+  {
+    "id": "food-060",
+    "question": "Which compound is mainly responsible for the sharp bite of black pepper?",
+    "answer": "Piperine",
+    "distractors": [
+      "Capsaicin",
+      "Allicin",
+      "Curcumin"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Piperine is the alkaloid in black peppercorns that gives them their pungent flavor."
+  },
+  {
+    "id": "food-061",
+    "question": "Which sulfur compound forms when garlic is crushed or chopped, giving it a strong aroma?",
+    "answer": "Allicin",
+    "distractors": [
+      "Piperine",
+      "Lycopene",
+      "Caffeine"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Crushing garlic lets an enzyme convert alliin into allicin, which creates its sharp smell."
+  },
+  {
+    "id": "food-062",
+    "question": "Which pigment gives ripe tomatoes their red color?",
+    "answer": "Lycopene",
+    "distractors": [
+      "Chlorophyll",
+      "Anthocyanin",
+      "Curcumin"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Lycopene is a red carotenoid pigment that builds up in tomatoes as they ripen."
+  },
+  {
+    "id": "food-063",
+    "question": "Which French kitchen term means having all ingredients prepared and arranged before cooking?",
+    "answer": "Mise en place",
+    "distractors": [
+      "Sous vide",
+      "Amuse-bouche",
+      "Hors d'oeuvre"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Mise en place means \"putting in place\" and refers to prepping and organizing everything before cooking starts."
+  },
+  {
+    "id": "food-064",
+    "question": "The French cooking term \"sous vide\" literally means what?",
+    "answer": "Under vacuum",
+    "distractors": [
+      "Slow cooked",
+      "Under water",
+      "In steam"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Sous vide means \"under vacuum,\" since food is sealed in vacuum bags before cooking in a water bath."
+  },
+  {
+    "id": "food-065",
+    "question": "Which enzyme in fresh pineapple breaks down proteins and can tenderize meat?",
+    "answer": "Bromelain",
+    "distractors": [
+      "Papain",
+      "Pepsin",
+      "Lactase"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Pineapple contains bromelain, a protein-digesting enzyme that softens meat and stops gelatin from setting."
+  },
+  {
+    "id": "food-066",
+    "question": "Botanically, which of these fruits is NOT a true berry?",
+    "answer": "Strawberry",
+    "distractors": [
+      "Banana",
+      "Grape",
+      "Tomato"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "A strawberry is an aggregate accessory fruit, while bananas, grapes and tomatoes all meet the botanical definition of a berry."
+  },
+  {
+    "id": "food-067",
+    "question": "Parmigiano-Reggiano is named after two provinces in which Italian region?",
+    "answer": "Emilia-Romagna",
+    "distractors": [
+      "Tuscany",
+      "Piedmont",
+      "Sicily"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Parma and Reggio Emilia, which give Parmigiano-Reggiano its name, are both provinces of Emilia-Romagna."
+  },
+  {
+    "id": "food-068",
+    "question": "The savory \"umami\" taste is mainly triggered by which amino acid?",
+    "answer": "Glutamate",
+    "distractors": [
+      "Glycine",
+      "Lysine",
+      "Tyrosine"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Umami taste receptors respond strongly to glutamate, which is found in foods like tomatoes, cheese and broth."
+  },
+  {
+    "id": "food-069",
+    "question": "Cardamom belongs to the same plant family as which other spice?",
+    "answer": "Ginger",
+    "distractors": [
+      "Cinnamon",
+      "Black pepper",
+      "Nutmeg"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Cardamom and ginger are both members of the ginger family, Zingiberaceae."
+  },
+  {
+    "id": "food-070",
+    "question": "Vanilla comes from the seed pods of which type of plant?",
+    "answer": "An orchid",
+    "distractors": [
+      "A lily",
+      "A palm",
+      "A rose"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Vanilla beans are the cured seed pods of climbing orchids in the genus Vanilla."
+  },
+  {
+    "id": "food-071",
+    "question": "Which fruit used to be called the \"Chinese gooseberry\" before it was renamed for export?",
+    "answer": "Kiwifruit",
+    "distractors": [
+      "Lychee",
+      "Star fruit",
+      "Persimmon"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "New Zealand growers renamed the Chinese gooseberry \"kiwifruit\" in the mid-1900s to market it abroad."
+  },
+  {
+    "id": "food-072",
+    "question": "Béarnaise sauce is a variation of which classic French mother sauce?",
+    "answer": "Hollandaise",
+    "distractors": [
+      "Béchamel",
+      "Velouté",
+      "Espagnole"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Béarnaise is hollandaise flavored with shallots, tarragon and a vinegar reduction."
+  },
+  {
+    "id": "food-073",
+    "question": "Kombu seaweed and dried bonito flakes are simmered to make which Japanese stock?",
+    "answer": "Dashi",
+    "distractors": [
+      "Miso",
+      "Ponzu",
+      "Mirin"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Dashi is the basic Japanese soup stock, classically made by steeping kombu and bonito flakes in water."
+  },
+  {
+    "id": "food-074",
+    "question": "Mole poblano gets its name from which Mexican state?",
+    "answer": "Puebla",
+    "distractors": [
+      "Oaxaca",
+      "Jalisco",
+      "Yucatán"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "\"Poblano\" means \"from Puebla,\" the central Mexican state where this rich chili and chocolate sauce is famous."
+  },
+  {
+    "id": "food-075",
+    "question": "What is the name for a jalapeño pepper that has been smoke-dried?",
+    "answer": "Chipotle",
+    "distractors": [
+      "Ancho",
+      "Habanero",
+      "Serrano"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "A chipotle is a ripe jalapeño that has been dried and smoked."
+  },
+  {
+    "id": "food-076",
+    "question": "Which pasta shape's name means \"little tongues\" in Italian?",
+    "answer": "Linguine",
+    "distractors": [
+      "Fettuccine",
+      "Penne",
+      "Farfalle"
+    ],
+    "category": "food",
+    "difficulty": "hard",
+    "explanation": "Linguine comes from the Italian word lingua, meaning tongue, describing its flat, narrow strands."
+  }
+]

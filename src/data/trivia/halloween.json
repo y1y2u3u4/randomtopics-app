@@ -1,0 +1,834 @@
+[
+  {
+    "id": "halloween-001",
+    "question": "What large orange fruit is most often carved into jack-o'-lanterns today?",
+    "answer": "Pumpkin",
+    "distractors": [
+      "Watermelon",
+      "Cantaloupe",
+      "Eggplant"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "In North America and much of the world, pumpkins are the standard choice for carving jack-o'-lanterns."
+  },
+  {
+    "id": "halloween-002",
+    "question": "On what date is Halloween celebrated each year?",
+    "answer": "October 31",
+    "distractors": [
+      "November 1",
+      "October 13",
+      "September 30"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Halloween falls on October 31, the evening before November 1."
+  },
+  {
+    "id": "halloween-003",
+    "question": "The word \"Halloween\" is a shortened form of which older name?",
+    "answer": "All Hallows' Eve",
+    "distractors": [
+      "Harvest Moon Eve",
+      "Hollow Night",
+      "Autumn's Eve"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "\"Halloween\" comes from \"All Hallows' Eve,\" the name for the evening of October 31."
+  },
+  {
+    "id": "halloween-004",
+    "question": "What phrase do costumed kids traditionally call out at the door on Halloween?",
+    "answer": "Trick or treat",
+    "distractors": [
+      "Happy haunting",
+      "Boo to you",
+      "Candy please"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Saying \"trick or treat\" is the customary greeting of children collecting candy on Halloween."
+  },
+  {
+    "id": "halloween-005",
+    "question": "Which flying mammal is a classic Halloween symbol?",
+    "answer": "Bat",
+    "distractors": [
+      "Owl",
+      "Raven",
+      "Moth"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Bats are the only mammals capable of true flight, and their nighttime habits made them a spooky symbol."
+  },
+  {
+    "id": "halloween-006",
+    "question": "Botanically speaking, a pumpkin is which part of the plant?",
+    "answer": "Fruit",
+    "distractors": [
+      "Root",
+      "Stem",
+      "Leaf"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "A pumpkin develops from a flower and holds the plant's seeds, so botanists classify it as a fruit."
+  },
+  {
+    "id": "halloween-007",
+    "question": "What color is the narrow tip of a classic piece of candy corn?",
+    "answer": "White",
+    "distractors": [
+      "Orange",
+      "Yellow",
+      "Brown"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Classic candy corn has a yellow wide end, an orange middle and a white tip."
+  },
+  {
+    "id": "halloween-008",
+    "question": "What kind of monster is Count Dracula?",
+    "answer": "Vampire",
+    "distractors": [
+      "Werewolf",
+      "Zombie",
+      "Mummy"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Count Dracula is the vampire villain of Bram Stoker's 1897 novel Dracula."
+  },
+  {
+    "id": "halloween-009",
+    "question": "Who wrote the novel Frankenstein?",
+    "answer": "Mary Shelley",
+    "distractors": [
+      "Bram Stoker",
+      "Jane Austen",
+      "Edgar Allan Poe"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Mary Shelley's Frankenstein was first published in 1818."
+  },
+  {
+    "id": "halloween-010",
+    "question": "Who wrote the novel Dracula?",
+    "answer": "Bram Stoker",
+    "distractors": [
+      "Mary Shelley",
+      "H. G. Wells",
+      "Charles Dickens"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Irish author Bram Stoker published Dracula in 1897."
+  },
+  {
+    "id": "halloween-011",
+    "question": "In folklore, which creature changes from human to beast under a full moon?",
+    "answer": "Werewolf",
+    "distractors": [
+      "Vampire",
+      "Ghost",
+      "Mummy"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Werewolf legends describe people who transform into wolves, often on the night of a full moon."
+  },
+  {
+    "id": "halloween-012",
+    "question": "The Headless Horseman appears in which classic American story?",
+    "answer": "The Legend of Sleepy Hollow",
+    "distractors": [
+      "Rip Van Winkle",
+      "The Raven",
+      "The Tell-Tale Heart"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Washington Irving's \"The Legend of Sleepy Hollow\" (1820) features the ghostly Headless Horseman."
+  },
+  {
+    "id": "halloween-013",
+    "question": "What do witches traditionally ride through the sky in folklore?",
+    "answer": "Broomstick",
+    "distractors": [
+      "Rake",
+      "Cauldron",
+      "Shovel"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Folklore and storybooks commonly show witches flying on broomsticks."
+  },
+  {
+    "id": "halloween-014",
+    "question": "In a common Western superstition, what is a black cat crossing your path said to bring?",
+    "answer": "Bad luck",
+    "distractors": [
+      "Rain",
+      "Riches",
+      "A visitor"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Many Western superstitions say a black cat crossing your path brings bad luck, though some cultures see them as lucky."
+  },
+  {
+    "id": "halloween-015",
+    "question": "Which Halloween monster is wrapped from head to toe in cloth bandages?",
+    "answer": "Mummy",
+    "distractors": [
+      "Zombie",
+      "Ghost",
+      "Skeleton"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Mummies are preserved bodies wrapped in strips of linen cloth."
+  },
+  {
+    "id": "halloween-016",
+    "question": "Mummies are most famously linked with which ancient civilization?",
+    "answer": "Ancient Egypt",
+    "distractors": [
+      "Ancient Rome",
+      "Ancient Greece",
+      "Ancient China"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "The ancient Egyptians are famous for preserving their dead through mummification."
+  },
+  {
+    "id": "halloween-017",
+    "question": "What large iron pot is a witch often shown stirring?",
+    "answer": "Cauldron",
+    "distractors": [
+      "Kettle",
+      "Wok",
+      "Bucket"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "A cauldron is a big pot hung over a fire, and it is a classic symbol of storybook witches brewing potions."
+  },
+  {
+    "id": "halloween-018",
+    "question": "What is a carved pumpkin with a light inside called?",
+    "answer": "Jack-o'-lantern",
+    "distractors": [
+      "Will-o'-the-wisp",
+      "Pumpkin lamp",
+      "Gourd lantern"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "A hollowed, carved pumpkin lit from within is known as a jack-o'-lantern."
+  },
+  {
+    "id": "halloween-019",
+    "question": "In the Halloween party game \"bobbing,\" what floating fruit do players try to grab with their teeth?",
+    "answer": "Apples",
+    "distractors": [
+      "Oranges",
+      "Pears",
+      "Plums"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Bobbing for apples is a traditional autumn party game in which players catch floating apples without using their hands."
+  },
+  {
+    "id": "halloween-020",
+    "question": "In the Northern Hemisphere, in which season are pumpkins usually harvested?",
+    "answer": "Autumn",
+    "distractors": [
+      "Spring",
+      "Summer",
+      "Winter"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Pumpkins are planted in late spring or early summer and ripen for harvest in autumn."
+  },
+  {
+    "id": "halloween-021",
+    "question": "In Mary Shelley's novel, who is named Frankenstein?",
+    "answer": "The scientist",
+    "distractors": [
+      "The monster",
+      "The village",
+      "The castle"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Victor Frankenstein is the young scientist, while the creature he builds is never given a name."
+  },
+  {
+    "id": "halloween-022",
+    "question": "Which strong-smelling plant is said in folklore to keep vampires away?",
+    "answer": "Garlic",
+    "distractors": [
+      "Onion",
+      "Ginger",
+      "Celery"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "European folklore holds that vampires are repelled by garlic, an idea used in Stoker's Dracula."
+  },
+  {
+    "id": "halloween-023",
+    "question": "Along with orange, which color is a traditional Halloween color?",
+    "answer": "Black",
+    "distractors": [
+      "Pink",
+      "Light blue",
+      "Gold"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Orange and black are the classic Halloween colors, linked to autumn harvests and dark nights."
+  },
+  {
+    "id": "halloween-024",
+    "question": "A classic homemade ghost costume is made by cutting eyeholes in what?",
+    "answer": "A bedsheet",
+    "distractors": [
+      "A towel",
+      "A raincoat",
+      "A paper bag"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Draping a white bedsheet with eyeholes over your head is the most traditional homemade ghost costume."
+  },
+  {
+    "id": "halloween-025",
+    "question": "How many legs does a spider have?",
+    "answer": "Eight",
+    "distractors": [
+      "Six",
+      "Ten",
+      "Twelve"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Spiders are arachnids, and all arachnids have eight legs."
+  },
+  {
+    "id": "halloween-026",
+    "question": "What shape is the classic storybook witch's hat?",
+    "answer": "Pointed cone",
+    "distractors": [
+      "Flat square",
+      "Round dome",
+      "Tall cylinder"
+    ],
+    "category": "halloween",
+    "difficulty": "easy",
+    "explanation": "Witches are traditionally drawn wearing a tall, pointed, cone-shaped hat with a wide brim."
+  },
+  {
+    "id": "halloween-027",
+    "question": "Before pumpkins became common, which root vegetable was carved into lanterns in Ireland and Scotland?",
+    "answer": "Turnips",
+    "distractors": [
+      "Carrots",
+      "Onions",
+      "Radishes"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "People in Ireland and Scotland carved faces into turnips and other root vegetables before pumpkins became popular in America."
+  },
+  {
+    "id": "halloween-028",
+    "question": "Jack-o'-lanterns are linked to a folklore character known by what nickname?",
+    "answer": "Stingy Jack",
+    "distractors": [
+      "Lucky Jack",
+      "Jumping Jack",
+      "Lantern Jack"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Irish folklore tells of Stingy Jack, a trickster doomed to roam the night carrying a coal inside a carved turnip."
+  },
+  {
+    "id": "halloween-029",
+    "question": "Samhain, a festival connected to Halloween's history, was celebrated by which ancient people?",
+    "answer": "The Celts",
+    "distractors": [
+      "The Romans",
+      "The Vikings",
+      "The Greeks"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Samhain was a Celtic festival held around November 1 in Ireland, Scotland and other Gaelic lands."
+  },
+  {
+    "id": "halloween-030",
+    "question": "The Celtic festival of Samhain marked the end of what?",
+    "answer": "The harvest season",
+    "distractors": [
+      "The spring planting",
+      "The winter solstice",
+      "The fishing season"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Samhain marked the end of the harvest and the start of winter, the darker half of the Celtic year."
+  },
+  {
+    "id": "halloween-031",
+    "question": "In what year was Mary Shelley's Frankenstein first published?",
+    "answer": "1818",
+    "distractors": [
+      "1797",
+      "1847",
+      "1897"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Frankenstein; or, The Modern Prometheus was first published in London in 1818."
+  },
+  {
+    "id": "halloween-032",
+    "question": "In what year was Bram Stoker's Dracula first published?",
+    "answer": "1897",
+    "distractors": [
+      "1818",
+      "1869",
+      "1923"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Dracula was first published in 1897."
+  },
+  {
+    "id": "halloween-033",
+    "question": "Count Dracula's castle is located in which region?",
+    "answer": "Transylvania",
+    "distractors": [
+      "Bavaria",
+      "Siberia",
+      "Tuscany"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "In Stoker's novel, Dracula lives in a castle in the Carpathian Mountains of Transylvania."
+  },
+  {
+    "id": "halloween-034",
+    "question": "Who wrote \"The Legend of Sleepy Hollow\"?",
+    "answer": "Washington Irving",
+    "distractors": [
+      "Edgar Allan Poe",
+      "Nathaniel Hawthorne",
+      "Mark Twain"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Washington Irving published \"The Legend of Sleepy Hollow\" in 1820."
+  },
+  {
+    "id": "halloween-035",
+    "question": "What is the name of the schoolteacher chased by the Headless Horseman in \"The Legend of Sleepy Hollow\"?",
+    "answer": "Ichabod Crane",
+    "distractors": [
+      "Brom Bones",
+      "Rip Van Winkle",
+      "Jonathan Harker"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Ichabod Crane is the lanky schoolmaster at the center of Irving's tale."
+  },
+  {
+    "id": "halloween-036",
+    "question": "Who wrote Strange Case of Dr Jekyll and Mr Hyde?",
+    "answer": "Robert Louis Stevenson",
+    "distractors": [
+      "Arthur Conan Doyle",
+      "Oscar Wilde",
+      "Bram Stoker"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Scottish author Robert Louis Stevenson wrote the novella Strange Case of Dr Jekyll and Mr Hyde."
+  },
+  {
+    "id": "halloween-037",
+    "question": "Which French author wrote the novel The Phantom of the Opera?",
+    "answer": "Gaston Leroux",
+    "distractors": [
+      "Victor Hugo",
+      "Alexandre Dumas",
+      "Jules Verne"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Gaston Leroux's The Phantom of the Opera first appeared as a book in 1910."
+  },
+  {
+    "id": "halloween-038",
+    "question": "Pumpkins belong to which plant family?",
+    "answer": "Gourd family",
+    "distractors": [
+      "Nightshade family",
+      "Rose family",
+      "Mint family"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Pumpkins are squashes in the gourd family, Cucurbitaceae, along with cucumbers and melons."
+  },
+  {
+    "id": "halloween-039",
+    "question": "What is the Spanish-derived name for hulled, green pumpkin seeds?",
+    "answer": "Pepitas",
+    "distractors": [
+      "Pinoles",
+      "Chia",
+      "Tahini"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Pepitas are hulled pumpkin seeds, and the name comes from the Mexican Spanish word for small seeds."
+  },
+  {
+    "id": "halloween-040",
+    "question": "In ancient Egypt, what containers held a mummy's preserved internal organs?",
+    "answer": "Canopic jars",
+    "distractors": [
+      "Amphorae",
+      "Ossuaries",
+      "Clay urns"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Egyptian embalmers stored the removed organs in canopic jars, often topped with lids shaped like protective figures."
+  },
+  {
+    "id": "halloween-041",
+    "question": "What is the folklore term for a human turning into a wolf?",
+    "answer": "Lycanthropy",
+    "distractors": [
+      "Necromancy",
+      "Somnambulism",
+      "Hydrophobia"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Lycanthropy comes from the Greek words for wolf and human and describes werewolf transformation."
+  },
+  {
+    "id": "halloween-042",
+    "question": "In later werewolf folklore, which metal is said to harm a werewolf?",
+    "answer": "Silver",
+    "distractors": [
+      "Gold",
+      "Copper",
+      "Bronze"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Later folklore and fiction popularized the idea that silver, such as a silver bullet, can stop a werewolf."
+  },
+  {
+    "id": "halloween-043",
+    "question": "Which Dutch professor leads the fight against the vampire in Stoker's Dracula?",
+    "answer": "Abraham Van Helsing",
+    "distractors": [
+      "Jonathan Harker",
+      "Ichabod Crane",
+      "Henry Jekyll"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Professor Abraham Van Helsing of Amsterdam is the expert who guides the hunt for Count Dracula."
+  },
+  {
+    "id": "halloween-044",
+    "question": "In Stevenson's story, what does Dr Jekyll use to transform into Mr Hyde?",
+    "answer": "A potion",
+    "distractors": [
+      "A curse",
+      "A full moon",
+      "A bite"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Dr Jekyll creates a chemical potion that turns him into Edward Hyde."
+  },
+  {
+    "id": "halloween-045",
+    "question": "In Gaston Leroux's novel, the Phantom haunts an opera house in which city?",
+    "answer": "Paris",
+    "distractors": [
+      "Vienna",
+      "London",
+      "Rome"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "The Phantom of the Opera is set in the Paris Opera house, the Palais Garnier."
+  },
+  {
+    "id": "halloween-046",
+    "question": "\"The Legend of Sleepy Hollow\" is set in which present-day U.S. state?",
+    "answer": "New York",
+    "distractors": [
+      "Massachusetts",
+      "Pennsylvania",
+      "Connecticut"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Sleepy Hollow is a valley near Tarrytown in the Hudson Valley of New York."
+  },
+  {
+    "id": "halloween-047",
+    "question": "In Scotland, the old custom of dressing in disguise and visiting homes on Halloween for treats is called what?",
+    "answer": "Guising",
+    "distractors": [
+      "Wassailing",
+      "Caroling",
+      "First-footing"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Scottish \"guisers\" went door to door in costume, often performing a song or joke in exchange for treats."
+  },
+  {
+    "id": "halloween-048",
+    "question": "In witch folklore, an animal helper such as a black cat is known as what?",
+    "answer": "A familiar",
+    "distractors": [
+      "A mascot",
+      "A totem",
+      "A sidekick"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "Folklore describes a witch's familiar as an animal spirit companion, often a cat, toad or owl."
+  },
+  {
+    "id": "halloween-049",
+    "question": "At the end of \"The Legend of Sleepy Hollow,\" what smashed object is found near Ichabod's abandoned hat?",
+    "answer": "A pumpkin",
+    "distractors": [
+      "A lantern",
+      "A jug",
+      "A skull"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "The morning after the chase, townsfolk find Ichabod's hat beside a shattered pumpkin."
+  },
+  {
+    "id": "halloween-050",
+    "question": "In the old spelling \"Hallowe'en,\" the \"e'en\" is short for which word?",
+    "answer": "Evening",
+    "distractors": [
+      "Eternal",
+      "Eleven",
+      "Eden"
+    ],
+    "category": "halloween",
+    "difficulty": "medium",
+    "explanation": "\"E'en\" is a contraction of \"even,\" an old word for evening, so Hallowe'en means the evening of All Hallows."
+  },
+  {
+    "id": "halloween-051",
+    "question": "Who is Ichabod Crane's boisterous rival for Katrina Van Tassel in \"The Legend of Sleepy Hollow\"?",
+    "answer": "Brom Bones",
+    "distractors": [
+      "Hans Van Ripper",
+      "Rip Van Winkle",
+      "Baltus Van Tassel"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "Brom Bones, the nickname of Abraham Van Brunt, competes with Ichabod for Katrina's hand."
+  },
+  {
+    "id": "halloween-052",
+    "question": "Early on, candy corn was marketed under what farm-themed name?",
+    "answer": "Chicken Feed",
+    "distractors": [
+      "Harvest Gold",
+      "Barn Candy",
+      "Scarecrow Sweets"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "Because many Americans then fed corn to chickens, early candy corn boxes were labeled \"Chicken Feed.\""
+  },
+  {
+    "id": "halloween-053",
+    "question": "In which decade was candy corn first made?",
+    "answer": "1880s",
+    "distractors": [
+      "1840s",
+      "1920s",
+      "1950s"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "Candy corn is credited to candymaker George Renninger of the Wunderle Candy Company in the 1880s."
+  },
+  {
+    "id": "halloween-054",
+    "question": "Bram Stoker's Dracula is an epistolary novel, meaning it is told mainly through what?",
+    "answer": "Letters and diary entries",
+    "distractors": [
+      "One narrator's memoir",
+      "Rhyming poems",
+      "Stage dialogue"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "Dracula is assembled from characters' letters, journals, telegrams and newspaper clippings."
+  },
+  {
+    "id": "halloween-055",
+    "question": "What is the subtitle of Mary Shelley's Frankenstein?",
+    "answer": "The Modern Prometheus",
+    "distractors": [
+      "The Modern Icarus",
+      "The Living Dead",
+      "The Last Experiment"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "The novel's full title is Frankenstein; or, The Modern Prometheus."
+  },
+  {
+    "id": "halloween-056",
+    "question": "In what year was Strange Case of Dr Jekyll and Mr Hyde first published?",
+    "answer": "1886",
+    "distractors": [
+      "1818",
+      "1866",
+      "1904"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "Robert Louis Stevenson's novella was first published in 1886."
+  },
+  {
+    "id": "halloween-057",
+    "question": "In what year did Universal Pictures release its classic films Dracula and Frankenstein?",
+    "answer": "1931",
+    "distractors": [
+      "1922",
+      "1945",
+      "1958"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "Universal released both Dracula and Frankenstein in 1931."
+  },
+  {
+    "id": "halloween-058",
+    "question": "Besides carved vegetables, the old term \"jack-o'-lantern\" also referred to what eerie natural sight?",
+    "answer": "Ghostly lights over marshes",
+    "distractors": [
+      "Fog on hilltops",
+      "Glowing mushrooms",
+      "Ball lightning"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "\"Jack-o'-lantern\" was an old name for will-o'-the-wisp, the flickering lights sometimes seen over bogs and marshes."
+  },
+  {
+    "id": "halloween-059",
+    "question": "Pumpkin vines grow separate male and female flowers; which ones develop into pumpkins?",
+    "answer": "Female flowers",
+    "distractors": [
+      "Male flowers",
+      "Both equally",
+      "Neither kind"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "Only female flowers have an ovary at their base, which swells into a pumpkin after pollination."
+  },
+  {
+    "id": "halloween-060",
+    "question": "The word \"pumpkin\" traces back to the Greek word \"pepon,\" which meant what?",
+    "answer": "Large melon",
+    "distractors": [
+      "Orange ball",
+      "Round seed",
+      "Harvest moon"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "\"Pumpkin\" developed from the Greek \"pepon,\" meaning a large melon, through French and English forms."
+  },
+  {
+    "id": "halloween-061",
+    "question": "In Stoker's novel, Dracula first arrives in England by ship at which coastal town?",
+    "answer": "Whitby",
+    "distractors": [
+      "Dover",
+      "Brighton",
+      "Liverpool"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "Dracula's ship, the Demeter, runs aground at Whitby on the Yorkshire coast."
+  },
+  {
+    "id": "halloween-062",
+    "question": "What is Dr Jekyll's first name in Stevenson's story?",
+    "answer": "Henry",
+    "distractors": [
+      "Edward",
+      "Victor",
+      "Jonathan"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "The doctor is Henry Jekyll, while his darker self is named Edward Hyde."
+  },
+  {
+    "id": "halloween-063",
+    "question": "Mary Shelley's Frankenstein opens with letters from an explorer sailing toward which region?",
+    "answer": "The Arctic",
+    "distractors": [
+      "Antarctica",
+      "The Amazon",
+      "The Sahara"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "The story is framed by Robert Walton's letters from his voyage toward the North Pole."
+  },
+  {
+    "id": "halloween-064",
+    "question": "What is the Phantom's real name in Gaston Leroux's novel?",
+    "answer": "Erik",
+    "distractors": [
+      "Raoul",
+      "Gustave",
+      "Philippe"
+    ],
+    "category": "halloween",
+    "difficulty": "hard",
+    "explanation": "Leroux names his Phantom Erik, while Raoul is the young vicomte who loves Christine."
+  }
+]

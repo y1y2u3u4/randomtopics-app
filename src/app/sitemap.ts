@@ -120,6 +120,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-14" });
   }
 
+  // Trivia question bank + seasonal Halloween page (2026-10-14).
+  for (const p of ["trivia-questions", "trivia-questions/halloween"]) {
+    entries.push({ path: `/${p}`, changeFrequency: "weekly", priority: 0.88, lastModified: "2026-10-14" });
+  }
+
   // Classroom packs landing page (2026-10-14).
   entries.push({ path: "/classroom-packs", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-10-14" });
 

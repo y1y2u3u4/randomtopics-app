@@ -187,6 +187,9 @@ export default function CharadesPage() {
                 <Link href="/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">wheel</Link>{" "}
                 to pick who acts first, and cool down with{" "}
                 <Link href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">This or That</Link>.
+                Same teams, different game: the{" "}
+                <Link href="/trivia-questions" className="text-[var(--neon-cyan)] hover:underline">trivia questions</Link>{" "}
+                host mode keeps score for up to eight teams.
                 Hosting a bigger crowd? Grab openers from{" "}
                 <Link href="/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">questions to ask at a party</Link>.
                 Playing Pictionary instead? The{" "}

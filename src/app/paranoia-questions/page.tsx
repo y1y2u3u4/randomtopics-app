@@ -100,7 +100,8 @@ export default function ParanoiaPage() {
                 <Link href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}
                 <Link href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>{" "}
                 (paranoia&apos;s louder cousin),{" "}
-                <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">Charades</Link>, and{" "}
+                <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">Charades</Link>,{" "}
+                <Link href="/trivia-questions" className="text-[var(--neon-cyan)] hover:underline">team trivia</Link>, and{" "}
                 <Link href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>.
               </p>
 
