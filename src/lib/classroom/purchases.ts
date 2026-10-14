@@ -16,7 +16,7 @@ export const CLASSROOM_BUCKET = "classroom-packs";
 
 export function classroomName(purchase: ClassroomPurchase) {
   if (purchase === "all") return "RandomTopics Classroom Packs · All packs (incl. future packs)";
-  return `RandomTopics Classroom Pack · ${CLASSROOM_PACKS.find((p) => p.id === purchase)!.title}`;
+  return `RandomTopics · ${CLASSROOM_PACKS.find((p) => p.id === purchase)!.title}`;
 }
 
 export function classroomLineItem(purchase: ClassroomPurchase): Stripe.Checkout.SessionCreateParams.LineItem {

@@ -23,11 +23,11 @@ export default function ClassroomPackCard({ pack, page }: { pack: ClassroomPackI
           <h2 className="text-2xl font-bold text-[var(--text-primary)] mt-2">{info.title}</h2>
           <p className="text-sm text-[var(--text-secondary)] mt-2 leading-relaxed">{info.description}</p>
         </div>
-        <div className="grid grid-cols-3 gap-2 sm:gap-3">
+        <div className="grid grid-cols-3 items-start gap-2 sm:gap-3">
           {classroomPreviews(pack).map((p) => (
             <figure key={p.src} className="overflow-hidden rounded-lg border border-white/10 bg-white">
               <Image src={p.src} alt={`${info.short}: ${p.alt}`} width={p.kind === "PDF" ? 900 : 1200} height={p.kind === "PDF" ? 1165 : 675}
-                sizes="(max-width: 640px) 33vw, 240px" className={`w-full ${p.kind === "PDF" ? "h-full max-h-40 object-cover object-top" : "h-auto"}`} />
+                sizes="(max-width: 640px) 33vw, 240px" className={`w-full ${p.kind === "PDF" ? "aspect-video object-cover object-top" : "h-auto"}`} />
               <figcaption className="sr-only">{p.kind === "PDF" ? "Printable PDF page" : "PPTX slide"}</figcaption>
             </figure>
           ))}
