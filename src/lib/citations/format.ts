@@ -1,11 +1,12 @@
-// Citation engine for the citation generator pages (ASA, ACS, Chicago).
+// Citation engine for the citation generator pages (APA, ASA, ACS, Chicago).
 // Pure functions: a Source in, rich-text Segments out. The rules follow:
+// - Publication Manual of the APA, 7th ed. (2020), sections 9.7–9.49 and 10.1–10.16
 // - ASA Style Guide, 7th ed. (2022)
 // - ACS Guide to Scholarly Communication (2020)
 // - The Chicago Manual of Style, 18th ed. (2024), notes-bibliography and author-date
 
 export type SourceType = "journal" | "book" | "chapter" | "web";
-export type StyleId = "asa" | "acs" | "chicago-nb" | "chicago-ad";
+export type StyleId = "apa" | "asa" | "acs" | "chicago-nb" | "chicago-ad";
 
 /** A person, or an organization when only `family` is set and `org` is true. */
 export interface Person { given: string; family: string; org?: boolean }
@@ -83,6 +84,25 @@ export function headlineCase(title: string): string {
     const edge = i === 0 || i === words.length - 1 || afterColon;
     const lower = bare.toLowerCase();
     const next = !edge && MINOR.has(lower) ? lower : bare.split("-").map((p) => (p ? p[0].toUpperCase() + p.slice(1) : p)).join("-");
+    return w.replace(bare, next);
+  }).join(" ");
+}
+
+/**
+ * Sentence-style capitalization (APA 6.17): lowercase everything except the
+ * first word, the first word after a colon, dash or end punctuation, and words
+ * that are acronyms or have internal capitals (DNA, iPhone, McDonald).
+ * Proper nouns cannot be detected, so the UI asks the writer to check them.
+ */
+export function sentenceCase(title: string): string {
+  const words = cleanText(title).split(" ");
+  return words.map((w, i) => {
+    const bare = w.replace(/^[“"‘'(\[]+|[”"’'),.:;?!\]]+$/g, "");
+    if (!bare) return w;
+    const keep = /[A-Z].*[A-Z]|[a-z][A-Z]|\d/.test(bare.slice(1)) || /^[A-Z]{2,}$/.test(bare) || /^[a-z]+[A-Z]/.test(bare) || bare === "I";
+    const start = i === 0 || /[:?!—–]$/.test(words[i - 1]) || /^[—–]$/.test(words[i - 1] ?? "");
+    if (keep) return w;
+    const next = start ? bare[0].toUpperCase() + bare.slice(1).toLowerCase() : bare.toLowerCase();
     return w.replace(bare, next);
   }).join(" ");
 }
@@ -168,6 +188,130 @@ export const toHtml = (segs: Segment[]) => segs.map((s) => {
   if (s.sup) h = `<sup>${h}</sup>`;
   return h;
 }).join("");
+
+/* --------------------------------- APA --------------------------------- */
+
+const apaName = (p: Person) => (p.org || !p.given ? p.family : `${p.family}, ${initials(p.given)}`);
+
+/** APA 9.8: up to 20 authors with "&" before the last; 21+ → first 19, …, last. */
+function apaNames(list: Person[]): string {
+  const names = list.map(apaName);
+  if (names.length > 20) return `${names.slice(0, 19).join(", ")}, . . . ${names[names.length - 1]}`;
+  if (names.length === 1) return names[0];
+  if (names.length === 2) return `${names[0]}, & ${names[1]}`;
+  return `${names.slice(0, -1).join(", ")}, & ${names[names.length - 1]}`;
+}
+
+function apaDate(s: Source, suffix: string): string {
+  const year = cleanText(s.year);
+  if (!year) return `(n.d.${suffix ? `-${suffix}` : ""})`;
+  const md = s.type === "web" ? monthDay(s) : "";
+  return `(${year}${suffix}${md ? `, ${md}` : ""})`;
+}
+
+function apaInText(s: Source, suffix: string, page?: string): { label: string; value: Segment[] }[] {
+  const fam = s.authors.map((a) => a.family);
+  const year = cleanText(s.year) ? `${cleanText(s.year)}${suffix}` : `n.d.${suffix ? `-${suffix}` : ""}`;
+  const pg = page ? `, ${/[-–,]/.test(page) ? "pp." : "p."} ${pageRange(page)}` : "";
+  if (!fam.length) {
+    // No author: the title moves to the author position (APA 8.14).
+    const t = shortTitle(s.title);
+    const italic = s.type === "book" || s.type === "web";
+    const par: Segment[] = italic ? [{ t: "(" }, { t, i: true }, { t: `, ${year}${pg})` }] : [{ t: `(“${t},” ${year}${pg})` }];
+    const nar: Segment[] = italic ? [{ t, i: true }, { t: ` (${year}${pg})` }] : [{ t: `“${t}” (${year}${pg})` }];
+    return [{ label: "Parenthetical citation", value: par }, { label: "Narrative citation", value: nar }];
+  }
+  const who = fam.length === 1 ? fam[0] : fam.length === 2 ? `${fam[0]} & ${fam[1]}` : `${fam[0]} et al.`;
+  const whoNarrative = fam.length === 2 ? `${fam[0]} and ${fam[1]}` : who;
+  return [
+    { label: "Parenthetical citation", value: [{ t: `(${who}, ${year}${pg})` }] },
+    { label: "Narrative citation", value: [{ t: `${whoNarrative} (${year}${pg})` }] },
+  ];
+}
+
+function formatApa(src: Source, opts: FormatOptions): Formatted {
+  const s = opts.sentence ? { ...src, title: sentenceCase(src.title), container: src.type === "chapter" && src.container ? sentenceCase(src.container) : src.container } : src;
+  // Journal and website names keep title case; a chapter's book title is sentence case like other titles.
+  const container = cleanText(opts.headline && s.type !== "chapter" ? headlineCase(s.container ?? "") : s.container);
+  const suffix = opts.suffix ?? "";
+  const o = new Out();
+  const title = cleanText(s.title);
+  const doi = bareDoi(s.doi);
+  const link = doi ? `https://doi.org/${doi}` : cleanText(s.url);
+  const publisher = cleanText(s.publisher);
+  const ed = s.edition ? `${ordinal(s.edition)} ed.` : "";
+  const lead = s.authors.length ? stop(apaNames(s.authors)) : "";
+  const date = `${apaDate(s, suffix)}.`;
+  // Without an author the title moves to the author position, before the date.
+  if (lead) o.add(`${lead} ${date} `);
+  if (s.type === "journal") {
+    if (!lead) o.add(`${stop(title)} ${date} `); else o.add(`${stop(title)} `);
+    const vol = cleanText(s.volume), iss = cleanText(s.issue), pages = pageRange(s.pages);
+    if (container) o.i(container);
+    if (vol) o.add(", ").i(vol);
+    if (iss) o.add(`(${iss})`);
+    if (pages) o.add(`, ${pages}`);
+    if (container || vol || pages) o.add(". ");
+  } else if (s.type === "book") {
+    o.i(title);
+    if (ed) o.add(` (${ed})`);
+    o.add(ed || !endsWithStop(title) ? ". " : " ");
+    if (!lead) o.add(`${date} `);
+    if (publisher) o.add(`${stop(publisher)} `);
+  } else if (s.type === "chapter") {
+    if (!lead) o.add(`${stop(title)} ${date} `); else o.add(`${stop(title)} `);
+    o.add("In ");
+    const eds = s.editors ?? [];
+    if (eds.length) {
+      const names = eds.map((p) => (p.org || !p.given ? p.family : `${initials(p.given)} ${p.family}`));
+      const joined = names.length === 1 ? names[0] : names.length === 2 ? `${names[0]} & ${names[1]}` : `${names.slice(0, -1).join(", ")}, & ${names[names.length - 1]}`;
+      o.add(`${joined} (${eds.length > 1 ? "Eds." : "Ed."}), `);
+    }
+    if (container) o.i(container);
+    const pages = pageRange(s.pages);
+    const bits = [ed, pages && `pp. ${pages}`].filter(Boolean).join(", ");
+    if (bits) o.add(` (${bits})`);
+    o.add(". ");
+    if (publisher) o.add(`${stop(publisher)} `);
+  } else {
+    o.i(title);
+    o.add(endsWithStop(title) ? " " : ". ");
+    if (!lead) o.add(`${date} `);
+    // The site name is left out when it is the same as the author (APA 9.47).
+    const author = s.authors.length === 1 ? cleanText(s.authors[0].family).toLowerCase() : "";
+    if (container && container.toLowerCase() !== author) o.add(`${stop(container)} `);
+  }
+  if (link) o.add(link);
+  return { reference: trimEnd(o.segs), inText: apaInText(s, suffix, opts.page) };
+}
+
+/**
+ * APA reference list (9.44–9.47): alphabetical by the first author's surname,
+ * then initials; one author's works by year (n.d. first); a work without an
+ * author by its title, ignoring A/An/The. Same author(s) and year get a, b, c.
+ */
+export function apaReferenceList<T extends { source: Source }>(items: T[]): { item: T; suffix: string }[] {
+  const authorKey = (s: Source) => s.authors.map((a) => `${cleanText(a.family)} ${initials(a.given ?? "")}`.toLowerCase()).join("|");
+  const titleKey = (s: Source) => cleanText(s.title).replace(/^(the|a|an)\s+/i, "").toLowerCase();
+  const lead = (s: Source) => (s.authors.length ? authorKey(s) : titleKey(s));
+  const yearKey = (s: Source) => (cleanText(s.year) ? cleanText(s.year).padStart(4, "0") : "0000");
+  const sorted = items.slice().sort((a, b) =>
+    lead(a.source).localeCompare(lead(b.source)) || yearKey(a.source).localeCompare(yearKey(b.source)) || titleKey(a.source).localeCompare(titleKey(b.source)));
+  const groups = new Map<string, number>();
+  for (const it of sorted) if (it.source.authors.length) {
+    const k = `${authorKey(it.source)}#${yearKey(it.source)}`;
+    groups.set(k, (groups.get(k) ?? 0) + 1);
+  }
+  const seen = new Map<string, number>();
+  return sorted.map((item) => {
+    if (!item.source.authors.length) return { item, suffix: "" };
+    const k = `${authorKey(item.source)}#${yearKey(item.source)}`;
+    if ((groups.get(k) ?? 0) < 2) return { item, suffix: "" };
+    const n = seen.get(k) ?? 0;
+    seen.set(k, n + 1);
+    return { item, suffix: String.fromCharCode(97 + n) };
+  });
+}
 
 /* --------------------------------- ASA --------------------------------- */
 
@@ -429,8 +573,12 @@ export interface FormatOptions {
   page?: string;
   /** ACS reference number. */
   number?: number;
-  /** Apply headline-style capitalization to titles (ASA and Chicago). */
+  /** Apply headline-style capitalization to titles (ASA and Chicago) or, for APA, to journal and site names. */
   headline?: boolean;
+  /** APA: sentence-case article, book, chapter and page titles. */
+  sentence?: boolean;
+  /** APA: year suffix (a, b, …) for the same author(s) in the same year. */
+  suffix?: string;
 }
 
 function withTitle(s: Source, opts: FormatOptions): Source {
@@ -451,14 +599,16 @@ function trimEnd(segs: Segment[], acs = false): Segment[] {
 }
 
 export function formatCitation(style: StyleId, source: Source, opts: FormatOptions = {}): Formatted {
+  if (style === "apa") return formatApa(source, opts);
   if (style === "asa") return formatAsa(source, opts);
   if (style === "acs") return formatAcs(source, opts);
   return formatChicago(source, opts, style === "chicago-ad");
 }
 
-/** Reference-list order: ACS keeps citation order; ASA and Chicago sort by author, then year. */
+/** Reference-list order: ACS keeps citation order; APA, ASA and Chicago sort by author, then year. */
 export function sortForStyle<T extends { source: Source }>(style: StyleId, items: T[]): T[] {
   if (style === "acs") return items.slice();
+  if (style === "apa") return apaReferenceList(items).map((x) => x.item);
   const key = (s: Source) => `${(s.authors[0] ? s.authors[0].family : cleanText(s.title).replace(/^(the|a|an)\s+/i, "")).toLowerCase()} ${s.year ?? "9999"}`;
   return items.slice().sort((a, b) => key(a.source).localeCompare(key(b.source)));
 }

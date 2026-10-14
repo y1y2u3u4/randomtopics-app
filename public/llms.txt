@@ -1,0 +1,38 @@
+# RandomTopics
+
+> RandomTopics (https://randomtopics.app) is a free collection of random generators and question banks for classrooms, parties, writing and speaking practice. Every tool works in the browser with no signup. Generated results come from editor-curated lists, not live AI output.
+
+## Generators added 2026-10-14
+
+- [APA Citation Generator](https://randomtopics.app/apa-citation-generator): APA 7th edition references and in-text citations from a DOI, ISBN or URL; paste many sources at once to build a full APA reference page (sorted in APA order, 2020a/2020b suffixes, bold centered "References" heading, double spacing, hanging indent) and copy it or download it for Word.
+- [Random Movie Generator](https://randomtopics.app/random-movie-generator): picks a movie by genre, decade, rating band, runtime and streaming originals, with three similar-movie recommendations and a shareable result link. "Where to watch" links to a live search because streaming availability changes.
+- [Wu-Tang Name Generator](https://randomtopics.app/wu-tang-name-generator): an unofficial fan tool — type your name to get a fixed Wu-Tang-style name (the same name always gives the same result), or roll a random one, and download a share card.
+
+## Citation generators
+
+- [APA Citation Generator](https://randomtopics.app/apa-citation-generator): APA 7 references, in-text citations and reference page.
+- [ASA Citation Generator](https://randomtopics.app/asa-citation-generator): ASA Style Guide 7th edition references and (Author Year:page) citations.
+- [Chicago Citation Generator](https://randomtopics.app/chicago-citation-generator): Chicago 18th edition notes-bibliography and author-date.
+- [ACS Citation Generator](https://randomtopics.app/acs-citation-generator): numbered ACS references for chemistry.
+
+## Topic and question tools
+
+- [Random Topic Generator](https://randomtopics.app/): conversation, debate, writing and speech topics with talking points.
+- [Question of the Day](https://randomtopics.app/question-of-the-day): a new question every day for classrooms and teams.
+- [Debate Topic Generator](https://randomtopics.app/debate): debate topics with arguments for both sides.
+- [Impromptu Speech Topics](https://randomtopics.app/impromptu-speech-topics): no-research speech topics by category, with a speech timer.
+- [Pro and Con Debate Topics](https://randomtopics.app/pro-and-con-debate-topics): 100 balanced topics with prep notes.
+- [Classroom Packs](https://randomtopics.app/classroom-packs): paid one-time PPTX + PDF packs for teachers (Question of the Day for 180 school days, 60 classroom debate motions, 102 impromptu speech topics) with an ad-free presenter mode.
+
+## Random generators
+
+- [Random Word Generator](https://randomtopics.app/random-word-generator)
+- [Random Team Generator](https://randomtopics.app/random-team-generator)
+- [Random Animal Generator](https://randomtopics.app/random-animal-generator)
+- [Random Food Generator](https://randomtopics.app/random-food-generator)
+- [Random Name Picker](https://randomtopics.app/random-name-picker)
+- [Number Randomizer](https://randomtopics.app/number-randomizer)
+- [Spin the Wheel](https://randomtopics.app/spin-the-wheel)
+- [Viking Name Generator](https://randomtopics.app/viking-name-generator)
+- [D&D Name Generator](https://randomtopics.app/dnd-name-generator)
+- [AI Metadata Remover](https://randomtopics.app/ai-metadata-remover): removes EXIF, GPS, C2PA and AI prompt metadata in the browser; it does not remove pixel watermarks or platform labels.

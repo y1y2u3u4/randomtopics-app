@@ -1,4 +1,4 @@
-import { formatCitation, toHtml, type StyleId } from "@/lib/citations/format";
+import { formatCitation, sentenceCase, toHtml, type StyleId } from "@/lib/citations/format";
 import { EXAMPLES } from "@/data/citations/examples";
 
 // Worked examples rendered by the same engine as the generator.
@@ -7,7 +7,9 @@ export default function CitationExamples({ style, ids, headline = true }: { styl
     <div className="space-y-4">
       {ids.map((id, i) => {
         const ex = EXAMPLES[id];
-        const f = formatCitation(style, ex.source, { headline, number: i + 1, page: style === "acs" ? undefined : "12" });
+        // APA titles are sentence case; examples carry the hand-checked version so proper nouns stay capitalized.
+        const source = style === "apa" ? { ...ex.source, title: ex.apa?.title ?? sentenceCase(ex.source.title), container: ex.source.type === "chapter" ? ex.apa?.container ?? ex.source.container : ex.source.container } : ex.source;
+        const f = formatCitation(style, source, { headline, number: i + 1, page: style === "acs" ? undefined : "12" });
         return (
           <div key={id} className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
             <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-1">{ex.label}</p>

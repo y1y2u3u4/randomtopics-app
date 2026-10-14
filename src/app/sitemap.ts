@@ -115,6 +115,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // 2026-10-14 inner pages.
+  for (const p of ["apa-citation-generator", "random-movie-generator", "wu-tang-name-generator"]) {
+    entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-14" });
+  }
+
   // Classroom packs landing page (2026-10-14).
   entries.push({ path: "/classroom-packs", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-10-14" });
 

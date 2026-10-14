@@ -531,6 +531,33 @@ test("citations: ASA 7th journal, book, chapter and in-text rules", () => {
   assert.deepEqual(segs.filter((x) => x.i).map((x) => x.t), ["American Journal of Sociology"]);
 });
 
+test("citations: APA 7th journal, book, chapter, web, in-text and reference page", () => {
+  assert.equal(txt("apa", desmond, { sentence: true, headline: true }), "Desmond, M. (2012). Eviction and the reproduction of urban poverty. American Journal of Sociology, 118(1), 88–133. https://doi.org/10.1086/666082");
+  assert.deepEqual(cf.formatCitation("apa", desmond).reference.filter((x) => x.i).map((x) => x.t), ["American Journal of Sociology", "118"], "journal name and volume italic, issue not");
+  assert.deepEqual(inText("apa", desmond, { page: "95" }), ["(Desmond, 2012, p. 95)", "Desmond (2012, p. 95)"]);
+  assert.deepEqual(inText("apa", desmond, { page: "95-97" }), ["(Desmond, 2012, pp. 95–97)", "Desmond (2012, pp. 95–97)"]);
+  assert.deepEqual(inText("apa", { ...desmond, authors: [P("Nathan", "Innocente"), P("Jayne", "Baker")] }), ["(Innocente & Baker, 2012)", "Innocente and Baker (2012)"]);
+  assert.deepEqual(inText("apa", marucho), ["(Marucho et al., 2008)", "Marucho et al. (2008)"], "three or more: et al. from the first citation");
+  assert.match(txt("apa", marucho), /^Marucho, M\., Kelley, C\. T\., & Pettitt, B\. M\. \(2008\)\./);
+  const twentyOne = txt("apa", { ...marucho, authors: many(21) });
+  assert.match(twentyOne, /Family18, G\., \. \. \. Family20, G\. \(2008\)/, "21+ authors: first 19, ellipsis, last");
+  assert.ok(!twentyOne.includes("Family19,"), "the 20th author is left out");
+  assert.match(txt("apa", { ...marucho, authors: many(20) }), /Family18, G\., & Family19, G\. \(2008\)/, "up to 20 authors listed");
+  assert.equal(txt("apa", book, { sentence: true }), "Schmidt, L. D. (2005). The engineering of chemical reactions (2nd ed.). Oxford University Press.");
+  assert.equal(txt("apa", chapter, { sentence: true }), "Gray, R. R. R. (2018). Repatriation and decolonization. In F. Gunderson, R. C. Lancefield, & B. Woods (Eds.), The oxford handbook of musical repatriation (pp. 722–738). Oxford University Press. https://doi.org/10.1093/oxfordhb/9780190659806.013.39");
+  const un = { type: "web", authors: [{ given: "", family: "United Nations", org: true }], title: "What is climate change?", container: "United Nations", url: "https://www.un.org/en/climatechange/what-is-climate-change" };
+  assert.equal(txt("apa", un), "United Nations. (n.d.). What is climate change? https://www.un.org/en/climatechange/what-is-climate-change", "site name dropped when it is the author; no period after ?");
+  assert.equal(txt("apa", { type: "web", authors: [P("Ann", "Lee")], title: "Ten tips", container: "Healthline", year: "2024", month: 3, day: 5, url: "https://x.example" }), "Lee, A. (2024, March 5). Ten tips. Healthline. https://x.example");
+  assert.deepEqual(inText("apa", { type: "web", authors: [], title: "Ten Tips for Sleep", year: "2024" }).map((x) => x), ["(Ten Tips for Sleep, 2024)", "Ten Tips for Sleep (2024)"], "no author: italic title for web pages");
+  assert.match(txt("apa", { type: "journal", authors: [], title: "Mind the gap", container: "Nature", volume: "1", year: "2020" }), /^Mind the gap\. \(2020\)\. Nature, 1\./, "no author: title moves before the date");
+  assert.equal(cf.sentenceCase("The Impact of DNA Testing on Rural Health: A Case Study of iPhone Users"), "The impact of DNA testing on rural health: A case study of iPhone users");
+  const smith = (title, year) => ({ source: { type: "book", authors: [P("Ann", "Smith")], title, year } });
+  const page = cf.apaReferenceList([smith("Zeta", "2020"), { source: { type: "web", authors: [], title: "The Best Guide", year: "2019" } }, smith("Alpha", "2020"), smith("Undated", ""), { source: { type: "book", authors: [P("Bo", "Adams")], title: "Q", year: "2021" } }]);
+  assert.deepEqual(page.map((x) => `${x.item.source.title}${x.suffix}`), ["Q", "The Best Guide", "Undated", "Alphaa", "Zetab"], "author order, title for no-author works (ignoring The), n.d. first, a/b for same year");
+  assert.match(txt("apa", smith("Alpha", "2020").source, { suffix: "a" }), /\(2020a\)/);
+  assert.deepEqual(inText("apa", smith("Alpha", "2020").source, { suffix: "a" })[0], "(Smith, 2020a)");
+});
+
 test("citations: ACS journal, book and chapter match the guide's examples", () => {
   assert.equal(txt("acs", marucho), "Marucho, M.; Kelley, C. T.; Pettitt, B. M. Solutions of the Optimized Closure Integral Equation Theory: Heteronuclear Polyatomic Fluids. J. Chem. Theory Comput. 2008, 4 (3), 385–396. DOI: 10.1021/ct700202h");
   const segs = cf.formatCitation("acs", marucho).reference;

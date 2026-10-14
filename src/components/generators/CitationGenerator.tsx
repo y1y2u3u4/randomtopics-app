@@ -4,12 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import { copyText } from "@/lib/clipboard";
 import { track } from "@/lib/track";
 import {
-  MONTHS, formatCitation, plainText, sortForStyle, toHtml,
+  MONTHS, apaReferenceList, formatCitation, plainText, sentenceCase, sortForStyle, toHtml,
   type Person, type Segment, type Source, type SourceType, type StyleId,
 } from "@/lib/citations/format";
 import { detectInput, lookupDoi, lookupIsbn, lookupUrl } from "@/lib/citations/lookup";
 
-export type CitationFamily = "asa" | "acs" | "chicago";
+export type CitationFamily = "apa" | "asa" | "acs" | "chicago";
 
 const TYPES: { id: SourceType; label: string }[] = [
   { id: "journal", label: "Journal article" },
@@ -27,9 +27,10 @@ function Rich({ segs }: { segs: Segment[] }) {
   return <span dangerouslySetInnerHTML={{ __html: toHtml(segs) }} />;
 }
 
-async function copyRich(segs: Segment[][]): Promise<boolean> {
-  const html = segs.map((s) => `<p style="margin:0 0 0.5em 0.5in;text-indent:-0.5in">${toHtml(s)}</p>`).join("");
-  const text = segs.map(plainText).join("\n\n");
+async function copyRich(segs: Segment[][], heading?: string): Promise<boolean> {
+  const head = heading ? `<p style="text-align:center;font-weight:bold;margin:0 0 0.5em">${heading}</p>` : "";
+  const html = head + segs.map((s) => `<p style="margin:0 0 0.5em 0.5in;text-indent:-0.5in">${toHtml(s)}</p>`).join("");
+  const text = (heading ? `${heading}\n\n` : "") + segs.map(plainText).join("\n\n");
   try {
     if (typeof ClipboardItem !== "undefined" && navigator.clipboard?.write) {
       await navigator.clipboard.write([new ClipboardItem({ "text/html": new Blob([html], { type: "text/html" }), "text/plain": new Blob([text], { type: "text/plain" }) })]);
@@ -48,6 +49,11 @@ export default function CitationGenerator({ family }: { family: CitationFamily }
   const [status, setStatus] = useState<{ kind: "idle" | "loading" | "ok" | "error"; text: string }>({ kind: "idle", text: "" });
   const [page, setPage] = useState("");
   const [headline, setHeadline] = useState(family !== "acs");
+  const [bulk, setBulk] = useState("");
+  const [bulkStatus, setBulkStatus] = useState("");
+  const apa = family === "apa";
+  /** APA titles are sentence case; convert once and let the writer fix proper nouns in the field. */
+  const apaTitles = (x: Source): Source => (apa ? { ...x, title: sentenceCase(x.title), container: x.type === "chapter" && x.container ? sentenceCase(x.container) : x.container } : x);
   const [list, setList] = useState<Saved[]>([]);
   const [flash, setFlash] = useState("");
 
@@ -90,8 +96,10 @@ export default function CitationGenerator({ family }: { family: CitationFamily }
     setStatus({ kind: "loading", text: input.kind === "doi" ? "Looking up the DOI on Crossref…" : input.kind === "isbn" ? "Looking up the ISBN on Open Library…" : "Reading the page…" });
     try {
       const found = input.kind === "doi" ? await lookupDoi(input.value) : input.kind === "isbn" ? await lookupIsbn(input.value) : await lookupUrl(input.value, today());
-      setSrc({ ...blank(found.type), ...found, authors: found.authors.length ? found.authors : [{ given: "", family: "" }], accessed: found.accessed ?? today() });
-      setStatus({ kind: "ok", text: "Filled in — check every field against the source before you copy." });
+      setSrc(apaTitles({ ...blank(found.type), ...found, authors: found.authors.length ? found.authors : [{ given: "", family: "" }], accessed: found.accessed ?? today() }));
+      setStatus({ kind: "ok", text: apa
+        ? "Filled in, with titles in APA sentence case — capitalize names of people, places and organizations, then check every field."
+        : "Filled in — check every field against the source before you copy." });
       track("generate_success", { tool_type: `citation_${family}`, generator_mode: input.kind, locale: "en" });
     } catch (e) {
       setStatus({ kind: "error", text: e instanceof Error && e.message ? e.message : "Lookup failed — fill in the fields by hand." });
@@ -108,19 +116,53 @@ export default function CitationGenerator({ family }: { family: CitationFamily }
     flashMsg("added");
   };
 
+  // Reference page: look up many DOIs, ISBNs and URLs at once and add them all.
+  const addMany = async () => {
+    const lines = bulk.split(/\n+/).map((l) => l.trim()).filter(Boolean).slice(0, 50);
+    if (!lines.length) return;
+    const added: Saved[] = [];
+    const failed: number[] = [];
+    for (const [n, line] of lines.entries()) {
+      setBulkStatus(`Looking up ${n + 1} of ${lines.length}…`);
+      const input = detectInput(line);
+      try {
+        if (input.kind === "unknown") throw new Error("unknown");
+        const found = input.kind === "doi" ? await lookupDoi(input.value) : input.kind === "isbn" ? await lookupIsbn(input.value) : await lookupUrl(input.value, today());
+        added.push({ id: `${Date.now()}-${n}`, style, source: apaTitles({ ...found, accessed: found.accessed ?? today() }) });
+      } catch { failed.push(n + 1); }
+    }
+    if (added.length) saveList([...list, ...added]);
+    setBulkStatus(`Added ${added.length} of ${lines.length}${failed.length ? ` — could not read line ${failed.join(", ")}; add those by hand above` : ""}. Check each entry, especially capitalization.`);
+    if (!failed.length) setBulk("");
+    track("generate_success", { tool_type: `citation_${family}`, generator_mode: "bulk", locale: "en" });
+  };
+
   const ordered = sortForStyle(style, list);
-  const refs = ordered.map((item, i) => formatCitation(style, item.source, { headline, number: i + 1 }).reference);
+  const suffixes = apa ? new Map(apaReferenceList(list).map((x) => [x.item.id, x.suffix])) : new Map<string, string>();
+  const refs = ordered.map((item, i) => formatCitation(style, item.source, { headline, number: i + 1, suffix: suffixes.get(item.id) }).reference);
+  const listHeading = style === "chicago-nb" ? "Bibliography" : "References";
   const numbered = (segs: Segment[], i: number): Segment[] => (style === "acs" ? [{ t: `(${i + 1}) ` }, ...segs] : segs);
 
-  const downloadTxt = () => {
-    const heading = style === "chicago-nb" ? "Bibliography" : "References";
-    const text = `${heading}\n\n${refs.map((r, i) => plainText(numbered(r, i))).join("\n\n")}\n`;
-    const url = URL.createObjectURL(new Blob([text], { type: "text/plain;charset=utf-8" }));
+  const download = (blob: Blob, name: string) => {
+    const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `${family}-references.txt`;
+    a.download = name;
     a.click();
     window.setTimeout(() => URL.revokeObjectURL(url), 4000);
+  };
+  const downloadTxt = () => {
+    const text = `${listHeading}\n\n${refs.map((r, i) => plainText(numbered(r, i))).join("\n\n")}\n`;
+    download(new Blob([text], { type: "text/plain;charset=utf-8" }), `${family}-references.txt`);
+    track("download_result", { tool_type: `citation_${family}`, format: "txt", locale: "en" });
+  };
+  // A reference page Word and Google Docs open as-is: Times New Roman 12 pt,
+  // double-spaced, 0.5" hanging indent, bold centered heading (APA 2.12, 9.43).
+  const downloadDoc = () => {
+    const body = refs.map((r) => `<p style="margin:0 0 0 0.5in;text-indent:-0.5in;line-height:200%">${toHtml(r)}</p>`).join("");
+    const html = `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><title>${listHeading}</title></head><body style="font-family:'Times New Roman',serif;font-size:12pt"><p style="text-align:center;font-weight:bold;line-height:200%;margin:0">${listHeading}</p>${body}</body></html>`;
+    download(new Blob(["\ufeff", html], { type: "application/msword" }), `${family}-reference-page.doc`);
+    track("download_result", { tool_type: `citation_${family}`, format: "doc", locale: "en" });
   };
 
   const field = "w-full bg-[var(--bg-secondary)] border border-white/10 rounded-lg px-3 py-2 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)]";
@@ -177,6 +219,13 @@ export default function CitationGenerator({ family }: { family: CitationFamily }
           <div className="space-y-4">
             {people("authors", src.type === "web" ? "Authors (or the organization)" : "Authors")}
             {input("title", src.type === "chapter" ? "Chapter title" : src.type === "web" ? "Page title" : src.type === "book" ? "Book title" : "Article title")}
+            {apa && (
+              <p className="text-xs text-[var(--text-muted)] -mt-2">
+                APA uses sentence case for titles.{" "}
+                <button type="button" className="text-[var(--neon-cyan)] hover:underline" onClick={() => setSrc((x) => apaTitles(x))}>Convert to sentence case</button>
+                {" "}— then capitalize proper nouns.
+              </p>
+            )}
             {containerLabel && input("container", containerLabel)}
             {family === "acs" && src.type === "journal" && input("containerShort", "Abbreviated journal title (CASSI)", "e.g. J. Am. Chem. Soc.")}
             {src.type === "chapter" && people("editors", "Editors")}
@@ -198,10 +247,10 @@ export default function CitationGenerator({ family }: { family: CitationFamily }
             <div className="grid grid-cols-2 gap-3">
               {(src.type === "journal" || src.type === "chapter") && input("pages", "Pages", "88–133")}
               {(src.type === "book" || src.type === "chapter") && input("publisher", "Publisher")}
-              {(src.type === "book" || src.type === "chapter") && family !== "chicago" && input("place", "Place (city)", family === "asa" ? "Chicago, IL" : "New York")}
+              {(src.type === "book" || src.type === "chapter") && family !== "chicago" && !apa && input("place", "Place (city)", family === "asa" ? "Chicago, IL" : "New York")}
               {input("doi", "DOI", "10.xxxx/…")}
               {(src.type === "web" || !src.doi) && input("url", "URL", "https://…")}
-              {src.type === "web" && input("accessed", "Accessed", "", "date")}
+              {src.type === "web" && !apa && input("accessed", "Accessed", "", "date")}
             </div>
           </div>
 
@@ -220,7 +269,7 @@ export default function CitationGenerator({ family }: { family: CitationFamily }
             <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 space-y-3">
               <div className="flex flex-wrap items-center gap-3 text-sm text-[var(--text-secondary)]">
                 {family !== "acs" && <label className="flex items-center gap-2">Page cited <input value={page} onChange={(e) => setPage(e.target.value)} placeholder="95" className={`${field} w-20`} /></label>}
-                {family !== "acs" && <label className="flex items-center gap-2"><input type="checkbox" checked={headline} onChange={(e) => setHeadline(e.target.checked)} /> Headline-style capitalization</label>}
+                {family !== "acs" && <label className="flex items-center gap-2"><input type="checkbox" checked={headline} onChange={(e) => setHeadline(e.target.checked)} /> {apa ? "Title case for journal and website names" : "Headline-style capitalization"}</label>}
               </div>
               {out.inText.map((t) => (
                 <div key={t.label}>
@@ -235,17 +284,31 @@ export default function CitationGenerator({ family }: { family: CitationFamily }
           </div>
         </div>
 
+        {apa && (
+          <div className="mt-8 pt-6 border-t border-white/10" data-citation-bulk>
+            <label htmlFor="cite-bulk" className={label}>Build a whole reference page: paste several DOIs, ISBNs or URLs, one per line</label>
+            <textarea id="cite-bulk" value={bulk} onChange={(e) => setBulk(e.target.value)} rows={4} className={`${field} font-mono`}
+              placeholder={"10.1086/666082\n978-0-553-44743-9\nhttps://www.un.org/en/climatechange/what-is-climate-change"} />
+            <div className="flex flex-wrap items-center gap-3 mt-2">
+              <button type="button" className="btn-generate" onClick={() => void addMany()} disabled={!bulk.trim() || bulkStatus.startsWith("Looking")}>Add all to my reference page</button>
+              <p className="text-xs text-[var(--text-muted)]" aria-live="polite">{bulkStatus || "Up to 50 sources at a time. They are sorted into APA order automatically."}</p>
+            </div>
+          </div>
+        )}
+
         {list.length > 0 && (
           <div className="mt-8 pt-6 border-t border-white/10">
             <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-              <h2 className="text-lg font-semibold text-[var(--text-primary)]">{style === "chicago-nb" ? "Bibliography" : "References"} <span className="text-sm text-[var(--text-muted)]">({list.length}, {style === "acs" ? "in citation order" : "alphabetical"})</span></h2>
+              <h2 className="text-lg font-semibold text-[var(--text-primary)]">{listHeading} <span className="text-sm text-[var(--text-muted)]">({list.length}, {style === "acs" ? "in citation order" : apa ? "APA 7 order" : "alphabetical"})</span></h2>
               <div className="flex flex-wrap gap-2">
-                <button type="button" className={ghost} onClick={() => copy(refs.map(numbered), "all")}>{flash === "all" ? "Copied ✓" : "Copy all (keeps italics for Word / Docs)"}</button>
+                <button type="button" className={ghost} onClick={() => apa ? void copyRich(refs, listHeading).then((ok) => ok && flashMsg("all")) : copy(refs.map(numbered), "all")}>{flash === "all" ? "Copied ✓" : "Copy all (keeps italics for Word / Docs)"}</button>
+                {apa && <button type="button" className={ghost} onClick={downloadDoc}>Download reference page (.doc)</button>}
                 <button type="button" className={ghost} onClick={downloadTxt}>Download .txt</button>
                 <button type="button" className={ghost} onClick={() => saveList([])}>Clear list</button>
               </div>
             </div>
-            <ol className="space-y-2">
+            {apa && <p className="text-center font-bold text-[var(--text-primary)] mb-2">References</p>}
+            <ol className={apa ? "space-y-3 leading-loose" : "space-y-2"}>
               {ordered.map((item, i) => (
                 <li key={item.id} className="flex gap-3 items-start text-[var(--text-secondary)]">
                   <p className="flex-1 pl-8 -indent-8 break-words"><Rich segs={numbered(refs[i], i)} /></p>
