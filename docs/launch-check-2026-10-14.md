@@ -51,5 +51,20 @@
 - 用 375px 宽的 iframe 检查了今天的新页（APA、电影、Wu-Tang），都没有横向滚动。
 - 合并后在线上复查了改动的页面（见下方「复查」）。
 
-## 三、复查
-修复都在一个 PR 里，合并后在线上复查，结果写在本文件末尾。
+## 三、复查（线上，PR #124 + #125 合并后）
+- /spin-the-wheel：在 1300×757 的电脑窗口里，Spin 按钮底部在 735px，在首屏内。
+  - #124 后还是 780px，所以在 #125 里把转盘上限改成 40vh，并收紧了卡片内边距。
+- /question-of-the-day：点「Random Question」后确实调用了滚到卡片。
+  - 测试用的标签页在后台，平滑滚动不会播放动画；用 block: center 模拟后，卡片位于 267–490px，在视口中间。
+- 手机宽度 375px：/classroom-packs、/spin-the-wheel、/question-of-the-day 首屏都能看到核心按钮，没有横向滚动。
+- 新页单页扫描：严重 0、中 0。标题和描述偏长的两条已缩短。
+
+截图（docs/launch-check-2026-10-14/）：
+- mobile-375-classroom-spin-qotd.jpg：手机宽度下三页的首屏。
+- desktop-spin-the-wheel-first-screen.jpg：电脑首屏，Spin 按钮可见。
+- stripe-classroom-all-9.99.jpg：Stripe 正式收银台（全部课堂包，US$9.99），没有付款。
+
+## 待办（不在这次范围）
+- 首页 Generate 的结果在首屏外：等 10/26 首页冻结结束后再处理。
+- 22 个老页面没有 og:image。
+- 走查脚本会把西班牙语「todo」误报成 TODO，建议只匹配大写 TODO。
