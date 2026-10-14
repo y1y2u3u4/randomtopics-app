@@ -8,7 +8,7 @@ import {
   response,
   SpeechError,
 } from "@/lib/speech/server";
-import { MAX_AUDIO_BYTES, transcriptSchema, feedbackSchema, type SpeechFocus } from "@/lib/speech/schema";
+import { MAX_AUDIO_BYTES, transcriptSchema, feedbackSchema, typedDuration, typedWordCount, type SpeechFocus } from "@/lib/speech/schema";
 import { nextRound } from "@/lib/speech/nextRound";
 import { SPEECH_EXPOSURE_VERSION, SPEECH_ENTRY_SOURCES } from "@/lib/speech/exposure";
 import { SPEECH_PURPOSES, purposeFromUsage } from "@/lib/speech/purpose";
@@ -24,8 +24,10 @@ const input = z.object({
   purpose: z.enum(SPEECH_PURPOSES).default("unspecified"),
   exposureVersion: z.literal(SPEECH_EXPOSURE_VERSION).optional(),
   entrySource: z.enum(SPEECH_ENTRY_SOURCES).catch("unknown").optional(),
-  audio: z.string().min(60).max(3_900_000),
-});
+  audio: z.string().min(60).max(3_900_000).optional(),
+  // A typed answer skips transcription; it still uses one practice attempt.
+  text: z.string().trim().min(20).max(3000).optional(),
+}).refine((value) => Boolean(value.audio) !== Boolean(value.text));
 export async function POST(request: Request) {
   try {
     const { db, user } = await actor(request);
@@ -35,12 +37,15 @@ export async function POST(request: Request) {
     const body = parsed.data;
     if (body.practiceMode === "focused" && !body.previousId)
       throw new SpeechError(400, "Choose an earlier answer for this short practice.");
-    if (!/^[A-Za-z0-9+/]+={0,2}$/.test(body.audio))
+    const typed = body.text;
+    if (typed !== undefined && typedWordCount(typed) < 8)
+      throw new SpeechError(400, "Write at least a couple of sentences so the feedback has something to work with.");
+    if (typed === undefined && !/^[A-Za-z0-9+/]+={0,2}$/.test(body.audio ?? ""))
       throw new SpeechError(400, "Invalid audio.");
-    const audio = Buffer.from(body.audio, "base64");
+    const audio = Buffer.from(body.audio ?? "", "base64");
     // Accept only our canonical mono PCM WAV. Derive duration from bytes, not client claims.
     if (
-      audio.length < 44 ||
+      typed === undefined && (audio.length < 44 ||
       audio.length > MAX_AUDIO_BYTES ||
       audio.toString("ascii", 0, 4) !== "RIFF" ||
       audio.readUInt32LE(4) !== audio.length - 8 ||
@@ -54,10 +59,10 @@ export async function POST(request: Request) {
       audio.readUInt16LE(34) !== 16 ||
       audio.toString("ascii", 36, 40) !== "data" ||
       audio.readUInt32LE(40) !== audio.length - 44 ||
-      (audio.length - 44) % 2
+      (audio.length - 44) % 2)
     )
       throw new SpeechError(400, "Unsupported recording. Please record again.");
-    const duration = Math.ceil((audio.length - 44) / 24000);
+    const duration = typed !== undefined ? typedDuration(typed) : Math.ceil((audio.length - 44) / 24000);
     if (duration < 5 || duration > 120)
       throw new SpeechError(
         400,
@@ -127,6 +132,7 @@ export async function POST(request: Request) {
     }
     try {
       const context = { version: "v5", journeyVersion: "task_v1", practiceMode: body.practiceMode, qa: body.qa, purpose,
+        ...(typed !== undefined ? { inputMethod: "typed" } : {}),
         ...(goalTarget ? { goalTarget, goalSourceId: body.goalSourceId } : {}),
         ...(body.exposureVersion ? { exposureVersion: body.exposureVersion, entrySource: body.entrySource ?? "unknown" } : {}),
       };
@@ -135,6 +141,13 @@ export async function POST(request: Request) {
       const { error: contextError } = await db.from("speech_attempts")
         .update({ usage: { context } }).eq("id", body.id).eq("user_id", user.id);
       if (contextError) throw contextError;
+      if (typed !== undefined) {
+        const { error } = await db.from("speech_attempts")
+          .update({ status: "transcribed", transcript: typed, usage: { context }, updated_at: new Date().toISOString() })
+          .eq("id", body.id).eq("user_id", user.id);
+        if (error) throw error;
+        return response({ id: body.id, transcript: typed, duration, status: "transcribed" });
+      }
       const result = await modelCall(
         transcriptSchema,
         "speech_transcript",
@@ -143,7 +156,7 @@ export async function POST(request: Request) {
           { type: "text", text: "Transcribe this recording." },
           {
             type: "input_audio",
-            input_audio: { data: body.audio, format: "wav" },
+            input_audio: { data: body.audio ?? "", format: "wav" },
           },
         ],
       );

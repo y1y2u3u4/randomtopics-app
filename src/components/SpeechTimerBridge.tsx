@@ -50,6 +50,6 @@ export default function SpeechTimerBridge({ topic, contentSource }: { topic: Top
           else { sent.current = false; setError(true); }
         }}>Record my next attempt</button>}
     {error && <p role="alert">The practice panel is busy. Try again when it finishes opening.</p>}
-    <p className="text-xs leading-relaxed text-[var(--text-muted)]">Two free recorded attempts per account, including retries. After that, an active plan with attempts remaining is required. Nothing records or uploads until you choose it.</p>
+    <p className="text-xs leading-relaxed text-[var(--text-muted)]">Two free attempts per account (spoken or typed), including retries. After that, an active plan with attempts remaining is required. Nothing records or uploads until you choose it.</p>
   </div>;
 }

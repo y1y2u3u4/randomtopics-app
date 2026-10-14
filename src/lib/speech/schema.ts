@@ -115,3 +115,7 @@ export function validateFeedback(
     throw new Error("unexpected_comparison_quote");
   return result;
 }
+
+export const typedWordCount = (text: string) => text.split(/\s+/).filter(Boolean).length;
+// Typed answers have no audio, so estimate speaking time at ~150 words per minute.
+export const typedDuration = (text: string) => Math.min(120, Math.max(5, Math.round(typedWordCount(text) / 2.5)));

@@ -30,6 +30,7 @@ type Stage =
   | "analyzing"
   | "complete";
 type Result = SpeechResult;
+const typedWords = (text: string) => text.trim().split(/\s+/).filter(Boolean).length;
 const button =
   "min-h-11 rounded-xl border border-white/15 px-4 py-2 text-sm font-semibold disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--neon-cyan)]";
 const primary = `${button} bg-[var(--neon-cyan)] text-black`;
@@ -77,7 +78,10 @@ export default function SpeechCoach({
   const started = useRef(0);
   const urls = useRef<string[]>([]);
   const busy = useRef(false);
-  const inputMethod = useRef<"microphone" | "upload">("microphone");
+  const inputMethod = useRef<"microphone" | "upload" | "typed">("microphone");
+  const [typing, setTyping] = useState(false);
+  const [typedText, setTypedText] = useState("");
+  const typedInput = useRef<HTMLTextAreaElement>(null);
   const beganAttempt = useRef(false);
   const originalTranscript = useRef("");
   const resultPanel = useRef<HTMLDivElement>(null);
@@ -374,14 +378,14 @@ export default function SpeechCoach({
       } else await analyzeText(data.transcript);
     } finally { busy.current = false; }
   }
-  async function analyzeText(text: string, revise = false) {
+  async function analyzeText(text: string, revise = false, attemptId = id) {
     setError("");
     setStage("analyzing");
     const requestedAt = performance.now();
     emit("speech_feedback_start", { transcript_edited: text !== originalTranscript.current });
     try {
-      const data = await practiceFetch("feedback", { id, transcript: text, revise });
-      if (!data.feedback || data.status !== "complete" || data.id !== id) throw new Error("Your feedback is not ready yet. Please try again from your saved transcript.");
+      const data = await practiceFetch("feedback", { id: attemptId, transcript: text, revise });
+      if (!data.feedback || data.status !== "complete" || data.id !== attemptId) throw new Error("Your feedback is not ready yet. Please try again from your saved transcript.");
       if (mounted.current) {
         setResult(data);
         setCorrecting(false);
@@ -412,7 +416,48 @@ export default function SpeechCoach({
     busy.current = true;
     try { await analyzeText(transcript, correcting); } finally { busy.current = false; }
   }
+  async function submitTyped() {
+    const text = typedText.trim();
+    if (busy.current || typedWords(text) < 8) return;
+    busy.current = true;
+    inputMethod.current = "typed";
+    beginAttempt();
+    const attemptId = crypto.randomUUID();
+    setId(attemptId);
+    setError("");
+    setQuotaHit(false);
+    setStage("transcribing");
+    const requestedAt = performance.now();
+    emit("speech_typed_submit");
+    emit("speech_feedback_v5_request");
+    try {
+      let data;
+      try {
+        data = await practiceFetch("transcribe", {
+          id: attemptId, topic: topic.text, previousId: previous?.id ?? null, text,
+          practiceMode: previous?.feedback.drill ? "focused" : "full", qa: speechQaSession(), purpose,
+          ...(!previous && carriedGoal ? { goalSourceId: carriedGoal.sourceId } : {}),
+          exposureVersion: SPEECH_EXPOSURE_VERSION, entrySource: speechEntrySource(contentSource) ?? "unknown",
+        });
+      } catch (e) {
+        emit("speech_transcribe_error", { error_code: speechErrorCode(e), elapsed_ms: Math.round(performance.now() - requestedAt) });
+        if (e instanceof PracticeRequestError && e.status === 402) { emit("speech_quota_hit"); setQuotaHit(true); }
+        if (mounted.current) {
+          setError(e instanceof Error ? e.message : "Could not send your answer.");
+          setStage("ready");
+        }
+        return;
+      }
+      if (!mounted.current) return;
+      setTranscript(data.transcript);
+      originalTranscript.current = data.transcript;
+      setSeconds(data.duration);
+      await analyzeText(data.transcript, false, attemptId);
+    } finally { busy.current = false; }
+  }
   function reset() {
+    setTyping(false);
+    setTypedText("");
     setBlob(null);
     setAudioUrl("");
     setTranscript("");
@@ -516,9 +561,11 @@ export default function SpeechCoach({
           {stage === "ready" && error && <div ref={recordingNotice} tabIndex={-1} role="alert"
             className="mb-4 rounded-xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm leading-relaxed outline-none">
             <p>{error}</p>
-            <button type="button" className={`${button} mt-3`} onClick={() => uploadInput.current?.click()}>
+            {quotaHit ? <SpeechPlanLink surface="quota" purpose={purpose} visible={visible} attempt={previous ? 2 : 1} contentSource={contentSource} href="/speech/account#speech-plan"
+              onClick={() => rememberCheckoutIntent(speechQaSession(), contentSource, previous?.id ?? null, purpose)}
+              className={`${primary} mt-3 inline-block`}>View allowance and practice plan</SpeechPlanLink> : !typing && <button type="button" className={`${button} mt-3`} onClick={() => uploadInput.current?.click()}>
               Choose an audio file
-            </button>
+            </button>}
           </div>}
           {stage === "ready" && !previous && <div aria-live="polite" className="mb-4 space-y-2 text-sm leading-relaxed">
             <p className="font-semibold">{warmup ? "Everyday warm-up · use your own experience" : "Your one-minute task: make one point clear."}</p>
@@ -576,6 +623,22 @@ export default function SpeechCoach({
               )}
             </div>
           </div>
+          {stage === "ready" && !typing && <button type="button" className="mt-3 min-h-11 py-2 text-left text-sm underline" onClick={() => {
+            setTyping(true);
+            emit("speech_typed_open");
+          }}>{previous ? "Can’t speak right now? Type your new answer instead" : "Can’t speak out loud right now? Type your answer instead — no microphone"}</button>}
+          {stage === "ready" && typing && <div className="mt-4 space-y-2 rounded-xl border border-white/15 p-4 text-sm">
+            <label className="block font-semibold" htmlFor="speech-typed-answer">Type what you would say</label>
+            <p className="text-[var(--text-muted)]">Write it the way you would say it: your point, one example, then finish your thought. A few sentences is enough.</p>
+            <textarea ref={typedInput} autoFocus data-clarity-mask="true" id="speech-typed-answer" value={typedText}
+              onChange={(e) => setTypedText(e.target.value)} maxLength={3000} rows={6}
+              className="w-full rounded-xl border border-white/15 bg-black/20 p-4 text-base leading-relaxed" />
+            <div className="flex flex-wrap items-center gap-3">
+              <button type="button" className={primary} disabled={typedWords(typedText) < 8} onClick={submitTyped}>Get my feedback</button>
+              <span className="text-[var(--text-muted)]" aria-live="polite">{typedWords(typedText) < 8 ? `${typedWords(typedText)} words · write at least 8` : `${typedWords(typedText)} words · about ${Math.max(5, Math.round(typedWords(typedText) / 2.5))} seconds spoken`}</span>
+            </div>
+            <p className="text-xs leading-relaxed text-[var(--text-muted)]">Uses one of your free attempts. Your text goes through OpenRouter to a model provider for feedback; we save it privately. Next, try saying the improved version out loud and compare. <Link href="/privacy" className="underline">Privacy details</Link></p>
+          </div>}
           {stage === "ready" && !previous && !carriedGoal && !beganAttempt.current && <details className="mt-3 text-sm">
             <summary className="min-h-11 cursor-pointer py-3">Personalize my practice goal · optional</summary>
             <SpeechPurposeChoice value={purpose} onChange={setSelectedPurpose} visible={visible} contentSource={contentSource} />
@@ -639,10 +702,6 @@ export default function SpeechCoach({
       {stage === "recorded" && (
         <div className="space-y-3 rounded-xl border border-[var(--neon-cyan)]/30 p-4">
           <p className="font-semibold">{quotaHit ? "Your included attempts are used. Your recording is still here." : "Your recording is ready. Get one clear next step."}</p>
-          {!quotaHit && <p className="text-sm leading-relaxed text-[var(--text-muted)]">
-            “Get my feedback” sends this recording through OpenRouter to a model provider for transcription and feedback.
-            We save your transcript and feedback privately, not the audio. <Link href="/privacy" className="underline">Privacy details</Link>
-          </p>}
           <div className="flex flex-wrap gap-2">
             {quotaHit ? <SpeechPlanLink surface="quota" purpose={purpose} visible={visible} attempt={previous ? 2 : 1} contentSource={contentSource} href="/speech/account#speech-plan"
               onClick={() => rememberCheckoutIntent(speechQaSession(), contentSource, previous?.id ?? null, purpose)}
@@ -650,6 +709,10 @@ export default function SpeechCoach({
               <button ref={feedbackButton} type="button" className={`${primary} w-full sm:w-auto`} onClick={transcribe}>Get my feedback</button>}
             <button type="button" className={button} onClick={reset}>Record again</button>
           </div>
+          {!quotaHit && <p className="text-sm leading-relaxed text-[var(--text-muted)]">
+            “Get my feedback” sends this recording through OpenRouter to a model provider for transcription and feedback.
+            We save your transcript and feedback privately, not the audio. <Link href="/privacy" className="underline">Privacy details</Link>
+          </p>}
           {!quotaHit && <label className="flex min-h-11 items-center gap-2 text-sm">
             <input type="checkbox" checked={reviewFirst} onChange={e => setReviewFirst(e.target.checked)} />
             Let me check the transcript first

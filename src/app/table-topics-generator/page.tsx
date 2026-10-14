@@ -47,7 +47,7 @@ const FAQ_ITEMS = [
   {
     question: "Is this Table Topics generator free?",
     answer:
-      "The topic generator and practice timer are free with no signup. Optional AI feedback includes two free recorded attempts, including retries; more recorded practice is available on the monthly plan.",
+      "The topic generator and practice timer are free with no signup. Optional AI feedback includes two free attempts (spoken or typed), including retries; more recorded practice is available on the monthly plan.",
   },
 ];
 
