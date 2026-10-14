@@ -16,9 +16,9 @@ for(const value of [null,{},true,{...free,version:'wrong'},{...free,adFree:'fals
 check(JSON.stringify(parseAdEntitlement({...paid,userId:'SYNTHETIC',token:'SYNTHETIC'}))===JSON.stringify(paid),'Only coarse entitlement leaves the parser');
 
 // Route integration uses actual GET with fake actor/database. Never import Stripe.
-let row=active,dbError=null,authError=null,actorCalls=0,selected='',owner='';
+let row=active,dbError=null,authError=null,actorCalls=0,selected='',owner='',classroomCount=0,classroomError=null,classroomQueries=0;
 class SpeechError extends Error{constructor(status,message){super(message);this.status=status}}
-const server={SpeechError,actor:async()=>{actorCalls++;if(authError)throw authError;return {user:{id:'fixture-owner'},db:{from(name){assert.equal(name,'speech_accounts');return{select(fields){selected=fields;return{eq(field,value){assert.equal(field,'user_id');owner=value;return{maybeSingle:async()=>({data:row,error:dbError})}}}}}}}}},
+const server={SpeechError,actor:async()=>{actorCalls++;if(authError)throw authError;return {user:{id:'fixture-owner'},db:{from(name){if(name==='classroom_purchases'){classroomQueries++;return{select(fields,opts){assert.equal(fields,'session_id');assert.equal(opts.head,true);return{eq:async(field,value)=>{assert.equal(field,'user_id');assert.equal(value,'fixture-owner');return{count:classroomCount,error:classroomError}}}}}}assert.equal(name,'speech_accounts');return{select(fields){selected=fields;return{eq(field,value){assert.equal(field,'user_id');owner=value;return{maybeSingle:async()=>({data:row,error:dbError})}}}}}}}}},
  response:(body,status=200)=>Response.json(body,{status,headers:{'Cache-Control':'private, no-store','X-Robots-Tag':'noindex, nofollow'}}),
  failure:error=>Response.json({error:'Unavailable'},{status:error.status||503})};
 const {GET}=load('src/app/api/speech/ad-entitlement/route.ts',{'@/lib/speech/server':server});
@@ -29,7 +29,11 @@ try{
   assert.deepEqual(await res.json(),{version:'speech-ad-v1',audience:'verified_session',adFree:expected});checks++;
   check(res.headers.get('cache-control')==='private, no-store','No shared cache for personal eligibility');
  }
- check(selected==='subscription_active,period_start,period_end'&&owner==='fixture-owner','Authenticated owner only; no history, email, quota or payment query');
+ check(selected==='subscription_active,period_start,period_end'&&owner==='fixture-owner','Authenticated owner only; no history, email or quota query');
+ row=active;classroomQueries=0;await GET(new Request('https://fixture.invalid/api/speech/ad-entitlement',{headers:{Authorization:'Bearer SYNTHETIC'}}));check(classroomQueries===0,'Active subscription needs no classroom lookup');
+ row=null;classroomCount=1;check((await (await GET(new Request('https://fixture.invalid/api/speech/ad-entitlement',{headers:{Authorization:'Bearer SYNTHETIC'}}))).json()).adFree===true,'A classroom pack purchase is ad-free');
+ row={...active,subscription_active:false};check((await (await GET(new Request('https://fixture.invalid/api/speech/ad-entitlement',{headers:{Authorization:'Bearer SYNTHETIC'}}))).json()).adFree===true,'Classroom purchase is ad-free after a subscription ends');
+ classroomError=Error('fixture');check((await GET(new Request('https://fixture.invalid/api/speech/ad-entitlement',{headers:{Authorization:'Bearer SYNTHETIC'}}))).status===503,'Classroom lookup failure is unknown, never free');classroomError=null;classroomCount=0;
  const before=actorCalls;const res=await GET(new Request('https://fixture.invalid/api/speech/ad-entitlement?paid=1&checkout=success'));
  assert.deepEqual(await res.json(),guest);checks++;check(actorCalls===before,'Signed-out does not create an account or consult payment history');
  authError=new SpeechError(401,'Invalid');check((await GET(new Request('https://fixture.invalid/api/speech/ad-entitlement',{headers:{Authorization:'Bearer invalid'}}))).status===401,'Invalid supplied token never becomes anonymous free');authError=null;

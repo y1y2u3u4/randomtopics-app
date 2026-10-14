@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
+import ClassroomPackCard from "@/components/ClassroomPackCard";
 import SpeechTimer from "@/components/SpeechTimer";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
@@ -80,6 +81,8 @@ export default function ImpromptuSpeechPage() {
         <section id="impromptu-timer" className="max-w-3xl mx-auto scroll-mt-20 px-4 sm:px-6 pb-4">
           <SpeechTimer defaultSeconds={120} contentSource="impromptu_speech_generator" />
         </section>
+
+        <ClassroomPackCard pack="speech" page="/impromptu-speech-topics" />
 
         {/* The list */}
         <section id="impromptu-topic-list" className="max-w-3xl mx-auto px-4 sm:px-6 pt-10 scroll-mt-20">

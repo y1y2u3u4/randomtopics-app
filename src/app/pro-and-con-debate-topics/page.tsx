@@ -6,7 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import { CATEGORIES } from "@/data/types";
 import { topics } from "@/data/topics";
-import ClassroomPackDoor from "@/components/ClassroomPackDoor";
+import ClassroomPackCard from "@/components/ClassroomPackCard";
 
 export const metadata: Metadata = {
   title: { absolute: "100 Pro and Con Debate Topics — Arguments for Both Sides" },
@@ -110,7 +110,7 @@ export default function ProAndConDebateTopicsPage() {
             </ol>
           </div>
         </section>
-        <ClassroomPackDoor page="/pro-and-con-debate-topics" />
+        <ClassroomPackCard pack="debate" page="/pro-and-con-debate-topics" />
 
         {groupedTopics.map((group) => (
           <section key={group.category.id} className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
