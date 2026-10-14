@@ -82,7 +82,6 @@ export default function ClassroomPacksPage() {
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
           <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/30 space-y-4">
-            <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-cyan)]">Best for teachers</p>
             <h2 className="text-2xl font-bold text-[var(--text-primary)]">All classroom packs · {CLASSROOM_PRICES.all.label}</h2>
             <p className="text-sm text-[var(--text-secondary)]">
               All three packs ({CLASSROOM_PACKS.reduce((n, p) => n + p.count, 0)} slides) and every pack we add later. One payment, no subscription.

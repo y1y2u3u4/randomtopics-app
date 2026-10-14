@@ -128,7 +128,7 @@ export default function ClassroomPresenter({ pack }: { pack: ClassroomPackId }) 
         )}
       </main>
 
-      <footer className="flex flex-wrap items-center justify-between gap-3 px-5 sm:px-10 pb-5">
+      <div className="flex flex-wrap items-center justify-between gap-3 px-5 sm:px-10 pb-5">
         <div className="flex gap-2">
           <button type="button" onClick={() => go(index - 1)} disabled={index === 0} className="rounded-xl border border-[#d9d4c8] px-5 py-3 text-lg disabled:opacity-40" aria-label="Previous slide">←</button>
           <button type="button" onClick={() => go(index + 1)} disabled={index >= count - 1} className="rounded-xl px-5 py-3 text-lg text-white disabled:opacity-40" style={{ background: deck.color }} aria-label="Next slide">→</button>
@@ -146,7 +146,7 @@ export default function ClassroomPresenter({ pack }: { pack: ClassroomPackId }) 
           </div>
         )}
         <p className="hidden lg:block text-xs text-[#8a8a9a]">← → or Space to move · F full screen · T timer · R reset</p>
-      </footer>
+      </div>
     </div>
   );
 }
