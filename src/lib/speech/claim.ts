@@ -38,10 +38,11 @@ export async function claimGuestPurchases(api: Stripe, db: SupabaseClient, user:
     const subs = await api.subscriptions.list({ customer: customer.id, status: "all", limit: 20 });
     const sub = subs.data.find((s) => s.metadata.product === SPEECH_PRODUCT && !["canceled", "incomplete_expired"].includes(s.status));
     if (!sub) {
-      // Pack-only guest: move the pack rounds, practice and Stripe ownership.
+      // Pack-only guest: move the pack rounds, classroom packs, practice and Stripe ownership.
       if (owner === user.id) continue;
       const { count } = await db.from("speech_pack_grants").select("session_id", { count: "exact", head: true }).eq("user_id", owner);
-      if (!count) continue;
+      const { count: classroom } = await db.from("classroom_purchases").select("session_id", { count: "exact", head: true }).eq("user_id", owner);
+      if (!count && !classroom) continue;
       await api.customers.update(customer.id, { metadata: { ...customer.metadata, user_id: user.id, claimed_from: owner } });
       const freed = await db.from("speech_accounts").update({ customer_id: null }).eq("user_id", owner);
       if (freed.error) throw freed.error;
@@ -52,6 +53,8 @@ export async function claimGuestPurchases(api: Stripe, db: SupabaseClient, user:
       await db.from("speech_attempts").update({ user_id: user.id }).eq("user_id", owner);
       const packsMoved = await db.from("speech_pack_grants").update({ user_id: user.id }).eq("user_id", owner);
       if (packsMoved.error) throw packsMoved.error;
+      const classroomMoved = await db.from("classroom_purchases").update({ user_id: user.id }).eq("user_id", owner);
+      if (classroomMoved.error) throw classroomMoved.error;
       claimed++;
       break;
     }
@@ -82,10 +85,12 @@ export async function claimGuestPurchases(api: Stripe, db: SupabaseClient, user:
     }, { onConflict: "user_id" });
     if (moved.error) throw moved.error;
     if (owner !== user.id) {
-      // Bring the guest's saved practice and pack rounds along.
+      // Bring the guest's saved practice, pack rounds and classroom packs along.
       await db.from("speech_attempts").update({ user_id: user.id }).eq("user_id", owner);
       const packsMoved = await db.from("speech_pack_grants").update({ user_id: user.id }).eq("user_id", owner);
       if (packsMoved.error) throw packsMoved.error;
+      const classroomMoved = await db.from("classroom_purchases").update({ user_id: user.id }).eq("user_id", owner);
+      if (classroomMoved.error) throw classroomMoved.error;
     }
     claimed++;
     break;
@@ -94,10 +99,10 @@ export async function claimGuestPurchases(api: Stripe, db: SupabaseClient, user:
 }
 
 /** Email a sign-in link so a guest buyer can keep their plan on any device. */
-export async function sendGuestRecoveryLink(db: SupabaseClient, email: string, origin: string) {
+export async function sendGuestRecoveryLink(db: SupabaseClient, email: string, origin: string, path = "/speech/account?claim=1") {
   const { error } = await db.auth.signInWithOtp({
     email,
-    options: { shouldCreateUser: true, emailRedirectTo: `${origin}/speech/account?claim=1` },
+    options: { shouldCreateUser: true, emailRedirectTo: `${origin}${path}` },
   });
   if (error) throw error;
 }

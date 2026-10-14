@@ -26,7 +26,7 @@ export default function TermsPage() {
               Terms of <span className="gradient-text">Service</span>
             </h1>
             <p className="text-sm text-[var(--text-muted)]">
-              Last updated: September 19, 2026
+              Last updated: October 14, 2026
             </p>
           </section>
 
@@ -115,11 +115,35 @@ export default function TermsPage() {
               Subscriptions remain unavailable until checkout is enabled.
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
+              One-time feedback packs (5 or 20 recorded attempts) are a single
+              payment with no renewal. Pack attempts do not expire, and an attempt
+              that fails to process is not counted.
+            </p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
               Keep your account access secure. Guest history may become inaccessible
               if browser storage is cleared. Deleting a completed attempt does not
               restore its allowance. Processing failures and interrupted requests
               can be reviewed in practice history. Contact us through the contact
               page for billing errors, refund requests or account assistance.
+            </p>
+          </section>
+
+          <section className="glass-card p-8 space-y-4">
+            <h2 className="text-2xl font-semibold text-[var(--text-primary)]">Classroom Packs</h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              Classroom packs are a one-time payment with no subscription: $4.99 USD
+              for one pack or $9.99 USD for all packs, including packs added later.
+              The checkout displays the actual charge before you confirm. A purchase
+              includes the editable PPTX, the printable PDF and the ad-free presenter
+              mode, and removes ads on this site for the account or browser that bought it.
+            </p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              The licence covers the buyer&apos;s own teaching: you may edit, project,
+              print and share the files with your own students and classes. Please do
+              not resell or publicly re-upload the files. Downloads stay available on
+              the account page; guest buyers receive a sign-in link by email to keep
+              access on other devices. Contact us through the contact page for refund
+              requests or download problems.
             </p>
           </section>
 

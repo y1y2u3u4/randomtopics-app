@@ -1,4 +1,5 @@
-// Only the existing verified subscription determines paid ad exclusion.
+// Only the existing verified subscription or a recorded classroom pack purchase
+// determines paid ad exclusion.
 // Practice quota, checkout return parameters and client receipts are not proof.
 export type SpeechAdEntitlement = {
   version: "speech-ad-v1";

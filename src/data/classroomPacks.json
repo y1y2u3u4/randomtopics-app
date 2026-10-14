@@ -1,0 +1,2854 @@
+{
+ "version": 1,
+ "packs": [
+  {
+   "id": "question-of-the-day",
+   "title": "Question of the Day — 180 Days for the School Year",
+   "short": "Question of the Day · 180 days",
+   "tagline": "A ready-made bell-ringer for every school day, grouped by week.",
+   "color": "#E0306A",
+   "intro": [
+    "One question per school day: 36 weeks × 5 days.",
+    "Each weekday has a theme: Community Monday, Curious Tuesday, Growth Wednesday, Reflection Thursday, Fun Friday.",
+    "Every slide shows a follow-up question for a second round of answers.",
+    "Levels rotate each week: All grades, Grades 6+, Grades 9+."
+   ],
+   "teacher": [
+    "Put the slide up as students arrive. Give 1 minute of quiet thinking or writing.",
+    "Invite 3–5 answers, then ask the follow-up on the slide.",
+    "Students can always pass. Thank answers rather than judging them.",
+    "Teaching younger students? Use the All grades weeks and replay them later in the year."
+   ],
+   "sections": [
+    {
+     "title": "Week 1",
+     "note": "Gentle questions any grade can answer.",
+     "items": [
+      {
+       "id": "w1d1",
+       "text": "What is one thing you can do to help a new student feel welcome?",
+       "label": "Day 1 · Monday",
+       "theme": "Belonging & Community",
+       "level": "All grades",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w1d2",
+       "text": "If you could add one new room to the school, what would happen there?",
+       "label": "Day 2 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "All grades",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w1d3",
+       "text": "What is something you can do now that once felt very hard?",
+       "label": "Day 3 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "All grades",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w1d4",
+       "text": "What feeling is easiest for you to recognize, and what does it feel like?",
+       "label": "Day 4 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "All grades",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w1d5",
+       "text": "If your backpack had a secret button, what would it do?",
+       "label": "Day 5 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "All grades",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 2",
+     "note": "Deeper questions, best for grades 6+.",
+     "items": [
+      {
+       "id": "w2d1",
+       "text": "What helps a group feel welcoming without forcing anyone to participate?",
+       "label": "Day 6 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 6+",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w2d2",
+       "text": "What problem at school could be improved with a simple invention?",
+       "label": "Day 7 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 6+",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w2d3",
+       "text": "What study habit helps you more than people might expect?",
+       "label": "Day 8 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 6+",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w2d4",
+       "text": "What helps you notice stress before it becomes overwhelming?",
+       "label": "Day 9 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 6+",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w2d5",
+       "text": "If your week were a movie genre, which genre would it be?",
+       "label": "Day 10 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 6+",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 3",
+     "note": "Deeper questions, best for grades 9+.",
+     "items": [
+      {
+       "id": "w3d1",
+       "text": "What would make students trust one another more at school?",
+       "label": "Day 11 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 9+",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w3d2",
+       "text": "What question would you pursue for a year if grades did not matter?",
+       "label": "Day 12 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 9+",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w3d3",
+       "text": "Which learning strategy do you use because it works, not just because it feels productive?",
+       "label": "Day 13 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 9+",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w3d4",
+       "text": "What does a healthy response to uncertainty look like for you?",
+       "label": "Day 14 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 9+",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w3d5",
+       "text": "If your current life chapter had an overly dramatic title, what would it be?",
+       "label": "Day 15 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 9+",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 4",
+     "note": "Gentle questions any grade can answer.",
+     "items": [
+      {
+       "id": "w4d1",
+       "text": "If our class had a flag, what symbol should be on it and why?",
+       "label": "Day 16 · Monday",
+       "theme": "Belonging & Community",
+       "level": "All grades",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w4d2",
+       "text": "What ordinary object would you redesign to make it more fun?",
+       "label": "Day 17 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "All grades",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w4d3",
+       "text": "Which mistake taught you something useful?",
+       "label": "Day 18 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "All grades",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w4d4",
+       "text": "What is one small thing that helped you feel calm recently?",
+       "label": "Day 19 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "All grades",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w4d5",
+       "text": "Would you rather be able to talk to clouds or understand birds?",
+       "label": "Day 20 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "All grades",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 5",
+     "note": "Deeper questions, best for grades 6+.",
+     "items": [
+      {
+       "id": "w5d1",
+       "text": "Which unwritten school rule would you keep, change, or remove?",
+       "label": "Day 21 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 6+",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w5d2",
+       "text": "If you could interview any fictional character, what would you ask first?",
+       "label": "Day 22 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 6+",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w5d3",
+       "text": "When is asking for help a sign of strength?",
+       "label": "Day 23 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 6+",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w5d4",
+       "text": "Which emotion is hardest to explain accurately?",
+       "label": "Day 24 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 6+",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w5d5",
+       "text": "What useless talent would make an excellent competition?",
+       "label": "Day 25 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 6+",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 6",
+     "note": "Deeper questions, best for grades 9+.",
+     "items": [
+      {
+       "id": "w6d1",
+       "text": "When does fitting in help a community, and when does it erase individuality?",
+       "label": "Day 26 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 9+",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w6d2",
+       "text": "Which familiar problem needs a completely different kind of solution?",
+       "label": "Day 27 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 9+",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w6d3",
+       "text": "What ability have you underestimated because it developed slowly?",
+       "label": "Day 28 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 9+",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w6d4",
+       "text": "Which pressure in your life is useful, and which is only draining?",
+       "label": "Day 29 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 9+",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w6d5",
+       "text": "Which ordinary skill would you make an Olympic event?",
+       "label": "Day 30 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 9+",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 7",
+     "note": "Gentle questions any grade can answer.",
+     "items": [
+      {
+       "id": "w7d1",
+       "text": "Which classroom rule helps everyone learn the most?",
+       "label": "Day 31 · Monday",
+       "theme": "Belonging & Community",
+       "level": "All grades",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w7d2",
+       "text": "If animals could ask humans one question, what would they ask?",
+       "label": "Day 32 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "All grades",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w7d3",
+       "text": "What helps you keep trying when the first attempt does not work?",
+       "label": "Day 33 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "All grades",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w7d4",
+       "text": "How can you tell when a friend might need some space?",
+       "label": "Day 34 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "All grades",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w7d5",
+       "text": "If you opened a tiny shop, what unusual thing would you sell?",
+       "label": "Day 35 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "All grades",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 8",
+     "note": "Deeper questions, best for grades 6+.",
+     "items": [
+      {
+       "id": "w8d1",
+       "text": "When have you felt like your idea genuinely mattered to a group?",
+       "label": "Day 36 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 6+",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w8d2",
+       "text": "What topic have you changed your mind about after learning more?",
+       "label": "Day 37 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 6+",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w8d3",
+       "text": "What is one skill you improved by being patient with yourself?",
+       "label": "Day 38 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 6+",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w8d4",
+       "text": "What is one boundary that helps friendships stay healthy?",
+       "label": "Day 39 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 6+",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w8d5",
+       "text": "If school subjects formed a band, which subject would be the lead singer?",
+       "label": "Day 40 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 6+",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 9",
+     "note": "Deeper questions, best for grades 9+.",
+     "items": [
+      {
+       "id": "w9d1",
+       "text": "What responsibility do older students have toward younger ones?",
+       "label": "Day 41 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 9+",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w9d2",
+       "text": "If you could observe one historical moment without changing it, which would you choose?",
+       "label": "Day 42 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 9+",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w9d3",
+       "text": "How should students balance ambitious goals with realistic limits?",
+       "label": "Day 43 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 9+",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w9d4",
+       "text": "How can you tell the difference between rest and avoidance?",
+       "label": "Day 44 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 9+",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w9d5",
+       "text": "If your search history became a museum exhibit, what would the exhibit be called?",
+       "label": "Day 45 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 9+",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 10",
+     "note": "Gentle questions any grade can answer.",
+     "items": [
+      {
+       "id": "w10d1",
+       "text": "Who at school would you like to thank today, and for what?",
+       "label": "Day 46 · Monday",
+       "theme": "Belonging & Community",
+       "level": "All grades",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w10d2",
+       "text": "What would you invent to make mornings easier?",
+       "label": "Day 47 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "All grades",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w10d3",
+       "text": "What skill would you like to practice for ten minutes every day?",
+       "label": "Day 48 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "All grades",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w10d4",
+       "text": "What is something you did this week that made you proud?",
+       "label": "Day 49 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "All grades",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w10d5",
+       "text": "Which animal would be the funniest school principal?",
+       "label": "Day 50 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "All grades",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 11",
+     "note": "Deeper questions, best for grades 6+.",
+     "items": [
+      {
+       "id": "w11d1",
+       "text": "What is one way students can include someone without making it awkward?",
+       "label": "Day 51 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 6+",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w11d2",
+       "text": "Which everyday system would be interesting to take apart and understand?",
+       "label": "Day 52 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 6+",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w11d3",
+       "text": "How do you know when to persist and when to change strategies?",
+       "label": "Day 53 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 6+",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w11d4",
+       "text": "How can you support someone without trying to solve everything for them?",
+       "label": "Day 54 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 6+",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w11d5",
+       "text": "Which fictional world would be fun to visit but terrible to live in?",
+       "label": "Day 55 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 6+",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 12",
+     "note": "Deeper questions, best for grades 9+.",
+     "items": [
+      {
+       "id": "w12d1",
+       "text": "Which school decision should students have more power to influence?",
+       "label": "Day 56 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 9+",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w12d2",
+       "text": "What technology should exist by now but still does not?",
+       "label": "Day 57 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 9+",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w12d3",
+       "text": "What does intellectual courage look like in a classroom?",
+       "label": "Day 58 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 9+",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w12d4",
+       "text": "What is one belief about yourself that may be out of date?",
+       "label": "Day 59 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 9+",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w12d5",
+       "text": "What conspiracy theory about school life could you invent in two minutes?",
+       "label": "Day 60 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 9+",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 13",
+     "note": "Gentle questions any grade can answer.",
+     "items": [
+      {
+       "id": "w13d1",
+       "text": "What is a fair way to decide whose turn comes first?",
+       "label": "Day 61 · Monday",
+       "theme": "Belonging & Community",
+       "level": "All grades",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w13d2",
+       "text": "If you could study one place in the ocean, where would you choose?",
+       "label": "Day 62 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "All grades",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w13d3",
+       "text": "How can you tell when you truly understand something?",
+       "label": "Day 63 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "All grades",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w13d4",
+       "text": "What helps you reset after a frustrating moment?",
+       "label": "Day 64 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "All grades",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w13d5",
+       "text": "If today had a sound effect, what would it sound like?",
+       "label": "Day 65 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "All grades",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 14",
+     "note": "Deeper questions, best for grades 6+.",
+     "items": [
+      {
+       "id": "w14d1",
+       "text": "Should a good teammate always agree with the group? Why or why not?",
+       "label": "Day 66 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 6+",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w14d2",
+       "text": "If you designed a museum about life today, what three objects would it display?",
+       "label": "Day 67 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 6+",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w14d3",
+       "text": "Which mistake should schools make safer for students to admit?",
+       "label": "Day 68 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 6+",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w14d4",
+       "text": "What is a recent moment when you handled something better than the old you would have?",
+       "label": "Day 69 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 6+",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w14d5",
+       "text": "If you had to replace handshakes with a new greeting, what would it be?",
+       "label": "Day 70 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 6+",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 15",
+     "note": "Deeper questions, best for grades 9+.",
+     "items": [
+      {
+       "id": "w15d1",
+       "text": "How can a group recognize invisible contributions, not only visible leadership?",
+       "label": "Day 71 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 9+",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w15d2",
+       "text": "Which assumption about teenagers would you test with real research?",
+       "label": "Day 72 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 9+",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w15d3",
+       "text": "When did changing your study method matter more than studying longer?",
+       "label": "Day 73 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 9+",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w15d4",
+       "text": "When do you feel most able to be honest without performing for others?",
+       "label": "Day 74 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 9+",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w15d5",
+       "text": "Which fictional character would be the worst partner for a group project?",
+       "label": "Day 75 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 9+",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 16",
+     "note": "Gentle questions any grade can answer.",
+     "items": [
+      {
+       "id": "w16d1",
+       "text": "What could you learn by partnering with someone new?",
+       "label": "Day 76 · Monday",
+       "theme": "Belonging & Community",
+       "level": "All grades",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w16d2",
+       "text": "What new flavor would you create, and what would you name it?",
+       "label": "Day 77 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "All grades",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w16d3",
+       "text": "What is one question you are proud you asked?",
+       "label": "Day 78 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "All grades",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w16d4",
+       "text": "When do you feel most comfortable asking a question?",
+       "label": "Day 79 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "All grades",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w16d5",
+       "text": "What would you name a new planet covered in playgrounds?",
+       "label": "Day 80 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "All grades",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 17",
+     "note": "Deeper questions, best for grades 6+.",
+     "items": [
+      {
+       "id": "w17d1",
+       "text": "What responsibility comes with being popular or influential at school?",
+       "label": "Day 81 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 6+",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w17d2",
+       "text": "What rule of nature would you temporarily change for an experiment?",
+       "label": "Day 82 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 6+",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w17d3",
+       "text": "What makes feedback useful instead of discouraging?",
+       "label": "Day 83 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 6+",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w17d4",
+       "text": "How does comparing yourself with others affect your mood?",
+       "label": "Day 84 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 6+",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w17d5",
+       "text": "What would your personal warning label say?",
+       "label": "Day 85 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 6+",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 18",
+     "note": "Deeper questions, best for grades 9+.",
+     "items": [
+      {
+       "id": "w18d1",
+       "text": "What makes a school tradition worth preserving?",
+       "label": "Day 86 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 9+",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w18d2",
+       "text": "What idea sounds impossible today but may feel ordinary in 30 years?",
+       "label": "Day 87 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 9+",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w18d3",
+       "text": "Which kind of failure gives the most useful information?",
+       "label": "Day 88 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 9+",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w18d4",
+       "text": "What helps you recover after receiving criticism?",
+       "label": "Day 89 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 9+",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w18d5",
+       "text": "If procrastination were a professional sport, what would your training routine be?",
+       "label": "Day 90 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 9+",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 19",
+     "note": "Gentle questions any grade can answer.",
+     "items": [
+      {
+       "id": "w19d1",
+       "text": "How can a class make room for people who speak quietly?",
+       "label": "Day 91 · Monday",
+       "theme": "Belonging & Community",
+       "level": "All grades",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w19d2",
+       "text": "If your pencil could remember everything it wrote, what story would it tell?",
+       "label": "Day 92 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "All grades",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w19d3",
+       "text": "Which kind of feedback helps you improve the most?",
+       "label": "Day 93 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "All grades",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w19d4",
+       "text": "What is a kind sentence you can say to yourself after a mistake?",
+       "label": "Day 94 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "All grades",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w19d5",
+       "text": "If you could make one food bounce, which food would be funniest?",
+       "label": "Day 95 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "All grades",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 20",
+     "note": "Deeper questions, best for grades 6+.",
+     "items": [
+      {
+       "id": "w20d1",
+       "text": "What makes an apology feel sincere rather than automatic?",
+       "label": "Day 96 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 6+",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w20d2",
+       "text": "Which question deserves an answer even if it has no practical use?",
+       "label": "Day 97 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 6+",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w20d3",
+       "text": "Which subject would be easier if it were taught differently?",
+       "label": "Day 98 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 6+",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w20d4",
+       "text": "What helps you feel like yourself again after a difficult day?",
+       "label": "Day 99 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 6+",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w20d5",
+       "text": "If your phone could complain about you, what would it mention first?",
+       "label": "Day 100 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 6+",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 21",
+     "note": "Deeper questions, best for grades 9+.",
+     "items": [
+      {
+       "id": "w21d1",
+       "text": "How should a community respond when a joke makes only some people uncomfortable?",
+       "label": "Day 101 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 9+",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w21d2",
+       "text": "How does creativity change when there are strict constraints?",
+       "label": "Day 102 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 9+",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w21d3",
+       "text": "How can you separate your identity from one disappointing result?",
+       "label": "Day 103 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 9+",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w21d4",
+       "text": "Which emotion tends to hide behind irritation for you?",
+       "label": "Day 104 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 9+",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w21d5",
+       "text": "What harmless opinion would you defend with unreasonable passion?",
+       "label": "Day 105 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 9+",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 22",
+     "note": "Gentle questions any grade can answer.",
+     "items": [
+      {
+       "id": "w22d1",
+       "text": "Which classroom job would you enjoy doing for everyone?",
+       "label": "Day 106 · Monday",
+       "theme": "Belonging & Community",
+       "level": "All grades",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w22d2",
+       "text": "What question would you ask someone who lived 1,000 years ago?",
+       "label": "Day 107 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "All grades",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w22d3",
+       "text": "What do you do when instructions do not make sense yet?",
+       "label": "Day 108 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "All grades",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w22d4",
+       "text": "What made you feel curious today?",
+       "label": "Day 109 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "All grades",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w22d5",
+       "text": "What three things would you pack for a trip inside a storybook?",
+       "label": "Day 110 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "All grades",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 23",
+     "note": "Deeper questions, best for grades 6+.",
+     "items": [
+      {
+       "id": "w23d1",
+       "text": "How can a class disagree strongly and still feel like one community?",
+       "label": "Day 111 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 6+",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w23d2",
+       "text": "How would school change if curiosity mattered more than correct answers?",
+       "label": "Day 112 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 6+",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w23d3",
+       "text": "What is one goal you could make smaller so it is easier to begin?",
+       "label": "Day 113 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 6+",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w23d4",
+       "text": "When is it useful to sit with an uncomfortable feeling instead of escaping it?",
+       "label": "Day 114 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 6+",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w23d5",
+       "text": "Which everyday object deserves a dramatic movie trailer?",
+       "label": "Day 115 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 6+",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 24",
+     "note": "Deeper questions, best for grades 9+.",
+     "items": [
+      {
+       "id": "w24d1",
+       "text": "What is one barrier that keeps students from asking for help?",
+       "label": "Day 116 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 9+",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w24d2",
+       "text": "Which two school subjects should collaborate on one project?",
+       "label": "Day 117 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 9+",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w24d3",
+       "text": "What is one academic skill that will still matter ten years from now?",
+       "label": "Day 118 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 9+",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w24d4",
+       "text": "What would self-respect look like in one decision you are facing?",
+       "label": "Day 119 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 9+",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w24d5",
+       "text": "If you could rename one day of the week, what would you call it?",
+       "label": "Day 120 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 9+",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 25",
+     "note": "Gentle questions any grade can answer.",
+     "items": [
+      {
+       "id": "w25d1",
+       "text": "What tradition should our class start this year?",
+       "label": "Day 121 · Monday",
+       "theme": "Belonging & Community",
+       "level": "All grades",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w25d2",
+       "text": "How could you build a playground using only things found in nature?",
+       "label": "Day 122 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "All grades",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w25d3",
+       "text": "Who has taught you something without being your teacher?",
+       "label": "Day 123 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "All grades",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w25d4",
+       "text": "How does your body tell you that you need a break?",
+       "label": "Day 124 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "All grades",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w25d5",
+       "text": "If your shoes could choose where to walk, where would they take you?",
+       "label": "Day 125 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "All grades",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 26",
+     "note": "Deeper questions, best for grades 6+.",
+     "items": [
+      {
+       "id": "w26d1",
+       "text": "What is one school space that could feel more welcoming, and how?",
+       "label": "Day 126 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 6+",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w26d2",
+       "text": "What could humans learn by observing one animal more carefully?",
+       "label": "Day 127 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 6+",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w26d3",
+       "text": "How does teaching someone else change your own understanding?",
+       "label": "Day 128 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 6+",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w26d4",
+       "text": "What is one thing adults misunderstand about the pressure students feel?",
+       "label": "Day 129 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 6+",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w26d5",
+       "text": "If you could make one minor inconvenience disappear forever, which one?",
+       "label": "Day 130 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 6+",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 27",
+     "note": "Deeper questions, best for grades 9+.",
+     "items": [
+      {
+       "id": "w27d1",
+       "text": "Is belonging something a group gives you, or something you help create?",
+       "label": "Day 131 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 9+",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w27d2",
+       "text": "What unanswered scientific question feels personally fascinating to you?",
+       "label": "Day 132 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 9+",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w27d3",
+       "text": "When is competition motivating, and when does it interfere with learning?",
+       "label": "Day 133 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 9+",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w27d4",
+       "text": "How can ambition and contentment exist at the same time?",
+       "label": "Day 134 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 9+",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w27d5",
+       "text": "Which app would be funniest if it existed in the Middle Ages?",
+       "label": "Day 135 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 9+",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 28",
+     "note": "Gentle questions any grade can answer.",
+     "items": [
+      {
+       "id": "w28d1",
+       "text": "What is a kind way to solve a disagreement during a game?",
+       "label": "Day 136 · Monday",
+       "theme": "Belonging & Community",
+       "level": "All grades",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w28d2",
+       "text": "If shadows came in colors, what color would yours be today?",
+       "label": "Day 137 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "All grades",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w28d3",
+       "text": "What subject becomes more interesting when you use it outside school?",
+       "label": "Day 138 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "All grades",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w28d4",
+       "text": "What is one good moment from yesterday you want to remember?",
+       "label": "Day 139 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "All grades",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w28d5",
+       "text": "Which superpower would be useful only at school?",
+       "label": "Day 140 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "All grades",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 29",
+     "note": "Deeper questions, best for grades 6+.",
+     "items": [
+      {
+       "id": "w29d1",
+       "text": "Which matters more in a group project: equal work or work matched to strengths?",
+       "label": "Day 141 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 6+",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w29d2",
+       "text": "If you made a documentary, which overlooked story would you tell?",
+       "label": "Day 142 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 6+",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w29d3",
+       "text": "What is a better measure of learning than a single test score?",
+       "label": "Day 143 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 6+",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w29d4",
+       "text": "How can you disagree without making the disagreement personal?",
+       "label": "Day 144 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 6+",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w29d5",
+       "text": "What would be the strangest theme for a school dance?",
+       "label": "Day 145 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 6+",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 30",
+     "note": "Deeper questions, best for grades 9+.",
+     "items": [
+      {
+       "id": "w30d1",
+       "text": "What would a genuinely inclusive school event look like?",
+       "label": "Day 146 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 9+",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w30d2",
+       "text": "If you curated an exhibit about the 2020s, what would visitors need to understand?",
+       "label": "Day 147 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 9+",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w30d3",
+       "text": "What would you learn differently if you knew nobody would grade it?",
+       "label": "Day 148 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 9+",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w30d4",
+       "text": "What is one thing you would like your future self to remember about this year?",
+       "label": "Day 149 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 9+",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w30d5",
+       "text": "What is the least useful advice you could give your younger self?",
+       "label": "Day 150 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 9+",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 31",
+     "note": "Gentle questions any grade can answer.",
+     "items": [
+      {
+       "id": "w31d1",
+       "text": "What quality makes someone a good teammate?",
+       "label": "Day 151 · Monday",
+       "theme": "Belonging & Community",
+       "level": "All grades",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w31d2",
+       "text": "What mystery in space would you most like scientists to solve?",
+       "label": "Day 152 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "All grades",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w31d3",
+       "text": "What is a good goal for this week that you can actually measure?",
+       "label": "Day 153 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "All grades",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w31d4",
+       "text": "What can you do when two feelings show up at the same time?",
+       "label": "Day 154 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "All grades",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w31d5",
+       "text": "If the classroom pet wrote a report card for the class, what would it say?",
+       "label": "Day 155 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "All grades",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 32",
+     "note": "Deeper questions, best for grades 6+.",
+     "items": [
+      {
+       "id": "w32d1",
+       "text": "What is a tradition students should pass on to the next grade?",
+       "label": "Day 156 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 6+",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w32d2",
+       "text": "What technology from science fiction feels closest to becoming real?",
+       "label": "Day 157 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 6+",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w32d3",
+       "text": "Which distraction is hardest for you to notice while it is happening?",
+       "label": "Day 158 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 6+",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w32d4",
+       "text": "What is one expectation you would like to loosen for yourself?",
+       "label": "Day 159 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 6+",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w32d5",
+       "text": "If your personality were a weather forecast, what is today's forecast?",
+       "label": "Day 160 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 6+",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 33",
+     "note": "Deeper questions, best for grades 9+.",
+     "items": [
+      {
+       "id": "w33d1",
+       "text": "How can students challenge a friend's behavior without ending the friendship?",
+       "label": "Day 161 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 9+",
+       "followUp": "What is one action that would make that real?"
+      },
+      {
+       "id": "w33d2",
+       "text": "What is one use of AI that people are not discussing enough?",
+       "label": "Day 162 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 9+",
+       "followUp": "What detail would you add first?"
+      },
+      {
+       "id": "w33d3",
+       "text": "Which part of a difficult project should you begin before you feel ready?",
+       "label": "Day 163 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 9+",
+       "followUp": "What is one small next step?"
+      },
+      {
+       "id": "w33d4",
+       "text": "When is changing your mind a sign of growth rather than inconsistency?",
+       "label": "Day 164 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 9+",
+       "followUp": "What helps in that moment?"
+      },
+      {
+       "id": "w33d5",
+       "text": "If your mood were a playlist title, what would today's playlist be called?",
+       "label": "Day 165 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 9+",
+       "followUp": "What would happen next?"
+      }
+     ]
+    },
+    {
+     "title": "Week 34",
+     "note": "Gentle questions any grade can answer.",
+     "items": [
+      {
+       "id": "w34d1",
+       "text": "What small surprise could make the whole class smile?",
+       "label": "Day 166 · Monday",
+       "theme": "Belonging & Community",
+       "level": "All grades",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w34d2",
+       "text": "What could a robot learn from a child that adults might not teach it?",
+       "label": "Day 167 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "All grades",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w34d3",
+       "text": "How would you encourage a friend who says, 'I am bad at this'?",
+       "label": "Day 168 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "All grades",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w34d4",
+       "text": "Who is a trusted person you can talk to when a problem feels too big?",
+       "label": "Day 169 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "All grades",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w34d5",
+       "text": "What would happen if everyone woke up the size of a pencil?",
+       "label": "Day 170 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "All grades",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 35",
+     "note": "Deeper questions, best for grades 6+.",
+     "items": [
+      {
+       "id": "w35d1",
+       "text": "How can bystanders change the mood when someone is being left out?",
+       "label": "Day 171 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 6+",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w35d2",
+       "text": "What is a surprising connection between two subjects you study?",
+       "label": "Day 172 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 6+",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w35d3",
+       "text": "What have you learned recently that connected to something outside school?",
+       "label": "Day 173 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 6+",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w35d4",
+       "text": "Which small habit has the biggest effect on your energy?",
+       "label": "Day 174 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 6+",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w35d5",
+       "text": "Which historical figure would be most confused by a group chat?",
+       "label": "Day 175 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 6+",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    },
+    {
+     "title": "Week 36",
+     "note": "Deeper questions, best for grades 9+.",
+     "items": [
+      {
+       "id": "w36d1",
+       "text": "What is one way your grade could leave the school better than it found it?",
+       "label": "Day 176 · Monday",
+       "theme": "Belonging & Community",
+       "level": "Grades 9+",
+       "followUp": "How might another student see it differently?"
+      },
+      {
+       "id": "w36d2",
+       "text": "Which local problem could become a meaningful student research project?",
+       "label": "Day 177 · Tuesday",
+       "theme": "Creativity & Curiosity",
+       "level": "Grades 9+",
+       "followUp": "What new question does that idea create?"
+      },
+      {
+       "id": "w36d3",
+       "text": "What evidence tells you that you are making progress even before results appear?",
+       "label": "Day 178 · Wednesday",
+       "theme": "Learning & Growth",
+       "level": "Grades 9+",
+       "followUp": "What evidence would show progress?"
+      },
+      {
+       "id": "w36d4",
+       "text": "What does asking for help early protect you from later?",
+       "label": "Day 179 · Thursday",
+       "theme": "Feelings & Reflection",
+       "level": "Grades 9+",
+       "followUp": "How could someone respond with care?"
+      },
+      {
+       "id": "w36d5",
+       "text": "Which school rule would become funniest if taken completely literally?",
+       "label": "Day 180 · Friday",
+       "theme": "Fun & Imagination",
+       "level": "Grades 9+",
+       "followUp": "Why did you choose that answer?"
+      }
+     ]
+    }
+   ],
+   "count": 180
+  },
+  {
+   "id": "debate",
+   "title": "Debate Topics Classroom Pack",
+   "short": "Debate Topics · 60 motions",
+   "tagline": "60 classroom-safe motions in three levels, each with a starting point for both sides.",
+   "color": "#0B8A93",
+   "intro": [
+    "60 motions: Starter (grades 6–8), Core (grades 9–12) and Advanced (grades 11–12, debate club).",
+    "Each motion has a starting point for the proposition (for) and the opposition (against).",
+    "The prompts are where students start. Their own reasons and evidence come next."
+   ],
+   "teacher": [
+    "20-minute format: 5 min prep → 2 min opening each side → 1 min rebuttal each → 3 min questions from the class → 1 min closing each → vote.",
+    "Assign sides at random so students practise arguing a view they do not hold.",
+    "Ask each side to explain the other side's best argument before rebutting it.",
+    "Score on reasoning, evidence, rebuttal and delivery, not on which side wins."
+   ],
+   "sections": [
+    {
+     "title": "Starter motions · Grades 6–8",
+     "note": "Everyday school and life questions. Students can argue from their own experience.",
+     "items": [
+      {
+       "id": "l1-1",
+       "text": "Homework should be optional in middle school.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Rest, family time and hobbies matter for learning; practice can happen in class.",
+       "con": "Homework builds study habits and shows teachers who needs help early."
+      },
+      {
+       "id": "l1-2",
+       "text": "Students should be allowed to grade their teachers.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Students see every lesson and know what actually helps them learn.",
+       "con": "Ratings could reward easy or popular teachers instead of good teaching."
+      },
+      {
+       "id": "l1-3",
+       "text": "Phones should be banned during the school day.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Fewer distractions and less online drama during lessons and breaks.",
+       "con": "Phones help in emergencies and can be useful learning tools."
+      },
+      {
+       "id": "l1-4",
+       "text": "School should start later in the morning.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Teenagers focus better when they get more sleep.",
+       "con": "A later finish clashes with sports, clubs, jobs and family schedules."
+      },
+      {
+       "id": "l1-5",
+       "text": "Every student should learn to code.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Coding teaches step-by-step problem solving and opens future careers.",
+       "con": "School time is limited; art, music or languages may matter more for some students."
+      },
+      {
+       "id": "l1-6",
+       "text": "School uniforms should be required.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Less pressure about clothes and a stronger sense of school identity.",
+       "con": "Uniforms limit self-expression and can cost families extra money."
+      },
+      {
+       "id": "l1-7",
+       "text": "Video games do more good than harm for kids.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Games build teamwork, quick thinking and persistence.",
+       "con": "Too much gaming can replace sleep, exercise, reading and homework."
+      },
+      {
+       "id": "l1-8",
+       "text": "Recess should be longer.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Play and movement help students focus when they return to class.",
+       "con": "Longer recess means less time for lessons and support."
+      },
+      {
+       "id": "l1-9",
+       "text": "The book is always better than the movie.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Books give more detail and let readers imagine the world themselves.",
+       "con": "Films can bring a story to people who would never read it and add music and images."
+      },
+      {
+       "id": "l1-10",
+       "text": "Zoos do more good than harm.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Zoos protect endangered species and help visitors care about animals.",
+       "con": "Animals lose space, freedom and natural behavior in captivity."
+      },
+      {
+       "id": "l1-11",
+       "text": "Esports should count as a real sport.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Esports demand skill, practice, teamwork and strategy.",
+       "con": "Sport should involve real physical effort and fitness."
+      },
+      {
+       "id": "l1-12",
+       "text": "Students should choose their own homework.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Choice makes students more motivated and lets them practice what they need.",
+       "con": "Students might pick the easiest work and skip important practice."
+      },
+      {
+       "id": "l1-13",
+       "text": "Every school should teach money skills.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Budgeting and saving are skills everyone uses for life.",
+       "con": "Families or other subjects may already cover money; time is limited."
+      },
+      {
+       "id": "l1-14",
+       "text": "Philosophy should be taught in elementary school.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Big questions teach children to think clearly and listen to others.",
+       "con": "Young children need reading and math basics first."
+      },
+      {
+       "id": "l1-15",
+       "text": "Kids under 16 should not have social media accounts.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Younger users are more exposed to pressure, comparison and strangers online.",
+       "con": "Social media helps kids stay connected and learn; teaching safe use works better than a ban."
+      },
+      {
+       "id": "l1-16",
+       "text": "Extinct animals should be brought back.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "We could undo past damage and learn a lot about science and nature.",
+       "con": "The money could protect animals that are endangered right now."
+      },
+      {
+       "id": "l1-17",
+       "text": "Time outdoors is better for your mood than the gym.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Fresh air, nature and daylight help people feel calmer.",
+       "con": "Gyms work in any weather and make it easy to build a routine."
+      },
+      {
+       "id": "l1-18",
+       "text": "Breakfast is the most important meal of the day.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Eating in the morning gives energy and focus for school.",
+       "con": "What and how much you eat all day matters more than the timing."
+      },
+      {
+       "id": "l1-19",
+       "text": "Streaming shows should release one episode a week.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Weekly episodes give everyone time to talk about the story together.",
+       "con": "Viewers should be free to watch at their own pace."
+      },
+      {
+       "id": "l1-20",
+       "text": "Group projects are better than working alone.",
+       "label": "Starter motions · Grades 6–8",
+       "pro": "Groups teach teamwork and combine different strengths.",
+       "con": "Grades can be unfair when some members do most of the work."
+      }
+     ]
+    },
+    {
+     "title": "Core motions · Grades 9–12",
+     "note": "Real-world questions with evidence on both sides. Good for class debates and essays.",
+     "items": [
+      {
+       "id": "l2-1",
+       "text": "The voting age should be lowered to 16.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "Sixteen-year-olds work, pay some taxes and live with long-term decisions.",
+       "con": "Most 16-year-olds are still in school and may vote the way their families do."
+      },
+      {
+       "id": "l2-2",
+       "text": "College athletes should be paid.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "Athletes bring in money for colleges and spend as many hours as a job.",
+       "con": "Scholarships already pay for school; paying salaries could hurt smaller sports."
+      },
+      {
+       "id": "l2-3",
+       "text": "Colleges should stop using standardized tests for admission.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "One test day can reflect test prep and family income more than ability.",
+       "con": "A shared test helps compare students from very different schools."
+      },
+      {
+       "id": "l2-4",
+       "text": "Students should take a gap year before college.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "A year of work or service builds maturity and clearer goals.",
+       "con": "Students can lose study habits and momentum, and gap years cost money."
+      },
+      {
+       "id": "l2-5",
+       "text": "Schools should switch to a four-day week.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "Longer days and a free day can improve rest and attendance.",
+       "con": "Families need childcare on the fifth day and longer days are tiring."
+      },
+      {
+       "id": "l2-6",
+       "text": "Lab-grown meat should replace farmed meat.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "It could cut animal suffering and the land and water farming uses.",
+       "con": "It is still expensive and unproven at scale, and people trust traditional food."
+      },
+      {
+       "id": "l2-7",
+       "text": "Cities should create legal walls for street art.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "Legal walls turn vandalism into public art and give young artists a space.",
+       "con": "Property owners and residents should decide how their streets look."
+      },
+      {
+       "id": "l2-8",
+       "text": "Movie theaters are worth saving.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "A shared big-screen experience cannot be copied at home.",
+       "con": "Streaming is cheaper and more accessible for most people."
+      },
+      {
+       "id": "l2-9",
+       "text": "Humanities deserve as much school funding as STEM.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "History, art and literature teach judgment, empathy and communication.",
+       "con": "STEM jobs are in high demand, so funding should follow need."
+      },
+      {
+       "id": "l2-10",
+       "text": "Self-driving cars should be allowed on all public roads.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "Computers do not get tired or distracted like human drivers.",
+       "con": "The technology still makes mistakes, and it is unclear who is responsible."
+      },
+      {
+       "id": "l2-11",
+       "text": "People should have the right to repair their own devices.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "Repairs save money and reduce electronic waste.",
+       "con": "Unofficial repairs can be unsafe and weaken security."
+      },
+      {
+       "id": "l2-12",
+       "text": "All elected officials should have term limits.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "Term limits bring in new ideas and reduce the power of long-time insiders.",
+       "con": "Voters should decide; experienced leaders know how to get things done."
+      },
+      {
+       "id": "l2-13",
+       "text": "Elections should use ranked-choice voting.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "Voters can rank their honest favorite without wasting a vote.",
+       "con": "Ranking many candidates is confusing and slows down counting."
+      },
+      {
+       "id": "l2-14",
+       "text": "Space exploration should wait until problems on Earth are solved.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "The money could fund climate, health and poverty programs now.",
+       "con": "Space research produces technology that helps people on Earth."
+      },
+      {
+       "id": "l2-15",
+       "text": "Social media does more harm than good for teenagers.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "It can increase comparison, distraction and lost sleep.",
+       "con": "It helps teens find community, information and creative outlets."
+      },
+      {
+       "id": "l2-16",
+       "text": "Professional athletes should speak out on social issues.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "A large platform can raise awareness for important causes.",
+       "con": "Fans come for the sport, and athletes may not be experts on the issue."
+      },
+      {
+       "id": "l2-17",
+       "text": "Schools should use games to teach core subjects.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "Games make practice engaging and give instant feedback.",
+       "con": "Points and rewards can distract from deep understanding."
+      },
+      {
+       "id": "l2-18",
+       "text": "It is acceptable to lie to protect someone's feelings.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "Small kind lies can protect relationships and avoid needless hurt.",
+       "con": "Honesty builds trust; people deserve the truth to make their own choices."
+      },
+      {
+       "id": "l2-19",
+       "text": "Every student should do community service to graduate.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "Service builds responsibility and connects students to their community.",
+       "con": "Required service is no longer voluntary and burdens students who already work."
+      },
+      {
+       "id": "l2-20",
+       "text": "Remote work is better than working in an office.",
+       "label": "Core motions · Grades 9–12",
+       "pro": "No commute, more flexibility and access to jobs anywhere.",
+       "con": "Teams learn, mentor and collaborate better in person."
+      }
+     ]
+    },
+    {
+     "title": "Advanced motions · Grades 11–12 · debate club",
+     "note": "Policy and values questions that reward research. Ideal for Public Forum or Lincoln-Douglas practice.",
+     "items": [
+      {
+       "id": "l3-1",
+       "text": "Governments should regulate artificial intelligence now.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Rules set early can prevent harm before the technology spreads further.",
+       "con": "Early rules may slow innovation and quickly become outdated."
+      },
+      {
+       "id": "l3-2",
+       "text": "A four-year college degree is still worth the cost.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Graduates tend to have more job options and lifetime earning potential.",
+       "con": "Rising costs and debt make apprenticeships and other paths more sensible for many."
+      },
+      {
+       "id": "l3-3",
+       "text": "Voting should be mandatory.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Results would reflect the whole population, not only the most motivated.",
+       "con": "Freedom includes the choice not to vote; uninformed votes add noise."
+      },
+      {
+       "id": "l3-4",
+       "text": "The Electoral College should be replaced by a national popular vote.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Every vote would count equally, wherever someone lives.",
+       "con": "The current system makes candidates pay attention to smaller states."
+      },
+      {
+       "id": "l3-5",
+       "text": "Governments should introduce a universal basic income.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "A guaranteed income gives security as automation changes work.",
+       "con": "It is very expensive and may reduce the incentive to work."
+      },
+      {
+       "id": "l3-6",
+       "text": "Big tech platforms should be regulated like public utilities.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Essential services with huge market power need public oversight.",
+       "con": "Regulation could reduce competition, innovation and free choice."
+      },
+      {
+       "id": "l3-7",
+       "text": "Facial recognition should be banned in public spaces.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Constant identification threatens privacy and can misidentify people.",
+       "con": "It can help find missing people and solve serious crimes."
+      },
+      {
+       "id": "l3-8",
+       "text": "Museums should return artifacts to their countries of origin.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Cultural objects taken without consent belong to the communities that made them.",
+       "con": "Major museums preserve objects and make them available to visitors worldwide."
+      },
+      {
+       "id": "l3-9",
+       "text": "AI-generated images should be able to win art competitions.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Art is about the final result and the human choices behind the prompt.",
+       "con": "Competitions exist to reward human skill and effort."
+      },
+      {
+       "id": "l3-10",
+       "text": "Governments should invest heavily in nuclear fusion research.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Fusion could provide clean, almost unlimited energy.",
+       "con": "The money would cut emissions faster if spent on technology that works today."
+      },
+      {
+       "id": "l3-11",
+       "text": "Gene editing to prevent serious disease should be allowed in embryos.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "It could end inherited diseases that cause great suffering.",
+       "con": "Changes pass to future generations and risks are still unknown."
+      },
+      {
+       "id": "l3-12",
+       "text": "Sugary drinks should be taxed like tobacco.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "A tax lowers consumption and funds health programs.",
+       "con": "It costs low-income families the most and limits personal choice."
+      },
+      {
+       "id": "l3-13",
+       "text": "CEO pay should be capped as a multiple of average worker pay.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Huge pay gaps are unfair and can damage trust and morale.",
+       "con": "Companies need to compete for talent; caps may push leaders elsewhere."
+      },
+      {
+       "id": "l3-14",
+       "text": "Social media companies should remove false information.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Platforms that spread false claims at scale should take responsibility.",
+       "con": "Deciding what is false gives private companies too much power over speech."
+      },
+      {
+       "id": "l3-15",
+       "text": "Governments should be allowed to monitor online activity to prevent crime.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Monitoring can stop serious crimes before they happen.",
+       "con": "Mass monitoring threatens privacy and can be abused."
+      },
+      {
+       "id": "l3-16",
+       "text": "Planned obsolescence should be illegal.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Products built to fail waste money and create e-waste.",
+       "con": "Defining planned failure is difficult; cheaper short-life products have buyers."
+      },
+      {
+       "id": "l3-17",
+       "text": "Open-source AI does more good than harm.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Open models let researchers check for flaws and spread the benefits widely.",
+       "con": "Anyone, including people with harmful goals, can use powerful tools."
+      },
+      {
+       "id": "l3-18",
+       "text": "Schools should stop grouping students by ability.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Mixed classes avoid labelling students and raise expectations for everyone.",
+       "con": "Grouping lets teachers match the pace to what each student needs."
+      },
+      {
+       "id": "l3-19",
+       "text": "Governments should prioritize future generations over current voters.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Today's choices on climate and debt shape the world children will inherit.",
+       "con": "Governments must first answer to the people alive and voting now."
+      },
+      {
+       "id": "l3-20",
+       "text": "Self-driving cars should be programmed to protect pedestrians over passengers.",
+       "label": "Advanced motions · Grades 11–12 · debate club",
+       "pro": "Pedestrians did not choose the risk of riding in the car.",
+       "con": "Few people would buy a car designed to sacrifice them."
+      }
+     ]
+    }
+   ],
+   "count": 60
+  },
+  {
+   "id": "speech",
+   "title": "Speech & Impromptu Topics Pack",
+   "short": "Speech & Impromptu · 100+ topics",
+   "tagline": "Over 100 impromptu speech topics, each with a timing rule.",
+   "color": "#D9730D",
+   "intro": [
+    "Warm-up topics: 30 seconds to think, 30 seconds to 1 minute to speak.",
+    "Story topics: 1 minute to think, 1–2 minutes to speak.",
+    "Argue topics: 1 minute to think, 2–3 minutes to speak.",
+    "Timing cards: green at the minimum time, yellow at the midpoint, red at the maximum."
+   ],
+   "teacher": [
+    "Structure for every speech (PREP): Point → Reason → Example → Point again.",
+    "Start the year with Warm-up topics and move on to Argue topics once students are confident.",
+    "Use the presenter-mode timer, or assign a student timekeeper with green, yellow and red cards.",
+    "Give one 'glow' (something that worked) and one 'grow' (something to try next time) after each speech."
+   ],
+   "timing": {
+    "warmup": {
+     "label": "Warm-up",
+     "prep": 30,
+     "speak": [
+      30,
+      60
+     ],
+     "rule": "30 seconds to think · speak for 30 seconds to 1 minute"
+    },
+    "story": {
+     "label": "Story",
+     "prep": 60,
+     "speak": [
+      60,
+      120
+     ],
+     "rule": "1 minute to think · speak for 1–2 minutes"
+    },
+    "argue": {
+     "label": "Argue",
+     "prep": 60,
+     "speak": [
+      120,
+      180
+     ],
+     "rule": "1 minute to think · speak for 2–3 minutes"
+    }
+   },
+   "sections": [
+    {
+     "title": "One-word prompts",
+     "note": "Warm-up: 30 seconds to think · speak for 30 seconds to 1 minute. Classic Table Topics and forensics drill: define the word your way, then tell a story about it.",
+     "timing": "warmup",
+     "items": [
+      {
+       "id": "one-word-1",
+       "text": "Courage",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-2",
+       "text": "Luck",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-3",
+       "text": "Home",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-4",
+       "text": "Failure",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-5",
+       "text": "Patience",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-6",
+       "text": "Silence",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-7",
+       "text": "Change",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-8",
+       "text": "Kindness",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-9",
+       "text": "Time",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-10",
+       "text": "Freedom",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-11",
+       "text": "Curiosity",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-12",
+       "text": "Balance",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-13",
+       "text": "Trust",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-14",
+       "text": "Ambition",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "one-word-15",
+       "text": "Gratitude",
+       "label": "Warm-up",
+       "timing": "warmup"
+      }
+     ]
+    },
+    {
+     "title": "Funny and light",
+     "note": "Warm-up: 30 seconds to think · speak for 30 seconds to 1 minute. Good warm-ups: aim for one laugh and a clear ending.",
+     "timing": "warmup",
+     "items": [
+      {
+       "id": "funny-1",
+       "text": "Why pineapple belongs on pizza (or never does)",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-2",
+       "text": "The worst superpower to have",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-3",
+       "text": "A tour of the junk drawer in my kitchen",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-4",
+       "text": "Convince us your favorite snack should be the national snack",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-5",
+       "text": "Why socks disappear in the laundry",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-6",
+       "text": "The most overrated holiday",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-7",
+       "text": "How to survive a family group chat",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-8",
+       "text": "Explain your favorite app to someone from 1900",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-9",
+       "text": "The perfect excuse for being late",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-10",
+       "text": "Why naps should be mandatory",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-11",
+       "text": "Pitch a new holiday",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-12",
+       "text": "The strangest food combination I enjoy",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-13",
+       "text": "Rules for sharing a pizza",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-14",
+       "text": "Why my pet would be a terrible roommate",
+       "label": "Warm-up",
+       "timing": "warmup"
+      },
+      {
+       "id": "funny-15",
+       "text": "The best and worst sound in the world",
+       "label": "Warm-up",
+       "timing": "warmup"
+      }
+     ]
+    },
+    {
+     "title": "School life",
+     "note": "Story: 1 minute to think · speak for 1–2 minutes. Ages 10 and up.",
+     "timing": "story",
+     "items": [
+      {
+       "id": "school-1",
+       "text": "The best class I've ever taken",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-2",
+       "text": "Should students choose their own homework?",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-3",
+       "text": "What makes a great teacher?",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-4",
+       "text": "The perfect school lunch",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-5",
+       "text": "Should school start later in the morning?",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-6",
+       "text": "A book everyone my age should read",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-7",
+       "text": "The most useful thing I learned outside school",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-8",
+       "text": "Should phones be allowed in class?",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-9",
+       "text": "What I'd do with an extra hour every day",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-10",
+       "text": "The best field trip idea",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-11",
+       "text": "Uniforms: yes or no?",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-12",
+       "text": "My dream after-school club",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-13",
+       "text": "The hardest part of being a student",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-14",
+       "text": "What I want to be famous for",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "school-15",
+       "text": "Is it better to study alone or with friends?",
+       "label": "Story",
+       "timing": "story"
+      }
+     ]
+    },
+    {
+     "title": "Personal experiences",
+     "note": "Story: 1 minute to think · speak for 1–2 minutes. Easiest for beginners: everyone already has the story.",
+     "timing": "story",
+     "items": [
+      {
+       "id": "personal-1",
+       "text": "The best piece of advice I ever ignored",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-2",
+       "text": "A time I changed my mind",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-3",
+       "text": "My most useful mistake",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-4",
+       "text": "A small habit that improved my life",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-5",
+       "text": "The best day of my last year",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-6",
+       "text": "Someone who taught me something without trying",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-7",
+       "text": "A skill I learned the hard way",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-8",
+       "text": "The place I feel most like myself",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-9",
+       "text": "A tradition my family keeps",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-10",
+       "text": "The first thing I bought with my own money",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-11",
+       "text": "A moment I was proud of someone else",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-12",
+       "text": "Something I believed as a kid that turned out to be wrong",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-13",
+       "text": "A risk I'm glad I took",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "personal-14",
+       "text": "What my phone says about me",
+       "label": "Story",
+       "timing": "story"
+      }
+     ]
+    },
+    {
+     "title": "Hypotheticals",
+     "note": "Story: 1 minute to think · speak for 1–2 minutes. Fun for clubs and classrooms; state your choice, then your reason.",
+     "timing": "story",
+     "items": [
+      {
+       "id": "hypotheticals-1",
+       "text": "If you could add one subject to every school, what would it be?",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-2",
+       "text": "If you had to live in one decade forever, which one?",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-3",
+       "text": "If you could master any instrument overnight, which and why?",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-4",
+       "text": "If you ran your town for a day, what would you change first?",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-5",
+       "text": "If you could have dinner with any fictional character",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-6",
+       "text": "If money weren't an issue, what job would you do?",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-7",
+       "text": "If you could delete one invention from history",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-8",
+       "text": "If animals could vote, which one would win an election?",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-9",
+       "text": "If you had to teach a class tomorrow, what would it be on?",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-10",
+       "text": "If you could live in any book or movie world",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-11",
+       "text": "If you could make one rule everyone had to follow",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-12",
+       "text": "If you woke up with one superpower you didn't want",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-13",
+       "text": "If you could send one message to yourself ten years ago",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-14",
+       "text": "If you could only eat one cuisine for a year",
+       "label": "Story",
+       "timing": "story"
+      },
+      {
+       "id": "hypotheticals-15",
+       "text": "If you were famous for one thing, what would it be?",
+       "label": "Story",
+       "timing": "story"
+      }
+     ]
+    },
+    {
+     "title": "Everyday opinions",
+     "note": "Argue: 1 minute to think · speak for 2–3 minutes. Pick a side in the first sentence, then defend it with one example.",
+     "timing": "argue",
+     "items": [
+      {
+       "id": "opinions-1",
+       "text": "Is it better to be early or exactly on time?",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "opinions-2",
+       "text": "Should everyone learn to cook?",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "opinions-3",
+       "text": "Are group projects worth it?",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "opinions-4",
+       "text": "Mornings or nights: which is more productive?",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "opinions-5",
+       "text": "Is it rude to wear headphones in public?",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "opinions-6",
+       "text": "Should you tell a friend their idea is bad?",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "opinions-7",
+       "text": "Is boredom good for you?",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "opinions-8",
+       "text": "Paper books or e-books?",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "opinions-9",
+       "text": "Is it better to be a big fish in a small pond?",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "opinions-10",
+       "text": "Are video games a waste of time?",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "opinions-11",
+       "text": "Is it okay to quit something you started?",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "opinions-12",
+       "text": "Cats or dogs: which makes the better roommate?",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "opinions-13",
+       "text": "Is social media better for keeping in touch or worse?",
+       "label": "Argue",
+       "timing": "argue"
+      }
+     ]
+    },
+    {
+     "title": "Quotes and proverbs",
+     "note": "Argue: 1 minute to think · speak for 2–3 minutes. Agree or disagree with the saying and give one real example.",
+     "timing": "argue",
+     "items": [
+      {
+       "id": "quotes-1",
+       "text": "“The early bird catches the worm.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-2",
+       "text": "“Actions speak louder than words.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-3",
+       "text": "“Don't judge a book by its cover.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-4",
+       "text": "“Practice makes perfect.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-5",
+       "text": "“Honesty is the best policy.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-6",
+       "text": "“The grass is always greener on the other side.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-7",
+       "text": "“You can't please everyone.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-8",
+       "text": "“Where there's a will, there's a way.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-9",
+       "text": "“Less is more.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-10",
+       "text": "“Two heads are better than one.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-11",
+       "text": "“It's never too late to learn.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-12",
+       "text": "“Curiosity killed the cat.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-13",
+       "text": "“Rome wasn't built in a day.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-14",
+       "text": "“Fortune favors the bold.”",
+       "label": "Argue",
+       "timing": "argue"
+      },
+      {
+       "id": "quotes-15",
+       "text": "“Laughter is the best medicine.”",
+       "label": "Argue",
+       "timing": "argue"
+      }
+     ]
+    }
+   ],
+   "count": 102
+  }
+ ]
+}
