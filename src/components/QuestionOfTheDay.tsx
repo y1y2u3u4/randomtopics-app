@@ -80,7 +80,7 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
     const pick = draw.picked[0];
     setUsed(draw.used);
     setRandomQ(pick);
-    if (typeof requestAnimationFrame === "function") requestAnimationFrame(revealCard);
+    setTimeout(revealCard, 0);
     track("generate_success", {
       tool_type: "question_of_the_day",
       content_source: "qotd_hub",
