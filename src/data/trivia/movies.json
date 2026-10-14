@@ -1,0 +1,990 @@
+[
+  {
+    "id": "movies-001",
+    "question": "Which studio made Toy Story (1995), the first fully computer-animated feature film?",
+    "answer": "Pixar",
+    "distractors": [
+      "DreamWorks Animation",
+      "Blue Sky Studios",
+      "Illumination"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Toy Story was produced by Pixar Animation Studios and released by Disney in 1995."
+  },
+  {
+    "id": "movies-002",
+    "question": "Who directed the 1975 shark thriller Jaws?",
+    "answer": "Steven Spielberg",
+    "distractors": [
+      "George Lucas",
+      "Francis Ford Coppola",
+      "Martin Scorsese"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Jaws was directed by Steven Spielberg and released in the summer of 1975."
+  },
+  {
+    "id": "movies-003",
+    "question": "What is the name of Dorothy's dog in The Wizard of Oz (1939)?",
+    "answer": "Toto",
+    "distractors": [
+      "Benji",
+      "Lassie",
+      "Rex"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Dorothy Gale travels to Oz with her small dog, Toto."
+  },
+  {
+    "id": "movies-004",
+    "question": "What kind of creature is the title character in Shrek (2001)?",
+    "answer": "An ogre",
+    "distractors": [
+      "A troll",
+      "A giant",
+      "A goblin"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Shrek is a green ogre who lives alone in a swamp."
+  },
+  {
+    "id": "movies-005",
+    "question": "In Finding Nemo (2003), what kind of fish is Nemo?",
+    "answer": "Clownfish",
+    "distractors": [
+      "Blue tang",
+      "Angelfish",
+      "Pufferfish"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Nemo and his father Marlin are orange-and-white clownfish."
+  },
+  {
+    "id": "movies-006",
+    "question": "What is the name of the fictional African nation in Black Panther (2018)?",
+    "answer": "Wakanda",
+    "distractors": [
+      "Zamunda",
+      "Genovia",
+      "Latveria"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Black Panther is set largely in the hidden, technologically advanced nation of Wakanda."
+  },
+  {
+    "id": "movies-007",
+    "question": "Which school of witchcraft and wizardry does Harry Potter attend?",
+    "answer": "Hogwarts",
+    "distractors": [
+      "Beauxbatons",
+      "Durmstrang",
+      "Ilvermorny"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Harry Potter is a student at Hogwarts School of Witchcraft and Wizardry."
+  },
+  {
+    "id": "movies-008",
+    "question": "In The Matrix (1999), what color is the pill Neo swallows to learn the truth?",
+    "answer": "Red",
+    "distractors": [
+      "Blue",
+      "Green",
+      "White"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Morpheus offers Neo a choice, and Neo takes the red pill to see the truth."
+  },
+  {
+    "id": "movies-009",
+    "question": "What is the name of the talking snowman in Frozen (2013)?",
+    "answer": "Olaf",
+    "distractors": [
+      "Sven",
+      "Kristoff",
+      "Hans"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Olaf is the friendly snowman brought to life by Elsa’s magic."
+  },
+  {
+    "id": "movies-010",
+    "question": "Who is Simba's father in The Lion King (1994)?",
+    "answer": "Mufasa",
+    "distractors": [
+      "Scar",
+      "Rafiki",
+      "Zazu"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Mufasa is the king of the Pride Lands and Simba’s father."
+  },
+  {
+    "id": "movies-011",
+    "question": "What is the name of the cowboy doll in Toy Story?",
+    "answer": "Woody",
+    "distractors": [
+      "Rex",
+      "Slinky",
+      "Hamm"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Sheriff Woody is the pull-string cowboy doll at the center of Toy Story."
+  },
+  {
+    "id": "movies-012",
+    "question": "What is the term for a film that tells the story of events before an earlier film?",
+    "answer": "Prequel",
+    "distractors": [
+      "Sequel",
+      "Remake",
+      "Spin-off"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "A prequel is set earlier in a story’s timeline than a work that was made before it."
+  },
+  {
+    "id": "movies-013",
+    "question": "Who played Indiana Jones in Raiders of the Lost Ark (1981)?",
+    "answer": "Harrison Ford",
+    "distractors": [
+      "Tom Selleck",
+      "Kurt Russell",
+      "Mel Gibson"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Harrison Ford starred as archaeologist Indiana Jones in Raiders of the Lost Ark."
+  },
+  {
+    "id": "movies-014",
+    "question": "In which city is the 1984 comedy Ghostbusters set?",
+    "answer": "New York City",
+    "distractors": [
+      "Chicago",
+      "Boston",
+      "Los Angeles"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "The Ghostbusters run their business out of a firehouse in New York City."
+  },
+  {
+    "id": "movies-015",
+    "question": "What is the name of Han Solo's ship in Star Wars?",
+    "answer": "Millennium Falcon",
+    "distractors": [
+      "Star Destroyer",
+      "X-wing",
+      "Slave I"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Han Solo captains the Millennium Falcon, a fast Corellian freighter."
+  },
+  {
+    "id": "movies-016",
+    "question": "Which 1992 Disney animated film features a Genie voiced by Robin Williams?",
+    "answer": "Aladdin",
+    "distractors": [
+      "Hercules",
+      "Mulan",
+      "Pocahontas"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Robin Williams voiced the Genie in Disney’s Aladdin (1992)."
+  },
+  {
+    "id": "movies-017",
+    "question": "In Monsters, Inc. (2001), what does the monster factory collect from children to power its city?",
+    "answer": "Screams",
+    "distractors": [
+      "Dreams",
+      "Tears",
+      "Wishes"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Monstropolis is powered by energy collected from children’s screams."
+  },
+  {
+    "id": "movies-018",
+    "question": "What is a brief appearance by a famous person in a film called?",
+    "answer": "A cameo",
+    "distractors": [
+      "An extra",
+      "A montage",
+      "A stand-in"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "A cameo is a short, often surprising appearance by a well-known person."
+  },
+  {
+    "id": "movies-019",
+    "question": "In Pixar's Up (2009), what lifts Carl's house into the sky?",
+    "answer": "Balloons",
+    "distractors": [
+      "Kites",
+      "Rockets",
+      "Propellers"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Carl ties thousands of helium balloons to his house to fly it away."
+  },
+  {
+    "id": "movies-020",
+    "question": "In E.T. the Extra-Terrestrial (1982), which candy does Elliott use to lure E.T.?",
+    "answer": "Reese's Pieces",
+    "distractors": [
+      "M&M's",
+      "Skittles",
+      "Jelly beans"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Elliott leaves a trail of Reese’s Pieces to draw E.T. out."
+  },
+  {
+    "id": "movies-021",
+    "question": "What car model is turned into a time machine in Back to the Future (1985)?",
+    "answer": "DeLorean",
+    "distractors": [
+      "Corvette",
+      "Mustang",
+      "Porsche"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Doc Brown builds his time machine out of a DeLorean DMC-12."
+  },
+  {
+    "id": "movies-022",
+    "question": "What kind of animal is the title character in the 1995 film Babe?",
+    "answer": "A pig",
+    "distractors": [
+      "A sheep",
+      "A goat",
+      "A calf"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Babe is a piglet who learns to herd sheep."
+  },
+  {
+    "id": "movies-023",
+    "question": "What species is Chewbacca in Star Wars?",
+    "answer": "Wookiee",
+    "distractors": [
+      "Ewok",
+      "Jawa",
+      "Hutt"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Chewbacca is a tall, furry Wookiee from the planet Kashyyyk."
+  },
+  {
+    "id": "movies-024",
+    "question": "What is the name of Luke Skywalker's desert home planet in Star Wars (1977)?",
+    "answer": "Tatooine",
+    "distractors": [
+      "Hoth",
+      "Endor",
+      "Naboo"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Luke grows up on his uncle’s moisture farm on the desert planet Tatooine."
+  },
+  {
+    "id": "movies-025",
+    "question": "Who directed the original Star Wars film released in 1977?",
+    "answer": "George Lucas",
+    "distractors": [
+      "Steven Spielberg",
+      "Ridley Scott",
+      "John Carpenter"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "George Lucas wrote and directed the first Star Wars film."
+  },
+  {
+    "id": "movies-026",
+    "question": "Which emotion is the blue character in Inside Out (2015)?",
+    "answer": "Sadness",
+    "distractors": [
+      "Fear",
+      "Disgust",
+      "Anger"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Sadness is drawn as a small blue figure among Riley’s five emotions."
+  },
+  {
+    "id": "movies-027",
+    "question": "What does CGI stand for in filmmaking?",
+    "answer": "Computer-generated imagery",
+    "distractors": [
+      "Computer graphics interface",
+      "Cinematic graphic illusion",
+      "Camera-generated imaging"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "CGI means computer-generated imagery, visuals created with computer software."
+  },
+  {
+    "id": "movies-028",
+    "question": "What animals is Indiana Jones famously afraid of?",
+    "answer": "Snakes",
+    "distractors": [
+      "Spiders",
+      "Rats",
+      "Bats"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Indiana Jones has a well-known fear of snakes, shown in Raiders of the Lost Ark."
+  },
+  {
+    "id": "movies-029",
+    "question": "What is the name of the red race car hero of Pixar’s Cars (2006)?",
+    "answer": "Lightning McQueen",
+    "distractors": [
+      "Chick Hicks",
+      "Doc Hudson",
+      "Sally Carrera"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "Lightning McQueen is the rookie race car at the center of Cars."
+  },
+  {
+    "id": "movies-030",
+    "question": "What is the family name of the crime family in The Godfather (1972)?",
+    "answer": "Corleone",
+    "distractors": [
+      "Soprano",
+      "Montana",
+      "Barzini"
+    ],
+    "category": "movies",
+    "difficulty": "easy",
+    "explanation": "The Godfather follows Vito Corleone and his family."
+  },
+  {
+    "id": "movies-031",
+    "question": "Which animation studio made My Neighbor Totoro (1988)?",
+    "answer": "Studio Ghibli",
+    "distractors": [
+      "Toei Animation",
+      "Madhouse",
+      "Sunrise"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "My Neighbor Totoro was produced by Studio Ghibli and directed by Hayao Miyazaki."
+  },
+  {
+    "id": "movies-032",
+    "question": "Who directed the animated film Spirited Away (2001)?",
+    "answer": "Hayao Miyazaki",
+    "distractors": [
+      "Isao Takahata",
+      "Mamoru Hosoda",
+      "Makoto Shinkai"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Hayao Miyazaki wrote and directed Spirited Away."
+  },
+  {
+    "id": "movies-033",
+    "question": "Which film won the Academy Award for Best Picture for 1972?",
+    "answer": "The Godfather",
+    "distractors": [
+      "Cabaret",
+      "Deliverance",
+      "Sounder"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "The Godfather won Best Picture at the 45th Academy Awards, honoring films of 1972."
+  },
+  {
+    "id": "movies-034",
+    "question": "Which film was the first non-English-language winner of the Oscar for Best Picture?",
+    "answer": "Parasite",
+    "distractors": [
+      "Roma",
+      "Amélie",
+      "Life Is Beautiful"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Bong Joon-ho’s Parasite won Best Picture for 2019, the first non-English-language film to do so."
+  },
+  {
+    "id": "movies-035",
+    "question": "Which film won the Academy Award for Best Picture for 2003?",
+    "answer": "The Return of the King",
+    "distractors": [
+      "Mystic River",
+      "Seabiscuit",
+      "Lost in Translation"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "The Lord of the Rings: The Return of the King won Best Picture at the 76th Academy Awards."
+  },
+  {
+    "id": "movies-036",
+    "question": "Which film won the Academy Award for Best Picture for 1994?",
+    "answer": "Forrest Gump",
+    "distractors": [
+      "Pulp Fiction",
+      "The Shawshank Redemption",
+      "Quiz Show"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Forrest Gump won Best Picture at the 67th Academy Awards, honoring films of 1994."
+  },
+  {
+    "id": "movies-037",
+    "question": "Which boxing film won the Academy Award for Best Picture for 1976?",
+    "answer": "Rocky",
+    "distractors": [
+      "Raging Bull",
+      "Taxi Driver",
+      "Network"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Rocky won Best Picture at the 49th Academy Awards, honoring films of 1976."
+  },
+  {
+    "id": "movies-038",
+    "question": "Which film won the Academy Award for Best Picture for 2022?",
+    "answer": "Everything Everywhere All at Once",
+    "distractors": [
+      "Top Gun: Maverick",
+      "The Fabelmans",
+      "Tár"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Everything Everywhere All at Once won Best Picture at the 95th Academy Awards."
+  },
+  {
+    "id": "movies-039",
+    "question": "Who directed the 1994 crime film Pulp Fiction?",
+    "answer": "Quentin Tarantino",
+    "distractors": [
+      "Guy Ritchie",
+      "Robert Rodriguez",
+      "David Fincher"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Pulp Fiction was written and directed by Quentin Tarantino."
+  },
+  {
+    "id": "movies-040",
+    "question": "Who directed the 1960 thriller Psycho?",
+    "answer": "Alfred Hitchcock",
+    "distractors": [
+      "Orson Welles",
+      "Billy Wilder",
+      "Stanley Kubrick"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Psycho is one of Alfred Hitchcock’s best-known films."
+  },
+  {
+    "id": "movies-041",
+    "question": "Who directed and starred in Citizen Kane (1941)?",
+    "answer": "Orson Welles",
+    "distractors": [
+      "Charlie Chaplin",
+      "John Huston",
+      "Howard Hawks"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Orson Welles co-wrote, directed and played Charles Foster Kane in Citizen Kane."
+  },
+  {
+    "id": "movies-042",
+    "question": "Who directed 2001: A Space Odyssey (1968)?",
+    "answer": "Stanley Kubrick",
+    "distractors": [
+      "Andrei Tarkovsky",
+      "George Lucas",
+      "Ridley Scott"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Stanley Kubrick directed 2001: A Space Odyssey and co-wrote it with Arthur C. Clarke."
+  },
+  {
+    "id": "movies-043",
+    "question": "Who directed the 2017 horror film Get Out?",
+    "answer": "Jordan Peele",
+    "distractors": [
+      "Ari Aster",
+      "Spike Lee",
+      "Barry Jenkins"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Get Out was Jordan Peele’s debut as a feature film director."
+  },
+  {
+    "id": "movies-044",
+    "question": "Who directed the 1979 science-fiction horror film Alien?",
+    "answer": "Ridley Scott",
+    "distractors": [
+      "James Cameron",
+      "John Carpenter",
+      "David Cronenberg"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Alien was directed by Ridley Scott; James Cameron directed the 1986 sequel Aliens."
+  },
+  {
+    "id": "movies-045",
+    "question": "In what year was Disney's first full-length animated feature, Snow White and the Seven Dwarfs, released?",
+    "answer": "1937",
+    "distractors": [
+      "1928",
+      "1940",
+      "1950"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Snow White and the Seven Dwarfs premiered in December 1937."
+  },
+  {
+    "id": "movies-046",
+    "question": "Which 1928 Disney short brought Mickey Mouse to wide audiences with synchronized sound?",
+    "answer": "Steamboat Willie",
+    "distractors": [
+      "Flowers and Trees",
+      "The Skeleton Dance",
+      "Fantasia"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Steamboat Willie premiered in November 1928 and was a landmark synchronized-sound cartoon."
+  },
+  {
+    "id": "movies-047",
+    "question": "In what year was Jurassic Park first released in theaters?",
+    "answer": "1993",
+    "distractors": [
+      "1990",
+      "1995",
+      "1997"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Steven Spielberg’s Jurassic Park was released in June 1993."
+  },
+  {
+    "id": "movies-048",
+    "question": "What is the name of the isolated hotel in The Shining (1980)?",
+    "answer": "The Overlook Hotel",
+    "distractors": [
+      "The Bates Motel",
+      "The Continental",
+      "The Grand Budapest"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "The Torrance family becomes winter caretakers of the Overlook Hotel."
+  },
+  {
+    "id": "movies-049",
+    "question": "What is the name of the fictional town in Back to the Future (1985)?",
+    "answer": "Hill Valley",
+    "distractors": [
+      "Haddonfield",
+      "Hawkins",
+      "Bedford Falls"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Marty McFly lives in Hill Valley, California."
+  },
+  {
+    "id": "movies-050",
+    "question": "What is the name of the island theme park location in Jurassic Park (1993)?",
+    "answer": "Isla Nublar",
+    "distractors": [
+      "Skull Island",
+      "Amity Island",
+      "Isla Sorna"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "John Hammond builds his dinosaur park on Isla Nublar, off Costa Rica."
+  },
+  {
+    "id": "movies-051",
+    "question": "What is Mr. Incredible's civilian name in The Incredibles (2004)?",
+    "answer": "Bob Parr",
+    "distractors": [
+      "Lucius Best",
+      "Buddy Pine",
+      "Rick Dicker"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Mr. Incredible lives as insurance worker Bob Parr."
+  },
+  {
+    "id": "movies-052",
+    "question": "Which mathematician character discusses chaos theory in Jurassic Park (1993)?",
+    "answer": "Ian Malcolm",
+    "distractors": [
+      "Alan Grant",
+      "John Hammond",
+      "Dennis Nedry"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Jeff Goldblum plays chaos theorist Dr. Ian Malcolm."
+  },
+  {
+    "id": "movies-053",
+    "question": "In Finding Nemo (2003), to which city is Nemo taken after he is caught?",
+    "answer": "Sydney",
+    "distractors": [
+      "Melbourne",
+      "Auckland",
+      "Perth"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Nemo ends up in a dentist’s fish tank in Sydney, Australia."
+  },
+  {
+    "id": "movies-054",
+    "question": "What is the name of the computer that runs the ship in 2001: A Space Odyssey?",
+    "answer": "HAL 9000",
+    "distractors": [
+      "Skynet",
+      "JARVIS",
+      "MU-TH-UR"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "HAL 9000 is the onboard computer of the spaceship Discovery One."
+  },
+  {
+    "id": "movies-055",
+    "question": "What is the job title of the head of the lighting department on a film set?",
+    "answer": "Gaffer",
+    "distractors": [
+      "Grip",
+      "Best boy",
+      "Foley artist"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "The gaffer is the chief lighting technician; the best boy is the gaffer’s assistant."
+  },
+  {
+    "id": "movies-056",
+    "question": "Which studio created Wallace & Gromit?",
+    "answer": "Aardman Animations",
+    "distractors": [
+      "Laika",
+      "Pixar",
+      "Studio Ghibli"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Wallace & Gromit were created by Nick Park at Aardman Animations in Bristol, England."
+  },
+  {
+    "id": "movies-057",
+    "question": "Which film festival awards the Palme d'Or?",
+    "answer": "Cannes",
+    "distractors": [
+      "Venice",
+      "Berlin",
+      "Sundance"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "The Palme d'Or is the top prize of the Cannes Film Festival in France."
+  },
+  {
+    "id": "movies-058",
+    "question": "What was the first James Bond film produced by Eon Productions, released in 1962?",
+    "answer": "Dr. No",
+    "distractors": [
+      "Goldfinger",
+      "From Russia with Love",
+      "Thunderball"
+    ],
+    "category": "movies",
+    "difficulty": "medium",
+    "explanation": "Dr. No, starring Sean Connery, launched the Eon Bond series in 1962."
+  },
+  {
+    "id": "movies-059",
+    "question": "Which film won the first Academy Award for Best Picture (then called Outstanding Picture)?",
+    "answer": "Wings",
+    "distractors": [
+      "Sunrise",
+      "The Jazz Singer",
+      "Metropolis"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Wings (1927) won the top prize at the first Academy Awards in 1929."
+  },
+  {
+    "id": "movies-060",
+    "question": "Which 1927 film is widely credited as the first feature with synchronized spoken dialogue?",
+    "answer": "The Jazz Singer",
+    "distractors": [
+      "Wings",
+      "The Broadway Melody",
+      "Sunrise"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "The Jazz Singer included synchronized dialogue and singing sequences, launching the talkie era."
+  },
+  {
+    "id": "movies-061",
+    "question": "Which film won the Academy Award for Best Picture for 1991?",
+    "answer": "The Silence of the Lambs",
+    "distractors": [
+      "JFK",
+      "Bugsy",
+      "The Prince of Tides"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "The Silence of the Lambs won Best Picture at the 64th Academy Awards."
+  },
+  {
+    "id": "movies-062",
+    "question": "Which film won the Academy Award for Best Picture for 1943?",
+    "answer": "Casablanca",
+    "distractors": [
+      "Heaven Can Wait",
+      "Watch on the Rhine",
+      "For Whom the Bell Tolls"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Casablanca won Best Picture at the 16th Academy Awards, honoring films of 1943."
+  },
+  {
+    "id": "movies-063",
+    "question": "Which 1991 film was the first animated feature nominated for the Best Picture Oscar?",
+    "answer": "Beauty and the Beast",
+    "distractors": [
+      "The Lion King",
+      "Snow White and the Seven Dwarfs",
+      "Toy Story"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Disney’s Beauty and the Beast received a Best Picture nomination for 1991."
+  },
+  {
+    "id": "movies-064",
+    "question": "Which 1959 epic won the Academy Award for Best Picture?",
+    "answer": "Ben-Hur",
+    "distractors": [
+      "Spartacus",
+      "Cleopatra",
+      "The Ten Commandments"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Ben-Hur won Best Picture at the 32nd Academy Awards, honoring films of 1959."
+  },
+  {
+    "id": "movies-065",
+    "question": "Which film won the first Academy Award for Best Animated Feature?",
+    "answer": "Shrek",
+    "distractors": [
+      "Monsters, Inc.",
+      "Spirited Away",
+      "Toy Story"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Shrek won the inaugural Best Animated Feature award, presented for films of 2001."
+  },
+  {
+    "id": "movies-066",
+    "question": "Who directed Seven Samurai (1954)?",
+    "answer": "Akira Kurosawa",
+    "distractors": [
+      "Yasujirō Ozu",
+      "Kenji Mizoguchi",
+      "Masaki Kobayashi"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Seven Samurai was directed by Akira Kurosawa."
+  },
+  {
+    "id": "movies-067",
+    "question": "Who directed Pan's Labyrinth (2006)?",
+    "answer": "Guillermo del Toro",
+    "distractors": [
+      "Alfonso Cuarón",
+      "Alejandro G. Iñárritu",
+      "Pedro Almodóvar"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Pan's Labyrinth was written and directed by Guillermo del Toro."
+  },
+  {
+    "id": "movies-068",
+    "question": "Who directed the 1927 silent science-fiction film Metropolis?",
+    "answer": "Fritz Lang",
+    "distractors": [
+      "F. W. Murnau",
+      "Sergei Eisenstein",
+      "Robert Wiene"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Metropolis was directed by Fritz Lang in Germany."
+  },
+  {
+    "id": "movies-069",
+    "question": "In Casablanca (1942), what is the full name of Rick's nightclub?",
+    "answer": "Rick's Café Américain",
+    "distractors": [
+      "The Blue Parrot",
+      "Café Lumière",
+      "The Copacabana"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Rick Blaine runs Rick's Café Américain; the Blue Parrot is a rival establishment."
+  },
+  {
+    "id": "movies-070",
+    "question": "What is the name of the town in It's a Wonderful Life (1946)?",
+    "answer": "Bedford Falls",
+    "distractors": [
+      "Hill Valley",
+      "Grover's Corners",
+      "Mayberry"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "George Bailey's hometown in It's a Wonderful Life is Bedford Falls."
+  },
+  {
+    "id": "movies-071",
+    "question": "What is the name of the commercial spaceship in Alien (1979)?",
+    "answer": "Nostromo",
+    "distractors": [
+      "Sulaco",
+      "Discovery One",
+      "Serenity"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "The crew of the towing ship Nostromo encounters the alien."
+  },
+  {
+    "id": "movies-072",
+    "question": "Which stop-motion studio made Coraline (2009)?",
+    "answer": "Laika",
+    "distractors": [
+      "Aardman Animations",
+      "Illumination",
+      "Blue Sky Studios"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Coraline was the first feature film produced by Laika."
+  },
+  {
+    "id": "movies-073",
+    "question": "Which film festival awards the Golden Lion as its top prize?",
+    "answer": "Venice",
+    "distractors": [
+      "Berlin",
+      "Cannes",
+      "Toronto"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "The Golden Lion is the top award at the Venice Film Festival; Berlin awards the Golden Bear."
+  },
+  {
+    "id": "movies-074",
+    "question": "What term, popularized by Alfred Hitchcock, describes an object that drives a plot but matters little in itself?",
+    "answer": "MacGuffin",
+    "distractors": [
+      "Red herring",
+      "Deus ex machina",
+      "Chekhov's gun"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Hitchcock used the word MacGuffin for the thing the characters chase that the audience need not care about."
+  },
+  {
+    "id": "movies-075",
+    "question": "What is the animation technique of tracing over live-action footage frame by frame called?",
+    "answer": "Rotoscoping",
+    "distractors": [
+      "Chroma keying",
+      "Stop motion",
+      "Cel shading"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Rotoscoping, patented by Max Fleischer in 1917, traces animation over filmed footage."
+  },
+  {
+    "id": "movies-076",
+    "question": "What is the technical name for the green-screen technique of replacing a solid color background?",
+    "answer": "Chroma key",
+    "distractors": [
+      "Rotoscope",
+      "Matte painting",
+      "Motion capture"
+    ],
+    "category": "movies",
+    "difficulty": "hard",
+    "explanation": "Chroma keying removes a specific color, often green or blue, so another image can be placed behind the subject."
+  }
+]

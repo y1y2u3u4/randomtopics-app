@@ -1,0 +1,989 @@
+[
+  {
+    "id": "science-001",
+    "question": "What is the chemical symbol for gold?",
+    "answer": "Au",
+    "distractors": [
+      "Ag",
+      "Gd",
+      "Go"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Gold's symbol Au comes from its Latin name, aurum."
+  },
+  {
+    "id": "science-002",
+    "question": "Which planet is nicknamed the Red Planet?",
+    "answer": "Mars",
+    "distractors": [
+      "Jupiter",
+      "Venus",
+      "Mercury"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Iron oxide dust on the surface of Mars gives it a reddish appearance."
+  },
+  {
+    "id": "science-003",
+    "question": "Which gas do plants take in from the air to carry out photosynthesis?",
+    "answer": "Carbon dioxide",
+    "distractors": [
+      "Oxygen",
+      "Nitrogen",
+      "Hydrogen"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Plants combine carbon dioxide and water using light energy to make glucose during photosynthesis."
+  },
+  {
+    "id": "science-004",
+    "question": "What is the largest planet in our solar system?",
+    "answer": "Jupiter",
+    "distractors": [
+      "Saturn",
+      "Neptune",
+      "Uranus"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Jupiter is a gas giant with more mass than all the other planets combined."
+  },
+  {
+    "id": "science-005",
+    "question": "At sea level, at what temperature in Celsius does pure water boil?",
+    "answer": "100 °C",
+    "distractors": [
+      "90 °C",
+      "120 °C",
+      "212 °C"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "At standard atmospheric pressure, pure water boils at 100 degrees Celsius."
+  },
+  {
+    "id": "science-006",
+    "question": "What is the chemical formula for water?",
+    "answer": "H2O",
+    "distractors": [
+      "CO2",
+      "H2O2",
+      "HO2"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Each water molecule is made of two hydrogen atoms bonded to one oxygen atom."
+  },
+  {
+    "id": "science-007",
+    "question": "What is the closest star to Earth?",
+    "answer": "The Sun",
+    "distractors": [
+      "Proxima Centauri",
+      "Sirius",
+      "Polaris"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "The Sun is a star about 150 million kilometers away, far closer than any other star."
+  },
+  {
+    "id": "science-008",
+    "question": "How many legs does an adult insect have?",
+    "answer": "Six",
+    "distractors": [
+      "Eight",
+      "Four",
+      "Ten"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "All adult insects have three pairs of legs attached to the thorax."
+  },
+  {
+    "id": "science-009",
+    "question": "Which organ pumps blood around the human body?",
+    "answer": "Heart",
+    "distractors": [
+      "Liver",
+      "Lungs",
+      "Kidneys"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "The heart is a muscular pump that circulates blood through the blood vessels."
+  },
+  {
+    "id": "science-010",
+    "question": "Which planet orbits closest to the Sun?",
+    "answer": "Mercury",
+    "distractors": [
+      "Venus",
+      "Mars",
+      "Earth"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Mercury has the smallest orbit of the eight planets."
+  },
+  {
+    "id": "science-011",
+    "question": "Which element has the chemical symbol O?",
+    "answer": "Oxygen",
+    "distractors": [
+      "Osmium",
+      "Oganesson",
+      "Gold"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "O is the symbol for oxygen, while osmium is Os and oganesson is Og."
+  },
+  {
+    "id": "science-012",
+    "question": "Which mineral sits at the top of the Mohs hardness scale with a rating of 10?",
+    "answer": "Diamond",
+    "distractors": [
+      "Quartz",
+      "Topaz",
+      "Corundum"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Diamond is rated 10 on the Mohs scale, above corundum at 9 and topaz at 8."
+  },
+  {
+    "id": "science-013",
+    "question": "What force pulls objects toward the center of the Earth?",
+    "answer": "Gravity",
+    "distractors": [
+      "Magnetism",
+      "Friction",
+      "Inertia"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Gravity is the attractive force between masses that pulls objects toward Earth."
+  },
+  {
+    "id": "science-014",
+    "question": "What do we call animals that eat only plants?",
+    "answer": "Herbivores",
+    "distractors": [
+      "Carnivores",
+      "Omnivores",
+      "Scavengers"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Herbivores are animals whose diet consists only of plant material."
+  },
+  {
+    "id": "science-015",
+    "question": "At what temperature in Fahrenheit does water freeze?",
+    "answer": "32 °F",
+    "distractors": [
+      "0 °F",
+      "100 °F",
+      "212 °F"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Water freezes at 32 degrees Fahrenheit, which equals 0 degrees Celsius."
+  },
+  {
+    "id": "science-016",
+    "question": "What is the dense central part of an atom called?",
+    "answer": "Nucleus",
+    "distractors": [
+      "Electron shell",
+      "Orbital",
+      "Cytoplasm"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "The nucleus holds an atom's protons and neutrons and nearly all of its mass."
+  },
+  {
+    "id": "science-017",
+    "question": "Which subatomic particle carries a negative electric charge?",
+    "answer": "Electron",
+    "distractors": [
+      "Proton",
+      "Neutron",
+      "Photon"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Electrons carry a negative charge, protons a positive charge and neutrons no charge."
+  },
+  {
+    "id": "science-018",
+    "question": "Which planet is best known for its wide, bright ring system?",
+    "answer": "Saturn",
+    "distractors": [
+      "Jupiter",
+      "Uranus",
+      "Neptune"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Saturn's large rings of ice and rock are the brightest and most visible in the solar system."
+  },
+  {
+    "id": "science-019",
+    "question": "What is the largest organ of the human body?",
+    "answer": "Skin",
+    "distractors": [
+      "Liver",
+      "Brain",
+      "Lungs"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "The skin covers the whole body and is its largest organ by surface area and weight."
+  },
+  {
+    "id": "science-020",
+    "question": "How many bones are in a typical adult human skeleton?",
+    "answer": "206",
+    "distractors": [
+      "196",
+      "212",
+      "230"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "A typical adult skeleton has 206 bones after many childhood bones fuse together."
+  },
+  {
+    "id": "science-021",
+    "question": "Which gas makes up most of Earth's atmosphere?",
+    "answer": "Nitrogen",
+    "distractors": [
+      "Oxygen",
+      "Argon",
+      "Carbon dioxide"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Nitrogen makes up about 78 percent of dry air, compared with about 21 percent oxygen."
+  },
+  {
+    "id": "science-022",
+    "question": "What is the process called when liquid water turns into water vapor at its surface?",
+    "answer": "Evaporation",
+    "distractors": [
+      "Condensation",
+      "Precipitation",
+      "Sublimation"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Evaporation is the change of a liquid into a gas at its surface."
+  },
+  {
+    "id": "science-023",
+    "question": "What is the unit used to measure electrical resistance?",
+    "answer": "Ohm",
+    "distractors": [
+      "Volt",
+      "Ampere",
+      "Watt"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Electrical resistance is measured in ohms, named after physicist Georg Ohm."
+  },
+  {
+    "id": "science-024",
+    "question": "What type of animal is a frog?",
+    "answer": "Amphibian",
+    "distractors": [
+      "Reptile",
+      "Mammal",
+      "Fish"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Frogs are amphibians, typically starting life in water and living on land as adults."
+  },
+  {
+    "id": "science-025",
+    "question": "Which element has the chemical symbol Na?",
+    "answer": "Sodium",
+    "distractors": [
+      "Nitrogen",
+      "Neon",
+      "Nickel"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Na comes from natrium, the Latin name for sodium."
+  },
+  {
+    "id": "science-026",
+    "question": "Which blood cells carry oxygen around the body?",
+    "answer": "Red blood cells",
+    "distractors": [
+      "White blood cells",
+      "Platelets",
+      "Plasma cells"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Red blood cells contain hemoglobin, which binds oxygen and carries it to tissues."
+  },
+  {
+    "id": "science-027",
+    "question": "What is the name for a young frog that lives in water and has a tail?",
+    "answer": "Tadpole",
+    "distractors": [
+      "Larva",
+      "Fry",
+      "Kit"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Frogs hatch as tadpoles and later grow legs and lose their tails through metamorphosis."
+  },
+  {
+    "id": "science-028",
+    "question": "Which instrument is used to measure temperature?",
+    "answer": "Thermometer",
+    "distractors": [
+      "Barometer",
+      "Hygrometer",
+      "Anemometer"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "A thermometer measures temperature, while a barometer measures air pressure."
+  },
+  {
+    "id": "science-029",
+    "question": "In which part of a plant does most photosynthesis take place?",
+    "answer": "Leaves",
+    "distractors": [
+      "Roots",
+      "Stems",
+      "Flowers"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "Leaves contain the most chloroplasts and are shaped to capture sunlight for photosynthesis."
+  },
+  {
+    "id": "science-030",
+    "question": "How many planets are in our solar system?",
+    "answer": "Eight",
+    "distractors": [
+      "Nine",
+      "Seven",
+      "Ten"
+    ],
+    "category": "science",
+    "difficulty": "easy",
+    "explanation": "The solar system has eight planets, from Mercury out to Neptune."
+  },
+  {
+    "id": "science-031",
+    "question": "What is the chemical symbol for iron?",
+    "answer": "Fe",
+    "distractors": [
+      "Ir",
+      "In",
+      "I"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Iron's symbol Fe comes from its Latin name, ferrum."
+  },
+  {
+    "id": "science-032",
+    "question": "Which organelle produces most of a cell's usable energy in the form of ATP?",
+    "answer": "Mitochondria",
+    "distractors": [
+      "Ribosomes",
+      "Golgi apparatus",
+      "Nucleus"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Mitochondria carry out cellular respiration, which generates most of a cell's ATP."
+  },
+  {
+    "id": "science-033",
+    "question": "What is the pH of pure water at 25 °C?",
+    "answer": "7",
+    "distractors": [
+      "0",
+      "1",
+      "14"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Pure water at 25 °C is neutral, which corresponds to a pH of 7."
+  },
+  {
+    "id": "science-034",
+    "question": "What is the atomic number of carbon?",
+    "answer": "6",
+    "distractors": [
+      "12",
+      "8",
+      "4"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Every carbon atom has six protons, giving it atomic number 6."
+  },
+  {
+    "id": "science-035",
+    "question": "What is the SI unit of force?",
+    "answer": "Newton",
+    "distractors": [
+      "Joule",
+      "Pascal",
+      "Watt"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Force is measured in newtons, where one newton accelerates one kilogram at one meter per second squared."
+  },
+  {
+    "id": "science-036",
+    "question": "Which element is the most abundant in the universe?",
+    "answer": "Hydrogen",
+    "distractors": [
+      "Helium",
+      "Oxygen",
+      "Carbon"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Hydrogen makes up roughly three quarters of the ordinary matter in the universe by mass."
+  },
+  {
+    "id": "science-037",
+    "question": "Which planet spins almost on its side, with an axial tilt of about 98 degrees?",
+    "answer": "Uranus",
+    "distractors": [
+      "Neptune",
+      "Saturn",
+      "Venus"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Uranus has an axial tilt of about 98 degrees, so it appears to roll along its orbit."
+  },
+  {
+    "id": "science-038",
+    "question": "What is the chemical symbol for potassium?",
+    "answer": "K",
+    "distractors": [
+      "P",
+      "Po",
+      "Pt"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Potassium's symbol K comes from kalium, its Latin name."
+  },
+  {
+    "id": "science-039",
+    "question": "What does the abbreviation DNA stand for?",
+    "answer": "Deoxyribonucleic acid",
+    "distractors": [
+      "Ribonucleic acid",
+      "Dinucleotide acid",
+      "Deoxyribose amino acid"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "DNA stands for deoxyribonucleic acid, the molecule that stores genetic information."
+  },
+  {
+    "id": "science-040",
+    "question": "What type of rock forms when molten magma or lava cools and hardens?",
+    "answer": "Igneous",
+    "distractors": [
+      "Sedimentary",
+      "Metamorphic",
+      "Organic"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Igneous rocks such as granite and basalt form from cooled magma or lava."
+  },
+  {
+    "id": "science-041",
+    "question": "Which planet has the hottest average surface temperature?",
+    "answer": "Venus",
+    "distractors": [
+      "Mercury",
+      "Mars",
+      "Jupiter"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Venus's thick carbon dioxide atmosphere traps heat, making it hotter than Mercury."
+  },
+  {
+    "id": "science-042",
+    "question": "Of air, water and a vacuum, in which does sound travel fastest?",
+    "answer": "Water",
+    "distractors": [
+      "Air",
+      "A vacuum"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Sound travels about four times faster in water than in air and cannot travel through a vacuum at all."
+  },
+  {
+    "id": "science-043",
+    "question": "What is the chemical symbol for silver?",
+    "answer": "Ag",
+    "distractors": [
+      "Au",
+      "Si",
+      "Sv"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Silver's symbol Ag comes from its Latin name, argentum."
+  },
+  {
+    "id": "science-044",
+    "question": "What is the smallest bone in the human body?",
+    "answer": "Stapes",
+    "distractors": [
+      "Incus",
+      "Malleus",
+      "Hyoid"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "The stapes, one of the three tiny bones of the middle ear, is the smallest bone in the body."
+  },
+  {
+    "id": "science-045",
+    "question": "What force resists the sliding of two surfaces against each other?",
+    "answer": "Friction",
+    "distractors": [
+      "Inertia",
+      "Tension",
+      "Buoyancy"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Friction is the force that opposes motion between surfaces in contact."
+  },
+  {
+    "id": "science-046",
+    "question": "Which layer of Earth's atmosphere contains most of the ozone layer?",
+    "answer": "Stratosphere",
+    "distractors": [
+      "Troposphere",
+      "Mesosphere",
+      "Thermosphere"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Most atmospheric ozone is concentrated in the stratosphere, above the troposphere."
+  },
+  {
+    "id": "science-047",
+    "question": "What is the common name for sodium chloride?",
+    "answer": "Table salt",
+    "distractors": [
+      "Baking soda",
+      "Chalk",
+      "Bleach"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Sodium chloride, NaCl, is ordinary table salt."
+  },
+  {
+    "id": "science-048",
+    "question": "Which vitamin does human skin produce when exposed to sunlight?",
+    "answer": "Vitamin D",
+    "distractors": [
+      "Vitamin C",
+      "Vitamin A",
+      "Vitamin K"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Ultraviolet B light triggers the skin to make vitamin D."
+  },
+  {
+    "id": "science-049",
+    "question": "What is the name of Saturn's largest moon?",
+    "answer": "Titan",
+    "distractors": [
+      "Enceladus",
+      "Rhea",
+      "Mimas"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Titan is by far Saturn's largest moon and has a thick nitrogen atmosphere."
+  },
+  {
+    "id": "science-050",
+    "question": "What is the chemical symbol for lead?",
+    "answer": "Pb",
+    "distractors": [
+      "Le",
+      "Ld",
+      "Pd"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Lead's symbol Pb comes from its Latin name, plumbum."
+  },
+  {
+    "id": "science-051",
+    "question": "What kind of energy is stored in a stretched spring?",
+    "answer": "Elastic potential energy",
+    "distractors": [
+      "Kinetic energy",
+      "Thermal energy",
+      "Nuclear energy"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Stretching or compressing a spring stores elastic potential energy that is released when it returns to shape."
+  },
+  {
+    "id": "science-052",
+    "question": "What is the name of the galaxy that contains our solar system?",
+    "answer": "Milky Way",
+    "distractors": [
+      "Andromeda",
+      "Triangulum",
+      "Whirlpool"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Our solar system is located in one of the spiral arms of the Milky Way galaxy."
+  },
+  {
+    "id": "science-053",
+    "question": "Which blood type is known as the universal donor for red blood cells?",
+    "answer": "O negative",
+    "distractors": [
+      "AB positive",
+      "A negative",
+      "B positive"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "O negative red cells lack A, B and RhD antigens, so most recipients can receive them."
+  },
+  {
+    "id": "science-054",
+    "question": "How many chromosomes are found in a typical human body cell?",
+    "answer": "46",
+    "distractors": [
+      "23",
+      "44",
+      "48"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Typical human body cells have 23 pairs of chromosomes, for a total of 46."
+  },
+  {
+    "id": "science-055",
+    "question": "What is the SI unit of electric current?",
+    "answer": "Ampere",
+    "distractors": [
+      "Volt",
+      "Coulomb",
+      "Ohm"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Electric current is measured in amperes, one of the seven SI base units."
+  },
+  {
+    "id": "science-056",
+    "question": "What is it called when a solid changes directly into a gas without becoming a liquid?",
+    "answer": "Sublimation",
+    "distractors": [
+      "Deposition",
+      "Condensation",
+      "Melting"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Sublimation is the direct change from solid to gas, as seen with dry ice."
+  },
+  {
+    "id": "science-057",
+    "question": "Which noble gas gives classic glowing signs their red-orange color?",
+    "answer": "Neon",
+    "distractors": [
+      "Argon",
+      "Krypton",
+      "Xenon"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Electricity passing through neon gas makes it glow a characteristic red-orange."
+  },
+  {
+    "id": "science-058",
+    "question": "What word describes animals that are mainly active at night?",
+    "answer": "Nocturnal",
+    "distractors": [
+      "Diurnal",
+      "Crepuscular",
+      "Migratory"
+    ],
+    "category": "science",
+    "difficulty": "medium",
+    "explanation": "Nocturnal animals are active at night, while diurnal animals are active by day."
+  },
+  {
+    "id": "science-059",
+    "question": "What is the boundary between Earth's crust and mantle called?",
+    "answer": "Moho discontinuity",
+    "distractors": [
+      "Gutenberg discontinuity",
+      "Lehmann discontinuity",
+      "Conrad discontinuity"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "The Mohorovičić (Moho) discontinuity marks the boundary where the crust meets the mantle."
+  },
+  {
+    "id": "science-060",
+    "question": "What is the atomic number of gold?",
+    "answer": "79",
+    "distractors": [
+      "47",
+      "82",
+      "78"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Gold atoms have 79 protons, so gold's atomic number is 79."
+  },
+  {
+    "id": "science-061",
+    "question": "Which element has the chemical symbol W?",
+    "answer": "Tungsten",
+    "distractors": [
+      "Vanadium",
+      "Osmium",
+      "Tantalum"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Tungsten's symbol W comes from wolfram, its alternative name."
+  },
+  {
+    "id": "science-062",
+    "question": "What is the approximate value of Avogadro's number?",
+    "answer": "6.022 × 10^23",
+    "distractors": [
+      "3.0 × 10^8",
+      "6.674 × 10^-11",
+      "1.602 × 10^-19"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Avogadro's number, about 6.022 × 10^23, is the number of particles in one mole."
+  },
+  {
+    "id": "science-063",
+    "question": "Which planet has the shortest day, rotating once in about 10 hours?",
+    "answer": "Jupiter",
+    "distractors": [
+      "Saturn",
+      "Earth",
+      "Mars"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Jupiter completes one rotation in just under 10 hours, the fastest of any planet."
+  },
+  {
+    "id": "science-064",
+    "question": "Which metal is liquid at standard room temperature?",
+    "answer": "Mercury",
+    "distractors": [
+      "Gallium",
+      "Caesium",
+      "Sodium"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Mercury melts at about -39 °C, so it is liquid at room temperature, while gallium and caesium melt just above it."
+  },
+  {
+    "id": "science-065",
+    "question": "Which enzyme in saliva begins the digestion of starch?",
+    "answer": "Amylase",
+    "distractors": [
+      "Pepsin",
+      "Lipase",
+      "Trypsin"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Salivary amylase breaks starch down into smaller sugars in the mouth."
+  },
+  {
+    "id": "science-066",
+    "question": "Which subatomic particle did James Chadwick discover in 1932?",
+    "answer": "Neutron",
+    "distractors": [
+      "Proton",
+      "Electron",
+      "Positron"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Chadwick identified the uncharged neutron in 1932, earning the 1935 Nobel Prize in Physics."
+  },
+  {
+    "id": "science-067",
+    "question": "What is the SI unit of magnetic flux density?",
+    "answer": "Tesla",
+    "distractors": [
+      "Weber",
+      "Henry",
+      "Gauss"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Magnetic flux density is measured in teslas in the SI system, while the gauss is a CGS unit."
+  },
+  {
+    "id": "science-068",
+    "question": "Which part of the brain mainly coordinates balance and fine movement?",
+    "answer": "Cerebellum",
+    "distractors": [
+      "Medulla oblongata",
+      "Hypothalamus",
+      "Frontal lobe"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "The cerebellum at the back of the brain coordinates balance, posture and precise movement."
+  },
+  {
+    "id": "science-069",
+    "question": "What is the lightest noble gas?",
+    "answer": "Helium",
+    "distractors": [
+      "Neon",
+      "Argon",
+      "Krypton"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Helium, with atomic number 2, is the lightest of the noble gases."
+  },
+  {
+    "id": "science-070",
+    "question": "What is the point in a planet's orbit closest to the Sun called?",
+    "answer": "Perihelion",
+    "distractors": [
+      "Aphelion",
+      "Perigee",
+      "Apogee"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Perihelion is the closest approach to the Sun, while aphelion is the farthest point."
+  },
+  {
+    "id": "science-071",
+    "question": "What is absolute zero on the Celsius scale?",
+    "answer": "-273.15 °C",
+    "distractors": [
+      "-459.67 °C",
+      "-100 °C",
+      "-373.15 °C"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Absolute zero, 0 kelvin, equals -273.15 degrees Celsius."
+  },
+  {
+    "id": "science-072",
+    "question": "On which planet did Voyager 2 observe the Great Dark Spot in 1989?",
+    "answer": "Neptune",
+    "distractors": [
+      "Uranus",
+      "Saturn",
+      "Jupiter"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Voyager 2 photographed the Great Dark Spot storm during its 1989 flyby of Neptune."
+  },
+  {
+    "id": "science-073",
+    "question": "What is the molecular formula of sucrose, or table sugar?",
+    "answer": "C12H22O11",
+    "distractors": [
+      "C6H12O6",
+      "C12H24O12",
+      "C6H22O11"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Sucrose is a disaccharide with the formula C12H22O11, while C6H12O6 is glucose."
+  },
+  {
+    "id": "science-074",
+    "question": "Which element is the most electronegative?",
+    "answer": "Fluorine",
+    "distractors": [
+      "Oxygen",
+      "Chlorine",
+      "Nitrogen"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Fluorine has the highest electronegativity on the Pauling scale, at about 3.98."
+  },
+  {
+    "id": "science-075",
+    "question": "Which protein carries oxygen inside red blood cells?",
+    "answer": "Hemoglobin",
+    "distractors": [
+      "Myoglobin",
+      "Albumin",
+      "Keratin"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "Hemoglobin is the iron-containing protein in red blood cells that binds oxygen."
+  },
+  {
+    "id": "science-076",
+    "question": "What type of chemical bond forms when atoms share pairs of electrons?",
+    "answer": "Covalent bond",
+    "distractors": [
+      "Ionic bond",
+      "Metallic bond",
+      "Hydrogen bond"
+    ],
+    "category": "science",
+    "difficulty": "hard",
+    "explanation": "A covalent bond is formed by atoms sharing one or more pairs of electrons."
+  }
+]

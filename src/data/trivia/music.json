@@ -1,0 +1,990 @@
+[
+  {
+    "id": "music-001",
+    "question": "How many keys are on a standard modern piano?",
+    "answer": "88",
+    "distractors": [
+      "76",
+      "84",
+      "96"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "A standard modern piano has 88 keys: 52 white and 36 black."
+  },
+  {
+    "id": "music-002",
+    "question": "How many strings does a standard guitar have?",
+    "answer": "Six",
+    "distractors": [
+      "Four",
+      "Seven",
+      "Eight"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "A standard acoustic or electric guitar has six strings."
+  },
+  {
+    "id": "music-003",
+    "question": "How many lines make up a standard musical staff?",
+    "answer": "Five",
+    "distractors": [
+      "Four",
+      "Six",
+      "Seven"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Western notation uses a staff of five horizontal lines and four spaces."
+  },
+  {
+    "id": "music-004",
+    "question": "To which instrument family does the trumpet belong?",
+    "answer": "Brass",
+    "distractors": [
+      "Woodwind",
+      "Percussion",
+      "Strings"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "The trumpet produces sound through buzzing lips in a mouthpiece, which defines brass instruments."
+  },
+  {
+    "id": "music-005",
+    "question": "Which band released the album Abbey Road in 1969?",
+    "answer": "The Beatles",
+    "distractors": [
+      "The Rolling Stones",
+      "The Kinks",
+      "The Who"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Abbey Road was recorded by The Beatles and named after the London street of their studio."
+  },
+  {
+    "id": "music-006",
+    "question": "Which English city did The Beatles come from?",
+    "answer": "Liverpool",
+    "distractors": [
+      "Manchester",
+      "London",
+      "Birmingham"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "The Beatles formed in Liverpool in 1960."
+  },
+  {
+    "id": "music-007",
+    "question": "Who composed the set of violin concertos known as The Four Seasons?",
+    "answer": "Antonio Vivaldi",
+    "distractors": [
+      "Johann Sebastian Bach",
+      "George Frideric Handel",
+      "Joseph Haydn"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Vivaldi published The Four Seasons in 1725."
+  },
+  {
+    "id": "music-008",
+    "question": "Which artist released the 1982 album Thriller?",
+    "answer": "Michael Jackson",
+    "distractors": [
+      "Prince",
+      "Lionel Richie",
+      "Stevie Wonder"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Thriller was Michael Jackson’s sixth studio album, released in November 1982."
+  },
+  {
+    "id": "music-009",
+    "question": "Which band released \"Bohemian Rhapsody\" in 1975?",
+    "answer": "Queen",
+    "distractors": [
+      "Genesis",
+      "The Who",
+      "Electric Light Orchestra"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "\"Bohemian Rhapsody\" appeared on Queen’s 1975 album A Night at the Opera."
+  },
+  {
+    "id": "music-010",
+    "question": "What musical term means gradually getting louder?",
+    "answer": "Crescendo",
+    "distractors": [
+      "Diminuendo",
+      "Staccato",
+      "Legato"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Crescendo is Italian for \"growing\" and indicates a gradual increase in volume."
+  },
+  {
+    "id": "music-011",
+    "question": "What does the dynamic marking \"forte\" mean?",
+    "answer": "Loud",
+    "distractors": [
+      "Soft",
+      "Fast",
+      "Slow"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Forte, marked f, is Italian for \"strong\" and tells the player to play loudly."
+  },
+  {
+    "id": "music-012",
+    "question": "Which symbol raises a note by a semitone?",
+    "answer": "Sharp",
+    "distractors": [
+      "Flat",
+      "Natural",
+      "Fermata"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "A sharp (♯) raises a note by one half step; a flat lowers it."
+  },
+  {
+    "id": "music-013",
+    "question": "In 4/4 time, how many beats does a whole note last?",
+    "answer": "Four",
+    "distractors": [
+      "Two",
+      "One",
+      "Eight"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "In 4/4 the quarter note gets one beat, so a whole note lasts four beats."
+  },
+  {
+    "id": "music-014",
+    "question": "What is the name for the interval between a note and the next note of the same letter name?",
+    "answer": "Octave",
+    "distractors": [
+      "Fifth",
+      "Seventh",
+      "Unison"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "An octave spans eight scale degrees, and its upper note has double the frequency of the lower."
+  },
+  {
+    "id": "music-015",
+    "question": "What is the largest and lowest-pitched bowed string instrument in a standard orchestra?",
+    "answer": "Double bass",
+    "distractors": [
+      "Cello",
+      "Viola",
+      "Harp"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "The double bass is the largest and lowest member of the orchestral string family."
+  },
+  {
+    "id": "music-016",
+    "question": "Which instrument was Louis Armstrong most famous for playing?",
+    "answer": "Trumpet",
+    "distractors": [
+      "Saxophone",
+      "Trombone",
+      "Clarinet"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Louis Armstrong was a jazz trumpeter as well as a singer."
+  },
+  {
+    "id": "music-017",
+    "question": "Which music genre developed in New Orleans in the early 20th century?",
+    "answer": "Jazz",
+    "distractors": [
+      "Country",
+      "Reggae",
+      "Bluegrass"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Jazz grew out of the African American communities of New Orleans around the turn of the 20th century."
+  },
+  {
+    "id": "music-018",
+    "question": "In which country did reggae music originate?",
+    "answer": "Jamaica",
+    "distractors": [
+      "Trinidad and Tobago",
+      "Cuba",
+      "Barbados"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Reggae emerged in Jamaica in the late 1960s."
+  },
+  {
+    "id": "music-019",
+    "question": "K-pop is popular music from which country?",
+    "answer": "South Korea",
+    "distractors": [
+      "Japan",
+      "China",
+      "Thailand"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "K-pop stands for Korean pop music from South Korea."
+  },
+  {
+    "id": "music-020",
+    "question": "Flamenco music and dance come from which country?",
+    "answer": "Spain",
+    "distractors": [
+      "Portugal",
+      "Mexico",
+      "Italy"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Flamenco developed in Andalusia in southern Spain."
+  },
+  {
+    "id": "music-021",
+    "question": "The Great Highland bagpipe is most closely associated with which country?",
+    "answer": "Scotland",
+    "distractors": [
+      "Wales",
+      "Norway",
+      "Ireland"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "The Great Highland bagpipe is the traditional bagpipe of Scotland."
+  },
+  {
+    "id": "music-022",
+    "question": "The sitar is a traditional stringed instrument from which country?",
+    "answer": "India",
+    "distractors": [
+      "Japan",
+      "Turkey",
+      "Indonesia"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "The sitar is a long-necked plucked instrument central to Hindustani classical music."
+  },
+  {
+    "id": "music-023",
+    "question": "The didgeridoo is a wind instrument developed by the Indigenous peoples of which country?",
+    "answer": "Australia",
+    "distractors": [
+      "New Zealand",
+      "Papua New Guinea",
+      "Fiji"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "The didgeridoo originated with Aboriginal peoples of northern Australia."
+  },
+  {
+    "id": "music-024",
+    "question": "Which instrument was Jimi Hendrix best known for playing?",
+    "answer": "Electric guitar",
+    "distractors": [
+      "Bass guitar",
+      "Drums",
+      "Keyboards"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Jimi Hendrix is celebrated as an innovative electric guitarist."
+  },
+  {
+    "id": "music-025",
+    "question": "Which singer is widely nicknamed \"the King of Rock and Roll\"?",
+    "answer": "Elvis Presley",
+    "distractors": [
+      "Chuck Berry",
+      "Little Richard",
+      "Buddy Holly"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Elvis Presley is commonly called the King of Rock and Roll, or simply the King."
+  },
+  {
+    "id": "music-026",
+    "question": "What country does the pop group ABBA come from?",
+    "answer": "Sweden",
+    "distractors": [
+      "Norway",
+      "Denmark",
+      "Finland"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "ABBA formed in Stockholm, Sweden, in 1972."
+  },
+  {
+    "id": "music-027",
+    "question": "Who was the original lead singer of The Rolling Stones?",
+    "answer": "Mick Jagger",
+    "distractors": [
+      "Keith Richards",
+      "Roger Daltrey",
+      "Robert Plant"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "Mick Jagger has been the Rolling Stones’ lead vocalist since the band formed in 1962."
+  },
+  {
+    "id": "music-028",
+    "question": "How many musicians play in a string quartet?",
+    "answer": "Four",
+    "distractors": [
+      "Three",
+      "Five",
+      "Six"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "A string quartet is made up of four string players."
+  },
+  {
+    "id": "music-029",
+    "question": "Which percussion instrument has wooden bars struck with mallets?",
+    "answer": "Xylophone",
+    "distractors": [
+      "Glockenspiel",
+      "Vibraphone",
+      "Celesta"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "The xylophone has wooden bars, while the glockenspiel and vibraphone have metal bars."
+  },
+  {
+    "id": "music-030",
+    "question": "How does a trombone player change pitch, apart from using the lips?",
+    "answer": "With a slide",
+    "distractors": [
+      "With valves",
+      "With keys",
+      "With pedals"
+    ],
+    "category": "music",
+    "difficulty": "easy",
+    "explanation": "The trombone uses a telescoping slide to change the length of its tubing."
+  },
+  {
+    "id": "music-031",
+    "question": "Who composed the \"Moonlight\" Sonata?",
+    "answer": "Ludwig van Beethoven",
+    "distractors": [
+      "Wolfgang Amadeus Mozart",
+      "Frédéric Chopin",
+      "Franz Schubert"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "The \"Moonlight\" Sonata is Beethoven’s Piano Sonata No. 14, completed in 1801."
+  },
+  {
+    "id": "music-032",
+    "question": "How many symphonies did Ludwig van Beethoven complete?",
+    "answer": "Nine",
+    "distractors": [
+      "Seven",
+      "Twelve",
+      "Five"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Beethoven completed nine symphonies, ending with the Ninth in 1824."
+  },
+  {
+    "id": "music-033",
+    "question": "Who composed the music for the ballet The Nutcracker?",
+    "answer": "Pyotr Ilyich Tchaikovsky",
+    "distractors": [
+      "Igor Stravinsky",
+      "Nikolai Rimsky-Korsakov",
+      "Sergei Prokofiev"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Tchaikovsky’s The Nutcracker premiered in St. Petersburg in 1892."
+  },
+  {
+    "id": "music-034",
+    "question": "Who composed \"Eine kleine Nachtmusik\"?",
+    "answer": "Wolfgang Amadeus Mozart",
+    "distractors": [
+      "Joseph Haydn",
+      "Franz Schubert",
+      "Johann Strauss II"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Mozart completed \"Eine kleine Nachtmusik\" (Serenade No. 13) in 1787."
+  },
+  {
+    "id": "music-035",
+    "question": "Who composed Rhapsody in Blue (1924)?",
+    "answer": "George Gershwin",
+    "distractors": [
+      "Aaron Copland",
+      "Leonard Bernstein",
+      "Cole Porter"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "George Gershwin’s Rhapsody in Blue premiered in New York in 1924."
+  },
+  {
+    "id": "music-036",
+    "question": "Who composed the six Brandenburg Concertos?",
+    "answer": "Johann Sebastian Bach",
+    "distractors": [
+      "George Frideric Handel",
+      "Georg Philipp Telemann",
+      "Antonio Vivaldi"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Bach presented the Brandenburg Concertos to the Margrave of Brandenburg in 1721."
+  },
+  {
+    "id": "music-037",
+    "question": "Which band released The Dark Side of the Moon in 1973?",
+    "answer": "Pink Floyd",
+    "distractors": [
+      "Led Zeppelin",
+      "Genesis",
+      "Yes"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "The Dark Side of the Moon is Pink Floyd’s eighth studio album, released in March 1973."
+  },
+  {
+    "id": "music-038",
+    "question": "Which band released the album Nevermind in 1991?",
+    "answer": "Nirvana",
+    "distractors": [
+      "Pearl Jam",
+      "Soundgarden",
+      "Alice in Chains"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Nevermind was Nirvana’s second studio album, released in September 1991."
+  },
+  {
+    "id": "music-039",
+    "question": "Which band released the 1977 album Rumours?",
+    "answer": "Fleetwood Mac",
+    "distractors": [
+      "Eagles",
+      "The Doobie Brothers",
+      "Steely Dan"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Rumours was released by Fleetwood Mac in February 1977."
+  },
+  {
+    "id": "music-040",
+    "question": "In what year did The Beatles release Sgt. Pepper's Lonely Hearts Club Band?",
+    "answer": "1967",
+    "distractors": [
+      "1965",
+      "1969",
+      "1963"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Sgt. Pepper's Lonely Hearts Club Band was released in 1967."
+  },
+  {
+    "id": "music-041",
+    "question": "With which song did ABBA win the 1974 Eurovision Song Contest?",
+    "answer": "Waterloo",
+    "distractors": [
+      "Dancing Queen",
+      "Mamma Mia",
+      "Fernando"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "ABBA won Eurovision 1974 in Brighton with \"Waterloo\"."
+  },
+  {
+    "id": "music-042",
+    "question": "What was the name of Bob Marley's band?",
+    "answer": "The Wailers",
+    "distractors": [
+      "The Specials",
+      "The Maytals",
+      "Steel Pulse"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Bob Marley performed and recorded with The Wailers."
+  },
+  {
+    "id": "music-043",
+    "question": "In what year did MTV launch in the United States?",
+    "answer": "1981",
+    "distractors": [
+      "1977",
+      "1984",
+      "1986"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "MTV began broadcasting on August 1, 1981."
+  },
+  {
+    "id": "music-044",
+    "question": "Although usually made of brass, the saxophone belongs to which instrument family?",
+    "answer": "Woodwind",
+    "distractors": [
+      "Brass",
+      "Percussion",
+      "Keyboard"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "The saxophone uses a single reed like a clarinet, which makes it a woodwind."
+  },
+  {
+    "id": "music-045",
+    "question": "Who invented the saxophone?",
+    "answer": "Adolphe Sax",
+    "distractors": [
+      "Theobald Boehm",
+      "Johann Denner",
+      "Hector Berlioz"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Belgian instrument maker Adolphe Sax patented the saxophone in 1846."
+  },
+  {
+    "id": "music-046",
+    "question": "Which instrument traditionally plays the tuning note for the rest of the orchestra?",
+    "answer": "Oboe",
+    "distractors": [
+      "Clarinet",
+      "Flute",
+      "Trumpet"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "The oboe usually sounds the A that the orchestra tunes to because its pitch is steady and penetrating."
+  },
+  {
+    "id": "music-047",
+    "question": "How many semitones are in one octave?",
+    "answer": "Twelve",
+    "distractors": [
+      "Eight",
+      "Seven",
+      "Ten"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "An octave is divided into twelve semitones, the black and white keys from one C to the next."
+  },
+  {
+    "id": "music-048",
+    "question": "What is a chord made of three notes stacked in thirds called?",
+    "answer": "Triad",
+    "distractors": [
+      "Dyad",
+      "Cadence",
+      "Arpeggio"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "A triad has a root, a third and a fifth."
+  },
+  {
+    "id": "music-049",
+    "question": "What does the tempo marking \"allegro\" indicate?",
+    "answer": "Fast and lively",
+    "distractors": [
+      "Slow and stately",
+      "Moderately slow",
+      "Gradually slower"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Allegro is Italian for \"cheerful\" and indicates a brisk, lively tempo."
+  },
+  {
+    "id": "music-050",
+    "question": "What does the Italian term \"pizzicato\" tell string players to do?",
+    "answer": "Pluck the strings",
+    "distractors": [
+      "Use the bow",
+      "Play very softly",
+      "Slide between notes"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Pizzicato means plucking the strings with the fingers instead of bowing."
+  },
+  {
+    "id": "music-051",
+    "question": "Which instrument joins two violins and a cello to complete a standard string quartet?",
+    "answer": "Viola",
+    "distractors": [
+      "Double bass",
+      "Piano",
+      "Harp"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "A string quartet consists of two violins, a viola and a cello."
+  },
+  {
+    "id": "music-052",
+    "question": "Which orchestral instrument usually has 47 strings and seven pedals?",
+    "answer": "Harp",
+    "distractors": [
+      "Harpsichord",
+      "Zither",
+      "Piano"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "The modern concert pedal harp has 47 strings and seven pedals."
+  },
+  {
+    "id": "music-053",
+    "question": "In which musical era did Johann Sebastian Bach work?",
+    "answer": "Baroque",
+    "distractors": [
+      "Classical",
+      "Romantic",
+      "Renaissance"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Bach (1685–1750) is a central figure of the Baroque period."
+  },
+  {
+    "id": "music-054",
+    "question": "What is a solo song in an opera called?",
+    "answer": "Aria",
+    "distractors": [
+      "Libretto",
+      "Overture",
+      "Chorus"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "An aria is an expressive piece for a solo voice in an opera or oratorio."
+  },
+  {
+    "id": "music-055",
+    "question": "Which New York City borough is recognized as the birthplace of hip hop?",
+    "answer": "The Bronx",
+    "distractors": [
+      "Brooklyn",
+      "Queens",
+      "Staten Island"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Hip hop emerged at block parties in the Bronx in the 1970s."
+  },
+  {
+    "id": "music-056",
+    "question": "Grunge music is most associated with which U.S. city?",
+    "answer": "Seattle",
+    "distractors": [
+      "Portland",
+      "Chicago",
+      "Detroit"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Grunge grew out of the Seattle music scene in the late 1980s."
+  },
+  {
+    "id": "music-057",
+    "question": "In which country did bossa nova originate?",
+    "answer": "Brazil",
+    "distractors": [
+      "Argentina",
+      "Cuba",
+      "Portugal"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "Bossa nova developed in Rio de Janeiro in the late 1950s."
+  },
+  {
+    "id": "music-058",
+    "question": "In which country was the rock band AC/DC formed?",
+    "answer": "Australia",
+    "distractors": [
+      "New Zealand",
+      "England",
+      "Canada"
+    ],
+    "category": "music",
+    "difficulty": "medium",
+    "explanation": "AC/DC was formed in Sydney, Australia, in 1973."
+  },
+  {
+    "id": "music-059",
+    "question": "Who composed the four-opera cycle Der Ring des Nibelungen?",
+    "answer": "Richard Wagner",
+    "distractors": [
+      "Giuseppe Verdi",
+      "Richard Strauss",
+      "Giacomo Puccini"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "Wagner’s Ring cycle was first performed complete at Bayreuth in 1876."
+  },
+  {
+    "id": "music-060",
+    "question": "Who composed the ballet The Rite of Spring, premiered in Paris in 1913?",
+    "answer": "Igor Stravinsky",
+    "distractors": [
+      "Claude Debussy",
+      "Maurice Ravel",
+      "Sergei Prokofiev"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "Stravinsky’s The Rite of Spring premiered at the Théâtre des Champs-Élysées in 1913."
+  },
+  {
+    "id": "music-061",
+    "question": "Who composed Boléro (1928)?",
+    "answer": "Maurice Ravel",
+    "distractors": [
+      "Claude Debussy",
+      "Erik Satie",
+      "Camille Saint-Saëns"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "Ravel wrote Boléro as a ballet score in 1928."
+  },
+  {
+    "id": "music-062",
+    "question": "Who composed the opera Carmen?",
+    "answer": "Georges Bizet",
+    "distractors": [
+      "Giuseppe Verdi",
+      "Giacomo Puccini",
+      "Jacques Offenbach"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "Bizet’s Carmen premiered in Paris in 1875."
+  },
+  {
+    "id": "music-063",
+    "question": "Who composed the opera La traviata?",
+    "answer": "Giuseppe Verdi",
+    "distractors": [
+      "Giacomo Puccini",
+      "Gioachino Rossini",
+      "Gaetano Donizetti"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "Verdi’s La traviata premiered in Venice in 1853."
+  },
+  {
+    "id": "music-064",
+    "question": "Who composed the opera The Barber of Seville (1816)?",
+    "answer": "Gioachino Rossini",
+    "distractors": [
+      "Wolfgang Amadeus Mozart",
+      "Gaetano Donizetti",
+      "Vincenzo Bellini"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "Rossini’s The Barber of Seville premiered in Rome in 1816."
+  },
+  {
+    "id": "music-065",
+    "question": "Who composed the orchestral suite The Planets?",
+    "answer": "Gustav Holst",
+    "distractors": [
+      "Edward Elgar",
+      "Ralph Vaughan Williams",
+      "Benjamin Britten"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "English composer Gustav Holst wrote The Planets between 1914 and 1917."
+  },
+  {
+    "id": "music-066",
+    "question": "Who composed Peter and the Wolf (1936)?",
+    "answer": "Sergei Prokofiev",
+    "distractors": [
+      "Pyotr Ilyich Tchaikovsky",
+      "Dmitri Shostakovich",
+      "Modest Mussorgsky"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "Prokofiev wrote Peter and the Wolf as a musical story for children in 1936."
+  },
+  {
+    "id": "music-067",
+    "question": "Which band released the 1969 rock opera album Tommy?",
+    "answer": "The Who",
+    "distractors": [
+      "The Kinks",
+      "Pink Floyd",
+      "Genesis"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "Tommy was written mostly by Pete Townshend and released by The Who in 1969."
+  },
+  {
+    "id": "music-068",
+    "question": "Which band released the album Pet Sounds in 1966?",
+    "answer": "The Beach Boys",
+    "distractors": [
+      "The Byrds",
+      "The Mamas & the Papas",
+      "The Monkees"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "Pet Sounds, led by Brian Wilson, was released by The Beach Boys in May 1966."
+  },
+  {
+    "id": "music-069",
+    "question": "On which Led Zeppelin album did \"Stairway to Heaven\" first appear?",
+    "answer": "Led Zeppelin IV",
+    "distractors": [
+      "Houses of the Holy",
+      "Physical Graffiti",
+      "Led Zeppelin II"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "\"Stairway to Heaven\" was released on the band’s untitled fourth album in 1971."
+  },
+  {
+    "id": "music-070",
+    "question": "What was the first music video played on MTV when it launched in 1981?",
+    "answer": "Video Killed the Radio Star",
+    "distractors": [
+      "Take On Me",
+      "Money for Nothing",
+      "Billie Jean"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "MTV opened its broadcast with \"Video Killed the Radio Star\" by The Buggles."
+  },
+  {
+    "id": "music-071",
+    "question": "Which instrument did Bartolomeo Cristofori invent in Italy around 1700?",
+    "answer": "Piano",
+    "distractors": [
+      "Harpsichord",
+      "Violin",
+      "Pipe organ"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "Cristofori built the first pianos, with hammers that let players vary volume."
+  },
+  {
+    "id": "music-072",
+    "question": "What frequency is the standard concert pitch for the A above middle C?",
+    "answer": "440 Hz",
+    "distractors": [
+      "432 Hz",
+      "400 Hz",
+      "466 Hz"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "The International Organization for Standardization fixes concert A at 440 hertz."
+  },
+  {
+    "id": "music-073",
+    "question": "In British terminology, what is a \"semibreve\"?",
+    "answer": "A whole note",
+    "distractors": [
+      "A half note",
+      "A quarter note",
+      "An eighth note"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "The semibreve is the British name for the American whole note."
+  },
+  {
+    "id": "music-074",
+    "question": "What is the relative minor key of C major?",
+    "answer": "A minor",
+    "distractors": [
+      "E minor",
+      "D minor",
+      "C minor"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "A minor shares the same key signature as C major, with no sharps or flats."
+  },
+  {
+    "id": "music-075",
+    "question": "How many sharps are in the key signature of G major?",
+    "answer": "One",
+    "distractors": [
+      "None",
+      "Two",
+      "Three"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "G major has one sharp, F sharp."
+  },
+  {
+    "id": "music-076",
+    "question": "What is the written text of an opera called?",
+    "answer": "Libretto",
+    "distractors": [
+      "Overture",
+      "Aria",
+      "Recitative"
+    ],
+    "category": "music",
+    "difficulty": "hard",
+    "explanation": "Libretto means \"little book\" in Italian and refers to an opera’s words."
+  }
+]
