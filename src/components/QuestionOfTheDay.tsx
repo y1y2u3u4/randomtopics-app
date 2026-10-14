@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import PracticeSelectedTopic from "./PracticeSelectedTopic";
 import { motion } from "framer-motion";
 import PrintButton from "./PrintButton";
 import Link from "next/link";
@@ -190,6 +191,15 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
         </div> : null}
 
         <p className="mt-3 text-center text-xs text-[var(--text-muted)]">Copy includes the question and an invitation to answer or pass. No signup needed.</p>
+
+        {shown ? <div className="mt-3 flex justify-center text-sm">
+          <PracticeSelectedTopic
+            key={shown.q}
+            topic={{ id: `qotd-${QOTD_QUESTIONS.findIndex((item) => item.q === shown.q)}`, text: shown.q, category: "relationships", modes: ["conversation", "speech"], depth: shown.c === "deep" ? "deep" : "light", talkingPoints: [] }}
+            source="qotd"
+            label="🎤 Answer it out loud — free AI feedback →"
+            className="min-h-11 rounded-xl px-4 py-2 font-semibold text-[var(--neon-cyan)] underline underline-offset-4" />
+        </div> : null}
 
         {shown?.c === "funny" ? <div className="mt-4 rounded-xl border border-[var(--neon-yellow)]/20 p-4 text-center">
           <p className="text-sm font-semibold">Want a funny question that fits your group?</p>

@@ -2,8 +2,8 @@ const qotd = "/question-of-the-day", speech = "/speech", article = "/es/topics/m
 export const CORE_USAGE_STAGES: readonly (readonly [string, string, string])[] = [
   ...["/two-truths-and-a-lie", "/this-or-that", "/truth-or-dare", "/never-have-i-ever", "/most-likely-to", "/paranoia-questions", "/hot-seat-questions", "/would-you-rather"].flatMap(path =>
     ["question", "deck"].flatMap(scope => ["copy", "copy_error"].map(action => [path, `bank_${scope}_${action}`, "Existing list action; not generation. Success requires clipboard API/fallback success; manual text selection is not verified copying."] as const))),
-  ...[["home", "/", "/speech"], ["wheel", "/spin-the-wheel", "/speech"], ["es_article", "/es/topics/public-speaking-topics-for-beginners", "/es/speech"]].flatMap(([source, origin, target]) => [
-    ...(source === "es_article" ? ["click", "error"] : ["click", "error", "return"]).map(action => [origin, `handoff_${source}_${action}`, "Selected-topic handoff in this tab; return is navigation, not cohort retention"] as const),
+  ...[["home", "/", "/speech"], ["wheel", "/spin-the-wheel", "/speech"], ["es_article", "/es/topics/public-speaking-topics-for-beginners", "/es/speech"], ["debate", "/debate", "/speech"], ["qotd", "/question-of-the-day", "/speech"]].flatMap(([source, origin, target]) => [
+    ...(["home", "wheel"].includes(source) ? ["click", "error", "return"] : ["click", "error"]).map(action => [origin, `handoff_${source}_${action}`, "Selected-topic handoff in this tab; return is navigation, not cohort retention"] as const),
     ...["load", "timer_first_start", "timer_complete", "timer_restart", "copy", "save", "share", "copy_error", "save_error", "share_error"].map(action => [target, `handoff_${source}_${action}`, "Same-topic practice action; load is not generation, timer completion is not proof of speech"] as const),
   ]),
   ["/spin-the-wheel", "spin_start", "Spin requested"],

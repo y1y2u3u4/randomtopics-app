@@ -39,6 +39,7 @@ new Function("require", "module", "exports", "Date", "setInterval", "clearInterv
   if (id === "@/lib/speech/timerPractice") return load("src/lib/speech/timerPractice.ts");
   if (id === "@/lib/speech/telemetry") return { trackSpeech: (name, params) => events.push({ name, params }) };
   if (id === "./SpeechTimerBridge") return { default: () => null, __esModule: true };
+  if (id === "./SpeechTimerInvite") return { default: () => null, __esModule: true };
   if (id === "framer-motion") return { motion: new Proxy({}, { get: (_, key) => key }), AnimatePresence: "fragment" };
   return require(id);
 }, target, target.exports, { now: () => now }, (fn) => { intervals.set(++serial, fn); return serial; }, (id) => intervals.delete(id), {

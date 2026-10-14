@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { parseHandoff, HANDOFF_TTL } from "../src/lib/topicHandoff.ts";
+import { parseHandoff, handoffReturnPath, HANDOFF_TTL } from "../src/lib/topicHandoff.ts";
 import { debateDraft } from "../src/lib/debatePreparation.ts";
 import { drawUnseen } from "../src/lib/topicPool.ts";
 import { coreUsageEvents } from "../src/lib/coreUsage.ts";
@@ -23,6 +23,14 @@ assert.deepEqual(derive("/debate", "copy_error", { action_surface: "debate_prepa
 assert.deepEqual(derive("/es/speech", "timer_first_start", { content_source: "handoff_es_article" }), ["handoff_es_article_timer_first_start"]);
 assert.deepEqual(derive("/speech", "copy_result", { content_source: "handoff_home" }), ["handoff_home_copy"]);
 assert.ok(CORE_USAGE_STAGES.every(([, name]) => `qa_${name}`.length <= 40));
+// Timer handoffs remember a same-site plain path; anything else falls back to the source page.
+const timerPack = (from) => JSON.stringify({ source: "timer", topic: { ...topic, text: "Practice" }, at: now, from });
+assert.equal(parseHandoff(timerPack("/topics/toastmasters-table-topics"), now).from, "/topics/toastmasters-table-topics");
+for (const from of ["//evil.example", "https://evil.example", "/a?b=1", "/A", "/x/../y", "javascript:alert(1)", 42])
+  assert.equal(parseHandoff(timerPack(from), now).from, undefined, String(from));
+assert.equal(handoffReturnPath({ source: "timer", from: "//evil.example" }), "/speech");
+assert.equal(handoffReturnPath({ source: "debate" }), "/debate");
+assert.deepEqual(derive("/speech", "timer_complete", { content_source: "handoff_qotd" }), ["handoff_qotd_timer_complete"]);
 assert.ok(coreUsageRows([["current7", "2026-09-22", "2026-09-28", "/spin-the-wheel", "qa_post_spin_copy", 1, 1]], "current7", "2026-09-22", "2026-09-28").every(row => row[5] === 0));
 console.log("PASS: exact topic payload, malformed/expired handoff rejection, clean draft export, unseen wheel cycle, source-specific success/error, restored-result exclusion, QA event limits and reporting separation.");
 
