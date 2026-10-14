@@ -62,7 +62,10 @@ export default function SpinTheWheelPage() {
       <Navbar />
       <main className="flex-1">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Spin the Wheel" }]} />
-        <PartyIllustration game="spin-the-wheel" />
+        {/* Decorative banner; dropped on short screens so the Spin button stays in the first screen. */}
+        <div className="[@media(max-height:900px)]:hidden">
+          <PartyIllustration game="spin-the-wheel" />
+        </div>
         <WheelGenerator
           title="Spin the Wheel"
           subtitle="Spin the random topic wheel across 16 categories — one click, one topic, endless combinations."

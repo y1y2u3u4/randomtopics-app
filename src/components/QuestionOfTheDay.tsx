@@ -31,6 +31,14 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
   const [dailyCategory, setDailyCategory] = useState<QotdCategory | "all">("all");
   const [preferenceStatus, setPreferenceStatus] = useState("");
   const dailyCategoryRef = useRef<QotdCategory | "all">("all");
+  // The draw button sits below the card; bring a new question into view if it is off screen.
+  const cardRef = useRef<HTMLDivElement>(null);
+  const revealCard = () => {
+    const el = cardRef.current;
+    if (!el || typeof window === "undefined") return;
+    const box = el.getBoundingClientRect();
+    if (box.top < 64 || box.bottom > window.innerHeight) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
 
   // Random-mode state
   const [category, setCategory] = useState<QotdCategory | "all">("all");
@@ -72,6 +80,7 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
     const pick = draw.picked[0];
     setUsed(draw.used);
     setRandomQ(pick);
+    if (typeof requestAnimationFrame === "function") requestAnimationFrame(revealCard);
     track("generate_success", {
       tool_type: "question_of_the_day",
       content_source: "qotd_hub",
@@ -131,6 +140,7 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
         <p role="status" className="mb-3 text-xs text-[var(--neon-cyan)]">{preferenceStatus}</p>
         {/* Question card */}
         <div
+          ref={cardRef}
           className="rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] p-6 sm:p-8 text-center min-h-[11rem] flex flex-col items-center justify-center"
           aria-live="polite"
         >

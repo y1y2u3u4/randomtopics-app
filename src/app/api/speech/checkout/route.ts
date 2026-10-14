@@ -80,8 +80,9 @@ export async function POST(request: Request) {
           success_url: packSuccess,
           cancel_url: `${siteUrl()}/speech/account`,
           allow_promotion_codes: false,
+          custom_text: { submit: { message: "After payment you return to your speech practice with the rounds added. We also email you a sign-in link so you can keep them on any device." } },
         },
-        { idempotencyKey: `randomtopics-pack-v1-${user.id}-${pack}-${Math.floor(Date.now() / 1800000)}` },
+        { idempotencyKey: `randomtopics-pack-v2-${user.id}-${pack}-${Math.floor(Date.now() / 1800000)}` },
       );
       if (!packSession.url) throw new SpeechError(503, "Checkout is temporarily unavailable. Please try again.");
       return response({ url: packSession.url, transactionId: purchaseTransactionId(packSession.id) });

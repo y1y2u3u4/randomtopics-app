@@ -8,7 +8,7 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/apa-citation-generator";
-const TITLE = "APA Citation Generator — Free APA 7th Edition Reference Page & In-Text Citations";
+const TITLE = "APA Citation Generator (7th Ed.) — Free Reference Page Maker";
 const DESCRIPTION =
   "Free APA 7 citation generator: paste DOIs, ISBNs or URLs, get references and in-text citations, then copy or download a full APA reference page. No signup.";
 

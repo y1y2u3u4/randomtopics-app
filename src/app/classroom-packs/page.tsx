@@ -11,9 +11,9 @@ import { CLASSROOM_PACKS, CLASSROOM_PRICES, classroomPreviews } from "@/lib/clas
 import { classroomSlides } from "@/lib/classroom/content";
 
 export const metadata: Metadata = {
-  title: { absolute: "Classroom Packs for Teachers — Question of the Day, Debate & Speech Topics" },
+  title: { absolute: "Classroom Packs: Question of the Day, Debate & Speech Topics" },
   description:
-    "Ready-to-teach slide decks for teachers: 180 days of Question of the Day, 60 classroom debate topics with pro and con prompts, and 102 impromptu speech topics. Editable PPTX, printable PDF, ad-free presenter.",
+    "Teacher slide decks: 180 days of Question of the Day, 60 classroom debate topics with pro/con prompts and 102 speech topics. PPTX, PDF, ad-free presenter.",
   alternates: { canonical: "/classroom-packs" },
   openGraph: {
     title: "Classroom Packs for Teachers — RandomTopics",
@@ -87,6 +87,9 @@ export default function ClassroomPacksPage() {
               All three packs ({CLASSROOM_PACKS.reduce((n, p) => n + p.count, 0)} slides) and every pack we add later. One payment, no subscription.
             </p>
             <ClassroomBuyButtons page="/classroom-packs" />
+            <p className="text-sm text-[var(--text-secondary)]">
+              Already bought a pack? <Link href="/account" rel="nofollow" className="text-[var(--neon-cyan)] underline-offset-4 hover:underline">Open your downloads</Link>.
+            </p>
           </div>
         </section>
 
