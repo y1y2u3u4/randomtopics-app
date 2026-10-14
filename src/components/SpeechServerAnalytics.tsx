@@ -7,7 +7,7 @@ export default async function SpeechServerAnalytics() {
   }
   const sourceLabels: Record<string, string> = {
     speech_hub: "演讲话题页", impromptu_speech_generator: "即兴演讲页",
-    table_topics_generator: "Table Topics 页", handoff_home: "首页所选题目", handoff_wheel: "转盘所选题目", speech_account: "历史练习", unknown: "来源未知",
+    table_topics_generator: "Table Topics 页", handoff_home: "首页所选题目", handoff_wheel: "转盘所选题目", handoff_debate: "辩论页所选题目", handoff_qotd: "每日一问所选题目", handoff_timer: "计时器练完后", speech_account: "历史练习", unknown: "来源未知",
   };
   const date = (iso: string) => new Date(iso).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", hour12: false });
   return <section className="glass-card space-y-3 p-5">

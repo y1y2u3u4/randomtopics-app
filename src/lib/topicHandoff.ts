@@ -4,9 +4,18 @@ export const handoffSources = {
   home: { path: "/", locale: "en" },
   wheel: { path: "/spin-the-wheel", locale: "en" },
   es_article: { path: "/es/topics/public-speaking-topics-for-beginners", locale: "es" },
+  debate: { path: "/debate", locale: "en" },
+  qotd: { path: "/question-of-the-day", locale: "en" },
+  // Any English page whose timer has no coach of its own; `from` keeps the way back.
+  timer: { path: "/speech", locale: "en" },
 } as const;
 export type HandoffSource = keyof typeof handoffSources;
-export type Handoff = { source: HandoffSource; topic: Topic; at: number };
+export type Handoff = { source: HandoffSource; topic: Topic; at: number; from?: string };
+const SAFE_PATH = /^\/[a-z0-9-]+(?:\/[a-z0-9-]+){0,3}$/;
+/** Where "Return to where you chose this topic" goes. Only same-site, plain paths. */
+export function handoffReturnPath(value: Pick<Handoff, "source" | "from">) {
+  return value.from && SAFE_PATH.test(value.from) ? value.from : handoffSources[value.source].path;
+}
 export const HANDOFF_TTL = 2 * 60 * 60_000;
 export function parseHandoff(raw: string | null, now = Date.now()): Handoff | null {
   try {
@@ -15,7 +24,8 @@ export function parseHandoff(raw: string | null, now = Date.now()): Handoff | nu
     const t = value.topic;
     const categories = ["science", "technology", "philosophy", "psychology", "history", "art-culture", "food-travel", "relationships", "education", "politics", "entertainment", "sports", "business", "nature", "health", "weird-fun"];
     if (!t || typeof t.id !== "string" || t.id.length > 200 || typeof t.text !== "string" || !t.text.trim() || t.text.length > 3000 || !categories.includes(t.category) || !["light", "medium", "deep"].includes(t.depth) || !Array.isArray(t.modes) || !t.modes.every((m: unknown) => ["conversation", "writing", "debate", "speech", "icebreaker"].includes(String(m))) || !Array.isArray(t.talkingPoints) || t.talkingPoints.length > 20 || !t.talkingPoints.every((p: unknown) => typeof p === "string" && p.length < 3000)) return null;
-    return { source: value.source, at: value.at, topic: { id: t.id, text: t.text, category: t.category, modes: t.modes, depth: t.depth, talkingPoints: t.talkingPoints } };
+    return { source: value.source, at: value.at, ...(typeof value.from === "string" && SAFE_PATH.test(value.from) ? { from: value.from } : {}),
+      topic: { id: t.id, text: t.text, category: t.category, modes: t.modes, depth: t.depth, talkingPoints: t.talkingPoints } };
   } catch { return null; }
 }
 export function handoffKey() {

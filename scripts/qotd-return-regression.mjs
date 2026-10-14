@@ -33,6 +33,7 @@ function fixture(blocked = false) {
     if(id==='framer-motion')return {motion:new Proxy({},{get:(_,key)=>key})};
     if(id==='./GeneratedResultActions')return {default:Actions};
     if(id==='./PrintButton')return {default:'print'};
+    if(id==='./PracticeSelectedTopic')return {default:'practice'};
     if(id==='@/data/questionOfTheDay')return questions;
     if(id==='@/lib/topicPool')return pool;
     if(id==='@/lib/track')return {track:(name,params)=>events.push({name,params})};

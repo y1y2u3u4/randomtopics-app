@@ -438,7 +438,7 @@ export default function TopicGenerator({
         {hasGenerated && (!coachEnabled || generatedTopics.length === 0) && <motion.div key={generatedTopics.map((t) => t.id).join(",")}
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mb-4 space-y-4">
           {generatedTopics.length > 0 ? generatedTopics.map((topic, i) => (
-            <TopicCard key={topic.id} topic={topic} index={i} locale={locale} contentSource={contentSource} actionContext="generated_result" rollFrom={rollDecoys[topic.id]} afterTitle={contentSource === "homepage" ? <PracticeSelectedTopic topic={topic} source="home" /> : contentSource === "debate_hub" ? <DebatePreparation topic={topic} /> : undefined} />
+            <TopicCard key={topic.id} topic={topic} index={i} locale={locale} contentSource={contentSource} actionContext="generated_result" rollFrom={rollDecoys[topic.id]} afterTitle={contentSource === "homepage" ? <PracticeSelectedTopic topic={topic} source="home" /> : contentSource === "debate_hub" ? <><DebatePreparation topic={topic} />{locale === "en" && <PracticeSelectedTopic topic={topic} source="debate" label="Argue it out loud — free AI feedback →" />}</> : undefined} />
           )) : (
               <div className="glass-card text-center py-16 px-6">
                 <motion.p

@@ -8,6 +8,7 @@ import type { Topic } from "@/data/types";
 import { getTimerCoach, noServerTimerCoach, subscribeTimerCoach } from "@/lib/speech/timerPractice";
 import { trackSpeech } from "@/lib/speech/telemetry";
 import SpeechTimerBridge from "./SpeechTimerBridge";
+import SpeechTimerInvite from "./SpeechTimerInvite";
 
 const PRESETS = [
   { label: "1 min", seconds: 60 },
@@ -331,6 +332,7 @@ export default function SpeechTimer({
       )}
 
       {isFinished && bridgeEnabled && coach && <SpeechTimerBridge topic={roundTopic} contentSource={contentSource} />}
+      {isFinished && bridgeEnabled && !coach && <SpeechTimerInvite topic={roundTopic ?? practiceTopic ?? null} contentSource={contentSource} />}
       {selfReview && locale === "en" && isFinished && <div className="mb-5 rounded-xl border border-[var(--neon-cyan)]/25 p-4">
         <h4 className="text-sm font-semibold">Choose one change, then try again</h4>
         <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">Your own reflection — this timer does not record or assess your speech.</p>
