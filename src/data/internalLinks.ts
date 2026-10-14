@@ -161,7 +161,14 @@ export const articleToPages: Record<
   "impromptu-speech-topics-with-timer": { modes: ["speech"], categories: ["education", "business"] },
   "first-date-conversation-topics": { modes: ["conversation", "icebreaker"], categories: ["relationships"] },
   "debate-topics-for-beginners": { modes: ["debate"], categories: ["education"] },
-  "questions-to-ask-at-a-party": { modes: ["icebreaker", "conversation"], categories: ["entertainment", "weird-fun"] },
+  "questions-to-ask-at-a-party": {
+    modes: ["icebreaker", "conversation"],
+    categories: ["entertainment", "weird-fun"],
+    tools: [
+      { emoji: "❓", label: "Trivia Questions with Host Mode", href: "/trivia-questions" },
+      { emoji: "🎃", label: "Halloween Trivia", href: "/trivia-questions/halloween" },
+    ],
+  },
   "public-speaking-topics-for-beginners": {
     modes: ["speech"],
     categories: ["education"],
@@ -171,7 +178,11 @@ export const articleToPages: Record<
     ],
   },
   "conversation-topics-for-teens": { modes: ["conversation"], categories: ["education", "relationships"] },
-  "couples-game-night-questions": { modes: ["conversation", "icebreaker"], categories: ["relationships", "entertainment"] },
+  "couples-game-night-questions": {
+    modes: ["conversation", "icebreaker"],
+    categories: ["relationships", "entertainment"],
+    tools: [{ emoji: "❓", label: "Trivia Questions with Host Mode", href: "/trivia-questions" }],
+  },
   "most-likely-to-questions": {
     modes: ["icebreaker", "conversation"],
     categories: ["relationships", "weird-fun"],

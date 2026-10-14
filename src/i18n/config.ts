@@ -120,6 +120,8 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/question-of-the-day-for-students",
   "/question-of-the-day-for-work",
   "/paranoia-questions",
+  "/trivia-questions",
+  "/trivia-questions/halloween",
   "/topics/ethical-dilemmas-for-students",
   "/topics/workplace-ethical-dilemmas",
   "/topics/ethical-dilemmas-for-adults",

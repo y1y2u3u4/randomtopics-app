@@ -4,6 +4,7 @@ const PARTY_GAMES = [
   { href: "/truth-or-dare", emoji: "🎭", label: "Truth or Dare", detail: "Clean truths and dares" },
   { href: "/would-you-rather", emoji: "🤔", label: "Would You Rather", detail: "Impossible either/or choices" },
   { href: "/paranoia-questions", emoji: "🤫", label: "Paranoia Questions", detail: "Whisper-and-reveal prompts" },
+  { href: "/trivia-questions", emoji: "❓", label: "Trivia Questions", detail: "Host mode, timer & scoreboard" },
   { href: "/this-or-that", emoji: "⚖️", label: "This or That", detail: "Fast everyday choices" },
   { href: "/most-likely-to", emoji: "👉", label: "Most Likely To", detail: "Vote on the group" },
 ];

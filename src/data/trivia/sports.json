@@ -1,0 +1,990 @@
+[
+  {
+    "id": "sports-001",
+    "question": "How many players does each team have on the field in a standard soccer match?",
+    "answer": "Eleven",
+    "distractors": [
+      "Nine",
+      "Ten",
+      "Twelve"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Each soccer team fields eleven players, including the goalkeeper."
+  },
+  {
+    "id": "sports-002",
+    "question": "How many players per team are on the court in a basketball game?",
+    "answer": "Five",
+    "distractors": [
+      "Four",
+      "Six",
+      "Seven"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Basketball teams play five players at a time."
+  },
+  {
+    "id": "sports-003",
+    "question": "How many players are in the field for the defensive team in baseball?",
+    "answer": "Nine",
+    "distractors": [
+      "Eight",
+      "Ten",
+      "Eleven"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "A baseball defense has nine positions, including pitcher and catcher."
+  },
+  {
+    "id": "sports-004",
+    "question": "How many players per team are on the court in indoor volleyball?",
+    "answer": "Six",
+    "distractors": [
+      "Five",
+      "Seven",
+      "Four"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Indoor volleyball teams have six players on court; beach volleyball uses two."
+  },
+  {
+    "id": "sports-005",
+    "question": "How many players per team, including the goalie, are on the ice in a standard ice hockey game?",
+    "answer": "Six",
+    "distractors": [
+      "Five",
+      "Seven",
+      "Eight"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Ice hockey teams play five skaters plus a goaltender."
+  },
+  {
+    "id": "sports-006",
+    "question": "How many points is a touchdown worth in American football?",
+    "answer": "Six",
+    "distractors": [
+      "Three",
+      "Seven",
+      "Five"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "A touchdown scores six points, with a chance at extra points afterward."
+  },
+  {
+    "id": "sports-007",
+    "question": "In tennis, what score comes after 30 in a game?",
+    "answer": "40",
+    "distractors": [
+      "45",
+      "35",
+      "50"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Tennis game scoring runs love, 15, 30, 40, then game."
+  },
+  {
+    "id": "sports-008",
+    "question": "In tennis, what word means a score of zero?",
+    "answer": "Love",
+    "distractors": [
+      "Nil",
+      "Duck",
+      "Blank"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "A score of zero in tennis is called love."
+  },
+  {
+    "id": "sports-009",
+    "question": "In golf, what is a score of one under par on a hole called?",
+    "answer": "Birdie",
+    "distractors": [
+      "Eagle",
+      "Bogey",
+      "Albatross"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "A birdie is one stroke under par; a bogey is one over."
+  },
+  {
+    "id": "sports-010",
+    "question": "What is a perfect score in ten-pin bowling?",
+    "answer": "300",
+    "distractors": [
+      "200",
+      "250",
+      "360"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Twelve consecutive strikes produce the maximum score of 300."
+  },
+  {
+    "id": "sports-011",
+    "question": "In soccer, what is it called when one player scores three goals in a single match?",
+    "answer": "Hat trick",
+    "distractors": [
+      "Treble",
+      "Triple double",
+      "Grand slam"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Three goals by one player in a game is known as a hat trick."
+  },
+  {
+    "id": "sports-012",
+    "question": "Which racket sport is played with a shuttlecock?",
+    "answer": "Badminton",
+    "distractors": [
+      "Squash",
+      "Table tennis",
+      "Pickleball"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Badminton players hit a feathered or synthetic shuttlecock over a net."
+  },
+  {
+    "id": "sports-013",
+    "question": "Which winter sport involves sliding granite stones on ice while teammates sweep?",
+    "answer": "Curling",
+    "distractors": [
+      "Bandy",
+      "Bobsleigh",
+      "Biathlon"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "In curling, players sweep the ice to guide stones toward a target called the house."
+  },
+  {
+    "id": "sports-014",
+    "question": "In which city were the first modern Olympic Games held in 1896?",
+    "answer": "Athens",
+    "distractors": [
+      "Paris",
+      "London",
+      "Rome"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "The first modern Olympics took place in Athens, Greece, in 1896."
+  },
+  {
+    "id": "sports-015",
+    "question": "How many interlocking rings are on the Olympic flag?",
+    "answer": "Five",
+    "distractors": [
+      "Four",
+      "Six",
+      "Seven"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "The Olympic symbol has five interlocking rings."
+  },
+  {
+    "id": "sports-016",
+    "question": "How high is a regulation basketball hoop above the floor?",
+    "answer": "10 feet",
+    "distractors": [
+      "9 feet",
+      "11 feet",
+      "12 feet"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Regulation basketball rims are 10 feet (3.05 m) above the floor."
+  },
+  {
+    "id": "sports-017",
+    "question": "How long is an American football field between the goal lines?",
+    "answer": "100 yards",
+    "distractors": [
+      "90 yards",
+      "110 yards",
+      "120 yards"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "The playing field is 100 yards between goal lines, plus two 10-yard end zones."
+  },
+  {
+    "id": "sports-018",
+    "question": "Which Grand Slam tennis tournament is played on grass?",
+    "answer": "Wimbledon",
+    "distractors": [
+      "US Open",
+      "French Open",
+      "Australian Open"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Wimbledon in London is the Grand Slam event played on grass courts."
+  },
+  {
+    "id": "sports-019",
+    "question": "On what surface is the French Open tennis tournament played?",
+    "answer": "Clay",
+    "distractors": [
+      "Grass",
+      "Hard court",
+      "Carpet"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "The French Open at Roland Garros is played on red clay."
+  },
+  {
+    "id": "sports-020",
+    "question": "How many holes are on a standard full golf course?",
+    "answer": "18",
+    "distractors": [
+      "9",
+      "12",
+      "21"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "A standard round of golf is played over 18 holes."
+  },
+  {
+    "id": "sports-021",
+    "question": "Sumo wrestling is the traditional national sport of which country?",
+    "answer": "Japan",
+    "distractors": [
+      "China",
+      "Mongolia",
+      "South Korea"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Sumo is a traditional Japanese form of wrestling."
+  },
+  {
+    "id": "sports-022",
+    "question": "Which sport awards the Stanley Cup?",
+    "answer": "Ice hockey",
+    "distractors": [
+      "Baseball",
+      "Basketball",
+      "American football"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "The Stanley Cup is the championship trophy of the National Hockey League."
+  },
+  {
+    "id": "sports-023",
+    "question": "What color jersey does the overall leader of the Tour de France wear?",
+    "answer": "Yellow",
+    "distractors": [
+      "Green",
+      "Polka-dot",
+      "White"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "The overall leader of the Tour de France wears the yellow jersey, the maillot jaune."
+  },
+  {
+    "id": "sports-024",
+    "question": "How many events make up the decathlon?",
+    "answer": "Ten",
+    "distractors": [
+      "Seven",
+      "Eight",
+      "Twelve"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Deca means ten, and the decathlon has ten track and field events."
+  },
+  {
+    "id": "sports-025",
+    "question": "How long is an Olympic-size swimming pool?",
+    "answer": "50 meters",
+    "distractors": [
+      "25 meters",
+      "100 meters",
+      "33 meters"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "Olympic swimming events are held in 50-meter long-course pools."
+  },
+  {
+    "id": "sports-026",
+    "question": "In baseball, how many balls result in a walk?",
+    "answer": "Four",
+    "distractors": [
+      "Three",
+      "Five",
+      "Six"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "A batter who receives four balls is awarded first base."
+  },
+  {
+    "id": "sports-027",
+    "question": "How many innings are in a standard professional baseball game?",
+    "answer": "Nine",
+    "distractors": [
+      "Seven",
+      "Eight",
+      "Ten"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "A regulation professional baseball game lasts nine innings."
+  },
+  {
+    "id": "sports-028",
+    "question": "In soccer, which card does a referee show to send a player off?",
+    "answer": "Red card",
+    "distractors": [
+      "Yellow card",
+      "Blue card",
+      "Green card"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "A red card means the player is sent off; a yellow card is a caution."
+  },
+  {
+    "id": "sports-029",
+    "question": "In baseball, what is a home run hit with the bases loaded called?",
+    "answer": "Grand slam",
+    "distractors": [
+      "Triple play",
+      "Walk-off",
+      "Hat trick"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "A bases-loaded home run scores four runs and is called a grand slam."
+  },
+  {
+    "id": "sports-030",
+    "question": "In motor racing, which flag signals the end of the race?",
+    "answer": "Chequered flag",
+    "distractors": [
+      "Red flag",
+      "Yellow flag",
+      "Blue flag"
+    ],
+    "category": "sports",
+    "difficulty": "easy",
+    "explanation": "The black-and-white chequered flag is waved as the winner crosses the finish line."
+  },
+  {
+    "id": "sports-031",
+    "question": "How many players per side are on the field in rugby union?",
+    "answer": "Fifteen",
+    "distractors": [
+      "Thirteen",
+      "Eleven",
+      "Twelve"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "Rugby union teams field fifteen players; rugby league uses thirteen."
+  },
+  {
+    "id": "sports-032",
+    "question": "How many players per team are on the court in netball?",
+    "answer": "Seven",
+    "distractors": [
+      "Five",
+      "Six",
+      "Nine"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "Netball is played with seven players per side."
+  },
+  {
+    "id": "sports-033",
+    "question": "In American football, how many points is a safety worth?",
+    "answer": "Two",
+    "distractors": [
+      "One",
+      "Three",
+      "Four"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "A safety awards two points to the defensive team."
+  },
+  {
+    "id": "sports-034",
+    "question": "In ten-pin bowling, what are three strikes in a row called?",
+    "answer": "A turkey",
+    "distractors": [
+      "A hat trick",
+      "A triple",
+      "A wild card"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "Bowlers call three consecutive strikes a turkey."
+  },
+  {
+    "id": "sports-035",
+    "question": "Biathlon combines cross-country skiing with which other discipline?",
+    "answer": "Rifle shooting",
+    "distractors": [
+      "Archery",
+      "Ski jumping",
+      "Snowboarding"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "Biathletes ski cross-country and stop at ranges to shoot rifles at targets."
+  },
+  {
+    "id": "sports-036",
+    "question": "What is the official distance of a marathon?",
+    "answer": "42.195 km",
+    "distractors": [
+      "40.000 km",
+      "41.850 km",
+      "43.200 km"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "The marathon was standardized at 42.195 km (26.2 miles) in 1921."
+  },
+  {
+    "id": "sports-037",
+    "question": "Which country hosted the first FIFA World Cup in 1930?",
+    "answer": "Uruguay",
+    "distractors": [
+      "Brazil",
+      "Italy",
+      "Argentina"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "Uruguay hosted the first World Cup in 1930 and also won it."
+  },
+  {
+    "id": "sports-038",
+    "question": "Who invented basketball in 1891?",
+    "answer": "James Naismith",
+    "distractors": [
+      "Walter Camp",
+      "Abner Doubleday",
+      "William G. Morgan"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "James Naismith created basketball in Springfield, Massachusetts, in December 1891."
+  },
+  {
+    "id": "sports-039",
+    "question": "What did James Naismith use as goals in the first basketball game?",
+    "answer": "Peach baskets",
+    "distractors": [
+      "Milk crates",
+      "Fishing nets",
+      "Flour sacks"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "The first basketball goals were peach baskets nailed to a balcony railing."
+  },
+  {
+    "id": "sports-040",
+    "question": "What is the distance between bases on a professional baseball diamond?",
+    "answer": "90 feet",
+    "distractors": [
+      "60 feet",
+      "100 feet",
+      "120 feet"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "The bases on a regulation diamond are 90 feet apart."
+  },
+  {
+    "id": "sports-041",
+    "question": "Which golf club has hosted the Masters Tournament since it began in 1934?",
+    "answer": "Augusta National",
+    "distractors": [
+      "Pebble Beach",
+      "St Andrews",
+      "Pinehurst"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "The Masters has been played at Augusta National Golf Club in Georgia since 1934."
+  },
+  {
+    "id": "sports-042",
+    "question": "Which Scottish town is known as \"the home of golf\"?",
+    "answer": "St Andrews",
+    "distractors": [
+      "Carnoustie",
+      "Muirfield",
+      "Troon"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "St Andrews in Fife has hosted golf for centuries and is called the home of golf."
+  },
+  {
+    "id": "sports-043",
+    "question": "In which country did taekwondo originate?",
+    "answer": "Korea",
+    "distractors": [
+      "Japan",
+      "China",
+      "Thailand"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "Taekwondo is a Korean martial art that became an official Olympic sport in 2000."
+  },
+  {
+    "id": "sports-044",
+    "question": "Besides the foil and the épée, what is the third Olympic fencing weapon?",
+    "answer": "Sabre",
+    "distractors": [
+      "Rapier",
+      "Cutlass",
+      "Scimitar"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "Olympic fencing uses three weapons: foil, épée and sabre."
+  },
+  {
+    "id": "sports-045",
+    "question": "In tennis, what is a score of 40–40 called?",
+    "answer": "Deuce",
+    "distractors": [
+      "Advantage",
+      "Love",
+      "Let"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "When both players reach 40 in a game the score is called deuce."
+  },
+  {
+    "id": "sports-046",
+    "question": "What material is an ice hockey puck made of?",
+    "answer": "Vulcanized rubber",
+    "distractors": [
+      "Hard plastic",
+      "Wood",
+      "Cork"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "Hockey pucks are made of vulcanized rubber and are usually frozen before games."
+  },
+  {
+    "id": "sports-047",
+    "question": "Which sport is played in the Ryder Cup?",
+    "answer": "Golf",
+    "distractors": [
+      "Tennis",
+      "Sailing",
+      "Polo"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "The Ryder Cup is a team golf competition between Europe and the United States."
+  },
+  {
+    "id": "sports-048",
+    "question": "In which sport is the America’s Cup contested?",
+    "answer": "Sailing",
+    "distractors": [
+      "Rowing",
+      "Golf",
+      "Polo"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "The America’s Cup is a sailing trophy first contested in 1851."
+  },
+  {
+    "id": "sports-049",
+    "question": "In which sport do England and Australia compete for the Ashes?",
+    "answer": "Cricket",
+    "distractors": [
+      "Rugby union",
+      "Tennis",
+      "Field hockey"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "The Ashes is a Test cricket series between England and Australia."
+  },
+  {
+    "id": "sports-050",
+    "question": "Which group first played the game that became lacrosse?",
+    "answer": "Indigenous North Americans",
+    "distractors": [
+      "Scottish Highlanders",
+      "Dutch settlers",
+      "Irish monks"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "Lacrosse developed from stickball games played by Indigenous peoples of North America."
+  },
+  {
+    "id": "sports-051",
+    "question": "In which swimming stroke do competitors start in the water instead of diving from blocks?",
+    "answer": "Backstroke",
+    "distractors": [
+      "Butterfly",
+      "Breaststroke",
+      "Freestyle"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "Backstroke races start in the water with swimmers facing the wall."
+  },
+  {
+    "id": "sports-052",
+    "question": "How many points is a try worth in rugby union?",
+    "answer": "Five",
+    "distractors": [
+      "Three",
+      "Four",
+      "Six"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "A try scores five points in rugby union, and four in rugby league."
+  },
+  {
+    "id": "sports-053",
+    "question": "How many seconds does a team have to shoot under the NBA shot clock?",
+    "answer": "24",
+    "distractors": [
+      "30",
+      "35",
+      "20"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "The NBA introduced a 24-second shot clock in 1954."
+  },
+  {
+    "id": "sports-054",
+    "question": "What is the highest score possible with three darts?",
+    "answer": "180",
+    "distractors": [
+      "150",
+      "171",
+      "200"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "Three darts in the treble 20 score 3 × 60 = 180."
+  },
+  {
+    "id": "sports-055",
+    "question": "How many legal deliveries make up an over in cricket?",
+    "answer": "Six",
+    "distractors": [
+      "Five",
+      "Eight",
+      "Ten"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "A standard cricket over consists of six legal balls."
+  },
+  {
+    "id": "sports-056",
+    "question": "Which race is the first leg of the U.S. Triple Crown of horse racing?",
+    "answer": "Kentucky Derby",
+    "distractors": [
+      "Preakness Stakes",
+      "Belmont Stakes",
+      "Breeders' Cup"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "The Triple Crown runs Kentucky Derby, Preakness Stakes, then Belmont Stakes."
+  },
+  {
+    "id": "sports-057",
+    "question": "Which gymnastics apparatus is used only in men’s artistic gymnastics?",
+    "answer": "Pommel horse",
+    "distractors": [
+      "Balance beam",
+      "Uneven bars",
+      "Vault"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "The pommel horse is a men’s apparatus; the beam and uneven bars are women’s events."
+  },
+  {
+    "id": "sports-058",
+    "question": "In which year did Rio de Janeiro host the first Olympic Games held in South America?",
+    "answer": "2016",
+    "distractors": [
+      "2012",
+      "2014",
+      "2020"
+    ],
+    "category": "sports",
+    "difficulty": "medium",
+    "explanation": "Rio de Janeiro hosted the 2016 Summer Olympics, the first in South America."
+  },
+  {
+    "id": "sports-059",
+    "question": "How many players per side are on the field in rugby league?",
+    "answer": "Thirteen",
+    "distractors": [
+      "Fifteen",
+      "Eleven",
+      "Twelve"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "Rugby league teams have thirteen players on the field."
+  },
+  {
+    "id": "sports-060",
+    "question": "In which sport are periods of play called chukkas?",
+    "answer": "Polo",
+    "distractors": [
+      "Cricket",
+      "Lacrosse",
+      "Hurling"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "A polo match is divided into timed periods called chukkas or chukkers."
+  },
+  {
+    "id": "sports-061",
+    "question": "Which Irish field sport uses a stick called a hurley and a ball called a sliotar?",
+    "answer": "Hurling",
+    "distractors": [
+      "Shinty",
+      "Lacrosse",
+      "Bandy"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "Hurling is a Gaelic game played with a hurley and a sliotar."
+  },
+  {
+    "id": "sports-062",
+    "question": "Who invented volleyball in 1895?",
+    "answer": "William G. Morgan",
+    "distractors": [
+      "James Naismith",
+      "Walter Camp",
+      "Luther Gulick"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "William G. Morgan created volleyball, originally called mintonette, in Holyoke, Massachusetts."
+  },
+  {
+    "id": "sports-063",
+    "question": "Which city hosted the first Winter Olympic Games in 1924?",
+    "answer": "Chamonix",
+    "distractors": [
+      "St. Moritz",
+      "Lake Placid",
+      "Oslo"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "The first Winter Olympics were held in Chamonix, France, in 1924."
+  },
+  {
+    "id": "sports-064",
+    "question": "At which Olympic Games did women compete for the first time?",
+    "answer": "Paris 1900",
+    "distractors": [
+      "Athens 1896",
+      "Stockholm 1912",
+      "Amsterdam 1928"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "Women first took part in the modern Olympics at the 1900 Paris Games."
+  },
+  {
+    "id": "sports-065",
+    "question": "Which city hosted the first Summer Olympics held in Asia?",
+    "answer": "Tokyo",
+    "distractors": [
+      "Seoul",
+      "Beijing",
+      "Manila"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "Tokyo hosted the 1964 Summer Olympics, the first held in Asia."
+  },
+  {
+    "id": "sports-066",
+    "question": "Which city hosted the first Olympic Games in the Southern Hemisphere, in 1956?",
+    "answer": "Melbourne",
+    "distractors": [
+      "Sydney",
+      "Rio de Janeiro",
+      "Buenos Aires"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "Melbourne, Australia, hosted the 1956 Summer Olympics."
+  },
+  {
+    "id": "sports-067",
+    "question": "In what year was the first Tour de France held?",
+    "answer": "1903",
+    "distractors": [
+      "1896",
+      "1910",
+      "1923"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "The first Tour de France was organized in 1903."
+  },
+  {
+    "id": "sports-068",
+    "question": "Who was the first gymnast to score a perfect 10 at the Olympic Games?",
+    "answer": "Nadia Comăneci",
+    "distractors": [
+      "Olga Korbut",
+      "Mary Lou Retton",
+      "Larisa Latynina"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "Nadia Comăneci of Romania scored the first Olympic perfect 10 at Montreal 1976."
+  },
+  {
+    "id": "sports-069",
+    "question": "Who founded judo in Japan in 1882?",
+    "answer": "Jigoro Kano",
+    "distractors": [
+      "Gichin Funakoshi",
+      "Morihei Ueshiba",
+      "Mas Oyama"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "Jigoro Kano founded the Kodokan school of judo in Tokyo in 1882."
+  },
+  {
+    "id": "sports-070",
+    "question": "How wide is a regulation soccer goal?",
+    "answer": "8 yards",
+    "distractors": [
+      "6 yards",
+      "10 yards",
+      "12 yards"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "A soccer goal is 8 yards (7.32 m) wide and 8 feet (2.44 m) high."
+  },
+  {
+    "id": "sports-071",
+    "question": "What is the distance from the pitcher’s rubber to home plate in Major League Baseball?",
+    "answer": "60 feet 6 inches",
+    "distractors": [
+      "55 feet",
+      "62 feet 6 inches",
+      "58 feet 4 inches"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "The pitching distance has been 60 feet 6 inches since 1893."
+  },
+  {
+    "id": "sports-072",
+    "question": "How long is a cricket pitch between the two sets of stumps?",
+    "answer": "22 yards",
+    "distractors": [
+      "20 yards",
+      "24 yards",
+      "18 yards"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "A cricket pitch measures 22 yards (one chain) between the stumps."
+  },
+  {
+    "id": "sports-073",
+    "question": "What is the standard maximum break in snooker?",
+    "answer": "147",
+    "distractors": [
+      "155",
+      "140",
+      "167"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "Potting all 15 reds with blacks, then all the colors, gives a maximum break of 147."
+  },
+  {
+    "id": "sports-074",
+    "question": "Which stroke is swum first in an individual medley race?",
+    "answer": "Butterfly",
+    "distractors": [
+      "Backstroke",
+      "Breaststroke",
+      "Freestyle"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "The individual medley order is butterfly, backstroke, breaststroke, then freestyle."
+  },
+  {
+    "id": "sports-075",
+    "question": "Which figure skating jump is the only one that takes off while skating forward?",
+    "answer": "Axel",
+    "distractors": [
+      "Lutz",
+      "Salchow",
+      "Toe loop"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "The Axel is the only competitive jump with a forward takeoff, which adds a half rotation."
+  },
+  {
+    "id": "sports-076",
+    "question": "How much does the shot used in men’s shot put weigh?",
+    "answer": "7.26 kg",
+    "distractors": [
+      "5 kg",
+      "6.5 kg",
+      "8 kg"
+    ],
+    "category": "sports",
+    "difficulty": "hard",
+    "explanation": "The men’s shot weighs 7.26 kg (16 pounds); the women’s weighs 4 kg."
+  }
+]

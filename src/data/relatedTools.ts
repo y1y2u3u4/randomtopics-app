@@ -8,6 +8,7 @@ export interface RelatedTool { href: string; label: string; emoji: string; blurb
 
 export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/charades", label: "Charades Generator", emoji: "🎭", blurb: "528 words with a round timer", groups: ["party", "classroom"] },
+  { href: "/trivia-questions", label: "Trivia Questions", emoji: "❓", blurb: "800+ Q&As with host mode", groups: ["party", "classroom"] },
   { href: "/this-or-that", label: "This or That", emoji: "⚖️", blurb: "Quick two-choice questions", groups: ["party", "classroom"] },
   { href: "/would-you-rather", label: "Would You Rather", emoji: "🤔", blurb: "Dilemmas for any group", groups: ["party"] },
   { href: "/truth-or-dare", label: "Truth or Dare", emoji: "🎲", blurb: "Family-safe to spicy", groups: ["party"] },
@@ -58,6 +59,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/my-9-books", label: "My 9 Books", emoji: "📚", blurb: "3×3 favorite books", groups: ["my9"] },
   { href: "/my-9-grid", label: "My 9 Grid Maker", emoji: "🔳", blurb: "Any 9 pictures", groups: ["my9", "creative"] },
   { href: "/random-movie-generator", label: "Random Movie Generator", emoji: "🎬", blurb: "Movie night, decided", groups: ["party", "my9"] },
+  { href: "/trivia-questions/halloween", label: "Halloween Trivia", emoji: "🎃", blurb: "Spooky Q&As with a timer", groups: ["party", "classroom"] },
   { href: "/wu-tang-name-generator", label: "Wu-Tang Name Generator", emoji: "🥋", blurb: "Your Wu-Tang name", groups: ["names", "party"] },
   { href: "/apa-citation-generator", label: "APA Citation Generator", emoji: "📝", blurb: "APA 7 reference page", groups: ["citation"] },
   { href: "/asa-citation-generator", label: "ASA Citation Generator", emoji: "📑", blurb: "ASA 7th from a DOI", groups: ["citation"] },

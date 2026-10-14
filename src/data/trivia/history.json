@@ -1,0 +1,990 @@
+[
+  {
+    "id": "history-001",
+    "question": "In which country were the Great Pyramids of Giza built?",
+    "answer": "Egypt",
+    "distractors": [
+      "Mexico",
+      "Sudan",
+      "Iraq"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "The pyramids of Giza stand on a plateau on the west bank of the Nile near Cairo, Egypt."
+  },
+  {
+    "id": "history-002",
+    "question": "Which South American civilization built Machu Picchu?",
+    "answer": "Inca",
+    "distractors": [
+      "Aztec",
+      "Maya",
+      "Olmec"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Machu Picchu was built by the Inca in the 15th century in the Andes of Peru."
+  },
+  {
+    "id": "history-003",
+    "question": "Who received a US patent for the telephone in 1876?",
+    "answer": "Alexander Graham Bell",
+    "distractors": [
+      "Thomas Edison",
+      "Nikola Tesla",
+      "Samuel Morse"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Alexander Graham Bell was granted the US patent for the telephone in March 1876."
+  },
+  {
+    "id": "history-004",
+    "question": "Which brothers made the first sustained powered airplane flight in 1903?",
+    "answer": "Wright brothers",
+    "distractors": [
+      "Montgolfier brothers",
+      "Lumière brothers",
+      "Grimm brothers"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Orville and Wilbur Wright flew their powered Flyer at Kitty Hawk, North Carolina, in December 1903."
+  },
+  {
+    "id": "history-005",
+    "question": "In what year did humans first land on the Moon?",
+    "answer": "1969",
+    "distractors": [
+      "1965",
+      "1972",
+      "1961"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Apollo 11 landed on the Moon on July 20, 1969."
+  },
+  {
+    "id": "history-006",
+    "question": "In which ancient city was the Colosseum built?",
+    "answer": "Rome",
+    "distractors": [
+      "Athens",
+      "Carthage",
+      "Alexandria"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "The Colosseum is an amphitheater completed in Rome around AD 80."
+  },
+  {
+    "id": "history-007",
+    "question": "What was the name of the picture-based writing system of ancient Egypt?",
+    "answer": "Hieroglyphs",
+    "distractors": [
+      "Cuneiform",
+      "Runes",
+      "Linear B"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Ancient Egyptians wrote with hieroglyphs, a script of pictorial signs."
+  },
+  {
+    "id": "history-008",
+    "question": "Who discovered penicillin in 1928?",
+    "answer": "Alexander Fleming",
+    "distractors": [
+      "Louis Pasteur",
+      "Joseph Lister",
+      "Edward Jenner"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Alexander Fleming noticed in 1928 that a Penicillium mold killed bacteria in his culture dish."
+  },
+  {
+    "id": "history-009",
+    "question": "Which explorer led the expedition that made the first circumnavigation of the globe, from 1519 to 1522?",
+    "answer": "Ferdinand Magellan",
+    "distractors": [
+      "Christopher Columbus",
+      "Vasco da Gama",
+      "James Cook"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Magellan led the expedition, which was completed under Juan Sebastián Elcano after Magellan died on the way."
+  },
+  {
+    "id": "history-010",
+    "question": "Which ancient people held the original Olympic Games at Olympia?",
+    "answer": "Ancient Greeks",
+    "distractors": [
+      "Romans",
+      "Egyptians",
+      "Persians"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "The ancient Olympic Games were held by the Greeks at Olympia, traditionally from 776 BC."
+  },
+  {
+    "id": "history-011",
+    "question": "What was the name of the first artificial satellite, launched in 1957?",
+    "answer": "Sputnik 1",
+    "distractors": [
+      "Explorer 1",
+      "Vostok 1",
+      "Telstar 1"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Sputnik 1 was launched into orbit on October 4, 1957."
+  },
+  {
+    "id": "history-012",
+    "question": "Which scientist developed the theory of relativity?",
+    "answer": "Albert Einstein",
+    "distractors": [
+      "Isaac Newton",
+      "Niels Bohr",
+      "Max Planck"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Albert Einstein published special relativity in 1905 and general relativity in 1915."
+  },
+  {
+    "id": "history-013",
+    "question": "Who painted the Mona Lisa?",
+    "answer": "Leonardo da Vinci",
+    "distractors": [
+      "Michelangelo",
+      "Raphael",
+      "Titian"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Leonardo da Vinci painted the Mona Lisa in the early 1500s."
+  },
+  {
+    "id": "history-014",
+    "question": "Which of the Seven Wonders of the Ancient World stood at the harbor of Alexandria?",
+    "answer": "Lighthouse of Alexandria",
+    "distractors": [
+      "Hanging Gardens of Babylon",
+      "Colossus of Rhodes",
+      "Mausoleum at Halicarnassus"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "The Lighthouse of Alexandria, or Pharos, stood on an island at the entrance to Alexandria's harbor."
+  },
+  {
+    "id": "history-015",
+    "question": "Which scientist set out the three laws of motion?",
+    "answer": "Isaac Newton",
+    "distractors": [
+      "Galileo Galilei",
+      "Johannes Kepler",
+      "Albert Einstein"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Isaac Newton published his three laws of motion in the Principia in 1687."
+  },
+  {
+    "id": "history-016",
+    "question": "In which country was the Great Wall built?",
+    "answer": "China",
+    "distractors": [
+      "Mongolia",
+      "Japan",
+      "Korea"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "The Great Wall was built across northern China over many centuries."
+  },
+  {
+    "id": "history-017",
+    "question": "Which plant did ancient Egyptians use to make paper-like writing sheets?",
+    "answer": "Papyrus",
+    "distractors": [
+      "Bamboo",
+      "Parchment",
+      "Birch bark"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Egyptians pressed strips of the papyrus reed together to make writing sheets."
+  },
+  {
+    "id": "history-018",
+    "question": "What kind of aircraft did the Montgolfier brothers fly in 1783?",
+    "answer": "Hot air balloon",
+    "distractors": [
+      "Glider",
+      "Airship",
+      "Biplane"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "The Montgolfier brothers launched the first crewed hot air balloon flights in France in 1783."
+  },
+  {
+    "id": "history-019",
+    "question": "Who was the first person to walk on the Moon?",
+    "answer": "Neil Armstrong",
+    "distractors": [
+      "Buzz Aldrin",
+      "Yuri Gagarin",
+      "John Glenn"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Neil Armstrong stepped onto the Moon first during Apollo 11 in 1969."
+  },
+  {
+    "id": "history-020",
+    "question": "Who became the first human to travel into space, in 1961?",
+    "answer": "Yuri Gagarin",
+    "distractors": [
+      "Alan Shepard",
+      "Neil Armstrong",
+      "Valentina Tereshkova"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Yuri Gagarin orbited Earth on April 12, 1961."
+  },
+  {
+    "id": "history-021",
+    "question": "Who introduced printing with movable metal type in Europe around 1440?",
+    "answer": "Johannes Gutenberg",
+    "distractors": [
+      "William Caxton",
+      "Leonardo da Vinci",
+      "Galileo Galilei"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Johannes Gutenberg developed a movable-type printing press in Mainz around 1440."
+  },
+  {
+    "id": "history-022",
+    "question": "Which prehistoric ring of massive standing stones stands on Salisbury Plain in England?",
+    "answer": "Stonehenge",
+    "distractors": [
+      "Hadrian's Wall",
+      "Skara Brae",
+      "Newgrange"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Stonehenge is a prehistoric stone circle on Salisbury Plain in Wiltshire, England."
+  },
+  {
+    "id": "history-023",
+    "question": "In which region did the ancient Maya civilization develop?",
+    "answer": "Mesoamerica",
+    "distractors": [
+      "The Andes",
+      "Mesopotamia",
+      "The Nile Valley"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "The Maya lived in Mesoamerica, in what is now southern Mexico and Central America."
+  },
+  {
+    "id": "history-024",
+    "question": "Who published On the Origin of Species in 1859?",
+    "answer": "Charles Darwin",
+    "distractors": [
+      "Gregor Mendel",
+      "Alfred Wegener",
+      "Jean-Baptiste Lamarck"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Charles Darwin set out evolution by natural selection in On the Origin of Species in 1859."
+  },
+  {
+    "id": "history-025",
+    "question": "Which country gave the Statue of Liberty to the United States?",
+    "answer": "France",
+    "distractors": [
+      "Britain",
+      "Spain",
+      "Italy"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "The Statue of Liberty was a gift from the people of France, dedicated in 1886."
+  },
+  {
+    "id": "history-026",
+    "question": "What could Thomas Edison's phonograph of 1877 do?",
+    "answer": "Record and play sound",
+    "distractors": [
+      "Send telegrams",
+      "Project films",
+      "Measure electricity"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Edison's phonograph recorded sound onto a foil-wrapped cylinder and played it back."
+  },
+  {
+    "id": "history-027",
+    "question": "Which ancient people of Mesopotamia invented cuneiform writing?",
+    "answer": "Sumerians",
+    "distractors": [
+      "Phoenicians",
+      "Hittites",
+      "Minoans"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "The Sumerians developed cuneiform, wedge-shaped marks pressed into clay, around 3200 BC."
+  },
+  {
+    "id": "history-028",
+    "question": "On which rocky hill in Athens does the Parthenon stand?",
+    "answer": "Acropolis",
+    "distractors": [
+      "Palatine Hill",
+      "Capitoline Hill",
+      "Mount Olympus"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "The Parthenon was built on the Acropolis of Athens in the 5th century BC."
+  },
+  {
+    "id": "history-029",
+    "question": "Which instrument did Galileo use in 1610 to discover moons orbiting Jupiter?",
+    "answer": "Telescope",
+    "distractors": [
+      "Microscope",
+      "Sextant",
+      "Astrolabe"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Galileo spotted Jupiter's four largest moons with a telescope he had built himself."
+  },
+  {
+    "id": "history-030",
+    "question": "What were the channels the ancient Romans built to carry water into their cities?",
+    "answer": "Aqueducts",
+    "distractors": [
+      "Viaducts",
+      "Ziggurats",
+      "Amphitheaters"
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "explanation": "Roman aqueducts carried water by gravity from distant sources into towns and cities."
+  },
+  {
+    "id": "history-031",
+    "question": "In what year did Christopher Columbus first reach the Americas?",
+    "answer": "1492",
+    "distractors": [
+      "1498",
+      "1488",
+      "1519"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Columbus first landed in the Bahamas in October 1492."
+  },
+  {
+    "id": "history-032",
+    "question": "Which Portuguese explorer was the first European to reach India by sea, in 1498?",
+    "answer": "Vasco da Gama",
+    "distractors": [
+      "Bartolomeu Dias",
+      "Pedro Álvares Cabral",
+      "Ferdinand Magellan"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Vasco da Gama sailed around Africa and reached Calicut, India, in 1498."
+  },
+  {
+    "id": "history-033",
+    "question": "Which pair of scientists published the double-helix model of DNA in 1953?",
+    "answer": "Watson and Crick",
+    "distractors": [
+      "Hershey and Chase",
+      "Avery and MacLeod",
+      "Meselson and Stahl"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "James Watson and Francis Crick published their double-helix model in Nature in 1953."
+  },
+  {
+    "id": "history-034",
+    "question": "Which of the Seven Wonders of the Ancient World is the only one still largely standing?",
+    "answer": "Great Pyramid of Giza",
+    "distractors": [
+      "Lighthouse of Alexandria",
+      "Colossus of Rhodes",
+      "Hanging Gardens of Babylon"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "The Great Pyramid of Giza is the oldest of the Seven Wonders and the only one that survives largely intact."
+  },
+  {
+    "id": "history-035",
+    "question": "Who led the first expedition to reach the South Pole, in 1911?",
+    "answer": "Roald Amundsen",
+    "distractors": [
+      "Robert Falcon Scott",
+      "Ernest Shackleton",
+      "Robert Peary"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Roald Amundsen's Norwegian team reached the South Pole on December 14, 1911."
+  },
+  {
+    "id": "history-036",
+    "question": "Which British scientist proposed the World Wide Web while working at CERN in 1989?",
+    "answer": "Tim Berners-Lee",
+    "distractors": [
+      "Vint Cerf",
+      "Alan Turing",
+      "Steve Wozniak"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Tim Berners-Lee wrote his proposal for the World Wide Web at CERN in March 1989."
+  },
+  {
+    "id": "history-037",
+    "question": "Who was the first person to win Nobel Prizes in both physics and chemistry?",
+    "answer": "Marie Curie",
+    "distractors": [
+      "Rosalind Franklin",
+      "Lise Meitner",
+      "Dorothy Hodgkin"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Marie Curie won the Nobel Prize in Physics in 1903 and in Chemistry in 1911."
+  },
+  {
+    "id": "history-038",
+    "question": "Which heating process, developed in the 1860s, kills harmful microbes in milk and other drinks?",
+    "answer": "Pasteurization",
+    "distractors": [
+      "Homogenization",
+      "Fermentation",
+      "Distillation"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Louis Pasteur showed in the 1860s that gentle heating kills microbes, a process named pasteurization after him."
+  },
+  {
+    "id": "history-039",
+    "question": "Which French educator founded the International Olympic Committee in 1894?",
+    "answer": "Pierre de Coubertin",
+    "distractors": [
+      "Gustave Eiffel",
+      "Louis Pasteur",
+      "Jules Verne"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Pierre de Coubertin organized the 1894 Paris congress that created the International Olympic Committee and revived the Olympic Games."
+  },
+  {
+    "id": "history-040",
+    "question": "What did Johannes Kepler's three laws describe?",
+    "answer": "Planetary motion",
+    "distractors": [
+      "Light refraction",
+      "Heat transfer",
+      "Electric charge"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Kepler's laws describe how planets move in elliptical orbits around the Sun."
+  },
+  {
+    "id": "history-041",
+    "question": "In which modern country is the ancient rock-cut city of Petra?",
+    "answer": "Jordan",
+    "distractors": [
+      "Egypt",
+      "Syria",
+      "Lebanon"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Petra, carved into sandstone cliffs by the Nabataeans, is in southern Jordan."
+  },
+  {
+    "id": "history-042",
+    "question": "What was the capital city of the Byzantine Empire?",
+    "answer": "Constantinople",
+    "distractors": [
+      "Rome",
+      "Athens",
+      "Antioch"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Constantinople, today Istanbul, was the capital of the Byzantine Empire."
+  },
+  {
+    "id": "history-043",
+    "question": "Which instrument did Antonie van Leeuwenhoek use to become one of the first people to see microorganisms?",
+    "answer": "Microscope",
+    "distractors": [
+      "Telescope",
+      "Prism",
+      "Barometer"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Van Leeuwenhoek used his own single-lens microscopes to observe bacteria and other microbes in the 1670s."
+  },
+  {
+    "id": "history-044",
+    "question": "Which chemist published an early periodic table of the elements in 1869?",
+    "answer": "Dmitri Mendeleev",
+    "distractors": [
+      "Antoine Lavoisier",
+      "John Dalton",
+      "Ernest Rutherford"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Dmitri Mendeleev published his periodic table in 1869, leaving gaps for undiscovered elements."
+  },
+  {
+    "id": "history-045",
+    "question": "The Greek alphabet was adapted from the alphabet of which ancient seafaring people?",
+    "answer": "Phoenicians",
+    "distractors": [
+      "Sumerians",
+      "Etruscans",
+      "Egyptians"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "The Greeks adapted the Phoenician alphabet, adding letters for vowels."
+  },
+  {
+    "id": "history-046",
+    "question": "Which Italian inventor sent the first transatlantic radio signal in 1901?",
+    "answer": "Guglielmo Marconi",
+    "distractors": [
+      "Alessandro Volta",
+      "Nikola Tesla",
+      "Heinrich Hertz"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Guglielmo Marconi received a radio signal sent across the Atlantic from Cornwall to Newfoundland in 1901."
+  },
+  {
+    "id": "history-047",
+    "question": "What did Alessandro Volta invent in 1800?",
+    "answer": "Electric battery",
+    "distractors": [
+      "Light bulb",
+      "Electric motor",
+      "Telegraph"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Volta's voltaic pile of 1800 was the first electric battery to give a steady current."
+  },
+  {
+    "id": "history-048",
+    "question": "Which ancient people built the Appian Way road?",
+    "answer": "Ancient Romans",
+    "distractors": [
+      "Ancient Greeks",
+      "Etruscans",
+      "Carthaginians"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "The Romans began building the Appian Way from Rome in 312 BC."
+  },
+  {
+    "id": "history-049",
+    "question": "In what year was the Eiffel Tower completed?",
+    "answer": "1889",
+    "distractors": [
+      "1869",
+      "1900",
+      "1909"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "The Eiffel Tower was completed in 1889 for the Exposition Universelle in Paris."
+  },
+  {
+    "id": "history-050",
+    "question": "Which astronomer published a Sun-centered model of the solar system in 1543?",
+    "answer": "Nicolaus Copernicus",
+    "distractors": [
+      "Tycho Brahe",
+      "Johannes Kepler",
+      "Ptolemy"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Copernicus published his heliocentric model in On the Revolutions of the Heavenly Spheres in 1543."
+  },
+  {
+    "id": "history-051",
+    "question": "Which ancient civilization built the city of Mohenjo-daro?",
+    "answer": "Indus Valley Civilization",
+    "distractors": [
+      "Mesopotamian civilization",
+      "Persian civilization",
+      "Egyptian civilization"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Mohenjo-daro was one of the largest cities of the Indus Valley Civilization, in present-day Pakistan."
+  },
+  {
+    "id": "history-052",
+    "question": "What was the network of ancient trade routes linking China with the Mediterranean called?",
+    "answer": "Silk Road",
+    "distractors": [
+      "Amber Road",
+      "Incense Route",
+      "Royal Road"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "The Silk Road carried silk and many other goods between China and the Mediterranean world."
+  },
+  {
+    "id": "history-053",
+    "question": "Which ancient Greek mathematician is famous for a theorem about right triangles?",
+    "answer": "Pythagoras",
+    "distractors": [
+      "Euclid",
+      "Archimedes",
+      "Thales"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "The Pythagorean theorem states that the square of the hypotenuse equals the sum of the squares of the other two sides."
+  },
+  {
+    "id": "history-054",
+    "question": "The island city of Tenochtitlan was the capital of which civilization?",
+    "answer": "Aztec",
+    "distractors": [
+      "Maya",
+      "Inca",
+      "Olmec"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "The Aztecs built Tenochtitlan on an island in Lake Texcoco, where Mexico City now stands."
+  },
+  {
+    "id": "history-055",
+    "question": "Which inventor co-developed a telegraph code of dots and dashes in the 1830s?",
+    "answer": "Samuel Morse",
+    "distractors": [
+      "Alexander Graham Bell",
+      "Thomas Edison",
+      "Guglielmo Marconi"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Morse code, named after Samuel Morse, encodes letters as dots and dashes for the telegraph."
+  },
+  {
+    "id": "history-056",
+    "question": "Which invention is traditionally dated to Mesopotamia around 3500 BC and transformed transport?",
+    "answer": "The wheel",
+    "distractors": [
+      "The compass",
+      "The stirrup",
+      "The horseshoe"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Some of the earliest known wheels come from Mesopotamia around 3500 BC."
+  },
+  {
+    "id": "history-057",
+    "question": "Which navigation tool using a magnetized needle was first developed in ancient China?",
+    "answer": "Compass",
+    "distractors": [
+      "Sextant",
+      "Astrolabe",
+      "Chronometer"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "The Chinese first used magnetic compasses for navigation around the 11th century."
+  },
+  {
+    "id": "history-058",
+    "question": "Which pair first reached the summit of Mount Everest in 1953?",
+    "answer": "Hillary and Tenzing",
+    "distractors": [
+      "Mallory and Irvine",
+      "Messner and Habeler",
+      "Shackleton and Wild"
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "explanation": "Edmund Hillary and Tenzing Norgay reached Everest's summit on May 29, 1953."
+  },
+  {
+    "id": "history-059",
+    "question": "Which French scholar announced the decipherment of Egyptian hieroglyphs in 1822?",
+    "answer": "Jean-François Champollion",
+    "distractors": [
+      "Thomas Young",
+      "Howard Carter",
+      "Heinrich Schliemann"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Champollion used the Rosetta Stone and other texts to decipher hieroglyphs, announcing his results in 1822."
+  },
+  {
+    "id": "history-060",
+    "question": "Which Greek scholar estimated Earth's circumference around 240 BC using shadows?",
+    "answer": "Eratosthenes",
+    "distractors": [
+      "Aristotle",
+      "Ptolemy",
+      "Hipparchus"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Eratosthenes compared noon shadow angles at Syene and Alexandria to estimate Earth's circumference."
+  },
+  {
+    "id": "history-061",
+    "question": "Which Scottish engineer patented a steam engine with a separate condenser in 1769?",
+    "answer": "James Watt",
+    "distractors": [
+      "Thomas Newcomen",
+      "George Stephenson",
+      "Richard Trevithick"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "James Watt's separate condenser, patented in 1769, made steam engines far more efficient."
+  },
+  {
+    "id": "history-062",
+    "question": "Who discovered the planet Uranus in 1781?",
+    "answer": "William Herschel",
+    "distractors": [
+      "Galileo Galilei",
+      "Johann Galle",
+      "Edmond Halley"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "William Herschel spotted Uranus with his telescope in 1781, the first planet found with a telescope."
+  },
+  {
+    "id": "history-063",
+    "question": "Which ancient Greek scientist is linked to the principle of buoyancy and the cry \"Eureka\"?",
+    "answer": "Archimedes",
+    "distractors": [
+      "Euclid",
+      "Hero of Alexandria",
+      "Democritus"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Archimedes' principle states that a submerged body is pushed up by a force equal to the weight of fluid it displaces."
+  },
+  {
+    "id": "history-064",
+    "question": "Which British archaeologist found the tomb of Tutankhamun in 1922?",
+    "answer": "Howard Carter",
+    "distractors": [
+      "Flinders Petrie",
+      "Arthur Evans",
+      "Leonard Woolley"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Howard Carter found Tutankhamun's tomb in the Valley of the Kings in November 1922."
+  },
+  {
+    "id": "history-065",
+    "question": "Which British archaeologist led major excavations at Knossos on Crete beginning in 1900?",
+    "answer": "Arthur Evans",
+    "distractors": [
+      "Howard Carter",
+      "Leonard Woolley",
+      "Flinders Petrie"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Arthur Evans excavated the Bronze Age palace at Knossos from 1900 and named the Minoan civilization."
+  },
+  {
+    "id": "history-066",
+    "question": "How many moons of Jupiter did Galileo discover in 1610?",
+    "answer": "Four",
+    "distractors": [
+      "Two",
+      "Three",
+      "Seven"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Galileo discovered Io, Europa, Ganymede and Callisto, now called the Galilean moons."
+  },
+  {
+    "id": "history-067",
+    "question": "Whose precise naked-eye observations of the planets did Johannes Kepler use to derive his laws?",
+    "answer": "Tycho Brahe",
+    "distractors": [
+      "Ole Rømer",
+      "Nicolaus Copernicus",
+      "Christiaan Huygens"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Kepler worked from the detailed planetary records compiled by Danish astronomer Tycho Brahe."
+  },
+  {
+    "id": "history-068",
+    "question": "Which Dutch scientist invented the pendulum clock in 1656?",
+    "answer": "Christiaan Huygens",
+    "distractors": [
+      "Galileo Galilei",
+      "Robert Hooke",
+      "Antonie van Leeuwenhoek"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Christiaan Huygens designed and had built the first working pendulum clock in 1656."
+  },
+  {
+    "id": "history-069",
+    "question": "Who coined the biological term \"cell\" after viewing cork under a microscope in 1665?",
+    "answer": "Robert Hooke",
+    "distractors": [
+      "Antonie van Leeuwenhoek",
+      "Robert Boyle",
+      "Matthias Schleiden"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Robert Hooke described the tiny compartments in cork as cells in his book Micrographia in 1665."
+  },
+  {
+    "id": "history-070",
+    "question": "What was the name of the spacecraft that carried Yuri Gagarin into orbit?",
+    "answer": "Vostok 1",
+    "distractors": [
+      "Sputnik 2",
+      "Voskhod 2",
+      "Salyut 1"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Gagarin made his single orbit of Earth aboard Vostok 1 in April 1961."
+  },
+  {
+    "id": "history-071",
+    "question": "The Mausoleum at Halicarnassus, one of the Seven Wonders, stood in what is now which country?",
+    "answer": "Turkey",
+    "distractors": [
+      "Greece",
+      "Egypt",
+      "Cyprus"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Halicarnassus is the modern city of Bodrum on the southwest coast of Turkey."
+  },
+  {
+    "id": "history-072",
+    "question": "Which French chemist named the elements oxygen and hydrogen in the late 1700s?",
+    "answer": "Antoine Lavoisier",
+    "distractors": [
+      "Joseph Priestley",
+      "Robert Boyle",
+      "John Dalton"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Antoine Lavoisier gave oxygen and hydrogen their names and is often called the father of modern chemistry."
+  },
+  {
+    "id": "history-073",
+    "question": "Which Italian navigator's first name became the source of the word \"America\"?",
+    "answer": "Amerigo Vespucci",
+    "distractors": [
+      "Giovanni Caboto",
+      "Christopher Columbus",
+      "Giovanni da Verrazzano"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "A 1507 world map by Martin Waldseemüller named the New World \"America\" after Amerigo Vespucci."
+  },
+  {
+    "id": "history-074",
+    "question": "The ruins of the ancient city of Persepolis are in which modern country?",
+    "answer": "Iran",
+    "distractors": [
+      "Iraq",
+      "Turkey",
+      "Syria"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Persepolis, the ceremonial capital of the Achaemenid Persians, lies in the Fars province of Iran."
+  },
+  {
+    "id": "history-075",
+    "question": "What is the round opening at the top of the Pantheon's dome in Rome called?",
+    "answer": "Oculus",
+    "distractors": [
+      "Cupola",
+      "Lantern",
+      "Apse"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "The Pantheon's dome has a central oculus, an open circle about 8 meters wide that admits light."
+  },
+  {
+    "id": "history-076",
+    "question": "Which Portuguese explorer was the first European to sail around the Cape of Good Hope, in 1488?",
+    "answer": "Bartolomeu Dias",
+    "distractors": [
+      "Vasco da Gama",
+      "Diogo Cão",
+      "Pedro Álvares Cabral"
+    ],
+    "category": "history",
+    "difficulty": "hard",
+    "explanation": "Bartolomeu Dias rounded the southern tip of Africa in 1488, opening a sea route toward Asia."
+  }
+]
