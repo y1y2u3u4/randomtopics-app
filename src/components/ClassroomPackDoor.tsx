@@ -38,7 +38,7 @@ export default function ClassroomPackDoor({ page }: { page: "/question-of-the-da
         🧑‍🏫 Get the classroom pack (slides, printable, ad-free projector mode)
       </button>
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" onClick={close}>
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/70 p-4" onClick={close}>
           <div role="dialog" aria-modal="true" aria-labelledby="classroom-pack-title" onClick={(e) => e.stopPropagation()}
             className="glass-card w-full max-w-md p-6 text-left space-y-4 bg-[var(--bg-secondary)]">
             <div className="flex items-start justify-between gap-4">
