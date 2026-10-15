@@ -7,7 +7,7 @@
       "path": "public/art/trivia/hero.jpg",
       "prompt": "Flat vector illustration, 1600x900, 16:9. A party trivia night seen from above a table: a fanned stack of colourful question cards with large question marks, one card flipped to show a tick, a small round countdown timer, and a chunky scoreboard showing four teams with plus and minus buttons and tally numbers. Dark navy background (#0b0f1a) with neon cyan (#00e5ff), magenta and warm yellow accents, soft shadows, no text other than question marks and digits, no logos, no real people.",
       "alt": "Illustrated trivia question cards beside a countdown timer and a four-team scoreboard",
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "trivia-halloween-hero",
@@ -15,7 +15,7 @@
       "path": "public/art/trivia/halloween-hero.jpg",
       "prompt": "Flat vector illustration, 1600x900, 16:9. Halloween trivia night: a glowing carved jack-o'-lantern next to a fanned stack of question cards with question marks, a bowl of wrapped candy and candy corn, a small countdown timer, bats and a crescent moon in the background. Dark purple-navy background with pumpkin orange, neon green and cyan accents. Friendly, not gory. No text other than question marks, no logos, no real people, no film characters.",
       "alt": "Illustrated jack-o'-lantern, candy bowl and trivia question cards under a crescent moon",
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "classroom-this-or-that-kids",
