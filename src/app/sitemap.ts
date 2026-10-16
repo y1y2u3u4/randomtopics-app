@@ -125,8 +125,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path: `/${p}`, changeFrequency: "weekly", priority: 0.88, lastModified: "2026-10-14" });
   }
 
-  // Classroom packs landing page (2026-10-14).
-  entries.push({ path: "/classroom-packs", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-10-14" });
+  // Classroom packs landing page (2026-10-14; free tools strip 2026-10-16).
+  entries.push({ path: "/classroom-packs", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-10-16" });
+
+  // Classroom pages, batch 1 (2026-10-16).
+  for (const p of ["this-or-that/kids", "would-you-rather/kids", "topics/get-to-know-you-questions-for-students"]) {
+    entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-16" });
+  }
 
   // Random generator pages (2026-10-10 inner-page batch).
   for (const p of [

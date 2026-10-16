@@ -7,6 +7,7 @@ import PartyGameLinks from "@/components/PartyGameLinks";
 import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
+import KidsVersionSwitch from "@/components/KidsVersionSwitch";
 import type { Metadata } from "next";
 import { WOULD_YOU_RATHER } from "@/data/partyQuestions";
 import KeepPlaying from "@/components/KeepPlaying";
@@ -66,6 +67,7 @@ export default function WouldYouRatherPage() {
             { label: "Would You Rather" },
           ]}
         />
+        <KidsVersionSwitch general="/would-you-rather" kids="/would-you-rather/kids" active="general" />
         <PartyIllustration game="would-you-rather" />
         <PartyGenerator
           questions={WOULD_YOU_RATHER}

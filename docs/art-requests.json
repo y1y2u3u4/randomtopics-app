@@ -16,6 +16,30 @@
       "prompt": "Flat vector illustration, 1600x900, 16:9. Halloween trivia night: a glowing carved jack-o'-lantern next to a fanned stack of question cards with question marks, a bowl of wrapped candy and candy corn, a small countdown timer, bats and a crescent moon in the background. Dark purple-navy background with pumpkin orange, neon green and cyan accents. Friendly, not gory. No text other than question marks, no logos, no real people, no film characters.",
       "alt": "Illustrated jack-o'-lantern, candy bowl and trivia question cards under a crescent moon",
       "status": "pending"
+    },
+    {
+      "id": "classroom-this-or-that-kids",
+      "page": "/this-or-that/kids",
+      "path": "public/art/classroom/this-or-that-kids.jpg",
+      "prompt": "A bright elementary classroom seen from the back: a projector screen split into two big halves (one showing a pizza slice, the other a taco), and a group of about ten children walking to the left and right sides of the room, some pointing, one laughing. A teacher stands by a laptop. Flat vector illustration, 1600x900, 16:9, warm cream background (#F3EFE6) with soft purple (#6b5bd2), teal and sunny yellow accents, friendly rounded shapes, diverse cartoon children (not real people), no text, no logos, no brand characters.",
+      "alt": "Illustrated classroom where kids stand on two sides of the room under a projected this-or-that question",
+      "status": "pending"
+    },
+    {
+      "id": "classroom-would-you-rather-kids",
+      "page": "/would-you-rather/kids",
+      "path": "public/art/classroom/would-you-rather-kids.jpg",
+      "prompt": "Two children sitting on a classroom rug, each with a thought bubble: one imagines a tiny friendly dragon the size of a cat, the other imagines a giant fluffy cat the size of a dragon. Other kids raise one or two fingers to vote. Flat vector illustration, 1600x900, 16:9, warm cream background (#F3EFE6) with soft purple (#6b5bd2), teal and sunny yellow accents, friendly rounded shapes, diverse cartoon children (not real people), no text, no logos, no brand characters.",
+      "alt": "Illustrated kids imagining a cat-sized dragon and a dragon-sized cat while classmates vote",
+      "status": "pending"
+    },
+    {
+      "id": "classroom-get-to-know-you-students",
+      "page": "/topics/get-to-know-you-questions-for-students",
+      "path": "public/art/classroom/get-to-know-you-students.jpg",
+      "prompt": "First day of school: students of mixed ages sitting in a circle of chairs, one holding a soft ball while talking, speech bubbles with simple icons (a dog, a soccer ball, a book, a paintbrush, a music note) floating above them, backpacks and a welcome banner with only a sun symbol. Flat vector illustration, 1600x900, 16:9, warm cream background (#F3EFE6) with soft purple (#6b5bd2), teal and sunny yellow accents, friendly rounded shapes, diverse cartoon children (not real people), no text, no logos, no brand characters.",
+      "alt": "Illustrated students in a circle sharing answers on the first day of school",
+      "status": "pending"
     }
   ]
 }
