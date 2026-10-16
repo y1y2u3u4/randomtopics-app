@@ -12,7 +12,9 @@ export interface KidsQuestion<G extends string = KidsGrade> {
   text: string;
   audience: "kids";
   grades: G[];
-  theme?: KidsTheme;
+  theme?: string;
+  /** Riddles: shown after "Show answer". */
+  answer?: string;
 }
 
 export const KIDS_GRADES: { id: KidsGrade; label: string; ages: string }[] = [
@@ -423,3 +425,75 @@ export function splitChoice(text: string): [string, string] | null {
   const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   return [cap(parts[0].trim()), cap(parts[1].trim())];
 }
+
+export const KIDS_JOURNAL_THEMES: { id: string; label: string }[] = [
+  { id: "about-me", label: "🙋 About me" },
+  { id: "feelings", label: "💛 Feelings" },
+  { id: "imagine", label: "🚀 Imagine" },
+  { id: "thankful", label: "🙏 Thankful" },
+  { id: "school", label: "📚 School & learning" },
+];
+
+const journal = (theme: string, grades: KidsGrade[], list: string[]): KidsQuestion[] =>
+  list.map((text) => ({ text, audience: "kids" as const, grades, theme }));
+
+// Journal prompts for kids (added to /journal-prompts 2026-10-16). Short,
+// concrete and safe to share; nothing that asks about family situations.
+export const KIDS_JOURNAL_PROMPTS: KidsQuestion[] = [
+  ...journal("about-me", ALL, [
+    "What are three things that make you, you?",
+    "What is something you are really good at? How did you learn it?",
+    "Draw and write about your favorite place to be.",
+    "What would your perfect day look like, from morning to night?",
+    "What is your favorite animal? Write three facts you know about it.",
+    "If you wrote a book about your life, what would the title be?",
+    "What is a hobby you love? How would you teach it to a friend?",
+    "What makes you laugh the most?",
+  ]),
+  ...journal("about-me", YOUNG, ["What is your favorite color? Name five things that are that color.", "Draw yourself as a superhero. What is your power?"]),
+  ...journal("about-me", OLD, ["What is something about you that people might be surprised to learn?", "How have you changed since last year?"]),
+  ...journal("feelings", ALL, [
+    "What made you happy today?",
+    "Write about a time you felt proud of yourself.",
+    "What do you do when you feel worried? What helps?",
+    "Write about a time you were brave.",
+    "What does a good friend do? Are you a good friend?",
+    "Write about a time you helped someone. How did it feel?",
+    "What is something that makes you feel calm?",
+  ]),
+  ...journal("feelings", YOUNG, ["Draw a face that shows how you feel right now. Why do you feel that way?"]),
+  ...journal("feelings", OLD, ["Write about a mistake you made and what you learned from it.", "What is one thing you would like to get better at, and what is your first step?"]),
+  ...journal("imagine", ALL, [
+    "If you could have any superpower, what would it be and how would you use it?",
+    "You found a magic door in your classroom. Where does it go?",
+    "If you could talk to animals, which animal would you talk to first? What would you ask?",
+    "Invent a new ice cream flavor. What is in it and what is it called?",
+    "You shrink to the size of an ant for a day. What happens?",
+    "Design your dream treehouse. What is inside?",
+    "If you could invent a robot, what would it do?",
+    "Write a story that starts with: “The box on my desk started to wiggle…”",
+    "If you could visit any planet, which one would you pick and what would you pack?",
+    "You wake up and you are the teacher. What does your day look like?",
+  ]),
+  ...journal("imagine", YOUNG, ["Draw a new animal by mixing two animals together. What is its name?", "If your shoes could talk, what would they say?"]),
+  ...journal("imagine", OLD, ["Invent a new holiday. What is it called, and how do people celebrate it?", "If you could travel to the past or the future, when would you go and why?"]),
+  ...journal("thankful", ALL, [
+    "What are three things you are thankful for today?",
+    "Who is someone who helps you? Write them a thank-you note.",
+    "What is something in nature you are thankful for?",
+    "What is a small thing that made today better?",
+    "What is your favorite thing about your school?",
+  ]),
+  ...journal("thankful", OLD, ["Write about a person who taught you something important."]),
+  ...journal("school", ALL, [
+    "What is something new you learned this week?",
+    "What is your favorite subject? Why?",
+    "What is one goal you have for this school year?",
+    "Describe your classroom to someone who has never seen it.",
+    "What is the best book you have read this year? Why should others read it?",
+    "If you could add one new subject to school, what would it be?",
+    "What is something that was hard at first but got easier?",
+  ]),
+  ...journal("school", YOUNG, ["What did you play at recess today? Who did you play with?"]),
+  ...journal("school", OLD, ["What advice would you give to a new student at our school?", "What is a question you would like to find the answer to this year?"]),
+];

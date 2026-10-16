@@ -8,16 +8,22 @@ const clock = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2,
 // Free projector view for the kids / student question pages: same look as the
 // classroom-pack presenter (cream screen, huge text, arrow keys, F full screen,
 // T timer) but driven by the page's own deck, so nothing is fetched or locked.
-// Either/or prompts are split into "left side of the room / right side".
-export default function ClassroomProjector({ deck, title, split, source, color = "#6b5bd2", onClose }: {
+// Either/or prompts are split into "left side of the room / right side";
+// riddles hide the answer until the next key press.
+export default function ClassroomProjector({ deck, title, split, source, kickers, answers, color = "#6b5bd2", onClose }: {
   deck: string[];
   title: string;
   split?: boolean;
   source: string;
+  /** Small label above each slide (e.g. the morning meeting step). */
+  kickers?: string[];
+  /** Hidden answer per slide; the first "next" reveals it. */
+  answers?: (string | undefined)[];
   color?: string;
   onClose: () => void;
 }) {
   const [index, setIndex] = useState(0);
+  const [revealed, setRevealed] = useState(false);
   const [timerOn, setTimerOn] = useState(false);
   const [running, setRunning] = useState(false);
   const [elapsed, setElapsed] = useState(0);
@@ -27,9 +33,15 @@ export default function ClassroomProjector({ deck, title, split, source, color =
 
   const go = useCallback((next: number) => {
     setIndex(Math.max(0, Math.min(count - 1, next)));
+    setRevealed(false);
     setElapsed(0);
     setRunning(false);
   }, [count]);
+  const hasAnswer = Boolean(answers?.[index]);
+  const forward = useCallback(() => {
+    if (hasAnswer && !revealed) { setRevealed(true); return; }
+    go(index + 1);
+  }, [hasAnswer, revealed, go, index]);
 
   useEffect(() => {
     if (!running) return;
@@ -60,7 +72,7 @@ export default function ClassroomProjector({ deck, title, split, source, color =
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.target instanceof HTMLSelectElement || e.metaKey || e.ctrlKey || e.altKey) return;
-      if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) { e.preventDefault(); go(index + 1); }
+      if (["ArrowRight", "ArrowDown", "PageDown", " ", "Enter"].includes(e.key)) { e.preventDefault(); forward(); }
       else if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); go(index - 1); }
       else if (e.key === "Home") go(0);
       else if (e.key === "End") go(count - 1);
@@ -71,7 +83,7 @@ export default function ClassroomProjector({ deck, title, split, source, color =
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [go, index, count, toggleFullscreen, close]);
+  }, [go, forward, index, count, toggleFullscreen, close]);
 
   const text = deck[index] ?? "";
   const sides = split ? splitChoice(text) : null;
@@ -93,7 +105,7 @@ export default function ClassroomProjector({ deck, title, split, source, color =
       </header>
 
       <main className="flex-1 flex flex-col justify-center px-4 sm:px-16 py-6"
-        onClick={(e) => { if ((e.target as HTMLElement).closest("button,a,select")) return; go(index + 1); }}>
+        onClick={(e) => { if ((e.target as HTMLElement).closest("button,a,select")) return; forward(); }}>
         {sides ? (
           <>
             <p className="text-center text-base sm:text-2xl font-bold uppercase tracking-wider" style={{ color }}>
@@ -111,14 +123,20 @@ export default function ClassroomProjector({ deck, title, split, source, color =
             </div>
           </>
         ) : (
-          <h2 className="font-bold leading-tight break-words" style={{ fontSize: text.length > 80 ? "clamp(1.8rem, 4.2vw, 4rem)" : "clamp(2rem, 5.4vw, 5.2rem)" }}>{text}</h2>
+          <>
+            {kickers?.[index] && <p className="text-sm sm:text-xl font-bold uppercase tracking-wider" style={{ color }}>{kickers[index]}</p>}
+            <h2 className="mt-3 font-bold leading-tight break-words" style={{ fontSize: text.length > 80 ? "clamp(1.8rem, 4.2vw, 4rem)" : "clamp(2rem, 5.4vw, 5.2rem)" }}>{text}</h2>
+            {hasAnswer && (revealed
+              ? <p className="mt-8 text-2xl sm:text-5xl font-bold text-[#1f9d68]" data-projector-answer>Answer: {answers![index]}</p>
+              : <button type="button" onClick={() => setRevealed(true)} className="mt-8 self-start rounded-xl border-2 border-[#1f9d68] px-5 py-3 text-lg sm:text-2xl font-semibold text-[#1f9d68]">Show answer (Space)</button>)}
+          </>
         )}
       </main>
 
       <div className="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-10 pb-5">
         <div className="flex gap-2">
           <button type="button" onClick={() => go(index - 1)} disabled={index === 0} className="rounded-xl border border-[#d9d4c8] px-5 py-3 text-lg disabled:opacity-40" aria-label="Previous question">←</button>
-          <button type="button" onClick={() => go(index + 1)} disabled={index >= count - 1} className="rounded-xl px-5 py-3 text-lg text-white disabled:opacity-40" style={{ background: color }} aria-label="Next question">→</button>
+          <button type="button" onClick={forward} disabled={index >= count - 1 && !(hasAnswer && !revealed)} className="rounded-xl px-5 py-3 text-lg text-white disabled:opacity-40" style={{ background: color }} aria-label="Next question">→</button>
         </div>
         {timerOn && (
           <div className="flex flex-wrap items-center gap-3" data-classroom-timer>

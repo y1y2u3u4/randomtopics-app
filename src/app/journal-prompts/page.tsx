@@ -2,6 +2,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import JournalPromptGenerator from "@/components/JournalPromptGenerator";
+import ClassroomQuestionGenerator from "@/components/ClassroomQuestionGenerator";
+import ClassroomToolLinks from "@/components/ClassroomToolLinks";
+import { KIDS_GRADES, KIDS_JOURNAL_PROMPTS, KIDS_JOURNAL_THEMES } from "@/data/kidsQuestions";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -81,6 +84,9 @@ export default function JournalPromptsPage() {
         </section>
 
         <JournalPromptGenerator />
+        <p className="max-w-3xl mx-auto px-4 sm:px-6 pt-4 text-center text-sm">
+          <a href="#kids" className="text-[var(--neon-cyan)] hover:underline">🧒 Journal prompts for kids (grades K–6) ↓</a>
+        </p>
 
         {/* SEO content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
@@ -152,6 +158,26 @@ export default function JournalPromptsPage() {
             </div>
           </div>
         </section>
+        <section id="kids" className="scroll-mt-20 pb-6" data-kids-journal>
+          <ClassroomQuestionGenerator
+            questions={KIDS_JOURNAL_PROMPTS}
+            grades={KIDS_GRADES}
+            themes={KIDS_JOURNAL_THEMES}
+            title="Journal Prompts for Kids"
+            subtitle={`${KIDS_JOURNAL_PROMPTS.length} short, friendly prompts for grades K–6 (ages 5–12): about me, feelings, imagination, thankfulness and school. Project one for quiet writing time.`}
+            emoji="✏️"
+            source="kids_journal_prompts"
+            printHeading="Journal Prompts for Kids"
+            headingLevel="h2"
+            firstPrompt="Tap the button for a prompt"
+          />
+          <p className="max-w-3xl mx-auto px-4 sm:px-6 pt-4 text-sm text-[var(--text-secondary)] leading-relaxed">
+            Tip for teachers: give 5–10 minutes of quiet writing, let younger students draw first and add one sentence, and invite two volunteers to share.
+            Need story starters instead? Try <Link href="/topics/writing-prompts-for-kids" className="text-[var(--neon-cyan)] hover:underline">writing prompts for kids</Link> or
+            today&apos;s <Link href="/morning-meeting-questions" className="text-[var(--neon-cyan)] hover:underline">morning meeting questions</Link>.
+          </p>
+        </section>
+        <ClassroomToolLinks currentPath="/journal-prompts" />
       </main>
       <Footer />
     </>
