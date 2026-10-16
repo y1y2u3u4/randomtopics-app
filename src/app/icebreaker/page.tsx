@@ -12,7 +12,7 @@ import FaqSchema from "@/components/FaqSchema";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 
 export const metadata: Metadata = {
-  title: { absolute: "Icebreaker Question Generator — 300+ Questions | Random Topics" },
+  title: { absolute: "Ice Breaker Questions Generator: 300+ Random Icebreakers" },
   description:
     "Generate 300+ icebreaker questions for meetings, team building, classrooms and virtual events. One click, work-safe prompts, free and no signup.",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/icebreaker"),
   },
   openGraph: {
-    title: "Icebreaker Question Generator — 300+ Questions",
+    title: "Ice Breaker Questions Generator: 300+ Random Icebreakers",
     description:
       "One-click icebreaker questions for meetings, classrooms, team building and virtual events.",
     url: `${SITE_URL}/icebreaker`,
@@ -78,7 +78,7 @@ export default function IcebreakerPage() {
         <TopicGenerator
           initialMode="icebreaker"
           title="Icebreaker Question Generator"
-          subtitle="Fun icebreaker questions to get any group talking, laughing, and connecting."
+          subtitle="Tap for a random ice breaker question for meetings, team building, classrooms or virtual calls. Work-safe, quick to answer, and fun to share."
         />
 
         {/* SEO Content */}

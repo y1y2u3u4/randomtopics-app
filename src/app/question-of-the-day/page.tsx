@@ -16,7 +16,7 @@ import KeepPlaying from "@/components/KeepPlaying";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: { absolute: "Question of the Day — New QOTD for Today | Random Topics" },
+  title: { absolute: "Question of the Day: Today's QOTD + 120 Question Ideas" },
   description:
     "Get today's question of the day and copy it for your group chat. Browse 120 QOTD ideas for work, classrooms, family, or fun. Free, no signup.",
   keywords: [
