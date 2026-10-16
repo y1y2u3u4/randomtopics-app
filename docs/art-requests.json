@@ -72,6 +72,14 @@
       "prompt": "An elementary classroom where students are moving into small groups: a big board shows four colored group cards (purple, teal, green, yellow) with simple person icons only, children carrying their notebooks to four matching colored tables, two kids giving a high five, a teacher pointing at the board. Flat vector, warm cream background, soft purple/teal/yellow accents, diverse cartoon children, no text, no logos, no numbers.",
       "alt": "Illustrated students moving into small color-coded groups shown on a classroom board",
       "status": "done"
+    },
+    {
+      "id": "book-club-hero",
+      "page": "/topics/book-club-questions",
+      "path": "public/art/topics/book-club.jpg",
+      "prompt": "Flat vector illustration, 1600x900, 16:9. A cosy adult book club seen from slightly above: a round coffee table with four open novels of different colours, sticky-note bookmarks, mugs of tea and a small plate of biscuits, a printed sheet of discussion questions with speech-bubble icons, and the hands and knees of four diverse adults in armchairs around it (no faces). Warm lamp light. Dark navy background (#0b0f1a) with neon cyan (#00e5ff), magenta and warm yellow accents, soft shadows, no readable text, no logos, no real people.",
+      "alt": "Illustrated book club around a coffee table with open novels, mugs of tea and sticky-note bookmarks",
+      "status": "pending"
     }
   ]
 }

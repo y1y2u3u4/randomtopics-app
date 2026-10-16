@@ -66,7 +66,7 @@ export default function Page() {
               College Debate Topic Generator: How to Use It
             </h2>
             <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed">
-              <p>College debate runs on a different fuel: definitional precision, framework clashes, and comfort with genuine moral ambiguity. The best college-level topics resist easy resolution â they force debaters to argue about how we should decide, not just what we should decide. Think AI governance, effective altruism, degrowth, criminal punishment theory, and the limits of free expression.</p>
+              <p>College debate runs on a different fuel: definitional precision, framework clashes, and comfort with genuine moral ambiguity. The best college-level topics resist easy resolution — they force debaters to argue about how we should decide, not just what we should decide. Think AI governance, effective altruism, degrowth, criminal punishment theory, and the limits of free expression.</p>
               <p>This generator leans on our philosophy, politics, technology and ethics categories at medium-to-deep depth. Debating societies use it for parliamentary motions; seminar leaders use it to seed discussion; students use it to stress-test essay theses before committing. Related resources: <Link href="/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">essay topics for college</Link>, <Link href="/topics/deep-philosophical-questions" className="text-[var(--neon-cyan)] hover:underline">deep philosophical questions</Link>, and the <Link href="/argument-generator" className="text-[var(--neon-cyan)] hover:underline">argument generator</Link>.</p>
 
               <h3
@@ -76,10 +76,10 @@ export default function Page() {
                 Getting the Most from College Debates
               </h3>
               <ul className="space-y-2 list-disc pl-5">
-                <li><strong>Fight about definitions first.</strong> Half of every good college debate is definitional. ‘Should billionaires exist’ turns on what counts as deserving wealth â make the framework clash explicit.</li>
+                <li><strong>Fight about definitions first.</strong> Half of every good college debate is definitional. ‘Should billionaires exist’ turns on what counts as deserving wealth — make the framework clash explicit.</li>
                 <li><strong>Argue the steelman.</strong> House rule: you may only attack the strongest version of your opponent’s case. It raises the quality of every round.</li>
                 <li><strong>Switch-side practice.</strong> Debate the same motion twice, swapping sides. Nothing exposes weak arguments faster.</li>
-                <li><strong>Use surprise motions.</strong> Parliamentary formats give 15-20 minutes prep on an unseen motion â generate one, start a timer, and simulate tournament pressure.</li>
+                <li><strong>Use surprise motions.</strong> Parliamentary formats give 15-20 minutes prep on an unseen motion — generate one, start a timer, and simulate tournament pressure.</li>
               </ul>
 
               <h3
