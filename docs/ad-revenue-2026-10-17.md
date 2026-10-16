@@ -66,3 +66,17 @@ CMP and AdSense long tasks start ≈5 s and ≈7.7 s (after LCP); origin field I
 
 ### Follow-up: wait for the largest paint (10/17)
 After #141, PSI on /charades: 71, LCP 7.0 s simulated vs 2.5 s observed. CMP and AdSense were requested at 2.39 s, just before the observed LCP (2.52 s), so Lantern counted them in the LCP path. `afterPageSettles` now also waits until no new largest-paint candidate for 600 ms (still capped at 4 s, still starts on first interaction). Browser checks: auto-ads 17/17, reviewed pages 70/70 (the earlier back/forward case now passes too).
+
+## Coverage audit (10/17)
+The "24% coverage" came from comparing 7 days of AdSense page views (18,022) with 28 days of GA4 sessions (75k); AdSense only started counting on 10/6.
+Same window 10/12–10/16: AdSense 14,901 page views vs GA4 24,717 views = **60%**.
+| Cause | GA4 views (10/12–16) | Share |
+|---|---|---|
+| Public pages without ad code (only 20 reviewed paths had it) | 11,193 | 45% |
+| Speech coach / account (ad-free by design) | 2,020 | 8% |
+| Ads not firing on the 20 reviewed pages (deferral) | AdSense 14.9k ≥ GA 11.5k | ≈0 |
+| Auto ads settings | ON, 0 page exclusions | 0 |
+After #141 the same traffic is 90.5% ad-eligible (22,357 / 24,717); the rest is speech (8.2%) and child/legal pages (1.3%). Expect AdSense page views ≈ 4.5k/day from 10/18.
+
+## Week 1b: manual unit higher (10/17)
+On 11 reviewed pages the manual unit moved from the bottom (after the FAQ) to right after the tool block, still below the first screen (browser check "Ad stays outside first viewport" passes on 320/390/1280). Spin-the-wheel pages unchanged: the wheel is short, so the new spot would enter the first screen. Home page frozen until 10/26. Fixed 456 px reserved height, so no layout shift. Measure: in-page viewable % (baseline 15%) and impression RPM (baseline $0.25).

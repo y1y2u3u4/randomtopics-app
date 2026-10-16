@@ -126,6 +126,8 @@ export default function ConversationPageEs() {
           </div>
         </section>
 
+        <PublicAdPlacement path="/es/conversation" />
+
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
@@ -254,7 +256,6 @@ export default function ConversationPageEs() {
             </div>
           </div>
         </section>
-        <PublicAdPlacement path="/es/conversation" />
 
       </main>
       <Footer locale="es" />

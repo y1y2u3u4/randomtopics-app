@@ -76,6 +76,8 @@ export default function TruthOrDarePage() {
         />
         <PartyGameLinks currentPath="/truth-or-dare" />
 
+        <PublicAdPlacement path="/truth-or-dare" />
+
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
             <h2 className="section-heading text-2xl sm:text-3xl mb-6 text-[var(--text-primary)]">
@@ -132,7 +134,6 @@ export default function TruthOrDarePage() {
           intro="The full deck &mdash; every truth and dare in rotation, all clean enough for family game night."
           questions={TRUTH_OR_DARE}
         />
-        <PublicAdPlacement path="/truth-or-dare" />
 
         <KeepPlaying path="/truth-or-dare" />
       </main>

@@ -137,6 +137,8 @@ export default function RandomSubjectGeneratorPage() {
           </div>
         </section>
 
+        <PublicAdPlacement path="/random-subject-generator" />
+
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
@@ -263,7 +265,6 @@ export default function RandomSubjectGeneratorPage() {
             }),
           }}
         />
-        <PublicAdPlacement path="/random-subject-generator" />
 
       </main>
       <Footer />

@@ -79,6 +79,8 @@ export default function FunnyPage() {
           </Link>
         </section>
 
+        <PublicAdPlacement path="/funny" />
+
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
@@ -209,7 +211,6 @@ export default function FunnyPage() {
             </div>
           </div>
         </section>
-        <PublicAdPlacement path="/funny" />
 
       </main>
       <Footer />

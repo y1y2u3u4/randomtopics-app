@@ -81,6 +81,8 @@ export default function IcebreakerPage() {
           subtitle="Fun icebreaker questions to get any group talking, laughing, and connecting."
         />
 
+        <PublicAdPlacement path="/icebreaker" />
+
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
@@ -208,7 +210,6 @@ export default function IcebreakerPage() {
             </div>
           </div>
         </section>
-        <PublicAdPlacement path="/icebreaker" />
 
         <EditorsPicks
           heading="Icebreaker Questions with Facilitator Notes"

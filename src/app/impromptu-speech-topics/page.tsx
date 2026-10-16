@@ -108,6 +108,8 @@ export default function ImpromptuSpeechPage() {
           </p>
         </section>
 
+        <PublicAdPlacement path="/impromptu-speech-topics" />
+
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
@@ -182,7 +184,6 @@ export default function ImpromptuSpeechPage() {
             </div>
           </div>
         </section>
-        <PublicAdPlacement path="/impromptu-speech-topics" />
 
         <KeepPlaying path="/impromptu-speech-topics" />
       </main>
