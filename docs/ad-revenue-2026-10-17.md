@@ -63,3 +63,6 @@ CMP and AdSense long tasks start ≈5 s and ≈7.7 s (after LCP); origin field I
 - `adInlinePageAllowed` (manual unit, reviewed 20) vs `adPageAllowed` (runtime may load).
 - `AdAutoBootstrap` in the root layout: same gates as the manual unit (host, no query, QA flag, GPC, consent, paid ad-free entitlement), no slot, no reserved space; shows "Advertising privacy choices" only where GDPR applies.
 - Browser check: `scripts/ad-auto-bootstrap-browser.mjs` (17 cases, mock SDK) passes. Existing `adsense-pages-browser.mjs`: 69 / 70; the failing case (back/forward to /speech asserts before the boundary swaps the document) fails the same way with this change switched off, so it pre-dates this PR.
+
+### Follow-up: wait for the largest paint (10/17)
+After #141, PSI on /charades: 71, LCP 7.0 s simulated vs 2.5 s observed. CMP and AdSense were requested at 2.39 s, just before the observed LCP (2.52 s), so Lantern counted them in the LCP path. `afterPageSettles` now also waits until no new largest-paint candidate for 600 ms (still capped at 4 s, still starts on first interaction). Browser checks: auto-ads 17/17, reviewed pages 70/70 (the earlier back/forward case now passes too).

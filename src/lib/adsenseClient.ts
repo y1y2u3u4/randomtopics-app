@@ -83,13 +83,17 @@ export function retireAdDocument() {
 
 /**
  * Run `task` after the page has painted and settled: the first of window load
- * + idle time, the visitor's first interaction, or `maxWaitMs` after the call.
+ * + the largest paint settling + idle time, the visitor's first interaction,
+ * or `maxWaitMs` after the call.
  */
 export function afterPageSettles(task: () => void, maxWaitMs = 4000) {
   let done = false;
+  let paintObserver: PerformanceObserver | undefined, quiet: number | undefined;
   const interactions = ["pointerdown", "keydown", "touchstart", "scroll"] as const;
   const cleanup = () => {
     window.clearTimeout(timer);
+    window.clearTimeout(quiet);
+    paintObserver?.disconnect();
     window.removeEventListener("load", onLoad);
     interactions.forEach((name) => window.removeEventListener(name, run));
   };
@@ -103,10 +107,26 @@ export function afterPageSettles(task: () => void, maxWaitMs = 4000) {
     if (typeof window.requestIdleCallback === "function") window.requestIdleCallback(run, { timeout: 1500 });
     else window.setTimeout(run, 200);
   };
-  const onLoad = () => idle();
+  // Load can fire before the main content paints (client-rendered tools). A
+  // third-party request that starts before the observed LCP is simulated as
+  // part of it by PSI (/charades: 2.5 s observed, 7.0 s simulated), so also
+  // wait until no new largest-paint candidate has appeared for 600 ms.
+  const afterLargestPaint = () => {
+    if (typeof PerformanceObserver === "undefined" || !PerformanceObserver.supportedEntryTypes?.includes("largest-contentful-paint")) {
+      idle();
+      return;
+    }
+    paintObserver = new PerformanceObserver(() => {
+      window.clearTimeout(quiet);
+      quiet = window.setTimeout(() => { paintObserver?.disconnect(); idle(); }, 600);
+    });
+    // No candidate at all (hidden tab, blank page) leaves maxWaitMs in charge.
+    paintObserver.observe({ type: "largest-contentful-paint", buffered: true });
+  };
+  const onLoad = () => afterLargestPaint();
   const timer = window.setTimeout(run, maxWaitMs);
   interactions.forEach((name) => window.addEventListener(name, run, { passive: true, once: true }));
-  if (document.readyState === "complete") idle();
+  if (document.readyState === "complete") afterLargestPaint();
   else window.addEventListener("load", onLoad, { once: true });
 }
 
