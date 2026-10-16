@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';import {createRequire} from 'node:module
 import {load} from './lib/load-typescript.mjs';import {mockSdk} from './lib/adsense-mock-sdk.mjs';
 const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE||'playwright');
 const local=process.env.AD_LOCAL_ORIGIN||'http://127.0.0.1:4805';const output=process.env.AD_EVIDENCE||'/tmp/adsense-pages';
-const {ADSENSE_PUBLIC_PATHS}=load('src/lib/adsense.ts');const browser=await chromium.launch({headless:true,chromiumSandbox:true});
+const {ADSENSE_PUBLIC_PATHS}=load('src/lib/adsense.ts');const browser=await chromium.launch({headless:true,chromiumSandbox:true,channel:process.env.PW_CHANNEL||undefined});
 const results=[],errors=[];
 const pending={gdprApplies:true,cmpStatus:'loaded',eventStatus:'cmpuishown',purpose:{consents:{1:true}},vendor:{consents:{755:true}}};
 async function open(path,width=390,qa=false,options={}){

@@ -25,6 +25,7 @@ export function load(file, overrides = {}, cache = new Map()) {
         let path = id.startsWith("@/")
           ? resolve(root, "src", id.slice(2))
           : resolve(dirname(file), id);
+        if (path.endsWith(".json")) return JSON.parse(readFileSync(path, "utf8"));
         if (!existsSync(path)) path += ".ts";
         return load(path, overrides, cache);
       }
