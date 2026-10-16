@@ -13,7 +13,7 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 
 const PATH = "/es/would-you-rather/kids";
 const TITLE = `¿Qué Prefieres? para Niños: ${KIDS_WOULD_YOU_RATHER_ES.length} Preguntas Divertidas`;
-const DESCRIPTION = `${KIDS_WOULD_YOU_RATHER_ES.length} preguntas de «¿qué prefieres?» para niños de primaria: divertidas, sin temas incómodos y con modo proyector para clase. Imprime una hoja en un clic. Gratis, sin registro.`;
+const DESCRIPTION = `${KIDS_WOULD_YOU_RATHER_ES.length} preguntas de «¿qué prefieres?» para niños de primaria: divertidas, sin temas incómodos y con modo proyector para clase. Gratis, sin registro.`;
 
 export const metadata: Metadata = {
   title: { absolute: `${TITLE} | Random Topics` },
