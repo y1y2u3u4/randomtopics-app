@@ -80,6 +80,8 @@ const CARDS = [
     paper: ["I have keys but I can't open any locks. What am I? <b>A piano</b>", "I get wetter the more I dry. What am I? <b>A towel</b>", "What has hands but can't clap? <b>A clock</b>", "What kind of key opens a banana? <b>A mon-key</b>"], paperTitle: "Riddles" },
   { id: "kids", slug: "classroom-timer", title: "Classroom Timer", line: "Full-screen countdown + classroom routines", chips: ["Think–pair–share", "Brain breaks", "Free, no sign-up"],
     paper: ["<b>💬 Think</b> — 1:00", "<b>👫 Pair</b> — 2:00", "<b>📣 Share</b> — 1:00", "<b>✏️ Quick write</b> — 5:00", "<b>🤸 Brain break</b> — 1:00"], paperTitle: "Today's routine" },
+  { id: "kids", slug: "random-group-generator", title: "Random Group Generator", line: "Fair groups with together / apart rules", chips: ["Keep together · apart", "Group roles", "Board view + print"],
+    paper: ["<b>Group 1</b> — Ava, Ben, Isla, Omar", "<b>Group 2</b> — Diego, Grace, Kai, Priya", "<b>Group 3</b> — Emma, Finn, Luna, Quinn", "<b>Group 4</b> — Chloe, Hiro, Mateo, Rosa", "🔗 Ava + Ben together · Kai ≠ Luna"], paperTitle: "Our groups" },
   { id: "map", slug: "fantasy-map-maker", title: "Fantasy Map Maker", line: "Random fantasy worlds — download PNG", chips: ["Continent", "Islands", "Parchment"] },
 ];
 

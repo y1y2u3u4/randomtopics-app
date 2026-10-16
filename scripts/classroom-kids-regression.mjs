@@ -183,4 +183,47 @@ test("classroom timer: wall-clock tick, chime, full screen, keys, no fetch", () 
   assert.ok(src("src/components/ClassroomToolLinks.tsx").includes('href: "/classroom-timer"'));
 });
 
+const rgen = load("src/lib/randomGenerators.ts", {}, cache);
+const gr = load("src/lib/groupRules.ts", { "./randomGenerators": rgen }, cache);
+test("group generator: even sizes, everyone once, rules met across 300 seeds", () => {
+  const names = "Ava Ben Chloe Diego Emma Finn Grace Hiro Isla Jonah Kai Luna Mateo Nia Omar Priya Quinn Rosa Sam Tia Uma Vik Wes".split(" ");
+  const rules = { together: gr.parsePairs("Ava + Ben\nKai & Luna & Mateo", names), apart: gr.parsePairs("Ava, Chloe\nDiego/Emma\nBen + Finn\nKai + Nia", names) };
+  assert.equal(rules.together.length, 4); assert.equal(rules.apart.length, 4);
+  for (let seed = 1; seed <= 300; seed++) {
+    for (const k of [3, 5, 6]) {
+      const r = gr.makeGroups(names, k, rules, rgen.createRng(seed));
+      const sizes = r.groups.map((g) => g.length);
+      assert.equal(r.groups.length, k);
+      assert.deepEqual(r.groups.flat().sort(), [...names].sort());
+      assert.ok(Math.max(...sizes) - Math.min(...sizes) <= 1, `sizes ${sizes}`);
+      assert.equal(r.broken.length, 0, `seed ${seed} k ${k}`);
+    }
+  }
+  assert.deepEqual(gr.groupSizes(23, 6), [4, 4, 4, 4, 4, 3]);
+  assert.equal(gr.groupCountFor(23, "size", 4), 6);
+  assert.equal(gr.groupCountFor(3, "groups", 8), 3);
+});
+
+test("group generator: impossible rules are reported, not hidden", () => {
+  const r = gr.makeGroups(["A", "B", "C"], 2, { together: [["A", "B"]], apart: [["A", "B"]] }, rgen.createRng(1));
+  assert.equal(r.broken.length, 1);
+  const crowd = gr.makeGroups(["A", "B", "C", "D"], 2, { together: [], apart: gr.parsePairs("A + B + C", ["A", "B", "C", "D"]) }, rgen.createRng(1));
+  assert.ok(crowd.broken.length >= 1 && crowd.broken.every((b) => b.kind === "apart"));
+  assert.deepEqual(gr.parsePairs("ava + nobody\n\nBEN and chloe", ["Ava", "Ben", "Chloe"]), [["Ben", "Chloe"]]);
+});
+
+test("group generator page: wiring, one h1, links both ways", () => {
+  const c = src("src/components/GroupGenerator.tsx");
+  for (const key of ["<h1", "makeGroups", "<PrintButton", "requestFullscreen", 'aria-modal="true"', "overflow-x-hidden", "rt_team_lists_v1", "data-group-broken"]) assert.ok(c.includes(key), key);
+  assert.ok(!/fetch\(/.test(c));
+  const page = src("src/app/random-group-generator/page.tsx");
+  assert.ok(!page.includes("<h1"));
+  assert.match(page, /<ClassroomPackCard pack="question-of-the-day" page=\{PATH\}/);
+  assert.ok(page.includes('href="/random-team-generator"'));
+  assert.ok(src("src/app/random-team-generator/page.tsx").includes('href="/random-group-generator"'));
+  assert.ok(src("src/app/random-team-generator/page.tsx").includes('const TITLE = "Random Team & Group Generator — Fair, Balanced Groups in One Click";'), "team page title untouched");
+  assert.ok(sitemap.includes('"random-group-generator"') && config.includes('"/random-group-generator"'));
+  readFileSync(resolve(root, "public/og/random-group-generator.jpg"));
+});
+
 console.log(`classroom kids: ${passed} tests passed`);
