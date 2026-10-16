@@ -162,7 +162,7 @@ export const seoArticlesEsPart2: SeoArticle[] = [
   {
     slug: "controversial-topics-to-discuss",
     title: "55 temas controversiales y polémicos para debatir",
-    metaTitle: "55 Temas Controversiales para Debatir (2026)",
+    metaTitle: "55 Temas Polémicos y Controversiales para Debatir (2026)",
     metaDescription:
       "55 temas controversiales y polémicos para debatir hoy, organizados por tecnología, ética, política y sociedad. Ideas actuales con dos posturas posibles.",
     heroTitle: "55 Temas Controversiales y Polémicos para Debatir",

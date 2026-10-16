@@ -166,12 +166,12 @@ export const seoArticlesEsPart1: SeoArticle[] = [
   {
     slug: "conversation-starters-for-couples",
     title: "60 temas de conversación profundos para parejas",
-    metaTitle: "60 temas de conversación profundos para parejas | RandomTopics",
+    metaTitle: "Temas para Hablar con tu Pareja: 60 Temas Profundos y Divertidos",
     metaDescription:
-      "Descubre 60 temas de conversación significativos pensados para profundizar tu relación. Desde preguntas ligeras hasta temas emocionales profundos, fortalece tu vínculo con una mejor comunicación.",
+      "60 temas para hablar con tu pareja, tu novio o tu novia: desde preguntas ligeras hasta temas profundos. Ideales para una cita, una cena o una noche en casa.",
     heroTitle: "60 temas de conversación profundos para parejas",
     heroSubtitle:
-      "Preguntas significativas que te ayudan a conectar a un nivel más profundo y a mantener viva la chispa en tu relación.",
+      "Temas para hablar con tu novio o tu novia: desde preguntas ligeras hasta conversaciones profundas que los acercan y mantienen viva la chispa.",
     intro: "Las grandes relaciones se construyen sobre grandes conversaciones. Ya sea que lleven juntos tres meses o treinta años, es fácil caer en una rutina en la que solo se habla de logística: quién recoge las compras, qué ver esta noche o cuándo pagar las facturas. Estos 60 temas de conversación están pensados para romper ese patrón y ayudaros, a ti y a tu pareja, a explorar los sueños, miedos, recuerdos y valores del otro. Úsalos durante una cena tranquila, un viaje largo en coche o cuando queráis reconectar a un nivel más profundo.",
     publishDate: "2026-03-17",
     lastModified: "2026-04-08",

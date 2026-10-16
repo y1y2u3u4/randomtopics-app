@@ -12,7 +12,7 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { absolute: "Conversation Topic Generator: 300+ Starters | RandomTopics" },
+  title: { absolute: "Random Conversation Generator: 300+ Topics to Talk About" },
   description:
     "Free random conversation topic generator with 300+ starters for dates, friends, work, parties, and ESL. Pick a category and get a topic instantly.",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/conversation"),
   },
   openGraph: {
-    title: "Conversation Topic Generator: 300+ Free Starters",
+    title: "Random Conversation Generator: 300+ Topics to Talk About",
     description:
       "Generate a random conversation topic instantly, then explore curated starters for dates, friends, work, parties, and ESL practice.",
     url: `${SITE_URL}/conversation`,
@@ -96,7 +96,7 @@ export default function ConversationPage() {
         <TopicGenerator
           initialMode="conversation"
           title="Conversation Topic Generator"
-          subtitle="Generate random conversation topics to break the ice and keep discussions flowing."
+          subtitle="Out of things to talk about? Tap for a random conversation topic for dates, friends, work, parties or ESL practice, then keep it going with a follow-up."
         />
 
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-4">

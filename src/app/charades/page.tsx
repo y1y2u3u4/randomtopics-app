@@ -10,7 +10,7 @@ import { CHARADES_WORDS, CHARADES_CATEGORIES } from "@/data/charades";
 import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = {
-  title: { absolute: "Charades Generator — 528 Free Words, Timer & Printable Cards" },
+  title: { absolute: "Charades Generator: 528 Random Charades Words + Timer (Free)" },
   description:
     "Tap for a random charades word: 528 actable words for kids, parties and class, easy to hard, with a hide-the-word timer and printable cards. Free, no signup.",
   keywords: [
@@ -95,7 +95,7 @@ export default function CharadesPage() {
             Charades <span className="gradient-text">Generator</span>
           </h1>
           <p className="text-[var(--text-muted)] max-w-xl mx-auto">
-            {CHARADES_WORDS.length} charades words across {CHARADES_CATEGORIES.length} categories. Deal a word, let the actor read it, then start the timer and hide the answer. Free, with no signup.
+            {CHARADES_WORDS.length} charades words across {CHARADES_CATEGORIES.length} categories. Tap for a random charades word, let the actor read it, then start the timer and hide the answer. Easy to hard, kids to adults. Free, with no signup.
           </p>
         </section>
 
