@@ -78,6 +78,8 @@ const CARDS = [
     paper: ["<b>1 · Greeting</b> — High-five hello", "<b>2 · Sharing</b> — What is something that made you smile this week?", "<b>3 · Activity</b> — Four corners", "<b>4 · Message</b> — Good morning, friends! Today is…"], paperTitle: "Today's morning meeting" },
   { id: "kids", slug: "riddles-for-kids", title: "Riddles for Kids", line: "211 riddles with answers · easy to hard", chips: ["Tap to reveal", "Riddle race mode", "Printable"],
     paper: ["I have keys but I can't open any locks. What am I? <b>A piano</b>", "I get wetter the more I dry. What am I? <b>A towel</b>", "What has hands but can't clap? <b>A clock</b>", "What kind of key opens a banana? <b>A mon-key</b>"], paperTitle: "Riddles" },
+  { id: "kids", slug: "classroom-timer", title: "Classroom Timer", line: "Full-screen countdown + classroom routines", chips: ["Think–pair–share", "Brain breaks", "Free, no sign-up"],
+    paper: ["<b>💬 Think</b> — 1:00", "<b>👫 Pair</b> — 2:00", "<b>📣 Share</b> — 1:00", "<b>✏️ Quick write</b> — 5:00", "<b>🤸 Brain break</b> — 1:00"], paperTitle: "Today's routine" },
   { id: "map", slug: "fantasy-map-maker", title: "Fantasy Map Maker", line: "Random fantasy worlds — download PNG", chips: ["Continent", "Islands", "Parchment"] },
 ];
 

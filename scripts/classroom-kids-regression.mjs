@@ -155,4 +155,32 @@ test("general pages link to the kids versions without new titles", () => {
   assert.ok(src("src/app/categories/[category]/page.tsx").includes('href="/this-or-that/kids"'));
 });
 
+const ct = load("src/data/classroomTimer.ts", {});
+test("classroom timer: routines, presets, clock", () => {
+  assert.equal(ct.clock(0), "0:00"); assert.equal(ct.clock(65), "1:05"); assert.equal(ct.clock(1200), "20:00");
+  assert.deepEqual(ct.TIMER_PRESETS, [...ct.TIMER_PRESETS].sort((a, b) => a - b));
+  const tps = ct.TIMER_ROUTINES.find((r) => r.id === "think-pair-share");
+  assert.deepEqual(tps.phases.map((p) => p.seconds), [60, 120, 60]);
+  assert.equal(ct.routineLength(tps), 240);
+  assert.equal(new Set(ct.TIMER_ROUTINES.map((r) => r.id)).size, ct.TIMER_ROUTINES.length);
+  for (const r of ct.TIMER_ROUTINES) for (const p of r.phases) {
+    assert.ok(p.seconds >= 30 && p.seconds <= 1200, `${r.id} ${p.label}`);
+    if (r.id !== "timer") assert.ok(p.instruction.length > 10, `${r.id} ${p.label} instruction`);
+  }
+  for (const b of ct.BRAIN_BREAKS) assert.ok(!BLOCK.test(b), b);
+});
+
+test("classroom timer: wall-clock tick, chime, full screen, keys, no fetch", () => {
+  const c = src("src/components/ClassroomTimer.tsx");
+  for (const key of ["Date.now() + ", "endAt - Date.now()", "createOscillator", "requestFullscreen", 'aria-modal="true"', "overflow-x-hidden", 'e.key === " "', '"Escape"', "document.title", "<h1"]) assert.ok(c.includes(key), key);
+  assert.ok(!/fetch\(/.test(c), "timer must not call the API");
+  const page = src("src/app/classroom-timer/page.tsx");
+  assert.ok(!page.includes("<h1"), "one h1 (in the component)");
+  assert.match(page, /<ClassroomPackCard pack="question-of-the-day" page=\{PATH\}/);
+  assert.match(page, /<FaqSchema items=\{FAQ_ITEMS\}/);
+  assert.ok(sitemap.includes('"classroom-timer"') && config.includes('"/classroom-timer"'));
+  readFileSync(resolve(root, "public/og/classroom-timer.jpg"));
+  assert.ok(src("src/components/ClassroomToolLinks.tsx").includes('href: "/classroom-timer"'));
+});
+
 console.log(`classroom kids: ${passed} tests passed`);

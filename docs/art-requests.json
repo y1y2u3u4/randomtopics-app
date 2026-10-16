@@ -56,6 +56,14 @@
       "prompt": "Kids in a classroom solving a riddle together: a projector screen with a giant question mark and a lightbulb, three small teams huddling and whispering, one child jumping up with a glowing lightbulb above her head, mini whiteboards with doodles (a clock, a piano). Flat vector, warm cream background, soft purple/teal/yellow accents, diverse cartoon children, no text, no logos.",
       "alt": "Illustrated kids puzzling over a projected riddle with a question mark and a lightbulb",
       "status": "done"
+    },
+    {
+      "id": "classroom-timer",
+      "page": "/classroom-timer",
+      "path": "public/art/classroom/classroom-timer.jpg",
+      "prompt": "A bright elementary classroom during a timed partner discussion: a big interactive whiteboard showing only a giant circular countdown ring (green arc, no numbers), pairs of children turned toward each other talking at their desks, a teacher holding a small chime, a sand timer and an analog clock on the shelf. Flat vector, warm cream background, soft purple/teal/yellow accents, diverse cartoon children, no text, no logos, no numbers.",
+      "alt": "Illustrated classroom with a big countdown ring on the board while pairs of students talk",
+      "status": "done"
     }
   ]
 }
