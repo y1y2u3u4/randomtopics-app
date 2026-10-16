@@ -7,10 +7,13 @@ What it does (vs online-stopwatch / classroomscreen / toytheater / classroomtime
 ## Acceptance (CL)
 | # | Check | Result |
 |---|---|---|
-| CL1 | page 200, sitemap, IndexNow, queue | see production walk |
+| CL1 | page 200, sitemap, IndexNow, queue | production 200, in sitemap.xml, IndexNow 200, queued |
 | CL2 | question sources | reuses audited banks only (morning sharing 90, kids would-you-rather 100, kids journal 59) + 12 new brain breaks (blocklist test) |
 | CL3 | projector, 375px | Chrome localhost: think–pair–share 0:58 Think 1/3 → Pair 2/3 → Share 3/3 → Time's up (clock skew test); pause holds 0:58; ↑ gives 6:00, F opens full screen, Space runs (5:59), R resets, Esc closes; 375px iframe scrollWidth 375, full-screen view 363/363; no console errors |
 | CL5 | no price / payment / ad change; tests + build | existing pack card only; generators (26 classroom-kids tests), handoff, growth, topics, classroom, seo-routing, question-bank-copy, gsc-page tests + eslint (1 old warning) + tsc + `next build` pass |
 
 ## Production walk
-(filled after deploy)
+Deployed 808df5e (PR #135, Vercel Production success).
+- 200: /classroom-timer, og card, hero image; sitemap.xml lists the URL; /categories/education links it.
+- `site_walk.py --only` (new page + 4 touched/linked pages, 100 internal links, 44 assets): **severe 0, medium 0**, low 5 (3 existing long titles; new page description 237 chars → shortened to 158 in this follow-up).
+- IndexNow 200 (2 URLs); added to `opportunity-hub/steward/indexing/queue.md`; backlog row marked live.

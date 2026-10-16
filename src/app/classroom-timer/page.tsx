@@ -13,7 +13,7 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 
 const PATH = "/classroom-timer";
 const TITLE = "Classroom Timer — Free Full-Screen Countdown with Routines";
-const DESCRIPTION = "A free classroom timer for the board: big full-screen countdown, 30-second to 20-minute presets, a chime, and ready-made routines (think–pair–share, group discussion, quick write, brain break) with a random question for each. No sign-up.";
+const DESCRIPTION = "Free classroom timer for the board: full-screen countdown, a chime, and routines like think–pair–share and brain breaks with a question on screen. No sign-up.";
 
 export const metadata: Metadata = {
   title: { absolute: `${TITLE} | Random Topics` },
