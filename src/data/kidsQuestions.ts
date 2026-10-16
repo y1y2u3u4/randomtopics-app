@@ -419,8 +419,9 @@ export const STUDENT_GET_TO_KNOW_YOU: KidsQuestion<StudentGrade>[] = [
 
 /** Split "A or B?" style prompts into the two sides of the room. */
 export function splitChoice(text: string): [string, string] | null {
-  const body = text.replace(/^Would you rather\s+/i, "").replace(/\?$/, "");
-  const parts = body.split(/\s+or\s+/i);
+  const es = text.startsWith("¿");
+  const body = text.replace(/^Would you rather\s+/i, "").replace(/^¿(Qué prefieres:\s*)?/i, "").replace(/\?$/, "");
+  const parts = body.split(es ? /\s+o\s+/i : /\s+or\s+/i);
   if (parts.length !== 2 || !parts[0] || !parts[1]) return null;
   const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   return [cap(parts[0].trim()), cap(parts[1].trim())];

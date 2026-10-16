@@ -93,8 +93,6 @@ const INDEXABLE_MODE_CATEGORY_SET: ReadonlySet<string> = new Set(
 export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/classroom-packs",
   "/classroom/present",
-  "/this-or-that/kids",
-  "/would-you-rather/kids",
   "/topics/get-to-know-you-questions-for-students",
   "/morning-meeting-questions",
   "/riddles-for-kids",

@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KidsVersionSwitch from "@/components/KidsVersionSwitch";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
 import FaqSchema from "@/components/FaqSchema";
@@ -68,6 +69,7 @@ export default function WouldYouRatherPageEs() {
             { label: "¿Qué Prefieres?" },
           ]}
         />
+        <KidsVersionSwitch general="/es/would-you-rather" kids="/es/would-you-rather/kids" active="general" locale="es" />
         <PartyGenerator
           questions={WOULD_YOU_RATHER_ES}
           locale="es"

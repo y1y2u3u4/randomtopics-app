@@ -3,7 +3,7 @@
 // sitemap, en-only, kids switch).
 // Run: node scripts/classroom-kids-regression.mjs (also part of generators:test)
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { load } from "./lib/load-typescript.mjs";
 
@@ -114,6 +114,7 @@ const PAGES = {
   "/riddles-for-kids": "src/app/riddles-for-kids/page.tsx",
 };
 const sitemap = src("src/app/sitemap.ts");
+const ES_TWINS = new Set(["/this-or-that/kids", "/would-you-rather/kids"]);
 const config = src("src/i18n/config.ts");
 for (const [path, file] of Object.entries(PAGES)) {
   test(`${path}: generator first, projector, pack card, og, sitemap, en-only`, () => {
@@ -125,7 +126,8 @@ for (const [path, file] of Object.entries(PAGES)) {
     assert.match(page, /<FaqSchema items=\{FAQ_ITEMS\}/);
     assert.match(page, new RegExp(`const PATH = "${path.replace(/\//g, "\\/")}"`));
     assert.ok(sitemap.includes(`"${path.slice(1)}"`), "in sitemap");
-    assert.ok(config.includes(`"${path}"`), "en-only (no Spanish twin yet)");
+    if (ES_TWINS.has(path)) assert.ok(!config.includes(`"${path}"`) && existsSync(resolve(root, `src/app/es${path}/page.tsx`)), "has a Spanish twin");
+    else assert.ok(config.includes(`"${path}"`), "en-only (no Spanish twin yet)");
     const og = page.match(/\/og\/([a-z0-9-]+)\.jpg/)[1];
     readFileSync(resolve(root, "public/og", `${og}.jpg`));
   });
@@ -224,6 +226,44 @@ test("group generator page: wiring, one h1, links both ways", () => {
   assert.ok(src("src/app/random-team-generator/page.tsx").includes('const TITLE = "Random Team & Group Generator — Fair, Balanced Groups in One Click";'), "team page title untouched");
   assert.ok(sitemap.includes('"random-group-generator"') && config.includes('"/random-group-generator"'));
   readFileSync(resolve(root, "public/og/random-group-generator.jpg"));
+});
+
+const es = load("src/data/kidsQuestions.es.ts", { "./kidsQuestions": kk }, cache);
+// Unicode-aware word edges: plain \\b treats accented letters as breaks ("atmosférico" ⊃ "rico").
+const BLOCK_ES = /(?<!\p{L})(beso\w*|novi[oa]s?|enamorad\w*|cita|cerveza|vino|alcohol|borrach\w*|pistolas?|armas?|matar|muert\w*|morir|sangre|pelea\w*|guerras?|presidente|elecci\w+|pol[ií]tic\w*|religi\w+|iglesia|dinero|rico|pobre|loter[ií]a|banco|dieta|gord\w*|feo|infierno|miedo\w*|terror|zombis?|fantasmas?)(?!\p{L})/iu;
+test("Spanish kids banks: size, unique, clean, splittable", () => {
+  const banks = { tot: es.KIDS_THIS_OR_THAT_ES, wyr: es.KIDS_WOULD_YOU_RATHER_ES, journal: es.KIDS_JOURNAL_PROMPTS_ES };
+  assert.ok(banks.tot.length >= 90 && banks.wyr.length >= 60 && banks.journal.length >= 50, Object.values(banks).map((b) => b.length).join("/"));
+  const grades = new Set(es.KIDS_GRADES_ES.map((g) => g.id));
+  for (const [name, bank] of Object.entries(banks)) {
+    assert.equal(new Set(bank.map((q) => q.text.toLowerCase())).size, bank.length, `${name} duplicates`);
+    for (const q of bank) {
+      assert.equal(q.audience, "kids");
+      assert.ok(q.grades.length && q.grades.every((g) => grades.has(g)), q.text);
+      assert.ok(name === "journal" ? !BLOCK_ES.test(q.text) || /miedo a probar|un poco de miedo/.test(q.text) : !BLOCK_ES.test(q.text), `${name}: ${q.text}`);
+      if (name !== "journal") {
+        assert.match(q.text, /^¿.+\?$/, q.text);
+        const sides = k.splitChoice(q.text);
+        assert.ok(sides && sides[0].length > 1 && sides[1].length > 1, `split: ${q.text}`);
+      }
+    }
+  }
+  assert.deepEqual(k.splitChoice("¿Pizza o tacos?"), ["Pizza", "Tacos"]);
+  assert.deepEqual(k.splitChoice("¿Qué prefieres: poder volar o ser invisible?"), ["Poder volar", "Ser invisible"]);
+  assert.deepEqual(new Set(banks.tot.map((q) => q.theme)), new Set(es.KIDS_THEMES_ES.map((t) => t.id)));
+});
+
+test("Spanish classroom pages: canonical, hreflang twin, lang, switch, journal block", () => {
+  for (const [path, en] of [["/es/this-or-that/kids", "/this-or-that/kids"], ["/es/would-you-rather/kids", "/would-you-rather/kids"]]) {
+    const page = src(`src/app${path}/page.tsx`);
+    assert.ok(page.includes(`const PATH = "${path}"`) && page.includes(`hreflangAlternates("${en}")`) && page.includes('lang="es"') && page.includes('locale="es"'));
+    assert.ok(!page.includes("ClassroomPackCard"), "English slide packs are not promoted on Spanish pages");
+  }
+  assert.ok(src("src/app/es/this-or-that/page.tsx").includes('kids="/es/this-or-that/kids" active="general" locale="es"'));
+  assert.ok(src("src/app/es/would-you-rather/page.tsx").includes('kids="/es/would-you-rather/kids" active="general" locale="es"'));
+  const topic = src("src/app/es/topics/[slug]/page.tsx");
+  assert.ok(topic.includes('article.slug === "writing-prompts-for-kids"') && topic.includes("KIDS_JOURNAL_PROMPTS_ES") && topic.includes('headingLevel="h2"'));
+  for (const f of ["src/components/ClassroomQuestionGenerator.tsx", "src/components/ClassroomProjector.tsx"]) assert.ok(src(f).includes("es: {"), `${f} has Spanish strings`);
 });
 
 console.log(`classroom kids: ${passed} tests passed`);
