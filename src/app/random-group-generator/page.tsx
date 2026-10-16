@@ -14,7 +14,7 @@ import { GROUP_ROLES, makeGroups, parsePairs } from "@/lib/groupRules";
 
 const PATH = "/random-group-generator";
 const TITLE = "Random Group Generator — Keep Students Together or Apart";
-const DESCRIPTION = "Free random group generator for teachers: paste a class list, split by group size or number of groups, keep students together or apart, add group roles, then project or print.";
+const DESCRIPTION = "Free random group generator for teachers: paste a class list, keep students together or apart, add group roles, then project or print the groups.";
 
 export const metadata: Metadata = {
   title: { absolute: `${TITLE} | Random Topics` },
