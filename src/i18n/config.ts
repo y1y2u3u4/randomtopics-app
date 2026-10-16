@@ -99,6 +99,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/morning-meeting-questions",
   "/riddles-for-kids",
   "/classroom-timer",
+  "/random-group-generator",
   "/account",
   "/yo-mama-randomizer",
   "/how-we-curate",

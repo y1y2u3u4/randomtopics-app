@@ -129,7 +129,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ path: "/classroom-packs", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-10-16" });
 
   // Classroom pages, batches 1–3 (2026-10-16).
-  for (const p of ["this-or-that/kids", "would-you-rather/kids", "topics/get-to-know-you-questions-for-students", "morning-meeting-questions", "riddles-for-kids", "classroom-timer"]) {
+  for (const p of ["this-or-that/kids", "would-you-rather/kids", "topics/get-to-know-you-questions-for-students", "morning-meeting-questions", "riddles-for-kids", "classroom-timer", "random-group-generator"]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-16" });
   }
 
