@@ -55,7 +55,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Es gratis este generador de argumentos?",
     answer:
-      "Completamente gratis: sin registro, sin anuncios, sin límites de uso. Puedes generar hasta 10 argumentos a la vez y activar la generación por IA para obtener argumentos nuevos ilimitados.",
+      "Completamente gratis: sin registro y sin límites de uso. Puedes generar hasta 10 argumentos a la vez y activar la generación por IA para obtener argumentos nuevos ilimitados.",
   },
 ];
 

@@ -74,6 +74,8 @@ export default function ThisOrThatPage() {
         />
         <PartyGameLinks currentPath="/this-or-that" />
 
+        <PublicAdPlacement path="/this-or-that" />
+
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
             <h2 className="section-heading text-2xl sm:text-3xl mb-6 text-[var(--text-primary)]">
@@ -128,7 +130,6 @@ export default function ThisOrThatPage() {
           intro="The complete deck of quick either/or prompts &mdash; scan it, steal from it, or copy the whole list for your next session."
           questions={THIS_OR_THAT}
         />
-        <PublicAdPlacement path="/this-or-that" />
 
         <KeepPlaying path="/this-or-that" />
       </main>

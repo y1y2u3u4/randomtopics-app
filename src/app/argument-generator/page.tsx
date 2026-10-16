@@ -45,7 +45,7 @@ const FAQ_ITEMS = [
   {
     question: "Is this argument generator free?",
     answer:
-      "Completely free — no signup, no ads, no usage limits. You can generate up to 10 arguments at once and enable AI generation for unlimited fresh arguments.",
+      "Completely free — no signup and no usage limits. You can generate up to 10 arguments at once and enable AI generation for unlimited fresh arguments.",
   },
 ];
 

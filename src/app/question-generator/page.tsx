@@ -47,7 +47,7 @@ const FAQ_ITEMS = [
   {
     question: "Is this question generator free?",
     answer:
-      "Completely free — no signup, no ads, no limits. It's supported by the same topic database that powers our conversation, debate, and speech generators.",
+      "Completely free — no signup and no limits. It's supported by the same topic database that powers our conversation, debate, and speech generators.",
   },
 ];
 
@@ -70,6 +70,8 @@ export default function QuestionGeneratorPage() {
           title="Random Question Generator"
           subtitle="Instant questions for any group — icebreakers, deep questions, funny prompts and everything in between."
         />
+
+        <PublicAdPlacement path="/question-generator" />
 
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
@@ -137,7 +139,6 @@ export default function QuestionGeneratorPage() {
             </div>
           </div>
         </section>
-        <PublicAdPlacement path="/question-generator" />
 
       </main>
       <Footer />

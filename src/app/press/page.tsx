@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const SITE_URL = "https://randomtopics.app";
 
-const ABOUT_DESCRIPTION = `Random Topics is a free topic generator that delivers instant conversation starters, writing prompts, debate motions, speech ideas, and icebreaker questions from a curated library of 500+ topics across 16 categories. No signup, no ads, no paywall — just one click and you have a fresh topic ready to use.`;
+const ABOUT_DESCRIPTION = `Random Topics is a free topic generator that delivers instant conversation starters, writing prompts, debate motions, speech ideas, and icebreaker questions from a curated library of 500+ topics across 16 categories. No signup, no paywall — just one click and you have a fresh topic ready to use.`;
 
 const EMBED_CODE = `<iframe
   src="${SITE_URL}/embed"
@@ -53,7 +53,7 @@ const KEY_FEATURES = [
   "Built-in speech timer with customizable duration",
   "Embeddable widget for blogs and websites",
   "22 curated collection articles for deep-dive browsing",
-  "Completely free — no signup, no ads, no paywall",
+  "Completely free — no signup, no paywall",
   "Mobile-friendly, fast, and accessible",
   "Social sharing built in (Twitter, Facebook, LinkedIn, WhatsApp)",
 ];

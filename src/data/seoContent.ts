@@ -3966,7 +3966,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
   title: "200 Never Have I Ever Questions (Clean, Funny & For Adults)",
   metaTitle: "200 Never Have I Ever Questions — Clean, Funny & For Adults | RandomTopics",
   metaDescription:
-    "200 never have I ever questions for teens, friends, couples, and work — clean, funny, and embarrassing. Free printable list plus a random generator. No signup, no ads.",
+    "200 never have I ever questions for teens, friends, couples, and work — clean, funny, and embarrassing. Free printable list plus a random generator. No signup needed.",
   heroTitle: "200 Never Have I Ever Questions",
   heroSubtitle:
     "Clean, funny, and revealing 'never have I ever' prompts for teens, friends, couples, road trips, and team icebreakers.",
@@ -4269,7 +4269,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
   title: "150 Most Likely To Questions (Funny, Clean & For Friends or Work)",
   metaTitle: "150 Most Likely To Questions — Funny, Clean & For Any Group | RandomTopics",
   metaDescription:
-    "150 'most likely to' questions for friends, couples, teens, and work teams — funny, clean, and revealing. Free printable list plus a random generator. No signup, no ads.",
+    "150 'most likely to' questions for friends, couples, teens, and work teams — funny, clean, and revealing. Free printable list plus a random generator. No signup needed.",
   heroTitle: "150 Most Likely To Questions",
   heroSubtitle:
     "Funny, clean, and surprisingly revealing 'who is most likely to...' prompts for friends, couples, classrooms, and team icebreakers.",

@@ -122,6 +122,8 @@ export default function ConversationPage() {
           </div>
         </section>
 
+        <PublicAdPlacement path="/conversation" />
+
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
@@ -248,7 +250,6 @@ export default function ConversationPage() {
             </div>
           </div>
         </section>
-        <PublicAdPlacement path="/conversation" />
 
         <EditorsPicks
           heading="Conversation Starters with Talking Points"
