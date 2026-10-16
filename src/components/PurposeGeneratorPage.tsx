@@ -68,17 +68,22 @@ export default function PurposeGeneratorPage({ config }: { config: PurposeGenera
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
           <div className="glass-card p-8 sm:p-10">
-            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">{isSpanish ? "Ejemplos de temas por categoría" : "Example topics by category"}</h2>
-            <p className="mt-2 text-sm text-[var(--text-muted)]">{isSpanish ? "Una muestra visible del mismo banco seleccionado que utiliza el generador." : "A crawlable sample from the same editor-written pool used by the generator."}</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">{config.fullBank ? config.fullBank.heading : isSpanish ? "Ejemplos de temas por categoría" : "Example topics by category"}</h2>
+            <p className="mt-2 text-sm text-[var(--text-muted)]">{config.fullBank ? config.fullBank.intro : isSpanish ? "Una muestra visible del mismo banco seleccionado que utiliza el generador." : "A crawlable sample from the same editor-written pool used by the generator."}</p>
+            {config.fullBank && (
+              <nav aria-label="Jump to a field" className="mt-4 flex flex-wrap gap-2">
+                {categories.map((category) => <a key={category} href={`#field-${category.toLowerCase().replace(/[^a-z]+/g, "-")}`} className="inline-flex min-h-11 items-center rounded-xl border border-white/10 px-3 py-2 text-sm text-[var(--neon-cyan)]">{category} · {config.prompts.filter((prompt) => prompt.category === category).length}</a>)}
+              </nav>
+            )}
             <div className="mt-6 space-y-7">
               {categories.map((category) => (
-                <div key={category}>
-                  <h3 className="text-base font-semibold text-[var(--neon-cyan)]">{category}</h3>
+                <div key={category} id={config.fullBank ? `field-${category.toLowerCase().replace(/[^a-z]+/g, "-")}` : undefined} className="scroll-mt-24">
+                  <h3 className="text-base font-semibold text-[var(--neon-cyan)]">{config.fullBank ? `${category} research topics` : category}</h3>
                   <ul className="mt-3 space-y-3">
-                    {config.prompts.filter((prompt) => prompt.category === category).slice(0, 3).map((prompt) => (
+                    {config.prompts.filter((prompt) => prompt.category === category).slice(0, config.fullBank ? undefined : 3).map((prompt) => (
                       <li key={prompt.text} className="flex items-start gap-3 text-sm leading-relaxed text-[var(--text-secondary)]">
                         <span className="text-[var(--neon-pink)]" aria-hidden="true">•</span>
-                        <span><strong className="text-[var(--text-primary)]">{prompt.text}</strong> — {prompt.angle}</span>
+                        <span><strong className="text-[var(--text-primary)]">{prompt.text}</strong>{config.fullBank && <span className="ml-1 text-xs text-[var(--text-muted)]">({prompt.level})</span>} — {prompt.angle}</span>
                       </li>
                     ))}
                   </ul>

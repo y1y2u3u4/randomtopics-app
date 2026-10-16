@@ -94,6 +94,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/classroom-packs",
   "/classroom/present",
   "/topics/get-to-know-you-questions-for-students",
+  "/topics/book-club-questions",
   "/morning-meeting-questions",
   "/riddles-for-kids",
   "/classroom-timer",

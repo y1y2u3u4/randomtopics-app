@@ -78,7 +78,7 @@ export default function Page() {
               <ul className="space-y-2 list-disc pl-5">
                 <li><strong>Keep speeches short.</strong> 60-90 second speeches keep every student engaged and lower the fear barrier. Total format should fit in 20 minutes.</li>
                 <li><strong>Assign sides randomly.</strong> Middle schoolers take arguments personally; random side assignment teaches that defending a position is a skill, not an identity.</li>
-                <li><strong>Use a sentence-starter wall.</strong> Post frames like ‘My opponent claims..., however...’ â scaffolding turns nervous speakers into participants.</li>
+                <li><strong>Use a sentence-starter wall.</strong> Post frames like ‘My opponent claims..., however...’ — scaffolding turns nervous speakers into participants.</li>
                 <li><strong>Grade preparation, not victory.</strong> Score evidence, structure, and listening. If only winners get As, shy students stop trying.</li>
               </ul>
 

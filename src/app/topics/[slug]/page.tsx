@@ -10,6 +10,7 @@ import { MODES, CATEGORIES } from "@/data/types";
 import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import ClassroomArt from "@/components/ClassroomArt";
 import PrintButton from "@/components/PrintButton";
 import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
 import SpeechTimer from "@/components/SpeechTimer";
@@ -201,6 +202,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             />
           </div>
         </div>
+        {article.art && <ClassroomArt src={article.art.src} alt={article.art.alt} />}
 
         {/* Article Schema */}
         <script
@@ -293,6 +295,19 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               />
             </section>
         ) : null}
+
+        {article.slug === "book-club-questions" && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <InlineQuestionGenerator
+              items={articleItems}
+              groups={article.sections.map((section) => ({ label: section.heading.replace(/ Book Club Questions$/, ""), items: section.items }))}
+              title="Pick a Random Book Club Question"
+              description={`Draw from all ${articleItems.length} questions without repeats, or filter to openers, characters, themes, the ending, nonfiction or a genre. Copy it for the group chat or read it out at the table.`}
+              source="book_club_article"
+              actionLabel="Give Me a Question"
+            />
+          </section>
+        )}
 
         {article.slug === "ethical-dilemma-questions" && <EthicsDiscussionCards />}
 
