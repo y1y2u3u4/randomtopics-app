@@ -51,7 +51,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Es gratis para centros educativos y clubes de debate?",
     answer:
-      "Completamente gratis, sin registro y sin anuncios. Los entrenadores generan lotes de temas para rondas de práctica; los profesores lo proyectan en directo para debates de clase.",
+      "Completamente gratis y sin registro. Los entrenadores generan lotes de temas para rondas de práctica; los profesores lo proyectan en directo para debates de clase.",
   },
 ];
 

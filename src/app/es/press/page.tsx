@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const SITE_URL = "https://randomtopics.app";
 
-const ABOUT_DESCRIPTION = `Random Topics es un generador de temas gratuito con IA que ofrece al instante iniciadores de conversación, ideas para escribir, mociones de debate, ideas para discursos y preguntas rompehielos, a partir de una biblioteca seleccionada de más de 500 temas en 16 categorías. Sin registro, sin anuncios, sin muros de pago — solo un clic y tienes un tema fresco listo para usar.`;
+const ABOUT_DESCRIPTION = `Random Topics es un generador de temas gratuito con IA que ofrece al instante iniciadores de conversación, ideas para escribir, mociones de debate, ideas para discursos y preguntas rompehielos, a partir de una biblioteca seleccionada de más de 500 temas en 16 categorías. Sin registro y sin muros de pago — solo un clic y tienes un tema fresco listo para usar.`;
 
 const EMBED_CODE = `<iframe
   src="${SITE_URL}/embed"
@@ -57,7 +57,7 @@ const KEY_FEATURES = [
   "Temporizador de discurso integrado con duración personalizable",
   "Widget para insertar en blogs y sitios web",
   "22 artículos de colecciones seleccionadas para explorar a fondo",
-  "Completamente gratis — sin registro, sin anuncios, sin muros de pago",
+  "Completamente gratis — sin registro y sin muros de pago",
   "Adaptado a móviles, rápido y accesible",
   "Compartir en redes integrado (Twitter, Facebook, LinkedIn, WhatsApp)",
 ];

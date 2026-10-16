@@ -36,7 +36,7 @@ const FAQ_ITEMS = [
   {
     question: "Is this free for schools and debate clubs?",
     answer:
-      "Completely free, no signup, no ads. Coaches generate topic batches for practice rounds; teachers project it live for classroom debates.",
+      "Completely free with no signup. Coaches generate topic batches for practice rounds; teachers project it live for classroom debates.",
   },
 ];
 

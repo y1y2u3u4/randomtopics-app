@@ -55,7 +55,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Es gratis este generador de preguntas?",
     answer:
-      "Completamente gratis: sin registro, sin anuncios, sin límites. Se apoya en la misma base de datos de temas que impulsa nuestros generadores de conversación, debate y discursos.",
+      "Completamente gratis: sin registro y sin límites. Se apoya en la misma base de datos de temas que impulsa nuestros generadores de conversación, debate y discursos.",
   },
 ];
 

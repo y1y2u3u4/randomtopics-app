@@ -47,7 +47,7 @@ const FAQ_ITEMS = [
   {
     question: "Is this question generator free?",
     answer:
-      "Completely free — no signup, no ads, no limits. It's supported by the same topic database that powers our conversation, debate, and speech generators.",
+      "Completely free — no signup and no limits. It's supported by the same topic database that powers our conversation, debate, and speech generators.",
   },
 ];
 

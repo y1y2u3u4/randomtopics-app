@@ -10,7 +10,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: { absolute: "Generador de Ideas para Escribir — Más de 500 Propuestas y Temas de Ensayo | Random Topics" },
   description:
-    "Supera el bloqueo del escritor con un clic: más de 500 ideas para escribir gratis —narrativas, persuasivas, descriptivas y expositivas— para niños, estudiantes y adultos. Sin registro, sin anuncios y generación ilimitada con IA.",
+    "Supera el bloqueo del escritor con un clic: más de 500 ideas para escribir gratis —narrativas, persuasivas, descriptivas y expositivas— para niños, estudiantes y adultos. Sin registro y con generación ilimitada con IA.",
   keywords: [
     "generador de ideas para escribir",
     "ideas para escribir",
