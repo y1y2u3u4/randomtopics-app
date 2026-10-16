@@ -29,7 +29,13 @@ interface Props {
   allGradesLabel?: string;
   allThemesLabel?: string;
   firstPrompt?: string;
+  locale?: "en" | "es";
 }
+
+const UI = {
+  en: { grade: "Grade level", theme: "Theme", allGrades: "All grades", allThemes: "Any theme", first: "Tap the button for a question", answer: "Answer", show: "👀 Show answer", next: "Next question", get: "Get a question", project: "📺 Project for the class", printN: (n: number) => `🖨️ Print ${n} (1 page)`, print: "🖨️ Print the list", copy: "Copy", questions: (n: number) => `${n} questions`, forGrade: (l: string, a?: string) => ` for ${l.toLowerCase()} (${a})`, footer: "no repeats until you have seen them all · projector mode needs no sign-up" },
+  es: { grade: "Curso", theme: "Tema", allGrades: "Todos los cursos", allThemes: "Cualquier tema", first: "Pulsa el botón para ver una pregunta", answer: "Respuesta", show: "👀 Ver respuesta", next: "Siguiente pregunta", get: "Dame una pregunta", project: "📺 Proyectar en clase", printN: (n: number) => `🖨️ Imprimir ${n} (1 página)`, print: "🖨️ Imprimir la lista", copy: "Copiar", questions: (n: number) => `${n} preguntas`, forGrade: (l: string, a?: string) => ` para ${l} (${a})`, footer: "sin repeticiones hasta verlas todas · el modo proyector no pide registro" },
+};
 
 const shuffle = <T,>(list: T[]) => {
   const out = [...list];
@@ -50,7 +56,8 @@ const chip = (active: boolean) => `min-h-11 text-xs font-semibold px-4 py-2 roun
  * One-click generator for the kids / student classroom pages: grade-band and
  * theme filters, a no-repeat deck, and a free projector mode for the board.
  */
-export default function ClassroomQuestionGenerator({ questions, grades, themes = [], title, subtitle, emoji, source, split, printCount, printHeading, headingLevel = "h1", allGradesLabel = "All grades", allThemesLabel = "Any theme", firstPrompt = "Tap the button for a question" }: Props) {
+export default function ClassroomQuestionGenerator({ questions, grades, themes = [], title, subtitle, emoji, source, split, printCount, printHeading, headingLevel = "h1", locale = "en", allGradesLabel = UI[locale].allGrades, allThemesLabel = UI[locale].allThemes, firstPrompt = UI[locale].first }: Props) {
+  const t = UI[locale];
   const [grade, setGrade] = useState("all");
   const [theme, setTheme] = useState("all");
   const [current, setCurrent] = useState<string | null>(null);
@@ -89,7 +96,7 @@ export default function ClassroomQuestionGenerator({ questions, grades, themes =
   };
 
   const gradeLabel = grades.find((g) => g.id === grade);
-  const printItems = (printCount ? pool.slice(0, printCount) : pool).map((q) => answerOf.has(q) ? `${q} — Answer: ${answerOf.get(q)}` : q);
+  const printItems = (printCount ? pool.slice(0, printCount) : pool).map((q) => answerOf.has(q) ? `${q} — ${t.answer}: ${answerOf.get(q)}` : q);
   const Heading = headingLevel;
   const currentAnswer = current ? answerOf.get(current) : undefined;
 
@@ -101,13 +108,13 @@ export default function ClassroomQuestionGenerator({ questions, grades, themes =
       </div>
 
       <div className="glass-card p-6 sm:p-10 text-center">
-        <div className="flex flex-wrap justify-center gap-2" role="group" aria-label="Grade level">
+        <div className="flex flex-wrap justify-center gap-2" role="group" aria-label={t.grade}>
           {[{ id: "all", label: allGradesLabel }, ...grades].map((g) => (
             <button key={g.id} type="button" onClick={() => pick("grade", g.id)} aria-pressed={grade === g.id} className={chip(grade === g.id)}>{g.label}</button>
           ))}
         </div>
         {themes.length > 0 && (
-          <div className="flex flex-wrap justify-center gap-2 mt-3" role="group" aria-label="Theme">
+          <div className="flex flex-wrap justify-center gap-2 mt-3" role="group" aria-label={t.theme}>
             {[{ id: "all", label: allThemesLabel }, ...themes].map((t) => (
               <button key={t.id} type="button" onClick={() => pick("theme", t.id)} aria-pressed={theme === t.id} className={chip(theme === t.id)}>{t.label}</button>
             ))}
@@ -126,32 +133,32 @@ export default function ClassroomQuestionGenerator({ questions, grades, themes =
             )}
           </AnimatePresence>
           {currentAnswer && (revealed
-            ? <p className="mt-3 text-lg font-semibold text-[#3ddc97]" data-answer>Answer: {currentAnswer}</p>
-            : <button type="button" onClick={() => { setRevealed(true); track("riddle_answer_reveal", { content_source: source }); }} className="mt-3 min-h-11 rounded-xl border border-white/15 px-4 py-2 text-sm font-semibold text-[var(--text-primary)] hover:border-white/30">👀 Show answer</button>)}
+            ? <p className="mt-3 text-lg font-semibold text-[#3ddc97]" data-answer>{t.answer}: {currentAnswer}</p>
+            : <button type="button" onClick={() => { setRevealed(true); track("riddle_answer_reveal", { content_source: source }); }} className="mt-3 min-h-11 rounded-xl border border-white/15 px-4 py-2 text-sm font-semibold text-[var(--text-primary)] hover:border-white/30">{t.show}</button>)}
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
           <button type="button" onClick={generate} disabled={!pool.length} className="btn-generate disabled:opacity-50">
-            <span>{emoji}</span> {current ? "Next question" : "Get a question"}
+            <span>{emoji}</span> {current ? t.next : t.get}
           </button>
           <button type="button" onClick={project} disabled={!pool.length} data-projector-open
             className="min-h-11 rounded-xl border border-[var(--neon-cyan)]/40 px-5 py-3 text-sm font-semibold text-[var(--neon-cyan)] hover:bg-[rgba(0,229,255,0.08)] disabled:opacity-50">
-            📺 Project for the class
+            {t.project}
           </button>
           <PrintButton heading={printHeading} items={printItems}
-            intro={gradeLabel ? `${gradeLabel.label} (${gradeLabel.ages}) · ${printItems.length} questions` : `${printItems.length} questions`}
-            label={printCount ? `🖨️ Print ${printItems.length} (1 page)` : "🖨️ Print the list"} />
+            intro={gradeLabel ? `${gradeLabel.label} (${gradeLabel.ages}) · ${t.questions(printItems.length)}` : t.questions(printItems.length)}
+            label={printCount ? t.printN(printItems.length) : t.print} locale={locale} />
         </div>
         {current ? (
           <div className="mt-4">
-            <GeneratedResultActions key={current} text={current} copyLabel="Copy" shareTitle={title} toolType="party_question_generator" contentSource={source} isPostGenerate />
+            <GeneratedResultActions key={current} text={current} copyLabel={t.copy} locale={locale} shareTitle={title} toolType="party_question_generator" contentSource={source} isPostGenerate />
           </div>
         ) : null}
         <p className="text-xs text-[var(--text-muted)] mt-4">
-          {pool.length} questions{gradeLabel ? ` for ${gradeLabel.label.toLowerCase()} (${gradeLabel.ages})` : ""} · no repeats until you have seen them all · projector mode needs no sign-up
+          {t.questions(pool.length)}{gradeLabel ? t.forGrade(gradeLabel.label, gradeLabel.ages) : ""} · {t.footer}
         </p>
       </div>
-      {deck && <ClassroomProjector deck={deck} title={title} split={split} source={source} answers={answerOf.size ? deck.map((q) => answerOf.get(q)) : undefined} onClose={() => setDeck(null)} />}
+      {deck && <ClassroomProjector deck={deck} title={title} split={split} source={source} answers={answerOf.size ? deck.map((q) => answerOf.get(q)) : undefined} locale={locale} onClose={() => setDeck(null)} />}
     </section>
   );
 }

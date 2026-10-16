@@ -17,6 +17,9 @@ import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 import { ES_CONTROVERSIAL_SUPPORT } from "@/data/controversialDiscussion.es";
 import PartyCategoryEntry from "@/components/PartyCategoryEntry";
 import SpanishPartyRound from "@/components/SpanishPartyRound";
+import ClassroomQuestionGenerator from "@/components/ClassroomQuestionGenerator";
+import ClassroomToolLinksEs from "@/components/ClassroomToolLinksEs";
+import { KIDS_GRADES_ES, KIDS_JOURNAL_PROMPTS_ES, KIDS_JOURNAL_THEMES_ES } from "@/data/kidsQuestions.es";
 
 function sectionId(heading: string) {
   return heading
@@ -246,6 +249,26 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
 
 
 
+        {/* Kids journal generator (2026-10-16): added above the article; the article copy is unchanged. */}
+        {article.slug === "writing-prompts-for-kids" && (
+          <div id="diario-ninos" data-kids-journal-es>
+            <ClassroomQuestionGenerator
+              questions={KIDS_JOURNAL_PROMPTS_ES}
+              grades={KIDS_GRADES_ES}
+              themes={KIDS_JOURNAL_THEMES_ES}
+              title="Generador de temas de diario para niños"
+              subtitle={`${KIDS_JOURNAL_PROMPTS_ES.length} ideas para escribir en el diario, por edad y tema. Una por clic, proyéctala en la pizarra o imprime la lista.`}
+              emoji="📓"
+              source="kids_journal_es"
+              printHeading="Temas de diario para niños"
+              headingLevel="h2"
+              firstPrompt="Pulsa el botón para ver un tema de diario"
+              locale="es"
+            />
+            <div className="h-8 sm:h-12" />
+          </div>
+        )}
+
         {article.slug === "presentation-ideas-for-school" && (
           <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
             <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 text-center">
@@ -440,6 +463,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
             <span>{articleCta.emoji}</span> {articleCta.label}
           </Link>
         </section>
+        {article.slug === "writing-prompts-for-kids" && <ClassroomToolLinksEs currentPath="/es/topics/writing-prompts-for-kids" />}
       </main>
       <Footer locale="es" />
     </>

@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KidsVersionSwitch from "@/components/KidsVersionSwitch";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
 import FaqSchema from "@/components/FaqSchema";
@@ -59,6 +60,7 @@ export default function ThisOrThatPageEs() {
       <Navbar />
       <main className="flex-1" lang="es">
         <Breadcrumb items={[{ label: "Inicio", href: "/es" }, { label: "Esto o Aquello" }]} />
+        <KidsVersionSwitch general="/es/this-or-that" kids="/es/this-or-that/kids" active="general" locale="es" />
         <PartyGenerator
           questions={THIS_OR_THAT_ES}
           title="Preguntas de Esto o Aquello"
