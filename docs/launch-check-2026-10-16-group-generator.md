@@ -14,4 +14,7 @@ What it does beyond classtools / randomlists: split by people per group (pairs, 
 | Tests + build | generators (29 classroom-kids tests, 3 new), handoff, growth, topics, classroom, seo-routing, question-bank-copy, gsc-page + tsc + eslint + `next build` pass |
 
 ## Production walk
-(filled after deploy)
+Deployed 1971ee5 (PR #137, Vercel Production success). First curl right after the deploy got a cached 404; 20 s later 200 with `x-matched-path: /random-group-generator`.
+- 200: /random-group-generator, og card, hero image; sitemap.xml lists the URL; /random-team-generator title unchanged and links to the new page.
+- `site_walk.py --only` (new page + 3 linked pages, 115 internal links, 36 assets): **severe 0, medium 0**, low 5 (3 existing long titles; new page description 175 chars → shortened to ~145 in this follow-up).
+- IndexNow 200 (2 URLs); added to `opportunity-hub/steward/indexing/queue.md`.
