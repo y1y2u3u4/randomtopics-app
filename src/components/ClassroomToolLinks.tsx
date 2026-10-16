@@ -8,6 +8,7 @@ export const CLASSROOM_TOOLS = [
   { href: "/topics/get-to-know-you-questions-for-students", emoji: "👋", label: "Get to Know You Questions for Students", detail: "K–5, 6–8 and 9–12" },
   { href: "/morning-meeting-questions", emoji: "🌅", label: "Morning Meeting Questions", detail: "Greeting, sharing & activity for today" },
   { href: "/riddles-for-kids", emoji: "🧩", label: "Riddles for Kids", detail: "211 riddles with tap-to-reveal answers" },
+  { href: "/classroom-timer", emoji: "⏱️", label: "Classroom Timer", detail: "Full-screen countdown + think–pair–share" },
   { href: "/question-of-the-day-for-students", emoji: "📅", label: "Question of the Day for Students", detail: "A bell-ringer for every day" },
   { href: "/random-name-picker", emoji: "🎯", label: "Random Name Picker", detail: "Call on students fairly" },
   { href: "/random-team-generator", emoji: "👥", label: "Random Team Generator", detail: "Balanced groups in one click" },
