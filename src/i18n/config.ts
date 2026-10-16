@@ -96,6 +96,8 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/this-or-that/kids",
   "/would-you-rather/kids",
   "/topics/get-to-know-you-questions-for-students",
+  "/morning-meeting-questions",
+  "/riddles-for-kids",
   "/account",
   "/yo-mama-randomizer",
   "/how-we-curate",

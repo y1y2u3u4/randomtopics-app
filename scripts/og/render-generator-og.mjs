@@ -74,6 +74,10 @@ const CARDS = [
     paper: ["…have a pet dragon the size of a cat or a cat the size of a dragon?", "…sneeze glitter or cry maple syrup?", "…go to school on a boat or in a hot air balloon?", "…eat broccoli-flavored ice cream or ice-cream-flavored broccoli?"], paperTitle: "Would you rather…" },
   { id: "kids", slug: "get-to-know-you-questions-for-students", title: "Get to Know You Questions for Students", line: "120 questions for K–5, 6–8 and 9–12", chips: ["First day of school", "Projector mode", "Printable lists"],
     paper: ["<b>K–5</b> · What would you name a pet dragon?", "<b>6–8</b> · If you could start a club at school, what would it be?", "<b>9–12</b> · What is a skill you have that does not show up on a report card?", "<b>All</b> · What is one thing you want your teacher to know about you?"], paperTitle: "Get to know you" },
+  { id: "kids", slug: "morning-meeting-questions", title: "Morning Meeting Questions", line: "A new meeting every school day · K–6", chips: ["Same question all day", "Projector mode", "Free, no sign-up"],
+    paper: ["<b>1 · Greeting</b> — High-five hello", "<b>2 · Sharing</b> — What is something that made you smile this week?", "<b>3 · Activity</b> — Four corners", "<b>4 · Message</b> — Good morning, friends! Today is…"], paperTitle: "Today's morning meeting" },
+  { id: "kids", slug: "riddles-for-kids", title: "Riddles for Kids", line: "211 riddles with answers · easy to hard", chips: ["Tap to reveal", "Riddle race mode", "Printable"],
+    paper: ["I have keys but I can't open any locks. What am I? <b>A piano</b>", "I get wetter the more I dry. What am I? <b>A towel</b>", "What has hands but can't clap? <b>A clock</b>", "What kind of key opens a banana? <b>A mon-key</b>"], paperTitle: "Riddles" },
   { id: "map", slug: "fantasy-map-maker", title: "Fantasy Map Maker", line: "Random fantasy worlds — download PNG", chips: ["Continent", "Islands", "Parchment"] },
 ];
 

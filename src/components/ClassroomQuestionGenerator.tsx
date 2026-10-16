@@ -24,6 +24,11 @@ interface Props {
   /** Print only this many questions (a one-page worksheet) instead of the whole filtered list. */
   printCount?: number;
   printHeading: string;
+  /** "h2" when the generator is a section on a page that already has an H1. */
+  headingLevel?: "h1" | "h2";
+  allGradesLabel?: string;
+  allThemesLabel?: string;
+  firstPrompt?: string;
 }
 
 const shuffle = <T,>(list: T[]) => {
@@ -45,17 +50,19 @@ const chip = (active: boolean) => `min-h-11 text-xs font-semibold px-4 py-2 roun
  * One-click generator for the kids / student classroom pages: grade-band and
  * theme filters, a no-repeat deck, and a free projector mode for the board.
  */
-export default function ClassroomQuestionGenerator({ questions, grades, themes = [], title, subtitle, emoji, source, split, printCount, printHeading }: Props) {
+export default function ClassroomQuestionGenerator({ questions, grades, themes = [], title, subtitle, emoji, source, split, printCount, printHeading, headingLevel = "h1", allGradesLabel = "All grades", allThemesLabel = "Any theme", firstPrompt = "Tap the button for a question" }: Props) {
   const [grade, setGrade] = useState("all");
   const [theme, setTheme] = useState("all");
   const [current, setCurrent] = useState<string | null>(null);
   const [used, setUsed] = useState<Set<string>>(new Set());
   const [deck, setDeck] = useState<string[] | null>(null);
+  const [revealed, setRevealed] = useState(false);
 
-  const pool = useMemo(() => questions
+  const filtered = useMemo(() => questions
     .filter((q) => grade === "all" || q.grades.includes(grade))
-    .filter((q) => theme === "all" || q.theme === theme)
-    .map((q) => q.text), [questions, grade, theme]);
+    .filter((q) => theme === "all" || q.theme === theme), [questions, grade, theme]);
+  const pool = useMemo(() => filtered.map((q) => q.text), [filtered]);
+  const answerOf = useMemo(() => new Map(questions.filter((q) => q.answer).map((q) => [q.text, q.answer as string])), [questions]);
 
   const generate = useCallback(() => {
     if (!pool.length) return;
@@ -64,6 +71,7 @@ export default function ClassroomQuestionGenerator({ questions, grades, themes =
     const draw = drawUnseen(pool, used, (q) => q);
     setUsed(draw.used);
     setCurrent(draw.picked[0]);
+    setRevealed(false);
     track("generate_success", { tool_type: "party_question_generator", content_source: source, generator_name: title, generator_filter: `${grade}|${theme}`, result_count: 1, result_source: "editorial_pool" });
   }, [pool, used, current, source, title, grade, theme]);
 
@@ -81,24 +89,26 @@ export default function ClassroomQuestionGenerator({ questions, grades, themes =
   };
 
   const gradeLabel = grades.find((g) => g.id === grade);
-  const printItems = printCount ? pool.slice(0, printCount) : pool;
+  const printItems = (printCount ? pool.slice(0, printCount) : pool).map((q) => answerOf.has(q) ? `${q} — Answer: ${answerOf.get(q)}` : q);
+  const Heading = headingLevel;
+  const currentAnswer = current ? answerOf.get(current) : undefined;
 
   return (
     <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16">
       <div className="text-center mb-8">
-        <h1 className="section-heading text-4xl sm:text-6xl font-extrabold mb-4" style={{ fontFamily: "var(--font-display)" }}>{title}</h1>
+        <Heading className={`section-heading ${headingLevel === "h1" ? "text-4xl sm:text-6xl" : "text-3xl sm:text-5xl"} font-extrabold mb-4`} style={{ fontFamily: "var(--font-display)" }}>{title}</Heading>
         <p className="text-[var(--text-muted)] max-w-xl mx-auto">{subtitle}</p>
       </div>
 
       <div className="glass-card p-6 sm:p-10 text-center">
         <div className="flex flex-wrap justify-center gap-2" role="group" aria-label="Grade level">
-          {[{ id: "all", label: "All grades" }, ...grades].map((g) => (
+          {[{ id: "all", label: allGradesLabel }, ...grades].map((g) => (
             <button key={g.id} type="button" onClick={() => pick("grade", g.id)} aria-pressed={grade === g.id} className={chip(grade === g.id)}>{g.label}</button>
           ))}
         </div>
         {themes.length > 0 && (
           <div className="flex flex-wrap justify-center gap-2 mt-3" role="group" aria-label="Theme">
-            {[{ id: "all", label: "Any theme" }, ...themes].map((t) => (
+            {[{ id: "all", label: allThemesLabel }, ...themes].map((t) => (
               <button key={t.id} type="button" onClick={() => pick("theme", t.id)} aria-pressed={theme === t.id} className={chip(theme === t.id)}>{t.label}</button>
             ))}
           </div>
@@ -112,9 +122,12 @@ export default function ClassroomQuestionGenerator({ questions, grades, themes =
                 {current}
               </motion.p>
             ) : (
-              <p className="text-lg text-[var(--text-muted)] min-h-[5rem] flex items-center justify-center">Tap the button for a question {emoji}</p>
+              <p className="text-lg text-[var(--text-muted)] min-h-[5rem] flex items-center justify-center">{firstPrompt} {emoji}</p>
             )}
           </AnimatePresence>
+          {currentAnswer && (revealed
+            ? <p className="mt-3 text-lg font-semibold text-[#3ddc97]" data-answer>Answer: {currentAnswer}</p>
+            : <button type="button" onClick={() => { setRevealed(true); track("riddle_answer_reveal", { content_source: source }); }} className="mt-3 min-h-11 rounded-xl border border-white/15 px-4 py-2 text-sm font-semibold text-[var(--text-primary)] hover:border-white/30">👀 Show answer</button>)}
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
@@ -138,7 +151,7 @@ export default function ClassroomQuestionGenerator({ questions, grades, themes =
           {pool.length} questions{gradeLabel ? ` for ${gradeLabel.label.toLowerCase()} (${gradeLabel.ages})` : ""} · no repeats until you have seen them all · projector mode needs no sign-up
         </p>
       </div>
-      {deck && <ClassroomProjector deck={deck} title={title} split={split} source={source} onClose={() => setDeck(null)} />}
+      {deck && <ClassroomProjector deck={deck} title={title} split={split} source={source} answers={answerOf.size ? deck.map((q) => answerOf.get(q)) : undefined} onClose={() => setDeck(null)} />}
     </section>
   );
 }

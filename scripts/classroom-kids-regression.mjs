@@ -10,6 +10,10 @@ import { load } from "./lib/load-typescript.mjs";
 const root = resolve(import.meta.dirname, "..");
 const src = (f) => readFileSync(resolve(root, f), "utf8");
 const k = load("src/data/kidsQuestions.ts", {});
+const cache = new Map();
+const kk = load("src/data/kidsQuestions.ts", {}, cache);
+const mm = load("src/data/morningMeeting.ts", { "./kidsQuestions": kk }, cache);
+const rd = load("src/data/riddlesForKids.ts", {});
 
 let passed = 0;
 const test = (name, fn) => {
@@ -20,6 +24,7 @@ const BANKS = {
   KIDS_THIS_OR_THAT: { grades: k.KIDS_GRADES.map((g) => g.id), min: 100, split: true },
   KIDS_WOULD_YOU_RATHER: { grades: k.KIDS_GRADES.map((g) => g.id), min: 100, split: true },
   STUDENT_GET_TO_KNOW_YOU: { grades: k.STUDENT_GRADES.map((g) => g.id), min: 120, split: false },
+  KIDS_JOURNAL_PROMPTS: { grades: k.KIDS_GRADES.map((g) => g.id), min: 50, split: false, anyEnding: true },
 };
 
 // Words that must never reach a kids classroom deck.
@@ -38,7 +43,7 @@ for (const [name, spec] of Object.entries(BANKS)) {
     for (const q of bank) {
       assert.equal(q.audience, "kids", q.text);
       assert.ok(q.grades.length > 0 && q.grades.every((g) => spec.grades.includes(g)), q.text);
-      assert.match(q.text, /^[A-Z].*\?$/, `question format: ${q.text}`);
+      assert.match(q.text, spec.anyEnding ? /^[A-Z].*[?.”]$/ : /^[A-Z].*\?$/, `question format: ${q.text}`);
     }
     for (const g of spec.grades) assert.ok(bank.filter((q) => q.grades.includes(g)).length >= 30, `${name} ${g} has fewer than 30`);
   });
@@ -67,17 +72,55 @@ test("splitChoice handles would-you-rather and plain pairs", () => {
   assert.equal(k.splitChoice("What is your favorite color?"), null);
 });
 
+test("riddles: 200+, every one has an answer, level, type and kids tag", () => {
+  const r = rd.RIDDLES_FOR_KIDS;
+  assert.ok(r.length >= 200, `${r.length} riddles`);
+  assert.equal(new Set(r.map((x) => x.q.toLowerCase())).size, r.length, "duplicate riddle");
+  const levels = new Set(rd.RIDDLE_LEVELS.map((l) => l.id)), types = new Set(rd.RIDDLE_TYPES.map((t) => t.id));
+  for (const x of r) {
+    assert.equal(x.audience, "kids", x.q);
+    assert.ok(levels.has(x.level) && types.has(x.type), x.q);
+    assert.ok(x.a && x.a.trim().length >= 1, `answer for ${x.q}`);
+    assert.match(x.q, /\?$|\.$/, x.q);
+  }
+  for (const l of levels) assert.ok(r.filter((x) => x.level === l).length >= 30, l);
+  assert.deepEqual(r.filter((x) => BLOCK.test(`${x.q} ${x.a}`)).map((x) => x.q), []);
+});
+
+test("morning meeting: same calendar day gives the same set, next day differs (CL4)", () => {
+  const morning = new Date(2026, 9, 16, 7, 5), evening = new Date(2026, 9, 16, 22, 40);
+  assert.deepEqual(mm.morningMeetingFor(morning), mm.morningMeetingFor(evening));
+  assert.equal(mm.dayNumber(morning), mm.dayNumber(evening));
+  const days = Array.from({ length: 30 }, (_, i) => mm.morningMeetingFor(new Date(2026, 9, 1 + i)));
+  for (let i = 1; i < days.length; i++) assert.notEqual(days[i].share.text, days[i - 1].share.text);
+  assert.equal(new Set(days.map((d) => d.share.text)).size, 30, "no repeats within a month");
+  for (const g of ["k2", "g36"]) assert.ok(mm.morningMeetingFor(morning, g).share.grades.includes(g));
+  const all = [...mm.MORNING_GREETINGS.map((x) => `${x.name} ${x.how}`), ...mm.MORNING_ACTIVITIES.map((x) => `${x.name} ${x.how}`), ...mm.MORNING_SHARE.map((x) => x.text)];
+  assert.deepEqual(all.filter((t) => BLOCK.test(t)), []);
+  assert.ok(mm.MORNING_SHARE.length >= 80 && mm.MORNING_GREETINGS.length >= 25 && mm.MORNING_ACTIVITIES.length >= 25);
+});
+
+test("journal prompts: kids section added, page title untouched", () => {
+  const page = src("src/app/journal-prompts/page.tsx");
+  assert.ok(page.includes('title: "Journal Prompt Generator — Daily Journal Prompts by Style, Free"'));
+  assert.ok(page.includes('id="kids"') && page.includes('headingLevel="h2"') && page.includes("KIDS_JOURNAL_PROMPTS"));
+});
+
 const PAGES = {
   "/this-or-that/kids": "src/app/this-or-that/kids/page.tsx",
   "/would-you-rather/kids": "src/app/would-you-rather/kids/page.tsx",
   "/topics/get-to-know-you-questions-for-students": "src/app/topics/get-to-know-you-questions-for-students/page.tsx",
+  "/morning-meeting-questions": "src/app/morning-meeting-questions/page.tsx",
+  "/riddles-for-kids": "src/app/riddles-for-kids/page.tsx",
 };
 const sitemap = src("src/app/sitemap.ts");
 const config = src("src/i18n/config.ts");
 for (const [path, file] of Object.entries(PAGES)) {
   test(`${path}: generator first, projector, pack card, og, sitemap, en-only`, () => {
     const page = src(file);
-    assert.ok(page.indexOf("<ClassroomQuestionGenerator") < page.indexOf("<QuestionBank"), "generator above the list");
+    const generator = Math.max(page.indexOf("<ClassroomQuestionGenerator"), page.indexOf("<MorningMeeting />"));
+    const list = Math.max(page.indexOf("<QuestionBank"), page.indexOf("<RiddleList"));
+    assert.ok(generator > 0 && generator < list, "generator above the list");
     assert.match(page, /<ClassroomPackCard pack="question-of-the-day" page=\{PATH\}/);
     assert.match(page, /<FaqSchema items=\{FAQ_ITEMS\}/);
     assert.match(page, new RegExp(`const PATH = "${path.replace(/\//g, "\\/")}"`));
@@ -99,7 +142,7 @@ test("student page usage picks all come from the bank", () => {
 
 test("projector: keyboard paging, full screen, escape, no fetch", () => {
   const p = src("src/components/ClassroomProjector.tsx");
-  for (const key of ['"ArrowRight"', '"ArrowLeft"', '"Escape"', 'e.key === "f"', "requestFullscreen", 'aria-modal="true"', "overflow-x-hidden"]) assert.ok(p.includes(key), key);
+  for (const key of ['"ArrowRight"', '"ArrowLeft"', '"Escape"', 'e.key === "f"', "requestFullscreen", 'aria-modal="true"', "overflow-x-hidden", "setRevealed(true)", "kickers?.[index]"]) assert.ok(p.includes(key), key);
   assert.ok(!/fetch\(/.test(p), "projector must not call the API");
 });
 

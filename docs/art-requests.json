@@ -23,7 +23,7 @@
       "path": "public/art/classroom/this-or-that-kids.jpg",
       "prompt": "A bright elementary classroom seen from the back: a projector screen split into two big halves (one showing a pizza slice, the other a taco), and a group of about ten children walking to the left and right sides of the room, some pointing, one laughing. A teacher stands by a laptop. Flat vector illustration, 1600x900, 16:9, warm cream background (#F3EFE6) with soft purple (#6b5bd2), teal and sunny yellow accents, friendly rounded shapes, diverse cartoon children (not real people), no text, no logos, no brand characters.",
       "alt": "Illustrated classroom where kids stand on two sides of the room under a projected this-or-that question",
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "classroom-would-you-rather-kids",
@@ -31,7 +31,7 @@
       "path": "public/art/classroom/would-you-rather-kids.jpg",
       "prompt": "Two children sitting on a classroom rug, each with a thought bubble: one imagines a tiny friendly dragon the size of a cat, the other imagines a giant fluffy cat the size of a dragon. Other kids raise one or two fingers to vote. Flat vector illustration, 1600x900, 16:9, warm cream background (#F3EFE6) with soft purple (#6b5bd2), teal and sunny yellow accents, friendly rounded shapes, diverse cartoon children (not real people), no text, no logos, no brand characters.",
       "alt": "Illustrated kids imagining a cat-sized dragon and a dragon-sized cat while classmates vote",
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "classroom-get-to-know-you-students",
@@ -39,7 +39,23 @@
       "path": "public/art/classroom/get-to-know-you-students.jpg",
       "prompt": "First day of school: students of mixed ages sitting in a circle of chairs, one holding a soft ball while talking, speech bubbles with simple icons (a dog, a soccer ball, a book, a paintbrush, a music note) floating above them, backpacks and a welcome banner with only a sun symbol. Flat vector illustration, 1600x900, 16:9, warm cream background (#F3EFE6) with soft purple (#6b5bd2), teal and sunny yellow accents, friendly rounded shapes, diverse cartoon children (not real people), no text, no logos, no brand characters.",
       "alt": "Illustrated students in a circle sharing answers on the first day of school",
-      "status": "pending"
+      "status": "done"
+    },
+    {
+      "id": "classroom-morning-meeting",
+      "page": "/morning-meeting-questions",
+      "path": "public/art/classroom/morning-meeting.jpg",
+      "prompt": "A cozy elementary classroom morning meeting: children sitting cross-legged in a circle on a big round rug, waving and high-fiving in greeting, a teacher sitting with them, an easel board with only pictures (sun, smiley face, star), plants and morning light. Flat vector, warm cream background, soft purple/teal/yellow accents, diverse cartoon children, no text, no logos.",
+      "alt": "Illustrated children greeting each other in a circle on a classroom rug during morning meeting",
+      "status": "done"
+    },
+    {
+      "id": "classroom-riddles-for-kids",
+      "page": "/riddles-for-kids",
+      "path": "public/art/classroom/riddles-for-kids.jpg",
+      "prompt": "Kids in a classroom solving a riddle together: a projector screen with a giant question mark and a lightbulb, three small teams huddling and whispering, one child jumping up with a glowing lightbulb above her head, mini whiteboards with doodles (a clock, a piano). Flat vector, warm cream background, soft purple/teal/yellow accents, diverse cartoon children, no text, no logos.",
+      "alt": "Illustrated kids puzzling over a projected riddle with a question mark and a lightbulb",
+      "status": "done"
     }
   ]
 }
