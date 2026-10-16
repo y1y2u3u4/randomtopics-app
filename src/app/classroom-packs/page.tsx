@@ -7,6 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import ClassroomBuyButtons from "@/components/ClassroomBuyButtons";
 import ClassroomLandingView from "@/components/ClassroomLandingView";
+import ClassroomToolLinks from "@/components/ClassroomToolLinks";
 import { CLASSROOM_PACKS, CLASSROOM_PRICES, classroomPreviews } from "@/lib/classroom/catalog";
 import { classroomSlides } from "@/lib/classroom/content";
 
@@ -79,6 +80,8 @@ export default function ClassroomPacksPage() {
             Editable slides, printable PDFs and an ad-free presenter, ready for tomorrow&apos;s lesson.
           </p>
         </header>
+
+        <ClassroomToolLinks heading="Free classroom tools" intro="No sign-up and no payment: project these on the board tomorrow. The packs below are for a ready-made set for the whole year." />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
           <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/30 space-y-4">

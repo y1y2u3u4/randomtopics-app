@@ -67,6 +67,13 @@ const CARDS = [
     paper: ["📍 GPS location — <s>40.44610, -79.98222</s>", "📷 Camera model — <s>EOS R5</s>", "🤖 Stable Diffusion parameters — <s>prompt, seed…</s>", "🔏 Content Credentials (C2PA) — <s>removed</s>", "<b>✓ Clean copy · image unchanged</b>"], paperTitle: "Found in the file" },
   { id: "western", slug: "western-baby-name-generator", title: "Western Baby Name Generator", line: "Cowboy, country & Yellowstone-style names", chips: ["Boy · Girl · Neutral", "5 styles", "Every name with meaning"],
     paper: ["<b>Waylon</b> — land by the road", "<b>Clementine</b> — merciful", "<b>Wyatt</b> — brave in war", "<b>Laramie</b> — after the Wyoming city", "<b>Sage</b> — sagebrush of the plains"], paperTitle: "Western names" },
+  // Classroom pages (2026-10-16): a code-drawn question card, real bank entries.
+  { id: "kids", slug: "this-or-that-kids", title: "This or That for Kids", line: "115 kid-friendly choices · grades K–6", chips: ["Pick a side of the room", "Projector mode", "Free, no sign-up"],
+    paper: ["⬅ <b>Pizza</b> or <b>Tacos</b> ➡", "⬅ <b>Recess</b> or <b>Lunch</b> ➡", "⬅ <b>Dinosaurs</b> or <b>Dragons</b> ➡", "⬅ <b>Slide</b> or <b>Swings</b> ➡", "⬅ <b>Sunny day</b> or <b>Snowy day</b> ➡"], paperTitle: "This or that?" },
+  { id: "kids", slug: "would-you-rather-kids", title: "Would You Rather for Kids", line: "100 clean, silly questions · grades K–6", chips: ["Projector mode", "1-page printable", "Free, no sign-up"],
+    paper: ["…have a pet dragon the size of a cat or a cat the size of a dragon?", "…sneeze glitter or cry maple syrup?", "…go to school on a boat or in a hot air balloon?", "…eat broccoli-flavored ice cream or ice-cream-flavored broccoli?"], paperTitle: "Would you rather…" },
+  { id: "kids", slug: "get-to-know-you-questions-for-students", title: "Get to Know You Questions for Students", line: "120 questions for K–5, 6–8 and 9–12", chips: ["First day of school", "Projector mode", "Printable lists"],
+    paper: ["<b>K–5</b> · What would you name a pet dragon?", "<b>6–8</b> · If you could start a club at school, what would it be?", "<b>9–12</b> · What is a skill you have that does not show up on a report card?", "<b>All</b> · What is one thing you want your teacher to know about you?"], paperTitle: "Get to know you" },
   { id: "map", slug: "fantasy-map-maker", title: "Fantasy Map Maker", line: "Random fantasy worlds — download PNG", chips: ["Continent", "Islands", "Parchment"] },
 ];
 

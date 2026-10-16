@@ -8,6 +8,7 @@ import PartyGameLinks from "@/components/PartyGameLinks";
 import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
+import KidsVersionSwitch from "@/components/KidsVersionSwitch";
 import type { Metadata } from "next";
 import { hreflangAlternates } from "@/i18n/config";
 import { THIS_OR_THAT } from "@/data/partyGames";
@@ -63,6 +64,7 @@ export default function ThisOrThatPage() {
       <Navbar />
       <main className="flex-1">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "This or That" }]} />
+        <KidsVersionSwitch general="/this-or-that" kids="/this-or-that/kids" active="general" />
         <PartyIllustration game="this-or-that" />
         <PartyGenerator
           questions={THIS_OR_THAT}
