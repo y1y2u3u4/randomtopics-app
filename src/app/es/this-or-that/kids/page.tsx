@@ -12,7 +12,7 @@ import { KIDS_GRADES_ES, KIDS_THEMES_ES, KIDS_THIS_OR_THAT_ES } from "@/data/kid
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 
 const PATH = "/es/this-or-that/kids";
-const TITLE = `Esto o Aquello para Niños: ${KIDS_THIS_OR_THAT_ES.length} Preguntas + Modo Proyector`;
+const TITLE = `Esto o Aquello para Niños: ${KIDS_THIS_OR_THAT_ES.length} Preguntas para Clase`;
 const DESCRIPTION = `${KIDS_THIS_OR_THAT_ES.length} preguntas de esto o aquello para niños de primaria (5–12 años). Filtra por curso y tema y proyéctalas para que elijan un lado del aula. Gratis, sin registro.`;
 
 export const metadata: Metadata = {
