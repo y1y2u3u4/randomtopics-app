@@ -10,6 +10,9 @@ check(ads.adConfiguration('manual-public-reviewed-v1').slot==='8217822741','Revi
 check(ads.adConfiguration('manual-public-reviewed-v1','ca-pub-1513206179290827')===null,'Publisher is not a slot');
 const base={path:'/',host:'randomtopics.app',search:'',qa:false,globalPrivacyControl:false};
 for(const path of ads.ADSENSE_PUBLIC_PATHS) check(ads.adRequestAllowed({...base,path}),'Allow reviewed public route '+path);
+for(const path of ['/random-food-generator','/charades','/topics/conversation-topics-for-teens','/es/most-likely-to'])check(ads.adRequestAllowed({...base,path})&&!ads.adInlinePageAllowed(path),'Auto ads only (no manual unit) on public page '+path);
+for(const path of ads.ADSENSE_PUBLIC_PATHS) check(ads.adInlinePageAllowed(path),'Manual unit stays on reviewed route '+path);
+for(const path of ['/this-or-that/kids','/riddles-for-kids','/classroom-timer','/question-of-the-day-for-students','/random-group-generator','/privacy','/yo-mama-randomizer']) check(!ads.adRequestAllowed({...base,path}),'Ad-free page '+path);
 for(const path of ['/speech','/speech/practice','/speech/account','/speech/checkout','/es/speech','/api/speech/checkout','/saved-topics','/share/private','/embed','/internal/analytics','/topics/unreviewed']) check(!ads.adRequestAllowed({...base,path}),'Exclude '+path);
 for(const override of [{host:'localhost'},{host:'randomtopics-preview.vercel.app'},{host:'randomtopics.app.evil.test'},{search:'?usage_qa=1'},{search:'?token=synthetic'},{qa:true},{globalPrivacyControl:true}])check(!ads.adRequestAllowed({...base,...override}),'Fail closed '+JSON.stringify(override));
 check(ads.adDocumentBoundary('/','/speech')&&ads.adDocumentBoundary('/speech','/'),'New documents entering/leaving public ads');
