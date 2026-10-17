@@ -123,6 +123,7 @@ await import("./practice-metrics-regression.mjs");
 await import("./weekly-plan-regression.mjs");
 await import("./charades-regression.mjs");
 await import("./qotd-return-regression.mjs");
+await import("./qotd-ritual-regression.mjs");
 
 await import("./core-usage-regression.mjs");
 

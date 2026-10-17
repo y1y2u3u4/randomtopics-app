@@ -34,6 +34,7 @@ function fixture(blocked = false) {
     if(id==='./GeneratedResultActions')return {default:Actions};
     if(id==='./PrintButton')return {default:'print'};
     if(id==='./PracticeSelectedTopic')return {default:'practice'};
+    if(id==='./QotdDailyRitual')return {default:'ritual'};
     if(id==='@/data/questionOfTheDay')return questions;
     if(id==='@/lib/topicPool')return pool;
     if(id==='@/lib/track')return {track:(name,params)=>events.push({name,params})};
