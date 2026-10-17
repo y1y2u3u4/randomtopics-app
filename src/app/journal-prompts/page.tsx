@@ -173,7 +173,8 @@ export default function JournalPromptsPage() {
           />
           <p className="max-w-3xl mx-auto px-4 sm:px-6 pt-4 text-sm text-[var(--text-secondary)] leading-relaxed">
             Tip for teachers: give 5–10 minutes of quiet writing, let younger students draw first and add one sentence, and invite two volunteers to share.
-            Need story starters instead? Try <Link href="/topics/writing-prompts-for-kids" className="text-[var(--neon-cyan)] hover:underline">writing prompts for kids</Link> or
+            Need story starters instead? Try <Link href="/topics/writing-prompts-for-kids" className="text-[var(--neon-cyan)] hover:underline">writing prompts for kids</Link>, the{" "}
+            <Link href="/story-prompt-generator" className="text-[var(--neon-cyan)] hover:underline">story prompt generator</Link> or
             today&apos;s <Link href="/morning-meeting-questions" className="text-[var(--neon-cyan)] hover:underline">morning meeting questions</Link>.
           </p>
         </section>
