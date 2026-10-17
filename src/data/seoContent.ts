@@ -558,6 +558,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
     relatedLinks: [
       { label: "Presentation Ideas for School", href: "/topics/presentation-ideas-for-school" },
       { label: "Debate Topics for Students", href: "/topics/debate-topics-for-students" },
+      { label: "Story Prompt Generator", href: "/story-prompt-generator" },
       { label: "Browse Writing Prompts", href: "/writing" },
     ],
   },

@@ -34,6 +34,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/random-state-generator", label: "Random State Generator", emoji: "🗽", blurb: "US states with facts", groups: ["classroom"] },
   { href: "/question-of-the-day", label: "Question of the Day", emoji: "☀️", blurb: "One good question daily", groups: ["classroom", "party"] },
   { href: "/writing", label: "Writing Prompt Generator", emoji: "✍️", blurb: "500+ prompts to write about", groups: ["creative", "classroom"] },
+  { href: "/story-prompt-generator", label: "Story Prompt Generator", emoji: "📖", blurb: "Story ideas by genre and age", groups: ["creative", "classroom"] },
   { href: "/random-drawing-generator", label: "Random Drawing Generator", emoji: "✏️", blurb: "Things to draw today", groups: ["creative", "classroom"] },
   { href: "/random-color-generator", label: "Random Color Generator", emoji: "🎨", blurb: "Palettes, lock and copy", groups: ["creative"] },
   { href: "/random-animal-generator", label: "Random Animal Generator", emoji: "🦊", blurb: "Animals with fun facts", groups: ["creative", "classroom"] },

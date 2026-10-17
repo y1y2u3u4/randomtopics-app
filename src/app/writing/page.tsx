@@ -116,6 +116,7 @@ export default function WritingPage() {
             <p className="mt-2 text-sm text-[var(--text-muted)]">This page is the broad writing hub. Use a focused tool when your output already has a format.</p>
             <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
+                { title: "Story Prompt Generator", detail: "Random story ideas by genre, age group and length", href: "/story-prompt-generator" },
                 { title: "Writing Topic Generator", detail: "Filter for essay, journal, fiction, or blog", href: "/writing-topic-generator" },
                 { title: "Essay Topic Generator", detail: "Academic, persuasive, and personal essay angles", href: "/essay-topic-generator" },
                 { title: "Journal Prompt Generator", detail: "Reflection prompts with a guided writing flow", href: "/journal-prompts" },
@@ -230,7 +231,8 @@ export default function WritingPage() {
               <p>
                 For younger writers, our collection
                 of <Link href="/topics/writing-prompts-for-kids" className="text-[var(--neon-cyan)] hover:underline">writing prompts for kids</Link> offers
-                age-appropriate scenarios that make writing fun rather than intimidating.
+                age-appropriate scenarios that make writing fun rather than intimidating. For fiction by genre and length, use the{" "}
+                <Link href="/story-prompt-generator" className="text-[var(--neon-cyan)] hover:underline">story prompt generator</Link>.
               </p>
 
               <h3

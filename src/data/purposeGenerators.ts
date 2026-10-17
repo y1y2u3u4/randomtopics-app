@@ -161,6 +161,7 @@ export const PURPOSE_GENERATORS = {
       { label: "Viking Name Generator", href: "/viking-name-generator", emoji: "🛡️" },
       { label: "Chicago Citation Generator", href: "/chicago-citation-generator", emoji: "📚" },
       { label: "Random Drawing Generator", href: "/random-drawing-generator", emoji: "🎨" },
+      { emoji: "📖", label: "Story Prompt Generator", href: "/story-prompt-generator" },
       { emoji: "📝", label: "Writing Prompt Hub", href: "/writing" },
       { emoji: "🎓", label: "Essay Topic Generator", href: "/essay-topic-generator" },
       { emoji: "📓", label: "Journal Prompts", href: "/journal-prompts" },
