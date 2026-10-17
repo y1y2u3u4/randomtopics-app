@@ -80,6 +80,14 @@
       "prompt": "Flat vector illustration, 1600x900, 16:9. A cosy adult book club seen from slightly above: a round coffee table with four open novels of different colours, sticky-note bookmarks, mugs of tea and a small plate of biscuits, a printed sheet of discussion questions with speech-bubble icons, and the hands and knees of four diverse adults in armchairs around it (no faces). Warm lamp light. Dark navy background (#0b0f1a) with neon cyan (#00e5ff), magenta and warm yellow accents, soft shadows, no readable text, no logos, no real people.",
       "alt": "Illustrated book club around a coffee table with open novels, mugs of tea and sticky-note bookmarks",
       "status": "done"
+    },
+    {
+      "id": "story-prompt-generator-hero",
+      "page": "/story-prompt-generator",
+      "path": "public/art/tools/story-prompt-generator.jpg",
+      "prompt": "A cozy writing desk at night seen from the side: an open notebook with blank lined pages, a pencil, and a small paper lantern; out of the notebook rise five floating story scenes in soft glowing bubbles — a small friendly dragon on a castle tower, a rocket near a ringed planet, a magnifying glass over footprints, a ghost waving from a lighthouse, and a sailing ship on a big wave. Flat vector illustration, 1600x900, 16:9, deep navy background (#0b1026) with purple (#6b5bd2), cyan (#00e5ff) and warm yellow (#ffd166) accents, soft rounded shapes, gentle and kid-friendly, no people's faces, no text, no letters, no logos, no brand characters.",
+      "alt": "Illustrated notebook on a desk with story ideas floating out of it: a dragon, a rocket, a mystery, a friendly ghost and a ship",
+      "status": "done"
     }
   ]
 }
