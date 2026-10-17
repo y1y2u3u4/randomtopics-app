@@ -1,13 +1,15 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ADSENSE_CLIENT, adRequestAllowed } from "@/lib/adsense";
+import { ADSENSE_CLIENT, adPersonalizationAllowed, adRequestAllowed } from "@/lib/adsense";
 import { loadAdSense, setAdEligibility, prepareAd, observeAdRequestsReady, showAdPrivacyChoices, retireAdDocument } from "@/lib/adsenseClient";
 import { observeSpeechAdEntitlement } from "@/lib/speech/adEligibilityClient";
 
 export default function ArticleAdvertisement({ path, slot }: { path: string; slot: string }) {
   const spanish = path === "/es" || path.startsWith("/es/");
   const unit = useRef<HTMLModElement>(null);
+  // "1" = restricted data processing (child-directed paths); "0" = normal.
+  const rdp = adPersonalizationAllowed(path) ? "0" : "1";
   const [choicesReady, setChoicesReady] = useState(false);
   const [excluded, setExcluded] = useState(false);
   useEffect(() => {
@@ -34,7 +36,7 @@ export default function ArticleAdvertisement({ path, slot }: { path: string; slo
     const start = () => {
       const bounds = element.getBoundingClientRect();
       if (!allowed() || !entitlement.gate.mayRequest() || document.hidden || bounds.width < 300 || bounds.height < 250 ||
-        element.getAttribute("data-restrict-data-processing") !== "1") return;
+        element.getAttribute("data-restrict-data-processing") !== rdp) return;
       if (!started) {
         if (!entitlement.gate.begin()) return;
         started = true;
@@ -75,13 +77,13 @@ export default function ArticleAdvertisement({ path, slot }: { path: string; slo
       observer.disconnect(); document.removeEventListener("visibilitychange", start);
       entitlement.dispose();
     };
-  }, [path, slot]);
+  }, [path, slot, rdp]);
 
   return <aside hidden={excluded} aria-label={spanish ? "Publicidad" : "Advertisement"} className="rt-article-ad print:hidden" data-ad-placement="public-content">
     <p className="mb-3 text-center text-xs text-[var(--text-muted)]">{spanish ? "Publicidad" : "Advertisement"}</p>
     <div style={{ width: 300, height: 250, margin: "0 auto" }}>
       <ins ref={unit} className="adsbygoogle" style={{ display: "inline-block", width: 300, height: 250 }}
-        data-ad-client={ADSENSE_CLIENT} data-ad-slot={slot} data-restrict-data-processing="1" />
+        data-ad-client={ADSENSE_CLIENT} data-ad-slot={slot} data-restrict-data-processing={rdp} />
     </div>
     <div className="mt-6 h-16 text-center text-xs">
       <div className="h-11">{choicesReady && <button type="button" className="min-h-11 px-3 underline underline-offset-4" onClick={() => {

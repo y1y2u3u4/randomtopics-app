@@ -36,5 +36,9 @@ check(!advertisingConsent(allowed,'opted-out'),'Explicit US opt-out overrides EU
 check(!advertisingConsent(nonEu,'unavailable','unknown'),'Installed GPP pending blocks');
 check(!advertisingConsent(nonEu,'unavailable','opted-out'),'GPP opt-out overrides missing US API');
 check(!advertisingConsent({cmpStatus:'loaded'},'unavailable'),'Missing US API never classifies unknown geography');
+for(const path of ['/','/charades','/es/conversation','/topics/book-club-questions','/debate/high-school'])check(ads.adPersonalizationAllowed(path),'Personalized where choices allow: '+path);
+for(const path of ['/this-or-that/kids','/es/would-you-rather/kids','/topics/writing-prompts-for-kids','/question-of-the-day-for-students','/debate/middle-school','/morning-meeting-questions','/riddles-for-kids','/classroom-timer','/es/classroom-packs','/random-group-generator','/topics/presentation-ideas-for-school'])check(!ads.adPersonalizationAllowed(path),'Child/classroom stays non-personalized: '+path);
+const adPaths=JSON.parse(readFileSync('src/data/adPublicPaths.json','utf8'));
+check(adPaths.every(path=>ads.adPersonalizationAllowed(path)||/college-students/.test(path)),'Every auto-ad page outside child rules may personalize');
 check(readFileSync('public/ads.txt','utf8').trim()==='google.com, pub-1513206179290827, DIRECT, f08c47fec0942fa0','Authorized publisher unchanged');
 console.log(`PASS: ${checks} advertising configuration, privacy and route assertions (no network).`);

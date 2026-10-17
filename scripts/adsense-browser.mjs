@@ -20,7 +20,7 @@ import {mockSdk} from './lib/adsense-mock-sdk.mjs';
 const granted={gdprApplies:true,cmpStatus:'loaded',eventStatus:'useractioncomplete',purpose:{consents:{1:true}},vendor:{consents:{755:true}}};
 const denied={...granted,purpose:{consents:{1:false}}};
 const gppClear={gppVersion:'1.1',cmpStatus:'loaded',signalStatus:'ready',applicableSections:[7],supportedAPIs:['7:usnat'],parsedSections:{usnat:[{SaleOptOut:2,SharingOptOut:2,TargetedAdvertisingOptOut:2},{Gpc:false}]}};
-const browser=await chromium.launch({headless:true,chromiumSandbox:true});const results=[],errors=[];
+const browser=await chromium.launch({headless:true,chromiumSandbox:true,channel:process.env.PW_CHANNEL||undefined});const results=[],errors=[];
 const output=process.env.AD_EVIDENCE||'/tmp/adsense-browser';
 async function fixture(options={}){
  const context=await browser.newContext({viewport:{width:options.width||390,height:844},serviceWorkers:'block'});let sdkLoads=0,cmpLoads=0,blocked=0,documents=0,apiCalls=0,closing=false;

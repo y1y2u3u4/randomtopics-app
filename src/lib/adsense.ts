@@ -57,6 +57,17 @@ export function adRequestAllowed(options: {
     !options.search && !options.qa && !options.globalPrivacyControl;
 }
 
+// Personalized ads only where the visitor has not refused them: the published
+// Google message (TCF) decides in the EEA, UK and Switzerland, and a US state
+// opt-out or GPC stops advertising entirely (see adsenseClient). Child- and
+// classroom-directed paths always stay non-personalized with restricted data
+// processing, even if one is ever added to the ad page lists.
+const CHILD_DIRECTED = [/(^|\/|-)kids(\/|-|$)/, /students?(\/|$)/, /middle-school/, /presentation-ideas-for-school/,
+  /^(\/es)?\/(classroom|morning-meeting-questions|riddles-for-kids|random-group-generator)/];
+export function adPersonalizationAllowed(path: string) {
+  return !CHILD_DIRECTED.some((pattern) => pattern.test(path));
+}
+
 export function adDocumentBoundary(previousPath: string, nextPath: string) {
   // AdSense has no supported SPA teardown. A fresh document also prevents a
   // later visit to private practice from inheriting a public-page ad runtime.
