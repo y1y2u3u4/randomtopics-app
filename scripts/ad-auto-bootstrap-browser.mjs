@@ -56,7 +56,7 @@ const autoOn = async (f) => {
   assert.equal(f.sdk(), 1, "SDK loads once");
   assert.equal(f.cmp(), 1, "CMP loads once");
   assert.equal(await f.page.evaluate(() => window.__mock?.resumes), 1, "Auto ads resumed");
-  assert.equal(await f.page.evaluate(() => window.__mock?.npa), 1, "same non-personalized setting");
+  assert.equal(await f.page.evaluate(() => window.__mock?.npa), 0, "personalized where choices allow (public page)");
   assert.equal(await f.page.locator("ins.adsbygoogle").count(), 0, "no manual slot added");
   assert.equal(await f.page.evaluate(() => window.__cls), 0, "no layout shift");
   assert.deepEqual(f.errors, []);

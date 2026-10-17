@@ -16,7 +16,7 @@ function fixture(){
  const queue=[];queue.push=()=>{stats.pushes++};
  Object.defineProperty(queue,'pauseAdRequests',{get:()=>pause,set:value=>{if(value===0&&pause!==0)stats.resumes++;pause=value}});
  const element=(tag='ins')=>({tagName:tag.toUpperCase(),name:'',style:{},dataset:{},attributes:new Map(),isConnected:true,offsetWidth:300,offsetHeight:250,setAttribute(name,value){this.attributes.set(name,String(value));if(name.startsWith('data-'))this.dataset[name.slice(5).replace(/-([a-z])/g,(_,c)=>c.toUpperCase())]=String(value)},getAttribute(name){return this.attributes.get(name)??null}});
- const slot=element();slot.setAttribute('data-restrict-data-processing','1');
+ const slot=element();slot.setAttribute('data-restrict-data-processing','0');
  const add=(registry)=>(name,callback)=>{const listeners=registry.get(name)||[];listeners.push(callback);registry.set(name,listeners)};
  const location=new URL('https://randomtopics.app/');location.replace=url=>stats.replacements.push(url);
  const document={hidden:false,readyState:'complete',head:{appendChild:script=>scripts.push(script)},body:{appendChild:frame=>frames.push(frame)},createElement:element,querySelector:selector=>selector==='iframe[name="googlefcPresent"]'?frames.find(frame=>frame.name==='googlefcPresent')??null:null,addEventListener:add(documentListeners)};
@@ -62,7 +62,8 @@ await test('SDK and CMP can start before a manual slot is prepared',async f=>{
  const loading=f.boot();assert.equal(f.scripts.length,2);assert.equal(f.stats.pushes,0);assert.equal(f.pause(),1);
  f.sdk().onload();await loading;
  assert.equal(f.pause(),0);assert.equal(f.stats.resumes,1);assert.equal(f.stats.pushes,0);
- assert.equal(f.queue.requestNonPersonalizedAds,1);assert.equal(f.sdk().getAttribute('data-privacy-treatments'),'disablePersonalization');assert.equal(f.sdk().getAttribute('data-restrict-data-processing'),'1');
+ // Public, non-child page: personalized where the visitor's choices allow it.
+ assert.equal(f.queue.requestNonPersonalizedAds,0);assert.equal(f.sdk().getAttribute('data-privacy-treatments'),null);assert.equal(f.sdk().getAttribute('data-restrict-data-processing'),null);
  assert.equal(f.runtime.loadAdSense(),loading);assert.equal(f.scripts.length,2);
  f.runtime.prepareAd(f.slot);f.runtime.prepareAd(f.slot);
  assert.equal(f.stats.pushes,1);assert.equal(f.stats.resumes,1);assert.equal(f.pause(),0);
@@ -118,6 +119,7 @@ await test('Manual slot validity is checked independently of already running Aut
  const loading=f.boot();f.sdk().onload();await loading;
  for(const override of [{isConnected:false},{offsetWidth:299},{offsetHeight:249},{dataset:{adsbygoogleStatus:'done'}}])f.runtime.prepareAd({...f.slot,...override});
  f.slot.attributes.delete('data-restrict-data-processing');f.runtime.prepareAd(f.slot);
+ f.slot.setAttribute('data-restrict-data-processing','1');f.runtime.prepareAd(f.slot);
  assert.equal(f.stats.pushes,0);assert.equal(f.pause(),0);assert.equal(f.stats.resumes,1);
 });
 await test('Browser SDK double distinguishes global resumes from a single manual fill',async f=>{

@@ -1,5 +1,5 @@
 "use client";
-import { ADSENSE_CLIENT, adRequestAllowed, adRetirementUrl } from "./adsense";
+import { ADSENSE_CLIENT, adPersonalizationAllowed, adRequestAllowed, adRetirementUrl } from "./adsense";
 import { advertisingConsent, type AdConsentData, type UsAdStatus } from "./adConsent";
 import { gppAdStatus, initialUsAdAvailability, readInitialUsAdStatus, type GppAdData, type UsAdApi } from "./usAdSignal";
 
@@ -35,6 +35,11 @@ function contextAllowed() {
   } catch { return false; }
 }
 
+// 0 = personalized where the visitor's choices allow it; 1 = non-personalized.
+function nonPersonalized() {
+  return adPersonalizationAllowed(location.pathname) ? 0 : 1;
+}
+
 function mayRequest() {
   return !retired && !scriptFailed && scriptReady && eligible && permitted && !privacyChoiceOpen &&
     !document.hidden && contextAllowed();
@@ -44,7 +49,7 @@ function syncAdRequests() {
   if (!mayRequest()) { pauseAdRequests(); return; }
   const queue = window.adsbygoogle;
   if (!queue) return;
-  queue.requestNonPersonalizedAds = 1;
+  queue.requestNonPersonalizedAds = nonPersonalized();
   // Auto ads can run before the manual slot is visible. A later entitlement
   // refresh must be able to resume them without pushing another manual unit.
   hasRequested = true;
@@ -134,8 +139,8 @@ export function loadAdSense() {
   if (retired) return Promise.reject(new Error("Advertising retired"));
   if (loading) return loading;
   const queue: AdQueue = window.adsbygoogle ??= [];
-  // These settings reduce data use; they do not replace the published CMP.
-  queue.requestNonPersonalizedAds = 1;
+  // Child-directed paths reduce data use; this never replaces the published CMP.
+  queue.requestNonPersonalizedAds = nonPersonalized();
   queue.pauseAdRequests = 1;
   loading = new Promise<void>((resolve, reject) => {
     let consent: AdConsentData | undefined;
@@ -221,9 +226,11 @@ export function loadAdSense() {
       script.async = true;
       script.crossOrigin = "anonymous";
       script.referrerPolicy = "no-referrer";
-      script.setAttribute("data-privacy-treatments", "disablePersonalization");
-      // Apply the same RDP treatment to Auto ads before a manual unit is pushed.
-      script.setAttribute("data-restrict-data-processing", "1");
+      if (nonPersonalized()) {
+        script.setAttribute("data-privacy-treatments", "disablePersonalization");
+        // Apply the same RDP treatment to Auto ads before a manual unit is pushed.
+        script.setAttribute("data-restrict-data-processing", "1");
+      }
       script.setAttribute("data-rt-adsense", "reviewed-public-v1");
       script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
       const fail = () => { scriptFailed = true; pauseAdRequests(); reject(new Error("Advertising unavailable")); };
@@ -237,9 +244,9 @@ export function loadAdSense() {
 }
 
 export function prepareAd(element: HTMLElement) {
-  if (!mayRequest() || !element.isConnected || element.getAttribute("data-restrict-data-processing") !== "1" || prepared.has(element) || element.dataset.adsbygoogleStatus || element.offsetWidth < 300 || element.offsetHeight < 250) return;
+  if (!mayRequest() || !element.isConnected || element.getAttribute("data-restrict-data-processing") !== String(nonPersonalized()) || prepared.has(element) || element.dataset.adsbygoogleStatus || element.offsetWidth < 300 || element.offsetHeight < 250) return;
   const queue: AdQueue = window.adsbygoogle ??= [];
-  queue.requestNonPersonalizedAds = 1;
+  queue.requestNonPersonalizedAds = nonPersonalized();
   prepared.add(element);
   // The shared runtime already checked both gates. Do not pause working Auto
   // ads when this manual slot finally enters the viewport, or refresh the unit.

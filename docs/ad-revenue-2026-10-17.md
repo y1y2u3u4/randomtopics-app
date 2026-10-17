@@ -80,3 +80,11 @@ After #141 the same traffic is 90.5% ad-eligible (22,357 / 24,717); the rest is 
 
 ## Week 1b: manual unit higher (10/17)
 On 11 reviewed pages the manual unit moved from the bottom (after the FAQ) to right after the tool block, still below the first screen (browser check "Ad stays outside first viewport" passes on 320/390/1280). Spin-the-wheel pages unchanged: the wheel is short, so the new spot would enter the first screen. Home page frozen until 10/26. Fixed 456 px reserved height, so no layout shift. Measure: in-page viewable % (baseline 15%) and impression RPM (baseline $0.25).
+
+## Personalized ads where allowed (user approved 10/17)
+Baseline before the switch (AdSense, 10/10–10/16): **$21.55, 18,063 page views, page RPM $1.19**, impression RPM $1.06, 70.0% viewable, 226 clicks. US page RPM $2.95 (10/10–16). **Compare on 2026-10-31** (14 days after deploy), same report, last 7 days, plus the country view.
+- Public, non-child pages: `requestNonPersonalizedAds = 0`, no `disablePersonalization`, `data-restrict-data-processing="0"`.
+- EEA/UK/CH: Google's certified CMP (TCF) decides; without consent Google serves non-personalized/limited ads.
+- US: a state opt-out (Google message or GPP) or GPC still stops advertising for the visit, as before.
+- Child/classroom paths (`adPersonalizationAllowed`, also `*-students` incl. college-students, conservatively): always NPA + RDP. They are ad-free today anyway.
+- Privacy policy (EN/ES) updated 2026-10-17: cookies used, regional behaviour, how to opt out.
