@@ -4,6 +4,7 @@ import { DEFAULT_STORY_PROMPT, STORY_AUDIENCES, STORY_CHALLENGES, STORY_GENRES, 
 import { drawUnseen } from "@/lib/topicPool";
 import GeneratedResultActions from "@/components/GeneratedResultActions";
 import PrintButton from "@/components/PrintButton";
+import Link from "next/link";
 import { track } from "@/lib/track";
 
 const KEY = "rt_story_round_v1";
@@ -21,6 +22,12 @@ function challengeFor(prompt: StoryPrompt) {
   // Stable per prompt, so a restored round shows the same challenge.
   const n = Number(prompt.id.slice(3)) || 0;
   return options[(n * 7) % options.length].text;
+}
+
+/** Same prompt for every visitor on a local date (kids/teens/adults rotate). */
+export function dailyStoryPrompt(d: Date) {
+  const day = Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86_400_000);
+  return STORY_PROMPTS[((day * 37) % STORY_PROMPTS.length + STORY_PROMPTS.length) % STORY_PROMPTS.length];
 }
 
 export default function StoryPromptGenerator() {
@@ -67,6 +74,13 @@ export default function StoryPromptGenerator() {
   const seenSet = new Set(seen);
   const remaining = pool.filter(p => !seenSet.has(p.id)).length;
   const params = { action_surface: "story_prompt_generator", genre, audience, length, count };
+  function showDaily() {
+    const daily = dailyStoryPrompt(new Date());
+    seenRef.current = new Set([...seenRef.current, daily.id]);
+    setSeen([...seenRef.current]);
+    setResults([daily]);
+    track("story_daily_prompt", { action_surface: "story_prompt_generator", genre: daily.genre, audience: daily.audience });
+  }
   function generate() {
     if (!pool.length) return;
     restoreFocus.current = document.activeElement === drawRef.current;
@@ -99,6 +113,10 @@ export default function StoryPromptGenerator() {
       </button>
       <label className="text-sm flex items-center gap-2 min-h-11">Per draw<select aria-label="Prompts per draw" className="p-2 rounded-lg bg-[var(--bg-primary)] border border-[var(--neon-cyan)]/25" value={count} onChange={e => setCount(Number(e.target.value))}>{[1, 3, 5].map(n => <option key={n} value={n}>{n}</option>)}</select></label>
       <label className="flex items-center gap-2 text-sm min-h-11"><input type="checkbox" checked={challenge} onChange={e => setChallenge(e.target.checked)} />Add a writing challenge</label>
+    </div>
+    <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+      <button type="button" className="min-h-11 font-semibold text-[var(--neon-yellow)] underline underline-offset-4" onClick={showDaily}>📅 Today&apos;s story prompt</button>
+      <Link href="/question-of-the-day" className="min-h-11 inline-flex items-center text-[var(--neon-cyan)] underline underline-offset-4" onClick={() => track("story_qotd_entry_click", { action_surface: "story_prompt_generator" })}>☀️ Answer today&apos;s question of the day →</Link>
     </div>
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5 border-t border-white/10 pt-4">
       <label className="text-sm font-semibold">Genre<select aria-label="Genre" className={selectClass} value={genre} onChange={changeFilter(setGenre)}>

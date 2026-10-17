@@ -28,3 +28,11 @@ Keyword: story prompt generator: 1,300/mo, KD 38, weak SERP; 546 clicks in the l
   - restore after reload, no horizontal scroll and no console errors.
 - On mobile, the first prompt sits above the filters, so it is visible on the first screen.
 - site_walk on the 5 pages: the 5 "severe" findings are all localhost canonical findings (expected, since the canonical points at production). There are 0 other severe or medium findings.
+
+## Follow-up: daily entry (10/17, second dispatch)
+- "📅 Today's story prompt" picks the same prompt for every visitor on a local date (rotates through all 140). It also has a link to answer today's question of the day.
+- Browser script 26/26 at 390 and 1280: the daily prompt is stable on repeat and the link to the question of the day is visible.
+- site_walk on /story-prompt-generator and /question-of-the-day: 0 real severe findings.
+  - 1 severe finding is the expected localhost canonical.
+  - 3 severe findings are `_next/image` returning 400 on the question-of-the-day classroom preview images. They happen with local `next start` only (the same URLs return 200 in production), and that page is unchanged in this PR.
+- Hero art: still open. It must come from ChatGPT web, and saving the file needs the user's download approval.
