@@ -15,7 +15,7 @@ const description = `Free story prompt generator: ${STORY_PROMPTS.length} origin
 export const metadata: Metadata = {
   title: { absolute: title }, description,
   alternates: { canonical: path },
-  openGraph: { title, description, url: `${SITE_URL}${path}`, type: "website", siteName: "Random Topics" },
+  openGraph: { title, description, url: `${SITE_URL}${path}`, type: "website", siteName: "Random Topics", images: [{ url: `${SITE_URL}/art/tools/story-prompt-generator.jpg`, width: 1600, height: 900 }] },
 };
 
 const count = (filter: (p: (typeof STORY_PROMPTS)[number]) => boolean) => STORY_PROMPTS.filter(filter).length;
@@ -37,6 +37,10 @@ export default function StoryPromptGeneratorPage() {
         <p className="mt-2 text-xs text-[var(--text-secondary)]">{STORY_PROMPTS.length} original prompts · {STORY_GENRES.length} genres · Kids, teens and adults · Free</p>
       </header>
       <StoryPromptGenerator />
+      <figure className="mt-8">
+        {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized jpg below the tool, no optimizer needed */}
+        <img src="/art/tools/story-prompt-generator.jpg" alt="Illustrated notebook on a desk with story ideas floating out of it: a dragon, a rocket, a mystery, a friendly ghost and a ship" width={1600} height={900} loading="lazy" decoding="async" className="w-full h-auto rounded-2xl border border-white/10" />
+      </figure>
 
       <section className="glass-card p-5 sm:p-8 mt-8">
         <h2 className="text-2xl font-bold">How to turn a story prompt into a story</h2>
