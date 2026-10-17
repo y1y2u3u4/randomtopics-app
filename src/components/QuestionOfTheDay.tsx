@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PracticeSelectedTopic from "./PracticeSelectedTopic";
 import { motion } from "framer-motion";
 import PrintButton from "./PrintButton";
+import QotdDailyRitual from "./QotdDailyRitual";
 import Link from "next/link";
 import GeneratedResultActions from "./GeneratedResultActions";
 import { drawUnseen } from "@/lib/topicPool";
@@ -172,6 +173,8 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
             <p className="text-lg text-[var(--text-muted)]">Loading today&apos;s question…</p>
           )}
         </div>
+
+        {shown && isToday ? <QotdDailyRitual key={todayIdx} questionIndex={todayIdx} question={shown.q} dateLabel={dateLabel} /> : null}
 
         {shown ? <div className="mt-5">
           <GeneratedResultActions
