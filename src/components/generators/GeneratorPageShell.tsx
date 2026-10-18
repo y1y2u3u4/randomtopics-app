@@ -7,6 +7,7 @@ import { SITE_URL } from "@/i18n/config";
 import { generatorsFor } from "@/data/generators/registry";
 import heroSizes from "@/data/generators/heroImages.json";
 import KeepPlaying from "@/components/KeepPlaying";
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 
 export interface FaqItem { question: string; answer: string }
 
@@ -77,6 +78,8 @@ export default function GeneratorPageShell(props: Props) {
         </section>
 
         {children}
+
+        <PublicAdPlacement path={path} placement="result" />
 
         {afterTool}
 

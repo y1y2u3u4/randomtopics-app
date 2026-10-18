@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import CharadesGenerator from "@/components/CharadesGenerator";
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -101,6 +102,8 @@ export default function CharadesPage() {
 
         <CharadesGenerator />
 
+        <PublicAdPlacement path="/charades" placement="result" />
+
         {/* Why this one */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-10 pb-4">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
@@ -138,6 +141,8 @@ export default function CharadesPage() {
             </details>)}
           </div>
         </section>
+
+        <PublicAdPlacement path="/charades" placement="mid" />
 
         {/* SEO content: rules + gestures + FAQ */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-10 pb-16">

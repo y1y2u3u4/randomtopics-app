@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "@/components/PartyFlowLink";
 import type { Metadata } from "next";
@@ -74,6 +75,8 @@ export default function MostLikelyToPageEs() {
             <Link href="/es/topics/most-likely-to-questions#generator-es_most_likely_article" className="mt-2 inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Elegir categoría y preparar una ronda →</Link>
           </div>
         </section>
+        {/* Below the first content block, not beside the short party card. */}
+        <PublicAdPlacement path="/es/most-likely-to" placement="result" />
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
           <h2 className="text-lg font-bold text-[var(--text-primary)] mb-4">Elige preguntas para tu grupo</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import QuestionBank from "@/components/QuestionBank";
 import PartyGameLinks from "@/components/PartyGameLinks";
 import { PartyIllustration } from "@/components/CategoryIllustration";
@@ -74,6 +75,7 @@ export default function ParanoiaPage() {
           emoji="🤫"
         />
         <PartyGameLinks currentPath="/paranoia-questions" />
+        <PublicAdPlacement path="/paranoia-questions" placement="result" />
 
         {/* SEO content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
@@ -135,6 +137,7 @@ export default function ParanoiaPage() {
             </div>
           </div>
         </section>
+        <PublicAdPlacement path="/paranoia-questions" placement="mid" />
         <QuestionBank
           heading="All 60 Paranoia Questions"
           intro="The full whisper deck &mdash; every question is kind by design, so the mystery stays fun even when the answer never gets revealed."

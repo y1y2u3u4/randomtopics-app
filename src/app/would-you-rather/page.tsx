@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import QuestionBank from "@/components/QuestionBank";
 import PartyGameLinks from "@/components/PartyGameLinks";
 import { PartyIllustration } from "@/components/CategoryIllustration";
@@ -76,6 +77,7 @@ export default function WouldYouRatherPage() {
           emoji="🤔"
         />
         <PartyGameLinks currentPath="/would-you-rather" />
+        <PublicAdPlacement path="/would-you-rather" placement="result" />
 
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
@@ -147,6 +149,7 @@ export default function WouldYouRatherPage() {
             </div>
           </div>
         </section>
+        <PublicAdPlacement path="/would-you-rather" placement="mid" />
         <QuestionBank
           heading="All 60 Would You Rather Questions"
           intro="The full curated deck, numbered for easy reference. Mix of everyday dilemmas and impossible hypotheticals, all clean and party-safe."

@@ -5,7 +5,11 @@ import { ADSENSE_CLIENT, adPersonalizationAllowed, adRequestAllowed } from "@/li
 import { loadAdSense, setAdEligibility, prepareAd, observeAdRequestsReady, showAdPrivacyChoices, retireAdDocument } from "@/lib/adsenseClient";
 import { observeSpeechAdEntitlement } from "@/lib/speech/adEligibilityClient";
 
-export default function ArticleAdvertisement({ path, slot }: { path: string; slot: string }) {
+// Where the unit sits: the original in-content spot, right below a tool's
+// result, or mid-way down a long page. Same reserved height everywhere (no CLS).
+export type AdPlacement = "content" | "result" | "mid";
+
+export default function ArticleAdvertisement({ path, slot, placement = "content" }: { path: string; slot: string; placement?: AdPlacement }) {
   const spanish = path === "/es" || path.startsWith("/es/");
   const unit = useRef<HTMLModElement>(null);
   // "1" = restricted data processing (child-directed paths); "0" = normal.
@@ -79,7 +83,7 @@ export default function ArticleAdvertisement({ path, slot }: { path: string; slo
     };
   }, [path, slot, rdp]);
 
-  return <aside hidden={excluded} aria-label={spanish ? "Publicidad" : "Advertisement"} className="rt-article-ad print:hidden" data-ad-placement="public-content">
+  return <aside hidden={excluded} aria-label={spanish ? "Publicidad" : "Advertisement"} className="rt-article-ad print:hidden" data-ad-placement={`public-${placement}`}>
     <p className="mb-3 text-center text-xs text-[var(--text-muted)]">{spanish ? "Publicidad" : "Advertisement"}</p>
     <div style={{ width: 300, height: 250, margin: "0 auto" }}>
       <ins ref={unit} className="adsbygoogle" style={{ display: "inline-block", width: 300, height: 250 }}

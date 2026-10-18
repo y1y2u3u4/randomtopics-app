@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PartyGenerator from "@/components/PartyGenerator";
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import QuestionBank from "@/components/QuestionBank";
 import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
@@ -99,6 +100,8 @@ export default function MostLikelyToPage() {
             </div>
           </div>
         </section>
+        {/* Below the first content block, not beside the short party card. */}
+        <PublicAdPlacement path="/most-likely-to" placement="result" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
           <div className="glass-card p-8 sm:p-10">
@@ -114,6 +117,7 @@ export default function MostLikelyToPage() {
             </div>
           </div>
         </section>
+        <PublicAdPlacement path="/most-likely-to" placement="mid" />
         <QuestionBank
           heading="All 38 Most Likely To Questions"
           intro="The full deck &mdash; superlatives your group will actually argue about, kept kind by design."
