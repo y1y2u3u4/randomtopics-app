@@ -8,8 +8,9 @@ import { SEO_ARTICLES } from "@/data/seoContent";
 import { CATEGORY_LABELS, MODE_LABELS } from "@/i18n/dictionaries";
 import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Estadísticas de Temas e Ideas | Random Topics" },
   description:
     "Explora nuestra base de datos: más de 500 temas en 16 categorías, 5 modos y 3 niveles de profundidad. Consulta el desglose completo de iniciadores de conversación, temas de debate, ideas para escribir y mucho más.",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     canonical: "/es/stats",
     languages: hreflangAlternates("/stats"),
   },
-};
+});
 
 function getStats() {
   const totalTopics = topics.length;

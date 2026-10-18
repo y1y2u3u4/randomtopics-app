@@ -3,14 +3,15 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { topics } from "@/data/topics";
 import { topicWorkshops } from "@/data/topicWorkshops";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "How We Curate — Topic Selection and Practice Guides",
   description: "How the RandomTopics collection works: actual topic counts, selection and depth filters, worked practice examples, limitations and corrections.",
   alternates: { canonical: "/how-we-curate" },
-};
+});
 
 export default function HowWeCuratePage() {
   const total = topics.length;

@@ -8,6 +8,7 @@ import { STUDENT_QOTD_CONFIG, WORK_QOTD_CONFIG } from "@/data/premiumQotd";
 import { ADULT_ETHICS_CONFIG } from "@/data/premiumAdultEthics";
 import { DEEP_CONVERSATION_CONFIG } from "@/data/premiumDeepConversation";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
 const GUIDED_COLLECTIONS = [
   STUDENT_ETHICS_CONFIG,
@@ -18,7 +19,7 @@ const GUIDED_COLLECTIONS = [
   DEEP_CONVERSATION_CONFIG,
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Topic Lists & Guides - Curated Collections for Every Occasion",
   description:
     "Browse our curated collections of conversation topics, debate ideas, writing prompts, icebreaker questions, and more. Find the perfect topics for any situation.",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/topics",
   },
-};
+});
 
 export default function TopicsIndexPage() {
   return (

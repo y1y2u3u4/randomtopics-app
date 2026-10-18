@@ -9,11 +9,12 @@ import type { Topic } from "@/data/types";
 import { SPEECH_WARMUP_TOPIC } from "@/lib/speech/warmup";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import FaqSchema from "@/components/FaqSchema";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Speech Topic Generator & Practice Timer | Random Topics" },
   description:
     "Free speech topic generator: one click gives you a random topic for public speaking, presentations, Toastmasters, persuasive or informative speeches — with talking points and a built-in practice timer.",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     canonical: "/speech",
     languages: hreflangAlternates("/speech"),
   },
-};
+});
 
 // Page-local starter examples; the full generator pool and saved topics stay intact.
 const speechStarterTopics: Topic[] = [

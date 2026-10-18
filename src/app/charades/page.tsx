@@ -6,11 +6,13 @@ import PublicAdPlacement from "@/components/PublicAdPlacement";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { hreflangAlternates } from "@/i18n/config";
 import { CHARADES_WORDS, CHARADES_CATEGORIES } from "@/data/charades";
 import KeepPlaying from "@/components/KeepPlaying";
+import FactSheet from "@/components/FactSheet";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Charades Generator: 528 Random Charades Words + Timer (Free)" },
   description:
     "Tap for a random charades word: 528 actable words for kids, parties and class, easy to hard, with a hide-the-word timer and printable cards. Free, no signup.",
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
     "charades timer",
   ],
   alternates: { canonical: "/charades", languages: hreflangAlternates("/charades") },
-};
+});
 
 const FAQ_ITEMS = [
   {
@@ -143,6 +145,26 @@ export default function CharadesPage() {
         </section>
 
         <PublicAdPlacement path="/charades" placement="mid" />
+
+        <FactSheet
+          heading="Charades generator at a glance"
+          updated="2026-10-18"
+          rows={[
+            ["Word list", `${CHARADES_WORDS.length} actable words in ${CHARADES_CATEGORIES.length} categories, written and checked by our editors.`],
+            ["Difficulty", `Easy ${CHARADES_WORDS.filter((w) => w.d === 1).length} \u00b7 Medium ${CHARADES_WORDS.filter((w) => w.d === 2).length} \u00b7 Hard ${CHARADES_WORDS.filter((w) => w.d === 3).length}`],
+            ["Timer", "30, 60, 90 or 120 seconds per turn (or no timer), with a hide-the-word screen so only the actor sees it."],
+            ["Players", "3 or more; split into two teams for 6+. Works on one shared phone."],
+            ["Family-safe", "Every word suits kids, classrooms and mixed groups."],
+            ["Cost", "Free, no signup, no app. Print the whole list as cards."],
+          ]}
+          stepsName="How to play charades with this generator"
+          steps={[
+            "Pick categories and a difficulty, then choose a timer length.",
+            "Pass the phone to the actor and tap to reveal a word.",
+            "Act it out with no words or sounds while the team guesses.",
+            "Score a point for each correct guess before time runs out, then pass the phone on.",
+          ]}
+        />
 
         {/* SEO content: rules + gestures + FAQ */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-10 pb-16">

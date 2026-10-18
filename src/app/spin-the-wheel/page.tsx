@@ -6,13 +6,14 @@ import WheelGenerator from "@/components/WheelGenerator";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { hreflangAlternates } from "@/i18n/config";
 import { PartyIllustration } from "@/components/CategoryIllustration";
 import { CATEGORIES } from "@/data/types";
 import { topics } from "@/data/topics";
 import KeepPlaying from "@/components/KeepPlaying";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Spin the Wheel — Random Topic Wheel Generator, Free & No Signup",
   description:
     "Spin the wheel to get a random topic. A free random topic wheel across 16 categories — perfect for conversations, classroom warm-ups, debates and icebreakers. One click, instant result, no signup.",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     "topic wheel generator",
   ],
   alternates: { canonical: "/spin-the-wheel", languages: hreflangAlternates("/spin-the-wheel") },
-};
+});
 
 const FAQ_ITEMS = [
   {

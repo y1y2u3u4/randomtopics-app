@@ -1,0 +1,67 @@
+import type { DeckGroup, DeckItem } from "@/components/DeckGenerator";
+
+export interface MoralDilemma {
+  id: string;
+  name: string;
+  group: string;
+  /** Who made it famous, when it is a known thought experiment. */
+  origin?: string;
+  setup: string;
+  question: string;
+  /** What the dilemma tests, in one line. */
+  tension: string;
+}
+
+export const DILEMMA_GROUPS: DeckGroup[] = [
+  { id: "classic", label: "Classic thought experiments", emoji: "🏛️" },
+  { id: "everyday", label: "Everyday dilemmas", emoji: "🏠" },
+  { id: "school", label: "School & students", emoji: "🎓" },
+  { id: "work", label: "Work & business", emoji: "💼" },
+  { id: "society", label: "Medicine, tech & society", emoji: "🩺" },
+];
+
+export const MORAL_DILEMMAS: MoralDilemma[] = [
+  { id: "trolley", group: "classic", name: "The trolley problem", origin: "Philippa Foot, 1967; named by Judith Jarvis Thomson", setup: "A runaway trolley will kill five workers on the track. You can pull a lever to send it onto a side track, where it will kill one worker.", question: "Should you pull the lever?", tension: "Saving more lives (consequences) against actively causing a death (duty not to kill)." },
+  { id: "footbridge", group: "classic", name: "The footbridge (fat man) problem", origin: "Judith Jarvis Thomson, 1976", setup: "The same trolley is heading for five people. You stand on a bridge next to a large stranger. Pushing him off would stop the trolley and save the five, but he would die.", question: "Should you push him?", tension: "Same numbers as the trolley problem, but most people say no: using a person as a means feels different." },
+  { id: "transplant", group: "classic", name: "The transplant surgeon", origin: "Philippa Foot; Judith Jarvis Thomson", setup: "Five patients will die without organ transplants. A healthy visitor is a perfect match for all five.", question: "Is it right for the surgeon to sacrifice one to save five?", tension: "Shows why almost nobody accepts pure 'save the most lives' reasoning." },
+  { id: "heinz", group: "classic", name: "The Heinz dilemma", origin: "Lawrence Kohlberg, 1958", setup: "Heinz's wife is dying. A pharmacist charges ten times the cost of the only drug that could save her, and Heinz cannot pay. He thinks about breaking in to steal it.", question: "Should Heinz steal the drug?", tension: "Kohlberg cared about the reason given, not the answer: rules, relationships or principles." },
+  { id: "lifeboat", group: "classic", name: "The overcrowded lifeboat", origin: "Based on the 1841 William Brown shipwreck (U.S. v. Holmes)", setup: "A lifeboat holds 10 people but has 14 on board. It will sink in the storm unless four people go overboard.", question: "Is it right to choose who goes? How?", tension: "Whether killing some to save the rest can be justified, and what a fair method would be." },
+  { id: "murderer-door", group: "classic", name: "The murderer at the door", origin: "Immanuel Kant and Benjamin Constant, 1797", setup: "A friend is hiding in your house. A man with a knife knocks and asks where your friend is.", question: "Is it wrong to lie to him?", tension: "Kant said lying is always wrong; most people think this case shows the limits of strict rules." },
+  { id: "ticking-bomb", group: "classic", name: "The ticking time bomb", origin: "Common in debates since the 1960s", setup: "A captured suspect knows where a bomb is hidden in a city. It will go off in an hour.", question: "Is torture ever justified to get the location?", tension: "Preventing mass harm against an absolute ban on torture; critics say the scenario is unrealistic." },
+  { id: "drowning-child", group: "classic", name: "The drowning child", origin: "Peter Singer, 1972", setup: "You walk past a shallow pond where a child is drowning. Saving them would ruin your expensive shoes.", question: "Must you save the child? If so, must you also give that money to save a child far away?", tension: "Whether distance changes our duty to help." },
+  { id: "experience-machine", group: "classic", name: "The experience machine", origin: "Robert Nozick, 1974", setup: "A machine can give you any experiences you want for the rest of your life. You would believe they are real.", question: "Would you plug in for life?", tension: "If pleasure is all that matters, you should. Most people say no." },
+  { id: "violinist", group: "classic", name: "The violinist", origin: "Judith Jarvis Thomson, 1971", setup: "You wake up with a famous violinist's kidneys connected to yours. If you unplug in the next nine months, he dies.", question: "Do you have to stay connected?", tension: "Whether a right to life includes a right to use someone else's body." },
+  { id: "jim", group: "classic", name: "Jim and the villagers", origin: "Bernard Williams, 1973", setup: "A captain is about to shoot 20 villagers. If Jim, a visitor, shoots one of them, the captain will let the other 19 go.", question: "Should Jim shoot one?", tension: "Williams asked whether your integrity matters when others' lives are at stake." },
+  { id: "omelas", group: "classic", name: "The ones who walk away from Omelas", origin: "Ursula K. Le Guin, 1973", setup: "A city's happiness depends on one child kept suffering in a basement. Everyone knows.", question: "Would you stay, or walk away?", tension: "Whether great collective good can excuse deliberate suffering of one." },
+  { id: "ring-gyges", group: "classic", name: "The Ring of Gyges", origin: "Plato, Republic", setup: "You find a ring that makes you invisible. Nobody would ever know what you did.", question: "Would you still act justly?", tension: "Are we good because it is right, or because we fear getting caught?" },
+  { id: "prisoners", group: "classic", name: "The prisoner's dilemma", origin: "Merrill Flood and Melvin Dresher, 1950", setup: "You and a partner are questioned apart. If you both stay silent, you each get a year. If one betrays, they go free and the other gets ten.", question: "Do you trust your partner?", tension: "Self-interest against cooperation; the logic of trust." },
+  { id: "found-wallet", group: "everyday", name: "The found wallet", setup: "You find a wallet with $300 and an ID. Nobody saw you pick it up, and you are short on rent.", question: "Do you return all of it?", tension: "Honesty when nobody would know, and when you need the money." },
+  { id: "friend-cheating", group: "everyday", name: "The cheating partner", setup: "You see your best friend's partner on a date with someone else.", question: "Do you tell your friend?", tension: "Honesty and loyalty against the risk of being wrong or losing the friendship." },
+  { id: "bad-gift", group: "everyday", name: "The bad gift", setup: "Your grandmother knitted you a sweater you think is ugly. She asks if you love it.", question: "Do you tell the truth?", tension: "Kind white lies against honesty." },
+  { id: "extra-change", group: "everyday", name: "The extra change", setup: "A cashier at a small shop gives you $20 too much in change. You notice once you are outside.", question: "Do you go back?", tension: "Whether it matters who loses out: a big chain or a person who may have to pay it back." },
+  { id: "promise-party", group: "everyday", name: "The broken promise", setup: "You promised to help a friend move on Saturday. Then you are invited to a once-in-a-lifetime event the same day.", question: "Do you keep the promise?", tension: "How much a promise weighs against a big personal gain." },
+  { id: "neighbour-dog", group: "everyday", name: "The neglected dog", setup: "Your neighbour leaves their dog outside in the cold all day. They are elderly and kind to you.", question: "Do you report them?", tension: "Animal welfare against neighbourly loyalty and someone's struggle." },
+  { id: "spoiler", group: "everyday", name: "The secret surprise", setup: "Your friend is planning a surprise party for someone who has told you they hate surprises.", question: "Do you warn them?", tension: "Respecting a person's wishes against keeping a friend's secret." },
+  { id: "exam-cheat", group: "school", name: "The cheating classmate", setup: "During a test, you see your friend copying answers from a phone. The test is graded on a curve.", question: "Do you tell the teacher?", tension: "Fairness to everyone else against loyalty to a friend." },
+  { id: "group-project", group: "school", name: "The free rider", setup: "One person in your group project did nothing. The teacher asks everyone to rate each other.", question: "Do you rate them honestly?", tension: "Honesty and fairness against the urge to keep the peace." },
+  { id: "answer-key", group: "school", name: "The leaked answer key", setup: "Someone sends you tomorrow's exam answers. You did not ask for them.", question: "Do you look? Do you report it?", tension: "Temptation, fairness, and whether not looking is enough." },
+  { id: "bullying", group: "school", name: "The bystander", setup: "A popular student is mocking a quiet kid online. Speaking up might make you the next target.", question: "Do you step in?", tension: "Courage and duty to help against self-protection." },
+  { id: "essay-help", group: "school", name: "Too much help", setup: "A friend asks to read your essay 'for ideas'. You think they will copy it.", question: "Do you share it?", tension: "Helping a friend against being complicit in cheating." },
+  { id: "safety-shortcut", group: "work", name: "The safety shortcut", setup: "Your manager tells you to skip a safety check to meet a deadline. Skipping it is usually fine.", question: "Do you skip it?", tension: "Following orders and keeping your job against preventing a rare but serious harm." },
+  { id: "whistleblower", group: "work", name: "The whistleblower", setup: "You find out your company is hiding a product defect. Reporting it could cost you your career.", question: "Do you go public?", tension: "Duty to the public against loyalty and self-interest." },
+  { id: "colleague-mistake", group: "work", name: "Taking credit", setup: "Your boss praises you in a meeting for an idea that was really your colleague's.", question: "Do you correct them?", tension: "Honesty and fairness against a career opportunity." },
+  { id: "layoffs", group: "work", name: "The layoff list", setup: "You must cut one person from your team. One is the best performer; another is a single parent who would struggle to find work.", question: "Who do you let go?", tension: "Merit against need: two ideas of fairness." },
+  { id: "friend-hire", group: "work", name: "Hiring a friend", setup: "Your close friend applies for a job on your team. Another candidate is slightly stronger.", question: "Who do you hire?", tension: "Fair process against loyalty." },
+  { id: "white-lie-client", group: "work", name: "The client's question", setup: "A client asks if your product can do something. It can't yet, but it will in two months.", question: "Do you say yes?", tension: "Honesty against keeping the deal and your target." },
+  { id: "self-driving", group: "society", name: "The self-driving car", origin: "A modern trolley problem; MIT Moral Machine, 2016", setup: "A self-driving car's brakes fail. It can hit five pedestrians or swerve into a wall, killing its passenger.", question: "How should the car be programmed?", tension: "Whether a machine should be told to sacrifice its owner." },
+  { id: "one-dose", group: "society", name: "The last vaccine dose", setup: "A clinic has one dose left. A 30-year-old nurse and an 80-year-old patient both need it.", question: "Who gets it?", tension: "Saving the most life-years against treating every life as equal." },
+  { id: "ai-surveillance", group: "society", name: "Safety cameras", setup: "Your city can cut crime by 30% with face-recognition cameras on every street.", question: "Is it worth the loss of privacy?", tension: "Security against privacy and freedom." },
+  { id: "genetic-editing", group: "society", name: "Designer babies", setup: "Parents can safely edit an embryo's genes to prevent disease, and also to make the child taller and smarter.", question: "Where should the line be?", tension: "Preventing harm against 'enhancement' and fairness." },
+  { id: "doctor-truth", group: "society", name: "The doctor's dilemma", setup: "A patient's family begs the doctor not to tell their father he is dying, because it will crush him.", question: "Should the doctor tell him?", tension: "A patient's right to know against protecting them from distress." },
+  { id: "carbon", group: "society", name: "The climate trade-off", setup: "Closing a coal plant would cut emissions but leave a small town without its main employer.", question: "Should it close now?", tension: "Future generations against people's livelihoods today." },
+  { id: "rescue-pet", group: "society", name: "Pet or stranger", setup: "A building is on fire. You can save your own dog or a stranger you have never met, but not both.", question: "Who do you save?", tension: "Whether a human life always outweighs a loved animal." },
+  { id: "ai-art", group: "society", name: "The AI artwork", setup: "You win an art competition with an image you made using an AI tool. The rules don't mention AI.", question: "Should you keep the prize?", tension: "Following the letter of the rules against their spirit." },
+];
+
+/** Generator view: name plus the short version of the dilemma. */
+export const DILEMMA_ITEMS: DeckItem[] = MORAL_DILEMMAS.map(d => ({ id: d.id, group: d.group, text: d.name, detail: `${d.setup} ${d.question}` }));

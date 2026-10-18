@@ -4,8 +4,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "100+ Persuasive Speech Topics That Actually Persuade (2026)",
   description:
     "100+ persuasive speech topics organized by theme — school, technology, health, environment, money and fun. Each one takes a clear stance your audience can disagree with. Free, with a random topic generator.",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     "interesting persuasive speech topics",
   ],
   alternates: { canonical: "/speech/persuasive" },
-};
+});
 
 const TOPIC_SECTIONS: {
   theme: string;

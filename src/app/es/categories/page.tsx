@@ -5,13 +5,14 @@ import { CATEGORIES } from "@/data/types";
 import { CATEGORY_LABELS } from "@/i18n/dictionaries";
 import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Explora Temas por Categoría | Generador de Temas al Azar" },
   description:
     "Explora temas al azar en 16 categorías, entre ellas ciencia, tecnología, filosofía, psicología, historia y más. Encuentra el tema perfecto para cualquier ocasión.",
   alternates: { canonical: "/es/categories", languages: hreflangAlternates("/categories") },
-};
+});
 
 export default function CategoriesPageEs() {
   return (

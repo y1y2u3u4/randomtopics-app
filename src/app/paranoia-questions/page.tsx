@@ -9,9 +9,10 @@ import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { PARANOIA_QUESTIONS } from "@/data/paranoia";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Paranoia Questions Generator — 60+ Clean Prompts | Random Topics" },
   description:
     "60+ paranoia questions for the whisper party game — whisper the question, say the name out loud, flip a coin to reveal. All clean and party-safe. One click per question, no repeats, free.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     "whisper game questions",
   ],
   alternates: { canonical: "/paranoia-questions" },
-};
+});
 
 const FAQ_ITEMS = [
   {

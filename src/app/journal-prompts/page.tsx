@@ -8,9 +8,10 @@ import { KIDS_GRADES, KIDS_JOURNAL_PROMPTS, KIDS_JOURNAL_THEMES } from "@/data/k
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { JOURNAL_PROMPTS } from "@/data/journalPrompts";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Journal Prompt Generator — Daily Journal Prompts by Style, Free",
   description:
     "Free journal prompt generator with 95+ reflection prompts — self-discovery, gratitude, morning pages, evening review, goals and creative sparks. One click for today's prompt, printable, no signup.",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     "self discovery journal prompts",
   ],
   alternates: { canonical: "/journal-prompts" },
-};
+});
 
 const FAQ_ITEMS = [
   {

@@ -7,13 +7,14 @@ import { topics } from "@/data/topics";
 import { SEO_ARTICLES } from "@/data/seoContent";
 import { usageInsights } from "@/data/usageInsights";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Topic Statistics & Insights - Random Topic Generator Data",
   description:
     "Explore our database: 500+ topics across 16 categories, 5 modes, 3 depth levels. See the full breakdown of conversation starters, debate topics, writing prompts, and more.",
   alternates: { canonical: "/stats" },
-};
+});
 
 function getStats() {
   const totalTopics = topics.length;

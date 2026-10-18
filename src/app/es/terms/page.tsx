@@ -2,8 +2,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Términos del Servicio | Random Topics" },
   description:
     "Términos del servicio de randomtopics.app: Generador de Temas al Azar.",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     canonical: "/es/terms",
     languages: hreflangAlternates("/terms"),
   },
-};
+});
 
 export default function TermsPageEs() {
   return (

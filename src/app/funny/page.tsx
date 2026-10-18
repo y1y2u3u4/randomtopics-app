@@ -5,9 +5,10 @@ import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import FaqSchema from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Funny Random Topic Generator | Hilarious Questions & Weird Discussion Topics",
   description:
     "Generate funny, weird, and bizarre random topics guaranteed to make everyone laugh. Hilarious conversation starters, would-you-rather questions, and absurd discussion topics for parties, games, and groups.",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     "funny discussion topics",
   ],
   alternates: { canonical: "/funny" },
-};
+});
 
 const FAQ_ITEMS = [
   {

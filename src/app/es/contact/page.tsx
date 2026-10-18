@@ -3,8 +3,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Contacto | Random Topics" },
   description:
     "Contacta con randomtopics.app: reporta un tema inadecuado, sugiere un generador, pregunta por el widget o haz una solicitud de privacidad.",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     canonical: "/es/contact",
     languages: hreflangAlternates("/contact"),
   },
-};
+});
 
 const motivos = [
   {

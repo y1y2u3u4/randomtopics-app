@@ -1,15 +1,16 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Terms of Service",
   description:
     "Terms of service for randomtopics.app - Random Topic Generator.",
   alternates: {
     canonical: "/terms",
   },
-};
+});
 
 export default function TermsPage() {
   return (

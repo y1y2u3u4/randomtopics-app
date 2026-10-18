@@ -3,8 +3,9 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Acerca de | Random Topics" },
   description:
     "Conoce Random Topics: el generador de temas al azar gratuito para conversaciones, escritura, debates, discursos y rompehielos.",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     canonical: "/es/about",
     languages: hreflangAlternates("/about"),
   },
-};
+});
 
 export default function AboutPageEs() {
   return (
