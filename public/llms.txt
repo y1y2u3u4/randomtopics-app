@@ -2,6 +2,24 @@
 
 > RandomTopics (https://randomtopics.app) is a free collection of random generators and question banks for classrooms, parties, writing and speaking practice. Every tool works in the browser with no signup. Generated results come from editor-curated lists, not live AI output.
 
+## Key facts
+
+- Full fact sheet: https://randomtopics.app/facts (updated 2026-10-18).
+- Free, no account or signup for any generator or question bank.
+- Results are picked at random from fixed, editor-written lists, not live AI output; each page shows its whole list.
+- Random Topic Generator: 517 curated topics in 16 categories for 5 uses (conversation, writing, debate, speech, icebreaker), each with a depth label and talking points.
+- Question of the Day: 120 questions in 5 categories, changing at local midnight. Charades: 528 words with a timer.
+- No repeats within a round in your browser tab; a new cycle starts once the pool is used up.
+- How lists are written and checked: https://randomtopics.app/how-we-curate
+
+## Pages added 2026-10-18
+
+- [Random Category Generator](https://randomtopics.app/random-category-generator): 150 categories in 10 groups plus a random letter roll (optionally skipping Q, U, V, X, Y, Z) for Scattergories-style games; 1, 5 or 10 per draw, printable.
+- [Random Idea Generator](https://randomtopics.app/random-idea-generator): 151 things to do when bored, in 7 groups (things to do, creative projects, drawing, writing, side projects, cooking, with friends or family), each with a one-line how-to, plus an idea of the day.
+- [Topic of the Day](https://randomtopics.app/topic-of-the-day): one discussion topic per day for every visitor, with talking points, a 10-minute routine and the last 7 days of topics.
+- [Philosophical Questions](https://randomtopics.app/philosophical-questions): 160 philosophical questions in 10 themes plus a table of 9 classic questions with their source (Plato's Apology, Plutarch's Ship of Theseus, Descartes 1641, Leibniz 1714, Hume 1748, Rawls 1971, Nagel 1974, Nozick 1974).
+- [Moral Dilemma Examples](https://randomtopics.app/moral-dilemma-examples): 40 moral dilemmas explained, grouped by theme, with where famous ones come from and how consequentialism, deontology, virtue ethics and care ethics answer them.
+
 ## Generators added 2026-10-14
 
 - [APA Citation Generator](https://randomtopics.app/apa-citation-generator): APA 7th edition references and in-text citations from a DOI, ISBN or URL; paste many sources at once to build a full APA reference page (sorted in APA order, 2020a/2020b suffixes, bold centered "References" heading, double spacing, hanging indent) and copy it or download it for Word.

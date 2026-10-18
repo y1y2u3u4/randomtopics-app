@@ -7,10 +7,11 @@ import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { NEVER_HAVE_I_EVER } from "@/data/partyQuestions";
 import KeepPlaying from "@/components/KeepPlaying";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Never Have I Ever Generator — 60+ Clean Questions",
   description:
     "Free Never Have I Ever question generator: 60+ clean, funny prompts with a no-repeat deck. Perfect for parties, icebreakers, road trips and family game night — no signup.",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     "funny never have i ever questions",
   ],
   alternates: { canonical: "/never-have-i-ever" },
-};
+});
 
 const FAQ_ITEMS = [
   {

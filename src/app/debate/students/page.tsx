@@ -5,13 +5,14 @@ import TopicGenerator from "@/components/TopicGenerator";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Debate Topic Generator for Students — Middle & High School",
   description:
     "Random debate topic generator for students: age-appropriate topics with pro/con arguments for middle school, high school and college classrooms. Free for teachers, no signup.",
   alternates: { canonical: "/debate/students" },
-};
+});
 
 const FAQ_ITEMS = [
   {

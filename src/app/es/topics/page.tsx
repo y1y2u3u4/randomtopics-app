@@ -5,13 +5,14 @@ import Link from "next/link";
 import { SEO_ARTICLES_ES } from "@/data/seoContent.es";
 import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Listas y Guías de Temas — Colecciones para Cada Ocasión | Random Topics" },
   description:
     "Explora nuestras colecciones de temas de conversación, ideas de debate, ideas para escribir, preguntas rompehielos y mucho más. Encuentra los temas perfectos para cualquier situación.",
   alternates: { canonical: "/es/topics", languages: hreflangAlternates("/topics") },
-};
+});
 
 export default function TopicsIndexPageEs() {
   return (

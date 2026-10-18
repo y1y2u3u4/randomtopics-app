@@ -6,8 +6,9 @@ import TopicGenerator from "@/components/TopicGenerator";
 import RandomSubjectPicker from "@/components/RandomSubjectPicker";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Random Subject Generator — Free Subject Picker | Random Topics" },
   description:
     "Free random subject generator and school subject picker. Choose one of 16 subjects for study, writing, presentations, or revision. Instant and no signup.",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/random-subject-generator",
   },
-};
+});
 
 // The 16 categories double as "subjects" for the school-subject intent.
 const SCHOOL_SUBJECTS: { emoji: string; label: string; href: string }[] = [

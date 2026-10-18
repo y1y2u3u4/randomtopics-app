@@ -10,11 +10,12 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import KidsVersionSwitch from "@/components/KidsVersionSwitch";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { hreflangAlternates } from "@/i18n/config";
 import { THIS_OR_THAT } from "@/data/partyGames";
 import KeepPlaying from "@/components/KeepPlaying";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "This or That Generator — 38 Fun Questions | Random Topics" },
   description:
     "Free This or That question generator: fun either/or prompts for parties, classrooms, road trips, and icebreakers. One click per question, no repeats — clean and party-safe. No signup.",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     "hard this or that questions",
   ],
   alternates: { canonical: "/this-or-that", languages: hreflangAlternates("/this-or-that") },
-};
+});
 
 const FAQ_ITEMS = [
   {

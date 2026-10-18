@@ -9,10 +9,11 @@ import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { TRUTH_OR_DARE } from "@/data/partyGames";
 import KeepPlaying from "@/components/KeepPlaying";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Truth or Dare Generator — Clean Questions & Dares | Random Topics" },
   description:
     "Free Truth or Dare generator with clean, party-safe truths and dares. One click per prompt, no repeats — perfect for parties, sleepovers, road trips, and family game nights. No signup.",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     "funny truth or dare",
   ],
   alternates: { canonical: "/truth-or-dare" },
-};
+});
 
 const FAQ_ITEMS = [
   {

@@ -8,10 +8,11 @@ import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { MOST_LIKELY_TO } from "@/data/partyGames";
 import KeepPlaying from "@/components/KeepPlaying";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Most Likely To Questions Generator — Fun & Clean Party Prompts",
   description:
     "Free 'Most Likely To' question generator: clean, funny prompts for parties, classrooms, and team building. One click per question, no repeats — no signup needed.",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     "party game questions",
   ],
   alternates: { canonical: "/most-likely-to" },
-};
+});
 
 const FAQ_ITEMS = [
   {

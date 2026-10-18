@@ -7,8 +7,9 @@ import TopicGenerator from "@/components/TopicGenerator";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Random Question Generator — 500+ Questions for Any Group",
   description:
     "Free random question generator: icebreakers, deep questions, funny prompts and discussion questions across 16 categories. Filter by depth, generate up to 10 at once — no signup.",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     "random questions",
   ],
   alternates: { canonical: "/question-generator" },
-};
+});
 
 const FAQ_ITEMS = [
   {

@@ -4,8 +4,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "100+ Informative Speech Topics That Teach Something Real (2026)",
   description:
     "100+ informative speech topics organized by theme — science, history, technology, health, culture and everyday life. Each one teaches your audience something concrete. Free, with a random topic generator.",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     "interesting informative speech topics",
   ],
   alternates: { canonical: "/speech/informative" },
-};
+});
 
 const TOPIC_SECTIONS: {
   theme: string;

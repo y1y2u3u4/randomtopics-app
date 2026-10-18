@@ -4,13 +4,14 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { CATEGORIES } from "@/data/types";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Browse Topics by Category | Random Topic Generator",
   description:
     "Browse random topics across 16 categories including science, technology, philosophy, psychology, history, and more. Find the perfect topic for any occasion.",
   alternates: { canonical: "/categories" },
-};
+});
 
 export default function CategoriesPage() {
   return (

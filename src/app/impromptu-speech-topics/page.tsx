@@ -8,10 +8,11 @@ import SpeechTimer from "@/components/SpeechTimer";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { IMPROMPTU_GROUPS, IMPROMPTU_TOPIC_COUNT } from "@/data/impromptuTopics";
 import KeepPlaying from "@/components/KeepPlaying";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Impromptu Speech Topics: 120 Ideas by Category, With Tips & Timer | Random Topics" },
   description:
     "120 impromptu speech topics you can talk about with no research — personal stories, everyday opinions, hypotheticals, one-word prompts, proverbs, funny topics, student and interview questions — plus a 30-second prep method and practice timer.",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     "table topics ideas",
   ],
   alternates: { canonical: "/impromptu-speech-topics" },
-};
+});
 
 const FAQ_ITEMS = [
   {

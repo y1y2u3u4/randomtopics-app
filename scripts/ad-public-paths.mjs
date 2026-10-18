@@ -19,7 +19,7 @@ export const AD_FREE = [
   /(^|\/|-)kids(\/|-|$)/, /students?(\/|$)/, /middle-school/, /presentation-ideas-for-school/,
   /^\/morning-meeting-questions$/, /^\/riddles-for-kids$/, /^\/classroom/, /^\/random-group-generator$/,
   // Legal, about and internal pages.
-  /^\/(privacy|terms|contact|about|press|stats|how-we-curate)$/,
+  /^\/(privacy|terms|contact|about|press|stats|how-we-curate|facts)$/,
   // Insult humour: kept off to stay clear of ad content policy.
   /^\/yo-mama-randomizer$/,
 ];

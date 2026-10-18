@@ -5,12 +5,13 @@ import TopicGenerator from "@/components/TopicGenerator";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Debate Topics for High School: 60 Resolutions + Random Generator" },
   description: "60 debate topics for high school (grades 9-12) by subject, each tagged Public Forum, Lincoln-Douglas, Policy or parli, plus a random generator with pro/con points.",
   alternates: { canonical: "/debate/high-school" },
-};
+});
 
 const FAQ_ITEMS = [
   {

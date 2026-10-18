@@ -4,8 +4,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "100+ Group Discussion Topics for 2026 | Random Topics" },
   description:
     "100+ group discussion topics for 2026, including current affairs, situation-based GD questions, AI, business, education, abstract topics, placements, and MBA interviews.",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     "gd questions",
   ],
   alternates: { canonical: "/group-discussion-topics" },
-};
+});
 
 const TOPIC_SECTIONS: {
   theme: string;

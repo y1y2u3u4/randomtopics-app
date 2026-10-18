@@ -6,8 +6,9 @@ import DebatePreparation from "@/components/DebatePreparation";
 import { MOTION_PREPARATION } from "@/data/motionPreparation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "100+ Debate Motions — This House Would… (BP & Parliamentary Format)",
   description:
     "100+ ready-to-run debate motions in This House Would format, organized by theme — politics, technology, ethics, education, economics, environment and more. Free motions bank for BP, parliamentary and club debate.",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     "debate motion generator",
   ],
   alternates: { canonical: "/debate/motions" },
-};
+});
 
 // Hand-written motions bank. Each theme maps to a category page for internal links.
 const MOTION_SECTIONS: {

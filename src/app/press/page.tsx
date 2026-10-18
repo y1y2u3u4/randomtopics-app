@@ -3,15 +3,16 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import CopyBlock from "./CopyBlock";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Press & Media Kit - Random Topics",
   description:
     "Press kit, embed widget, and media resources for Random Topics — the free topic generator.",
   alternates: { canonical: "/press" },
   robots: { index: true, follow: true },
-};
+});
 
 const SITE_URL = "https://randomtopics.app";
 

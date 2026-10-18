@@ -6,9 +6,10 @@ import SpeechTimer from "@/components/SpeechTimer";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import KeepPlaying from "@/components/KeepPlaying";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Table Topics Generator — Toastmasters Questions + Timer",
   description:
     "Free Table Topics generator for Toastmasters with a built-in 1-2 minute speech timer. Generate random impromptu speaking questions, practice on the clock, and never run out of Table Topics ideas.",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     "toastmasters questions generator",
   ],
   alternates: { canonical: "/table-topics-generator" },
-};
+});
 
 const FAQ_ITEMS = [
   {

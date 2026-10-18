@@ -5,12 +5,13 @@ import TopicGenerator from "@/components/TopicGenerator";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Debate Topics for College Students \u2014 Random Generator",
   description: "Random debate topic generator for college: policy, ethics and philosophy topics with pro/con arguments for seminars, societies and parliamentary debate. Free, no signup.",
   alternates: { canonical: "/debate/college" },
-};
+});
 
 const FAQ_ITEMS = [
   {

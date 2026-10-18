@@ -5,8 +5,9 @@ import TopicGenerator from "@/components/TopicGenerator";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Random Argument Generator — Free Pro/Con Argument Topics",
   description:
     "Generate random arguments with clear pro and con sides. Free argument generator for practice debates, persuasive essays, critical thinking exercises and friendly disputes. No signup needed.",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     "random debate argument",
   ],
   alternates: { canonical: "/argument-generator" },
-};
+});
 
 const FAQ_ITEMS = [
   {

@@ -5,8 +5,9 @@ import TopicGenerator from "@/components/TopicGenerator";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Debate Question Generator — Random Debate Questions with Pro & Con",
   description:
     "Free debate question generator. Get random debate questions with pro and con talking points instantly — for classrooms, debate clubs, practice rounds, and friendly arguments. No signup.",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     "debate question",
   ],
   alternates: { canonical: "/debate/questions" },
-};
+});
 
 const FAQ_ITEMS = [
   {

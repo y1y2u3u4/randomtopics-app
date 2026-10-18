@@ -7,10 +7,11 @@ import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { TWO_TRUTHS_AND_A_LIE } from "@/data/partyGames";
 import KeepPlaying from "@/components/KeepPlaying";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Two Truths and a Lie — Idea Generator & Prompts",
   description:
     "Free Two Truths and a Lie idea generator: themed prompts that help you craft convincing rounds fast. Great for icebreakers, classrooms, team building, and parties. No signup.",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     "icebreaker game ideas",
   ],
   alternates: { canonical: "/two-truths-and-a-lie" },
-};
+});
 
 const FAQ_ITEMS = [
   {

@@ -10,10 +10,11 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import KidsVersionSwitch from "@/components/KidsVersionSwitch";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { WOULD_YOU_RATHER } from "@/data/partyQuestions";
 import KeepPlaying from "@/components/KeepPlaying";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Would You Rather Generator — 60+ Questions | Random Topics" },
   description:
     "Free Would You Rather question generator: 60+ clean, party-safe dilemmas with a no-repeat deck. One click per question — perfect for parties, road trips, classrooms and icebreakers.",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     "funny would you rather",
   ],
   alternates: { canonical: "/would-you-rather" },
-};
+});
 
 const FAQ_ITEMS = [
   {

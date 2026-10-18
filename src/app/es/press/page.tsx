@@ -4,9 +4,10 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import CopyBlock from "../../press/CopyBlock";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Kit de Prensa y Medios | Random Topics" },
   description:
     "Kit de prensa, widget para insertar y recursos para medios de Random Topics: el generador de temas gratuito con IA.",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/press"),
   },
   robots: { index: true, follow: true },
-};
+});
 
 const SITE_URL = "https://randomtopics.app";
 

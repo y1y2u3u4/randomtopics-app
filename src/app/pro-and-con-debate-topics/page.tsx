@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,7 +9,7 @@ import { CATEGORIES } from "@/data/types";
 import { topics } from "@/data/topics";
 import ClassroomPackCard from "@/components/ClassroomPackCard";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "100 Pro and Con Debate Topics — Arguments for Both Sides" },
   description:
     "Browse 100 balanced pro and con debate topics for students, classrooms and debate clubs. Pick a topic, prepare both sides, then generate more free debate motions.",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     "argument topics",
   ],
   alternates: { canonical: "/pro-and-con-debate-topics" },
-};
+});
 
 const FAQ_ITEMS = [
   {

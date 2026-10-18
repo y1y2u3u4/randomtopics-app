@@ -4,8 +4,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Essay Topic Generator — Random Essay Topics & Prompts, Free",
   description:
     "Free essay topic generator. Get a random essay topic or prompt instantly for argumentative, persuasive, expository, and narrative essays — across 16 subjects. No signup, unlimited spins.",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/essay-topic-generator",
   },
-};
+});
 
 // Essay-friendly subject areas (map to existing category pages). These double as
 // browse links for the "random essay topics" intent.

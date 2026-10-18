@@ -2,13 +2,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "About",
   description:
     "Learn about Random Topics - the free random topic generator for conversations, writing, debates, speeches, and icebreakers.",
   alternates: { canonical: "/about" },
-};
+});
 
 export default function AboutPage() {
   return (

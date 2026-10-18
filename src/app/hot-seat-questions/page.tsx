@@ -7,10 +7,11 @@ import { PartyIllustration } from "@/components/CategoryIllustration";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { HOT_SEAT_QUESTIONS } from "@/data/hotSeat";
 import KeepPlaying from "@/components/KeepPlaying";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Hot Seat Questions — Spicy (but Clean) Questions to Ask Friends",
   description:
     "75+ hot seat questions to put friends on the spot — warm-ups, revealing questions, rapid-fire rounds and deep cuts. All party-safe. One click per question, no repeats, free.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     "questions to put someone on the spot",
   ],
   alternates: { canonical: "/hot-seat-questions" },
-};
+});
 
 const FAQ_ITEMS = [
   {

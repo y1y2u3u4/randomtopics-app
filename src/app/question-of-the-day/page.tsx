@@ -7,15 +7,17 @@ import QuestionOfTheDay from "@/components/QuestionOfTheDay";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/metadata/social";
 import { QOTD_QUESTIONS, QOTD_CATEGORIES, qotdIndexForDate } from "@/data/questionOfTheDay";
 import QotdListActions from "@/components/QotdListActions";
 import KeepPlaying from "@/components/KeepPlaying";
+import FactSheet from "@/components/FactSheet";
 
 // ISR: regenerate hourly so the server-rendered "today's question" (UTC) stays
 // current and crawlers always see a real question in the HTML, not a placeholder.
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Question of the Day: Today's QOTD + 120 Question Ideas" },
   description:
     "Get today's question of the day and copy it for your group chat. Browse 120 QOTD ideas for work, classrooms, family, or fun. Free, no signup.",
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
     "icebreaker question of the day",
   ],
   alternates: { canonical: "/question-of-the-day" },
-};
+});
 
 const FAQ_ITEMS = [
   {
@@ -153,6 +155,26 @@ export default function QuestionOfTheDayPage() {
             </div>
           </section>
         ))}
+
+        <FactSheet
+          heading="Question of the Day at a glance"
+          updated="2026-10-18"
+          rows={[
+            ["What it is", `A free daily question for classrooms, teams and families: ${QOTD_QUESTIONS.length} editor-written questions, one shown per day, plus a quick vote.`],
+            ["Categories", QOTD_CATEGORIES.map((c) => `${c.label} (${QOTD_QUESTIONS.filter((q) => q.c === c.id).length})`).join(", ")],
+            ["When it changes", "At midnight in your own time zone. The page HTML uses midnight UTC until your browser loads."],
+            ["Who sees the same question", "Everyone who picks the same category on the same date, so a whole class or team can answer together."],
+            ["Daily vote", "4 suggested answers plus \u201cSomething else\u201d."],
+            ["Cost and signup", "Free, no account. Copy, share or print the full list of questions."],
+          ]}
+          stepsName="How to use the question of the day"
+          steps={[
+            "Pick a category (or All) and read today\u2019s question.",
+            "Post it in your class, Slack or Teams channel, or read it aloud.",
+            "Give everyone 1\u20132 minutes to answer, then vote or share answers.",
+            "Come back tomorrow for a new question, or tap for a random one now.",
+          ]}
+        />
 
         {/* SEO content + FAQ */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
