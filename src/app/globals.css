@@ -421,6 +421,8 @@ footer {
 /* One fixed public-content placement. Keep the reserved space when unfilled or
    blocked so content never jumps; no slot/space is rendered while rollout is off. */
 .rt-article-ad { width: 100%; height: 456px; padding: 24px 0; margin: 0 auto 40px; }
+/* Below a tool: keep clear space from its Next/Copy buttons (no accidental clicks). */
+.rt-article-ad[data-ad-placement="public-result"] { margin-top: 64px; }
 @media (max-width: 319px) { .rt-article-ad { display: none; } }
 
 /* Homepage draw: decoy topics scroll past for ~360ms, then the real topic settles.

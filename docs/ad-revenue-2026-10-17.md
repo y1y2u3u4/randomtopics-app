@@ -88,3 +88,20 @@ Baseline before the switch (AdSense, 10/10–10/16): **$21.55, 18,063 page views
 - US: a state opt-out (Google message or GPP) or GPC still stops advertising for the visit, as before.
 - Child/classroom paths (`adPersonalizationAllowed`, also `*-students` incl. college-students, conservatively): always NPA + RDP. They are ad-free today anyway.
 - Privacy policy (EN/ES) updated 2026-10-17: cookies used, regional behaviour, how to opt out.
+
+## Week 2: manual unit on 19 high-traffic auto-ad pages (10/18)
+Dispatch goal: page RPM ≥ $2 (now $1.18–1.19, 10/10–16). These pages had Auto ads only, with no unit near the result. The 19 pages are listed in `ADSENSE_RESULT_PATHS` (src/lib/adsense.ts), chosen from GA4 top pages (28 days to 10/17) and limited to Auto ads paths that are not child- or classroom-directed.
+- **Below the result** (`data-ad-placement="public-result"`): the 9 GeneratorPageShell tools (random-word, japanese-name, character-name, last-name, random-character, random-food, my-9-games, my-9-albums, fantasy-map-maker), plus charades, would-you-rather, paranoia-questions, story-prompt-generator, and most-likely-to EN/ES. On the two most-likely-to pages the unit goes after the first content block, because the party card is short and the unit would otherwise enter the first screen.
+- **Mid-page on long pages** (`public-mid`): charades (after the word bank), would-you-rather, paranoia-questions and most-likely-to (before the question bank), and story-prompt-generator (after the genre bank).
+- **Existing template spot** (`public-content`): research-topic-generator and writing-topic-generator (after the intro), and the topics conversation-topics-for-teens and toastmasters-table-topics (before the FAQ).
+- **Safety:**
+  - Every unit has a fixed 456 px reserved height, so there is no layout shift (browser check `__cls === 0`).
+  - No unit is in the first screen (checked at 320, 390 and 1280 px).
+  - The result unit has a 64 px top margin plus the "Advertisement" label, keeping it clear of the tools' Next/Copy/Print buttons.
+  - Paid, GPC, opt-out and child rules are unchanged; each unit has the same gate.
+- **Deploy time:** the merge time of this PR (see the PR / Vercel production deploy).
+- **Compare on 2026-10-25** (7 days):
+  - AdSense page RPM, same report (target ≥ $2).
+  - AdSense "Ad units" view for slot 8217822741 (impressions should rise).
+  - CLS in PSI/CrUX (must not worsen).
+  - GA4 `generate_success` per user on the 19 pages vs 10/11–17 (must not fall).

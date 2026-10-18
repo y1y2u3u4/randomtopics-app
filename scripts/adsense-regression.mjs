@@ -10,7 +10,7 @@ check(ads.adConfiguration('manual-public-reviewed-v1').slot==='8217822741','Revi
 check(ads.adConfiguration('manual-public-reviewed-v1','ca-pub-1513206179290827')===null,'Publisher is not a slot');
 const base={path:'/',host:'randomtopics.app',search:'',qa:false,globalPrivacyControl:false};
 for(const path of ads.ADSENSE_PUBLIC_PATHS) check(ads.adRequestAllowed({...base,path}),'Allow reviewed public route '+path);
-for(const path of ['/random-food-generator','/charades','/topics/conversation-topics-for-teens','/es/most-likely-to'])check(ads.adRequestAllowed({...base,path})&&!ads.adInlinePageAllowed(path),'Auto ads only (no manual unit) on public page '+path);
+for(const path of ['/band-name-generator','/argument-generator','/categories/business','/5-minute-speech-topics'])check(ads.adRequestAllowed({...base,path})&&!ads.adInlinePageAllowed(path),'Auto ads only (no manual unit) on public page '+path);
 for(const path of ads.ADSENSE_PUBLIC_PATHS) check(ads.adInlinePageAllowed(path),'Manual unit stays on reviewed route '+path);
 for(const path of ['/this-or-that/kids','/riddles-for-kids','/classroom-timer','/question-of-the-day-for-students','/random-group-generator','/privacy','/yo-mama-randomizer']) check(!ads.adRequestAllowed({...base,path}),'Ad-free page '+path);
 for(const path of ['/speech','/speech/practice','/speech/account','/speech/checkout','/es/speech','/api/speech/checkout','/saved-topics','/share/private','/embed','/internal/analytics','/topics/unreviewed']) check(!ads.adRequestAllowed({...base,path}),'Exclude '+path);
@@ -40,5 +40,8 @@ for(const path of ['/','/charades','/es/conversation','/topics/book-club-questio
 for(const path of ['/this-or-that/kids','/es/would-you-rather/kids','/topics/writing-prompts-for-kids','/question-of-the-day-for-students','/debate/middle-school','/morning-meeting-questions','/riddles-for-kids','/classroom-timer','/es/classroom-packs','/random-group-generator','/topics/presentation-ideas-for-school'])check(!ads.adPersonalizationAllowed(path),'Child/classroom stays non-personalized: '+path);
 const adPaths=JSON.parse(readFileSync('src/data/adPublicPaths.json','utf8'));
 check(adPaths.every(path=>ads.adPersonalizationAllowed(path)||/college-students/.test(path)),'Every auto-ad page outside child rules may personalize');
+check(ads.ADSENSE_RESULT_PATHS.length>0&&new Set(ads.ADSENSE_RESULT_PATHS).size===ads.ADSENSE_RESULT_PATHS.length,'Distinct result-unit paths');
+for(const path of ads.ADSENSE_RESULT_PATHS){check(adPaths.includes(path),'Result unit only on an Auto ads path: '+path);check(!ads.ADSENSE_PUBLIC_PATHS.includes(path),'Result list adds new pages only: '+path);check(ads.adPersonalizationAllowed(path),'Result unit never on child/classroom page: '+path);check(ads.adInlinePageAllowed(path),'Manual unit allowed on result path: '+path)}
+for(const path of ['/charades/kids','/random-food-generator/x','/topics/writing-prompts-for-kids','/speech'])check(!ads.ADSENSE_RESULT_PATHS.includes(path)&&(path!=='/speech'||!ads.adInlinePageAllowed(path)),'Result list stays exact: '+path);
 check(readFileSync('public/ads.txt','utf8').trim()==='google.com, pub-1513206179290827, DIRECT, f08c47fec0942fa0','Authorized publisher unchanged');
 console.log(`PASS: ${checks} advertising configuration, privacy and route assertions (no network).`);

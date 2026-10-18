@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import KeepPlaying from "@/components/KeepPlaying";
 import StoryPromptGenerator from "@/components/StoryPromptGenerator";
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import { STORY_AUDIENCES, STORY_CHALLENGES, STORY_GENRES, STORY_LENGTHS, STORY_PROMPTS } from "@/data/storyPrompts";
 import { SITE_URL } from "@/i18n/config";
 
@@ -37,6 +38,7 @@ export default function StoryPromptGeneratorPage() {
         <p className="mt-2 text-xs text-[var(--text-secondary)]">{STORY_PROMPTS.length} original prompts · {STORY_GENRES.length} genres · Kids, teens and adults · Free</p>
       </header>
       <StoryPromptGenerator />
+      <PublicAdPlacement path={path} placement="result" />
       <figure className="mt-8">
         {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized jpg below the tool, no optimizer needed */}
         <img src="/art/tools/story-prompt-generator.jpg" alt="Illustrated notebook on a desk with story ideas floating out of it: a dragon, a rocket, a mystery, a friendly ghost and a ship" width={1600} height={900} loading="lazy" decoding="async" className="w-full h-auto rounded-2xl border border-white/10" />
@@ -79,6 +81,8 @@ export default function StoryPromptGeneratorPage() {
           </details>;
         })}</div>
       </section>
+
+      <div className="mt-8"><PublicAdPlacement path={path} placement="mid" /></div>
 
       <section className="glass-card p-5 sm:p-8 mt-8">
         <h2 className="text-2xl font-bold">Story prompt questions</h2>

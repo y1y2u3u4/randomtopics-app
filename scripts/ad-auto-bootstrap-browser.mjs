@@ -61,8 +61,20 @@ const autoOn = async (f) => {
   assert.equal(await f.page.evaluate(() => window.__cls), 0, "no layout shift");
   assert.deepEqual(f.errors, []);
 };
-for (const path of ["/random-food-generator", "/charades", "/would-you-rather", "/topics/conversation-topics-for-teens", "/es/most-likely-to"])
+for (const path of ["/band-name-generator", "/argument-generator", "/categories/business", "/5-minute-speech-topics"])
   await run("Auto ads on " + path, path, {}, autoOn);
+const innerHeightFor = (f) => f.page.viewportSize().height;
+// ADSENSE_RESULT_PATHS: one runtime, a manual unit below the tool (plus mid-page
+// on long pages), each reserved ahead of time so nothing shifts.
+for (const [path, units] of [["/random-food-generator", ["public-result"]], ["/charades", ["public-result", "public-mid"]], ["/would-you-rather", ["public-result", "public-mid"]], ["/topics/conversation-topics-for-teens", ["public-content"]], ["/es/most-likely-to", ["public-result"]], ["/story-prompt-generator", ["public-result", "public-mid"]]])
+  await run("Result units on " + path, path, {}, async (f) => {
+    assert.equal(f.sdk(), 1); assert.equal(f.cmp(), 1);
+    assert.deepEqual(await f.page.locator("[data-ad-placement]").evaluateAll(els => els.map(e => e.dataset.adPlacement)), units);
+    for (const top of await f.page.locator("[data-ad-placement]").evaluateAll(els => els.map(e => e.getBoundingClientRect().top + scrollY))) assert.ok(top > innerHeightFor(f), "unit outside first viewport");
+    await f.page.evaluate(() => scrollTo(0, document.body.scrollHeight)); await f.page.waitForTimeout(150);
+    assert.equal(await f.page.evaluate(() => window.__cls), 0, "no layout shift");
+    assert.deepEqual(f.errors, []);
+  });
 for (const path of ["/riddles-for-kids", "/this-or-that/kids", "/es/would-you-rather/kids", "/classroom-timer", "/random-group-generator", "/privacy", "/speech"])
   await run("No ad runtime on " + path, path, {}, async (f) => { assert.equal(f.sdk(), 0); assert.equal(f.cmp(), 0); });
 await run("Paid user: no ad runtime on /charades", "/charades", { paid: true }, async (f) => { assert.equal(f.sdk(), 0); assert.equal(f.cmp(), 0); });
