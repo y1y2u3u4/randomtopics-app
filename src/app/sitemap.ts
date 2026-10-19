@@ -251,6 +251,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: { es: url, "x-default": url } },
     });
   }
+  // Added 2026-10-19 for "quien es mas probable" phrasings with GSC
+  // impressions but no page (incómodas, amigas, chistosas).
+  for (const path of [
+    "/es/topics/quien-es-mas-probable-preguntas-incomodas",
+    "/es/topics/quien-es-mas-probable-amigas",
+    "/es/topics/quien-es-mas-probable-preguntas-chistosas",
+  ]) {
+    const url = abs(path);
+    result.push({
+      url,
+      lastModified: "2026-10-19",
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: { es: url, "x-default": url } },
+    });
+  }
+
+  // Standalone Turkish pages (2026-10-19). Turkish is not a site locale, so
+  // these advertise only themselves.
+  for (const path of ["/tr", "/tr/rastgele-konu-carki", "/tr/rastgele-arastirma-konulari", "/tr/1-dakika-konusma-konulari"]) {
+    const url = abs(path);
+    result.push({
+      url,
+      lastModified: "2026-10-19",
+      changeFrequency: "monthly",
+      priority: path === "/tr" ? 0.85 : 0.8,
+      alternates: { languages: { tr: url, "x-default": url } },
+    });
+  }
 
   return result;
 }

@@ -84,6 +84,9 @@ export default function MostLikelyToPageEs() {
               { label: "Para parejas", detail: "Románticas y divertidas", href: "/es/topics/quien-es-mas-probable-parejas" },
               { label: "Preguntas fuertes", detail: "Intensas y reveladoras", href: "/es/topics/quien-es-mas-probable-preguntas-fuertes" },
               { label: "Para amigos", detail: "Fiestas, viajes y risas", href: "/es/topics/quien-es-mas-probable-amigos" },
+              { label: "Para amigas", detail: "Pijamadas y noches de chicas", href: "/es/topics/quien-es-mas-probable-amigas" },
+              { label: "Preguntas incómodas", detail: "Vergonzosas y comprometedoras", href: "/es/topics/quien-es-mas-probable-preguntas-incomodas" },
+              { label: "Preguntas chistosas", detail: "Graciosas y aptas para todos", href: "/es/topics/quien-es-mas-probable-preguntas-chistosas" },
             ].map((collection) => (
               <Link key={collection.href} href={collection.href} className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-colors">
                 <p className="text-sm font-bold text-[var(--text-primary)]">{collection.label}</p>

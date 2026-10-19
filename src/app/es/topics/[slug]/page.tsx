@@ -71,6 +71,9 @@ const MOST_LIKELY_COLLECTIONS_ES = [
   { title: "Para amigos", detail: "45 preguntas de aventuras, hábitos y amistad", href: "/es/topics/quien-es-mas-probable-amigos" },
   { title: "Para parejas", detail: "45 preguntas románticas y de complicidad", href: "/es/topics/quien-es-mas-probable-parejas" },
   { title: "Preguntas fuertes", detail: "45 preguntas intensas para grupos con confianza", href: "/es/topics/quien-es-mas-probable-preguntas-fuertes" },
+  { title: "Para amigas", detail: "45 preguntas para noches de chicas y pijamadas", href: "/es/topics/quien-es-mas-probable-amigas" },
+  { title: "Preguntas incómodas", detail: "45 preguntas vergonzosas y comprometedoras", href: "/es/topics/quien-es-mas-probable-preguntas-incomodas" },
+  { title: "Preguntas chistosas", detail: "45 preguntas graciosas aptas para todos", href: "/es/topics/quien-es-mas-probable-preguntas-chistosas" },
 ] as const;
 
 export function generateStaticParams() {

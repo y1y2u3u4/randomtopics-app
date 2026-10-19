@@ -97,6 +97,13 @@ function getAllUrls(): string[] {
     "/es/topics/quien-es-mas-probable-parejas",
     "/es/topics/quien-es-mas-probable-preguntas-fuertes",
     "/es/topics/quien-es-mas-probable-amigos",
+    "/es/topics/quien-es-mas-probable-preguntas-incomodas",
+    "/es/topics/quien-es-mas-probable-amigas",
+    "/es/topics/quien-es-mas-probable-preguntas-chistosas",
+    "/tr",
+    "/tr/rastgele-konu-carki",
+    "/tr/rastgele-arastirma-konulari",
+    "/tr/1-dakika-konusma-konulari",
   ]) {
     urls.push(`${base}${path}`);
   }

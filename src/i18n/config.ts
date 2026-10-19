@@ -175,6 +175,9 @@ export const ES_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/topics/quien-es-mas-probable-parejas",
   "/topics/quien-es-mas-probable-preguntas-fuertes",
   "/topics/quien-es-mas-probable-amigos",
+  "/topics/quien-es-mas-probable-preguntas-incomodas",
+  "/topics/quien-es-mas-probable-amigas",
+  "/topics/quien-es-mas-probable-preguntas-chistosas",
 ]);
 
 export function isEsOnly(rootPath: string): boolean {

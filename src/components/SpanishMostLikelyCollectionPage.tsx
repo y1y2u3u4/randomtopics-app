@@ -38,7 +38,7 @@ export default function SpanishMostLikelyCollectionPage({ config }: { config: Sp
         <section className="text-center pt-12 sm:pt-20 pb-8 sm:pb-12 max-w-4xl mx-auto px-4 sm:px-6">
           <h1 className="section-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight">{config.title}</h1>
           <p className="text-base sm:text-lg text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed">{config.heroSubtitle}</p>
-          <p className="text-xs text-[var(--text-muted)] mt-3">Publicado el 25 de agosto de 2026 · actualizado el 31 de agosto de 2026</p>
+          <p className="text-xs text-[var(--text-muted)] mt-3">{config.dateLine ?? "Publicado el 25 de agosto de 2026 · actualizado el 31 de agosto de 2026"}</p>
           <div className="mt-5 flex justify-center">
             <PrintButton
               heading={config.title}
@@ -146,8 +146,8 @@ export default function SpanishMostLikelyCollectionPage({ config }: { config: Sp
               inLanguage: "es",
               headline: config.title,
               description: config.metaDescription,
-              datePublished: "2026-08-25",
-              dateModified: "2026-08-31",
+              datePublished: config.datePublished ?? "2026-08-25",
+              dateModified: config.datePublished ?? "2026-08-31",
               author: { "@type": "Organization", name: "Random Topics", url: SITE_URL },
               publisher: { "@type": "Organization", name: "Random Topics", url: SITE_URL },
               mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
