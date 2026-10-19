@@ -96,6 +96,38 @@
       "prompt": "A stylised map of the contiguous United States seen from above, made of soft rounded state shapes in muted tones; a few glowing map pins rise from different states, each holding a small blank paper tag, and a friendly mail envelope with a stamp floats nearby with a dotted flight path linking the pins. Flat vector illustration, 1600x900, 16:9, deep navy background (#0b1026) with purple (#6b5bd2), cyan (#00e5ff) and warm yellow (#ffd166) accents, soft rounded shapes, clean and calm, no people, no text, no numbers, no letters, no logos.",
       "alt": "Illustrated US map with glowing pins and a mail envelope, for picking random ZIP codes",
       "status": "pending"
+    },
+    {
+      "id": "pictionary-word-generator-hero",
+      "page": "/pictionary-word-generator",
+      "path": "public/art/tools/pictionary-word-generator.jpg",
+      "prompt": "A party game night: a big sketch pad on an easel showing a half-drawn elephant in marker lines, a sand timer beside it, two small teams of cartoon friends (no detailed faces) cheering on sofas, a bowl of folded paper slips. Flat vector illustration, 1600x900, 16:9, deep navy background (#0b1026) with purple (#6b5bd2), cyan (#00e5ff) and warm yellow (#ffd166) accents, soft rounded shapes, no text, no letters, no numbers, no logos.",
+      "alt": "Illustrated Pictionary game night with an easel sketch, sand timer and two cheering teams",
+      "status": "pending"
+    },
+    {
+      "id": "pictionary-words-hero",
+      "page": "/pictionary-words",
+      "path": "public/art/tools/pictionary-words.jpg",
+      "prompt": "A tabletop seen from above with a printed word sheet shown only as blank lines, scissors cutting it into paper slips, colored markers, a bowl of folded slips and small doodles of a cat, a rocket and a bicycle. Flat vector illustration, 1600x900, 16:9, deep navy background (#0b1026) with purple (#6b5bd2), cyan (#00e5ff) and warm yellow (#ffd166) accents, soft rounded shapes, no text, no letters, no numbers, no logos.",
+      "alt": "Illustrated Pictionary word slips being cut from a printed list next to markers and a bowl",
+      "status": "pending"
+    },
+    {
+      "id": "random-date-generator-hero",
+      "page": "/random-date-generator",
+      "path": "public/art/tools/random-date-generator.jpg",
+      "prompt": "A floating wall calendar grid with a few squares glowing and lifting off the page like cards, a dice made of calendar pages, and a small download arrow icon leading to a spreadsheet grid. Flat vector illustration, 1600x900, 16:9, deep navy background (#0b1026) with purple (#6b5bd2), cyan (#00e5ff) and warm yellow (#ffd166) accents, soft rounded shapes, no text, no letters, no numbers, no logos.",
+      "alt": "Illustrated calendar with a few randomly highlighted days lifting off the page",
+      "status": "pending"
+    },
+    {
+      "id": "21-questions-hero",
+      "page": "/21-questions",
+      "path": "public/art/tools/21-questions.jpg",
+      "prompt": "Two friends sitting cross-legged facing each other on cushions (simple shapes, no detailed faces), large speech bubbles with question-mark shapes between them, a progress bar of small dots above, and a hidden mystery box with a lid slightly open. Flat vector illustration, 1600x900, 16:9, deep navy background (#0b1026) with purple (#6b5bd2), cyan (#00e5ff) and warm yellow (#ffd166) accents, soft rounded shapes, no text, no letters, no numbers, no logos.",
+      "alt": "Illustrated two friends playing a question game with speech bubbles and a mystery box",
+      "status": "pending"
     }
   ]
 }

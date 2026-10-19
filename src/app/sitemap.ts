@@ -148,6 +148,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Random ZIP code generator (2026-10-19).
   entries.push({ path: "/random-zip-code-generator", changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-19" });
 
+  // Party games + random date generator (2026-10-19).
+  for (const p of ["pictionary-word-generator", "pictionary-phrase-generator", "pictionary-words", "random-date-generator", "21-questions"]) {
+    entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-19" });
+  }
+
   // This or that + impromptu speech inner pages (2026-10-19).
   for (const p of ["this-or-that/couples", "this-or-that/hard", "this-or-that/work", "impromptu-speech-topics/students", "impromptu-speech-topics/funny", "impromptu-speech-topics/1-minute"]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-19" });
