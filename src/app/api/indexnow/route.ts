@@ -78,6 +78,10 @@ function getPaths(): string[] {
     "/impromptu-speech-topics/students",
     "/impromptu-speech-topics/funny",
     "/impromptu-speech-topics/1-minute",
+    "/fake-name-generator",
+    "/fake-address-generator",
+    "/fake-identity-generator",
+    "/fake-person-generator",
   ];
   for (const mode of MODES) paths.push(`/${mode.slug}`);
   for (const cat of CATEGORIES) paths.push(`/categories/${cat.id}`);

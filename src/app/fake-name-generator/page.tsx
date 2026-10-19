@@ -4,16 +4,17 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import FakeNameGenerator from "@/components/generators/FakeNameGenerator";
 import { FAKE_GIVEN_COUNT, FAKE_SURNAME_COUNT, NATIONALITIES } from "@/lib/generators/fakeNames";
 import { withSocial } from "@/lib/metadata/social";
+import { hreflangAlternates } from "@/i18n/config";
 
 const PATH = "/fake-name-generator";
 const TITLE = "Fake Name Generator: Random Names & Profiles (Free)";
-const DESCRIPTION = `Free fake name generator: random names from ${NATIONALITIES.length} countries with safe fake profiles (age, job, username, example.com email). Up to 100 at once, CSV/JSON export.`;
+const DESCRIPTION = `Free fake name generator: random names from ${NATIONALITIES.length} countries with safe fake profiles (age, job, username, example.com email). Bulk CSV/JSON export.`;
 
 export const metadata: Metadata = withSocial({
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: ["fake name generator", "random fake name", "fake identity generator", "fake person generator", "random name and address generator", "fake profile generator", "test data names", "fake name generator with email"],
-  alternates: { canonical: PATH },
+  alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
 });
 
 const COUNTRIES = NATIONALITIES.length;
@@ -34,9 +35,9 @@ const FAQ = [
       "No. Every email uses example.com, example.org or example.net, domains reserved for documentation that never deliver mail. Phone numbers appear only for the US, Canada (555-0100 to 555-0199) and the UK (07700 900000 to 900999) — ranges set aside for films and books, so you will never text a stranger.",
   },
   {
-    question: "Why no Social Security numbers, credit cards or street addresses?",
+    question: "Why no Social Security numbers or credit cards? Can I add an address?",
     answer:
-      "Fake ID and card numbers can collide with real people's data and are mostly asked for in order to get past identity checks. Testers who need them should use their payment provider's official test cards. For everything else, a name, birthday, city and placeholder contact details are enough.",
+      "Fake ID and card numbers can collide with real people's data and are mostly asked for in order to get past identity checks. Testers who need them should use their payment provider's official test cards. Addresses are optional: tick Address to add an invented street with a real city and matching postcode, or use the fake address generator.",
   },
   {
     question: "Can I choose the country, gender and age?",
@@ -84,12 +85,12 @@ export default function FakeNameGeneratorPage() {
         </>
       }
       related={[
+        { href: "/fake-address-generator", label: "Fake address generator" },
+        { href: "/fake-identity-generator", label: "Fake identity generator" },
+        { href: "/fake-person-generator", label: "Fake person generator" },
         { href: "/character-name-generator", label: "Character name generator" },
         { href: "/last-name-generator", label: "Last name generator" },
-        { href: "/western-baby-name-generator", label: "Western baby name generator" },
         { href: "/japanese-name-generator", label: "Japanese name generator" },
-        { href: "/random-name-picker", label: "Random name picker" },
-        { href: "/writing", label: "Writing prompt generator" },
       ]}
       content={
         <>
@@ -105,7 +106,7 @@ export default function FakeNameGeneratorPage() {
 
           <SectionTitle>Safe fake data, on purpose</SectionTitle>
           <p>
-            Some fake identity sites still print Social Security-style numbers, card numbers and full street addresses. Those can match a real
+            Some fake identity sites still print Social Security-style numbers, card numbers and real street addresses. Those can match a real
             person, and they are mostly wanted to get past verification checks. This generator stops at what a story, a form demo or a test
             database actually needs. If you are testing payments, use your provider&apos;s official test cards instead.
           </p>
