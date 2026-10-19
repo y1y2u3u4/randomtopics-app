@@ -71,6 +71,7 @@ export default function LastNameGeneratorPage() {
       related={[
         { href: "/japanese-name-generator", label: "Japanese name generator" },
         { href: "/western-baby-name-generator", label: "Western baby name generator" },
+        { href: "/fake-name-generator", label: "Fake name generator" },
         { href: "/writing", label: "Writing prompt generator" },
         { href: "/writing-topic-generator", label: "Writing topic generator" },
         { href: "/topics/writing-prompts-for-kids", label: "Writing prompts for kids" },

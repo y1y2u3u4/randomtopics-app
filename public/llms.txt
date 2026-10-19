@@ -48,6 +48,7 @@
 - [Random Team Generator](https://randomtopics.app/random-team-generator)
 - [Random Animal Generator](https://randomtopics.app/random-animal-generator)
 - [Random Food Generator](https://randomtopics.app/random-food-generator)
+- [Fake Name Generator](https://randomtopics.app/fake-name-generator): random names from 24 countries with optional safe fake profiles (age, birthday, city, job, username, example.com email; phone only from fiction-reserved ranges). No ID or card numbers. Up to 100 at once, CSV/JSON download.
 - [Random Name Picker](https://randomtopics.app/random-name-picker)
 - [Number Randomizer](https://randomtopics.app/number-randomizer)
 - [Spin the Wheel](https://randomtopics.app/spin-the-wheel)

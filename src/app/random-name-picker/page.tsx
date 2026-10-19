@@ -43,6 +43,7 @@ export default function RandomNamePickerPage() {
       inShort="Paste a list of names, choose how many to draw, and press Pick a name. Winners are removed from the hat so nobody is picked twice until everyone has had a turn, and one button puts the whole list in a random order. It is free and needs no account, and the list never leaves your browser."
       related={[
         { href: "/random-team-generator", label: "Random team generator" },
+        { href: "/fake-name-generator", label: "Fake name generator" },
         { href: "/number-randomizer", label: "Number randomizer" },
         { href: "/spin-the-wheel", label: "Spin the wheel" },
         { href: "/question-of-the-day-for-students", label: "Question of the day for students" },

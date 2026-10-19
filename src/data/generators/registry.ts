@@ -42,6 +42,12 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Surnames by origin, with meanings", es: "Apellidos por origen, con significado" },
   },
   {
+    href: "/fake-name-generator",
+    emoji: "🪪",
+    label: { en: "Fake Name Generator" },
+    detail: { en: "Names & safe fake profiles, CSV export" },
+  },
+  {
     href: "/dnd-name-generator",
     emoji: "🐉",
     label: { en: "D&D Name Generator" },

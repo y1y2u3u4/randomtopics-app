@@ -46,6 +46,7 @@ export default function WesternBabyNamePage() {
       inShort={`Pick boy, girl or gender-neutral and a style — Yellowstone-style ranch, cowboy & frontier, country music, vintage Western or Southern — and get random Western baby names from a hand-picked list of ${WESTERN_NAMES.length}, each with a one-line meaning or origin. Save a shortlist with the share link. It is free and needs no signup.`}
       related={[
         { href: "/last-name-generator", label: "Last name generator" },
+        { href: "/fake-name-generator", label: "Fake name generator" },
         { href: "/country-name-generator", label: "Country name generator" },
         { href: "/character-name-generator", label: "Character name generator" },
         { href: "/viking-name-generator", label: "Viking name generator" },
