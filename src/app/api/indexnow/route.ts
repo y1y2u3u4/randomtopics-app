@@ -1,123 +1,13 @@
 import { NextResponse } from "next/server";
-import { CATEGORIES, MODES } from "@/data/types";
-import { SEO_ARTICLES } from "@/data/seoContent";
-import { INDEXABLE_MODE_CATEGORY_PATHS, isEnOnly, spanishCounterpartPath } from "@/i18n/config";
+import sitemap from "@/app/sitemap";
 
 const INDEXNOW_KEY = "randomtopics2026";
 const HOST = "randomtopics.app";
 
-// Root-relative paths, kept in parity with src/app/sitemap.ts. Each is pushed
-// for both English (root) and Spanish (/es) so IndexNow pings Bing/Yandex for
-// every indexable URL the moment we deploy.
-function getPaths(): string[] {
-  const paths: string[] = [
-    "/",
-    "/topics",
-    "/categories",
-    "/press",
-    "/about",
-    "/how-we-curate",
-    "/pro-and-con-debate-topics",
-    "/contact",
-    "/privacy",
-    "/terms",
-    "/stats",
-    "/funny",
-    "/yo-mama-randomizer",
-    "/argument-generator",
-    "/table-topics-generator",
-    "/random-subject-generator",
-    "/random-drawing-generator",
-    "/random-object-generator",
-    "/random-state-generator",
-    "/country-name-generator",
-    "/band-name-generator",
-    "/dragon-name-generator",
-    "/random-learning-topic-generator",
-    "/writing-topic-generator",
-    "/research-topic-generator",
-    "/presentation-topic-generator",
-    "/essay-topic-generator",
-    "/impromptu-speech-topics",
-    "/debate/students",
-    "/debate/funny",
-    "/debate/middle-school",
-    "/debate/high-school",
-    "/debate/college",
-    "/debate/questions",
-    "/debate/motions",
-    "/speech/persuasive",
-    "/speech/informative",
-    "/charades",
-    "/journal-prompts",
-    "/hot-seat-questions",
-    "/group-discussion-topics",
-    "/question-of-the-day",
-    "/question-of-the-day-for-students",
-    "/question-of-the-day-for-work",
-    "/topics/ethical-dilemmas-for-students",
-    "/topics/workplace-ethical-dilemmas",
-    "/topics/ethical-dilemmas-for-adults",
-    "/deep-conversation-question-generator",
-    "/5-minute-speech-topics",
-    "/funny-question-of-the-day",
-    "/paranoia-questions",
-    "/trivia-questions",
-    "/trivia-questions/halloween",
-    "/question-generator",
-    "/would-you-rather",
-    "/never-have-i-ever",
-    "/spin-the-wheel",
-    "/truth-or-dare",
-    "/this-or-that",
-    "/most-likely-to",
-    "/two-truths-and-a-lie",
-    "/this-or-that/couples",
-    "/this-or-that/hard",
-    "/this-or-that/work",
-    "/impromptu-speech-topics/students",
-    "/impromptu-speech-topics/funny",
-    "/impromptu-speech-topics/1-minute",
-    "/fake-name-generator",
-    "/fake-address-generator",
-    "/fake-identity-generator",
-    "/fake-person-generator",
-  ];
-  for (const mode of MODES) paths.push(`/${mode.slug}`);
-  for (const cat of CATEGORIES) paths.push(`/categories/${cat.id}`);
-  paths.push(...INDEXABLE_MODE_CATEGORY_PATHS);
-  for (const article of SEO_ARTICLES) paths.push(`/topics/${article.slug}`);
-  return paths;
-}
-
+// Every URL in src/app/sitemap.ts (English, Spanish and standalone locale
+// pages), so IndexNow pings Bing/Yandex for exactly what the sitemap lists.
 function getAllUrls(): string[] {
-  const base = `https://${HOST}`;
-  const urls: string[] = [];
-  for (const p of getPaths()) {
-    urls.push(p === "/" ? base : `${base}${p}`);
-    // Never ping a /es URL that is missing or noindexed (see isEnOnly).
-    const customSpanishPath = spanishCounterpartPath(p);
-    if (customSpanishPath) {
-      urls.push(`${base}${customSpanishPath}`);
-    } else if (!isEnOnly(p)) {
-      urls.push(p === "/" ? `${base}/es` : `${base}/es${p}`);
-    }
-  }
-  for (const path of [
-    "/es/topics/quien-es-mas-probable-parejas",
-    "/es/topics/quien-es-mas-probable-preguntas-fuertes",
-    "/es/topics/quien-es-mas-probable-amigos",
-    "/es/topics/quien-es-mas-probable-preguntas-incomodas",
-    "/es/topics/quien-es-mas-probable-amigas",
-    "/es/topics/quien-es-mas-probable-preguntas-chistosas",
-    "/tr",
-    "/tr/rastgele-konu-carki",
-    "/tr/rastgele-arastirma-konulari",
-    "/tr/1-dakika-konusma-konulari",
-  ]) {
-    urls.push(`${base}${path}`);
-  }
-  return urls;
+  return [...new Set(sitemap().map((entry) => entry.url))];
 }
 
 export async function POST() {
