@@ -88,6 +88,14 @@
       "prompt": "A cozy writing desk at night seen from the side: an open notebook with blank lined pages, a pencil, and a small paper lantern; out of the notebook rise five floating story scenes in soft glowing bubbles — a small friendly dragon on a castle tower, a rocket near a ringed planet, a magnifying glass over footprints, a ghost waving from a lighthouse, and a sailing ship on a big wave. Flat vector illustration, 1600x900, 16:9, deep navy background (#0b1026) with purple (#6b5bd2), cyan (#00e5ff) and warm yellow (#ffd166) accents, soft rounded shapes, gentle and kid-friendly, no people's faces, no text, no letters, no logos, no brand characters.",
       "alt": "Illustrated notebook on a desk with story ideas floating out of it: a dragon, a rocket, a mystery, a friendly ghost and a ship",
       "status": "done"
+    },
+    {
+      "id": "random-zip-code-generator-hero",
+      "page": "/random-zip-code-generator",
+      "path": "public/art/tools/random-zip-code-generator.jpg",
+      "prompt": "A stylised map of the contiguous United States seen from above, made of soft rounded state shapes in muted tones; a few glowing map pins rise from different states, each holding a small blank paper tag, and a friendly mail envelope with a stamp floats nearby with a dotted flight path linking the pins. Flat vector illustration, 1600x900, 16:9, deep navy background (#0b1026) with purple (#6b5bd2), cyan (#00e5ff) and warm yellow (#ffd166) accents, soft rounded shapes, clean and calm, no people, no text, no numbers, no letters, no logos.",
+      "alt": "Illustrated US map with glowing pins and a mail envelope, for picking random ZIP codes",
+      "status": "pending"
     }
   ]
 }

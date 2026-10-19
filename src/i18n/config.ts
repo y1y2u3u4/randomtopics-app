@@ -148,6 +148,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/fake-address-generator",
   "/fake-identity-generator",
   "/fake-person-generator",
+  "/random-zip-code-generator",
   "/random-character-generator",
   "/gnome-name-generator",
   "/random-food-generator",

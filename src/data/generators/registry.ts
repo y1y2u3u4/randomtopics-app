@@ -48,6 +48,12 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Names & safe fake profiles, CSV export" },
   },
   {
+    href: "/random-zip-code-generator",
+    emoji: "📮",
+    label: { en: "Random ZIP Code Generator" },
+    detail: { en: "Real US ZIPs by state, CSV export" },
+  },
+  {
     href: "/dnd-name-generator",
     emoji: "🐉",
     label: { en: "D&D Name Generator" },

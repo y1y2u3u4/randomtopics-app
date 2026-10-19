@@ -172,6 +172,7 @@
  "/random-subject-generator",
  "/random-team-generator",
  "/random-word-generator",
+ "/random-zip-code-generator",
  "/research-topic-generator",
  "/spin-the-wheel",
  "/story-prompt-generator",

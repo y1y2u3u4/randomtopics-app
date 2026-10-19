@@ -145,6 +145,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: p === "fake-name-generator" ? 0.9 : 0.88, lastModified: "2026-10-19" });
   }
 
+  // Random ZIP code generator (2026-10-19).
+  entries.push({ path: "/random-zip-code-generator", changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-19" });
+
   // This or that + impromptu speech inner pages (2026-10-19).
   for (const p of ["this-or-that/couples", "this-or-that/hard", "this-or-that/work", "impromptu-speech-topics/students", "impromptu-speech-topics/funny", "impromptu-speech-topics/1-minute"]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-19" });
