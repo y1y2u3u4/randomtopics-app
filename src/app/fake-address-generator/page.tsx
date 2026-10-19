@@ -87,6 +87,7 @@ export default function FakeAddressGeneratorPage() {
         { href: "/fake-identity-generator", label: "Fake identity generator" },
         { href: "/fake-person-generator", label: "Fake person generator" },
         { href: "/random-state-generator", label: "Random state generator" },
+        { href: "/random-zip-code-generator", label: "Random ZIP code generator" },
         { href: "/country-name-generator", label: "Country name generator" },
         { href: "/random-name-picker", label: "Random name picker" },
       ]}
