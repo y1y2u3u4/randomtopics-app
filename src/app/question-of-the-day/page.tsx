@@ -1,4 +1,5 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
+import DirectAnswer from "@/components/DirectAnswer";
 import ClassroomPackCard from "@/components/ClassroomPackCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -99,6 +100,11 @@ export default function QuestionOfTheDayPage() {
         </section>
 
         <QuestionOfTheDay initialIdx={initialIdx} initialDateLabel={initialDateLabel} />
+        <div className="pt-6">
+          <DirectAnswer question="What is today's question of the day?">
+            {`Today's question of the day is shown at the top of this page. Everyone using the same category on the same local date sees the same question, and it changes at midnight in your time zone. Choose from ${QOTD_CATEGORIES.length} categories (classroom, work, kids, deep, funny) or draw from all ${QOTD_QUESTIONS.length} question ideas. Free, no signup.`}
+          </DirectAnswer>
+        </div>
         <ClassroomPackCard pack="question-of-the-day" page="/question-of-the-day" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">

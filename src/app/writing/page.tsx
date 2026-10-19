@@ -1,4 +1,5 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
+import DirectAnswer from "@/components/DirectAnswer";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -97,6 +98,9 @@ export default function WritingPage() {
           title="Writing Prompt Generator"
           subtitle="Need a topic to write about? Tap once for a random writing prompt: stories, essays, journaling and blogs, from light to deep. One click, no signup."
         />
+        <DirectAnswer question="What is a writing prompts generator?">
+          A writing prompts generator gives you a topic to write about in one tap, so you can skip the blank page. Prompts cover stories, essays, journaling and blogs, from light to deep, and each comes with talking points to get you started. Filter by category and depth, save the ones you like, and start writing. Free, no signup.
+        </DirectAnswer>
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
           <div className="glass-card p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-cyan)]/20">

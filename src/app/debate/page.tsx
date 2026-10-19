@@ -12,11 +12,12 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
+import DirectAnswer from "@/components/DirectAnswer";
 
 export const metadata: Metadata = {
-  title: { absolute: "Debate Topic Generator — 300+ Random Debate Topics | Random Topics" },
+  title: { absolute: "Debate Topic Generator: 300+ Random Debate Topics (Free)" },
   description:
-    "Generate 300+ random debate topics with pro and con talking points for classrooms, clubs and practice rounds. Free debate topic generator, no signup.",
+    "Free debate topic generator: 300+ random debate topics with pro and con talking points for classrooms, clubs and practice rounds. One click, no repeats, no signup.",
   keywords: [
     "debate topic generator",
     "random debate topic generator",
@@ -35,9 +36,9 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/debate"),
   },
   openGraph: {
-    title: "Debate Topic Generator — 300+ Random Debate Topics",
+    title: "Debate Topic Generator: 300+ Random Debate Topics (Free)",
     description:
-      "Generate random debate topics with pro and con talking points for classrooms, clubs and practice rounds.",
+      "Free debate topic generator: 300+ random debate topics with pro and con talking points for classrooms, clubs and practice rounds.",
     url: `${SITE_URL}/debate`,
     siteName: "Random Topics",
     type: "website",
@@ -96,6 +97,9 @@ export default function DebatePage() {
           title="Debate Topic Generator"
           subtitle="Find thought-provoking debate topics with clear arguments for both sides."
         />
+        <DirectAnswer question="What is a debate topic generator?">
+          A debate topic generator picks a random, arguable motion for you, with pro and con talking points, so you can start preparing right away. This one draws from 300+ debate topics for classrooms, debate clubs and practice rounds. Filter by category and depth; no topic repeats until you have seen them all. Free, with no signup.
+        </DirectAnswer>
         <ClassroomPackCard pack="debate" page="/debate" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">

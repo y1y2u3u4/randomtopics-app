@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import CharadesGenerator from "@/components/CharadesGenerator";
 import PublicAdPlacement from "@/components/PublicAdPlacement";
+import DirectAnswer from "@/components/DirectAnswer";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -103,6 +104,12 @@ export default function CharadesPage() {
         </section>
 
         <CharadesGenerator />
+
+        <div className="pt-6">
+          <DirectAnswer question="What is a charades generator?">
+            {`A charades generator picks a random word for the actor, so nobody has to think one up. This one draws from ${CHARADES_WORDS.length} charades words in ${CHARADES_CATEGORIES.length} categories, each labeled easy, medium or hard, with a built-in timer and a button to hide the answer. It works on any phone, is free and needs no signup.`}
+          </DirectAnswer>
+        </div>
 
         <PublicAdPlacement path="/charades" placement="result" />
 

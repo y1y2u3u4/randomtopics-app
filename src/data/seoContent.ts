@@ -8,6 +8,8 @@ export interface SeoArticle {
   heroTitle: string;
   heroSubtitle: string;
   intro: string;
+  /** 40–60 word answer shown as the first paragraph of the intro card. */
+  directAnswer?: string;
   publishDate: string;
   lastModified: string;
   sections: {
@@ -1663,9 +1665,11 @@ export const SEO_ARTICLES: SeoArticle[] = [
   {
     slug: "ethical-dilemma-questions",
     title: "65+ Moral & Ethical Dilemma Questions for Adults",
-    metaTitle: "65+ Moral & Ethical Dilemma Questions | RandomTopics",
+    metaTitle: "Ethical Dilemma Questions: 65+ Moral Dilemmas to Discuss",
     metaDescription:
-      "65+ moral and ethical dilemma questions for adults, students, and groups, with realistic examples about everyday life, work, medicine, society, and AI.",
+      "65+ ethical dilemma questions with realistic moral dilemma examples on AI, medicine, work, everyday life and society. Free list for adults, students and group discussion.",
+    directAnswer:
+      "An ethical dilemma question describes a situation where every choice has a moral cost, so there is no clearly right answer. This page lists 65+ moral and ethical dilemma questions in 7 groups, from AI and medicine to work, society and everyday life, plus quick dilemmas for short discussions with adults, students and groups.",
     heroTitle: "65+ Moral & Ethical Dilemma Questions for Adults",
     heroSubtitle:
       "Realistic moral dilemma examples with no easy answers, organized for discussion, classrooms, interviews, and self-reflection.",

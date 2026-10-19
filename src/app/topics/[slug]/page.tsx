@@ -317,6 +317,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             {isTwoTruths ? (
               <h2 id="two-truths-collection" className="mb-3 scroll-mt-24 text-2xl font-bold">{`All ${articleItems.length} statement ideas`}</h2>
             ) : null}
+            {article.directAnswer ? (
+              <p className="mb-4 text-[var(--text-primary)] text-base leading-relaxed">{article.directAnswer}</p>
+            ) : null}
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
               {article.intro}
             </p>
