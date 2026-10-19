@@ -54,6 +54,20 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Real US ZIPs by state, CSV export" },
   },
   {
+    href: "/random-date-generator",
+    emoji: "📅",
+    label: { en: "Random Date Generator" },
+    detail: { en: "Dates in any range, weekdays only, CSV" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/pictionary-word-generator",
+    emoji: "✏️",
+    label: { en: "Pictionary Word Generator" },
+    detail: { en: "Easy to hard words with a timer" },
+    crossLinkOnly: true,
+  },
+  {
     href: "/dnd-name-generator",
     emoji: "🐉",
     label: { en: "D&D Name Generator" },

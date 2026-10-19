@@ -8,6 +8,7 @@ export interface RelatedTool { href: string; label: string; emoji: string; blurb
 
 export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/charades", label: "Charades Generator", emoji: "🎭", blurb: "528 words with a round timer", groups: ["party", "classroom"] },
+  { href: "/pictionary-word-generator", label: "Pictionary Word Generator", emoji: "✏️", blurb: "Easy to hard, timer + teams", groups: ["party", "classroom"] },
   { href: "/trivia-questions", label: "Trivia Questions", emoji: "❓", blurb: "800+ Q&As with host mode", groups: ["party", "classroom"] },
   { href: "/this-or-that", label: "This or That", emoji: "⚖️", blurb: "Quick two-choice questions", groups: ["party", "classroom"] },
   { href: "/would-you-rather", label: "Would You Rather", emoji: "🤔", blurb: "Dilemmas for any group", groups: ["party"] },
@@ -23,6 +24,10 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/random-team-generator", label: "Random Team Generator", emoji: "👥", blurb: "Split names into fair teams", groups: ["classroom", "party"] },
   { href: "/random-word-generator", label: "Random Word Generator", emoji: "🔠", blurb: "Words for games and writing", groups: ["classroom", "creative"] },
   { href: "/random-letter-generator", label: "Random Letter Generator", emoji: "🔤", blurb: "A–Z for Scattergories", groups: ["classroom", "party"] },
+  { href: "/pictionary-words", label: "Pictionary Words", emoji: "🖍️", blurb: "240 words to print or copy", groups: ["party", "classroom"] },
+  { href: "/pictionary-phrase-generator", label: "Pictionary Phrases", emoji: "🖌️", blurb: "2–4 word phrases and idioms", groups: ["party"] },
+  { href: "/21-questions", label: "21 Questions", emoji: "🔍", blurb: "Friends, couples, kids + guessing", groups: ["party", "classroom"] },
+  { href: "/random-date-generator", label: "Random Date Generator", emoji: "📅", blurb: "Dates in any range, CSV", groups: ["classroom"] },
   { href: "/speech", label: "Speech Topic Generator", emoji: "🎤", blurb: "Topics + practice timer", groups: ["speaking", "classroom"] },
   { href: "/impromptu-speech-topics", label: "Impromptu Speech Topics", emoji: "⏱️", blurb: "120 no-research topics", groups: ["speaking", "classroom"] },
   { href: "/debate", label: "Debate Topic Generator", emoji: "⚔️", blurb: "300+ motions with both sides", groups: ["speaking", "classroom"] },

@@ -6,6 +6,13 @@ import { CATEGORIES } from "@/data/types";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 
+const PARTY_GAMES = [
+  { href: "/pictionary-word-generator", emoji: "✏️", label: "Pictionary Word Generator", detail: "Easy to hard words, timer and teams" },
+  { href: "/pictionary-phrase-generator", emoji: "🖌️", label: "Pictionary Phrases", detail: "2–4 word phrases and idioms" },
+  { href: "/pictionary-words", emoji: "🖍️", label: "Pictionary Word List", detail: "Printable words by theme" },
+  { href: "/21-questions", emoji: "🔍", label: "21 Questions", detail: "Friends, couples, kids + guessing" },
+];
+
 export const metadata: Metadata = withSocial({
   title: "Browse Topics by Category | Random Topic Generator",
   description:
@@ -60,6 +67,17 @@ export default function CategoriesPage() {
                 <p className="text-sm text-[var(--text-muted)]">
                   {cat.description}
                 </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-12" data-categories-games>
+          <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>Party games</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {PARTY_GAMES.map((g) => (
+              <Link key={g.href} href={g.href} className="glass-card p-4 hover:border-[var(--accent-blue)]/30 transition-all">
+                <span className="font-semibold">{g.emoji} {g.label}</span>
+                <span className="block text-sm text-[var(--text-muted)] mt-1">{g.detail}</span>
               </Link>
             ))}
           </div>
