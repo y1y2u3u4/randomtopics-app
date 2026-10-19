@@ -74,6 +74,7 @@ export default function CharacterNameGeneratorPage() {
         { href: "/writing", label: "Writing prompt generator" },
         { href: "/writing-topic-generator", label: "Writing topic generator" },
         { href: "/last-name-generator", label: "Last name generator" },
+        { href: "/fake-name-generator", label: "Fake name generator" },
         { href: "/japanese-name-generator", label: "Japanese name generator" },
       ]}
       content={
@@ -99,6 +100,7 @@ export default function CharacterNameGeneratorPage() {
             <li>Search the full name once so you don&apos;t accidentally name a famous person.</li>
           </ol>
           <p>Naming a real baby rather than a character? Browse cowboy, country and Southern names with meanings in the <Link href="/western-baby-name-generator" className={linkClass}>Western baby name generator</Link>.</p>
+          <p>Need dozens of ordinary, modern names for background characters or test data? The <Link href="/fake-name-generator" className={linkClass}>fake name generator</Link> makes up to 100 at once by country, with optional profiles.</p>
           <p>
             Stuck on the story itself? Try the <Link href="/writing" className={linkClass}>writing prompt generator</Link>, or build a
             complete cast with the <Link href="/random-character-generator" className={linkClass}>random character generator</Link>.

@@ -158,6 +158,7 @@ export const PURPOSE_GENERATORS = {
       { label: "Character Name Generator", href: "/character-name-generator", emoji: "✒️" },
       { label: "Random Character Generator", href: "/random-character-generator", emoji: "🎭" },
       { label: "Last Name Generator", href: "/last-name-generator", emoji: "🏷️" },
+      { label: "Fake Name Generator", href: "/fake-name-generator", emoji: "🪪" },
       { label: "Viking Name Generator", href: "/viking-name-generator", emoji: "🛡️" },
       { label: "Chicago Citation Generator", href: "/chicago-citation-generator", emoji: "📚" },
       { label: "Random Drawing Generator", href: "/random-drawing-generator", emoji: "🎨" },

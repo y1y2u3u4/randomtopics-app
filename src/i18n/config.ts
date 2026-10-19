@@ -144,6 +144,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/dnd-name-generator",
   "/viking-name-generator",
   "/character-name-generator",
+  "/fake-name-generator",
   "/random-character-generator",
   "/gnome-name-generator",
   "/random-food-generator",

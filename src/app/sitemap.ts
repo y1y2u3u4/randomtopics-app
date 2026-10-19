@@ -140,6 +140,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-16" });
   }
 
+  // Fake name generator (2026-10-19).
+  entries.push({ path: "/fake-name-generator", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-19" });
+
   // Random generator pages (2026-10-10 inner-page batch).
   for (const p of [
     "random-team-generator",
