@@ -107,6 +107,12 @@ export default function ImpromptuSpeechPage() {
             Preparing a researched talk instead of speaking on the spot? Use the{" "}
             <Link href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> for persuasive, informative and presentation topics.
           </p>
+          <p className="text-sm text-[var(--text-secondary)] mt-3">
+            More versions:{" "}
+            <Link href="/impromptu-speech-topics/students" className="text-[var(--neon-cyan)] hover:underline">impromptu speech topics for students</Link>,{" "}
+            <Link href="/impromptu-speech-topics/funny" className="text-[var(--neon-cyan)] hover:underline">funny impromptu speech topics</Link> and{" "}
+            <Link href="/impromptu-speech-topics/1-minute" className="text-[var(--neon-cyan)] hover:underline">1 minute speech topics</Link>.
+          </p>
         </section>
 
         <PublicAdPlacement path="/impromptu-speech-topics" />

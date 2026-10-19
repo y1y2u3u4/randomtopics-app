@@ -96,6 +96,13 @@ export default function ThisOrThatPage() {
                 <Link href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>, and{" "}
                 <Link href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>.
               </p>
+              <p>
+                More versions:{" "}
+                <Link href="/this-or-that/couples" className="text-[var(--neon-cyan)] hover:underline">this or that questions for couples</Link>,{" "}
+                <Link href="/this-or-that/hard" className="text-[var(--neon-cyan)] hover:underline">hard this or that questions</Link>,{" "}
+                <Link href="/this-or-that/work" className="text-[var(--neon-cyan)] hover:underline">this or that questions for work</Link> and{" "}
+                <Link href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link>.
+              </p>
 
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>
                 Frequently Asked Questions

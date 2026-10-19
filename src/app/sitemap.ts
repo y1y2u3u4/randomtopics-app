@@ -143,6 +143,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Fake name generator (2026-10-19).
   entries.push({ path: "/fake-name-generator", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-19" });
 
+  // This or that + impromptu speech inner pages (2026-10-19).
+  for (const p of ["this-or-that/couples", "this-or-that/hard", "this-or-that/work", "impromptu-speech-topics/students", "impromptu-speech-topics/funny", "impromptu-speech-topics/1-minute"]) {
+    entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-19" });
+  }
+
   // Random generator pages (2026-10-10 inner-page batch).
   for (const p of [
     "random-team-generator",
