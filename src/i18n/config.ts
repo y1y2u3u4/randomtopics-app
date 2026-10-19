@@ -168,6 +168,12 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/number-randomizer",
   "/ai-metadata-remover",
   "/western-baby-name-generator",
+  "/this-or-that/couples",
+  "/this-or-that/hard",
+  "/this-or-that/work",
+  "/impromptu-speech-topics/students",
+  "/impromptu-speech-topics/funny",
+  "/impromptu-speech-topics/1-minute",
 ]);
 
 /** Spanish-only editorial pages with no honest one-to-one English alternate. */

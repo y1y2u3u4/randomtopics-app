@@ -71,6 +71,12 @@ const checks = [
   { path: "/conversation/philosophy", index: true, canonical: "/conversation/philosophy", titleHas: "Philosophy" },
   { path: "/writing/sports", index: false, canonical: "/writing/sports" },
   { path: "/es/speech/politics", index: false, canonical: "/es/speech/politics", es: true },
+  { path: "/this-or-that/couples", index: true, canonical: "/this-or-that/couples", titleMax: 60, titleHas: "This or That Questions for Couples", enOnlyHreflang: true, bodyHas: ["data-qotd-vote-card", "More versions:", "Frequently Asked Questions"] },
+  { path: "/this-or-that/hard", index: true, canonical: "/this-or-that/hard", titleMax: 60, titleHas: "Hard This or That Questions", enOnlyHreflang: true, bodyHas: ["data-qotd-vote-card", "More versions:", "Frequently Asked Questions"] },
+  { path: "/this-or-that/work", index: true, canonical: "/this-or-that/work", titleMax: 60, titleHas: "This or That Questions for Work", enOnlyHreflang: true, bodyHas: ["data-qotd-vote-card", "More versions:", "Frequently Asked Questions"] },
+  { path: "/impromptu-speech-topics/students", index: true, canonical: "/impromptu-speech-topics/students", titleMax: 60, titleHas: "Impromptu Speech Topics for Students", enOnlyHreflang: true, bodyHas: ["data-qotd-vote-card", "More versions:", "Frequently Asked Questions"] },
+  { path: "/impromptu-speech-topics/funny", index: true, canonical: "/impromptu-speech-topics/funny", titleMax: 60, titleHas: "Funny Impromptu Speech Topics", enOnlyHreflang: true, bodyHas: ["data-qotd-vote-card", "More versions:", "Frequently Asked Questions"] },
+  { path: "/impromptu-speech-topics/1-minute", index: true, canonical: "/impromptu-speech-topics/1-minute", titleMax: 60, titleHas: "1 Minute Speech Topics", enOnlyHreflang: true, bodyHas: ["data-qotd-vote-card", "More versions:", "Frequently Asked Questions"] },
 ];
 
 function fail(message) {

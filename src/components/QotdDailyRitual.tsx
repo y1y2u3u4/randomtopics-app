@@ -81,7 +81,7 @@ async function shareCardBlob(question: string, answer: string, dateLabel: string
   return new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/png"));
 }
 
-export default function QotdDailyRitual({ questionIndex, question, dateLabel }: { questionIndex: number; question: string; dateLabel: string }) {
+export default function QotdDailyRitual({ questionIndex, question, dateLabel, source = "qotd_hub" }: { questionIndex: number; question: string; dateLabel: string; source?: string }) {
   const choices = qotdChoices(questionIndex);
   const [day, setDay] = useState("");
   const [mine, setMine] = useState<number | null>(null);
@@ -144,7 +144,7 @@ export default function QotdDailyRitual({ questionIndex, question, dateLabel }: 
       const next = { last: key, count, best: Math.max(before.best, count) };
       write(STREAK_KEY, next); setStreak(next);
     }
-    track("qotd_answer", { tool_type: "question_of_the_day", content_source: "qotd_hub", answer_choice: choice, first_today: first, streak_days: first ? streak.count + 1 : streak.count, locale: "en" });
+    track("qotd_answer", { tool_type: "question_of_the_day", content_source: source, answer_choice: choice, first_today: first, streak_days: first ? streak.count + 1 : streak.count, locale: "en" });
     try {
       const res = await fetch("/api/qotd/vote", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ day: key, q: questionIndex, choice, voter: voterId() }) });
       if (!res.ok) throw new Error(String(res.status));
@@ -166,7 +166,7 @@ export default function QotdDailyRitual({ questionIndex, question, dateLabel }: 
     try {
       if (navigator.canShare?.({ files: [file] })) {
         await navigator.share({ files: [file], text });
-        track("qotd_share_card", { tool_type: "question_of_the_day", content_source: "qotd_hub", share_method: "native", locale: "en" });
+        track("qotd_share_card", { tool_type: "question_of_the_day", content_source: source, share_method: "native", locale: "en" });
         return;
       }
     } catch (error) { if ((error as Error)?.name === "AbortError") return; }
@@ -175,7 +175,7 @@ export default function QotdDailyRitual({ questionIndex, question, dateLabel }: 
     link.href = url; link.download = file.name; link.click();
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
     setStatus("Card saved as an image. Post it with your answer.");
-    track("qotd_share_card", { tool_type: "question_of_the_day", content_source: "qotd_hub", share_method: "download", locale: "en" });
+    track("qotd_share_card", { tool_type: "question_of_the_day", content_source: source, share_method: "download", locale: "en" });
   }
 
   if (!choices.length) return null;

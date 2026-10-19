@@ -72,6 +72,12 @@ function getPaths(): string[] {
     "/this-or-that",
     "/most-likely-to",
     "/two-truths-and-a-lie",
+    "/this-or-that/couples",
+    "/this-or-that/hard",
+    "/this-or-that/work",
+    "/impromptu-speech-topics/students",
+    "/impromptu-speech-topics/funny",
+    "/impromptu-speech-topics/1-minute",
   ];
   for (const mode of MODES) paths.push(`/${mode.slug}`);
   for (const cat of CATEGORIES) paths.push(`/categories/${cat.id}`);
