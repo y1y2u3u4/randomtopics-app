@@ -18,7 +18,7 @@
     "speech:plan-browser": "node scripts/speech-plan-browser.mjs",
     "speech:round-browser": "node scripts/speech-round-browser.mjs",
     "speech:timer-browser": "node scripts/speech-timer-bridge-browser.mjs",
-    "generators:test": "node scripts/random-generators-regression.mjs && node scripts/metadata-regression.mjs && node scripts/random-movie-regression.mjs && node scripts/wu-tang-name-regression.mjs && node scripts/trivia-regression.mjs && node scripts/classroom-kids-regression.mjs",
+    "generators:test": "node scripts/random-generators-regression.mjs && node scripts/metadata-regression.mjs && node scripts/random-movie-regression.mjs && node scripts/wu-tang-name-regression.mjs && node scripts/trivia-regression.mjs && node scripts/classroom-kids-regression.mjs && node scripts/fake-data-regression.mjs",
     "classroom:build": "node scripts/classroom/build-content.mjs && node scripts/classroom/export-pptx.mjs --preview .classroom-preview && node scripts/classroom/export-pdf.mjs --preview .classroom-preview && node scripts/classroom/previews.mjs .classroom-preview",
     "classroom:test": "node scripts/classroom-pack-regression.mjs"
   },
