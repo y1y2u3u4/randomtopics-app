@@ -14,9 +14,9 @@ import KeepPlaying from "@/components/KeepPlaying";
 import FactSheet from "@/components/FactSheet";
 
 export const metadata: Metadata = withSocial({
-  title: { absolute: "Charades Generator: 528 Random Charades Words + Timer (Free)" },
+  title: { absolute: "Charades Generator: Random Charades Word Generator (528 Words)" },
   description:
-    "Tap for a random charades word: 528 actable words for kids, parties and class, easy to hard, with a hide-the-word timer and printable cards. Free, no signup.",
+    "Need a random charades word? Tap once: 528 actable charades words for kids, parties and class, easy to hard, with a hide-the-word timer and printable cards. Free, no signup.",
   keywords: [
     "charades generator",
     "charades word generator",
