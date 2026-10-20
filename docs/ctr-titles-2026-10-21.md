@@ -19,8 +19,9 @@ CTR and clicks. If CTR drops at similar average position, revert that page's tit
 | /hot-seat-questions | Hot Seat Questions — Spicy (but Clean) Questions to Ask Friends (+ template suffix) | 75 Hot Seat Questions to Ask Friends: Spicy but Clean (2026) |
 | /es | Generador de Temas Aleatorios \| Más de 500 Ideas Gratis | Generador de Temas Aleatorios: Más de 500 Ideas Gratis (2026) |
 | /es/most-likely-to | Preguntas de Quién Es Más Probable — Generador Gratis \| Random Topics | Preguntas de Quién Es Más Probable: Generador Gratis (2026) |
-| /topics/two-truths-and-a-lie-ideas | 120 Two Truths and a Lie Ideas — Good Examples for Work & Fun \| RandomTopics | 120 Two Truths and a Lie Ideas — Good Examples for Work & Fun (2026) |
 | /categories/* | Random {Label} Topics - {Label} Discussion Ideas & Prompts (+ suffix) | Random {Label} Topics: {count} Discussion Ideas & Prompts (2026) |
+
+/topics/two-truths-and-a-lie-ideas: title kept (pinned by scripts/two-truths-regression.mjs); freshness + internal links only.
 
 Declining pages also got a freshness line and extra internal links (see PR diff).
 

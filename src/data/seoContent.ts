@@ -4412,7 +4412,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
 {
   slug: "two-truths-and-a-lie-ideas",
   title: "120 Two Truths and a Lie Ideas (Good Examples for Work & Fun)",
-  metaTitle: "120 Two Truths and a Lie Ideas — Good Examples for Work & Fun (2026)",
+  metaTitle: "120 Two Truths and a Lie Ideas — Good Examples for Work & Fun | RandomTopics",
   metaDescription:
     "120 two truths and a lie ideas for work, students, and friends. Pick a category, edit three statements, choose your lie, and copy a round. Free printable list.",
   heroTitle: "120 Two Truths and a Lie Ideas",
