@@ -102,7 +102,6 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/account",
   "/yo-mama-randomizer",
   "/how-we-curate",
-  "/random-subject-generator",
   "/random-drawing-generator",
   "/story-prompt-generator",
   "/random-category-generator",
@@ -127,9 +126,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/speech/persuasive",
   "/speech/informative",
   "/journal-prompts",
-  "/hot-seat-questions",
   "/group-discussion-topics",
-  "/question-of-the-day",
   "/question-of-the-day-for-students",
   "/question-of-the-day-for-work",
   "/paranoia-questions",
@@ -250,6 +247,30 @@ export function isEnOnly(rootPath: string): boolean {
  * page emits correct hreflang (en, es, x-default) links.
  */
 export function hreflangAlternates(path: string): Record<string, string> {
+  return withPortuguese(path, hreflangAlternatesEnEs(path));
+}
+
+/**
+ * Standalone Portuguese (pt-BR) pages, 2026-10-21. Portuguese is not a site
+ * locale (no dictionaries); only these EN pages have a pt counterpart, and
+ * every member of the set (en, es, pt) lists all of them.
+ */
+export const PORTUGUESE_ALTERNATES: Readonly<Record<string, string>> = {
+  "/conversation": "/pt/temas-para-conversar",
+  "/debate": "/pt/temas-para-debate",
+  "/speech": "/pt/temas-para-apresentacao",
+  "/question-of-the-day": "/pt/pergunta-do-dia",
+  "/random-subject-generator": "/pt/gerador-de-materias-aleatorias",
+};
+
+function withPortuguese(path: string, languages: Record<string, string>): Record<string, string> {
+  const ptPath = PORTUGUESE_ALTERNATES[path];
+  if (!ptPath) return languages;
+  const { "x-default": xDefault, ...rest } = languages;
+  return { ...rest, pt: `${SITE_URL}${ptPath}`, "x-default": xDefault };
+}
+
+function hreflangAlternatesEnEs(path: string): Record<string, string> {
   const en = `${SITE_URL}${path === "/" ? "" : path}` || SITE_URL;
   const customSpanishPath = spanishCounterpartPath(path);
   if (customSpanishPath) {

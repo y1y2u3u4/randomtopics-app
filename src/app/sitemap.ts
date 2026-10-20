@@ -8,6 +8,7 @@ import {
   localizePath,
   isEnOnly,
   spanishCounterpartPath,
+  PORTUGUESE_ALTERNATES,
 } from "@/i18n/config";
 
 // Bilingual sitemap: every route is emitted for both English (root) and Spanish
@@ -228,7 +229,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     const esUrl = abs(customSpanishPath ?? localizePath(e.path, "es"));
-    const languages = { en: enUrl, es: esUrl, "x-default": enUrl };
+    const ptPath = PORTUGUESE_ALTERNATES[e.path];
+    const languages: Record<string, string> = ptPath
+      ? { en: enUrl, es: esUrl, pt: abs(ptPath), "x-default": enUrl }
+      : { en: enUrl, es: esUrl, "x-default": enUrl };
     // One entry per locale, each advertising both alternates.
     result.push({
       url: enUrl,
@@ -293,6 +297,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: path === "/tr" ? 0.85 : 0.8,
       alternates: { languages: { tr: url, "x-default": url } },
+    });
+  }
+
+  // Standalone Portuguese pages (2026-10-21), each a counterpart of an EN page
+  // and carrying the same en/es/pt alternates as its EN and ES siblings.
+  for (const [enPath, ptPath] of Object.entries(PORTUGUESE_ALTERNATES)) {
+    const enUrl = abs(enPath);
+    result.push({
+      url: abs(ptPath),
+      lastModified: "2026-10-21",
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: { en: enUrl, es: abs(spanishCounterpartPath(enPath) ?? localizePath(enPath, "es")), pt: abs(ptPath), "x-default": enUrl } },
     });
   }
 

@@ -63,7 +63,38 @@ const FAQ_ITEMS = [
     answer:
       "Yes — set your category and difficulty filters, then hit 'Print this deck' to get a print-ready sheet of every word in the current deck. Cut them into cards, fold them into a bowl, and play the classic way at parties, classrooms, or anywhere without a phone.",
   },
+  {
+    question: "Can the charades generator keep score for teams?",
+    answer:
+      "Yes. Under Teams & scoring choose 2, 3 or 4 teams. The generator shows whose turn it is; after each word tap Got it to give that team a point or Missed to pass, and the turn moves to the next team automatically. Reset scores starts a new game. Choose Off for casual play without points.",
+  },
+  {
+    question: "Is there a fullscreen mode for TVs, projectors and classrooms?",
+    answer:
+      "Tap Fullscreen big text. The word, timer and scoreboard fill the screen in large type, so you can cast the page to a TV, put it on a classroom projector or hold a phone up to your forehead for a Heads Up–style round. Press Esc or Exit fullscreen to return.",
+  },
+  {
+    question: "What are hard charades words for adults?",
+    answer:
+      "Tap the Hard quick deck to draw only hard words from every category: multi-step actions, longer movie titles and idioms such as 'once in a blue moon'. For a mixed group, play Medium and let each actor swap one hard word per game.",
+  },
+  {
+    question: "What are the best charades categories for a party?",
+    answer:
+      "Movies, animals, actions and kids are the four most requested decks, and each has a one-tap button at the top of the generator. Movies and phrases suit adults, animals and kids suit families, and actions work for every age.",
+  },
 ];
+
+const COMPARE = [
+  ["Words", `${CHARADES_WORDS.length} hand-picked, tagged easy / medium / hard`, "50–200, often untagged"],
+  ["Categories", `${CHARADES_CATEGORIES.length} plus one-tap Movies, Animals, Kids, Actions and Hard decks`, "One list or a few themes"],
+  ["Timer", "30–120 s with pause, and the word hides when the round starts", "None, or a separate page"],
+  ["Teams & scoring", "2–4 teams, automatic turns, running score", "Pen and paper"],
+  ["Fullscreen big text", "Yes, for TV, projector or forehead play", "Rarely"],
+  ["Repeats", "No repeats until the deck is used up", "Random, words repeat"],
+  ["Printable cards", "Print any filtered deck", "Sometimes"],
+  ["Cost", "Free, no signup, no app", "Often an app or paywall"],
+] as const;
 
 const CATEGORY_GUIDES: Record<string, string> = {
   actions: "Start with a familiar movement, then add the awkward detail. For fitted sheets, mime the corners slipping out rather than spelling the word.",
@@ -155,11 +186,12 @@ export default function CharadesPage() {
 
         <FactSheet
           heading="Charades generator at a glance"
-          updated="2026-10-18"
+          updated="2026-10-21"
           rows={[
             ["Word list", `${CHARADES_WORDS.length} actable words in ${CHARADES_CATEGORIES.length} categories, written and checked by our editors.`],
             ["Difficulty", `Easy ${CHARADES_WORDS.filter((w) => w.d === 1).length} \u00b7 Medium ${CHARADES_WORDS.filter((w) => w.d === 2).length} \u00b7 Hard ${CHARADES_WORDS.filter((w) => w.d === 3).length}`],
             ["Timer", "30, 60, 90 or 120 seconds per turn (or no timer), with a hide-the-word screen so only the actor sees it."],
+            ["Teams & scoring", "2, 3 or 4 teams with automatic turns and a running scoreboard, plus a fullscreen big-text mode for TVs and projectors."],
             ["Players", "3 or more; split into two teams for 6+. Works on one shared phone."],
             ["Family-safe", "Every word suits kids, classrooms and mixed groups."],
             ["Cost", "Free, no signup, no app. Print the whole list as cards."],
@@ -169,7 +201,7 @@ export default function CharadesPage() {
             "Pick categories and a difficulty, then choose a timer length.",
             "Pass the phone to the actor and tap to reveal a word.",
             "Act it out with no words or sounds while the team guesses.",
-            "Score a point for each correct guess before time runs out, then pass the phone on.",
+            "Tap Got it to score for the team (or Missed to pass); the turn moves to the next team.",
           ]}
         />
 
@@ -184,7 +216,7 @@ export default function CharadesPage() {
                 <li><strong>Split into two teams</strong> and decide a time limit per round — 60 seconds is the classic.</li>
                 <li><strong>Hand the screen to the actor</strong>, deal a word and let them read it. Press Start round to hide the word and begin timing.</li>
                 <li><strong>Act it out silently</strong> — no talking, no mouthing, no pointing at real objects, no spelling in the air.</li>
-                <li><strong>Team guesses</strong> until the timer runs out. A correct guess scores a point.</li>
+                <li><strong>Team guesses</strong> until the timer runs out. Tap Got it for a point or Missed to pass; the scoreboard moves the turn to the next team.</li>
                 <li><strong>Alternate teams</strong>; first to an agreed score (usually 10) wins.</li>
               </ol>
 
@@ -226,10 +258,35 @@ export default function CharadesPage() {
                 host mode keeps score for up to eight teams.
                 Hosting a bigger crowd? Grab openers from{" "}
                 <Link href="/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">questions to ask at a party</Link>.
+                Between rounds, put someone in the{" "}
+                <Link href="/hot-seat-questions" className="text-[var(--neon-cyan)] hover:underline">hot seat</Link>{" "}
+                or swap stories with{" "}
+                <Link href="/topics/two-truths-and-a-lie-ideas" className="text-[var(--neon-cyan)] hover:underline">two truths and a lie ideas</Link>.
                 Playing Pictionary instead? The{" "}
                 <Link href="/random-word-generator" className="text-[var(--neon-cyan)] hover:underline">random word generator</Link>{" "}
                 has a drawable-words-only filter.
               </p>
+
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-3"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                How This Charades Generator Compares
+              </h3>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse text-sm" data-charades-compare>
+                  <thead>
+                    <tr className="border-b border-white/15 text-left"><th className="py-2 pr-3">Feature</th><th className="py-2 pr-3">RandomTopics</th><th className="py-2">Typical charades sites</th></tr>
+                  </thead>
+                  <tbody>
+                    {COMPARE.map(([feature, us, them]) => (
+                      <tr key={feature} className="border-b border-white/10 align-top">
+                        <td className="py-2 pr-3">{feature}</td><td className="py-2 pr-3 text-[var(--text-primary)]">{us}</td><td className="py-2">{them}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
 
               <h3
                 className="text-lg font-semibold text-[var(--text-primary)] pt-3"

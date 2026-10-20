@@ -9,6 +9,7 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
+import { hreflangAlternates } from "@/i18n/config";
 import { QOTD_QUESTIONS, QOTD_CATEGORIES, qotdIndexForDate } from "@/data/questionOfTheDay";
 import QotdListActions from "@/components/QotdListActions";
 import KeepPlaying from "@/components/KeepPlaying";
@@ -18,21 +19,26 @@ import FactSheet from "@/components/FactSheet";
 // current and crawlers always see a real question in the HTML, not a placeholder.
 export const revalidate = 3600;
 
-export const metadata: Metadata = withSocial({
-  title: { absolute: "Question of the Day: Today's QOTD + 120 Question Ideas" },
-  description:
-    "Get today's question of the day and copy it for your group chat. Browse 120 QOTD ideas for work, classrooms, family, or fun. Free, no signup.",
-  keywords: [
-    "question of the day",
-    "question of the day ideas",
-    "random question of the day",
-    "qotd",
-    "question of the day for kids",
-    "daily question",
-    "icebreaker question of the day",
-  ],
-  alternates: { canonical: "/question-of-the-day" },
-});
+// Title and description carry today's date (UTC, refreshed by the hourly ISR
+// above) so the result shows it is current. Old title for rollback:
+// "Question of the Day: Today's QOTD + 120 Question Ideas" (see docs/ctr-titles-2026-10-21.md).
+export function generateMetadata(): Metadata {
+  const day = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+  return withSocial({
+    title: { absolute: `Question of the Day for ${day} + 120 QOTD Ideas` },
+    description: `Today's question of the day (${day}) is ready to copy for your class, team or group chat. 120 QOTD ideas in 5 categories, new every midnight. Free.`,
+    keywords: [
+      "question of the day",
+      "question of the day ideas",
+      "random question of the day",
+      "qotd",
+      "question of the day for kids",
+      "daily question",
+      "icebreaker question of the day",
+    ],
+    alternates: { canonical: "/question-of-the-day", languages: hreflangAlternates("/question-of-the-day") },
+  });
+}
 
 const FAQ_ITEMS = [
   {
@@ -204,7 +210,10 @@ export default function QuestionOfTheDayPage() {
                 <Link href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">icebreaker generator</Link>{" "}
                 is tuned for meetings and events, and{" "}
                 <Link href="/topics/get-to-know-you-questions-for-adults" className="text-[var(--neon-cyan)] hover:underline">get-to-know-you questions</Link>{" "}
-                go deeper for new groups. For journaling instead of discussion, use the{" "}
+                go deeper for new groups. Want a debate instead? Try{" "}
+                <Link href="/topics/ethical-dilemma-questions" className="text-[var(--neon-cyan)] hover:underline">ethical dilemma questions</Link>{" "}
+                or the{" "}
+                <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link>. For journaling instead of discussion, use the{" "}
                 <Link href="/journal-prompts" className="text-[var(--neon-cyan)] hover:underline">journal prompt generator</Link>.
               </p>
 

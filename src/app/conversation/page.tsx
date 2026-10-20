@@ -11,11 +11,18 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
+import { topics } from "@/data/topics";
+
+// ISR: hourly, so the server-rendered "today's starter" changes each UTC day.
+export const revalidate = 3600;
+
+const TITLE = "Random Conversation Generator: 320 Topics to Talk About (2026)";
+const DESCRIPTION =
+  "Today's conversation starter is ready at the top. Tap for 320 random conversation topics for dates, friends, work, parties and ESL, each with follow-up points. Free.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Random Conversation Generator: 300+ Topics to Talk About" },
-  description:
-    "Free random conversation topic generator with 300+ starters for dates, friends, work, parties, and ESL. Pick a category and get a topic instantly.",
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
   keywords: [
     "conversation starters",
     "conversation topics",
@@ -31,9 +38,8 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/conversation"),
   },
   openGraph: {
-    title: "Random Conversation Generator: 300+ Topics to Talk About",
-    description:
-      "Generate a random conversation topic instantly, then explore curated starters for dates, friends, work, parties, and ESL practice.",
+    title: TITLE,
+    description: DESCRIPTION,
     url: `${SITE_URL}/conversation`,
     siteName: "Random Topics",
     type: "website",
@@ -82,6 +88,11 @@ const FAQ_ITEMS = [
 ];
 
 export default function ConversationPage() {
+  // Server-side daily pick (UTC) so the first screen always shows a real
+  // starter in the HTML, before anyone touches the generator.
+  const pool = topics.filter((t) => t.modes.includes("conversation") && t.depth !== "deep");
+  const today = pool[Math.floor(Date.now() / 86_400_000) % pool.length];
+  const todayLabel = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", timeZone: "UTC" });
   return (
     <>
       <FaqSchema items={FAQ_ITEMS} />
@@ -93,6 +104,13 @@ export default function ConversationPage() {
             { label: "Conversation Topics" },
           ]}
         />
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-6" data-today-starter>
+          <div className="glass-card p-5 sm:p-6 text-center">
+            <p className="text-xs uppercase tracking-widest text-[var(--neon-cyan)]">Today&apos;s conversation starter · {todayLabel}</p>
+            <p className="mt-2 text-xl sm:text-2xl font-bold text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>{today.text}</p>
+            {today.talkingPoints[0] && <p className="mt-2 text-sm text-[var(--text-muted)]">Follow-up: {today.talkingPoints[0]}</p>}
+          </div>
+        </section>
         <ModeIllustration mode="conversation" />
         <TopicGenerator
           initialMode="conversation"
@@ -100,7 +118,7 @@ export default function ConversationPage() {
           subtitle="Out of things to talk about? Tap for a random conversation topic for dates, friends, work, parties or ESL practice, then keep it going with a follow-up."
         />
         <DirectAnswer question="What is a random conversation generator?">
-          A random conversation generator gives you something to talk about in one tap, so a chat never stalls. This one has 300+ conversation topics for dates, friends, work, parties and ESL practice, each with follow-up talking points. Filter by category and depth; no topic repeats until you have seen them all. Free, with no signup.
+          A random conversation generator gives you something to talk about in one tap, so a chat never stalls. This one has 320 conversation topics for dates, friends, work, parties and ESL practice, each with follow-up talking points. Filter by category and depth; no topic repeats until you have seen them all. Free, with no signup.
         </DirectAnswer>
 
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-4">

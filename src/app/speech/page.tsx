@@ -16,9 +16,9 @@ import KeepPlaying from "@/components/KeepPlaying";
 import DirectAnswer from "@/components/DirectAnswer";
 
 export const metadata: Metadata = withSocial({
-  title: { absolute: "Speech Topic Generator: 290+ Topics & Practice Timer (Free)" },
+  title: { absolute: "Speech Topic Generator: 296 Topics & Practice Timer (2026)" },
   description:
-    "Free speech topic generator: 290+ random speech topics with talking points and a practice timer, for public speaking, Toastmasters and class speeches. No signup.",
+    "Free speech topic generator: 296 random speech topics, updated October 2026, with talking points and a practice timer, for public speaking, Toastmasters and class speeches. No signup.",
   keywords: [
     "speech topic generator",
     "random speech topics",
@@ -155,7 +155,7 @@ export default function SpeechPage() {
         />
 
         <DirectAnswer question="What is a speech topic generator?">
-          A speech topic generator gives you a random speech topic with talking points in one tap, then lets you practice it against a built-in timer. This one has 290+ topics for public speaking, presentations, Toastmasters table topics, and informative or persuasive speeches. Try a 60-second answer and get one tip to make it clearer. Free, no signup.
+          A speech topic generator gives you a random speech topic with talking points in one tap, then lets you practice it against a built-in timer. This one has 296 topics, updated October 2026, for public speaking, presentations, Toastmasters table topics, and informative or persuasive speeches. Try a 60-second answer and get one tip to make it clearer. Free, no signup.
         </DirectAnswer>
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4" aria-labelledby="speech-practice-paths">

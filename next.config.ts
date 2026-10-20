@@ -42,6 +42,10 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Content-Language", value: "tr" }],
       },
       {
+        source: "/pt/:path*",
+        headers: [{ key: "Content-Language", value: "pt" }],
+      },
+      {
         // Reinforce the HTML robots directive for this browser-local utility
         // page. It must remain crawlable so Google can see noindex and remove
         // any stale search result, but it must never become a landing page.

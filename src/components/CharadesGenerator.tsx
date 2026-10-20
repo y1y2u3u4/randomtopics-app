@@ -8,6 +8,15 @@ import { drawUnseen } from "@/lib/topicPool";
 import { track } from "@/lib/track";
 
 const TIMER_OPTIONS = [0, 30, 60, 90, 120] as const;
+const TEAM_OPTIONS = [0, 2, 3, 4] as const;
+// One-tap decks for the most-searched charades themes.
+const QUICK_DECKS = [
+  { id: "movies", category: "movies", difficulty: 0 },
+  { id: "animals", category: "animals", difficulty: 0 },
+  { id: "kids", category: "kids-family", difficulty: 1 },
+  { id: "actions", category: "actions", difficulty: 0 },
+  { id: "hard", category: "all", difficulty: 3 },
+] as const;
 
 const UI = {
   en: {
@@ -22,6 +31,12 @@ const UI = {
     printIntro: (n: number, cat: string, diff: string) => `${n} words · ${cat} · ${diff} difficulty. Print and cut into cards.`,
     deckLine: (n: number, left: number) => `${n} words in this deck · ${left} unseen · ${left ? "no repeats before reshuffle" : n ? "next draw reshuffles this deck" : "choose another difficulty"}`,
     browse: (n: number) => `Browse all ${n} words by category ↓`, aria: "Charades word generator",
+    quick: "Quick decks", quickLabels: { movies: "🎬 Movies", animals: "🐾 Animals", kids: "🧒 Kids", actions: "🏃 Actions", hard: "🔥 Hard" },
+    teamsLabel: "Teams & scoring", teamNames: ["Team A", "Team B", "Team C", "Team D"],
+    turnOf: (team: string) => `${team} is up`, gotIt: (team: string) => `✓ Got it · +1 ${team}`, missed: "✗ Missed / pass",
+    scored: (team: string) => `Point to ${team}! Deal the next word for the next team.`, noPoint: (team: string) => `No point for ${team}. Next team’s turn.`,
+    resetScores: "Reset scores", leader: (team: string, n: number) => `${team} leads with ${n}`,
+    fullscreen: "⛶ Fullscreen big text", exitFullscreen: "Exit fullscreen",
   },
   es: {
     difficulties: ["Cualquiera", "Fácil", "Media", "Difícil"], category: "Categoría", all: "Todas", difficulty: "Dificultad", timer: "Tiempo por ronda", off: "Sin tiempo",
@@ -35,6 +50,12 @@ const UI = {
     printIntro: (n: number, cat: string, diff: string) => `${n} palabras · ${cat} · dificultad: ${diff}. Imprime y recorta en tarjetas.`,
     deckLine: (n: number, left: number) => `${n} palabras en este mazo · ${left} sin salir · ${left ? "sin repetir hasta barajar" : n ? "la próxima vez se baraja de nuevo" : "elige otra dificultad"}`,
     browse: (n: number) => `Ver las ${n} palabras por categoría ↓`, aria: "Generador de palabras para mímica",
+    quick: "Mazos rápidos", quickLabels: { movies: "🎬 Películas", animals: "🐾 Animales", kids: "🧒 Niños", actions: "🏃 Acciones", hard: "🔥 Difícil" },
+    teamsLabel: "Equipos y puntos", teamNames: ["Equipo A", "Equipo B", "Equipo C", "Equipo D"],
+    turnOf: (team: string) => `Le toca a ${team}`, gotIt: (team: string) => `✓ Acertado · +1 ${team}`, missed: "✗ Fallado / pasar",
+    scored: (team: string) => `¡Punto para ${team}! Saca otra palabra para el siguiente equipo.`, noPoint: (team: string) => `Sin punto para ${team}. Turno del siguiente equipo.`,
+    resetScores: "Poner puntos a cero", leader: (team: string, n: number) => `${team} va ganando con ${n}`,
+    fullscreen: "⛶ Pantalla completa", exitFullscreen: "Salir de pantalla completa",
   },
 } as const;
 const buttonClass = "min-h-11 rounded-xl border px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--neon-cyan)]";
@@ -62,6 +83,12 @@ export default function CharadesGenerator({ locale = "en" }: { locale?: "en" | "
   const deadline = useRef<number | null>(null);
   const remainingMs = useRef(60_000);
   const interval = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [teamCount, setTeamCount] = useState(2);
+  const [scores, setScores] = useState([0, 0, 0, 0]);
+  const [turn, setTurn] = useState(0);
+  const [turnDone, setTurnDone] = useState(false);
+  const [turnNote, setTurnNote] = useState("");
+  const [big, setBig] = useState(false);
 
   const pool = useMemo(() => WORDS.filter((word) =>
     (category === "all" || word.c === category) && (difficulty === 0 || word.d === difficulty)), [WORDS, category, difficulty]);
@@ -92,6 +119,46 @@ export default function CharadesGenerator({ locale = "en" }: { locale?: "en" | "
     document.addEventListener("visibilitychange", tick);
     return () => { clearClock(); document.removeEventListener("visibilitychange", tick); };
   }, [clearClock, tick]);
+
+  // Big-text stage: a fixed overlay (works everywhere) plus the browser's
+  // Fullscreen API where it is allowed. Esc or leaving fullscreen closes it.
+  const exitBig = useCallback(() => {
+    setBig(false);
+    if (typeof document !== "undefined" && document.fullscreenElement) document.exitFullscreen?.().catch(() => {});
+  }, []);
+  useEffect(() => {
+    if (!big) return;
+    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") exitBig(); };
+    const onChange = () => { if (!document.fullscreenElement) setBig(false); };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("fullscreenchange", onChange);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("fullscreenchange", onChange);
+      document.body.style.overflow = "";
+    };
+  }, [big, exitBig]);
+  const enterBig = () => {
+    setBig(true);
+    document.documentElement.requestFullscreen?.().catch(() => {});
+    track("fullscreen_open", eventParams);
+  };
+  const teamName = (index: number) => t.teamNames[index];
+  const endTurn = (scored: boolean) => {
+    if (!current || turnDone) return;
+    clearClock();
+    remainingMs.current = timerLength * 1000;
+    setSecondsLeft(timerLength);
+    setTimerState("ready");
+    setHidden(false);
+    setTurnDone(true);
+    if (!teamCount) return;
+    if (scored) setScores((prev) => prev.map((value, index) => index === turn ? value + 1 : value));
+    setTurnNote(scored ? t.scored(teamName(turn)) : t.noPoint(teamName(turn)));
+    setTurn((prev) => (prev + 1) % teamCount);
+    track(scored ? "score_point" : "charades_pass", { ...eventParams, team_count: teamCount });
+  };
 
   const startTimer = () => {
     if (!current || !timerLength || deadline.current !== null) return;
@@ -128,16 +195,36 @@ export default function CharadesGenerator({ locale = "en" }: { locale?: "en" | "
     setUsedKeys(draw.used);
     setCurrent(pick);
     setHidden(false);
+    setTurnDone(false);
+    setTurnNote("");
     resetTimer(timerLength);
     track("generate_success", { ...params, result_category: pick.c, result_difficulty: pick.d, result_count: 1, result_source: "editorial_pool" });
   };
   const remaining = pool.filter((word) => !usedKeys.has(word.w)).length;
   const resultCategory = CATEGORIES.find((item) => item.id === current?.c);
   const timeUp = timerState === "complete";
+  const best = Math.max(...scores.slice(0, teamCount || 1));
+  const leaderIndex = scores.indexOf(best);
+  const scoreboard = teamCount > 0 && <div data-charades-scoreboard className="mb-4 flex flex-wrap items-center justify-center gap-2">
+    {scores.slice(0, teamCount).map((score, index) => <span key={index} className={`rounded-xl border px-3 py-2 text-sm tabular-nums ${index === turn ? selectedClass : "border-white/10 text-[var(--text-secondary)]"}`}>{teamName(index)} <strong className="text-lg">{score}</strong></span>)}
+    <button type="button" onClick={() => { setScores([0, 0, 0, 0]); setTurn(0); setTurnNote(""); track("score_reset", eventParams); }} className={`${buttonClass} ${idleClass}`}>{t.resetScores}</button>
+  </div>;
 
   return (
     <section id="charades-generator" aria-label={t.aria} className="max-w-3xl mx-auto px-4 sm:px-6 scroll-mt-24">
       <div className="glass-card p-5 sm:p-8">
+        <fieldset>
+          <legend className="mb-2 text-xs uppercase tracking-widest text-[var(--text-muted)]">{t.quick}</legend>
+          <div className="mb-5 flex flex-wrap gap-2" data-charades-quick>
+            {QUICK_DECKS.map((deck) => {
+              const on = category === deck.category && difficulty === deck.difficulty;
+              return <button type="button" key={deck.id} aria-pressed={on} onClick={() => {
+                setCategory(deck.category); setDifficulty(deck.difficulty);
+                track("filter_select", { ...eventParams, filter_name: "quick_deck", filter_value: deck.id });
+              }} className={`${buttonClass} ${on ? selectedClass : idleClass}`}>{t.quickLabels[deck.id]}</button>;
+            })}
+          </div>
+        </fieldset>
         <fieldset>
           <legend className="mb-2 text-xs uppercase tracking-widest text-[var(--text-muted)]">{t.category}</legend>
           <div className="mb-5 flex flex-wrap gap-2">
@@ -164,17 +251,32 @@ export default function CharadesGenerator({ locale = "en" }: { locale?: "en" | "
               }} className={`${buttonClass} ${timerLength === seconds ? selectedClass : idleClass}`}>{seconds ? `${seconds}s` : t.off}</button>)}
             </div>
           </fieldset>
+          <fieldset>
+            <legend className="mb-2 text-xs uppercase tracking-widest text-[var(--text-muted)]">{t.teamsLabel}</legend>
+            <div className="flex flex-wrap gap-2">
+              {TEAM_OPTIONS.map((count) => <button type="button" key={count} aria-pressed={teamCount === count} onClick={() => {
+                setTeamCount(count); setScores([0, 0, 0, 0]); setTurn(0); setTurnNote("");
+                track("team_count_select", { ...eventParams, team_count: count });
+              }} className={`${buttonClass} ${teamCount === count ? selectedClass : idleClass}`}>{count || t.off}</button>)}
+            </div>
+          </fieldset>
         </div>
         <p className="mb-4 text-xs leading-relaxed text-[var(--text-muted)]">{t.filtersNote}</p>
         {!pool.length && <div role="status" className="mb-4 rounded-xl border border-amber-300/30 bg-amber-300/5 p-4">
           <p className="text-sm">{t.noMatch}</p>
           <button type="button" onClick={() => changeDifficulty(0)} className={`${buttonClass} ${idleClass} mt-3`}>{t.anyDifficulty}</button>
         </div>}
-        <div className={`rounded-2xl border p-6 sm:p-10 text-center ${timeUp ? "border-[var(--neon-pink)]/60 bg-[rgba(255,45,120,0.06)]" : "border-white/10 bg-white/[0.02]"}`}>
+        {!big && scoreboard}
+        <div data-charades-stage={big ? "fullscreen" : "inline"} role={big ? "dialog" : undefined} aria-modal={big || undefined} aria-label={big ? t.aria : undefined} className={`text-center ${big ? "fixed inset-0 z-[70] flex flex-col justify-center overflow-y-auto bg-[var(--bg-primary)] p-6" : "rounded-2xl border p-6 sm:p-10"} ${timeUp ? "border-[var(--neon-pink)]/60 bg-[rgba(255,45,120,0.06)]" : "border-white/10 bg-white/[0.02]"}`}>
+          {big && <div className="mb-6 flex flex-col items-center gap-3">
+            <button type="button" onClick={exitBig} className={`${buttonClass} ${idleClass} self-end`}>✕ {t.exitFullscreen}</button>
+            {scoreboard}
+          </div>}
+          {teamCount > 0 && current && !turnDone && <p className="mb-2 text-sm font-semibold text-[var(--neon-cyan)]">{t.turnOf(teamName(turn))}</p>}
           <div aria-live="polite" className="flex min-h-28 flex-col items-center justify-center gap-3">
             {current ? <>
               <p className="text-xs uppercase tracking-widest text-[var(--neon-cyan)]">{hidden ? t.hiddenLabel : t.actorOnly}</p>
-              <p data-charades-result="true" className="break-words text-3xl sm:text-5xl font-extrabold leading-tight" style={{ fontFamily: "var(--font-display)" }}>{hidden ? t.readyToAct : current.w}</p>
+              <p data-charades-result="true" className={`break-words font-extrabold leading-tight ${big ? "text-5xl sm:text-8xl" : "text-3xl sm:text-5xl"}`} style={{ fontFamily: "var(--font-display)" }}>{hidden ? t.readyToAct : current.w}</p>
               {!hidden && <p className="text-xs text-[var(--text-muted)]">{resultCategory?.emoji} {resultCategory?.label} · {DIFFICULTIES[current.d].label}</p>}
             </> : <p className="text-lg text-[var(--text-muted)]">{t.empty}</p>}
           </div>
@@ -183,7 +285,7 @@ export default function CharadesGenerator({ locale = "en" }: { locale?: "en" | "
           }} className={`${buttonClass} ${idleClass} mt-4`}>{hidden ? t.reveal : t.hide}</button>}
           {current && timerLength > 0 && <div className="mx-auto mt-5 max-w-sm">
             <div className="h-2 overflow-hidden rounded-full bg-white/10" aria-hidden="true"><div className={`h-full ${secondsLeft <= 10 ? "bg-[var(--neon-pink)]" : "bg-[var(--neon-cyan)]"}`} style={{ width: `${secondsLeft / timerLength * 100}%` }} /></div>
-            <p role="timer" aria-label={t.timeLeft} aria-live="off" className="mt-2 text-3xl font-bold tabular-nums">{secondsLeft}s</p>
+            <p role="timer" aria-label={t.timeLeft} aria-live="off" className={`mt-2 font-bold tabular-nums ${big ? "text-6xl" : "text-3xl"}`}>{secondsLeft}s</p>
             <p role="status" className="mt-1 text-sm text-[var(--text-muted)]">{timeUp ? t.timeUp : timerState === "paused" ? t.paused : timerState === "running" ? t.running : t.ready}</p>
             <div className="mt-3 flex flex-wrap justify-center gap-2">
               {timerState === "running" ? <button type="button" onClick={pauseTimer} className={`${buttonClass} ${selectedClass}`}>{t.pause}</button> : <button type="button" onClick={startTimer} className={`${buttonClass} ${selectedClass}`}>{timerState === "paused" ? t.resume : timeUp ? t.restart : t.start}</button>}
@@ -192,9 +294,16 @@ export default function CharadesGenerator({ locale = "en" }: { locale?: "en" | "
             <p className="mt-3 text-xs text-[var(--text-muted)]">{t.hideNote}</p>
           </div>}
           {current && !timerLength && <p className="mt-4 text-sm text-[var(--text-muted)]">{t.timerOff}</p>}
+          {current && teamCount > 0 && !turnDone && <div className="mt-5 flex flex-wrap justify-center gap-2" data-charades-score-buttons>
+            <button type="button" onClick={() => endTurn(true)} className={`${buttonClass} ${selectedClass} font-semibold`}>{t.gotIt(teamName(turn))}</button>
+            <button type="button" onClick={() => endTurn(false)} className={`${buttonClass} ${idleClass}`}>{t.missed}</button>
+          </div>}
+          {turnNote && <p role="status" className="mt-4 text-sm text-[var(--text-secondary)]">{turnNote}{best > 0 ? ` ${t.leader(teamName(leaderIndex), best)}.` : ""}</p>}
+          {big && <div className="mt-6 flex justify-center"><button type="button" onClick={deal} className="btn-generate disabled:opacity-40" disabled={!pool.length}>🎭 {current ? t.next : t.deal}</button></div>}
         </div>
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <button type="button" onClick={deal} className="btn-generate disabled:opacity-40" disabled={!pool.length}>🎭 {current ? t.next : t.deal}</button>
+          <button type="button" onClick={enterBig} className={`${buttonClass} ${idleClass}`} data-charades-fullscreen>{t.fullscreen}</button>
           {pool.length > 0 && <PrintButton heading={t.printHeading} items={pool.map((word) => `${word.w} — ${DIFFICULTIES[word.d].label}`)} intro={t.printIntro(pool.length, category === "all" ? t.allCategories : CATEGORIES.find((item) => item.id === category)?.label ?? "", DIFFICULTIES[difficulty].label)} label={t.printLabel} />}
         </div>
         <p className="mt-4 text-center text-xs text-[var(--text-muted)]">{t.deckLine(pool.length, remaining)}</p>
