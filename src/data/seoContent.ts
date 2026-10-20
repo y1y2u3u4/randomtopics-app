@@ -1665,9 +1665,9 @@ export const SEO_ARTICLES: SeoArticle[] = [
   {
     slug: "ethical-dilemma-questions",
     title: "65+ Moral & Ethical Dilemma Questions for Adults",
-    metaTitle: "Ethical Dilemma Questions: 65+ Moral Dilemmas to Discuss",
+    metaTitle: "Ethical Dilemma Questions: 66 Moral Dilemmas to Discuss (2026)",
     metaDescription:
-      "65+ ethical dilemma questions with realistic moral dilemma examples on AI, medicine, work, everyday life and society. Free list for adults, students and group discussion.",
+      "Today's ethical dilemma is at the top, plus 66 moral dilemma questions on AI, medicine, work and society. Updated October 2026; free for class and group discussion.",
     directAnswer:
       "An ethical dilemma question describes a situation where every choice has a moral cost, so there is no clearly right answer. This page lists 65+ moral and ethical dilemma questions in 7 groups, from AI and medicine to work, society and everyday life, plus quick dilemmas for short discussions with adults, students and groups.",
     heroTitle: "65+ Moral & Ethical Dilemma Questions for Adults",
@@ -1675,7 +1675,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
       "Realistic moral dilemma examples with no easy answers, organized for discussion, classrooms, interviews, and self-reflection.",
     intro: "A moral or ethical dilemma is a situation where every option involves some moral cost -- there is no perfectly right answer. These moral dilemma scenarios force you to examine your values, weigh competing principles, and explain why you believe what you believe. Unlike simple moral questions with obvious answers, true dilemmas expose tensions between values such as honesty and kindness, individual rights and collective good, or justice and mercy. Whether you need ethical dilemma examples for a classroom, moral dilemma questions for adults to discuss over dinner, interview practice, or a structured group conversation, this collection has you covered. The 65+ questions below span technology and AI, medicine, everyday life, workplace ethics, society, and the environment, followed by quick moral dilemmas for shorter discussions.",
     publishDate: "2026-04-01",
-    lastModified: "2026-09-04",
+    lastModified: "2026-10-21",
     sections: [
       {
         heading: "Technology and AI Ethics",
@@ -4421,7 +4421,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
   intro:
     "Two Truths and a Lie is a get-to-know-you game: share three statements about yourself, with two true and one false, and ask the group to spot the lie. Below are 120 individual statement ideas, not 120 pre-made rounds or claims about your life. Use the builder to draw three starting points, or browse the four lists and choose your own. Edit them honestly so exactly two describe you and one does not. There is no need for an unusual life story: small skills, ordinary preferences, and funny moments work well.",
   publishDate: "2026-07-06",
-  lastModified: "2026-09-11",
+  lastModified: "2026-10-21",
   sections: TWO_TRUTHS_IDEA_GROUPS.map((group) => ({
     heading: group.heading,
     description: group.description,

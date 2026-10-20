@@ -7,9 +7,10 @@ import RandomSubjectPicker from "@/components/RandomSubjectPicker";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
+import { hreflangAlternates } from "@/i18n/config";
 
 export const metadata: Metadata = withSocial({
-  title: { absolute: "Random Subject Generator — Free Subject Picker | Random Topics" },
+  title: { absolute: "Random Subject Generator: Pick From 16 School Subjects (2026)" },
   description:
     "Free random subject generator and school subject picker. Choose one of 16 subjects for study, writing, presentations, or revision. Instant and no signup.",
   keywords: [
@@ -22,6 +23,7 @@ export const metadata: Metadata = withSocial({
   ],
   alternates: {
     canonical: "/random-subject-generator",
+    languages: hreflangAlternates("/random-subject-generator"),
   },
 });
 

@@ -8,13 +8,14 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
+import { hreflangAlternates } from "@/i18n/config";
 import { HOT_SEAT_QUESTIONS } from "@/data/hotSeat";
 import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = withSocial({
-  title: "Hot Seat Questions — Spicy (but Clean) Questions to Ask Friends",
+  title: { absolute: "75 Hot Seat Questions to Ask Friends: Spicy but Clean (2026)" },
   description:
-    "75+ hot seat questions to put friends on the spot — warm-ups, revealing questions, rapid-fire rounds and deep cuts. All party-safe. One click per question, no repeats, free.",
+    "75 hot seat questions (updated October 2026) to put friends on the spot — warm-ups, revealing questions, rapid-fire rounds and deep cuts. All party-safe. One click per question, no repeats, free.",
   keywords: [
     "hot seat questions",
     "hot seat game",
@@ -24,7 +25,7 @@ export const metadata: Metadata = withSocial({
     "juicy questions to ask friends",
     "questions to put someone on the spot",
   ],
-  alternates: { canonical: "/hot-seat-questions" },
+  alternates: { canonical: "/hot-seat-questions", languages: hreflangAlternates("/hot-seat-questions") },
 });
 
 const FAQ_ITEMS = [
@@ -109,6 +110,8 @@ export default function HotSeatPage() {
                 <Link href="/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Two Truths and a Lie</Link>.
                 Quieter group? Start with{" "}
                 <Link href="/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">questions to ask at a party</Link>.
+                Need statements for Two Truths? Use these{" "}
+                <Link href="/topics/two-truths-and-a-lie-ideas" className="text-[var(--neon-cyan)] hover:underline">120 two truths and a lie ideas</Link>.
               </p>
 
               <h3

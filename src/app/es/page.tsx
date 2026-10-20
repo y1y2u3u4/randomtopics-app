@@ -10,7 +10,7 @@ import { hreflangAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { absolute: "Generador de Temas Aleatorios | Más de 500 Ideas Gratis" },
+  title: { absolute: "Generador de Temas Aleatorios: Más de 500 Ideas Gratis (2026)" },
   description:
     "Generador de temas aleatorios y al azar gratis con más de 500 ideas. Consigue temas para conversar, escribir, debatir y practicar en 16 categorías. Sin registro.",
   alternates: {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/"),
   },
   openGraph: {
-    title: "Generador de Temas Aleatorios | Más de 500 Ideas Gratis",
+    title: "Generador de Temas Aleatorios: Más de 500 Ideas Gratis (2026)",
     description:
       "Generador de temas al azar gratis con más de 500 temas. Iniciadores de conversación, ideas para escribir, temas de debate y rompehielos al instante. ¡Sin registro!",
     url: "https://randomtopics.app/es",

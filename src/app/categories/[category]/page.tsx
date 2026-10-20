@@ -27,9 +27,10 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const { category } = await params;
   const cat = CATEGORIES.find((c) => c.id === category);
   const label = cat?.label ?? "Topics";
+  const count = topics.filter((t) => t.category === (category as Category)).length;
 
   return {
-    title: `Random ${label} Topics - ${label} Discussion Ideas & Prompts`,
+    title: { absolute: `Random ${label} Topics: ${count} Discussion Ideas & Prompts (2026)` },
     description: `Generate random ${label.toLowerCase()} topics for conversations, writing, debates, and more. ${cat?.description ?? "Explore interesting topics."}`,
     alternates: {
       canonical: `/categories/${category}`,

@@ -93,6 +93,14 @@ export function generateStaticParams() {
   }));
 }
 
+// ISR: hourly, so the daily featured dilemma in the HTML changes each UTC day.
+export const revalidate = 3600;
+
+// Articles that show one item from the list on the first screen, rotating daily.
+const DAILY_PICK: Record<string, string> = {
+  "ethical-dilemma-questions": "Today\u2019s ethical dilemma",
+};
+
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
   const article = SEO_ARTICLES.find((a) => a.slug === slug);
@@ -138,6 +146,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   };
 
   const articleItems = article.sections.flatMap((section) => section.items);
+  const dailyLabel = DAILY_PICK[article.slug];
+  const dailyItem = dailyLabel ? articleItems[Math.floor(Date.now() / 86_400_000) % articleItems.length] : null;
   const isTwoTruths = article.slug === "two-truths-and-a-lie-ideas";
   const articleGeneratorSource = isTwoTruths ? "two_truths_ideas_article"
     : article.slug === "ethical-dilemma-questions" ? "ethical_dilemma_article"
@@ -201,6 +211,15 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               label="Print or save as PDF"
             />
           </div>
+          {dailyItem && (
+            <div className="glass-card mt-6 p-5 sm:p-6 text-left" data-daily-pick>
+              <p className="text-xs uppercase tracking-widest text-[var(--neon-cyan)]">
+                {dailyLabel} · {new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", timeZone: "UTC" })}
+              </p>
+              <p className="mt-2 text-lg sm:text-xl font-semibold text-[var(--text-primary)] leading-relaxed">{dailyItem}</p>
+              <p className="mt-2 text-xs text-[var(--text-muted)]">A new dilemma every day. Scroll for all {articleItems.length}, or draw one at random below.</p>
+            </div>
+          )}
         </div>
         {article.art && <ClassroomArt src={article.art.src} alt={article.art.alt} />}
 
