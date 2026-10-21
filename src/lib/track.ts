@@ -16,7 +16,40 @@ declare global {
     clarity?: ((...args: unknown[]) => void) & { q?: unknown[][] };
     __rtReplayActive?: boolean;
     __rtClarityLoaded?: boolean;
+    umami?: { track: (eventName: string, data?: Record<string, string | number | boolean>) => void };
   }
+}
+
+// Portfolio-wide funnel names (same on every site). Existing GA4 events keep
+// their names so current reports/conversions don't break; the canonical name is
+// sent once more to GA4 and is the only custom event sent to Umami.
+const CANONICAL_EVENTS: Record<string, string> = {
+  generate_success: "generate",
+  copy_result: "copy",
+  share_result: "share",
+  share_click: "share",
+  qotd_share_card: "share",
+};
+
+export function canonicalEventName(eventName: string): string | undefined {
+  return CANONICAL_EVENTS[eventName];
+}
+
+function umamiProps(params: GtagParams): Record<string, string | number | boolean> {
+  const out: Record<string, string | number | boolean> = {};
+  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path"]) {
+    const value = params[key];
+    if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") out[key] = value;
+  }
+  return out;
+}
+
+// Umami's script loads after idle; retry briefly so an early first action isn't lost.
+function sendUmami(name: string, props: Record<string, string | number | boolean>, attempt = 0): void {
+  try {
+    if (window.umami?.track) { window.umami.track(name, props); return; }
+    if (attempt < 10) window.setTimeout(() => sendUmami(name, props, attempt + 1), 500);
+  } catch { /* analytics must never break the app */ }
 }
 
 export function track(eventName: string, params?: GtagParams): void {
@@ -53,8 +86,9 @@ export function track(eventName: string, params?: GtagParams): void {
         page_language: document.documentElement.lang || "en",
       };
 
+      const canonical = canonicalEventName(rawName);
       // Preview QA stays local; never send test sessions to the production property.
-      for (const name of [rawName, ...derived]) {
+      for (const name of [rawName, ...derived, ...(canonical ? [canonical] : [])]) {
         const measuredName = `${qa ? "qa_" : ""}${name}`;
         const diagnose = (stage: "constructed" | "dispatch_called" | "dispatch_error") => {
           if (isProductionHost(window.location.hostname) && !qa) return;
@@ -73,6 +107,7 @@ export function track(eventName: string, params?: GtagParams): void {
             window.gtag = (...args) => { window.dataLayer!.push(args); };
           }
           window.gtag("event", measuredName, eventParams);
+          if (name === canonical && !qa) sendUmami(name, umamiProps(eventParams));
           diagnose("dispatch_called");
         } catch {
           diagnose("dispatch_error");
