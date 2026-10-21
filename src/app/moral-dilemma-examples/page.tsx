@@ -9,7 +9,7 @@ import KeepPlaying from "@/components/KeepPlaying";
 import DeckGenerator from "@/components/DeckGenerator";
 import PublicAdPlacement from "@/components/PublicAdPlacement";
 import { DILEMMA_GROUPS, DILEMMA_ITEMS, MORAL_DILEMMAS } from "@/data/decks/dilemmas";
-import { SITE_URL } from "@/i18n/config";
+import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 
 const path = "/moral-dilemma-examples";
 const UPDATED = "2026-10-18";
@@ -18,7 +18,7 @@ const title = `${MORAL_DILEMMAS.length} Moral Dilemma Examples, Explained`;
 const description = `${MORAL_DILEMMAS.length} moral dilemma examples, each with what it tests: ${classic} classic thought experiments (trolley, Heinz, lifeboat) plus everyday, school and work ones.`;
 export const metadata: Metadata = {
   title: { absolute: title }, description,
-  alternates: { canonical: path },
+  alternates: { canonical: path, languages: hreflangAlternates(path) },
   openGraph: { title, description, url: `${SITE_URL}${path}`, type: "article", siteName: "Random Topics" },
   twitter: { card: "summary_large_image", title, description },
 };

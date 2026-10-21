@@ -11,6 +11,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { PARANOIA_QUESTIONS } from "@/data/paranoia";
+import { hreflangAlternates } from "@/i18n/config";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Paranoia Questions Generator — 60+ Clean Prompts | Random Topics" },
@@ -24,7 +25,7 @@ export const metadata: Metadata = withSocial({
     "paranoia questions for friends",
     "whisper game questions",
   ],
-  alternates: { canonical: "/paranoia-questions" },
+  alternates: { canonical: "/paranoia-questions", languages: hreflangAlternates("/paranoia-questions") },
 });
 
 const FAQ_ITEMS = [

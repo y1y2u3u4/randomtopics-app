@@ -10,6 +10,10 @@ import {
   spanishCounterpartPath,
   PORTUGUESE_ALTERNATES,
 } from "@/i18n/config";
+import { ES_PAGES } from "@/data/localePages/es";
+
+// Spanish pages first published 2026-10-21 (their EN originals are older).
+const ES_BATCH_1021: ReadonlySet<string> = new Set(ES_PAGES.map((p) => p.path));
 
 // Bilingual sitemap: every route is emitted for both English (root) and Spanish
 // (/es), and each entry carries hreflang alternates (en / es / x-default) so
@@ -244,7 +248,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     result.push({
       url: esUrl,
       ...(customSpanishPath
-        ? { lastModified: e.esLastModified ?? e.lastModified ?? "2026-08-31" }
+        ? { lastModified: ES_BATCH_1021.has(customSpanishPath) ? "2026-10-21" : e.esLastModified ?? e.lastModified ?? "2026-08-31" }
         : e.esLastModified || e.lastModified
           ? { lastModified: e.esLastModified ?? e.lastModified }
           : {}),
