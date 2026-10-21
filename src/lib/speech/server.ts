@@ -2,7 +2,7 @@ import "server-only";
 import { createClient } from "@supabase/supabase-js";
 import { createHmac } from "node:crypto";
 import { z } from "zod";
-import { MODEL } from "./schema";
+import { FALLBACK_MODEL, MODEL } from "./schema";
 import { logSpeechFailure, logSpeechRecovery, speechEvidenceIssue, speechSchemaIssues, speechLengthRecoveryHint, speechModelOutput, type SpeechFailureStage } from "./diagnostics";
 
 export class SpeechError extends Error {
@@ -117,6 +117,8 @@ export async function modelCall<T>(
   const usages: unknown[] = [];
   let recoveryStage: SpeechFailureStage | undefined;
   let recoveryHint = "";
+  // Stays on the fallback for the recovery attempt once the primary has failed.
+  let primary = MODEL;
   for (let attempt: 1 | 2 = 1; ; attempt = 2) {
     usages.push(null);
     let stage: SpeechFailureStage = "model_request";
@@ -126,10 +128,12 @@ export async function modelCall<T>(
     const remainingMs = budgetMs - (Date.now() - started);
     try {
       if (remainingMs <= 0) throw new DOMException("Model deadline exceeded", "TimeoutError");
-      const result = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      // Both provider calls share this operation's remaining deadline.
+      const signal = AbortSignal.timeout(remainingMs);
+      const request = (model: string) => fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         cache: "no-store",
-        signal: AbortSignal.timeout(remainingMs),
+        signal,
         headers: {
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
@@ -137,7 +141,7 @@ export async function modelCall<T>(
           "X-Title": "RandomTopics Speech Practice",
         },
         body: JSON.stringify({
-          model: MODEL,
+          model,
           temperature: 0.2,
           max_tokens: 4500,
           provider: { data_collection: "deny", require_parameters: true },
@@ -161,6 +165,15 @@ export async function modelCall<T>(
           },
         }),
       });
+      let result = await request(primary);
+      // A provider-side outage or key problem on the primary (e.g. the Google
+      // BYOK 403 "API key was reported as leaked") falls back to a non-Google
+      // model with audio input and strict JSON schema support.
+      if (!result.ok && primary !== FALLBACK_MODEL) {
+        logSpeechFailure(operation, "model_http", Date.now() - started, result.status, { attempt, retrying: true });
+        primary = FALLBACK_MODEL;
+        result = await request(primary);
+      }
       providerStatus = result.status;
       if (!result.ok) {
         stage = "model_http";
