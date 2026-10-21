@@ -58,6 +58,17 @@ export const CUSTOM_SPANISH_ALTERNATES: Readonly<Record<string, string>> = {
   "/random-animal-generator": "/es/generador-de-animales-aleatorios",
   "/last-name-generator": "/es/generador-de-apellidos",
   "/random-word-generator": "/es/generador-de-palabras-aleatorias",
+  // 2026-10-21 batch (src/data/localePages/es.ts)
+  "/philosophical-questions": "/es/preguntas-filosoficas",
+  "/moral-dilemma-examples": "/es/dilemas-morales",
+  "/essay-topic-generator": "/es/temas-para-ensayos",
+  "/trivia-questions": "/es/preguntas-de-cultura-general",
+  "/deep-conversation-question-generator": "/es/preguntas-profundas",
+  "/random-drawing-generator": "/es/ideas-para-dibujar",
+  "/riddles-for-kids": "/es/adivinanzas-para-ninos",
+  "/journal-prompts": "/es/preguntas-para-diario",
+  "/facts": "/es/datos-curiosos",
+  "/paranoia-questions": "/es/preguntas-de-paranoia",
 };
 
 export function spanishCounterpartPath(englishPath: string): string | null {
@@ -261,6 +272,18 @@ export const PORTUGUESE_ALTERNATES: Readonly<Record<string, string>> = {
   "/speech": "/pt/temas-para-apresentacao",
   "/question-of-the-day": "/pt/pergunta-do-dia",
   "/random-subject-generator": "/pt/gerador-de-materias-aleatorias",
+  // 2026-10-21 batch (src/data/localePages/pt.ts)
+  "/philosophical-questions": "/pt/perguntas-filosoficas",
+  "/deep-conversation-question-generator": "/pt/perguntas-profundas",
+  "/trivia-questions": "/pt/perguntas-de-conhecimentos-gerais",
+  "/riddles-for-kids": "/pt/charadas-para-criancas",
+  "/random-drawing-generator": "/pt/ideias-para-desenhar",
+  "/random-word-generator": "/pt/gerador-de-palavras-aleatorias",
+  "/writing": "/pt/temas-para-redacao",
+  "/research-topic-generator": "/pt/temas-para-pesquisa",
+  "/this-or-that": "/pt/isso-ou-aquilo",
+  "/icebreaker": "/pt/perguntas-para-quebrar-o-gelo",
+  "/random-animal-generator": "/pt/gerador-de-animais-aleatorios",
 };
 
 function withPortuguese(path: string, languages: Record<string, string>): Record<string, string> {

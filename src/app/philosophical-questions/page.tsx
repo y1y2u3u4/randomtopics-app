@@ -9,7 +9,7 @@ import KeepPlaying from "@/components/KeepPlaying";
 import DeckGenerator from "@/components/DeckGenerator";
 import PublicAdPlacement from "@/components/PublicAdPlacement";
 import { PHILOSOPHY_GROUPS, PHILOSOPHY_ITEMS } from "@/data/decks/philosophical";
-import { SITE_URL } from "@/i18n/config";
+import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 
 const path = "/philosophical-questions";
 const UPDATED = "2026-10-18";
@@ -17,7 +17,7 @@ const title = `${PHILOSOPHY_ITEMS.length} Philosophical Questions to Make You Th
 const description = `${PHILOSOPHY_ITEMS.length} philosophical questions by theme (life, mind, ethics, free will, reality, love), easy ones for kids, a random picker and famous questions explained.`;
 export const metadata: Metadata = {
   title: { absolute: title }, description,
-  alternates: { canonical: path },
+  alternates: { canonical: path, languages: hreflangAlternates(path) },
   openGraph: { title, description, url: `${SITE_URL}${path}`, type: "website", siteName: "Random Topics" },
   twitter: { card: "summary_large_image", title, description },
 };

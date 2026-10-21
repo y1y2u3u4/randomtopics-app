@@ -10,6 +10,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { JOURNAL_PROMPTS } from "@/data/journalPrompts";
+import { hreflangAlternates } from "@/i18n/config";
 
 export const metadata: Metadata = withSocial({
   title: "Journal Prompt Generator — Daily Journal Prompts by Style, Free",
@@ -26,7 +27,7 @@ export const metadata: Metadata = withSocial({
     "gratitude journal prompts",
     "self discovery journal prompts",
   ],
-  alternates: { canonical: "/journal-prompts" },
+  alternates: { canonical: "/journal-prompts", languages: hreflangAlternates("/journal-prompts") },
 });
 
 const FAQ_ITEMS = [

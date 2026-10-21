@@ -9,14 +9,14 @@ import { CATEGORIES, MODES } from "@/data/types";
 import { QOTD_QUESTIONS, QOTD_CATEGORIES } from "@/data/questionOfTheDay";
 import { CHARADES_WORDS } from "@/data/charades";
 import { CLASSROOM_PRICES } from "@/lib/classroom/catalog";
-import { SITE_URL } from "@/i18n/config";
+import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 
 const path = "/facts";
 const title = "RandomTopics Facts: Price, Privacy & Topic Counts";
 const description = `Key facts about RandomTopics: ${topics.length} curated topics in ${CATEGORIES.length} categories, free with no signup, editor-written (not live AI), what is paid, and how your data is handled.`;
 export const metadata: Metadata = {
   title: { absolute: title }, description,
-  alternates: { canonical: path },
+  alternates: { canonical: path, languages: hreflangAlternates(path) },
   openGraph: { title, description, url: `${SITE_URL}${path}`, type: "website", siteName: "Random Topics" },
   twitter: { card: "summary_large_image", title, description },
 };

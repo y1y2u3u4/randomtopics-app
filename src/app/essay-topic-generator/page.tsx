@@ -5,6 +5,7 @@ import TopicGenerator from "@/components/TopicGenerator";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
+import { hreflangAlternates } from "@/i18n/config";
 
 export const metadata: Metadata = withSocial({
   title: "Essay Topic Generator — Random Essay Topics & Prompts, Free",
@@ -21,6 +22,7 @@ export const metadata: Metadata = withSocial({
   ],
   alternates: {
     canonical: "/essay-topic-generator",
+    languages: hreflangAlternates("/essay-topic-generator"),
   },
 });
 
