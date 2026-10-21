@@ -3,6 +3,8 @@ import { z } from "zod";
 export const MAX_AUDIO_BYTES = 3_500_000;
 export const MAX_SECONDS = 120;
 export const MODEL = "google/gemini-2.5-flash";
+// Non-Google fallback when the primary provider errors (audio in + strict JSON schema).
+export const FALLBACK_MODEL = "qwen/qwen3.8-omni-flash";
 const note = z.string().trim().min(1).max(700);
 const observation = z.object({ quote: z.string().max(400), observation: note });
 export const focusSchema = z.enum(["relevance", "point", "example", "ending", "concise"]);

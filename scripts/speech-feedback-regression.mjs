@@ -75,9 +75,10 @@ try {
  reset([provider(null,{finish_reason:'content_filter'})]);
  await assert.rejects(()=>server.modelCall(firstFeedbackSchema,'speech_feedback','Assess.',transcript));
  assert.equal(requests.length,1,'A filtered response does not trigger format recovery');
- reset([new Response('unavailable',{status:503})]);
+ reset([new Response('unavailable',{status:503}),new Response('unavailable',{status:503})]);
  await assert.rejects(()=>server.modelCall(firstFeedbackSchema,'speech_feedback','Assess.',transcript));
- assert.equal(requests.length,1,'Format recovery does not duplicate arbitrary provider failures');
+ assert.equal(requests.length,2,'A provider failure only adds the single non-Google fallback call');
+ assert.equal(requests[1].model,'qwen/qwen3.8-omni-flash');
 
  const id='6c9f1062-e17e-41df-a5da-ae87db04336f';
  async function runRoute({previous=false,responses,feedbackCalls=0,elapsed=0}) {

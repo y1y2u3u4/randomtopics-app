@@ -50,8 +50,19 @@ try {
   await assert.rejects(() => server.modelCall(transcriptSchema, 'speech_transcript', 'Transcribe.', privateAudio));
   assert.equal(requests.length, 2); assert.deepEqual(logs.map(x => x.retrying), [true, false]);
   assert.equal(recovered.length, 0);
+  // A primary provider failure (e.g. Google BYOK 403 "key reported as leaked")
+  // is retried once on the non-Google fallback model, then surfaces.
+  reset([new Response('leaked', { status: 403 }), valid()]);
+  const fallback = await server.modelCall(transcriptSchema, 'speech_transcript', 'Transcribe.', privateAudio);
+  assert.equal(fallback.value.transcript, privateText); assert.equal(requests.length, 2);
+  assert.equal(requests[0].model, 'google/gemini-2.5-flash'); assert.equal(requests[1].model, 'qwen/qwen3.8-omni-flash');
+  assert.deepEqual(requests[0].messages, requests[1].messages, 'Fallback sends the same request');
+  assert.equal(requests[1].provider.data_collection, 'deny');
+  assert.deepEqual(timeouts, [55000], 'Fallback shares the original deadline');
+  reset([new Response('unavailable', { status: 503 }), new Response('unavailable', { status: 503 })]);
+  await assert.rejects(() => server.modelCall(transcriptSchema, 'speech_transcript', 'Transcribe.', privateAudio));
+  assert.equal(requests.length, 2, 'Fallback runs once and never loops'); assert.equal(recovered.length, 0);
   for (const invalid of [
-    new Response('unavailable', { status: 503 }),
     () => { throw new DOMException('PRIVATE_TIMEOUT', 'TimeoutError'); },
     () => { throw new Error('PRIVATE_NETWORK_ERROR'); },
     provider('filtered', { finish_reason: 'content_filter' }),
