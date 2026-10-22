@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import FaqSchema from "@/components/FaqSchema";
+import FactTable from "@/components/FactTable";
 import Link from "next/link";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
@@ -76,6 +77,18 @@ export default function ArgumentGeneratorPageEs() {
           locale="es"
           title="Generador de Argumentos al Azar"
           subtitle="Genera afirmaciones debatibles con puntos de conversación listos a favor y en contra: para debates, ensayos y afinar tu razonamiento."
+          directAnswer="¿Necesitas algo sobre qué discutir? Pulsa Generar y obtén una afirmación debatible al azar con puntos a favor y en contra, para practicar réplicas, elegir la tesis de un ensayo persuasivo o empezar un debate amistoso. Filtra por categoría y profundidad; cada afirmación se puede defender y rebatir con razones y pruebas. Gratis y sin registro."
+        />
+
+        <FactTable
+          heading="Hecho, opinión o argumento"
+          intro="Solo un argumento da a ambos bandos algo que demostrar. Compruébalo antes de debatir o escribir una tesis."
+          columns={["Tipo", "Ejemplo", "¿Se puede debatir?", "Qué necesita"]}
+          rows={[
+            ["Hecho", "El agua hierve a 100 °C a nivel del mar", "No: se comprueba", "Una fuente fiable"],
+            ["Opinión", "El chocolate está rico", "En realidad no: es gusto personal", "Nada que demostrar"],
+            ["Argumento", "Los colegios deberían sustituir las notas por comentarios escritos", "Sí: ambos bandos tienen razones", "Una tesis, razones, pruebas y una respuesta al otro bando"],
+          ]}
         />
 
         {/* SEO Content */}

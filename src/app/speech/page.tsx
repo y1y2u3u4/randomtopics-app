@@ -14,6 +14,7 @@ import FaqSchema from "@/components/FaqSchema";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
 import DirectAnswer from "@/components/DirectAnswer";
+import FactTable from "@/components/FactTable";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Speech Topic Generator: 296 Topics & Practice Timer (2026)" },
@@ -152,11 +153,24 @@ export default function SpeechPage() {
           contentSource="speech_hub"
           compactMobileHero
           speechPractice
+          directAnswer="Need a speech topic fast? Tap Generate for a random topic with talking points, drawn from 296 speech topics for class presentations, Toastmasters table topics, and informative or persuasive speeches. Then practice a 60-second answer against the built-in timer and get one specific tip to make it clearer. Free, with no signup."
         />
 
         <DirectAnswer question="What is a speech topic generator?">
           A speech topic generator gives you a random speech topic with talking points in one tap, then lets you practice it against a built-in timer. This one has 296 topics, updated October 2026, for public speaking, presentations, Toastmasters table topics, and informative or persuasive speeches. Try a 60-second answer and get one tip to make it clearer. Free, no signup.
         </DirectAnswer>
+
+        <FactTable
+          heading="Which kind of speech topic do you need?"
+          intro="Pick the speech type first; it decides what a good topic looks like and which page to start from."
+          columns={["Speech type", "Goal", "Typical length", "Start here"]}
+          rows={[
+            ["Informative", "Teach the audience something they did not know, with examples or numbers", "Set by your class or event", <Link key="i" href="/speech/informative" className="text-[var(--neon-cyan)] hover:underline">Informative speech topics</Link>],
+            ["Persuasive", "Change a belief or get the audience to act, with reasons and evidence", "Set by your class or event", <Link key="p" href="/speech/persuasive" className="text-[var(--neon-cyan)] hover:underline">Persuasive speech topics</Link>],
+            ["Impromptu / Table Topics", "Answer a surprise question with a clear point and one example", "1–2 minutes (Toastmasters: green 1:00, red 2:00)", <Link key="t" href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table topics generator</Link>],
+            ["Quick practice", "Warm up: say one point, one reason, one example out loud", "60 seconds", "Generator above, with timer and one tip"],
+          ]}
+        />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4" aria-labelledby="speech-practice-paths">
           <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20">

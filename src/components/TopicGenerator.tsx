@@ -32,6 +32,8 @@ interface TopicGeneratorProps {
   speechFeedback?: boolean;
   speechTimerHref?: string;
   heroLinks?: ReactNode;
+  /** Optional 40–80 word answer shown under the subtitle (GEO direct answer). */
+  directAnswer?: ReactNode;
   /** Leave room for the Speech hub's optional privacy notice on phones. */
   compactMobileHero?: boolean;
   /** Homepage only: scroll a few decoy titles before each new topic settles. */
@@ -67,6 +69,7 @@ export default function TopicGenerator({
   speechFeedback = speechPractice,
   speechTimerHref = "#speech-practice",
   heroLinks,
+  directAnswer,
   compactMobileHero = false,
   rollOnGenerate = false,
 }: TopicGeneratorProps) {
@@ -284,6 +287,11 @@ export default function TopicGenerator({
         <p className="text-base sm:text-lg text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed opacity-80">
           {subtitle || t.generator.heroSubtitle}
         </p>
+        {directAnswer ? (
+          <p className="mt-4 text-sm sm:text-base text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
+            {directAnswer}
+          </p>
+        ) : null}
         {heroLinks}
       </div>
 
