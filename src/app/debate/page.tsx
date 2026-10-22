@@ -13,6 +13,15 @@ import type { Metadata } from "next";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
 import DirectAnswer from "@/components/DirectAnswer";
+import FactTable from "@/components/FactTable";
+import { topics } from "@/data/topics";
+
+const DEBATE_TOPICS = topics.filter((topic) => topic.modes.includes("debate"));
+const DEBATE_DEPTH_COUNTS = {
+  light: DEBATE_TOPICS.filter((topic) => topic.depth === "light").length,
+  medium: DEBATE_TOPICS.filter((topic) => topic.depth === "medium").length,
+  deep: DEBATE_TOPICS.filter((topic) => topic.depth === "deep").length,
+};
 
 export const metadata: Metadata = {
   title: { absolute: "Debate Topic Generator: 308 Random Debate Topics (2026)" },
@@ -96,11 +105,24 @@ export default function DebatePage() {
           contentSource="debate_hub"
           title="Debate Topic Generator"
           subtitle="Find thought-provoking debate topics with clear arguments for both sides."
+          directAnswer="Looking for a good debate topic? Tap Generate for a random, arguable motion with pro and con talking points, drawn from 308 debate topics for classrooms, debate clubs, and practice rounds. Filter by category and by depth, from light warm-ups to deep motions, and no topic repeats until you have seen them all. Free, with no signup."
         />
         <DirectAnswer question="What is a debate topic generator?">
           A debate topic generator picks a random, arguable motion for you, with pro and con talking points, so you can start preparing right away. This one draws from 308 debate topics (updated October 2026) for classrooms, debate clubs and practice rounds. Filter by category and depth; no topic repeats until you have seen them all. Free, with no signup. For moral questions, see these <Link href="/topics/ethical-dilemma-questions" className="text-[var(--neon-cyan)] hover:underline">ethical dilemma questions</Link>.
         </DirectAnswer>
         <ClassroomPackCard pack="debate" page="/debate" />
+
+        <FactTable
+          heading="Debate topics by depth"
+          intro="Use the depth filter in the generator to match the motion to your group."
+          columns={["Depth", "Topics", "Best for"]}
+          rows={[
+            ["Light", DEBATE_DEPTH_COUNTS.light, "Warm-ups, younger students, first debates, quick classroom rounds"],
+            ["Medium", DEBATE_DEPTH_COUNTS.medium, "Regular class debates and club practice with a clear pro and con"],
+            ["Deep", DEBATE_DEPTH_COUNTS.deep, "Advanced students, ethics and policy motions, longer prepared rounds"],
+            ["All", DEBATE_TOPICS.length, "Random mix across categories; no repeats until you have seen them all"],
+          ]}
+        />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
           <div className="glass-card p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-cyan)]/20">

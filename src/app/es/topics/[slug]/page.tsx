@@ -139,6 +139,11 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           <p className="text-base sm:text-lg text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed opacity-80">
             {article.heroSubtitle}
           </p>
+          {article.slug === "most-likely-to-questions" && (
+            <p className="mt-3 text-sm sm:text-base text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
+              En «quién es más probable» alguien lee una pregunta y, a la de tres, todos señalan a la persona del grupo que más encaja; quien recibe más votos gana la ronda. Aquí tienes 100 preguntas para amigos, parejas, el trabajo, adolescentes, familia y fiestas, con versiones divertidas y fuertes. Juega rondas de 5 o 10 preguntas. Gratis y sin registro.
+            </p>
+          )}
           <p className="text-xs text-[var(--text-muted)] mt-3">
             Publicado: {new Date(article.publishDate).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })}
             {article.lastModified !== article.publishDate && (

@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import FaqSchema from "@/components/FaqSchema";
+import FactTable from "@/components/FactTable";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
@@ -66,6 +67,18 @@ export default function ArgumentGeneratorPage() {
           initialMode="debate"
           title="Random Argument Generator"
           subtitle="Generate arguable claims with ready-made pro and con talking points — for debates, essays, and sharpening your reasoning."
+          directAnswer="Need something to argue about? Tap Generate for a random, arguable claim with pro and con talking points, so you can practice rebuttals, pick a persuasive essay thesis, or start a friendly debate. Filter by category and depth, and every claim can genuinely be defended and attacked with reasons and evidence. Free, with no signup."
+        />
+
+        <FactTable
+          heading="Fact vs. opinion vs. argument"
+          intro="Only an argument gives both sides something to prove. Use this check before you debate or write a thesis."
+          columns={["Type", "Example", "Can it be debated?", "What it needs"]}
+          rows={[
+            ["Fact", "Water boils at 100 °C at sea level", "No — you check it", "A reliable source"],
+            ["Opinion", "Chocolate is tasty", "Not really — it is personal taste", "Nothing to prove"],
+            ["Argument", "Schools should replace letter grades with written feedback", "Yes — both sides have reasons", "A claim, reasons, evidence, and a reply to the other side"],
+          ]}
         />
 
         {/* SEO Content */}

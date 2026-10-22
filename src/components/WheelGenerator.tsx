@@ -19,6 +19,8 @@ interface WheelGeneratorProps {
   mode?: Mode | null;
   title?: string;
   subtitle?: string;
+  /** Optional 40–80 word answer shown under the subtitle (GEO direct answer). */
+  directAnswer?: string;
   locale?: Locale;
 }
 
@@ -39,7 +41,7 @@ function segmentPath(i: number) {
   return `M ${CX} ${CY} L ${p0.x.toFixed(2)} ${p0.y.toFixed(2)} A ${R} ${R} 0 0 1 ${p1.x.toFixed(2)} ${p1.y.toFixed(2)} Z`;
 }
 
-export default function WheelGenerator({ mode = null, title, subtitle, locale = defaultLocale }: WheelGeneratorProps) {
+export default function WheelGenerator({ mode = null, title, subtitle, directAnswer, locale = defaultLocale }: WheelGeneratorProps) {
   const t = getDict(locale);
   const [rotation, setRotation] = useState(0);
   const [spinning, setSpinning] = useState(false);
@@ -130,6 +132,11 @@ export default function WheelGenerator({ mode = null, title, subtitle, locale = 
         <p className="text-[var(--text-muted)] max-w-xl mx-auto">
           {subtitle || t.wheel.subtitle}
         </p>
+        {directAnswer ? (
+          <p className="mt-4 text-sm sm:text-base text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
+            {directAnswer}
+          </p>
+        ) : null}
       </div>
 
       {locale === "en" && !mode && !result && <SelectedTopicPractice returnSource="wheel" />}

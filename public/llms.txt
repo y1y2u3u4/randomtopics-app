@@ -12,6 +12,15 @@
 - No repeats within a round in your browser tab; a new cycle starts once the pool is used up.
 - How lists are written and checked: https://randomtopics.app/how-we-curate
 
+## Most-used pages (direct answers)
+
+- [Speech Topic Generator](https://randomtopics.app/speech): random speech topics with talking points from 296 speech topics (informative, persuasive, impromptu / Toastmasters table topics), a 60-second practice timer and one tip per answer; includes a table of speech types, goals and typical lengths.
+- [Debate Topic Generator](https://randomtopics.app/debate): random arguable motions with pro and con talking points from 308 debate topics, filterable by category and depth (light, medium, deep); includes a table of topic counts by depth.
+- [Random Argument Generator](https://randomtopics.app/argument-generator): random arguable claims with pro and con talking points for rebuttal practice, persuasive essay theses and friendly debates; includes a fact vs. opinion vs. argument table. Spanish: https://randomtopics.app/es/argument-generator
+- [Spin the Wheel](https://randomtopics.app/spin-the-wheel): a random topic wheel across 16 categories that lands on a full prompt with talking points; includes a wheel vs. topic generator comparison.
+- [Question of the Day](https://randomtopics.app/question-of-the-day): one question per day in 5 categories (classroom, work, kids, deep, funny) from 120 questions; the same category and local date give everyone the same question, changing at local midnight.
+- [Preguntas de Quién es más probable](https://randomtopics.app/es/topics/most-likely-to-questions): 100 Spanish "most likely to" questions for friends, couples, work, teens, family and parties, with rounds of 5 or 10.
+
 ## Pages added 2026-10-18
 
 - [Random Category Generator](https://randomtopics.app/random-category-generator): 150 categories in 10 groups plus a random letter roll (optionally skipping Q, U, V, X, Y, Z) for Scattergories-style games; 1, 5 or 10 per draw, printable.

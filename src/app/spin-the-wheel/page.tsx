@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import WheelGenerator from "@/components/WheelGenerator";
 import FaqSchema from "@/components/FaqSchema";
+import FactTable from "@/components/FactTable";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
@@ -70,6 +71,18 @@ export default function SpinTheWheelPage() {
         <WheelGenerator
           title="Spin the Wheel"
           subtitle="Spin the random topic wheel across 16 categories — one click, one topic, endless combinations."
+          directAnswer={`Spin the wheel to land on a random topic from ${CATEGORIES.length} categories, from science and technology to food, travel, history, and the weird. Each result is a full prompt with talking points, not just a word, drawn from ${topics.length} curated topics, so you can start a conversation, a debate, a class warm-up, or a writing exercise right away. Free, with no signup.`}
+        />
+
+        <FactTable
+          heading="Spin the wheel or use the topic generator?"
+          columns={["", "Spin the wheel", "Random topic generator"]}
+          rows={[
+            ["How you pick", "One spin, one topic, chosen by chance", "Filter by mode, category, and depth"],
+            ["Topics per click", "One", "Several at once"],
+            ["Best for", "Groups, parties, classrooms on a screen", "Planning a lesson, debate, or speech practice"],
+            ["Start here", "The wheel above", <Link key="g" href="/" className="text-[var(--neon-cyan)] hover:underline">Random topic generator</Link>],
+          ]}
         />
 
         {/* SEO Content */}

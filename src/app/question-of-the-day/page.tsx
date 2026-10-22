@@ -103,6 +103,9 @@ export default function QuestionOfTheDayPage() {
           <p className="text-[var(--text-muted)] max-w-xl mx-auto">
             Today’s question is ready below. Copy it for your group chat, or choose another from 120 question ideas. Free, with no signup.
           </p>
+          <p className="mt-3 text-sm text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed">
+            {`A question of the day is one short prompt everyone answers on the same day: a classroom bell-ringer, a stand-up icebreaker, or a family dinner starter. Pick one of ${QOTD_CATEGORIES.length} categories (classroom, work, kids, deep, or funny); everyone on the same category and local date gets the same question, and a new one appears at midnight in your time zone.`}
+          </p>
         </section>
 
         <QuestionOfTheDay initialIdx={initialIdx} initialDateLabel={initialDateLabel} />
