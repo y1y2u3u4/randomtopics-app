@@ -22,5 +22,45 @@
   "/generators/hero/character.webp": {
     "width": 358,
     "height": 400
+  },
+  "/generators/hero/fancy-text-generator.webp": {
+    "width": 400,
+    "height": 400
+  },
+  "/generators/hero/cursed-text-generator.webp": {
+    "width": 400,
+    "height": 400
+  },
+  "/generators/hero/glitch-text-generator.webp": {
+    "width": 400,
+    "height": 400
+  },
+  "/generators/hero/weird-text-generator.webp": {
+    "width": 400,
+    "height": 400
+  },
+  "/generators/hero/creepy-text-generator.webp": {
+    "width": 400,
+    "height": 400
+  },
+  "/generators/hero/scary-text-generator.webp": {
+    "width": 400,
+    "height": 400
+  },
+  "/generators/hero/strikethrough-text-generator.webp": {
+    "width": 400,
+    "height": 400
+  },
+  "/generators/hero/subscript-generator.webp": {
+    "width": 400,
+    "height": 400
+  },
+  "/generators/hero/username-generator.webp": {
+    "width": 400,
+    "height": 400
+  },
+  "/generators/hero/city-name-generator.webp": {
+    "width": 400,
+    "height": 400
   }
 }

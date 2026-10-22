@@ -163,6 +163,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-19" });
   }
 
+  // Text style tools + username/city generators (2026-10-22).
+  for (const p of ["fancy-text-generator", "cursed-text-generator", "glitch-text-generator", "weird-text-generator", "creepy-text-generator", "scary-text-generator", "strikethrough-text-generator", "subscript-generator", "username-generator", "city-name-generator"]) {
+    entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-22" });
+  }
+
   // Random generator pages (2026-10-10 inner-page batch).
   for (const p of [
     "random-team-generator",

@@ -9,6 +9,16 @@ const routesManifest = buildDir
   : null;
 
 const checks = [
+  { path: "/fancy-text-generator", index: true, canonical: "/fancy-text-generator", titleMax: 70, titleHas: "Fancy Text Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["In short", "Where it works", "Typical text generator sites", 'href="/username-generator"'] },
+  { path: "/cursed-text-generator", index: true, canonical: "/cursed-text-generator", titleMax: 70, titleHas: "Cursed Text Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["In short", "Where it works", "Typical text generator sites", 'href="/username-generator"'] },
+  { path: "/glitch-text-generator", index: true, canonical: "/glitch-text-generator", titleMax: 70, titleHas: "Glitch Text Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["In short", "Where it works", "Typical text generator sites", 'href="/username-generator"'] },
+  { path: "/weird-text-generator", index: true, canonical: "/weird-text-generator", titleMax: 70, titleHas: "Weird Text Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["In short", "Where it works", "Typical text generator sites", 'href="/username-generator"'] },
+  { path: "/creepy-text-generator", index: true, canonical: "/creepy-text-generator", titleMax: 70, titleHas: "Creepy Text Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["In short", "Where it works", "Typical text generator sites", 'href="/username-generator"'] },
+  { path: "/scary-text-generator", index: true, canonical: "/scary-text-generator", titleMax: 70, titleHas: "Scary Text Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["In short", "Where it works", "Typical text generator sites", 'href="/username-generator"'] },
+  { path: "/strikethrough-text-generator", index: true, canonical: "/strikethrough-text-generator", titleMax: 70, titleHas: "Strikethrough Text Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["In short", "Where it works", "Typical text generator sites", 'href="/username-generator"'] },
+  { path: "/subscript-generator", index: true, canonical: "/subscript-generator", titleMax: 70, titleHas: "Subscript Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["In short", "Where it works", "Typical text generator sites", 'href="/username-generator"'] },
+  { path: "/username-generator", index: true, canonical: "/username-generator", titleMax: 70, titleHas: "Username Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["In short", "Platform username rules", "Fits the rules on", 'href="/fancy-text-generator"'] },
+  { path: "/city-name-generator", index: true, canonical: "/city-name-generator", titleMax: 70, titleHas: "City Name Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["In short", "pop.", "Typical city name generators", 'href="/dnd-name-generator"'] },
   { path: "/band-name-generator", index: true, canonical: "/band-name-generator", titleMax: 70, titleHas: "Band Name Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["Seed word (optional)", "Avoid words or phrases (optional)", "Your shortlist", "Indie &amp; alternative", "How this collection was made", 'href="/dragon-name-generator"'], bodyOccurrences: [{ needle: 'data-name-example=', exact: 108 }] },
   { path: "/dragon-name-generator", index: true, canonical: "/dragon-name-generator", titleMax: 70, titleHas: "Dragon Name Generator", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["Include a dragon title", "Suggested pronunciation", "creative story settings", "not translations", 'href="/country-name-generator"', 'href="/band-name-generator"'], bodyOccurrences: [{ needle: 'data-name-example=', exact: 144 }] },
   { path: "/yo-mama-randomizer", index: true, canonical: "/yo-mama-randomizer", titleMax: 65, titleHas: "Yo Mama Randomizer: 72 Clean Yo Mama Jokes + Joke Remixer", enOnlyHreflang: true, webApplicationCanonical: true, bodyHas: ["Original text jokes", "clean yo mama jokes", "possible text pairings", "not a video player or clip mixer", "New setup", "New ending", "yo momma", 'href="/funny"', 'href="/funny-question-of-the-day"'], bodyNotHas: ['"@type":"FAQPage"'], bodyOccurrences: [{ needle: 'data-yo-mama-joke=', exact: 72 }, { needle: 'data-remix-setup=', exact: 24 }, { needle: 'data-remix-ending=', exact: 24 }] },
@@ -311,6 +321,16 @@ async function checkSitemap() {
   if (new Set(urls).size !== urls.length) fail("sitemap: duplicate URLs detected");
 
   for (const path of [
+    "/fancy-text-generator",
+    "/cursed-text-generator",
+    "/glitch-text-generator",
+    "/weird-text-generator",
+    "/creepy-text-generator",
+    "/scary-text-generator",
+    "/strikethrough-text-generator",
+    "/subscript-generator",
+    "/username-generator",
+    "/city-name-generator",
     "/band-name-generator",
     "/dragon-name-generator",
     "/yo-mama-randomizer",

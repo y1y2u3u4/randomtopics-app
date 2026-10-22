@@ -859,6 +859,32 @@ test("put a finger down: ≥300 clean statements, counter floors at zero", () =>
   checkGenerator("finger-down", fingerGenerator, [[{ cat: ["juicy"] }, (r) => r.subtitle.includes("Juicy")]], 300);
 });
 
+test("username generator: 4 styles, length/numbers/format filters respected", () => {
+  const { USERNAME_NOUNS, usernameGenerator } = mod("src/lib/generators/username.ts");
+  assert.ok(USERNAME_NOUNS.length >= 160);
+  checkGenerator("username", usernameGenerator, [
+    [{ style: ["gaming"] }, (r) => r.subtitle.startsWith("🎮")],
+    [{ length: ["short"] }, (r) => r.title.length <= 10],
+    [{ length: ["medium"] }, (r) => r.title.length >= 11 && r.title.length <= 15],
+    [{ length: ["long"] }, (r) => r.title.length >= 16],
+    [{ style: ["cute"], length: ["short"] }, (r) => r.subtitle.startsWith("🧸") && r.title.length <= 10],
+    [{ numbers: ["on"] }, (r) => /\d/.test(r.title)],
+    [{ format: ["dot"] }, (r) => r.title === r.title.toLowerCase() && !r.title.includes("_")],
+    [{ format: ["under"] }, (r) => !r.title.includes(".")],
+  ], 1000, USERNAME_NOUNS.length);
+});
+
+test("city names: 8 styles, size filter, population and hook on every name", () => {
+  const { CITY_ROOTS, cityGenerator } = mod("src/lib/generators/cityNames.ts");
+  assert.ok(CITY_ROOTS.length >= 200);
+  checkGenerator("city", cityGenerator, [
+    [{ style: ["dark"] }, (r) => r.subtitle.startsWith("🦇") && r.detail.length > 0],
+    [{ size: ["capital"] }, (r) => r.subtitle.includes("Capital")],
+    [{ style: ["german"], size: ["village"] }, (r) => r.key.startsWith("german-") && r.subtitle.includes("Village")],
+    [{}, (r) => /pop\. [\d,]+$/.test(r.subtitle)],
+  ], 1000, CITY_ROOTS.length);
+});
+
 await Promise.all(asyncTests);
 
 console.log(`✓ random generators: ${passed} tests passed`);

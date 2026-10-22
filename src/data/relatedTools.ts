@@ -2,7 +2,7 @@
 // belongs to one or more groups; a page recommends three tools from its own
 // groups, in the order listed, starting after itself so neighbours differ.
 
-export type ToolGroup = "party" | "classroom" | "speaking" | "names" | "creative" | "my9" | "citation";
+export type ToolGroup = "party" | "classroom" | "speaking" | "names" | "creative" | "my9" | "citation" | "text";
 
 export interface RelatedTool { href: string; label: string; emoji: string; blurb: string; groups: ToolGroup[] }
 
@@ -65,6 +65,16 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/gnome-name-generator", label: "Gnome Name Generator", emoji: "⚙️", blurb: "Names, nicknames, clans", groups: ["names"] },
   { href: "/warrior-cat-name-generator", label: "Warrior Cat Name Generator", emoji: "🐈", blurb: "Prefixes, suffixes, ranks", groups: ["names"] },
   { href: "/elf-name-generator", label: "Elf Name Generator", emoji: "🧝", blurb: "Names & houses by elf type", groups: ["names"] },
+  { href: "/username-generator", label: "Username Generator", emoji: "🎮", blurb: "Gaming, cute & Instagram handles", groups: ["names"] },
+  { href: "/city-name-generator", label: "City Name Generator", emoji: "🏰", blurb: "Fantasy, sci-fi & real-style towns", groups: ["names"] },
+  { href: "/fancy-text-generator", label: "Fancy Text Generator", emoji: "✨", blurb: "30+ copy-paste font styles", groups: ["text"] },
+  { href: "/cursed-text-generator", label: "Cursed Text Generator", emoji: "👁️", blurb: "Zalgo text with a strength slider", groups: ["text"] },
+  { href: "/glitch-text-generator", label: "Glitch Text Generator", emoji: "📺", blurb: "Corrupted, broken-screen text", groups: ["text"] },
+  { href: "/weird-text-generator", label: "Weird Text Generator", emoji: "🙃", blurb: "Upside-down, mirrored & odd text", groups: ["text"] },
+  { href: "/creepy-text-generator", label: "Creepy Text Generator", emoji: "🕷️", blurb: "Unsettling text for bios & posts", groups: ["text"] },
+  { href: "/scary-text-generator", label: "Scary Text Generator", emoji: "🎃", blurb: "Horror-style text to copy", groups: ["text"] },
+  { href: "/strikethrough-text-generator", label: "Strikethrough Text Generator", emoji: "➖", blurb: "Crossed-out text that pastes anywhere", groups: ["text"] },
+  { href: "/subscript-generator", label: "Subscript Generator", emoji: "🔡", blurb: "Subscript & superscript text", groups: ["text"] },
   { href: "/vampire-name-generator", label: "Vampire Name Generator", emoji: "🦇", blurb: "Names, surnames, titles", groups: ["names"] },
   { href: "/pirate-name-generator", label: "Pirate Name Generator", emoji: "🏴‍☠️", blurb: "Names, nicknames, ships", groups: ["names"] },
   { href: "/incorrect-quote-generator", label: "Incorrect Quote Generator", emoji: "💬", blurb: "Funny dialogue with your names", groups: ["creative", "party"] },
@@ -103,6 +113,7 @@ const FALLBACK: Partial<Record<ToolGroup, ToolGroup[]>> = {
   my9: ["creative", "party"],
   names: ["creative"],
   speaking: ["classroom"],
+  text: ["creative"],
 };
 
 export function keepPlaying(path: string, count = 3): RelatedTool[] {
