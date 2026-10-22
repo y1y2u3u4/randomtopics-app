@@ -1,0 +1,2485 @@
+[
+  {
+    "id": "christmas-001",
+    "question": "On what date is Christmas Day celebrated in most countries?",
+    "answer": "December 25",
+    "distractors": [
+      "December 24",
+      "January 1",
+      "December 31"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Christmas Day falls on December 25 in the Gregorian calendar."
+  },
+  {
+    "id": "christmas-002",
+    "question": "Which animal has a famously shiny red nose in a Christmas song?",
+    "answer": "Rudolph the reindeer",
+    "distractors": [
+      "Frosty the snowman",
+      "Dasher the reindeer",
+      "Blitzen the reindeer"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Rudolph's nose is the star of the 1949 song \"Rudolph the Red-Nosed Reindeer.\""
+  },
+  {
+    "id": "christmas-003",
+    "question": "What do children traditionally hang by the fireplace for Santa to fill?",
+    "answer": "Stockings",
+    "distractors": [
+      "Mittens",
+      "Hats",
+      "Gloves"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Stockings are filled with small gifts and treats on Christmas Eve."
+  },
+  {
+    "id": "christmas-004",
+    "question": "Where does Santa Claus live, according to popular legend?",
+    "answer": "The North Pole",
+    "distractors": [
+      "The South Pole",
+      "The Sahara Desert",
+      "The Amazon Jungle"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "The North Pole is the traditional home of Santa and his workshop."
+  },
+  {
+    "id": "christmas-005",
+    "question": "What do people often put on top of a Christmas tree?",
+    "answer": "A star or angel",
+    "distractors": [
+      "A pumpkin",
+      "A kite",
+      "A teapot"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Many trees are topped with a star, an angel or another special ornament."
+  },
+  {
+    "id": "christmas-006",
+    "question": "What is the name of the green character who tries to steal Christmas?",
+    "answer": "The Grinch",
+    "distractors": [
+      "Shrek",
+      "Oscar",
+      "Scrooge"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "The Grinch is the grumpy hero of Dr. Seuss's 1957 book."
+  },
+  {
+    "id": "christmas-007",
+    "question": "What does Santa say when he laughs?",
+    "answer": "Ho ho ho",
+    "distractors": [
+      "Tee hee hee",
+      "Ha ha ha ha",
+      "Boo hoo hoo"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "\"Ho ho ho\" is Santa's classic jolly laugh."
+  },
+  {
+    "id": "christmas-008",
+    "question": "What do many families leave out for Santa on Christmas Eve?",
+    "answer": "Milk and cookies",
+    "distractors": [
+      "Pizza and soda",
+      "Salad and water",
+      "Soup and bread"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Milk and cookies is a popular treat to thank Santa."
+  },
+  {
+    "id": "christmas-009",
+    "question": "How many reindeer pull Santa's sleigh in the poem, not counting Rudolph?",
+    "answer": "Eight",
+    "distractors": [
+      "Four",
+      "Twelve",
+      "Six"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "\"A Visit from St. Nicholas\" names eight reindeer: Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner and Blitzen."
+  },
+  {
+    "id": "christmas-010",
+    "question": "What color is Santa Claus's suit?",
+    "answer": "Red",
+    "distractors": [
+      "Blue",
+      "Purple",
+      "Green"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Santa's suit is red with white fur trim."
+  },
+  {
+    "id": "christmas-011",
+    "question": "What do you call the small bendy red-and-white striped sweet that hangs on trees?",
+    "answer": "Candy cane",
+    "distractors": [
+      "Lollipop",
+      "Gumdrop",
+      "Jawbreaker"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Candy canes are shaped like a shepherd's crook or a letter J."
+  },
+  {
+    "id": "christmas-012",
+    "question": "What kind of tree is most often decorated at Christmas?",
+    "answer": "Fir or pine",
+    "distractors": [
+      "Palm",
+      "Oak",
+      "Cherry tree"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Evergreens such as fir, spruce and pine are popular Christmas trees."
+  },
+  {
+    "id": "christmas-013",
+    "question": "What are lights, tinsel and baubles all used to do?",
+    "answer": "Decorate the tree",
+    "distractors": [
+      "Bake cakes",
+      "Wrap presents",
+      "Fry eggs"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "They are hung on Christmas trees to make them sparkle."
+  },
+  {
+    "id": "christmas-014",
+    "question": "In the song, what did my true love give to me on the first day of Christmas?",
+    "answer": "A partridge in a pear tree",
+    "distractors": [
+      "Two turtle doves",
+      "Five gold rings",
+      "Three French hens"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "The first gift in \"The Twelve Days of Christmas\" is a partridge in a pear tree."
+  },
+  {
+    "id": "christmas-015",
+    "question": "What type of snowy figure comes to life in a famous song with a magic hat?",
+    "answer": "Frosty the Snowman",
+    "distractors": [
+      "Olaf the Snowman",
+      "Jack Frost",
+      "Snowy the Snowman"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Frosty comes alive when a magic silk hat is placed on his head."
+  },
+  {
+    "id": "christmas-016",
+    "question": "Where does the train in \"The Polar Express\" take the children?",
+    "answer": "The North Pole",
+    "distractors": [
+      "Santa Fe",
+      "Winter Falls",
+      "Frosty Falls"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "The train carries children to the North Pole to meet Santa."
+  },
+  {
+    "id": "christmas-017",
+    "question": "Who are Santa's helpers that make toys in the workshop?",
+    "answer": "Elves",
+    "distractors": [
+      "Gnomes",
+      "Penguins",
+      "Dwarfs"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Elves are Santa's cheerful toy-making assistants."
+  },
+  {
+    "id": "christmas-018",
+    "question": "What is traditionally used to wrap Christmas presents?",
+    "answer": "Wrapping paper",
+    "distractors": [
+      "Sandpaper",
+      "Bath towels",
+      "Doormats"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Gifts are wrapped in festive wrapping paper."
+  },
+  {
+    "id": "christmas-019",
+    "question": "What do people often hang on a front door at Christmas?",
+    "answer": "A wreath",
+    "distractors": [
+      "A scarecrow",
+      "A kite",
+      "A hammock"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "A circular wreath of evergreens is a classic Christmas door decoration."
+  },
+  {
+    "id": "christmas-020",
+    "question": "What is the name of the Christmas poem that begins \"'Twas the night before Christmas\"?",
+    "answer": "A Visit from St. Nicholas",
+    "distractors": [
+      "The Night Before Santa",
+      "Christmas Eve Tales",
+      "The Winter Visit"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "The poem is also known by its first line, \"'Twas the Night Before Christmas.\""
+  },
+  {
+    "id": "christmas-021",
+    "question": "What is the day before Christmas called?",
+    "answer": "Christmas Eve",
+    "distractors": [
+      "Boxing Day",
+      "New Year's Eve",
+      "Easter Sunday"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "December 24 is Christmas Eve."
+  },
+  {
+    "id": "christmas-022",
+    "question": "Which movie features a boy named Kevin who is accidentally left behind by his family?",
+    "answer": "Home Alone",
+    "distractors": [
+      "Elf",
+      "The Santa Clause",
+      "Jingle All the Way"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Home Alone (1990) stars Macaulay Culkin as Kevin McCallister."
+  },
+  {
+    "id": "christmas-023",
+    "question": "What kind of animal is Rudolph?",
+    "answer": "A reindeer",
+    "distractors": [
+      "A horse",
+      "A moose",
+      "A zebra"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Rudolph is one of Santa's reindeer."
+  },
+  {
+    "id": "christmas-024",
+    "question": "What do you call a song sung at Christmas?",
+    "answer": "A carol",
+    "distractors": [
+      "A lullaby",
+      "An anthem",
+      "A march"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Carols are traditional Christmas songs."
+  },
+  {
+    "id": "christmas-025",
+    "question": "Which drink is often made from hot milk or water and chocolate and enjoyed in winter?",
+    "answer": "Hot cocoa",
+    "distractors": [
+      "Lemonade",
+      "Iced tea",
+      "Orange soda"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Hot cocoa is a cozy winter favorite."
+  },
+  {
+    "id": "christmas-026",
+    "question": "What do people traditionally kiss under at Christmas?",
+    "answer": "Mistletoe",
+    "distractors": [
+      "Holly",
+      "A wreath",
+      "A lamp post"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Hanging mistletoe is a Christmas custom for kissing."
+  },
+  {
+    "id": "christmas-027",
+    "question": "What is made of gingerbread and often decorated with icing?",
+    "answer": "A gingerbread house",
+    "distractors": [
+      "A snow globe",
+      "A candle",
+      "A scarf"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Gingerbread houses and gingerbread men are popular Christmas treats."
+  },
+  {
+    "id": "christmas-028",
+    "question": "What is the first line of the carol that begins \"Jingle bells, jingle bells, ...\"?",
+    "answer": "Jingle all the way",
+    "distractors": [
+      "Ring all day",
+      "Sing and play",
+      "Dance away"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "The chorus continues \"Jingle all the way!\""
+  },
+  {
+    "id": "christmas-029",
+    "question": "Which holiday character is known as Father Christmas in the UK?",
+    "answer": "Santa Claus",
+    "distractors": [
+      "The Grinch",
+      "Jack Frost",
+      "The Easter Bunny"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Father Christmas is the British name for Santa."
+  },
+  {
+    "id": "christmas-030",
+    "question": "What do you do with Christmas crackers in Britain?",
+    "answer": "Pull them with another person",
+    "distractors": [
+      "Eat them with soup",
+      "Hang them on trees",
+      "Plant them in the garden"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Crackers are pulled apart with a bang, revealing a toy, joke and paper crown."
+  },
+  {
+    "id": "christmas-031",
+    "question": "What do people often wear on their heads from a Christmas cracker?",
+    "answer": "A paper crown",
+    "distractors": [
+      "A metal helmet",
+      "A swim cap",
+      "A bicycle helmet"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Cracker paper crowns are a UK tradition."
+  },
+  {
+    "id": "christmas-032",
+    "question": "What small, round, shiny decorations are hung on a Christmas tree?",
+    "answer": "Baubles",
+    "distractors": [
+      "Boulders",
+      "Pebbles",
+      "Marbles"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Baubles, or ornaments, are glass or plastic balls."
+  },
+  {
+    "id": "christmas-033",
+    "question": "What color are the berries on holly?",
+    "answer": "Red",
+    "distractors": [
+      "Blue",
+      "Purple",
+      "Yellow"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Holly's bright red berries stand out against its green leaves."
+  },
+  {
+    "id": "christmas-034",
+    "question": "What is the name of Santa's wife?",
+    "answer": "Mrs. Claus",
+    "distractors": [
+      "Mrs. Frost",
+      "Mrs. Noel",
+      "Mrs. Snow"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Mrs. Claus is Santa's wife in popular stories."
+  },
+  {
+    "id": "christmas-035",
+    "question": "Which reindeer is named first in \"A Visit from St. Nicholas\"?",
+    "answer": "Dasher",
+    "distractors": [
+      "Dopey",
+      "Dusty",
+      "Dazzler"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Dasher leads the list: Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner and Blitzen."
+  },
+  {
+    "id": "christmas-036",
+    "question": "What do you call the four weeks leading up to Christmas?",
+    "answer": "Advent",
+    "distractors": [
+      "Lent",
+      "Harvest",
+      "Summer break"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Advent is the season of preparation before Christmas."
+  },
+  {
+    "id": "christmas-037",
+    "question": "What do children often write to Santa to ask for gifts?",
+    "answer": "A letter",
+    "distractors": [
+      "A report card",
+      "A recipe",
+      "A grocery list"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Children send wish-list letters to Santa."
+  },
+  {
+    "id": "christmas-038",
+    "question": "Which word do people say to wish someone a happy holiday: \"Merry ...\"?",
+    "answer": "Christmas",
+    "distractors": [
+      "Birthday",
+      "Easter",
+      "Monday"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "\"Merry Christmas\" is the traditional greeting."
+  },
+  {
+    "id": "christmas-039",
+    "question": "In the movie \"Frozen,\" what is the name of the snowman who loves summer?",
+    "answer": "Olaf",
+    "distractors": [
+      "Frosty",
+      "Sven",
+      "Kristoff"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Olaf is the cheerful snowman who dreams of summer."
+  },
+  {
+    "id": "christmas-040",
+    "question": "In \"Elf,\" what is the main character's name?",
+    "answer": "Buddy",
+    "distractors": [
+      "Billy",
+      "Barry",
+      "Bobby"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Buddy is the human raised by elves, played by Will Ferrell."
+  },
+  {
+    "id": "christmas-041",
+    "question": "What do you light on an Advent wreath?",
+    "answer": "Candles",
+    "distractors": [
+      "Fireworks",
+      "Sparklers",
+      "Balloons"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Advent wreaths hold four candles lit one at a time."
+  },
+  {
+    "id": "christmas-042",
+    "question": "What is a \"snow globe\" filled with?",
+    "answer": "Water and fake snow",
+    "distractors": [
+      "Sand",
+      "Sugar",
+      "Honey"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Shaking a snow globe swirls the white flakes in water."
+  },
+  {
+    "id": "christmas-043",
+    "question": "Which Christmas animal has antlers?",
+    "answer": "Reindeer",
+    "distractors": [
+      "Camel",
+      "Donkey",
+      "Giraffe"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Both male and female reindeer typically grow antlers."
+  },
+  {
+    "id": "christmas-044",
+    "question": "In \"A Christmas Carol,\" what is the famous miser called?",
+    "answer": "Ebenezer Scrooge",
+    "distractors": [
+      "Bob Cratchit",
+      "Jacob Marley",
+      "Tiny Tim"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Ebenezer Scrooge is the main character of Charles Dickens's story."
+  },
+  {
+    "id": "christmas-045",
+    "question": "What is the name of Bob Cratchit's youngest, sickly son?",
+    "answer": "Tiny Tim",
+    "distractors": [
+      "Little Fred",
+      "Small Pete",
+      "Big Tom"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Tiny Tim famously says, \"God bless us, every one!\""
+  },
+  {
+    "id": "christmas-046",
+    "question": "Which fruit is often studded with cloves to make a scented Christmas decoration?",
+    "answer": "Orange",
+    "distractors": [
+      "Banana",
+      "Watermelon",
+      "Grape"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Oranges studded with cloves smell festive and are called pomanders."
+  },
+  {
+    "id": "christmas-047",
+    "question": "Which toy soldier-themed ballet is performed at Christmas time?",
+    "answer": "The Nutcracker",
+    "distractors": [
+      "Swan Lake",
+      "Giselle",
+      "Sleeping Beauty"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Tchaikovsky's \"The Nutcracker\" is a holiday ballet favorite."
+  },
+  {
+    "id": "christmas-048",
+    "question": "What do people sing as they go door to door at Christmas?",
+    "answer": "Carols",
+    "distractors": [
+      "Lullabies",
+      "Sea shanties",
+      "Nursery rhymes"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Caroling is a tradition of singing from house to house."
+  },
+  {
+    "id": "christmas-049",
+    "question": "What is a Christmas stocking often filled with at the very bottom?",
+    "answer": "An orange or small treats",
+    "distractors": [
+      "Rocks",
+      "Fish",
+      "Sand"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Tiny gifts, candy and sometimes an orange fill the toe."
+  },
+  {
+    "id": "christmas-050",
+    "question": "In which season does Christmas fall in the Northern Hemisphere?",
+    "answer": "Winter",
+    "distractors": [
+      "Summer",
+      "Spring",
+      "Autumn"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "December 25 is in winter in the north."
+  },
+  {
+    "id": "christmas-051",
+    "question": "What does Santa travel in?",
+    "answer": "A sleigh",
+    "distractors": [
+      "A submarine",
+      "A bicycle",
+      "A hot air balloon"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Santa rides a sleigh pulled by flying reindeer."
+  },
+  {
+    "id": "christmas-052",
+    "question": "How does Santa enter houses, according to legend?",
+    "answer": "Down the chimney",
+    "distractors": [
+      "Through the window",
+      "Under the door",
+      "Through the front door"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Santa is said to slide down the chimney."
+  },
+  {
+    "id": "christmas-053",
+    "question": "What do you call the cozy knitted tops with festive patterns worn at Christmas?",
+    "answer": "Christmas sweaters",
+    "distractors": [
+      "Swim trunks",
+      "Raincoats",
+      "Bathrobes"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Ugly Christmas sweaters are a fun tradition."
+  },
+  {
+    "id": "christmas-054",
+    "question": "How many days are in \"The Twelve Days of Christmas\" song?",
+    "answer": "Twelve",
+    "distractors": [
+      "Seven",
+      "Ten",
+      "Fifteen"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "The song counts twelve days of gifts."
+  },
+  {
+    "id": "christmas-055",
+    "question": "What type of cake shaped like a log is eaten in France at Christmas?",
+    "answer": "Yule log",
+    "distractors": [
+      "Pound cake",
+      "Cheesecake",
+      "Carrot cake"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "The bûche de Noël is a log-shaped sponge cake."
+  },
+  {
+    "id": "christmas-056",
+    "question": "Which Christmas flower has red and green leaves and is native to Mexico?",
+    "answer": "Poinsettia",
+    "distractors": [
+      "Tulip",
+      "Daisy",
+      "Rose"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "The poinsettia comes from Mexico and is popular at Christmas."
+  },
+  {
+    "id": "christmas-057",
+    "question": "Which white, fluffy stuff falls from the sky in winter and is used for snowmen?",
+    "answer": "Snow",
+    "distractors": [
+      "Rain",
+      "Sand",
+      "Fog"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Snowmen are built from packed snow."
+  },
+  {
+    "id": "christmas-058",
+    "question": "What is the word for presents given on Christmas?",
+    "answer": "Gifts",
+    "distractors": [
+      "Fees",
+      "Bills",
+      "Taxes"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Christmas gifts are exchanged by family and friends."
+  },
+  {
+    "id": "christmas-059",
+    "question": "What do you call the special meal eaten on Christmas Day?",
+    "answer": "Christmas dinner",
+    "distractors": [
+      "Breakfast bar",
+      "Midnight snack",
+      "Picnic lunch"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "Families gather for a big Christmas dinner."
+  },
+  {
+    "id": "christmas-060",
+    "question": "What is the name of the famous Christmas song that begins \"Silent night, ...\"?",
+    "answer": "Holy night",
+    "distractors": [
+      "Starry night",
+      "Quiet night",
+      "Winter night"
+    ],
+    "category": "christmas",
+    "difficulty": "easy",
+    "explanation": "The next line is \"holy night, all is calm, all is bright."
+  },
+  {
+    "id": "christmas-061",
+    "question": "Which author wrote \"A Christmas Carol\"?",
+    "answer": "Charles Dickens",
+    "distractors": [
+      "Mark Twain",
+      "Louisa May Alcott",
+      "Jane Austen"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Charles Dickens published the novella in 1843."
+  },
+  {
+    "id": "christmas-062",
+    "question": "Which country is credited with starting the tradition of decorating an evergreen Christmas tree?",
+    "answer": "Germany",
+    "distractors": [
+      "Egypt",
+      "Japan",
+      "Brazil"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Decorated fir trees became popular in Germany in the 1500s."
+  },
+  {
+    "id": "christmas-063",
+    "question": "Which royal helped popularize the Christmas tree in Britain in the 1840s?",
+    "answer": "Prince Albert",
+    "distractors": [
+      "Prince Philip",
+      "Prince Charles",
+      "Prince William"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Prince Albert, born in Germany, popularized the tree after an 1848 illustration of the royal family."
+  },
+  {
+    "id": "christmas-064",
+    "question": "In \"How the Grinch Stole Christmas!\", what is the name of the Grinch's dog?",
+    "answer": "Max",
+    "distractors": [
+      "Rex",
+      "Buddy",
+      "Spot"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Max is the loyal dog who pulls the Grinch's sleigh."
+  },
+  {
+    "id": "christmas-065",
+    "question": "What is the name of the little girl in Whoville who befriends the Grinch in the 2000 film?",
+    "answer": "Cindy Lou Who",
+    "distractors": [
+      "Susie Who",
+      "Lucy Lou Who",
+      "Betty Lou Who"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Cindy Lou Who is the kind little girl who questions the Grinch."
+  },
+  {
+    "id": "christmas-066",
+    "question": "Which Christmas film has the quote \"You'll shoot your eye out\"?",
+    "answer": "A Christmas Story",
+    "distractors": [
+      "Home Alone",
+      "Jingle All the Way",
+      "Elf"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Ralphie Parker hears this line in \"A Christmas Story\" (1983)."
+  },
+  {
+    "id": "christmas-067",
+    "question": "In \"It's a Wonderful Life,\" what is the name of the main character?",
+    "answer": "George Bailey",
+    "distractors": [
+      "Jimmy Stewart",
+      "Henry Potter",
+      "Harry Bailey"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "George Bailey is played by James Stewart in the 1946 film."
+  },
+  {
+    "id": "christmas-068",
+    "question": "What is the name of the angel who earns his wings in \"It's a Wonderful Life\"?",
+    "answer": "Clarence",
+    "distractors": [
+      "Gabriel",
+      "Michael",
+      "Peter"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Clarence Odbody is George's guardian angel."
+  },
+  {
+    "id": "christmas-069",
+    "question": "Who wrote the song \"White Christmas\"?",
+    "answer": "Irving Berlin",
+    "distractors": [
+      "Bing Crosby",
+      "Cole Porter",
+      "George Gershwin"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Irving Berlin wrote it in 1940, and Bing Crosby's version became a classic."
+  },
+  {
+    "id": "christmas-070",
+    "question": "Which singer's version of \"White Christmas\" is among the best-selling singles of all time?",
+    "answer": "Bing Crosby",
+    "distractors": [
+      "Frank Sinatra",
+      "Elvis Presley",
+      "Dean Martin"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Bing Crosby's 1942 recording sold tens of millions of copies."
+  },
+  {
+    "id": "christmas-071",
+    "question": "Which carol was first published in 1857 as \"One Horse Open Sleigh\"?",
+    "answer": "Jingle Bells",
+    "distractors": [
+      "Deck the Halls",
+      "Silent Night",
+      "Joy to the World"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "It was later renamed \"Jingle Bells.\""
+  },
+  {
+    "id": "christmas-072",
+    "question": "In which language was \"Silent Night\" first written?",
+    "answer": "German",
+    "distractors": [
+      "French",
+      "Latin",
+      "English"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "\"Stille Nacht\" was written in Austria in 1818 with lyrics by Joseph Mohr."
+  },
+  {
+    "id": "christmas-073",
+    "question": "What is the name of the 1964 Rankin/Bass TV special starring a reindeer with a glowing nose?",
+    "answer": "Rudolph the Red-Nosed Reindeer",
+    "distractors": [
+      "Frosty's Winter Wonderland",
+      "The Year Without a Santa Claus",
+      "Santa Claus Is Comin' to Town"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "The stop-motion special first aired in 1964."
+  },
+  {
+    "id": "christmas-074",
+    "question": "In \"Elf,\" what is Buddy's favorite food group?",
+    "answer": "Candy",
+    "distractors": [
+      "Vegetables",
+      "Seafood",
+      "Fruit"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Buddy says the four main food groups are candy, candy canes, candy corn and syrup."
+  },
+  {
+    "id": "christmas-075",
+    "question": "Which actor plays the burglar Harry in \"Home Alone\"?",
+    "answer": "Joe Pesci",
+    "distractors": [
+      "Danny DeVito",
+      "Robert De Niro",
+      "Steve Buscemi"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Joe Pesci played Harry, and Daniel Stern played his partner Marv."
+  },
+  {
+    "id": "christmas-076",
+    "question": "In what city does \"Home Alone 2: Lost in New York\" mostly take place?",
+    "answer": "New York City",
+    "distractors": [
+      "Chicago",
+      "Boston",
+      "Paris"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Kevin ends up in New York City after boarding the wrong plane."
+  },
+  {
+    "id": "christmas-077",
+    "question": "Which Christmas film features the character Jack Skellington?",
+    "answer": "The Nightmare Before Christmas",
+    "distractors": [
+      "Coraline",
+      "Corpse Bride",
+      "The Polar Express"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Jack is the Pumpkin King of Halloween Town who discovers Christmas Town."
+  },
+  {
+    "id": "christmas-078",
+    "question": "What are the three gifts the wise men brought in the nativity story?",
+    "answer": "Gold, frankincense and myrrh",
+    "distractors": [
+      "Silver, pearls and silk",
+      "Salt, spices and wine",
+      "Bread, wine and olive oil"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "The Gospel of Matthew mentions gold, frankincense and myrrh."
+  },
+  {
+    "id": "christmas-079",
+    "question": "In which town was Jesus born, according to the Bible?",
+    "answer": "Bethlehem",
+    "distractors": [
+      "Nazareth",
+      "Jerusalem",
+      "Damascus"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "The Gospels of Matthew and Luke place his birth in Bethlehem."
+  },
+  {
+    "id": "christmas-080",
+    "question": "Which angel announced the coming birth to Mary in the Gospel of Luke?",
+    "answer": "Gabriel",
+    "distractors": [
+      "Raphael",
+      "Uriel",
+      "Michael"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Gabriel visited Mary in Nazareth in the Annunciation."
+  },
+  {
+    "id": "christmas-081",
+    "question": "Who was Mary's husband in the Christmas story?",
+    "answer": "Joseph",
+    "distractors": [
+      "Peter",
+      "Simon",
+      "Matthew"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Joseph was the carpenter betrothed to Mary."
+  },
+  {
+    "id": "christmas-082",
+    "question": "Who were the first people to hear of the birth in Luke's Gospel?",
+    "answer": "Shepherds",
+    "distractors": [
+      "Kings",
+      "Soldiers",
+      "Fishermen"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Angels announced the birth to shepherds watching their flocks."
+  },
+  {
+    "id": "christmas-083",
+    "question": "In what year was the first commercial Christmas card sent, in the UK?",
+    "answer": "1843",
+    "distractors": [
+      "1743",
+      "1923",
+      "1823"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Henry Cole commissioned the first commercial card in 1843."
+  },
+  {
+    "id": "christmas-084",
+    "question": "What is \"wassail\"?",
+    "answer": "A hot spiced drink",
+    "distractors": [
+      "A kind of pudding",
+      "A winter bird",
+      "A kind of sleigh"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Wassail is a warm spiced cider or ale linked with caroling."
+  },
+  {
+    "id": "christmas-085",
+    "question": "Which spice gives gingerbread its name and most of its flavor?",
+    "answer": "Ginger",
+    "distractors": [
+      "Pepper",
+      "Mustard",
+      "Cinnamon"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Ginger is the main spice in gingerbread."
+  },
+  {
+    "id": "christmas-086",
+    "question": "In the UK, what day is Boxing Day?",
+    "answer": "December 26",
+    "distractors": [
+      "December 24",
+      "January 2",
+      "December 27"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Boxing Day is the day after Christmas."
+  },
+  {
+    "id": "christmas-087",
+    "question": "What dessert is traditionally set alight with brandy in Britain?",
+    "answer": "Christmas pudding",
+    "distractors": [
+      "Apple pie",
+      "Lemon tart",
+      "Pumpkin pie"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "The pudding is flamed with brandy before serving."
+  },
+  {
+    "id": "christmas-088",
+    "question": "Which country gave the famous giant Christmas tree to Trafalgar Square each year?",
+    "answer": "Norway",
+    "distractors": [
+      "Sweden",
+      "Canada",
+      "Iceland"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Norway sends a tree annually as thanks for British help in WWII."
+  },
+  {
+    "id": "christmas-089",
+    "question": "Where is the famous Christmas tree lit each year in New York City?",
+    "answer": "Rockefeller Center",
+    "distractors": [
+      "Central Park Zoo",
+      "Brooklyn Bridge",
+      "Madison Square Garden"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "The Rockefeller Center tree lighting is a yearly tradition."
+  },
+  {
+    "id": "christmas-090",
+    "question": "In \"The Polar Express,\" what does the boy receive from Santa as the first gift of Christmas?",
+    "answer": "A sleigh bell",
+    "distractors": [
+      "A toy train",
+      "A snow globe",
+      "A drum"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Santa gives the boy a silver bell from his sleigh, which only believers can hear ring."
+  },
+  {
+    "id": "christmas-091",
+    "question": "What do Mexicans break at Christmas parties called posadas?",
+    "answer": "A piñata",
+    "distractors": [
+      "A plate",
+      "A wreath",
+      "A pumpkin"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Posadas often feature piñatas filled with sweets."
+  },
+  {
+    "id": "christmas-092",
+    "question": "In which month is Saint Nicholas Day celebrated?",
+    "answer": "December",
+    "distractors": [
+      "March",
+      "August",
+      "June"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "St. Nicholas Day falls on December 6."
+  },
+  {
+    "id": "christmas-093",
+    "question": "Krampus, a horned figure of Christmas folklore, comes from which mountain region?",
+    "answer": "The Alps",
+    "distractors": [
+      "The Andes",
+      "The Rockies",
+      "The Himalayas"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Krampus legends come from Alpine countries such as Austria and Bavaria."
+  },
+  {
+    "id": "christmas-094",
+    "question": "Which Dr. Seuss book features the Whos of Whoville?",
+    "answer": "How the Grinch Stole Christmas!",
+    "distractors": [
+      "Green Eggs and Ham",
+      "The Lorax",
+      "The Cat in the Hat"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "The Whos celebrate Christmas despite the Grinch."
+  },
+  {
+    "id": "christmas-095",
+    "question": "Who recorded \"All I Want for Christmas Is You\" in 1994?",
+    "answer": "Mariah Carey",
+    "distractors": [
+      "Whitney Houston",
+      "Celine Dion",
+      "Britney Spears"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Mariah Carey co-wrote and recorded it for her 1994 album."
+  },
+  {
+    "id": "christmas-096",
+    "question": "Who wrote the poem \"A Visit from St. Nicholas\"?",
+    "answer": "Clement Clarke Moore",
+    "distractors": [
+      "Henry Wadsworth Longfellow",
+      "Robert Frost",
+      "Edgar Allan Poe"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Moore is traditionally credited with the 1823 poem."
+  },
+  {
+    "id": "christmas-097",
+    "question": "Which reindeer's name means \"thunder\" in German?",
+    "answer": "Donner",
+    "distractors": [
+      "Comet",
+      "Vixen",
+      "Prancer"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Donner is German for thunder; Blitzen means lightning."
+  },
+  {
+    "id": "christmas-098",
+    "question": "Which reindeer was created by Robert L. May for a 1939 story?",
+    "answer": "Rudolph",
+    "distractors": [
+      "Cupid",
+      "Blitzen",
+      "Dancer"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "May wrote the story for the Montgomery Ward store chain."
+  },
+  {
+    "id": "christmas-099",
+    "question": "Which Muppet plays Bob Cratchit in \"The Muppet Christmas Carol\"?",
+    "answer": "Kermit the Frog",
+    "distractors": [
+      "Fozzie Bear",
+      "Gonzo",
+      "Miss Piggy"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Kermit plays Bob Cratchit, and Miss Piggy is Emily Cratchit."
+  },
+  {
+    "id": "christmas-100",
+    "question": "Who plays Santa Claus in \"Miracle on 34th Street\" (1947)?",
+    "answer": "Edmund Gwenn",
+    "distractors": [
+      "Jimmy Stewart",
+      "Bing Crosby",
+      "Cary Grant"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Edmund Gwenn won an Oscar for playing Kris Kringle."
+  },
+  {
+    "id": "christmas-101",
+    "question": "What is the name of Santa in the movie \"Miracle on 34th Street\"?",
+    "answer": "Kris Kringle",
+    "distractors": [
+      "Nick Claus",
+      "Sam Noel",
+      "Santo Bell"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Kris Kringle claims to be the real Santa."
+  },
+  {
+    "id": "christmas-102",
+    "question": "Which Christmas movie features a man who becomes Santa after Santa falls off his roof?",
+    "answer": "The Santa Clause",
+    "distractors": [
+      "Fred Claus",
+      "Arthur Christmas",
+      "Elf"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Scott Calvin puts on the suit in \"The Santa Clause\" (1994)."
+  },
+  {
+    "id": "christmas-103",
+    "question": "Which animated film features a boy and a magic train on Christmas Eve, based on a book by Chris Van Allsburg?",
+    "answer": "The Polar Express",
+    "distractors": [
+      "Frozen",
+      "The Snowman",
+      "The Grinch"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "The Polar Express is based on the 1985 picture book."
+  },
+  {
+    "id": "christmas-104",
+    "question": "Who is the author of the picture book \"The Snowman\" (wordless)?",
+    "answer": "Raymond Briggs",
+    "distractors": [
+      "Dr. Seuss",
+      "Roald Dahl",
+      "Eric Carle"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Raymond Briggs's wordless book became a 1982 animated film."
+  },
+  {
+    "id": "christmas-105",
+    "question": "In \"Do You Hear What I Hear?\", who does the night wind speak to?",
+    "answer": "A little lamb",
+    "distractors": [
+      "A dove",
+      "A donkey",
+      "A king"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "The carol opens with the night wind saying something to a little lamb."
+  },
+  {
+    "id": "christmas-106",
+    "question": "Who composed \"The Nutcracker\" ballet music?",
+    "answer": "Tchaikovsky",
+    "distractors": [
+      "Mozart",
+      "Beethoven",
+      "Vivaldi"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Pyotr Ilyich Tchaikovsky premiered it in 1892."
+  },
+  {
+    "id": "christmas-107",
+    "question": "What is the main ingredient of marzipan?",
+    "answer": "Almonds",
+    "distractors": [
+      "Potatoes",
+      "Rice",
+      "Corn"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Marzipan is made from ground almonds and sugar."
+  },
+  {
+    "id": "christmas-108",
+    "question": "What is eggnog traditionally made from?",
+    "answer": "Milk, cream, sugar and eggs",
+    "distractors": [
+      "Orange juice and ice",
+      "Tomato juice",
+      "Apple cider and cinnamon"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Eggnog is a creamy drink with eggs, often with nutmeg."
+  },
+  {
+    "id": "christmas-109",
+    "question": "What do you call the German Christmas market?",
+    "answer": "Christkindlmarkt",
+    "distractors": [
+      "Oktoberfest",
+      "Weihnachtsbaum",
+      "Fasching"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "German Christmas markets are also called Weihnachtsmärkte."
+  },
+  {
+    "id": "christmas-110",
+    "question": "In Italy, which kind-hearted witch brings gifts to children on January 5?",
+    "answer": "La Befana",
+    "distractors": [
+      "La Strega",
+      "La Madonna",
+      "La Lupa"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "La Befana flies on a broomstick delivering sweets."
+  },
+  {
+    "id": "christmas-111",
+    "question": "In Spain, when do children traditionally receive gifts from the Three Kings?",
+    "answer": "January 6",
+    "distractors": [
+      "December 25",
+      "February 2",
+      "December 31"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Epiphany, January 6, is the big gift day in Spain."
+  },
+  {
+    "id": "christmas-112",
+    "question": "Which company's 1930s ads helped popularize the red-suited Santa?",
+    "answer": "Coca-Cola",
+    "distractors": [
+      "Pepsi",
+      "Ford",
+      "Nike"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Artist Haddon Sundblom painted Santa for Coca-Cola starting in 1931."
+  },
+  {
+    "id": "christmas-113",
+    "question": "What is the name of the toy that Howard Langston chases in \"Jingle All the Way\"?",
+    "answer": "Turbo Man",
+    "distractors": [
+      "Buzz Lightyear",
+      "Power Ranger",
+      "Furby"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Arnold Schwarzenegger's character hunts for a Turbo Man doll."
+  },
+  {
+    "id": "christmas-114",
+    "question": "In \"The Santa Clause,\" what does the card in the suit say Scott Calvin must do?",
+    "answer": "Put on the suit",
+    "distractors": [
+      "Bake cookies",
+      "Feed the reindeer",
+      "Pay the elves"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "The card says if you put on the suit, the wearer accepts the responsibilities of Santa."
+  },
+  {
+    "id": "christmas-115",
+    "question": "In which country did the tradition of the Advent calendar begin in the 1800s?",
+    "answer": "Germany",
+    "distractors": [
+      "Japan",
+      "Brazil",
+      "Italy"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "German Protestants made early Advent calendars in the 1800s."
+  },
+  {
+    "id": "christmas-116",
+    "question": "Which company's red delivery trucks were famously shown in \"holidays are coming\" ads?",
+    "answer": "Coca-Cola",
+    "distractors": [
+      "Amazon",
+      "FedEx",
+      "Pepsi"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "The \"Holidays Are Coming\" ad has aired since 1995."
+  },
+  {
+    "id": "christmas-117",
+    "question": "In \"A Christmas Carol,\" which ghost visits Scrooge first?",
+    "answer": "Jacob Marley",
+    "distractors": [
+      "Christmas Past",
+      "Christmas Present",
+      "Christmas Yet to Come"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Marley's ghost warns Scrooge before the three spirits arrive."
+  },
+  {
+    "id": "christmas-118",
+    "question": "What is the traditional Christmas Eve meal in Poland called?",
+    "answer": "Wigilia",
+    "distractors": [
+      "Paella",
+      "Fondue",
+      "Raclette"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Wigilia is a meatless supper that starts when the first star appears."
+  },
+  {
+    "id": "christmas-119",
+    "question": "In Sweden, which saint's day on December 13 features girls in white dresses with candle crowns?",
+    "answer": "Saint Lucy",
+    "distractors": [
+      "Saint Nicholas",
+      "Saint Anne",
+      "Saint Peter"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Lucia processions celebrate light in the darkest time of year."
+  },
+  {
+    "id": "christmas-120",
+    "question": "In \"A Christmas Story,\" what gift does Ralphie badly want?",
+    "answer": "A Red Ryder BB gun",
+    "distractors": [
+      "A bicycle",
+      "A toy train",
+      "A pony"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Ralphie dreams of a Red Ryder carbine-action BB gun."
+  },
+  {
+    "id": "christmas-121",
+    "question": "Which actor voices the Grinch in the original 1966 TV special's narration?",
+    "answer": "Boris Karloff",
+    "distractors": [
+      "Bing Crosby",
+      "Jimmy Durante",
+      "Peter Ustinov"
+    ],
+    "category": "christmas",
+    "difficulty": "medium",
+    "explanation": "Boris Karloff narrated and voiced the Grinch."
+  },
+  {
+    "id": "christmas-122",
+    "question": "Who composed the music for \"Silent Night\"?",
+    "answer": "Franz Xaver Gruber",
+    "distractors": [
+      "Johann Sebastian Bach",
+      "Felix Mendelssohn",
+      "Joseph Haydn"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Gruber wrote the melody in 1818, to words by Joseph Mohr."
+  },
+  {
+    "id": "christmas-123",
+    "question": "In what year was \"A Christmas Carol\" first published?",
+    "answer": "1843",
+    "distractors": [
+      "1819",
+      "1870",
+      "1901"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Charles Dickens's novella came out on December 19, 1843."
+  },
+  {
+    "id": "christmas-124",
+    "question": "Which jolly merchant, Scrooge's old employer, throws a lively party in \"A Christmas Carol\"?",
+    "answer": "Mr. Fezziwig",
+    "distractors": [
+      "Mr. Cratchit",
+      "Mr. Marley",
+      "Mr. Pickwick"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Fezziwig hosts a cheerful Christmas party when Scrooge was his apprentice."
+  },
+  {
+    "id": "christmas-125",
+    "question": "What is the name of Scrooge's nephew in \"A Christmas Carol\"?",
+    "answer": "Fred",
+    "distractors": [
+      "Tim",
+      "Peter",
+      "Bob"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Fred invites Scrooge to Christmas dinner each year."
+  },
+  {
+    "id": "christmas-126",
+    "question": "Who wrote the story \"The Nutcracker and the Mouse King\" that inspired the ballet?",
+    "answer": "E. T. A. Hoffmann",
+    "distractors": [
+      "Hans Christian Andersen",
+      "The Brothers Grimm",
+      "Lewis Carroll"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Hoffmann wrote it in 1816."
+  },
+  {
+    "id": "christmas-127",
+    "question": "In which year did the famous WWI Christmas Truce take place?",
+    "answer": "1914",
+    "distractors": [
+      "1918",
+      "1916",
+      "1912"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Soldiers on the Western Front paused fighting on Christmas 1914."
+  },
+  {
+    "id": "christmas-128",
+    "question": "Which Emperor was crowned by the Pope on Christmas Day in the year 800?",
+    "answer": "Charlemagne",
+    "distractors": [
+      "Napoleon",
+      "Augustus",
+      "Constantine"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Pope Leo III crowned Charlemagne in Rome."
+  },
+  {
+    "id": "christmas-129",
+    "question": "Which English king was crowned on Christmas Day 1066?",
+    "answer": "William the Conqueror",
+    "distractors": [
+      "Henry VIII",
+      "Edward the Confessor",
+      "Richard the Lionheart"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "William was crowned at Westminster Abbey."
+  },
+  {
+    "id": "christmas-130",
+    "question": "In what year did Christmas become a federal holiday in the United States?",
+    "answer": "1870",
+    "distractors": [
+      "1776",
+      "1920",
+      "1850"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Congress made it a federal holiday on June 28, 1870."
+  },
+  {
+    "id": "christmas-131",
+    "question": "In which year did Parliament in England ban Christmas celebrations during the Puritan era?",
+    "answer": "1647",
+    "distractors": [
+      "1547",
+      "1747",
+      "1847"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "The Puritan-led Parliament banned it in 1647, and the ban ended with the Restoration in 1660."
+  },
+  {
+    "id": "christmas-132",
+    "question": "Which artist's illustrations in Harper's Weekly in the 1860s shaped the modern image of Santa Claus?",
+    "answer": "Thomas Nast",
+    "distractors": [
+      "Norman Rockwell",
+      "Haddon Sundblom",
+      "Walt Disney"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Thomas Nast drew Santa as a jolly, bearded man at the North Pole."
+  },
+  {
+    "id": "christmas-133",
+    "question": "Saint Nicholas, the inspiration for Santa, was a bishop of which place?",
+    "answer": "Myra",
+    "distractors": [
+      "Antioch",
+      "Alexandria",
+      "Rome"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Myra was in the area of modern Turkey."
+  },
+  {
+    "id": "christmas-134",
+    "question": "Who commissioned the first commercial Christmas card in 1843?",
+    "answer": "Henry Cole",
+    "distractors": [
+      "Joseph Mohr",
+      "Charles Dickens",
+      "Queen Victoria"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Cole hired artist John Callcott Horsley to illustrate it."
+  },
+  {
+    "id": "christmas-135",
+    "question": "Which songwriting pair wrote \"Let It Snow\" in 1945?",
+    "answer": "Sammy Cahn and Jule Styne",
+    "distractors": [
+      "Rodgers and Hammerstein",
+      "Lennon and McCartney",
+      "Irving Berlin and Hoagy Carmichael"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "They reportedly wrote it during a Hollywood heat wave in July."
+  },
+  {
+    "id": "christmas-136",
+    "question": "Who wrote the music for \"Hark! The Herald Angels Sing\"?",
+    "answer": "Felix Mendelssohn",
+    "distractors": [
+      "Franz Schubert",
+      "George Handel",
+      "Johannes Brahms"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Charles Wesley's words were later set to Mendelssohn's tune."
+  },
+  {
+    "id": "christmas-137",
+    "question": "Who wrote the words to \"Hark! The Herald Angels Sing\"?",
+    "answer": "Charles Wesley",
+    "distractors": [
+      "John Newton",
+      "Isaac Watts",
+      "William Wordsworth"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Wesley's original opening was \"Hark how all the welkin rings.\""
+  },
+  {
+    "id": "christmas-138",
+    "question": "What was the first song broadcast from space, by astronauts in 1965?",
+    "answer": "Jingle Bells",
+    "distractors": [
+      "Silent Night",
+      "White Christmas",
+      "O Holy Night"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Gemini 6 astronauts played \"Jingle Bells\" on a harmonica."
+  },
+  {
+    "id": "christmas-139",
+    "question": "Which singer recorded \"Rockin' Around the Christmas Tree\" in 1958 at age 13?",
+    "answer": "Brenda Lee",
+    "distractors": [
+      "Dolly Parton",
+      "Patsy Cline",
+      "Judy Garland"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Brenda Lee was 13 when she recorded it."
+  },
+  {
+    "id": "christmas-140",
+    "question": "Whose 1957 recording made \"Blue Christmas\" a holiday favorite?",
+    "answer": "Elvis Presley",
+    "distractors": [
+      "Johnny Cash",
+      "Roy Orbison",
+      "Chuck Berry"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Elvis included it on his 1957 Christmas album."
+  },
+  {
+    "id": "christmas-141",
+    "question": "Who wrote \"The Christmas Song\" (\"Chestnuts roasting on an open fire\")?",
+    "answer": "Mel Tormé and Robert Wells",
+    "distractors": [
+      "Irving Berlin",
+      "Johnny Marks",
+      "Bing Crosby"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Mel Tormé co-wrote it in 1945."
+  },
+  {
+    "id": "christmas-142",
+    "question": "Who wrote \"Rudolph the Red-Nosed Reindeer\" the song?",
+    "answer": "Johnny Marks",
+    "distractors": [
+      "Gene Autry",
+      "Irving Berlin",
+      "Bing Crosby"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Johnny Marks wrote it in 1949, and Gene Autry made it a hit."
+  },
+  {
+    "id": "christmas-143",
+    "question": "Who sang \"Feliz Navidad\"?",
+    "answer": "José Feliciano",
+    "distractors": [
+      "Ricky Martin",
+      "Julio Iglesias",
+      "Enrique Iglesias"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "José Feliciano released it in 1970."
+  },
+  {
+    "id": "christmas-144",
+    "question": "Who wrote the song \"It's Beginning to Look a Lot Like Christmas\"?",
+    "answer": "Meredith Willson",
+    "distractors": [
+      "Irving Berlin",
+      "Johnny Mercer",
+      "Hoagy Carmichael"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Meredith Willson wrote it in 1951."
+  },
+  {
+    "id": "christmas-145",
+    "question": "Who composed the orchestral piece \"Sleigh Ride\"?",
+    "answer": "Leroy Anderson",
+    "distractors": [
+      "John Williams",
+      "Duke Ellington",
+      "Aaron Copland"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Anderson completed the instrumental in 1948."
+  },
+  {
+    "id": "christmas-146",
+    "question": "Which duo wrote the Band Aid charity single \"Do They Know It's Christmas?\"?",
+    "answer": "Bob Geldof and Midge Ure",
+    "distractors": [
+      "Elton John and Bernie Taupin",
+      "Freddie Mercury and Brian May",
+      "Bono and The Edge"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Band Aid recorded it in 1984."
+  },
+  {
+    "id": "christmas-147",
+    "question": "What band recorded \"Last Christmas\" in 1984?",
+    "answer": "Wham!",
+    "distractors": [
+      "Duran Duran",
+      "Culture Club",
+      "Bananarama"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "George Michael wrote and performed it."
+  },
+  {
+    "id": "christmas-148",
+    "question": "What is the Latin title of the carol \"O Come, All Ye Faithful\"?",
+    "answer": "Adeste Fideles",
+    "distractors": [
+      "Gloria in Excelsis",
+      "Veni Creator",
+      "Ave Maria"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "\"Adeste fideles\" means \"be present, faithful ones.\""
+  },
+  {
+    "id": "christmas-149",
+    "question": "Which Ukrainian song is the source of \"Carol of the Bells\"?",
+    "answer": "Shchedryk",
+    "distractors": [
+      "Kalinka",
+      "Oy Chyy To Kin",
+      "Ode to Joy"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Mykola Leontovych arranged it from a folk chant."
+  },
+  {
+    "id": "christmas-150",
+    "question": "In \"The Twelve Days of Christmas,\" what do you receive on the seventh day?",
+    "answer": "Seven swans a-swimming",
+    "distractors": [
+      "Seven maids a-milking",
+      "Seven lords a-leaping",
+      "Seven geese a-laying"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Swans are the seventh gift, with lords leaping on the tenth."
+  },
+  {
+    "id": "christmas-151",
+    "question": "In \"The Twelve Days of Christmas,\" what do you receive on the fifth day?",
+    "answer": "Five gold rings",
+    "distractors": [
+      "Five calling birds",
+      "Five geese a-laying",
+      "Five golden pears"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Five gold rings is the song's famous line; the birds belong to other days."
+  },
+  {
+    "id": "christmas-152",
+    "question": "How many gifts, in total, are given across all 12 days of the song if you count each gift every time it is given?",
+    "answer": "364",
+    "distractors": [
+      "144",
+      "78",
+      "156"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "The totals add up to 364, one for each day of the year but one."
+  },
+  {
+    "id": "christmas-153",
+    "question": "Which ancient Roman festival around December 17–23 is linked to some Christmas customs?",
+    "answer": "Saturnalia",
+    "distractors": [
+      "Lupercalia",
+      "Bacchanalia",
+      "Floralia"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Saturnalia involved gift giving and feasting."
+  },
+  {
+    "id": "christmas-154",
+    "question": "In what year is the earliest recorded Christmas celebration on December 25 in Rome?",
+    "answer": "336",
+    "distractors": [
+      "236",
+      "536",
+      "436"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "A Roman calendar from 354 AD lists a December 25 celebration in 336."
+  },
+  {
+    "id": "christmas-155",
+    "question": "What does the \"X\" in Xmas stand for?",
+    "answer": "The Greek letter Chi",
+    "distractors": [
+      "A cross-out mark",
+      "The Roman numeral for ten",
+      "A kiss"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Chi is the first letter of \"Christos\" in Greek."
+  },
+  {
+    "id": "christmas-156",
+    "question": "What is the origin of the word \"Noel\"?",
+    "answer": "Latin for birth",
+    "distractors": [
+      "Greek for winter",
+      "German for tree",
+      "Hebrew for peace"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "It comes from Latin \"natalis,\" meaning birth."
+  },
+  {
+    "id": "christmas-157",
+    "question": "Which Roman emperor ordered the census in the Gospel of Luke's nativity?",
+    "answer": "Augustus",
+    "distractors": [
+      "Nero",
+      "Constantine",
+      "Tiberius"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Luke writes that Caesar Augustus decreed a census."
+  },
+  {
+    "id": "christmas-158",
+    "question": "In which Gospel do the Magi visit Jesus?",
+    "answer": "Matthew",
+    "distractors": [
+      "Mark",
+      "John",
+      "Luke"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Only Matthew tells of the visit of the Magi."
+  },
+  {
+    "id": "christmas-159",
+    "question": "What was the name of the king who ruled Judea during Matthew's account?",
+    "answer": "Herod",
+    "distractors": [
+      "Pilate",
+      "David",
+      "Caiaphas"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Herod the Great ruled when the Magi arrived."
+  },
+  {
+    "id": "christmas-160",
+    "question": "What is the Hebrew meaning of the name Immanuel, in Matthew's nativity?",
+    "answer": "God with us",
+    "distractors": [
+      "Prince of Peace",
+      "Light of the world",
+      "Peace be with you"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "\"Immanuel\" is translated \"God with us.\""
+  },
+  {
+    "id": "christmas-161",
+    "question": "Who was the cousin of Mary who gave birth to John the Baptist?",
+    "answer": "Elizabeth",
+    "distractors": [
+      "Martha",
+      "Ruth",
+      "Anna"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Elizabeth was the mother of John the Baptist."
+  },
+  {
+    "id": "christmas-162",
+    "question": "Who appeared to the shepherds in Luke chapter 2?",
+    "answer": "An angel of the Lord",
+    "distractors": [
+      "King Herod",
+      "The innkeeper",
+      "A Roman soldier"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "The angel said, \"Do not be afraid,\" and announced good news."
+  },
+  {
+    "id": "christmas-163",
+    "question": "On which day do the Twelve Days of Christmas begin?",
+    "answer": "December 25",
+    "distractors": [
+      "December 31",
+      "December 6",
+      "January 1"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "They run from Christmas Day until January 5."
+  },
+  {
+    "id": "christmas-164",
+    "question": "What festival on January 6 marks the arrival of the Magi in Western Christianity?",
+    "answer": "Epiphany",
+    "distractors": [
+      "Pentecost",
+      "Candlemas",
+      "Advent"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Epiphany celebrates the visit of the Magi."
+  },
+  {
+    "id": "christmas-165",
+    "question": "Which British monarch was the first to give a Christmas radio message in 1932?",
+    "answer": "King George V",
+    "distractors": [
+      "Queen Victoria",
+      "Queen Elizabeth II",
+      "King Edward VII"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "George V's broadcast started the tradition."
+  },
+  {
+    "id": "christmas-166",
+    "question": "In what year did Queen Elizabeth II give her first televised Christmas message?",
+    "answer": "1957",
+    "distractors": [
+      "1947",
+      "1967",
+      "1962"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "It was broadcast on TV for the first time in 1957."
+  },
+  {
+    "id": "christmas-167",
+    "question": "Which US president lit the first National Christmas Tree in 1923?",
+    "answer": "Calvin Coolidge",
+    "distractors": [
+      "Franklin Roosevelt",
+      "Herbert Hoover",
+      "Theodore Roosevelt"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Coolidge lit it near the White House."
+  },
+  {
+    "id": "christmas-168",
+    "question": "What was tinsel originally made from in 17th-century Germany?",
+    "answer": "Real silver",
+    "distractors": [
+      "Gold thread",
+      "Cotton",
+      "Paper"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "It was first made in 1610 in Nuremberg."
+  },
+  {
+    "id": "christmas-169",
+    "question": "Where were the first glass Christmas baubles made, in 1847?",
+    "answer": "Lauscha, Germany",
+    "distractors": [
+      "Murano, Italy",
+      "Prague",
+      "Bethlehem, Pennsylvania"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Hans Greiner is credited with making them."
+  },
+  {
+    "id": "christmas-170",
+    "question": "Who is credited with the first string of electric Christmas lights in 1882?",
+    "answer": "Edward H. Johnson",
+    "distractors": [
+      "Thomas Edison",
+      "Nikola Tesla",
+      "Henry Ford"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Johnson was an Edison associate in New York City."
+  },
+  {
+    "id": "christmas-171",
+    "question": "After whom is the poinsettia named?",
+    "answer": "Joel Roberts Poinsett",
+    "distractors": [
+      "Johann Poinsett",
+      "Henry Poinsette",
+      "Henry Poinsett"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Poinsett was the first US ambassador to Mexico."
+  },
+  {
+    "id": "christmas-172",
+    "question": "Which Mexican name for the poinsettia means \"Christmas Eve flower\"?",
+    "answer": "Flor de Nochebuena",
+    "distractors": [
+      "Cempasúchil",
+      "Rosa de Navidad",
+      "Estrella de Navidad"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "It is the Mexican name for the plant."
+  },
+  {
+    "id": "christmas-173",
+    "question": "In Iceland, how many Yule Lads visit before Christmas?",
+    "answer": "13",
+    "distractors": [
+      "7",
+      "24",
+      "9"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Thirteen Yule Lads leave small gifts, one each night."
+  },
+  {
+    "id": "christmas-174",
+    "question": "What is the Icelandic Christmas tradition of giving books on Christmas Eve called?",
+    "answer": "Jólabókaflóð",
+    "distractors": [
+      "Þorrablót",
+      "Skyr day",
+      "Þorláksmessa"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "The \"Christmas Book Flood\" is a beloved tradition."
+  },
+  {
+    "id": "christmas-175",
+    "question": "Which Japanese restaurant chain has a huge Christmas tradition in Japan?",
+    "answer": "KFC",
+    "distractors": [
+      "McDonald's",
+      "Sushiro",
+      "Burger King"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "\"Kentucky for Christmas\" became a tradition after a 1974 campaign."
+  },
+  {
+    "id": "christmas-176",
+    "question": "Where does Finnish tradition place Santa's home?",
+    "answer": "Korvatunturi",
+    "distractors": [
+      "Lake Inari",
+      "Suomenlinna",
+      "Helsinki"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Korvatunturi, a fell in Lapland, is the traditional home."
+  },
+  {
+    "id": "christmas-177",
+    "question": "In which country do people traditionally roller skate to church on Christmas morning in the capital?",
+    "answer": "Venezuela",
+    "distractors": [
+      "Peru",
+      "Chile",
+      "Brazil"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Caracas closes some streets so people can skate to early Mass."
+  },
+  {
+    "id": "christmas-178",
+    "question": "Which Catalan log with a painted face \"delivers\" sweets after children tap it with sticks?",
+    "answer": "Tió de Nadal",
+    "distractors": [
+      "El Gordo",
+      "La Pamplona",
+      "La Sagrada"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Children sing to the Tió and hit it with sticks so it will leave treats."
+  },
+  {
+    "id": "christmas-179",
+    "question": "In Norway, what do families traditionally hide on Christmas Eve?",
+    "answer": "Brooms",
+    "distractors": [
+      "Shoes",
+      "Candles",
+      "Mittens"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Tradition says witches may steal brooms."
+  },
+  {
+    "id": "christmas-180",
+    "question": "Which Pacific island, also called Christmas Island, is among the very first places to welcome Christmas Day?",
+    "answer": "Kiritimati",
+    "distractors": [
+      "Tahiti",
+      "Hawaii",
+      "Bora Bora"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Kiritimati in Kiribati lies in UTC+14, among the earliest time zones."
+  },
+  {
+    "id": "christmas-181",
+    "question": "What is the German name for the traditional cake-like Christmas bread with dried fruit, often dusted with sugar?",
+    "answer": "Stollen",
+    "distractors": [
+      "Strudel",
+      "Lebkuchen",
+      "Pfeffernüsse"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Dresden stollen is famous."
+  },
+  {
+    "id": "christmas-182",
+    "question": "What is the name of the Italian sweet bread dome from Milan?",
+    "answer": "Panettone",
+    "distractors": [
+      "Ciabatta",
+      "Focaccia",
+      "Pandoro"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Panettone is a Milanese Christmas bread."
+  },
+  {
+    "id": "christmas-183",
+    "question": "In \"Rudolph the Red-Nosed Reindeer\" (1964), what does Hermey the elf want to be?",
+    "answer": "A dentist",
+    "distractors": [
+      "A doctor",
+      "A baker",
+      "A pilot"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Hermey is the elf who dreams of being a dentist."
+  },
+  {
+    "id": "christmas-184",
+    "question": "Who narrates the 1964 TV special \"Rudolph the Red-Nosed Reindeer\" as Sam the Snowman?",
+    "answer": "Burl Ives",
+    "distractors": [
+      "Bing Crosby",
+      "Dean Martin",
+      "Fred Astaire"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Burl Ives sings \"A Holly Jolly Christmas\" in the special."
+  },
+  {
+    "id": "christmas-185",
+    "question": "Which two brothers control the weather in \"The Year Without a Santa Claus\"?",
+    "answer": "Snow Miser and Heat Miser",
+    "distractors": [
+      "Jack Frost and Jack Sun",
+      "Frost and Fire",
+      "Fire and Ice"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "The brothers have a famous musical rivalry."
+  },
+  {
+    "id": "christmas-186",
+    "question": "Who composed the jazz music for \"A Charlie Brown Christmas\"?",
+    "answer": "Vince Guaraldi",
+    "distractors": [
+      "Duke Ellington",
+      "Dave Brubeck",
+      "Louis Armstrong"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Guaraldi's \"Linus and Lucy\" is a holiday standard."
+  },
+  {
+    "id": "christmas-187",
+    "question": "Which character recites the Christmas story from the Gospel of Luke in \"A Charlie Brown Christmas\"?",
+    "answer": "Linus",
+    "distractors": [
+      "Snoopy",
+      "Schroeder",
+      "Lucy"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Linus walks onto the stage to explain the true meaning."
+  },
+  {
+    "id": "christmas-188",
+    "question": "Who plays Scrooge in \"The Muppet Christmas Carol\" (1992)?",
+    "answer": "Michael Caine",
+    "distractors": [
+      "Patrick Stewart",
+      "Alastair Sim",
+      "Jim Henson"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Michael Caine took the role seriously."
+  },
+  {
+    "id": "christmas-189",
+    "question": "Who directed the 2003 film \"Elf\"?",
+    "answer": "Jon Favreau",
+    "distractors": [
+      "Tim Burton",
+      "Chris Columbus",
+      "Robert Zemeckis"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Jon Favreau directed it, with Will Ferrell as Buddy."
+  },
+  {
+    "id": "christmas-190",
+    "question": "Which department store does Santa work at in \"Miracle on 34th Street\" (1947)?",
+    "answer": "Macy's",
+    "distractors": [
+      "Gimbels",
+      "Sears",
+      "Nordstrom"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "The story features Macy's and its Thanksgiving Day parade."
+  },
+  {
+    "id": "christmas-191",
+    "question": "Who directed \"Home Alone\" (1990)?",
+    "answer": "Chris Columbus",
+    "distractors": [
+      "John Hughes",
+      "Tim Burton",
+      "Joe Dante"
+    ],
+    "category": "christmas",
+    "difficulty": "hard",
+    "explanation": "Hughes wrote and produced it, while Columbus directed."
+  }
+]

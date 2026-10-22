@@ -9,7 +9,7 @@ const { defaultNameOptions, namePool, drawNames, resolveName, validateNameOption
 let checks = 0;
 const test = (name, fn) => { fn(); checks++; console.log('PASS ' + name); };
 test('Authored corpus counts, normalized uniqueness, independent country ownership and accurate length labels', () => {
-  assert.equal(BAND_NAMES.length, 108); assert.equal(DRAGON_NAMES.length, 48);
+  assert.equal(BAND_NAMES.length, 108); assert.equal(DRAGON_NAMES.length, 144);
   const country = new Set(COUNTRY_ITEMS.map(row => normalizeName(row.name).replaceAll(' ', '')));
   for (const [kind, recipes] of [['band', BAND_NAMES], ['dragon', DRAGON_NAMES]]) {
     assert.equal(new Set(recipes.map(row => row.id)).size, recipes.length);
@@ -22,9 +22,9 @@ test('Authored corpus counts, normalized uniqueness, independent country ownersh
       } else { assert.equal(row.length, row.name.length <= 6 ? 'short' : 'long'); assert.ok(row.pronunciation && row.title); }
     }
   }
-  assert.equal(new Set(DRAGON_NAMES.map(row => row.title)).size, 48);
+  assert.equal(new Set(DRAGON_NAMES.map(row => row.title)).size, 144);
   for (const style of NAME_STYLES.band) for (const length of ['1','2','3']) assert.equal(namePool('band', {...defaultNameOptions(), style: style.id, length}).length, 12);
-  for (const style of NAME_STYLES.dragon) for (const length of ['short','long']) assert.equal(namePool('dragon', {...defaultNameOptions(), style: style.id, length}).length, 6);
+  for (const style of NAME_STYLES.dragon) for (const length of ['short','long']) assert.equal(namePool('dragon', {...defaultNameOptions(), style: style.id, length}).length, 18);
 });
 test('Seed recipes always use the word, preserve length, and dedupe across spacing and styles', () => {
   for (const seed of ['Moon','ember','Luma','Äther','夜']) {
@@ -85,7 +85,7 @@ test('Event parameters contain enums/counts only, no raw input, names, IDs or sh
   for (const forbidden of ['Secretseed','privateterm','Paperwake','band-indie-1-0']) assert.ok(!serialized.includes(forbidden));
   assert.equal(params.has_seed,true);assert.equal(params.has_avoid_words,true);assert.equal(params.result_type,'name');
 });
-test('Both standalone intents are English-only and remain outside the ad whitelist', () => {
-  for (const kind of ['band','dragon']) {const path=`/${kind}-name-generator`;assert.equal(isEnOnly(path),true);assert.equal(adPageAllowed(path),false);assert.deepEqual(Object.keys(hreflangAlternates(path)),['en','x-default']);}
+test('Both standalone intents are English-only and in the ad whitelist (auto ads on all sitemap pages since #141)', () => {
+  for (const kind of ['band','dragon']) {const path=`/${kind}-name-generator`;assert.equal(isEnOnly(path),true);assert.equal(adPageAllowed(path),true);assert.deepEqual(Object.keys(hreflangAlternates(path)),['en','x-default']);}
 });
 console.log(`${checks} name corpus, state, privacy and ownership groups passed.`);

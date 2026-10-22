@@ -11,7 +11,7 @@ import { load } from "./lib/load-typescript.mjs";
 const root = resolve(import.meta.dirname, "..");
 const dataDir = resolve(root, "src/data/trivia");
 const CATEGORIES = ["general", "kids", "math", "science", "history", "geography", "movies", "music", "sports", "food"];
-const BANK_FILES = [...CATEGORIES, "halloween"];
+const BANK_FILES = [...CATEGORIES, "halloween", "christmas"];
 const DIFFICULTIES = ["easy", "medium", "hard"];
 
 const banks = Object.fromEntries(
@@ -86,14 +86,16 @@ test("T3 no duplicate question text across files", () => {
   }
 });
 
-test("T3 counts: total ≥ 800, halloween ≥ 50, each category ≥ 60 with every difficulty", () => {
+test("T3 counts: total ≥ 800, halloween ≥ 50, christmas ≥ 150, each category ≥ 60 with every difficulty", () => {
   assert.ok(all.length >= 800, `only ${all.length} questions`);
   assert.ok(banks.halloween.length >= 50, `halloween has ${banks.halloween.length}`);
+  assert.ok(banks.christmas.length >= 150, `christmas has ${banks.christmas.length}`);
   for (const c of CATEGORIES) {
     assert.ok(banks[c].length >= 60, `${c} has ${banks[c].length}`);
     for (const d of DIFFICULTIES) assert.ok(banks[c].filter((q) => q.difficulty === d).length >= 10, `${c}/${d} under 10`);
   }
   for (const d of DIFFICULTIES) assert.ok(banks.halloween.filter((q) => q.difficulty === d).length >= 8, `halloween/${d}`);
+  for (const d of DIFFICULTIES) assert.ok(banks.christmas.filter((q) => q.difficulty === d).length >= 40, `christmas/${d}`);
 });
 
 test("T3 content stays evergreen (no 'current/latest/reigning' wording)", () => {
@@ -105,6 +107,7 @@ test("library exposes the same banks", () => {
   assert.deepEqual([...tv.TRIVIA_CATEGORY_IDS], CATEGORIES);
   assert.equal(tv.ALL_TRIVIA.length, all.length);
   assert.equal(tv.TRIVIA_BANKS.halloween.length, banks.halloween.length);
+  assert.equal(tv.TRIVIA_BANKS.christmas.length, banks.christmas.length);
   for (const c of CATEGORIES) assert.ok(tv.TRIVIA_CATEGORIES[c].label && tv.TRIVIA_CATEGORIES[c].emoji, c);
 });
 
@@ -112,7 +115,7 @@ test("library exposes the same banks", () => {
 
 test("T1 category and difficulty filters only return matching items", () => {
   const pool = tv.CATEGORY_TRIVIA;
-  assert.equal(pool.length, all.length - banks.halloween.length, "main pool excludes the seasonal bank");
+  assert.equal(pool.length, all.length - banks.halloween.length - banks.christmas.length, "main pool excludes the seasonal banks");
   assert.equal(tv.filterTrivia(pool, { category: "all", difficulty: "all" }).length, pool.length);
   for (const category of CATEGORIES) {
     const byCat = tv.filterTrivia(pool, { category, difficulty: "all" });
@@ -130,6 +133,8 @@ test("T1 category and difficulty filters only return matching items", () => {
   }
   const hw = tv.filterTrivia(tv.TRIVIA_BANKS.halloween, { category: "all", difficulty: "hard" });
   assert.ok(hw.length > 0 && hw.every((q) => q.category === "halloween" && q.difficulty === "hard"));
+  const xm = tv.filterTrivia(tv.TRIVIA_BANKS.christmas, { category: "all", difficulty: "easy" });
+  assert.ok(xm.length > 0 && xm.every((q) => q.category === "christmas" && q.difficulty === "easy"));
 });
 
 /* ---------------- T1: draw ---------------- */
@@ -250,9 +255,11 @@ test("both URLs are in the sitemap source", () => {
   const src = readFileSync(resolve(root, "src/app/sitemap.ts"), "utf8");
   assert.match(src, /"trivia-questions"/);
   assert.match(src, /"trivia-questions\/halloween"/);
+  assert.match(src, /"trivia-questions\/christmas"/);
   const cfg = readFileSync(resolve(root, "src/i18n/config.ts"), "utf8");
   assert.match(cfg, /"\/trivia-questions"/, "English-only until the Spanish page ships");
   assert.match(cfg, /"\/trivia-questions\/halloween"/);
+  assert.match(cfg, /"\/trivia-questions\/christmas"/);
 });
 
 test("art requests: both heroes requested with pending|done status", () => {
@@ -260,7 +267,7 @@ test("art requests: both heroes requested with pending|done status", () => {
   assert.ok(typeof art._readme === "string" && Array.isArray(art.requests));
   const ids = art.requests.map((r) => r.id);
   assert.equal(new Set(ids).size, ids.length, "unique art request ids");
-  for (const path of ["public/art/trivia/hero.jpg", "public/art/trivia/halloween-hero.jpg"]) {
+  for (const path of ["public/art/trivia/hero.jpg", "public/art/trivia/halloween-hero.jpg", "public/art/trivia/christmas-hero.jpg"]) {
     const r = art.requests.find((x) => x.path === path);
     assert.ok(r, `missing art request for ${path}`);
     for (const k of ["id", "page", "path", "prompt", "alt", "status"]) assert.ok(typeof r[k] === "string" && r[k], `${path} ${k}`);
@@ -269,4 +276,4 @@ test("art requests: both heroes requested with pending|done status", () => {
   }
 });
 
-console.log(`✓ trivia: ${passed} tests passed (${all.length} questions, ${banks.halloween.length} halloween)`);
+console.log(`✓ trivia: ${passed} tests passed (${all.length} questions, ${banks.halloween.length} halloween, ${banks.christmas.length} christmas)`);

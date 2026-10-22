@@ -133,7 +133,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Trivia question bank + seasonal Halloween page (2026-10-14).
-  for (const p of ["trivia-questions", "trivia-questions/halloween"]) {
+  for (const p of ["trivia-questions", "trivia-questions/halloween", "trivia-questions/christmas", "charades/christmas"]) {
     entries.push({ path: `/${p}`, changeFrequency: "weekly", priority: 0.88, lastModified: "2026-10-14" });
   }
 
@@ -173,6 +173,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "character-name-generator",
     "random-character-generator",
     "gnome-name-generator",
+    "warrior-cat-name-generator",
+    "elf-name-generator",
+    "vampire-name-generator",
+    "pirate-name-generator",
+    "incorrect-quote-generator",
+    "headcanon-generator",
+    "put-a-finger-down",
     "random-food-generator",
     "random-letter-generator",
     "random-word-generator",

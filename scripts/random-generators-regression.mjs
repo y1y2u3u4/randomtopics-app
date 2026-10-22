@@ -756,6 +756,109 @@ asyncTests.push((async () => {
   assert.deepEqual(JSON.parse(a.calls[1].init.body).variables.ids, [20], "deduplicated numeric ids");
   passed++;
 })());
+test("warrior cat names: ≥350 prefixes, ≥150 suffixes, rank/theme/clan filters respected", () => {
+  const { CAT_PREFIXES, CAT_SUFFIXES, CAT_CLANS, catGenerator } = mod("src/lib/generators/warriorCat.ts");
+  assert.ok(CAT_PREFIXES.length >= 350 && CAT_SUFFIXES.length >= 150 && CAT_CLANS.length >= 30);
+  const themeOf = new Map(CAT_PREFIXES.map((p) => [p.name, p.theme]));
+  assert.equal(themeOf.size, CAT_PREFIXES.length, "unique prefixes");
+  const first = (r) => r.title.split(" ")[0];
+  checkGenerator("warrior-cat", catGenerator, [
+    [{ rank: ["kit"] }, (r) => first(r).endsWith("kit")],
+    [{ rank: ["apprentice"] }, (r) => first(r).endsWith("paw")],
+    [{ rank: ["leader"] }, (r) => first(r).endsWith("star")],
+    [{ rank: ["warrior"] }, (r) => !/(kit|paw|star)$/.test(first(r)) && r.title.toLowerCase().startsWith(r.key.split("|")[0].toLowerCase())],
+    [{ theme: ["water", "fire"] }, (r) => ["water", "fire"].includes(themeOf.get(r.key.split("|")[0]))],
+    [{ clan: ["clan"] }, (r) => / of .+ Clan$/.test(r.title)],
+  ], 350, CAT_PREFIXES.length);
+});
+
+test("elf names: ≥300 first names, ≥150 houses, type/gender/style filters respected", () => {
+  const { ELF_FIRST, ELF_HOUSES, elfGenerator } = mod("src/lib/generators/elf.ts");
+  assert.ok(ELF_FIRST.length >= 300 && ELF_HOUSES.length >= 150);
+  assert.equal(new Set(ELF_FIRST.map((f) => f.name)).size, ELF_FIRST.length, "unique first names");
+  const firstBy = new Map(ELF_FIRST.map((f) => [f.name, f]));
+  checkGenerator("elf", elfGenerator, [
+    [{ type: ["dark"] }, (r) => firstBy.get(r.key.split("|")[0]).type === "dark"],
+    [{ type: ["high", "sea"], gender: ["female"] }, (r) => ["high", "sea"].includes(firstBy.get(r.key.split("|")[0]).type) && r.subtitle.endsWith("female")],
+    [{ gender: ["male"] }, (r) => r.subtitle.endsWith(" male")],
+    [{ style: ["first"] }, (r) => !r.title.includes(" ")],
+    [{ style: ["full"] }, (r) => r.title.split(" ").length === 2],
+  ], 300, ELF_FIRST.length);
+});
+
+test("vampire names: ≥250 first names, ≥150 surnames, gender/style/format filters respected", () => {
+  const { VAMPIRE_FIRST, VAMPIRE_SURNAMES, vampireGenerator } = mod("src/lib/generators/vampire.ts");
+  assert.ok(VAMPIRE_FIRST.length >= 250 && VAMPIRE_SURNAMES.length >= 150);
+  assert.equal(new Set(VAMPIRE_FIRST.map((f) => f.name)).size, VAMPIRE_FIRST.length, "unique first names");
+  checkGenerator("vampire", vampireGenerator, [
+    [{ gender: ["female"] }, (r) => r.subtitle.endsWith("female")],
+    [{ style: ["ancient"] }, (r) => r.subtitle.includes("Ancient")],
+    [{ style: ["modern"], gender: ["male", "neutral"] }, (r) => r.subtitle.includes("Modern") && !r.subtitle.endsWith("female")],
+    [{ format: ["title"] }, (r) => / of /.test(r.title) && r.title.split(" ").length >= 5],
+    [{ format: ["first"] }, (r) => !r.title.includes(" ")],
+    [{ format: ["full"] }, (r) => r.title.split(" ").length === 2],
+  ], 250, VAMPIRE_FIRST.length);
+});
+
+test("pirate names: ≥250 first names/nicknames/surnames, gender/style/ship filters respected", () => {
+  const { PIRATE_FIRST, PIRATE_NICKNAMES, PIRATE_SURNAMES, SHIP_COUNT, pirateGenerator } = mod("src/lib/generators/pirate.ts");
+  assert.ok(PIRATE_FIRST.length >= 250 && PIRATE_NICKNAMES.length >= 250 && PIRATE_SURNAMES.length >= 250 && SHIP_COUNT >= 1000);
+  const styleOf = (r) => r.key.split("|")[1].split("~")[0];
+  checkGenerator("pirate", pirateGenerator, [
+    [{ gender: ["female"] }, (r) => r.subtitle.endsWith("female")],
+    [{ style: ["funny"] }, (r) => styleOf(r) === "funny" && r.subtitle.includes("Funny")],
+    [{ style: ["fearsome"] }, (r) => styleOf(r) === "fearsome"],
+    [{ ship: ["ship"], style: ["funny"] }, (r) => /Captain of The \S+ \S+$/.test(r.subtitle)],
+    [{ ship: ["none"] }, (r) => !r.subtitle.includes("Captain of") && /^\S+ ".+" \S+$/.test(r.title)],
+  ], 250, PIRATE_FIRST.length);
+});
+
+test("incorrect quotes: ≥300 templates, speakers valid, names substituted", () => {
+  const { QUOTES, quoteGenerator, buildQuote, parseCharacterNames, drawQuotes } = mod("src/lib/generators/incorrectQuotes.ts");
+  assert.ok(QUOTES.length >= 300);
+  assert.equal(new Set(QUOTES.map((q) => q.id)).size, QUOTES.length, "unique ids");
+  assert.equal(new Set(QUOTES.map((q) => JSON.stringify(q.lines))).size, QUOTES.length, "no duplicate dialogues");
+  for (let n = 1; n <= 6; n++) assert.ok(QUOTES.some((q) => q.n === n), `no ${n}-character quote`);
+  for (const q of QUOTES) {
+    assert.ok(["chaotic", "wholesome", "sarcastic"].includes(q.mood));
+    for (const [who, text] of q.lines) { assert.ok(who >= 1 && who <= q.n && text.length >= 2); assert.ok(!/\{|\}/.test(text)); }
+    assert.equal(new Set(q.lines.map((l) => l[0])).size, q.n, `${q.id} uses every speaker`);
+  }
+  assert.deepEqual(parseCharacterNames(" Ann, bob ;ANN\nCy,d,e,f,g,h "), ["Ann", "bob", "Cy", "d", "e", "f"]);
+  const two = QUOTES.find((q) => q.n === 2);
+  const text = buildQuote(two, ["Maya", "Theo"]);
+  assert.ok(text.startsWith("Maya: ") && text.includes("\nTheo: ") || text.includes("Theo:"));
+  assert.ok(!buildQuote(QUOTES.find((q) => q.n === 4), ["Maya"]).includes("undefined"));
+  assert.deepEqual(drawQuotes(["A", "B"], 2, [], 3, 5), drawQuotes(["A", "B"], 2, [], 3, 5));
+  checkGenerator("incorrect-quotes", quoteGenerator, [
+    [{ chars: ["3"] }, (r) => r.subtitle.startsWith("3 ")],
+    [{ chars: ["2"], mood: ["wholesome"] }, (r) => r.subtitle.includes("wholesome")],
+  ], 300);
+});
+
+test("headcanons: ≥300, placeholder substituted, categories present", () => {
+  const { HEADCANONS, headcanonGenerator, fillHeadcanon, drawHeadcanons } = mod("src/lib/generators/headcanons.ts");
+  assert.ok(HEADCANONS.length >= 300);
+  assert.equal(new Set(HEADCANONS.map((h) => h.text)).size, HEADCANONS.length);
+  for (const cat of ["wholesome", "funny", "angsty-lite", "habits", "relationships", "modern-au"]) assert.ok(HEADCANONS.some((h) => h.cat === cat), cat);
+  for (const h of HEADCANONS) { assert.ok(h.text.includes("{character}")); assert.ok(!fillHeadcanon(h.text, "Luna").includes("{")); assert.ok(fillHeadcanon(h.text, "Luna").includes("Luna")); assert.ok(!fillHeadcanon(h.text, "").includes("{")); }
+  assert.ok(/^Your character/.test(fillHeadcanon("{character} sings.", "")));
+  assert.deepEqual(drawHeadcanons("X", [], 4, 9), drawHeadcanons("X", [], 4, 9));
+  checkGenerator("headcanons", headcanonGenerator, [[{ cat: ["funny"] }, (r) => r.subtitle.includes("Funny")]], 300);
+});
+
+test("put a finger down: ≥300 clean statements, counter floors at zero", () => {
+  const { FINGER_STATEMENTS, fingerGenerator, statementText, fingersAfter, drawStatements } = mod("src/lib/generators/fingerDown.ts");
+  assert.ok(FINGER_STATEMENTS.length >= 300);
+  assert.equal(new Set(FINGER_STATEMENTS.map((s) => s.text)).size, FINGER_STATEMENTS.length);
+  for (const cat of ["clean", "teens", "friends", "couples", "school", "work", "funny", "gamers", "juicy"]) assert.ok(FINGER_STATEMENTS.some((s) => s.cat === cat), cat);
+  const bad = /\b(sex|sexual|naked|nude|porn|drugs?|weed|kill|suicide)\b/i;
+  for (const s of FINGER_STATEMENTS) { assert.ok(!bad.test(s.text), s.text); assert.ok(statementText(s).startsWith("Put a finger down if ")); assert.ok(!/\.\.|\.$/.test(s.text)); }
+  assert.equal(fingersAfter(1), 0); assert.equal(fingersAfter(0), 0); assert.equal(fingersAfter(10), 9);
+  assert.deepEqual(drawStatements(["gamers"], 3, 4), drawStatements(["gamers"], 3, 4));
+  checkGenerator("finger-down", fingerGenerator, [[{ cat: ["juicy"] }, (r) => r.subtitle.includes("Juicy")]], 300);
+});
+
 await Promise.all(asyncTests);
 
 console.log(`✓ random generators: ${passed} tests passed`);

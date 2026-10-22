@@ -1,0 +1,2779 @@
+{
+ "first": [
+  {
+   "name": "Lordoril",
+   "type": "high",
+   "gender": "male",
+   "meaning": "song + oak"
+  },
+  {
+   "name": "Calaeleth",
+   "type": "high",
+   "gender": "male",
+   "meaning": "gold + grace"
+  },
+  {
+   "name": "Eritharor",
+   "type": "high",
+   "gender": "male",
+   "meaning": "bright + tower"
+  },
+  {
+   "name": "Mirlindil",
+   "type": "high",
+   "gender": "male",
+   "meaning": "mirror + song"
+  },
+  {
+   "name": "Faeioneth",
+   "type": "high",
+   "gender": "male",
+   "meaning": "fair + bearer"
+  },
+  {
+   "name": "Callasil",
+   "type": "high",
+   "gender": "male",
+   "meaning": "gold + leaf"
+  },
+  {
+   "name": "Galmiror",
+   "type": "high",
+   "gender": "male",
+   "meaning": "radiant + glass"
+  },
+  {
+   "name": "Cyrwynar",
+   "type": "high",
+   "gender": "male",
+   "meaning": "wise + joy"
+  },
+  {
+   "name": "Faelasil",
+   "type": "high",
+   "gender": "male",
+   "meaning": "fair + leaf"
+  },
+  {
+   "name": "Erilasis",
+   "type": "high",
+   "gender": "male",
+   "meaning": "bright + leaf"
+  },
+  {
+   "name": "Calaelil",
+   "type": "high",
+   "gender": "male",
+   "meaning": "gold + grace"
+  },
+  {
+   "name": "Callindir",
+   "type": "high",
+   "gender": "male",
+   "meaning": "gold + song"
+  },
+  {
+   "name": "Lorlasan",
+   "type": "high",
+   "gender": "male",
+   "meaning": "song + leaf"
+  },
+  {
+   "name": "Silrianis",
+   "type": "high",
+   "gender": "male",
+   "meaning": "silver + crowned"
+  },
+  {
+   "name": "Lormireth",
+   "type": "high",
+   "gender": "male",
+   "meaning": "song + glass"
+  },
+  {
+   "name": "Cyrwynis",
+   "type": "high",
+   "gender": "male",
+   "meaning": "wise + joy"
+  },
+  {
+   "name": "Faerianor",
+   "type": "high",
+   "gender": "male",
+   "meaning": "fair + crowned"
+  },
+  {
+   "name": "Cyrdoril",
+   "type": "high",
+   "gender": "male",
+   "meaning": "wise + oak"
+  },
+  {
+   "name": "Silionar",
+   "type": "high",
+   "gender": "male",
+   "meaning": "silver + bearer"
+  },
+  {
+   "name": "Aelanor",
+   "type": "high",
+   "gender": "male",
+   "meaning": "star + bright"
+  },
+  {
+   "name": "Aelmiran",
+   "type": "high",
+   "gender": "male",
+   "meaning": "star + glass"
+  },
+  {
+   "name": "Faeanil",
+   "type": "high",
+   "gender": "male",
+   "meaning": "fair + bright"
+  },
+  {
+   "name": "Calanir",
+   "type": "high",
+   "gender": "male",
+   "meaning": "gold + bright"
+  },
+  {
+   "name": "Isilethor",
+   "type": "high",
+   "gender": "male",
+   "meaning": "moon + ever"
+  },
+  {
+   "name": "Ithaelir",
+   "type": "high",
+   "gender": "male",
+   "meaning": "sun + grace"
+  },
+  {
+   "name": "Aelwyneth",
+   "type": "high",
+   "gender": "male",
+   "meaning": "star + joy"
+  },
+  {
+   "name": "Ithaelil",
+   "type": "high",
+   "gender": "male",
+   "meaning": "sun + grace"
+  },
+  {
+   "name": "Galaelion",
+   "type": "high",
+   "gender": "male",
+   "meaning": "radiant + grace"
+  },
+  {
+   "name": "Amadorar",
+   "type": "high",
+   "gender": "male",
+   "meaning": "eternal + oak"
+  },
+  {
+   "name": "Aellindir",
+   "type": "high",
+   "gender": "male",
+   "meaning": "star + song"
+  },
+  {
+   "name": "Ithaeliel",
+   "type": "high",
+   "gender": "female",
+   "meaning": "sun + grace"
+  },
+  {
+   "name": "Mirdorith",
+   "type": "high",
+   "gender": "female",
+   "meaning": "mirror + oak"
+  },
+  {
+   "name": "Cyraeline",
+   "type": "high",
+   "gender": "female",
+   "meaning": "wise + grace"
+  },
+  {
+   "name": "Isilaeline",
+   "type": "high",
+   "gender": "female",
+   "meaning": "moon + grace"
+  },
+  {
+   "name": "Lorionith",
+   "type": "high",
+   "gender": "female",
+   "meaning": "song + bearer"
+  },
+  {
+   "name": "Amarianine",
+   "type": "high",
+   "gender": "female",
+   "meaning": "eternal + crowned"
+  },
+  {
+   "name": "Aurlindara",
+   "type": "high",
+   "gender": "female",
+   "meaning": "amber + song"
+  },
+  {
+   "name": "Eriaelara",
+   "type": "high",
+   "gender": "female",
+   "meaning": "bright + grace"
+  },
+  {
+   "name": "Calaelwen",
+   "type": "high",
+   "gender": "female",
+   "meaning": "gold + grace"
+  },
+  {
+   "name": "Isilanara",
+   "type": "high",
+   "gender": "female",
+   "meaning": "moon + bright"
+  },
+  {
+   "name": "Eridora",
+   "type": "high",
+   "gender": "female",
+   "meaning": "bright + oak"
+  },
+  {
+   "name": "Eriwynine",
+   "type": "high",
+   "gender": "female",
+   "meaning": "bright + joy"
+  },
+  {
+   "name": "Cyretha",
+   "type": "high",
+   "gender": "female",
+   "meaning": "wise + ever"
+  },
+  {
+   "name": "Calwyniel",
+   "type": "high",
+   "gender": "female",
+   "meaning": "gold + joy"
+  },
+  {
+   "name": "Mirlindiel",
+   "type": "high",
+   "gender": "female",
+   "meaning": "mirror + song"
+  },
+  {
+   "name": "Thalanara",
+   "type": "high",
+   "gender": "female",
+   "meaning": "dawn + bright"
+  },
+  {
+   "name": "Gallasine",
+   "type": "high",
+   "gender": "female",
+   "meaning": "radiant + leaf"
+  },
+  {
+   "name": "Isilriana",
+   "type": "high",
+   "gender": "female",
+   "meaning": "moon + crowned"
+  },
+  {
+   "name": "Callasara",
+   "type": "high",
+   "gender": "female",
+   "meaning": "gold + leaf"
+  },
+  {
+   "name": "Eritharia",
+   "type": "high",
+   "gender": "female",
+   "meaning": "bright + tower"
+  },
+  {
+   "name": "Thaletha",
+   "type": "high",
+   "gender": "female",
+   "meaning": "dawn + ever"
+  },
+  {
+   "name": "Thalwynine",
+   "type": "high",
+   "gender": "female",
+   "meaning": "dawn + joy"
+  },
+  {
+   "name": "Aurmirith",
+   "type": "high",
+   "gender": "female",
+   "meaning": "amber + glass"
+  },
+  {
+   "name": "Calmirith",
+   "type": "high",
+   "gender": "female",
+   "meaning": "gold + glass"
+  },
+  {
+   "name": "Thalanae",
+   "type": "high",
+   "gender": "female",
+   "meaning": "dawn + bright"
+  },
+  {
+   "name": "Galdoria",
+   "type": "high",
+   "gender": "female",
+   "meaning": "radiant + oak"
+  },
+  {
+   "name": "Thalrianith",
+   "type": "high",
+   "gender": "female",
+   "meaning": "dawn + crowned"
+  },
+  {
+   "name": "Elenaelae",
+   "type": "high",
+   "gender": "female",
+   "meaning": "sky + grace"
+  },
+  {
+   "name": "Thalwyna",
+   "type": "high",
+   "gender": "female",
+   "meaning": "dawn + joy"
+  },
+  {
+   "name": "Aurdorine",
+   "type": "high",
+   "gender": "female",
+   "meaning": "amber + oak"
+  },
+  {
+   "name": "Erilindis",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "bright + song"
+  },
+  {
+   "name": "Galethen",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "radiant + ever"
+  },
+  {
+   "name": "Calethae",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "gold + ever"
+  },
+  {
+   "name": "Aurrianal",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "amber + crowned"
+  },
+  {
+   "name": "Cyrrianal",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "wise + crowned"
+  },
+  {
+   "name": "Ithaelal",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "sun + grace"
+  },
+  {
+   "name": "Faeionel",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "fair + bearer"
+  },
+  {
+   "name": "Cyrlindyn",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "wise + song"
+  },
+  {
+   "name": "Thalethel",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "dawn + ever"
+  },
+  {
+   "name": "Cyranae",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "wise + bright"
+  },
+  {
+   "name": "Calmiryn",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "gold + glass"
+  },
+  {
+   "name": "Mirwynyr",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "mirror + joy"
+  },
+  {
+   "name": "Cyrethen",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "wise + ever"
+  },
+  {
+   "name": "Loraelyn",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "song + grace"
+  },
+  {
+   "name": "Faewynis",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "fair + joy"
+  },
+  {
+   "name": "Silanae",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "silver + bright"
+  },
+  {
+   "name": "Thalethae",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "dawn + ever"
+  },
+  {
+   "name": "Mirlindyr",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "mirror + song"
+  },
+  {
+   "name": "Aurlindori",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "amber + song"
+  },
+  {
+   "name": "Isilwynyr",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "moon + joy"
+  },
+  {
+   "name": "Amaionori",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "eternal + bearer"
+  },
+  {
+   "name": "Aelanyr",
+   "type": "high",
+   "gender": "neutral",
+   "meaning": "star + bright"
+  },
+  {
+   "name": "Braevenil",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "branch + hidden"
+  },
+  {
+   "name": "Taelaril",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "leaf + arrow"
+  },
+  {
+   "name": "Braeolor",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "branch + deep"
+  },
+  {
+   "name": "Nymwynis",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "glade + wind"
+  },
+  {
+   "name": "Thornysar",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "thorn + whisper"
+  },
+  {
+   "name": "Wilaror",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "willow + arrow"
+  },
+  {
+   "name": "Fennethion",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "fern + quiet"
+  },
+  {
+   "name": "Ivyaran",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "ivy + arrow"
+  },
+  {
+   "name": "Wilrieth",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "willow + run"
+  },
+  {
+   "name": "Thornethion",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "thorn + quiet"
+  },
+  {
+   "name": "Rowawynir",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "rowan + wind"
+  },
+  {
+   "name": "Aylysir",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "moss + whisper"
+  },
+  {
+   "name": "Sylvaror",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "forest + arrow"
+  },
+  {
+   "name": "Aylareth",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "moss + arrow"
+  },
+  {
+   "name": "Braedrian",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "branch + dew"
+  },
+  {
+   "name": "Ivyolion",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "ivy + deep"
+  },
+  {
+   "name": "Aylsais",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "moss + shade"
+  },
+  {
+   "name": "Ivybrian",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "ivy + bright"
+  },
+  {
+   "name": "Rowaysil",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "rowan + whisper"
+  },
+  {
+   "name": "Rowaloion",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "rowan + green"
+  },
+  {
+   "name": "Ivyysir",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "ivy + whisper"
+  },
+  {
+   "name": "Thornysir",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "thorn + whisper"
+  },
+  {
+   "name": "Ivyaris",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "ivy + arrow"
+  },
+  {
+   "name": "Haelethis",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "hunt + quiet"
+  },
+  {
+   "name": "Wilolan",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "willow + deep"
+  },
+  {
+   "name": "Hartethion",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "stag + quiet"
+  },
+  {
+   "name": "Taelvenan",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "leaf + hidden"
+  },
+  {
+   "name": "Rynolil",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "river + deep"
+  },
+  {
+   "name": "Braeysor",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "branch + whisper"
+  },
+  {
+   "name": "Larkysil",
+   "type": "wood",
+   "gender": "male",
+   "meaning": "bird + whisper"
+  },
+  {
+   "name": "Fennarine",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "fern + arrow"
+  },
+  {
+   "name": "Ayloliel",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "moss + deep"
+  },
+  {
+   "name": "Rowasaiel",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "rowan + shade"
+  },
+  {
+   "name": "Aylysa",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "moss + whisper"
+  },
+  {
+   "name": "Haelethine",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "hunt + quiet"
+  },
+  {
+   "name": "Wilveniel",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "willow + hidden"
+  },
+  {
+   "name": "Thornarwen",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "thorn + arrow"
+  },
+  {
+   "name": "Willoae",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "willow + green"
+  },
+  {
+   "name": "Sylvarae",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "forest + arrow"
+  },
+  {
+   "name": "Haelwynara",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "hunt + wind"
+  },
+  {
+   "name": "Ivyethara",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "ivy + quiet"
+  },
+  {
+   "name": "Aylvena",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "moss + hidden"
+  },
+  {
+   "name": "Sylvarine",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "forest + arrow"
+  },
+  {
+   "name": "Aylwyniel",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "moss + wind"
+  },
+  {
+   "name": "Braewynwen",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "branch + wind"
+  },
+  {
+   "name": "Lyrethith",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "bow + quiet"
+  },
+  {
+   "name": "Fennariel",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "fern + arrow"
+  },
+  {
+   "name": "Braevenia",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "branch + hidden"
+  },
+  {
+   "name": "Taelria",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "leaf + run"
+  },
+  {
+   "name": "Nymmelith",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "glade + honey"
+  },
+  {
+   "name": "Willowen",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "willow + green"
+  },
+  {
+   "name": "Aylmeline",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "moss + honey"
+  },
+  {
+   "name": "Larkarae",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "bird + arrow"
+  },
+  {
+   "name": "Oakariel",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "oak + arrow"
+  },
+  {
+   "name": "Aylolae",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "moss + deep"
+  },
+  {
+   "name": "Sylvolia",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "forest + deep"
+  },
+  {
+   "name": "Oakysia",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "oak + whisper"
+  },
+  {
+   "name": "Lyrolae",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "bow + deep"
+  },
+  {
+   "name": "Haelysara",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "hunt + whisper"
+  },
+  {
+   "name": "Rowawynia",
+   "type": "wood",
+   "gender": "female",
+   "meaning": "rowan + wind"
+  },
+  {
+   "name": "Thornarori",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "thorn + arrow"
+  },
+  {
+   "name": "Rowaysyn",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "rowan + whisper"
+  },
+  {
+   "name": "Taelarel",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "leaf + arrow"
+  },
+  {
+   "name": "Rowaethori",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "rowan + quiet"
+  },
+  {
+   "name": "Taelwynae",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "leaf + wind"
+  },
+  {
+   "name": "Braeloae",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "branch + green"
+  },
+  {
+   "name": "Ivyloel",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "ivy + green"
+  },
+  {
+   "name": "Lyrolyn",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "bow + deep"
+  },
+  {
+   "name": "Braevenal",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "branch + hidden"
+  },
+  {
+   "name": "Wilsayn",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "willow + shade"
+  },
+  {
+   "name": "Lyrolal",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "bow + deep"
+  },
+  {
+   "name": "Taelriyn",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "leaf + run"
+  },
+  {
+   "name": "Haelmelyn",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "hunt + honey"
+  },
+  {
+   "name": "Taelvenis",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "leaf + hidden"
+  },
+  {
+   "name": "Aylmelae",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "moss + honey"
+  },
+  {
+   "name": "Fennarori",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "fern + arrow"
+  },
+  {
+   "name": "Braebriel",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "branch + bright"
+  },
+  {
+   "name": "Braewynen",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "branch + wind"
+  },
+  {
+   "name": "Oakloae",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "oak + green"
+  },
+  {
+   "name": "Braeriyr",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "branch + run"
+  },
+  {
+   "name": "Ivyloae",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "ivy + green"
+  },
+  {
+   "name": "Sylvolyn",
+   "type": "wood",
+   "gender": "neutral",
+   "meaning": "forest + deep"
+  },
+  {
+   "name": "Szarethis",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "ash + bitter"
+  },
+  {
+   "name": "Sorrethan",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "sorrow + bitter"
+  },
+  {
+   "name": "Szaraelan",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "ash + ember"
+  },
+  {
+   "name": "Xanathor",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "silk + shade"
+  },
+  {
+   "name": "Xanrizor",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "silk + whip"
+  },
+  {
+   "name": "Qualethir",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "spider + bitter"
+  },
+  {
+   "name": "Malvessan",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "spite + blade"
+  },
+  {
+   "name": "Vharethion",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "shadow + bitter"
+  },
+  {
+   "name": "Kyrnazor",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "blade + night"
+  },
+  {
+   "name": "Kyrathar",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "blade + shade"
+  },
+  {
+   "name": "Rylaelil",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "cruel + ember"
+  },
+  {
+   "name": "Zylxior",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "venom + ice"
+  },
+  {
+   "name": "Ilvethil",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "web + bitter"
+  },
+  {
+   "name": "Qualyllean",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "spider + silk"
+  },
+  {
+   "name": "Velaelion",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "veil + ember"
+  },
+  {
+   "name": "Morothion",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "dusk + bone"
+  },
+  {
+   "name": "Vharathir",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "shadow + shade"
+  },
+  {
+   "name": "Uthothar",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "deep + bone"
+  },
+  {
+   "name": "Morothor",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "dusk + bone"
+  },
+  {
+   "name": "Malylleion",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "spite + silk"
+  },
+  {
+   "name": "Malylleir",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "spite + silk"
+  },
+  {
+   "name": "Rylvessan",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "cruel + blade"
+  },
+  {
+   "name": "Kyrzarir",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "blade + fang"
+  },
+  {
+   "name": "Velethar",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "veil + bitter"
+  },
+  {
+   "name": "Zylatheth",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "venom + shade"
+  },
+  {
+   "name": "Qualathan",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "spider + shade"
+  },
+  {
+   "name": "Qualylleis",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "spider + silk"
+  },
+  {
+   "name": "Zylothil",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "venom + bone"
+  },
+  {
+   "name": "Vharylleor",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "shadow + silk"
+  },
+  {
+   "name": "Qualylleor",
+   "type": "dark",
+   "gender": "male",
+   "meaning": "spider + silk"
+  },
+  {
+   "name": "Rylethia",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "cruel + bitter"
+  },
+  {
+   "name": "Malzarith",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "spite + fang"
+  },
+  {
+   "name": "Ilvyllea",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "web + silk"
+  },
+  {
+   "name": "Malylleith",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "spite + silk"
+  },
+  {
+   "name": "Xanaela",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "silk + ember"
+  },
+  {
+   "name": "Morzara",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "dusk + fang"
+  },
+  {
+   "name": "Sorrothiel",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "sorrow + bone"
+  },
+  {
+   "name": "Velothine",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "veil + bone"
+  },
+  {
+   "name": "Velnaziel",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "veil + night"
+  },
+  {
+   "name": "Qualothiel",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "spider + bone"
+  },
+  {
+   "name": "Vharzaria",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "shadow + fang"
+  },
+  {
+   "name": "Sorrizia",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "sorrow + whip"
+  },
+  {
+   "name": "Kyrylleara",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "blade + silk"
+  },
+  {
+   "name": "Kyrvessith",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "blade + blade"
+  },
+  {
+   "name": "Xanzarith",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "silk + fang"
+  },
+  {
+   "name": "Xanethara",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "silk + bitter"
+  },
+  {
+   "name": "Vharzarwen",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "shadow + fang"
+  },
+  {
+   "name": "Uthathia",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "deep + shade"
+  },
+  {
+   "name": "Xanethine",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "silk + bitter"
+  },
+  {
+   "name": "Ilvethine",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "web + bitter"
+  },
+  {
+   "name": "Kyrnazae",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "blade + night"
+  },
+  {
+   "name": "Zylxia",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "venom + ice"
+  },
+  {
+   "name": "Nyxothara",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "night + bone"
+  },
+  {
+   "name": "Ilvaelara",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "web + ember"
+  },
+  {
+   "name": "Rylaelwen",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "cruel + ember"
+  },
+  {
+   "name": "Rylxia",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "cruel + ice"
+  },
+  {
+   "name": "Xanylleae",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "silk + silk"
+  },
+  {
+   "name": "Kyraeline",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "blade + ember"
+  },
+  {
+   "name": "Drakyllewen",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "dark + silk"
+  },
+  {
+   "name": "Drakrizwen",
+   "type": "dark",
+   "gender": "female",
+   "meaning": "dark + whip"
+  },
+  {
+   "name": "Xanvessel",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "silk + blade"
+  },
+  {
+   "name": "Zylzarel",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "venom + fang"
+  },
+  {
+   "name": "Zylnazori",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "venom + night"
+  },
+  {
+   "name": "Nyxxiel",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "night + ice"
+  },
+  {
+   "name": "Ilvothen",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "web + bone"
+  },
+  {
+   "name": "Qualothen",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "spider + bone"
+  },
+  {
+   "name": "Xanethen",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "silk + bitter"
+  },
+  {
+   "name": "Nyxothis",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "night + bone"
+  },
+  {
+   "name": "Kyrathal",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "blade + shade"
+  },
+  {
+   "name": "Malylleis",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "spite + silk"
+  },
+  {
+   "name": "Ilvaelis",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "web + ember"
+  },
+  {
+   "name": "Nyxethis",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "night + bitter"
+  },
+  {
+   "name": "Vharzarae",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "shadow + fang"
+  },
+  {
+   "name": "Uthaelyr",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "deep + ember"
+  },
+  {
+   "name": "Nyxrizel",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "night + whip"
+  },
+  {
+   "name": "Rylethyr",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "cruel + bitter"
+  },
+  {
+   "name": "Uthathyr",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "deep + shade"
+  },
+  {
+   "name": "Xanaelyn",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "silk + ember"
+  },
+  {
+   "name": "Sorrethal",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "sorrow + bitter"
+  },
+  {
+   "name": "Mornazori",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "dusk + night"
+  },
+  {
+   "name": "Velaelyn",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "veil + ember"
+  },
+  {
+   "name": "Rylvessal",
+   "type": "dark",
+   "gender": "neutral",
+   "meaning": "cruel + blade"
+  },
+  {
+   "name": "Marrisar",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "sea + ripple"
+  },
+  {
+   "name": "Syrorail",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "song + horizon"
+  },
+  {
+   "name": "Ulaunaion",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "foam + undertow"
+  },
+  {
+   "name": "Saeleveis",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "salt + voyage"
+  },
+  {
+   "name": "Finalais",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "fin + rain"
+  },
+  {
+   "name": "Pelloil",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "pearl + sound"
+  },
+  {
+   "name": "Mardoreth",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "sea + anchor"
+  },
+  {
+   "name": "Ulaloar",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "foam + sound"
+  },
+  {
+   "name": "Ondoraor",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "current + horizon"
+  },
+  {
+   "name": "Saelevear",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "salt + voyage"
+  },
+  {
+   "name": "Pelmaran",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "pearl + harbour"
+  },
+  {
+   "name": "Naelwynis",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "wave + blue"
+  },
+  {
+   "name": "Mardorion",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "sea + anchor"
+  },
+  {
+   "name": "Pelaeion",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "pearl + wind"
+  },
+  {
+   "name": "Lirmaril",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "gull + harbour"
+  },
+  {
+   "name": "Pelsylan",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "pearl + glimmer"
+  },
+  {
+   "name": "Lirwynar",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "gull + blue"
+  },
+  {
+   "name": "Syritheth",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "song + drift"
+  },
+  {
+   "name": "Misithil",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "mist + drift"
+  },
+  {
+   "name": "Fineveis",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "fin + voyage"
+  },
+  {
+   "name": "Saeldorir",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "salt + anchor"
+  },
+  {
+   "name": "Finithion",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "fin + drift"
+  },
+  {
+   "name": "Finmaran",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "fin + harbour"
+  },
+  {
+   "name": "Marloil",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "sea + sound"
+  },
+  {
+   "name": "Nereithar",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "deep + drift"
+  },
+  {
+   "name": "Syrmarir",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "song + harbour"
+  },
+  {
+   "name": "Syrsylor",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "song + glimmer"
+  },
+  {
+   "name": "Pelloeth",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "pearl + sound"
+  },
+  {
+   "name": "Misdorar",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "mist + anchor"
+  },
+  {
+   "name": "Nereoraor",
+   "type": "sea",
+   "gender": "male",
+   "meaning": "deep + horizon"
+  },
+  {
+   "name": "Ularisae",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "foam + ripple"
+  },
+  {
+   "name": "Pelloa",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "pearl + sound"
+  },
+  {
+   "name": "Misdoriel",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "mist + anchor"
+  },
+  {
+   "name": "Liraeiel",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "gull + wind"
+  },
+  {
+   "name": "Finunaith",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "fin + undertow"
+  },
+  {
+   "name": "Thaldora",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "tide + anchor"
+  },
+  {
+   "name": "Saelrisara",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "salt + ripple"
+  },
+  {
+   "name": "Triunaia",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "shell + undertow"
+  },
+  {
+   "name": "Oshaeia",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "ocean + wind"
+  },
+  {
+   "name": "Pelwynine",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "pearl + blue"
+  },
+  {
+   "name": "Naelaewen",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "wave + wind"
+  },
+  {
+   "name": "Finrisara",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "fin + ripple"
+  },
+  {
+   "name": "Trioraith",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "shell + horizon"
+  },
+  {
+   "name": "Naelaeia",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "wave + wind"
+  },
+  {
+   "name": "Syroraia",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "song + horizon"
+  },
+  {
+   "name": "Ulawynae",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "foam + blue"
+  },
+  {
+   "name": "Misoraine",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "mist + horizon"
+  },
+  {
+   "name": "Aquaea",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "water + wind"
+  },
+  {
+   "name": "Oshunaith",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "ocean + undertow"
+  },
+  {
+   "name": "Aqurisiel",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "water + ripple"
+  },
+  {
+   "name": "Misloa",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "mist + sound"
+  },
+  {
+   "name": "Saelriswen",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "salt + ripple"
+  },
+  {
+   "name": "Finithara",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "fin + drift"
+  },
+  {
+   "name": "Ondunaine",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "current + undertow"
+  },
+  {
+   "name": "Ulawyniel",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "foam + blue"
+  },
+  {
+   "name": "Marloae",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "sea + sound"
+  },
+  {
+   "name": "Naelloia",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "wave + sound"
+  },
+  {
+   "name": "Syrunaith",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "song + undertow"
+  },
+  {
+   "name": "Marwyniel",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "sea + blue"
+  },
+  {
+   "name": "Ulaloith",
+   "type": "sea",
+   "gender": "female",
+   "meaning": "foam + sound"
+  },
+  {
+   "name": "Finsylyr",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "fin + glimmer"
+  },
+  {
+   "name": "Coraeveae",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "coral + voyage"
+  },
+  {
+   "name": "Oshalais",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "ocean + rain"
+  },
+  {
+   "name": "Corawynal",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "coral + blue"
+  },
+  {
+   "name": "Osheveal",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "ocean + voyage"
+  },
+  {
+   "name": "Pelwynal",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "pearl + blue"
+  },
+  {
+   "name": "Naeldoren",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "wave + anchor"
+  },
+  {
+   "name": "Aquithyn",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "water + drift"
+  },
+  {
+   "name": "Trioraen",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "shell + horizon"
+  },
+  {
+   "name": "Maroraen",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "sea + horizon"
+  },
+  {
+   "name": "Saeleveae",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "salt + voyage"
+  },
+  {
+   "name": "Syraeyr",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "song + wind"
+  },
+  {
+   "name": "Naelsylen",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "wave + glimmer"
+  },
+  {
+   "name": "Ularisyn",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "foam + ripple"
+  },
+  {
+   "name": "Findoris",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "fin + anchor"
+  },
+  {
+   "name": "Naelmaren",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "wave + harbour"
+  },
+  {
+   "name": "Saeldoryr",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "salt + anchor"
+  },
+  {
+   "name": "Saeleveyn",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "salt + voyage"
+  },
+  {
+   "name": "Naelloal",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "wave + sound"
+  },
+  {
+   "name": "Nereithyr",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "deep + drift"
+  },
+  {
+   "name": "Trimarae",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "shell + harbour"
+  },
+  {
+   "name": "Maralael",
+   "type": "sea",
+   "gender": "neutral",
+   "meaning": "sea + rain"
+  }
+ ],
+ "surnames": [
+  {
+   "name": "Silverspire",
+   "type": "high",
+   "meaning": "those who raised the first spire of silver"
+  },
+  {
+   "name": "Dawnwarden",
+   "type": "high",
+   "meaning": "keepers of the first light"
+  },
+  {
+   "name": "Starmantle",
+   "type": "high",
+   "meaning": "cloaked in starlight, an old scholar line"
+  },
+  {
+   "name": "Goldenvale",
+   "type": "high",
+   "meaning": "rulers of a sun-gilded valley"
+  },
+  {
+   "name": "Moonwhisper",
+   "type": "high",
+   "meaning": "those who hear the moon speak"
+  },
+  {
+   "name": "Brightlance",
+   "type": "high",
+   "meaning": "a family of famed spear-masters"
+  },
+  {
+   "name": "Evenglade",
+   "type": "high",
+   "meaning": "lords of a glade that stays in twilight"
+  },
+  {
+   "name": "Amberhall",
+   "type": "high",
+   "meaning": "builders of the amber-glass hall"
+  },
+  {
+   "name": "Crownweaver",
+   "type": "high",
+   "meaning": "makers of the old kings' circlets"
+  },
+  {
+   "name": "Highsong",
+   "type": "high",
+   "meaning": "singers of the ancient hymns"
+  },
+  {
+   "name": "Sunharbor",
+   "type": "high",
+   "meaning": "wardens of a sun-warm harbour"
+  },
+  {
+   "name": "Lightbinder",
+   "type": "high",
+   "meaning": "mages who bind light into wards"
+  },
+  {
+   "name": "Silvermere",
+   "type": "high",
+   "meaning": "from the silver lake of memory"
+  },
+  {
+   "name": "Ithilcrest",
+   "type": "high",
+   "meaning": "bearers of the moon-crest banner"
+  },
+  {
+   "name": "Aureleth",
+   "type": "high",
+   "meaning": "the golden ones, in the old tongue"
+  },
+  {
+   "name": "Valorwind",
+   "type": "high",
+   "meaning": "riders of the high winds"
+  },
+  {
+   "name": "Elderquill",
+   "type": "high",
+   "meaning": "scribes of the first records"
+  },
+  {
+   "name": "Gladehelm",
+   "type": "high",
+   "meaning": "wearers of the green-gold helm"
+  },
+  {
+   "name": "Dawnspire",
+   "type": "high",
+   "meaning": "from the tower that catches sunrise"
+  },
+  {
+   "name": "Sunthorn",
+   "type": "high",
+   "meaning": "proud, golden and sharp-tongued"
+  },
+  {
+   "name": "Starfallow",
+   "type": "high",
+   "meaning": "keepers of the field where a star fell"
+  },
+  {
+   "name": "Argentine",
+   "type": "high",
+   "meaning": "silver-bright, old nobility"
+  },
+  {
+   "name": "Lumenvale",
+   "type": "high",
+   "meaning": "from the valley of lamps"
+  },
+  {
+   "name": "Oakenstar",
+   "type": "high",
+   "meaning": "an ancient line of oak and starlight"
+  },
+  {
+   "name": "Everbright",
+   "type": "high",
+   "meaning": "their banners never fade"
+  },
+  {
+   "name": "Moonspire",
+   "type": "high",
+   "meaning": "builders of the white spire of the moon"
+  },
+  {
+   "name": "Silkenwing",
+   "type": "high",
+   "meaning": "envoys known for gentle manners"
+  },
+  {
+   "name": "Celestine",
+   "type": "high",
+   "meaning": "of the sky, scholars of the heavens"
+  },
+  {
+   "name": "Wintersong",
+   "type": "high",
+   "meaning": "singers of the long-night chants"
+  },
+  {
+   "name": "Mirrorlake",
+   "type": "high",
+   "meaning": "seers who read the still water"
+  },
+  {
+   "name": "Highmorrow",
+   "type": "high",
+   "meaning": "those who always look to tomorrow"
+  },
+  {
+   "name": "Radiantblade",
+   "type": "high",
+   "meaning": "swordmasters of the sun-court"
+  },
+  {
+   "name": "Whitebriar",
+   "type": "high",
+   "meaning": "white roses on a thorned old shield"
+  },
+  {
+   "name": "Gloamgold",
+   "type": "high",
+   "meaning": "the gold of evening light"
+  },
+  {
+   "name": "Heliodor",
+   "type": "high",
+   "meaning": "sun-gift, a house of artists"
+  },
+  {
+   "name": "Tirellan",
+   "type": "high",
+   "meaning": "from the first city on the shore of morning"
+  },
+  {
+   "name": "Starwarden",
+   "type": "high",
+   "meaning": "watchers of the night sky"
+  },
+  {
+   "name": "Lorewhisper",
+   "type": "high",
+   "meaning": "memory-keepers of the elders"
+  },
+  {
+   "name": "Dayspring",
+   "type": "high",
+   "meaning": "the first light of the year"
+  },
+  {
+   "name": "Ashenlight",
+   "type": "high",
+   "meaning": "the glow after a sacred fire"
+  },
+  {
+   "name": "Solenne",
+   "type": "high",
+   "meaning": "solemn and silver, a priestly line"
+  },
+  {
+   "name": "Greenbough",
+   "type": "wood",
+   "meaning": "wanderers who sleep in the high branches"
+  },
+  {
+   "name": "Leafwhisper",
+   "type": "wood",
+   "meaning": "speak with the wind in the leaves"
+  },
+  {
+   "name": "Thornwalker",
+   "type": "wood",
+   "meaning": "guardians of the briar paths"
+  },
+  {
+   "name": "Fernhollow",
+   "type": "wood",
+   "meaning": "from a hollow hidden by ferns"
+  },
+  {
+   "name": "Oakenshield",
+   "type": "wood",
+   "meaning": "shield-bearers from the great oaks"
+  },
+  {
+   "name": "Mossfoot",
+   "type": "wood",
+   "meaning": "silent steps on soft moss"
+  },
+  {
+   "name": "Swiftarrow",
+   "type": "wood",
+   "meaning": "archers who never miss"
+  },
+  {
+   "name": "Brightwood",
+   "type": "wood",
+   "meaning": "keepers of the sunlit grove"
+  },
+  {
+   "name": "Rowanbrook",
+   "type": "wood",
+   "meaning": "from the red berries by the brook"
+  },
+  {
+   "name": "Willowmere",
+   "type": "wood",
+   "meaning": "dwellers by the weeping pool"
+  },
+  {
+   "name": "Stagrunner",
+   "type": "wood",
+   "meaning": "swift hunters of the white stag"
+  },
+  {
+   "name": "Dewglade",
+   "type": "wood",
+   "meaning": "from a glade that never dries"
+  },
+  {
+   "name": "Barkskin",
+   "type": "wood",
+   "meaning": "hardy rangers with tough hides"
+  },
+  {
+   "name": "Ivyhelm",
+   "type": "wood",
+   "meaning": "wearers of living leaf-crowns"
+  },
+  {
+   "name": "Hollowtree",
+   "type": "wood",
+   "meaning": "those born in a hollow oak"
+  },
+  {
+   "name": "Nightingale",
+   "type": "wood",
+   "meaning": "singers of the dark woods"
+  },
+  {
+   "name": "Quillfeather",
+   "type": "wood",
+   "meaning": "scouts who write with feathers"
+  },
+  {
+   "name": "Birchwind",
+   "type": "wood",
+   "meaning": "from the pale birch ridge"
+  },
+  {
+   "name": "Wildmeadow",
+   "type": "wood",
+   "meaning": "herders of the free meadows"
+  },
+  {
+   "name": "Silentstep",
+   "type": "wood",
+   "meaning": "trackers who leave no trace"
+  },
+  {
+   "name": "Fawnsong",
+   "type": "wood",
+   "meaning": "healers who calm wild creatures"
+  },
+  {
+   "name": "Cedarhall",
+   "type": "wood",
+   "meaning": "builders of the tree-hall"
+  },
+  {
+   "name": "Thistlewood",
+   "type": "wood",
+   "meaning": "prickly guardians of the border"
+  },
+  {
+   "name": "Foxglove",
+   "type": "wood",
+   "meaning": "cunning and bright, with a hidden sting"
+  },
+  {
+   "name": "Elmshadow",
+   "type": "wood",
+   "meaning": "dwellers in the cool shade"
+  },
+  {
+   "name": "Larkspur",
+   "type": "wood",
+   "meaning": "early risers, flower-bright"
+  },
+  {
+   "name": "Windrunner",
+   "type": "wood",
+   "meaning": "fast messengers of the canopy"
+  },
+  {
+   "name": "Brambleheart",
+   "type": "wood",
+   "meaning": "fierce, tangled and loyal"
+  },
+  {
+   "name": "Sagewood",
+   "type": "wood",
+   "meaning": "herbalists and wise elders"
+  },
+  {
+   "name": "Hazelbow",
+   "type": "wood",
+   "meaning": "bow-makers from the hazel grove"
+  },
+  {
+   "name": "Mistwillow",
+   "type": "wood",
+   "meaning": "from where the fog meets the willows"
+  },
+  {
+   "name": "Honeybark",
+   "type": "wood",
+   "meaning": "keepers of wild hives"
+  },
+  {
+   "name": "Wolfwhisper",
+   "type": "wood",
+   "meaning": "friends of the grey packs"
+  },
+  {
+   "name": "Glimmerleaf",
+   "type": "wood",
+   "meaning": "their leaves catch the light"
+  },
+  {
+   "name": "Riverbend",
+   "type": "wood",
+   "meaning": "scouts of the winding water"
+  },
+  {
+   "name": "Acorncrown",
+   "type": "wood",
+   "meaning": "chieftains of the oak clan"
+  },
+  {
+   "name": "Sprucewatch",
+   "type": "wood",
+   "meaning": "sentinels on the high pine"
+  },
+  {
+   "name": "Heartwood",
+   "type": "wood",
+   "meaning": "the strongest, oldest core of the forest"
+  },
+  {
+   "name": "Greycloak",
+   "type": "wood",
+   "meaning": "rangers hidden in plain sight"
+  },
+  {
+   "name": "Deepglen",
+   "type": "wood",
+   "meaning": "from the deepest green glen"
+  },
+  {
+   "name": "Nightveil",
+   "type": "dark",
+   "meaning": "those who weave darkness into clothing"
+  },
+  {
+   "name": "Shadowspire",
+   "type": "dark",
+   "meaning": "rulers of a black tower in the Underdark"
+  },
+  {
+   "name": "Venomkiss",
+   "type": "dark",
+   "meaning": "poisoners whose touch is deadly"
+  },
+  {
+   "name": "Duskblade",
+   "type": "dark",
+   "meaning": "assassins of the twilight"
+  },
+  {
+   "name": "Webweaver",
+   "type": "dark",
+   "meaning": "silk-spinners and schemers"
+  },
+  {
+   "name": "Voidwalker",
+   "type": "dark",
+   "meaning": "travellers of the lightless roads"
+  },
+  {
+   "name": "Ashenfang",
+   "type": "dark",
+   "meaning": "descendants of a burned city"
+  },
+  {
+   "name": "Drakmoor",
+   "type": "dark",
+   "meaning": "from the black moors"
+  },
+  {
+   "name": "Sablemantle",
+   "type": "dark",
+   "meaning": "nobles in dark velvet"
+  },
+  {
+   "name": "Cruelwhisper",
+   "type": "dark",
+   "meaning": "spies who trade in secrets"
+  },
+  {
+   "name": "Gloomthorn",
+   "type": "dark",
+   "meaning": "cursed thorns on a black coat of arms"
+  },
+  {
+   "name": "Nyxwood",
+   "type": "dark",
+   "meaning": "from a forest where the moon never rises"
+  },
+  {
+   "name": "Blackbriar",
+   "type": "dark",
+   "meaning": "poison roses on the family crest"
+  },
+  {
+   "name": "Silentdagger",
+   "type": "dark",
+   "meaning": "blades with no sound"
+  },
+  {
+   "name": "Ebonheart",
+   "type": "dark",
+   "meaning": "cold-hearted and fiercely proud"
+  },
+  {
+   "name": "Hollowgrave",
+   "type": "dark",
+   "meaning": "from the empty tombs below"
+  },
+  {
+   "name": "Midnightsong",
+   "type": "dark",
+   "meaning": "singers of dirges"
+  },
+  {
+   "name": "Shadowsilk",
+   "type": "dark",
+   "meaning": "fine weavers of cloaks that hide"
+  },
+  {
+   "name": "Cindervane",
+   "type": "dark",
+   "meaning": "ruined houses of burnt stone"
+  },
+  {
+   "name": "Nightbloom",
+   "type": "dark",
+   "meaning": "flowers that open in the dark"
+  },
+  {
+   "name": "Ravencrest",
+   "type": "dark",
+   "meaning": "wearers of black feathers"
+  },
+  {
+   "name": "Stormveil",
+   "type": "dark",
+   "meaning": "harbingers of the cavern tempests"
+  },
+  {
+   "name": "Ironwraith",
+   "type": "dark",
+   "meaning": "cold smiths of black iron"
+  },
+  {
+   "name": "Obsidian",
+   "type": "dark",
+   "meaning": "glassy and sharp, a house of blades"
+  },
+  {
+   "name": "Crimsonfang",
+   "type": "dark",
+   "meaning": "blood-red hunters"
+  },
+  {
+   "name": "Sorrowhelm",
+   "type": "dark",
+   "meaning": "their helm hides a long grief"
+  },
+  {
+   "name": "Thornveil",
+   "type": "dark",
+   "meaning": "thorns beneath the veil"
+  },
+  {
+   "name": "Mournshade",
+   "type": "dark",
+   "meaning": "mourners of a fallen house"
+  },
+  {
+   "name": "Gravewhisper",
+   "type": "dark",
+   "meaning": "speakers with the dead"
+  },
+  {
+   "name": "Darkvesper",
+   "type": "dark",
+   "meaning": "servants of the last bell"
+  },
+  {
+   "name": "Umberlake",
+   "type": "dark",
+   "meaning": "from the black underground lake"
+  },
+  {
+   "name": "Spiderstep",
+   "type": "dark",
+   "meaning": "climbers of cave walls"
+  },
+  {
+   "name": "Wraithmoor",
+   "type": "dark",
+   "meaning": "haunted heath dwellers"
+  },
+  {
+   "name": "Bloodsilk",
+   "type": "dark",
+   "meaning": "a family of poison-dyers"
+  },
+  {
+   "name": "Ashveil",
+   "type": "dark",
+   "meaning": "who hide behind smoke"
+  },
+  {
+   "name": "Nethermire",
+   "type": "dark",
+   "meaning": "from the lowest, darkest swamp"
+  },
+  {
+   "name": "Blightbloom",
+   "type": "dark",
+   "meaning": "ruin follows their garden"
+  },
+  {
+   "name": "Frostmaw",
+   "type": "dark",
+   "meaning": "cold-voiced pursuers"
+  },
+  {
+   "name": "Hexweaver",
+   "type": "dark",
+   "meaning": "curse-spinners of the old court"
+  },
+  {
+   "name": "Vesperfall",
+   "type": "dark",
+   "meaning": "the hour just after sunset"
+  },
+  {
+   "name": "Tidewhisper",
+   "type": "sea",
+   "meaning": "hear what the tide says"
+  },
+  {
+   "name": "Wavecrest",
+   "type": "sea",
+   "meaning": "riders of white-capped waves"
+  },
+  {
+   "name": "Pearldiver",
+   "type": "sea",
+   "meaning": "famed gatherers of deep pearls"
+  },
+  {
+   "name": "Seabreeze",
+   "type": "sea",
+   "meaning": "sailors of gentle winds"
+  },
+  {
+   "name": "Coralspire",
+   "type": "sea",
+   "meaning": "builders of the reef-tower"
+  },
+  {
+   "name": "Saltwind",
+   "type": "sea",
+   "meaning": "storm-bitten navigators"
+  },
+  {
+   "name": "Deepcurrent",
+   "type": "sea",
+   "meaning": "pilots of the abyssal streams"
+  },
+  {
+   "name": "Shellsong",
+   "type": "sea",
+   "meaning": "singers whose voices carry beneath waves"
+  },
+  {
+   "name": "Moonharbor",
+   "type": "sea",
+   "meaning": "keepers of the night harbour"
+  },
+  {
+   "name": "Foamrider",
+   "type": "sea",
+   "meaning": "swift surfers of the surf"
+  },
+  {
+   "name": "Driftwood",
+   "type": "sea",
+   "meaning": "wanderers with no fixed home"
+  },
+  {
+   "name": "Stormcaller",
+   "type": "sea",
+   "meaning": "summon tempests from the open sea"
+  },
+  {
+   "name": "Bluehorizon",
+   "type": "sea",
+   "meaning": "explorers looking for new shores"
+  },
+  {
+   "name": "Kelpwarden",
+   "type": "sea",
+   "meaning": "guardians of the underwater forest"
+  },
+  {
+   "name": "Nautilus",
+   "type": "sea",
+   "meaning": "spiral-minded scholars"
+  },
+  {
+   "name": "Mistmarine",
+   "type": "sea",
+   "meaning": "from the fog-bound isle"
+  },
+  {
+   "name": "Starlitwave",
+   "type": "sea",
+   "meaning": "navigate by night skies"
+  },
+  {
+   "name": "Anchorgrace",
+   "type": "sea",
+   "meaning": "steady, calm and loyal"
+  },
+  {
+   "name": "Silverfin",
+   "type": "sea",
+   "meaning": "swift as shoals"
+  },
+  {
+   "name": "Seaglass",
+   "type": "sea",
+   "meaning": "smoothed by years, bright and polished"
+  },
+  {
+   "name": "Brinewood",
+   "type": "sea",
+   "meaning": "ship-builders in salt-hardened timber"
+  },
+  {
+   "name": "Lagoonlight",
+   "type": "sea",
+   "meaning": "from the glowing lagoon"
+  },
+  {
+   "name": "Harborsong",
+   "type": "sea",
+   "meaning": "sing returning ships home"
+  },
+  {
+   "name": "Reefrunner",
+   "type": "sea",
+   "meaning": "know every hidden shoal"
+  },
+  {
+   "name": "Galewing",
+   "type": "sea",
+   "meaning": "sail in storms with white sails"
+  },
+  {
+   "name": "Siren",
+   "type": "sea",
+   "meaning": "their voices charm sailors"
+  },
+  {
+   "name": "Azurecrest",
+   "type": "sea",
+   "meaning": "with banners of sea-blue"
+  },
+  {
+   "name": "Tideborn",
+   "type": "sea",
+   "meaning": "born at the turning of the tide"
+  },
+  {
+   "name": "Opalshore",
+   "type": "sea",
+   "meaning": "keepers of the pale beach"
+  },
+  {
+   "name": "Seaspire",
+   "type": "sea",
+   "meaning": "from the lighthouse tower"
+  },
+  {
+   "name": "Wavebreaker",
+   "type": "sea",
+   "meaning": "strong against hardship"
+  },
+  {
+   "name": "Marlowe",
+   "type": "sea",
+   "meaning": "old coastal nobility"
+  },
+  {
+   "name": "Undertow",
+   "type": "sea",
+   "meaning": "quiet, dangerous and deep"
+  },
+  {
+   "name": "Gullwind",
+   "type": "sea",
+   "meaning": "scouts calling like seabirds"
+  },
+  {
+   "name": "Pelagic",
+   "type": "sea",
+   "meaning": "from the open ocean, never landed"
+  },
+  {
+   "name": "Sandpiper",
+   "type": "sea",
+   "meaning": "light-footed shore watchers"
+  },
+  {
+   "name": "Nereid",
+   "type": "sea",
+   "meaning": "descended from sea spirits"
+  },
+  {
+   "name": "Brightcoral",
+   "type": "sea",
+   "meaning": "colour-masters of the reef"
+  },
+  {
+   "name": "Frostwave",
+   "type": "sea",
+   "meaning": "sailors from the northern ice sea"
+  },
+  {
+   "name": "Sunkencrown",
+   "type": "sea",
+   "meaning": "heirs to a drowned kingdom"
+  }
+ ]
+}
