@@ -87,6 +87,8 @@ export interface GeneratorUIProps {
   layout?: "cards" | "list" | "tiles" | "words";
   /** Optional extra action rendered next to Copy, e.g. a link to a related tool. */
   footer?: React.ReactNode;
+  /** Also send the shared tool_use event when results are generated. */
+  trackToolUse?: boolean;
 }
 
 function readUrlState(filters: FilterGroup[], counts: number[], defaultCount: number) {
@@ -104,7 +106,7 @@ function readUrlState(filters: FilterGroup[], counts: number[], defaultCount: nu
 }
 
 export default function GeneratorUI(props: GeneratorUIProps) {
-  const { toolType, locale, strings, filters, counts, defaultCount, poolSize, generate, resolve, layout = "list" } = props;
+  const { toolType, locale, strings, filters, counts, defaultCount, poolSize, generate, resolve, layout = "list", trackToolUse = false } = props;
   const [state, setState] = useState<FilterState>(() =>
     Object.fromEntries(filters.map((g) => [g.id, [] as string[]])),
   );
@@ -148,7 +150,8 @@ export default function GeneratorUI(props: GeneratorUIProps) {
     setUsed(out.used);
     writeUrl(state, count, out.results);
     track("generate_success", { tool_type: toolType, result_count: out.results.length, result_source: "editorial_pool", locale });
-  }, [size, toolType, count, locale, generate, state, used, writeUrl]);
+    if (trackToolUse) track("tool_use", { tool_type: toolType, action: "generate", locale });
+  }, [size, toolType, count, locale, generate, state, used, writeUrl, trackToolUse]);
 
   const toggle = useCallback(
     (group: FilterGroup, value: string) => {

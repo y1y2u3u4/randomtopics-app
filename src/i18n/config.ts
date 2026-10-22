@@ -200,6 +200,16 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/impromptu-speech-topics/students",
   "/impromptu-speech-topics/funny",
   "/impromptu-speech-topics/1-minute",
+  "/fancy-text-generator",
+  "/cursed-text-generator",
+  "/glitch-text-generator",
+  "/weird-text-generator",
+  "/creepy-text-generator",
+  "/scary-text-generator",
+  "/strikethrough-text-generator",
+  "/subscript-generator",
+  "/username-generator",
+  "/city-name-generator",
 ]);
 
 /** Spanish-only editorial pages with no honest one-to-one English alternate. */
