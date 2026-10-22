@@ -1,0 +1,2926 @@
+{
+ "prefixes": [
+  {
+   "name": "Ash",
+   "theme": "pelt",
+   "look": "ash-grey coat"
+  },
+  {
+   "name": "Soot",
+   "theme": "pelt",
+   "look": "sooty dark fur"
+  },
+  {
+   "name": "Snow",
+   "theme": "pelt",
+   "look": "pure white pelt"
+  },
+  {
+   "name": "Ink",
+   "theme": "pelt",
+   "look": "jet-black coat"
+  },
+  {
+   "name": "Cream",
+   "theme": "pelt",
+   "look": "pale cream fur"
+  },
+  {
+   "name": "Ginger",
+   "theme": "pelt",
+   "look": "bright orange-red coat"
+  },
+  {
+   "name": "Russet",
+   "theme": "pelt",
+   "look": "rusty brown fur"
+  },
+  {
+   "name": "Tawny",
+   "theme": "pelt",
+   "look": "golden-brown coat"
+  },
+  {
+   "name": "Dusty",
+   "theme": "pelt",
+   "look": "dust-brown pelt"
+  },
+  {
+   "name": "Smoke",
+   "theme": "pelt",
+   "look": "smoky blue-grey fur"
+  },
+  {
+   "name": "Cinder",
+   "theme": "pelt",
+   "look": "charcoal fur flecked with grey"
+  },
+  {
+   "name": "Ivory",
+   "theme": "pelt",
+   "look": "creamy white coat"
+  },
+  {
+   "name": "Ebony",
+   "theme": "pelt",
+   "look": "deep black fur"
+  },
+  {
+   "name": "Amber",
+   "theme": "pelt",
+   "look": "warm yellow-orange eyes and coat"
+  },
+  {
+   "name": "Sandy",
+   "theme": "pelt",
+   "look": "pale sand-coloured fur"
+  },
+  {
+   "name": "Honey",
+   "theme": "pelt",
+   "look": "sweet golden fur"
+  },
+  {
+   "name": "Cocoa",
+   "theme": "pelt",
+   "look": "chocolate-brown coat"
+  },
+  {
+   "name": "Chestnut",
+   "theme": "pelt",
+   "look": "glossy red-brown fur"
+  },
+  {
+   "name": "Fawn",
+   "theme": "pelt",
+   "look": "soft light-brown coat"
+  },
+  {
+   "name": "Pearl",
+   "theme": "pelt",
+   "look": "shimmering pale grey fur"
+  },
+  {
+   "name": "Silver",
+   "theme": "pelt",
+   "look": "silvery grey pelt"
+  },
+  {
+   "name": "Golden",
+   "theme": "pelt",
+   "look": "gleaming gold fur"
+  },
+  {
+   "name": "Copper",
+   "theme": "pelt",
+   "look": "copper-red coat"
+  },
+  {
+   "name": "Bronze",
+   "theme": "pelt",
+   "look": "bronze-brown fur"
+  },
+  {
+   "name": "Rust",
+   "theme": "pelt",
+   "look": "orange-brown, like old iron"
+  },
+  {
+   "name": "Mocha",
+   "theme": "pelt",
+   "look": "coffee-brown fur"
+  },
+  {
+   "name": "Biscuit",
+   "theme": "pelt",
+   "look": "pale baked-brown coat"
+  },
+  {
+   "name": "Cinnamon",
+   "theme": "pelt",
+   "look": "spiced reddish-brown fur"
+  },
+  {
+   "name": "Pepper",
+   "theme": "pelt",
+   "look": "black flecks on grey fur"
+  },
+  {
+   "name": "Speckle",
+   "theme": "pelt",
+   "look": "small dots across the coat"
+  },
+  {
+   "name": "Freckle",
+   "theme": "pelt",
+   "look": "freckled nose and face"
+  },
+  {
+   "name": "Dapple",
+   "theme": "pelt",
+   "look": "patches of light and dark"
+  },
+  {
+   "name": "Patch",
+   "theme": "pelt",
+   "look": "a bold patch of colour"
+  },
+  {
+   "name": "Stripe",
+   "theme": "pelt",
+   "look": "a dark stripe down the back"
+  },
+  {
+   "name": "Tabby",
+   "theme": "pelt",
+   "look": "classic tabby markings"
+  },
+  {
+   "name": "Brindle",
+   "theme": "pelt",
+   "look": "streaked brown and black fur"
+  },
+  {
+   "name": "Mottle",
+   "theme": "pelt",
+   "look": "blotched, mixed colours"
+  },
+  {
+   "name": "Marble",
+   "theme": "pelt",
+   "look": "swirled grey and white"
+  },
+  {
+   "name": "Splash",
+   "theme": "pelt",
+   "look": "white splashed over dark fur"
+  },
+  {
+   "name": "Smudge",
+   "theme": "pelt",
+   "look": "a smudge of dark on the face"
+  },
+  {
+   "name": "Blotch",
+   "theme": "pelt",
+   "look": "large uneven patches"
+  },
+  {
+   "name": "Charcoal",
+   "theme": "pelt",
+   "look": "coal-dark fur"
+  },
+  {
+   "name": "Slate",
+   "theme": "pelt",
+   "look": "blue-grey like wet slate"
+  },
+  {
+   "name": "Sable",
+   "theme": "pelt",
+   "look": "rich dark brown-black fur"
+  },
+  {
+   "name": "Umber",
+   "theme": "pelt",
+   "look": "earthy dark brown coat"
+  },
+  {
+   "name": "Maple",
+   "theme": "pelt",
+   "look": "red-brown like autumn leaves"
+  },
+  {
+   "name": "Ochre",
+   "theme": "pelt",
+   "look": "yellow-brown earth tones"
+  },
+  {
+   "name": "Saffron",
+   "theme": "pelt",
+   "look": "vivid yellow-orange fur"
+  },
+  {
+   "name": "Wheat",
+   "theme": "pelt",
+   "look": "pale harvest-gold fur"
+  },
+  {
+   "name": "Straw",
+   "theme": "pelt",
+   "look": "dry yellow fur"
+  },
+  {
+   "name": "Oat",
+   "theme": "pelt",
+   "look": "soft beige coat"
+  },
+  {
+   "name": "Hazel",
+   "theme": "pelt",
+   "look": "nut-brown fur and green eyes"
+  },
+  {
+   "name": "Walnut",
+   "theme": "pelt",
+   "look": "dark nutty brown"
+  },
+  {
+   "name": "Almond",
+   "theme": "pelt",
+   "look": "pale warm tan fur"
+  },
+  {
+   "name": "Toast",
+   "theme": "pelt",
+   "look": "lightly browned golden fur"
+  },
+  {
+   "name": "Crimson",
+   "theme": "pelt",
+   "look": "deep red tint in the sun"
+  },
+  {
+   "name": "Mist",
+   "theme": "pelt",
+   "look": "pale grey, hard to see"
+  },
+  {
+   "name": "Pale",
+   "theme": "pelt",
+   "look": "washed-out light coat"
+  },
+  {
+   "name": "Dark",
+   "theme": "pelt",
+   "look": "the darkest cat in the litter"
+  },
+  {
+   "name": "Lilac",
+   "theme": "pelt",
+   "look": "soft purplish grey"
+  },
+  {
+   "name": "Spot",
+   "theme": "pelt",
+   "look": "one prominent spot"
+  },
+  {
+   "name": "Cloudy",
+   "theme": "pelt",
+   "look": "grey and white swirls"
+  },
+  {
+   "name": "Ghost",
+   "theme": "pelt",
+   "look": "near-white fur that seems to float"
+  },
+  {
+   "name": "Bleach",
+   "theme": "pelt",
+   "look": "sun-faded light fur"
+  },
+  {
+   "name": "Raisin",
+   "theme": "pelt",
+   "look": "dark reddish-brown fur"
+  },
+  {
+   "name": "Bramble",
+   "theme": "plant",
+   "look": "thorny, tangled brown fur"
+  },
+  {
+   "name": "Fern",
+   "theme": "plant",
+   "look": "soft green-brown tones"
+  },
+  {
+   "name": "Moss",
+   "theme": "plant",
+   "look": "mossy grey-green shade"
+  },
+  {
+   "name": "Heather",
+   "theme": "plant",
+   "look": "purple-tinged grey fur"
+  },
+  {
+   "name": "Clover",
+   "theme": "plant",
+   "look": "small and lucky"
+  },
+  {
+   "name": "Willow",
+   "theme": "plant",
+   "look": "slender and graceful"
+  },
+  {
+   "name": "Birch",
+   "theme": "plant",
+   "look": "white fur with dark flecks"
+  },
+  {
+   "name": "Oak",
+   "theme": "plant",
+   "look": "strong and sturdy"
+  },
+  {
+   "name": "Holly",
+   "theme": "plant",
+   "look": "sharp-tongued and bright"
+  },
+  {
+   "name": "Ivy",
+   "theme": "plant",
+   "look": "clinging, loyal"
+  },
+  {
+   "name": "Thistle",
+   "theme": "plant",
+   "look": "prickly fur and a spiky temper"
+  },
+  {
+   "name": "Nettle",
+   "theme": "plant",
+   "look": "stinging wit"
+  },
+  {
+   "name": "Dandelion",
+   "theme": "plant",
+   "look": "fluffy golden fur"
+  },
+  {
+   "name": "Daisy",
+   "theme": "plant",
+   "look": "cheerful and pale"
+  },
+  {
+   "name": "Poppy",
+   "theme": "plant",
+   "look": "vivid red-orange coat"
+  },
+  {
+   "name": "Lily",
+   "theme": "plant",
+   "look": "elegant white fur"
+  },
+  {
+   "name": "Rose",
+   "theme": "plant",
+   "look": "red-pink nose, thorny pride"
+  },
+  {
+   "name": "Violet",
+   "theme": "plant",
+   "look": "purple-blue shadow in the fur"
+  },
+  {
+   "name": "Primrose",
+   "theme": "plant",
+   "look": "pale yellow fur"
+  },
+  {
+   "name": "Sorrel",
+   "theme": "plant",
+   "look": "reddish leaf-brown coat"
+  },
+  {
+   "name": "Sage",
+   "theme": "plant",
+   "look": "grey-green and wise"
+  },
+  {
+   "name": "Basil",
+   "theme": "plant",
+   "look": "herbal green eyes"
+  },
+  {
+   "name": "Thyme",
+   "theme": "plant",
+   "look": "small and fragrant"
+  },
+  {
+   "name": "Mint",
+   "theme": "plant",
+   "look": "cool, fresh scent"
+  },
+  {
+   "name": "Reed",
+   "theme": "plant",
+   "look": "tall and thin"
+  },
+  {
+   "name": "Rush",
+   "theme": "plant",
+   "look": "slender, quick-growing"
+  },
+  {
+   "name": "Sedge",
+   "theme": "plant",
+   "look": "tough, marsh-loving"
+  },
+  {
+   "name": "Bracken",
+   "theme": "plant",
+   "look": "rust-brown like dried ferns"
+  },
+  {
+   "name": "Gorse",
+   "theme": "plant",
+   "look": "bright yellow and prickly"
+  },
+  {
+   "name": "Briar",
+   "theme": "plant",
+   "look": "wild, thorny nature"
+  },
+  {
+   "name": "Elder",
+   "theme": "plant",
+   "look": "old, calm and wise"
+  },
+  {
+   "name": "Alder",
+   "theme": "plant",
+   "look": "dark, water-loving tree"
+  },
+  {
+   "name": "Aspen",
+   "theme": "plant",
+   "look": "trembling, quick to startle"
+  },
+  {
+   "name": "Cedar",
+   "theme": "plant",
+   "look": "red-brown and fragrant"
+  },
+  {
+   "name": "Pine",
+   "theme": "plant",
+   "look": "tall and evergreen"
+  },
+  {
+   "name": "Spruce",
+   "theme": "plant",
+   "look": "dark green, neat"
+  },
+  {
+   "name": "Beech",
+   "theme": "plant",
+   "look": "smooth silvery bark"
+  },
+  {
+   "name": "Rowan",
+   "theme": "plant",
+   "look": "red berries, bright eyes"
+  },
+  {
+   "name": "Juniper",
+   "theme": "plant",
+   "look": "blue-grey berries"
+  },
+  {
+   "name": "Acorn",
+   "theme": "plant",
+   "look": "small, round and brown"
+  },
+  {
+   "name": "Sprout",
+   "theme": "plant",
+   "look": "newly grown, hopeful"
+  },
+  {
+   "name": "Seed",
+   "theme": "plant",
+   "look": "small with great potential"
+  },
+  {
+   "name": "Petal",
+   "theme": "plant",
+   "look": "soft and delicate"
+  },
+  {
+   "name": "Blossom",
+   "theme": "plant",
+   "look": "pink-white spring fur"
+  },
+  {
+   "name": "Bloom",
+   "theme": "plant",
+   "look": "flowering, bright"
+  },
+  {
+   "name": "Leaf",
+   "theme": "plant",
+   "look": "green-eyed and light"
+  },
+  {
+   "name": "Twig",
+   "theme": "plant",
+   "look": "thin and wiry"
+  },
+  {
+   "name": "Branch",
+   "theme": "plant",
+   "look": "long-limbed climber"
+  },
+  {
+   "name": "Root",
+   "theme": "plant",
+   "look": "grounded, steady"
+  },
+  {
+   "name": "Bark",
+   "theme": "plant",
+   "look": "rough, tough fur"
+  },
+  {
+   "name": "Mulberry",
+   "theme": "plant",
+   "look": "deep purple-red tones"
+  },
+  {
+   "name": "Sunflower",
+   "theme": "plant",
+   "look": "tall with golden fur"
+  },
+  {
+   "name": "Meadow",
+   "theme": "plant",
+   "look": "wide-eyed, grass-green gaze"
+  },
+  {
+   "name": "Lavender",
+   "theme": "plant",
+   "look": "soft violet-grey"
+  },
+  {
+   "name": "Marigold",
+   "theme": "plant",
+   "look": "orange flower-bright coat"
+  },
+  {
+   "name": "Tansy",
+   "theme": "plant",
+   "look": "yellow flowers, bitter bite"
+  },
+  {
+   "name": "Yarrow",
+   "theme": "plant",
+   "look": "healing herb, steady"
+  },
+  {
+   "name": "Burdock",
+   "theme": "plant",
+   "look": "clinging, stubborn"
+  },
+  {
+   "name": "Foxglove",
+   "theme": "plant",
+   "look": "tall and purple-spotted"
+  },
+  {
+   "name": "Wisteria",
+   "theme": "plant",
+   "look": "trailing violet shadows"
+  },
+  {
+   "name": "Gentle",
+   "theme": "plant",
+   "look": "soft-spoken, calm"
+  },
+  {
+   "name": "River",
+   "theme": "water",
+   "look": "flowing, swift movement"
+  },
+  {
+   "name": "Stream",
+   "theme": "water",
+   "look": "quick and bubbly"
+  },
+  {
+   "name": "Brook",
+   "theme": "water",
+   "look": "small, chattering voice"
+  },
+  {
+   "name": "Creek",
+   "theme": "water",
+   "look": "narrow, winding"
+  },
+  {
+   "name": "Pool",
+   "theme": "water",
+   "look": "calm, deep eyes"
+  },
+  {
+   "name": "Pond",
+   "theme": "water",
+   "look": "still, patient"
+  },
+  {
+   "name": "Lake",
+   "theme": "water",
+   "look": "wide and quiet"
+  },
+  {
+   "name": "Marsh",
+   "theme": "water",
+   "look": "muddy paws"
+  },
+  {
+   "name": "Mud",
+   "theme": "water",
+   "look": "always dirty"
+  },
+  {
+   "name": "Fog",
+   "theme": "water",
+   "look": "grey and drifting"
+  },
+  {
+   "name": "Dew",
+   "theme": "water",
+   "look": "glittering with morning drops"
+  },
+  {
+   "name": "Rain",
+   "theme": "water",
+   "look": "quiet grey fur"
+  },
+  {
+   "name": "Drizzle",
+   "theme": "water",
+   "look": "light, steady drizzle"
+  },
+  {
+   "name": "Ripple",
+   "theme": "water",
+   "look": "small spreading waves"
+  },
+  {
+   "name": "Wave",
+   "theme": "water",
+   "look": "rolling gait"
+  },
+  {
+   "name": "Tide",
+   "theme": "water",
+   "look": "comes and goes"
+  },
+  {
+   "name": "Current",
+   "theme": "water",
+   "look": "strong and swift"
+  },
+  {
+   "name": "Rapid",
+   "theme": "water",
+   "look": "fast and noisy"
+  },
+  {
+   "name": "Eddy",
+   "theme": "water",
+   "look": "swirling, restless"
+  },
+  {
+   "name": "Cascade",
+   "theme": "water",
+   "look": "tumbling like a waterfall"
+  },
+  {
+   "name": "Spring",
+   "theme": "water",
+   "look": "bubbling fresh water"
+  },
+  {
+   "name": "Well",
+   "theme": "water",
+   "look": "deep and steady"
+  },
+  {
+   "name": "Puddle",
+   "theme": "water",
+   "look": "small but splashy"
+  },
+  {
+   "name": "Frost",
+   "theme": "water",
+   "look": "cold and white"
+  },
+  {
+   "name": "Ice",
+   "theme": "water",
+   "look": "cold stare"
+  },
+  {
+   "name": "Icicle",
+   "theme": "water",
+   "look": "sharp and long"
+  },
+  {
+   "name": "Sleet",
+   "theme": "water",
+   "look": "icy and fast"
+  },
+  {
+   "name": "Hail",
+   "theme": "water",
+   "look": "hard, sudden strikes"
+  },
+  {
+   "name": "Shore",
+   "theme": "water",
+   "look": "waits at the edge"
+  },
+  {
+   "name": "Pebble",
+   "theme": "water",
+   "look": "small and smooth"
+  },
+  {
+   "name": "Shell",
+   "theme": "water",
+   "look": "hard outer shell"
+  },
+  {
+   "name": "Reedy",
+   "theme": "water",
+   "look": "marsh-grass tones"
+  },
+  {
+   "name": "Minnow",
+   "theme": "water",
+   "look": "tiny, quick swimmer"
+  },
+  {
+   "name": "Trout",
+   "theme": "water",
+   "look": "speckled, silver"
+  },
+  {
+   "name": "Salmon",
+   "theme": "water",
+   "look": "pink-orange fur"
+  },
+  {
+   "name": "Perch",
+   "theme": "water",
+   "look": "striped like a fish"
+  },
+  {
+   "name": "Pike",
+   "theme": "water",
+   "look": "long, sharp teeth"
+  },
+  {
+   "name": "Carp",
+   "theme": "water",
+   "look": "slow, bulky swimmer"
+  },
+  {
+   "name": "Otter",
+   "theme": "water",
+   "look": "sleek and playful"
+  },
+  {
+   "name": "Heron",
+   "theme": "water",
+   "look": "long-legged fisher"
+  },
+  {
+   "name": "Kingfisher",
+   "theme": "water",
+   "look": "bright blue flash"
+  },
+  {
+   "name": "Lagoon",
+   "theme": "water",
+   "look": "blue-green eyes"
+  },
+  {
+   "name": "Bay",
+   "theme": "water",
+   "look": "sheltered, loyal"
+  },
+  {
+   "name": "Delta",
+   "theme": "water",
+   "look": "branching and wide"
+  },
+  {
+   "name": "Glacier",
+   "theme": "water",
+   "look": "slow, heavy, cold"
+  },
+  {
+   "name": "Rill",
+   "theme": "water",
+   "look": "a thin silver trickle"
+  },
+  {
+   "name": "Gully",
+   "theme": "water",
+   "look": "narrow and steep"
+  },
+  {
+   "name": "Mire",
+   "theme": "water",
+   "look": "sticky bog"
+  },
+  {
+   "name": "Fen",
+   "theme": "water",
+   "look": "wet grassland"
+  },
+  {
+   "name": "Bog",
+   "theme": "water",
+   "look": "dark and damp"
+  },
+  {
+   "name": "Moor",
+   "theme": "water",
+   "look": "wild open land"
+  },
+  {
+   "name": "Cloudburst",
+   "theme": "water",
+   "look": "sudden and loud"
+  },
+  {
+   "name": "Torrent",
+   "theme": "water",
+   "look": "rushing, forceful"
+  },
+  {
+   "name": "Flood",
+   "theme": "water",
+   "look": "overwhelming"
+  },
+  {
+   "name": "Dripping",
+   "theme": "water",
+   "look": "always wet"
+  },
+  {
+   "name": "Swamp",
+   "theme": "water",
+   "look": "green-brown coat"
+  },
+  {
+   "name": "Watercress",
+   "theme": "water",
+   "look": "peppery green"
+  },
+  {
+   "name": "Cattail",
+   "theme": "water",
+   "look": "brown, fluffy tip"
+  },
+  {
+   "name": "Storm",
+   "theme": "sky",
+   "look": "dark and thunderous"
+  },
+  {
+   "name": "Thunder",
+   "theme": "sky",
+   "look": "booming voice"
+  },
+  {
+   "name": "Lightning",
+   "theme": "sky",
+   "look": "flash-fast"
+  },
+  {
+   "name": "Wind",
+   "theme": "sky",
+   "look": "swift and restless"
+  },
+  {
+   "name": "Breeze",
+   "theme": "sky",
+   "look": "light and easy-going"
+  },
+  {
+   "name": "Gale",
+   "theme": "sky",
+   "look": "strong and forceful"
+  },
+  {
+   "name": "Cloud",
+   "theme": "sky",
+   "look": "fluffy grey fur"
+  },
+  {
+   "name": "Sky",
+   "theme": "sky",
+   "look": "blue-eyed"
+  },
+  {
+   "name": "Sun",
+   "theme": "sky",
+   "look": "warm golden glow"
+  },
+  {
+   "name": "Moon",
+   "theme": "sky",
+   "look": "silver-white fur"
+  },
+  {
+   "name": "Star",
+   "theme": "sky",
+   "look": "bright and guiding"
+  },
+  {
+   "name": "Comet",
+   "theme": "sky",
+   "look": "streaks across the sky"
+  },
+  {
+   "name": "Dawn",
+   "theme": "sky",
+   "look": "first light of day"
+  },
+  {
+   "name": "Dusk",
+   "theme": "sky",
+   "look": "grey in the evening"
+  },
+  {
+   "name": "Twilight",
+   "theme": "sky",
+   "look": "soft purple shade"
+  },
+  {
+   "name": "Night",
+   "theme": "sky",
+   "look": "darkest of the litter"
+  },
+  {
+   "name": "Midnight",
+   "theme": "sky",
+   "look": "deep black"
+  },
+  {
+   "name": "Morning",
+   "theme": "sky",
+   "look": "early riser"
+  },
+  {
+   "name": "Evening",
+   "theme": "sky",
+   "look": "calm and quiet"
+  },
+  {
+   "name": "Shadow",
+   "theme": "sky",
+   "look": "silent and dark"
+  },
+  {
+   "name": "Eclipse",
+   "theme": "sky",
+   "look": "half in shadow"
+  },
+  {
+   "name": "Aurora",
+   "theme": "sky",
+   "look": "colourful shimmer"
+  },
+  {
+   "name": "Rainbow",
+   "theme": "sky",
+   "look": "many colours"
+  },
+  {
+   "name": "Halo",
+   "theme": "sky",
+   "look": "ring of pale light"
+  },
+  {
+   "name": "Sunbeam",
+   "theme": "sky",
+   "look": "golden stripe of light"
+  },
+  {
+   "name": "Starlight",
+   "theme": "sky",
+   "look": "sparkle in the fur"
+  },
+  {
+   "name": "Moonlight",
+   "theme": "sky",
+   "look": "pale glow in the dark"
+  },
+  {
+   "name": "Sunrise",
+   "theme": "sky",
+   "look": "red-orange fur"
+  },
+  {
+   "name": "Sunset",
+   "theme": "sky",
+   "look": "warm orange and pink"
+  },
+  {
+   "name": "Zephyr",
+   "theme": "sky",
+   "look": "gentle west wind"
+  },
+  {
+   "name": "Tempest",
+   "theme": "sky",
+   "look": "wild and fierce"
+  },
+  {
+   "name": "Squall",
+   "theme": "sky",
+   "look": "sudden and sharp"
+  },
+  {
+   "name": "Blizzard",
+   "theme": "sky",
+   "look": "white swirling fur"
+  },
+  {
+   "name": "Snowfall",
+   "theme": "sky",
+   "look": "soft and quiet"
+  },
+  {
+   "name": "Flurry",
+   "theme": "sky",
+   "look": "small bursts of white"
+  },
+  {
+   "name": "Raindrop",
+   "theme": "sky",
+   "look": "tiny and bright"
+  },
+  {
+   "name": "Mistral",
+   "theme": "sky",
+   "look": "cold, dry wind"
+  },
+  {
+   "name": "Hurricane",
+   "theme": "sky",
+   "look": "spinning, powerful"
+  },
+  {
+   "name": "Vapor",
+   "theme": "sky",
+   "look": "thin and floating"
+  },
+  {
+   "name": "Haze",
+   "theme": "sky",
+   "look": "blurry grey"
+  },
+  {
+   "name": "Gleam",
+   "theme": "sky",
+   "look": "shining bright"
+  },
+  {
+   "name": "Flash",
+   "theme": "sky",
+   "look": "quick as light"
+  },
+  {
+   "name": "Spark",
+   "theme": "sky",
+   "look": "small but fiery"
+  },
+  {
+   "name": "Glimmer",
+   "theme": "sky",
+   "look": "faint shine"
+  },
+  {
+   "name": "Shimmer",
+   "theme": "sky",
+   "look": "trembling light"
+  },
+  {
+   "name": "Twinkle",
+   "theme": "sky",
+   "look": "small bright eyes"
+  },
+  {
+   "name": "Orion",
+   "theme": "sky",
+   "look": "hunter of the stars"
+  },
+  {
+   "name": "Nova",
+   "theme": "sky",
+   "look": "sudden bright burst"
+  },
+  {
+   "name": "Galaxy",
+   "theme": "sky",
+   "look": "swirling many-coloured fur"
+  },
+  {
+   "name": "Meteor",
+   "theme": "sky",
+   "look": "fast and fierce"
+  },
+  {
+   "name": "Horizon",
+   "theme": "sky",
+   "look": "far-seeing"
+  },
+  {
+   "name": "Cirrus",
+   "theme": "sky",
+   "look": "thin, wispy fur"
+  },
+  {
+   "name": "Cumulus",
+   "theme": "sky",
+   "look": "puffy and soft"
+  },
+  {
+   "name": "Stratus",
+   "theme": "sky",
+   "look": "flat, wide, grey"
+  },
+  {
+   "name": "Skylark",
+   "theme": "sky",
+   "look": "cheerful singer"
+  },
+  {
+   "name": "Swift",
+   "theme": "sky",
+   "look": "fast like the bird"
+  },
+  {
+   "name": "Dewdrop",
+   "theme": "sky",
+   "look": "bright morning eyes"
+  },
+  {
+   "name": "Daybreak",
+   "theme": "sky",
+   "look": "rises early"
+  },
+  {
+   "name": "Nightfall",
+   "theme": "sky",
+   "look": "comes out at dark"
+  },
+  {
+   "name": "Frostbite",
+   "theme": "sky",
+   "look": "icy bite"
+  },
+  {
+   "name": "Snowdrift",
+   "theme": "sky",
+   "look": "white and piled"
+  },
+  {
+   "name": "Ember",
+   "theme": "fire",
+   "look": "glowing orange coat"
+  },
+  {
+   "name": "Flame",
+   "theme": "fire",
+   "look": "bright, flickering fur"
+  },
+  {
+   "name": "Blaze",
+   "theme": "fire",
+   "look": "fiery, bold and hot"
+  },
+  {
+   "name": "Fire",
+   "theme": "fire",
+   "look": "hot-blooded"
+  },
+  {
+   "name": "Torch",
+   "theme": "fire",
+   "look": "lights the way"
+  },
+  {
+   "name": "Scorch",
+   "theme": "fire",
+   "look": "burnt-brown tips"
+  },
+  {
+   "name": "Singe",
+   "theme": "fire",
+   "look": "slightly charred fur"
+  },
+  {
+   "name": "Smolder",
+   "theme": "fire",
+   "look": "quiet, burning anger"
+  },
+  {
+   "name": "Flare",
+   "theme": "fire",
+   "look": "sudden burst of colour"
+  },
+  {
+   "name": "Inferno",
+   "theme": "fire",
+   "look": "fierce and fearless"
+  },
+  {
+   "name": "Pyre",
+   "theme": "fire",
+   "look": "tall and bright"
+  },
+  {
+   "name": "Kindle",
+   "theme": "fire",
+   "look": "starts new ideas"
+  },
+  {
+   "name": "Hearth",
+   "theme": "fire",
+   "look": "warm and welcoming"
+  },
+  {
+   "name": "Flicker",
+   "theme": "fire",
+   "look": "restless, unsteady light"
+  },
+  {
+   "name": "Glow",
+   "theme": "fire",
+   "look": "soft warm light"
+  },
+  {
+   "name": "Heat",
+   "theme": "fire",
+   "look": "burning energy"
+  },
+  {
+   "name": "Sizzle",
+   "theme": "fire",
+   "look": "crackling energy"
+  },
+  {
+   "name": "Crackle",
+   "theme": "fire",
+   "look": "loud and lively"
+  },
+  {
+   "name": "Brand",
+   "theme": "fire",
+   "look": "marked like a burn"
+  },
+  {
+   "name": "Coal",
+   "theme": "fire",
+   "look": "dark and glowing"
+  },
+  {
+   "name": "Furnace",
+   "theme": "fire",
+   "look": "strong and hot"
+  },
+  {
+   "name": "Lava",
+   "theme": "fire",
+   "look": "orange-red molten fur"
+  },
+  {
+   "name": "Magma",
+   "theme": "fire",
+   "look": "dark red beneath"
+  },
+  {
+   "name": "Volcano",
+   "theme": "fire",
+   "look": "explosive temper"
+  },
+  {
+   "name": "Phoenix",
+   "theme": "fire",
+   "look": "rises from defeat"
+  },
+  {
+   "name": "Fury",
+   "theme": "fire",
+   "look": "strong anger"
+  },
+  {
+   "name": "Rage",
+   "theme": "fire",
+   "look": "fierce temper"
+  },
+  {
+   "name": "Ruby",
+   "theme": "fire",
+   "look": "deep red gleam"
+  },
+  {
+   "name": "Garnet",
+   "theme": "fire",
+   "look": "dark red shine"
+  },
+  {
+   "name": "Scarlet",
+   "theme": "fire",
+   "look": "bright red fur"
+  },
+  {
+   "name": "Vermilion",
+   "theme": "fire",
+   "look": "vivid red-orange"
+  },
+  {
+   "name": "Tangerine",
+   "theme": "fire",
+   "look": "orange as fruit"
+  },
+  {
+   "name": "Pumpkin",
+   "theme": "fire",
+   "look": "round orange fur"
+  },
+  {
+   "name": "Candle",
+   "theme": "fire",
+   "look": "small steady light"
+  },
+  {
+   "name": "Lantern",
+   "theme": "fire",
+   "look": "warm guiding glow"
+  },
+  {
+   "name": "Wick",
+   "theme": "fire",
+   "look": "thin, quick-burning"
+  },
+  {
+   "name": "Taper",
+   "theme": "fire",
+   "look": "long, thin flame"
+  },
+  {
+   "name": "Bonfire",
+   "theme": "fire",
+   "look": "big and loud"
+  },
+  {
+   "name": "Campfire",
+   "theme": "fire",
+   "look": "cosy, warm gathering"
+  },
+  {
+   "name": "Fireside",
+   "theme": "fire",
+   "look": "sits by the warmth"
+  },
+  {
+   "name": "Sunfire",
+   "theme": "fire",
+   "look": "golden-orange blaze"
+  },
+  {
+   "name": "Redhot",
+   "theme": "fire",
+   "look": "burning coat"
+  },
+  {
+   "name": "Burnt",
+   "theme": "fire",
+   "look": "dark brown, scorched"
+  },
+  {
+   "name": "Charred",
+   "theme": "fire",
+   "look": "dark, crisp edges"
+  },
+  {
+   "name": "Cindertail",
+   "theme": "fire",
+   "look": "sooty tail tip"
+  },
+  {
+   "name": "Ignite",
+   "theme": "fire",
+   "look": "starts the spark"
+  },
+  {
+   "name": "Wildfire",
+   "theme": "fire",
+   "look": "spreads fast"
+  },
+  {
+   "name": "Brimstone",
+   "theme": "fire",
+   "look": "yellow-red"
+  },
+  {
+   "name": "Poppyfire",
+   "theme": "fire",
+   "look": "red as a flame flower"
+  },
+  {
+   "name": "Emberlight",
+   "theme": "fire",
+   "look": "warm glow"
+  },
+  {
+   "name": "Roast",
+   "theme": "fire",
+   "look": "crisp brown fur"
+  },
+  {
+   "name": "Toasty",
+   "theme": "fire",
+   "look": "warm brown"
+  },
+  {
+   "name": "Stone",
+   "theme": "stone",
+   "look": "solid and steady"
+  },
+  {
+   "name": "Rock",
+   "theme": "stone",
+   "look": "strong as granite"
+  },
+  {
+   "name": "Boulder",
+   "theme": "stone",
+   "look": "big and heavy"
+  },
+  {
+   "name": "Cliff",
+   "theme": "stone",
+   "look": "tall and proud"
+  },
+  {
+   "name": "Crag",
+   "theme": "stone",
+   "look": "rugged and rough"
+  },
+  {
+   "name": "Ridge",
+   "theme": "stone",
+   "look": "long back, high spine"
+  },
+  {
+   "name": "Hill",
+   "theme": "stone",
+   "look": "gentle rise"
+  },
+  {
+   "name": "Mountain",
+   "theme": "stone",
+   "look": "enormous strength"
+  },
+  {
+   "name": "Canyon",
+   "theme": "stone",
+   "look": "deep and echoing"
+  },
+  {
+   "name": "Gorge",
+   "theme": "stone",
+   "look": "steep-sided"
+  },
+  {
+   "name": "Cave",
+   "theme": "stone",
+   "look": "dark hideaway"
+  },
+  {
+   "name": "Cavern",
+   "theme": "stone",
+   "look": "echoing voice"
+  },
+  {
+   "name": "Tunnel",
+   "theme": "stone",
+   "look": "slips through gaps"
+  },
+  {
+   "name": "Flint",
+   "theme": "stone",
+   "look": "sparks when struck"
+  },
+  {
+   "name": "Granite",
+   "theme": "stone",
+   "look": "grey and hard"
+  },
+  {
+   "name": "Shale",
+   "theme": "stone",
+   "look": "crumbling grey"
+  },
+  {
+   "name": "Gravel",
+   "theme": "stone",
+   "look": "rough, crunchy"
+  },
+  {
+   "name": "Sand",
+   "theme": "stone",
+   "look": "pale and shifting"
+  },
+  {
+   "name": "Dune",
+   "theme": "stone",
+   "look": "rolling sandy fur"
+  },
+  {
+   "name": "Clay",
+   "theme": "stone",
+   "look": "soft earth-brown"
+  },
+  {
+   "name": "Dirt",
+   "theme": "stone",
+   "look": "earthy and plain"
+  },
+  {
+   "name": "Dust",
+   "theme": "stone",
+   "look": "dry grey fur"
+  },
+  {
+   "name": "Quarry",
+   "theme": "stone",
+   "look": "rocky home"
+  },
+  {
+   "name": "Cairn",
+   "theme": "stone",
+   "look": "stacked stones for memory"
+  },
+  {
+   "name": "Scree",
+   "theme": "stone",
+   "look": "loose slope"
+  },
+  {
+   "name": "Talus",
+   "theme": "stone",
+   "look": "rocky slide"
+  },
+  {
+   "name": "Flagstone",
+   "theme": "stone",
+   "look": "flat and level"
+  },
+  {
+   "name": "Marl",
+   "theme": "stone",
+   "look": "pale earth"
+  },
+  {
+   "name": "Loam",
+   "theme": "stone",
+   "look": "rich dark soil"
+  },
+  {
+   "name": "Peat",
+   "theme": "stone",
+   "look": "dark brown fuel"
+  },
+  {
+   "name": "Boulderdash",
+   "theme": "stone",
+   "look": "rolls fast"
+  },
+  {
+   "name": "Rubble",
+   "theme": "stone",
+   "look": "broken stones"
+  },
+  {
+   "name": "Tor",
+   "theme": "stone",
+   "look": "rocky peak"
+  },
+  {
+   "name": "Fell",
+   "theme": "stone",
+   "look": "high stony hill"
+  },
+  {
+   "name": "Crest",
+   "theme": "stone",
+   "look": "highest point"
+  },
+  {
+   "name": "Summit",
+   "theme": "stone",
+   "look": "top of the mountain"
+  },
+  {
+   "name": "Peak",
+   "theme": "stone",
+   "look": "sharp and high"
+  },
+  {
+   "name": "Spire",
+   "theme": "stone",
+   "look": "tall and thin"
+  },
+  {
+   "name": "Obsidian",
+   "theme": "stone",
+   "look": "shiny black"
+  },
+  {
+   "name": "Onyx",
+   "theme": "stone",
+   "look": "glossy black"
+  },
+  {
+   "name": "Jade",
+   "theme": "stone",
+   "look": "green-eyed"
+  },
+  {
+   "name": "Jet",
+   "theme": "stone",
+   "look": "deep black"
+  },
+  {
+   "name": "Opal",
+   "theme": "stone",
+   "look": "milky shimmer"
+  },
+  {
+   "name": "Quartz",
+   "theme": "stone",
+   "look": "clear and bright"
+  },
+  {
+   "name": "Agate",
+   "theme": "stone",
+   "look": "banded and patterned"
+  },
+  {
+   "name": "Topaz",
+   "theme": "stone",
+   "look": "golden-brown shine"
+  },
+  {
+   "name": "Beryl",
+   "theme": "stone",
+   "look": "green-blue"
+  },
+  {
+   "name": "Amethyst",
+   "theme": "stone",
+   "look": "purple glimmer"
+  },
+  {
+   "name": "Flinty",
+   "theme": "stone",
+   "look": "hard and sharp"
+  },
+  {
+   "name": "Burrow",
+   "theme": "stone",
+   "look": "digs and hides"
+  },
+  {
+   "name": "Den",
+   "theme": "stone",
+   "look": "safe shelter"
+  },
+  {
+   "name": "Hollow",
+   "theme": "stone",
+   "look": "empty tree log"
+  },
+  {
+   "name": "Rubbly",
+   "theme": "stone",
+   "look": "rough and ready"
+  },
+  {
+   "name": "Tumble",
+   "theme": "stone",
+   "look": "rolling stone"
+  },
+  {
+   "name": "Anvil",
+   "theme": "stone",
+   "look": "strong and steady"
+  },
+  {
+   "name": "Hawk",
+   "theme": "wild",
+   "look": "sharp-eyed"
+  },
+  {
+   "name": "Falcon",
+   "theme": "wild",
+   "look": "fast diver"
+  },
+  {
+   "name": "Eagle",
+   "theme": "wild",
+   "look": "high flyer"
+  },
+  {
+   "name": "Owl",
+   "theme": "wild",
+   "look": "silent and wise"
+  },
+  {
+   "name": "Raven",
+   "theme": "wild",
+   "look": "glossy black"
+  },
+  {
+   "name": "Crow",
+   "theme": "wild",
+   "look": "clever and loud"
+  },
+  {
+   "name": "Sparrow",
+   "theme": "wild",
+   "look": "small and quick"
+  },
+  {
+   "name": "Wren",
+   "theme": "wild",
+   "look": "tiny with a big voice"
+  },
+  {
+   "name": "Robin",
+   "theme": "wild",
+   "look": "red-breasted"
+  },
+  {
+   "name": "Finch",
+   "theme": "wild",
+   "look": "lively and bright"
+  },
+  {
+   "name": "Swallow",
+   "theme": "wild",
+   "look": "swift in the air"
+  },
+  {
+   "name": "Thrush",
+   "theme": "wild",
+   "look": "sweet singer"
+  },
+  {
+   "name": "Jay",
+   "theme": "wild",
+   "look": "blue and noisy"
+  },
+  {
+   "name": "Magpie",
+   "theme": "wild",
+   "look": "black and white"
+  },
+  {
+   "name": "Dove",
+   "theme": "wild",
+   "look": "peaceful and soft"
+  },
+  {
+   "name": "Lark",
+   "theme": "wild",
+   "look": "morning singer"
+  },
+  {
+   "name": "Starling",
+   "theme": "wild",
+   "look": "flocks together"
+  },
+  {
+   "name": "Plover",
+   "theme": "wild",
+   "look": "runs along the ground"
+  },
+  {
+   "name": "Kestrel",
+   "theme": "wild",
+   "look": "hovers in the air"
+  },
+  {
+   "name": "Osprey",
+   "theme": "wild",
+   "look": "fish-snatcher"
+  },
+  {
+   "name": "Fox",
+   "theme": "wild",
+   "look": "red and clever"
+  },
+  {
+   "name": "Wolf",
+   "theme": "wild",
+   "look": "packed with courage"
+  },
+  {
+   "name": "Badger",
+   "theme": "wild",
+   "look": "stripe-faced and fierce"
+  },
+  {
+   "name": "Hare",
+   "theme": "wild",
+   "look": "long-legged runner"
+  },
+  {
+   "name": "Rabbit",
+   "theme": "wild",
+   "look": "fast hopper"
+  },
+  {
+   "name": "Mouse",
+   "theme": "wild",
+   "look": "small and quiet"
+  },
+  {
+   "name": "Vole",
+   "theme": "wild",
+   "look": "tiny and brown"
+  },
+  {
+   "name": "Shrew",
+   "theme": "wild",
+   "look": "small, sharp-nosed"
+  },
+  {
+   "name": "Squirrel",
+   "theme": "wild",
+   "look": "tree-climber"
+  },
+  {
+   "name": "Stoat",
+   "theme": "wild",
+   "look": "slim hunter"
+  },
+  {
+   "name": "Weasel",
+   "theme": "wild",
+   "look": "thin and quick"
+  },
+  {
+   "name": "Mink",
+   "theme": "wild",
+   "look": "sleek and dark"
+  },
+  {
+   "name": "Deer",
+   "theme": "wild",
+   "look": "graceful"
+  },
+  {
+   "name": "Doe",
+   "theme": "wild",
+   "look": "gentle eyes"
+  },
+  {
+   "name": "Stag",
+   "theme": "wild",
+   "look": "proud antlers"
+  },
+  {
+   "name": "Boar",
+   "theme": "wild",
+   "look": "strong and stubborn"
+  },
+  {
+   "name": "Lynx",
+   "theme": "wild",
+   "look": "tufted ears"
+  },
+  {
+   "name": "Bobcat",
+   "theme": "wild",
+   "look": "spotted and wild"
+  },
+  {
+   "name": "Cougar",
+   "theme": "wild",
+   "look": "powerful hunter"
+  },
+  {
+   "name": "Panther",
+   "theme": "wild",
+   "look": "silent black"
+  },
+  {
+   "name": "Tiger",
+   "theme": "wild",
+   "look": "striped and fierce"
+  },
+  {
+   "name": "Lion",
+   "theme": "wild",
+   "look": "golden mane"
+  },
+  {
+   "name": "Leopard",
+   "theme": "wild",
+   "look": "spotted coat"
+  },
+  {
+   "name": "Cheetah",
+   "theme": "wild",
+   "look": "fastest runner"
+  },
+  {
+   "name": "Bear",
+   "theme": "wild",
+   "look": "large and mighty"
+  },
+  {
+   "name": "Moth",
+   "theme": "wild",
+   "look": "soft grey wings"
+  },
+  {
+   "name": "Butterfly",
+   "theme": "wild",
+   "look": "bright wings"
+  },
+  {
+   "name": "Beetle",
+   "theme": "wild",
+   "look": "shiny shell"
+  },
+  {
+   "name": "Cricket",
+   "theme": "wild",
+   "look": "chirping night singer"
+  },
+  {
+   "name": "Spider",
+   "theme": "wild",
+   "look": "clever web-spinner"
+  },
+  {
+   "name": "Dragonfly",
+   "theme": "wild",
+   "look": "glittering wings"
+  },
+  {
+   "name": "Firefly",
+   "theme": "wild",
+   "look": "small glowing light"
+  },
+  {
+   "name": "Bee",
+   "theme": "wild",
+   "look": "buzzing busy"
+  },
+  {
+   "name": "Hornet",
+   "theme": "wild",
+   "look": "stinging temper"
+  },
+  {
+   "name": "Wasp",
+   "theme": "wild",
+   "look": "sharp and quick"
+  },
+  {
+   "name": "Toad",
+   "theme": "wild",
+   "look": "warty and bumpy"
+  },
+  {
+   "name": "Frog",
+   "theme": "wild",
+   "look": "green leaper"
+  },
+  {
+   "name": "Newt",
+   "theme": "wild",
+   "look": "small and spotted"
+  },
+  {
+   "name": "Lizard",
+   "theme": "wild",
+   "look": "sun-loving"
+  },
+  {
+   "name": "Adder",
+   "theme": "wild",
+   "look": "zig-zag markings"
+  },
+  {
+   "name": "Viper",
+   "theme": "wild",
+   "look": "sharp strike"
+  },
+  {
+   "name": "Cobra",
+   "theme": "wild",
+   "look": "hooded and bold"
+  },
+  {
+   "name": "Salamander",
+   "theme": "wild",
+   "look": "slick and dark"
+  },
+  {
+   "name": "Tadpole",
+   "theme": "wild",
+   "look": "small and wiggly"
+  },
+  {
+   "name": "Cub",
+   "theme": "wild",
+   "look": "youthful"
+  },
+  {
+   "name": "Pup",
+   "theme": "wild",
+   "look": "playful"
+  }
+ ],
+ "suffixes": [
+  {
+   "name": "fall",
+   "meaning": "soft footsteps, like falling leaves"
+  },
+  {
+   "name": "leap",
+   "meaning": "a high, graceful jump"
+  },
+  {
+   "name": "dash",
+   "meaning": "a sudden quick sprint"
+  },
+  {
+   "name": "step",
+   "meaning": "a distinct way of walking"
+  },
+  {
+   "name": "stride",
+   "meaning": "long, confident steps"
+  },
+  {
+   "name": "run",
+   "meaning": "never stops running"
+  },
+  {
+   "name": "pounce",
+   "meaning": "strikes from above"
+  },
+  {
+   "name": "bound",
+   "meaning": "springy, bouncing jumps"
+  },
+  {
+   "name": "swipe",
+   "meaning": "a quick paw strike"
+  },
+  {
+   "name": "strike",
+   "meaning": "hits with precision"
+  },
+  {
+   "name": "snap",
+   "meaning": "sharp, sudden jaws"
+  },
+  {
+   "name": "slash",
+   "meaning": "cuts the air with claws"
+  },
+  {
+   "name": "climb",
+   "meaning": "best tree-climber"
+  },
+  {
+   "name": "creep",
+   "meaning": "silent stalker"
+  },
+  {
+   "name": "stalk",
+   "meaning": "patient hunter"
+  },
+  {
+   "name": "glide",
+   "meaning": "smooth and effortless"
+  },
+  {
+   "name": "dive",
+   "meaning": "plunges into water or prey"
+  },
+  {
+   "name": "jump",
+   "meaning": "springs over obstacles"
+  },
+  {
+   "name": "sprint",
+   "meaning": "fastest runner in the clan"
+  },
+  {
+   "name": "shiver",
+   "meaning": "trembles with energy"
+  },
+  {
+   "name": "whisper",
+   "meaning": "soft-spoken"
+  },
+  {
+   "name": "call",
+   "meaning": "strong carrying voice"
+  },
+  {
+   "name": "cry",
+   "meaning": "loud, sharp voice"
+  },
+  {
+   "name": "song",
+   "meaning": "loves to sing"
+  },
+  {
+   "name": "yowl",
+   "meaning": "long, echoing cry"
+  },
+  {
+   "name": "hiss",
+   "meaning": "sharp warning sound"
+  },
+  {
+   "name": "purr",
+   "meaning": "comfortable rumble"
+  },
+  {
+   "name": "growl",
+   "meaning": "low, rumbling warning"
+  },
+  {
+   "name": "roar",
+   "meaning": "loud and fierce"
+  },
+  {
+   "name": "chase",
+   "meaning": "loves a good pursuit"
+  },
+  {
+   "name": "hunter",
+   "meaning": "skilled at catching prey"
+  },
+  {
+   "name": "watcher",
+   "meaning": "keeps guard"
+  },
+  {
+   "name": "seeker",
+   "meaning": "always searching"
+  },
+  {
+   "name": "tracker",
+   "meaning": "follows any trail"
+  },
+  {
+   "name": "runner",
+   "meaning": "swift messenger"
+  },
+  {
+   "name": "jumper",
+   "meaning": "springs high"
+  },
+  {
+   "name": "climber",
+   "meaning": "sure on branches"
+  },
+  {
+   "name": "swimmer",
+   "meaning": "strong in water"
+  },
+  {
+   "name": "fighter",
+   "meaning": "never backs down"
+  },
+  {
+   "name": "dancer",
+   "meaning": "graceful mover"
+  },
+  {
+   "name": "singer",
+   "meaning": "beautiful voice"
+  },
+  {
+   "name": "walker",
+   "meaning": "calm, steady pace"
+  },
+  {
+   "name": "prowl",
+   "meaning": "silent night hunter"
+  },
+  {
+   "name": "lurk",
+   "meaning": "waits in shadows"
+  },
+  {
+   "name": "sneak",
+   "meaning": "sly and stealthy"
+  },
+  {
+   "name": "rush",
+   "meaning": "charges ahead"
+  },
+  {
+   "name": "race",
+   "meaning": "competes for speed"
+  },
+  {
+   "name": "flight",
+   "meaning": "soaring and light"
+  },
+  {
+   "name": "wing",
+   "meaning": "feathery or swift"
+  },
+  {
+   "name": "feather",
+   "meaning": "light as a bird's plume"
+  },
+  {
+   "name": "tail",
+   "meaning": "a distinctive tail"
+  },
+  {
+   "name": "claw",
+   "meaning": "sharp, strong claws"
+  },
+  {
+   "name": "fang",
+   "meaning": "long, sharp teeth"
+  },
+  {
+   "name": "whisker",
+   "meaning": "long, sensitive whiskers"
+  },
+  {
+   "name": "eye",
+   "meaning": "unusual or striking eyes"
+  },
+  {
+   "name": "ear",
+   "meaning": "large or notched ears"
+  },
+  {
+   "name": "nose",
+   "meaning": "keen sense of smell"
+  },
+  {
+   "name": "heart",
+   "meaning": "brave and kind"
+  },
+  {
+   "name": "foot",
+   "meaning": "a special paw"
+  },
+  {
+   "name": "leg",
+   "meaning": "long, strong legs"
+  },
+  {
+   "name": "shoulder",
+   "meaning": "broad shoulders"
+  },
+  {
+   "name": "throat",
+   "meaning": "strong, deep voice"
+  },
+  {
+   "name": "belly",
+   "meaning": "round and fluffy underside"
+  },
+  {
+   "name": "back",
+   "meaning": "a marked back"
+  },
+  {
+   "name": "pad",
+   "meaning": "soft, quiet paws"
+  },
+  {
+   "name": "stripe",
+   "meaning": "a bold stripe"
+  },
+  {
+   "name": "spots",
+   "meaning": "spotted markings"
+  },
+  {
+   "name": "mask",
+   "meaning": "markings across the face"
+  },
+  {
+   "name": "face",
+   "meaning": "a distinct face pattern"
+  },
+  {
+   "name": "tooth",
+   "meaning": "a sharp or crooked tooth"
+  },
+  {
+   "name": "mane",
+   "meaning": "a thick ruff of fur"
+  },
+  {
+   "name": "cheek",
+   "meaning": "round, fluffy cheeks"
+  },
+  {
+   "name": "chin",
+   "meaning": "a white or dark chin"
+  },
+  {
+   "name": "jaw",
+   "meaning": "strong biting power"
+  },
+  {
+   "name": "flank",
+   "meaning": "marks along the side"
+  },
+  {
+   "name": "scar",
+   "meaning": "a mark from battle"
+  },
+  {
+   "name": "pelt",
+   "meaning": "a notable coat"
+  },
+  {
+   "name": "fur",
+   "meaning": "thick, soft fur"
+  },
+  {
+   "name": "coat",
+   "meaning": "an unusual coat"
+  },
+  {
+   "name": "tip",
+   "meaning": "a coloured tip"
+  },
+  {
+   "name": "muzzle",
+   "meaning": "a patterned muzzle"
+  },
+  {
+   "name": "brow",
+   "meaning": "a stern, strong brow"
+  },
+  {
+   "name": "storm",
+   "meaning": "fierce and stormy"
+  },
+  {
+   "name": "flame",
+   "meaning": "fiery spirit"
+  },
+  {
+   "name": "wind",
+   "meaning": "swift as the breeze"
+  },
+  {
+   "name": "rain",
+   "meaning": "cool and calm"
+  },
+  {
+   "name": "thorn",
+   "meaning": "sharp and prickly"
+  },
+  {
+   "name": "leaf",
+   "meaning": "light and green"
+  },
+  {
+   "name": "petal",
+   "meaning": "soft and delicate"
+  },
+  {
+   "name": "bloom",
+   "meaning": "bright and cheerful"
+  },
+  {
+   "name": "blossom",
+   "meaning": "springtime gentle"
+  },
+  {
+   "name": "bramble",
+   "meaning": "wild and tangled"
+  },
+  {
+   "name": "fern",
+   "meaning": "quiet forest dweller"
+  },
+  {
+   "name": "moss",
+   "meaning": "calm and damp"
+  },
+  {
+   "name": "bark",
+   "meaning": "rough exterior"
+  },
+  {
+   "name": "branch",
+   "meaning": "reaches high"
+  },
+  {
+   "name": "root",
+   "meaning": "steady and deep"
+  },
+  {
+   "name": "stone",
+   "meaning": "strong and silent"
+  },
+  {
+   "name": "river",
+   "meaning": "flows with energy"
+  },
+  {
+   "name": "stream",
+   "meaning": "quick and light"
+  },
+  {
+   "name": "creek",
+   "meaning": "small but determined"
+  },
+  {
+   "name": "pool",
+   "meaning": "deep and still"
+  },
+  {
+   "name": "shade",
+   "meaning": "cool and calm"
+  },
+  {
+   "name": "shadow",
+   "meaning": "dark and quiet"
+  },
+  {
+   "name": "dawn",
+   "meaning": "early riser"
+  },
+  {
+   "name": "dusk",
+   "meaning": "comes alive in the evening"
+  },
+  {
+   "name": "light",
+   "meaning": "bright and hopeful"
+  },
+  {
+   "name": "frost",
+   "meaning": "cold and sharp"
+  },
+  {
+   "name": "snow",
+   "meaning": "white and quiet"
+  },
+  {
+   "name": "ice",
+   "meaning": "cool and unbending"
+  },
+  {
+   "name": "mist",
+   "meaning": "silent and soft"
+  },
+  {
+   "name": "cloud",
+   "meaning": "light and drifting"
+  },
+  {
+   "name": "sky",
+   "meaning": "open and free"
+  },
+  {
+   "name": "sun",
+   "meaning": "warm and radiant"
+  },
+  {
+   "name": "moon",
+   "meaning": "calm and mysterious"
+  },
+  {
+   "name": "tide",
+   "meaning": "rhythmic, strong"
+  },
+  {
+   "name": "wave",
+   "meaning": "rolling and powerful"
+  },
+  {
+   "name": "spring",
+   "meaning": "fresh and lively"
+  },
+  {
+   "name": "shine",
+   "meaning": "radiant and bright"
+  },
+  {
+   "name": "glow",
+   "meaning": "warm, soft light"
+  },
+  {
+   "name": "flower",
+   "meaning": "bright and sweet"
+  },
+  {
+   "name": "down",
+   "meaning": "soft as feather down"
+  },
+  {
+   "name": "breeze",
+   "meaning": "easy-going"
+  },
+  {
+   "name": "gust",
+   "meaning": "sudden energy"
+  },
+  {
+   "name": "blaze",
+   "meaning": "burning bright"
+  },
+  {
+   "name": "ember",
+   "meaning": "glowing heart"
+  },
+  {
+   "name": "spark",
+   "meaning": "quick temper and a quick wit"
+  },
+  {
+   "name": "smoke",
+   "meaning": "grey and drifting"
+  },
+  {
+   "name": "ash",
+   "meaning": "calm after the storm"
+  },
+  {
+   "name": "dust",
+   "meaning": "soft and dry"
+  },
+  {
+   "name": "sand",
+   "meaning": "pale and shifting"
+  },
+  {
+   "name": "mud",
+   "meaning": "earthy and sturdy"
+  },
+  {
+   "name": "rock",
+   "meaning": "solid and stubborn"
+  },
+  {
+   "name": "pebble",
+   "meaning": "small and tough"
+  },
+  {
+   "name": "cliff",
+   "meaning": "high and proud"
+  },
+  {
+   "name": "hollow",
+   "meaning": "safe shelter"
+  },
+  {
+   "name": "den",
+   "meaning": "warm shelter"
+  },
+  {
+   "name": "nest",
+   "meaning": "caring and safe"
+  },
+  {
+   "name": "burrow",
+   "meaning": "quiet and secret"
+  },
+  {
+   "name": "thicket",
+   "meaning": "dense and hidden"
+  },
+  {
+   "name": "glade",
+   "meaning": "open, peaceful space"
+  },
+  {
+   "name": "meadow",
+   "meaning": "wide and gentle"
+  },
+  {
+   "name": "marsh",
+   "meaning": "wet and wild"
+  },
+  {
+   "name": "reed",
+   "meaning": "slim and flexible"
+  },
+  {
+   "name": "thistle",
+   "meaning": "prickly pride"
+  },
+  {
+   "name": "nettle",
+   "meaning": "sharp-tempered"
+  },
+  {
+   "name": "berry",
+   "meaning": "small and sweet"
+  },
+  {
+   "name": "seed",
+   "meaning": "bright beginnings"
+  },
+  {
+   "name": "acorn",
+   "meaning": "strong from small beginnings"
+  },
+  {
+   "name": "grass",
+   "meaning": "soft and green"
+  },
+  {
+   "name": "heather",
+   "meaning": "wild and purple"
+  },
+  {
+   "name": "holly",
+   "meaning": "evergreen and bold"
+  },
+  {
+   "name": "ivy",
+   "meaning": "clinging and loyal"
+  },
+  {
+   "name": "bud",
+   "meaning": "full of promise"
+  },
+  {
+   "name": "sprout",
+   "meaning": "growing eagerly"
+  },
+  {
+   "name": "twig",
+   "meaning": "thin and swift"
+  },
+  {
+   "name": "log",
+   "meaning": "sturdy and strong"
+  },
+  {
+   "name": "trunk",
+   "meaning": "tall, firm and silent"
+  },
+  {
+   "name": "bough",
+   "meaning": "long and sheltering"
+  },
+  {
+   "name": "canopy",
+   "meaning": "watches from above"
+  },
+  {
+   "name": "fire",
+   "meaning": "burning energy"
+  },
+  {
+   "name": "frostbite",
+   "meaning": "sharp cold bite"
+  },
+  {
+   "name": "snowfall",
+   "meaning": "gentle and silent"
+  },
+  {
+   "name": "rainstorm",
+   "meaning": "loud and wild"
+  },
+  {
+   "name": "sunbeam",
+   "meaning": "warm streak of light"
+  },
+  {
+   "name": "starlight",
+   "meaning": "soft glimmer at night"
+  },
+  {
+   "name": "moonbeam",
+   "meaning": "silver ray"
+  }
+ ],
+ "clans": [
+  {
+   "name": "Mossglade Clan",
+   "meaning": "a damp, shaded forest glade"
+  },
+  {
+   "name": "Duskreach Clan",
+   "meaning": "cliffs that turn gold at sunset"
+  },
+  {
+   "name": "Brindlefen Clan",
+   "meaning": "marshland full of reeds and mist"
+  },
+  {
+   "name": "Ashenfall Clan",
+   "meaning": "a burnt hillside of grey ash"
+  },
+  {
+   "name": "Thornwell Clan",
+   "meaning": "thick briars around a spring"
+  },
+  {
+   "name": "Silverbrook Clan",
+   "meaning": "a bright stream through white birches"
+  },
+  {
+   "name": "Cindermoor Clan",
+   "meaning": "dark heath after a wildfire"
+  },
+  {
+   "name": "Frostholm Clan",
+   "meaning": "icy meadows in the high hills"
+  },
+  {
+   "name": "Hollowpine Clan",
+   "meaning": "old pines with deep hollows"
+  },
+  {
+   "name": "Rainshadow Clan",
+   "meaning": "a dry valley sheltered by peaks"
+  },
+  {
+   "name": "Stonereach Clan",
+   "meaning": "rocky ridges and caves"
+  },
+  {
+   "name": "Willowmere Clan",
+   "meaning": "a lake ringed with willows"
+  },
+  {
+   "name": "Heatherdown Clan",
+   "meaning": "purple moorland and soft slopes"
+  },
+  {
+   "name": "Gloamwood Clan",
+   "meaning": "woodland that is always dim"
+  },
+  {
+   "name": "Sunmeadow Clan",
+   "meaning": "wide grass fields in full sun"
+  },
+  {
+   "name": "Ravenscar Clan",
+   "meaning": "black cliffs above the sea"
+  },
+  {
+   "name": "Fernhollow Clan",
+   "meaning": "a ravine thick with ferns"
+  },
+  {
+   "name": "Redclover Clan",
+   "meaning": "a warm field of wildflowers"
+  },
+  {
+   "name": "Tidepool Clan",
+   "meaning": "a rocky shore of small pools"
+  },
+  {
+   "name": "Windcrest Clan",
+   "meaning": "an open ridge that never stops blowing"
+  },
+  {
+   "name": "Oakenhall Clan",
+   "meaning": "ancient oaks, huge and proud"
+  },
+  {
+   "name": "Emberhill Clan",
+   "meaning": "a hill of red earth and red leaves"
+  },
+  {
+   "name": "Marshlight Clan",
+   "meaning": "glowing bog at night"
+  },
+  {
+   "name": "Larkspur Clan",
+   "meaning": "high meadows full of birdsong"
+  },
+  {
+   "name": "Greywater Clan",
+   "meaning": "a slow, cold river"
+  },
+  {
+   "name": "Birchfall Clan",
+   "meaning": "white trees that shed in autumn"
+  },
+  {
+   "name": "Thistledown Clan",
+   "meaning": "a prickly, sunlit moor"
+  },
+  {
+   "name": "Starfield Clan",
+   "meaning": "an open plain with wide night skies"
+  },
+  {
+   "name": "Bracken Rise Clan",
+   "meaning": "rust-coloured ferns on a rise"
+  },
+  {
+   "name": "Dewmoor Clan",
+   "meaning": "misty wet grassland"
+  },
+  {
+   "name": "Amberwood Clan",
+   "meaning": "a forest of golden leaves"
+  },
+  {
+   "name": "Shaleridge Clan",
+   "meaning": "flat stones and sharp edges"
+  },
+  {
+   "name": "Lakewillow Clan",
+   "meaning": "soft green banks and still water"
+  },
+  {
+   "name": "Foxglove Fell Clan",
+   "meaning": "tall purple flowers on a steep hill"
+  },
+  {
+   "name": "Pinecrest Clan",
+   "meaning": "evergreen heights"
+  },
+  {
+   "name": "Mistwhisper Clan",
+   "meaning": "foggy hollow with quiet streams"
+  },
+  {
+   "name": "Nettlefield Clan",
+   "meaning": "a stinging meadow guarded by pride"
+  },
+  {
+   "name": "Cloudcrown Clan",
+   "meaning": "a mountain top wrapped in cloud"
+  },
+  {
+   "name": "Wildroot Clan",
+   "meaning": "tangled roots and old fallen trees"
+  },
+  {
+   "name": "Sparrowdell Clan",
+   "meaning": "a small valley full of birds"
+  }
+ ]
+}

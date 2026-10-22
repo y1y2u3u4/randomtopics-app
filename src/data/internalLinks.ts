@@ -167,6 +167,7 @@ export const articleToPages: Record<
     tools: [
       { emoji: "❓", label: "Trivia Questions with Host Mode", href: "/trivia-questions" },
       { emoji: "🎃", label: "Halloween Trivia", href: "/trivia-questions/halloween" },
+      { emoji: "🎄", label: "Christmas Trivia", href: "/trivia-questions/christmas" },
     ],
   },
   "public-speaking-topics-for-beginners": {

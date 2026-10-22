@@ -5,7 +5,7 @@ import { track } from "@/lib/track";
 import {
   DEFAULT_TIMER, DIFFICULTIES, MAX_TEAMS, MIN_TEAMS, TIMER_OPTIONS, TRIVIA_BANKS, TRIVIA_CATEGORIES, TRIVIA_CATEGORY_IDS, CATEGORY_TRIVIA,
   adjustScore, choicesFor, createRng, createScoreboard, drawQuestion, filterTrivia, formatSeconds, leaders, resizeScoreboard,
-  type Difficulty, type Team, type TriviaBank, type TriviaFilters, type TriviaQuestion,
+  type Difficulty, type SeasonalBank, type Team, type TriviaBank, type TriviaFilters, type TriviaQuestion,
 } from "@/lib/trivia";
 
 const TOOL = "trivia_questions";
@@ -25,12 +25,13 @@ const select =
   "min-h-10 rounded-lg border border-white/10 bg-transparent px-2.5 py-1.5 text-sm normal-case tracking-normal text-[var(--text-primary)] focus:border-[var(--neon-cyan)]/60";
 
 const DIFF_LABEL: Record<Difficulty, string> = { easy: "Easy", medium: "Medium", hard: "Hard" };
-const CATEGORY_LABEL = (c: TriviaBank) => (c === "halloween" ? "Halloween" : TRIVIA_CATEGORIES[c].label);
-const CATEGORY_EMOJI = (c: TriviaBank) => (c === "halloween" ? "🎃" : TRIVIA_CATEGORIES[c].emoji);
+const SEASONAL = { halloween: { label: "Halloween", emoji: "🎃" }, christmas: { label: "Christmas", emoji: "🎄" } } as const;
+const CATEGORY_LABEL = (c: TriviaBank) => (c === "halloween" || c === "christmas" ? SEASONAL[c].label : TRIVIA_CATEGORIES[c].label);
+const CATEGORY_EMOJI = (c: TriviaBank) => (c === "halloween" || c === "christmas" ? SEASONAL[c].emoji : TRIVIA_CATEGORIES[c].emoji);
 
 interface Props {
-  /** "halloween" presets the game to the seasonal bank and hides the category picker. */
-  bank?: "categories" | "halloween";
+  /** A seasonal bank presets the game to that bank and hides the category picker. */
+  bank?: "categories" | SeasonalBank;
   /** Fixed seed for the first card so the server HTML already shows a real question. */
   seed: number;
 }
@@ -38,7 +39,7 @@ interface Props {
 interface Card { q: TriviaQuestion; choices: string[] }
 
 export default function TriviaGame({ bank = "categories", seed }: Props) {
-  const pool = bank === "halloween" ? TRIVIA_BANKS.halloween : CATEGORY_TRIVIA;
+  const pool = bank === "categories" ? CATEGORY_TRIVIA : TRIVIA_BANKS[bank];
   const [filters, setFilters] = useState<TriviaFilters>({ category: "all", difficulty: "all" });
   const [multipleChoice, setMultipleChoice] = useState(true);
   const first = useMemo<Card>(() => {

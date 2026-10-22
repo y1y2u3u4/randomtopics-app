@@ -98,6 +98,48 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Names, nicknames & clans" },
   },
   {
+    href: "/warrior-cat-name-generator",
+    emoji: "🐈",
+    label: { en: "Warrior Cat Name Generator" },
+    detail: { en: "Prefixes, suffixes & ranks" },
+  },
+  {
+    href: "/elf-name-generator",
+    emoji: "🧝",
+    label: { en: "Elf Name Generator" },
+    detail: { en: "Names & houses by elf type" },
+  },
+  {
+    href: "/vampire-name-generator",
+    emoji: "🦇",
+    label: { en: "Vampire Name Generator" },
+    detail: { en: "Names, surnames & titles" },
+  },
+  {
+    href: "/pirate-name-generator",
+    emoji: "🏴‍☠️",
+    label: { en: "Pirate Name Generator" },
+    detail: { en: "Names, nicknames & ships" },
+  },
+  {
+    href: "/incorrect-quote-generator",
+    emoji: "💬",
+    label: { en: "Incorrect Quote Generator" },
+    detail: { en: "Funny dialogue for 1–6 characters" },
+  },
+  {
+    href: "/headcanon-generator",
+    emoji: "✨",
+    label: { en: "Headcanon Generator" },
+    detail: { en: "406 headcanons, any character" },
+  },
+  {
+    href: "/put-a-finger-down",
+    emoji: "☝️",
+    label: { en: "Put a Finger Down" },
+    detail: { en: "394 statements + finger game" },
+  },
+  {
     href: "/random-food-generator",
     emoji: "🍜",
     label: { en: "Random Food Generator" },

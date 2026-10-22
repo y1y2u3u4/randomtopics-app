@@ -23,13 +23,13 @@ const pages = {
     ],
   },
   dragon: {
-    name: "Dragon Name Generator", category: "Fantasy character naming", title: "Dragon Name Generator — Elements, Titles & Pronunciation",
+    name: "Dragon Name Generator", category: "Fantasy character naming", title: "Dragon Name Generator — 144 Dragon Names With Elements & Titles",
     description: "Find dragon name ideas with Ember, Tide, Gale and Stone styles, suggested pronunciation and optional titles. Save a shortlist for your story or game, free.",
     intro: "Name a dragon for your story or game. Choose an element, try a shorter name, or add a story-ready title.",
     steps: ["Choose Ember, Tide, Gale or Stone to set a sound and landscape for your character.", "Try a short name for easy table talk or a longer name for a formal introduction. Titles are optional.", "Say the suggested pronunciation aloud and change it to suit your story. Use the title as a prompt for what the dragon protects, remembers or has lost."],
     faqs: [
       ["What do the dragon names mean?", "The names, titles and landscapes are creative story settings. They are not translations, historical word origins or rules from an established fictional language. You decide what a name means in your own world."],
-      ["Do the elements change the results?", "Yes. Each element has its own twelve names and titles. Ember uses warm, firm sounds; Tide flows; Gale favors quick sounds; Stone feels grounded. These are editorial choices for this collection, not claims about mythology."],
+      ["Do the elements change the results?", "Yes. Each element has its own thirty-six names and titles. Ember uses warm, firm sounds; Tide flows; Gale favors quick sounds; Stone feels grounded. These are editorial choices for this collection, not claims about mythology."],
       ["Does switching a title give me a new name?", "No. A title is another display of the same dragon. Switching titles or length filters keeps the used-name history. Only Start a fresh round explicitly clears it."],
       ["Can I use these for a game character?", "Use them as starting ideas for an original character. Suggested pronunciations are optional, and you can adapt the story setting. The tool does not claim the names are unused elsewhere or officially part of any game or book."],
     ],
@@ -77,7 +77,7 @@ export default function NameGeneratorPage({ kind }: { kind: NameKind }) {
         <h2 className="text-xl font-bold">How this collection was made</h2>
         <p className="mt-3 text-sm text-[var(--text-secondary)]">{kind === "band"
           ? "We wrote 36 starting names for each of three music styles, with twelve examples at each word count. The seed rules preserve the requested word count. The tool removes matching duplicates and filters unwanted text before drawing from the remaining pool."
-          : "We wrote twelve names for each of four invented elemental styles: six short and six long names, with a pronunciation guide and a different title for each. A title is a story prompt, not a translated meaning."} The generator uses this finite collection, not a model or a competitor name database. Similarity to existing names is still possible.</p>
+          : "We wrote 36 names for each of four invented elemental styles: 18 short and 18 long names, with a pronunciation guide and a different title for each. A title is a story prompt, not a translated meaning."} The generator uses this finite collection, not a model or a competitor name database. Similarity to existing names is still possible.</p>
         <p className="mt-3 text-xs text-[var(--text-secondary)]">Collection created <time dateTime="2026-10-07">October 7, 2026</time>.</p>
       </section>
       <section className="mt-8"><h2 className="text-2xl font-bold">Questions about {kind === "band" ? "band" : "dragon"} names</h2>

@@ -13,6 +13,7 @@ import music from "@/data/trivia/music.json";
 import sports from "@/data/trivia/sports.json";
 import food from "@/data/trivia/food.json";
 import halloween from "@/data/trivia/halloween.json";
+import christmas from "@/data/trivia/christmas.json";
 import { createRng, shuffle, type Rng } from "@/lib/randomGenerators";
 
 export { createRng };
@@ -21,7 +22,9 @@ export const TRIVIA_CATEGORY_IDS = [
   "general", "kids", "math", "science", "history", "geography", "movies", "music", "sports", "food",
 ] as const;
 export type TriviaCategory = (typeof TRIVIA_CATEGORY_IDS)[number];
-export type TriviaBank = TriviaCategory | "halloween";
+export type TriviaBank = TriviaCategory | "halloween" | "christmas";
+/** Seasonal banks get their own page and stay out of the main pool. */
+export type SeasonalBank = "halloween" | "christmas";
 
 export const TRIVIA_CATEGORIES: Record<TriviaCategory, { label: string; emoji: string }> = {
   general: { label: "General knowledge", emoji: "🧠" },
@@ -52,12 +55,12 @@ export interface TriviaQuestion {
 }
 
 export const TRIVIA_BANKS: Record<TriviaBank, TriviaQuestion[]> = {
-  general, kids, math, science, history, geography, movies, music, sports, food, halloween,
+  general, kids, math, science, history, geography, movies, music, sports, food, halloween, christmas,
 } as Record<TriviaBank, TriviaQuestion[]>;
 
 /** The ten evergreen categories (the main page's pool). */
 export const CATEGORY_TRIVIA: TriviaQuestion[] = TRIVIA_CATEGORY_IDS.flatMap((c) => TRIVIA_BANKS[c]);
-export const ALL_TRIVIA: TriviaQuestion[] = [...CATEGORY_TRIVIA, ...TRIVIA_BANKS.halloween];
+export const ALL_TRIVIA: TriviaQuestion[] = [...CATEGORY_TRIVIA, ...TRIVIA_BANKS.halloween, ...TRIVIA_BANKS.christmas];
 
 export interface TriviaFilters {
   category: TriviaBank | "all";

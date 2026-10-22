@@ -7,7 +7,7 @@ import { withSocial } from "@/lib/metadata/social";
 import { hreflangAlternates } from "@/i18n/config";
 
 const PATH = "/pictionary-word-generator";
-const TITLE = "Pictionary Word Generator: Easy to Hard, with Timer";
+const TITLE = `Pictionary Word Generator: ${PICTIONARY_WORDS.length} Words, Easy to Hard + Timer`;
 const DESCRIPTION = `Free Pictionary word generator: ${PICTIONARY_WORDS.length} drawable words in animals, objects, actions and movies, easy to hard. 60-second timer, team scores and a projector mode.`;
 
 export const metadata: Metadata = withSocial({

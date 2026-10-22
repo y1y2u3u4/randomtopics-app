@@ -5,6 +5,7 @@ import * as React from "react";
 import ts from "typescript";
 import * as bank from "../src/data/charades.ts";
 import * as bankEs from "../src/data/charades.es.ts";
+import * as bankChristmas from "../src/data/charadesChristmas.ts";
 import * as pool from "../src/lib/topicPool.ts";
 const require = createRequire(import.meta.url);
 const state = [], effects = [], memo = [], events = [], intervals = new Map(), listeners = new Map();
@@ -27,6 +28,7 @@ new Function("require", "module", "exports", "Date", "setInterval", "clearInterv
   if (id === "react") return react;
   if (id === "@/data/charades") return bank;
   if (id === "@/data/charades.es") return bankEs;
+  if (id === "@/data/charadesChristmas") return bankChristmas;
   if (id === "@/lib/topicPool") return pool;
   if (id === "@/lib/track") return { track: (name, params) => events.push({ name, params }) };
   if (id === "./PrintButton") return { default: "print-button" };

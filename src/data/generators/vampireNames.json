@@ -1,0 +1,2608 @@
+{
+ "first": [
+  {
+   "name": "Lucian",
+   "style": "classic",
+   "gender": "male",
+   "feel": "candle-lit and aristocratic"
+  },
+  {
+   "name": "Valentin",
+   "style": "classic",
+   "gender": "male",
+   "feel": "candelabra glow"
+  },
+  {
+   "name": "Alaric",
+   "style": "classic",
+   "gender": "male",
+   "feel": "opera-house dark"
+  },
+  {
+   "name": "Dorian",
+   "style": "classic",
+   "gender": "male",
+   "feel": "crypt-cold charm"
+  },
+  {
+   "name": "Cassius",
+   "style": "classic",
+   "gender": "male",
+   "feel": "a whisper in a manor corridor"
+  },
+  {
+   "name": "Mortimer",
+   "style": "classic",
+   "gender": "male",
+   "feel": "old-world elegance"
+  },
+  {
+   "name": "Sebastian",
+   "style": "classic",
+   "gender": "male",
+   "feel": "brooding and refined"
+  },
+  {
+   "name": "Leopold",
+   "style": "classic",
+   "gender": "male",
+   "feel": "Victorian-gothic"
+  },
+  {
+   "name": "Casimir",
+   "style": "classic",
+   "gender": "male",
+   "feel": "velvet-voiced"
+  },
+  {
+   "name": "Aurelio",
+   "style": "classic",
+   "gender": "male",
+   "feel": "candle-lit and aristocratic"
+  },
+  {
+   "name": "Radu",
+   "style": "classic",
+   "gender": "male",
+   "feel": "candelabra glow"
+  },
+  {
+   "name": "Lazarus",
+   "style": "classic",
+   "gender": "male",
+   "feel": "opera-house dark"
+  },
+  {
+   "name": "Lucius",
+   "style": "classic",
+   "gender": "male",
+   "feel": "crypt-cold charm"
+  },
+  {
+   "name": "Octavian",
+   "style": "classic",
+   "gender": "male",
+   "feel": "a whisper in a manor corridor"
+  },
+  {
+   "name": "Percival",
+   "style": "classic",
+   "gender": "male",
+   "feel": "old-world elegance"
+  },
+  {
+   "name": "Ambrose",
+   "style": "classic",
+   "gender": "male",
+   "feel": "brooding and refined"
+  },
+  {
+   "name": "Balthazar",
+   "style": "classic",
+   "gender": "male",
+   "feel": "Victorian-gothic"
+  },
+  {
+   "name": "Evander",
+   "style": "classic",
+   "gender": "male",
+   "feel": "velvet-voiced"
+  },
+  {
+   "name": "Gideon",
+   "style": "classic",
+   "gender": "male",
+   "feel": "candle-lit and aristocratic"
+  },
+  {
+   "name": "Hadrian",
+   "style": "classic",
+   "gender": "male",
+   "feel": "candelabra glow"
+  },
+  {
+   "name": "Ignatius",
+   "style": "classic",
+   "gender": "male",
+   "feel": "opera-house dark"
+  },
+  {
+   "name": "Julian",
+   "style": "classic",
+   "gender": "male",
+   "feel": "crypt-cold charm"
+  },
+  {
+   "name": "Lysander",
+   "style": "classic",
+   "gender": "male",
+   "feel": "a whisper in a manor corridor"
+  },
+  {
+   "name": "Magnus",
+   "style": "classic",
+   "gender": "male",
+   "feel": "old-world elegance"
+  },
+  {
+   "name": "Nikolai",
+   "style": "classic",
+   "gender": "male",
+   "feel": "brooding and refined"
+  },
+  {
+   "name": "Orlando",
+   "style": "classic",
+   "gender": "male",
+   "feel": "Victorian-gothic"
+  },
+  {
+   "name": "Raphael",
+   "style": "classic",
+   "gender": "male",
+   "feel": "velvet-voiced"
+  },
+  {
+   "name": "Silas",
+   "style": "classic",
+   "gender": "male",
+   "feel": "candle-lit and aristocratic"
+  },
+  {
+   "name": "Thaddeus",
+   "style": "classic",
+   "gender": "male",
+   "feel": "candelabra glow"
+  },
+  {
+   "name": "Ulrich",
+   "style": "classic",
+   "gender": "male",
+   "feel": "opera-house dark"
+  },
+  {
+   "name": "Valerian",
+   "style": "classic",
+   "gender": "male",
+   "feel": "crypt-cold charm"
+  },
+  {
+   "name": "Wolfgang",
+   "style": "classic",
+   "gender": "male",
+   "feel": "a whisper in a manor corridor"
+  },
+  {
+   "name": "Xavier",
+   "style": "classic",
+   "gender": "male",
+   "feel": "old-world elegance"
+  },
+  {
+   "name": "Zacharias",
+   "style": "classic",
+   "gender": "male",
+   "feel": "brooding and refined"
+  },
+  {
+   "name": "Augustin",
+   "style": "classic",
+   "gender": "male",
+   "feel": "Victorian-gothic"
+  },
+  {
+   "name": "Basil",
+   "style": "classic",
+   "gender": "male",
+   "feel": "velvet-voiced"
+  },
+  {
+   "name": "Cornelius",
+   "style": "classic",
+   "gender": "male",
+   "feel": "candle-lit and aristocratic"
+  },
+  {
+   "name": "Desmond",
+   "style": "classic",
+   "gender": "male",
+   "feel": "candelabra glow"
+  },
+  {
+   "name": "Edmund",
+   "style": "classic",
+   "gender": "male",
+   "feel": "opera-house dark"
+  },
+  {
+   "name": "Fabian",
+   "style": "classic",
+   "gender": "male",
+   "feel": "crypt-cold charm"
+  },
+  {
+   "name": "Lothar",
+   "style": "classic",
+   "gender": "male",
+   "feel": "a whisper in a manor corridor"
+  },
+  {
+   "name": "Matthias",
+   "style": "classic",
+   "gender": "male",
+   "feel": "old-world elegance"
+  },
+  {
+   "name": "Roderick",
+   "style": "classic",
+   "gender": "male",
+   "feel": "brooding and refined"
+  },
+  {
+   "name": "Dragomir",
+   "style": "classic",
+   "gender": "male",
+   "feel": "Victorian-gothic"
+  },
+  {
+   "name": "Anselm",
+   "style": "classic",
+   "gender": "male",
+   "feel": "velvet-voiced"
+  },
+  {
+   "name": "Bartholomew",
+   "style": "classic",
+   "gender": "male",
+   "feel": "candle-lit and aristocratic"
+  },
+  {
+   "name": "Erasmus",
+   "style": "classic",
+   "gender": "male",
+   "feel": "candelabra glow"
+  },
+  {
+   "name": "Seraphina",
+   "style": "classic",
+   "gender": "female",
+   "feel": "a whisper in a manor corridor"
+  },
+  {
+   "name": "Isolde",
+   "style": "classic",
+   "gender": "female",
+   "feel": "old-world elegance"
+  },
+  {
+   "name": "Lenore",
+   "style": "classic",
+   "gender": "female",
+   "feel": "brooding and refined"
+  },
+  {
+   "name": "Morwenna",
+   "style": "classic",
+   "gender": "female",
+   "feel": "Victorian-gothic"
+  },
+  {
+   "name": "Ophelia",
+   "style": "classic",
+   "gender": "female",
+   "feel": "velvet-voiced"
+  },
+  {
+   "name": "Rosalind",
+   "style": "classic",
+   "gender": "female",
+   "feel": "candle-lit and aristocratic"
+  },
+  {
+   "name": "Selene",
+   "style": "classic",
+   "gender": "female",
+   "feel": "candelabra glow"
+  },
+  {
+   "name": "Vesper",
+   "style": "classic",
+   "gender": "female",
+   "feel": "opera-house dark"
+  },
+  {
+   "name": "Adelaide",
+   "style": "classic",
+   "gender": "female",
+   "feel": "crypt-cold charm"
+  },
+  {
+   "name": "Beatrix",
+   "style": "classic",
+   "gender": "female",
+   "feel": "a whisper in a manor corridor"
+  },
+  {
+   "name": "Cordelia",
+   "style": "classic",
+   "gender": "female",
+   "feel": "old-world elegance"
+  },
+  {
+   "name": "Evangeline",
+   "style": "classic",
+   "gender": "female",
+   "feel": "brooding and refined"
+  },
+  {
+   "name": "Genevieve",
+   "style": "classic",
+   "gender": "female",
+   "feel": "Victorian-gothic"
+  },
+  {
+   "name": "Henrietta",
+   "style": "classic",
+   "gender": "female",
+   "feel": "velvet-voiced"
+  },
+  {
+   "name": "Isadora",
+   "style": "classic",
+   "gender": "female",
+   "feel": "candle-lit and aristocratic"
+  },
+  {
+   "name": "Josephine",
+   "style": "classic",
+   "gender": "female",
+   "feel": "candelabra glow"
+  },
+  {
+   "name": "Katarina",
+   "style": "classic",
+   "gender": "female",
+   "feel": "opera-house dark"
+  },
+  {
+   "name": "Miriam",
+   "style": "classic",
+   "gender": "female",
+   "feel": "crypt-cold charm"
+  },
+  {
+   "name": "Natasha",
+   "style": "classic",
+   "gender": "female",
+   "feel": "a whisper in a manor corridor"
+  },
+  {
+   "name": "Octavia",
+   "style": "classic",
+   "gender": "female",
+   "feel": "old-world elegance"
+  },
+  {
+   "name": "Philomena",
+   "style": "classic",
+   "gender": "female",
+   "feel": "brooding and refined"
+  },
+  {
+   "name": "Rosalie",
+   "style": "classic",
+   "gender": "female",
+   "feel": "Victorian-gothic"
+  },
+  {
+   "name": "Sabine",
+   "style": "classic",
+   "gender": "female",
+   "feel": "velvet-voiced"
+  },
+  {
+   "name": "Theodora",
+   "style": "classic",
+   "gender": "female",
+   "feel": "candle-lit and aristocratic"
+  },
+  {
+   "name": "Ursula",
+   "style": "classic",
+   "gender": "female",
+   "feel": "candelabra glow"
+  },
+  {
+   "name": "Violetta",
+   "style": "classic",
+   "gender": "female",
+   "feel": "opera-house dark"
+  },
+  {
+   "name": "Winifred",
+   "style": "classic",
+   "gender": "female",
+   "feel": "crypt-cold charm"
+  },
+  {
+   "name": "Zinaida",
+   "style": "classic",
+   "gender": "female",
+   "feel": "a whisper in a manor corridor"
+  },
+  {
+   "name": "Arabella",
+   "style": "classic",
+   "gender": "female",
+   "feel": "old-world elegance"
+  },
+  {
+   "name": "Bernadette",
+   "style": "classic",
+   "gender": "female",
+   "feel": "brooding and refined"
+  },
+  {
+   "name": "Clementine",
+   "style": "classic",
+   "gender": "female",
+   "feel": "Victorian-gothic"
+  },
+  {
+   "name": "Delphine",
+   "style": "classic",
+   "gender": "female",
+   "feel": "velvet-voiced"
+  },
+  {
+   "name": "Eleonora",
+   "style": "classic",
+   "gender": "female",
+   "feel": "candle-lit and aristocratic"
+  },
+  {
+   "name": "Felicity",
+   "style": "classic",
+   "gender": "female",
+   "feel": "candelabra glow"
+  },
+  {
+   "name": "Griselda",
+   "style": "classic",
+   "gender": "female",
+   "feel": "opera-house dark"
+  },
+  {
+   "name": "Hester",
+   "style": "classic",
+   "gender": "female",
+   "feel": "crypt-cold charm"
+  },
+  {
+   "name": "Ilona",
+   "style": "classic",
+   "gender": "female",
+   "feel": "a whisper in a manor corridor"
+  },
+  {
+   "name": "Juliette",
+   "style": "classic",
+   "gender": "female",
+   "feel": "old-world elegance"
+  },
+  {
+   "name": "Lavinia",
+   "style": "classic",
+   "gender": "female",
+   "feel": "brooding and refined"
+  },
+  {
+   "name": "Millicent",
+   "style": "classic",
+   "gender": "female",
+   "feel": "Victorian-gothic"
+  },
+  {
+   "name": "Ravenna",
+   "style": "classic",
+   "gender": "female",
+   "feel": "velvet-voiced"
+  },
+  {
+   "name": "Seraphine",
+   "style": "classic",
+   "gender": "female",
+   "feel": "candle-lit and aristocratic"
+  },
+  {
+   "name": "Tatiana",
+   "style": "classic",
+   "gender": "female",
+   "feel": "candelabra glow"
+  },
+  {
+   "name": "Vivienne",
+   "style": "classic",
+   "gender": "female",
+   "feel": "opera-house dark"
+  },
+  {
+   "name": "Esmeralda",
+   "style": "classic",
+   "gender": "female",
+   "feel": "crypt-cold charm"
+  },
+  {
+   "name": "Rowena",
+   "style": "classic",
+   "gender": "female",
+   "feel": "a whisper in a manor corridor"
+  },
+  {
+   "name": "Lucretia",
+   "style": "classic",
+   "gender": "female",
+   "feel": "old-world elegance"
+  },
+  {
+   "name": "Corvin",
+   "style": "classic",
+   "gender": "neutral",
+   "feel": "velvet-voiced"
+  },
+  {
+   "name": "Rune",
+   "style": "classic",
+   "gender": "neutral",
+   "feel": "candle-lit and aristocratic"
+  },
+  {
+   "name": "Sable",
+   "style": "classic",
+   "gender": "neutral",
+   "feel": "candelabra glow"
+  },
+  {
+   "name": "Briar",
+   "style": "classic",
+   "gender": "neutral",
+   "feel": "opera-house dark"
+  },
+  {
+   "name": "Ellery",
+   "style": "classic",
+   "gender": "neutral",
+   "feel": "crypt-cold charm"
+  },
+  {
+   "name": "Lorrain",
+   "style": "classic",
+   "gender": "neutral",
+   "feel": "a whisper in a manor corridor"
+  },
+  {
+   "name": "Quill",
+   "style": "classic",
+   "gender": "neutral",
+   "feel": "old-world elegance"
+  },
+  {
+   "name": "Wynter",
+   "style": "classic",
+   "gender": "neutral",
+   "feel": "brooding and refined"
+  },
+  {
+   "name": "Marlow",
+   "style": "classic",
+   "gender": "neutral",
+   "feel": "Victorian-gothic"
+  },
+  {
+   "name": "Thorne",
+   "style": "classic",
+   "gender": "neutral",
+   "feel": "velvet-voiced"
+  },
+  {
+   "name": "Ryker",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Dante",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Blake",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Cole",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Gage",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Jace",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Kane",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Logan",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Mason",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Nash",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Orion",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Pierce",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Reid",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Slade",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Tristan",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Vance",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Wade",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Zane",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Asher",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Brooks",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Caleb",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Dax",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Elias",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Felix",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Grayson",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Hunter",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Ivan",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Jasper",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Knox",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Leon",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Miles",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Nolan",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Oscar",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Pax",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Rhys",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Soren",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Theo",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Kieran",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Damien",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Jaxon",
+   "style": "modern",
+   "gender": "male",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Bianca",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Daria",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Elise",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Freya",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Gemma",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Hazel",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Iris",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Jade",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Kira",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Lena",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Maeve",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Nova",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Piper",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Raina",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Sienna",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Talia",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Vera",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Willa",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Yara",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Zara",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Alina",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Brielle",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Cassidy",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Delilah",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Eve",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Fiona",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Gia",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Harper",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Ivy",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Jules",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Kayla",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Luna",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Mira",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Nadia",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Odette",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Paloma",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Roxana",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Stella",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Tessa",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Vanessa",
+   "style": "modern",
+   "gender": "female",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Rowan",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Blair",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Kit",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Lux",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Nico",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Remy",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Sasha",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Wren",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Zephyr",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Quinn",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Ash",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Sky",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "sleek and city-night"
+  },
+  {
+   "name": "Rue",
+   "style": "modern",
+   "gender": "neutral",
+   "feel": "hoodie-in-the-rain cool"
+  },
+  {
+   "name": "Khenti",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Ramose",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Senmut",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Alkaios",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Demetrios",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Evandros",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Kassandros",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Lykos",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Nikias",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Orestes",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Theron",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Xenon",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Aurelius",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Caelus",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Decimus",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Flavius",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Gaius",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Horatius",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Livius",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Marcellus",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Nerva",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Octavius",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Quintus",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Severus",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Tiberius",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Vitruvius",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Nabu",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Ashur",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Belshar",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Kudur",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Zurvan",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Darius",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Cyrus",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Artaxes",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Anhur",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Merenptah",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Tuthmes",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Akhenre",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Hamilcar",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Maharbal",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Kleitos",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Sethos",
+   "style": "ancient",
+   "gender": "male",
+   "feel": "carved in stone"
+  },
+  {
+   "name": "Neferu",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Isidora",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Aspasia",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Berenike",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Chryseis",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Daphne",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Eirene",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Phaedra",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Thais",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Zenobia",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Calpurnia",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Cornelia",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Drusa",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Valeria",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Livia",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Aurelia",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Faustina",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Kallisto",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Nephele",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Hypatia",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Ishtara",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Sarai",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Nitara",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Merit",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Tiye",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Kemet",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Meryt",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Neithara",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Ankhara",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Thessaly",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Xanthe",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Ariadne",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Leandra",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Medea",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Nikaia",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Sappho",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Tamar",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Atossa",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Roxane",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Parisa",
+   "style": "ancient",
+   "gender": "female",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Sekhet",
+   "style": "ancient",
+   "gender": "neutral",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Nefer",
+   "style": "ancient",
+   "gender": "neutral",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Hesper",
+   "style": "ancient",
+   "gender": "neutral",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Ankh",
+   "style": "ancient",
+   "gender": "neutral",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Khet",
+   "style": "ancient",
+   "gender": "neutral",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Sol",
+   "style": "ancient",
+   "gender": "neutral",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Tanit",
+   "style": "ancient",
+   "gender": "neutral",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Amara",
+   "style": "ancient",
+   "gender": "neutral",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Ishi",
+   "style": "ancient",
+   "gender": "neutral",
+   "feel": "older than the language it came from"
+  },
+  {
+   "name": "Ren",
+   "style": "ancient",
+   "gender": "neutral",
+   "feel": "older than the language it came from"
+  }
+ ],
+ "surnames": [
+  {
+   "name": "Valcourt",
+   "style": "classic"
+  },
+  {
+   "name": "Ravenscroft",
+   "style": "classic"
+  },
+  {
+   "name": "Valdemar",
+   "style": "classic"
+  },
+  {
+   "name": "Morrowen",
+   "style": "classic"
+  },
+  {
+   "name": "Dravane",
+   "style": "classic"
+  },
+  {
+   "name": "Lazarescu",
+   "style": "classic"
+  },
+  {
+   "name": "Ashcombe",
+   "style": "classic"
+  },
+  {
+   "name": "Ashgrave",
+   "style": "classic"
+  },
+  {
+   "name": "Blackwood",
+   "style": "classic"
+  },
+  {
+   "name": "Bramwell",
+   "style": "classic"
+  },
+  {
+   "name": "Cavendish",
+   "style": "classic"
+  },
+  {
+   "name": "Crowhurst",
+   "style": "classic"
+  },
+  {
+   "name": "Dunmore",
+   "style": "classic"
+  },
+  {
+   "name": "Everhart",
+   "style": "classic"
+  },
+  {
+   "name": "Fairfax",
+   "style": "classic"
+  },
+  {
+   "name": "Grimaldi",
+   "style": "classic"
+  },
+  {
+   "name": "Hawthorne",
+   "style": "classic"
+  },
+  {
+   "name": "Ironwood",
+   "style": "classic"
+  },
+  {
+   "name": "Kestrel",
+   "style": "classic"
+  },
+  {
+   "name": "Lockhart",
+   "style": "classic"
+  },
+  {
+   "name": "Montrose",
+   "style": "classic"
+  },
+  {
+   "name": "Nightingale",
+   "style": "classic"
+  },
+  {
+   "name": "Oakhaven",
+   "style": "classic"
+  },
+  {
+   "name": "Pembroke",
+   "style": "classic"
+  },
+  {
+   "name": "Ravencrest",
+   "style": "classic"
+  },
+  {
+   "name": "Sterling",
+   "style": "classic"
+  },
+  {
+   "name": "Thornfield",
+   "style": "classic"
+  },
+  {
+   "name": "Underhill",
+   "style": "classic"
+  },
+  {
+   "name": "Vanderleigh",
+   "style": "classic"
+  },
+  {
+   "name": "Wolfsbane",
+   "style": "classic"
+  },
+  {
+   "name": "Ardenne",
+   "style": "classic"
+  },
+  {
+   "name": "Bellamont",
+   "style": "classic"
+  },
+  {
+   "name": "Corvino",
+   "style": "classic"
+  },
+  {
+   "name": "Darkmoor",
+   "style": "classic"
+  },
+  {
+   "name": "Eldritch",
+   "style": "classic"
+  },
+  {
+   "name": "Falconer",
+   "style": "classic"
+  },
+  {
+   "name": "Galvani",
+   "style": "classic"
+  },
+  {
+   "name": "Holloway",
+   "style": "classic"
+  },
+  {
+   "name": "Ivanescu",
+   "style": "classic"
+  },
+  {
+   "name": "Jorgensen",
+   "style": "classic"
+  },
+  {
+   "name": "Krasnov",
+   "style": "classic"
+  },
+  {
+   "name": "Lamarque",
+   "style": "classic"
+  },
+  {
+   "name": "Moreau",
+   "style": "classic"
+  },
+  {
+   "name": "Nocturne",
+   "style": "classic"
+  },
+  {
+   "name": "Orlov",
+   "style": "classic"
+  },
+  {
+   "name": "Petrescu",
+   "style": "classic"
+  },
+  {
+   "name": "Rosenthal",
+   "style": "classic"
+  },
+  {
+   "name": "Sauvage",
+   "style": "classic"
+  },
+  {
+   "name": "Tremaine",
+   "style": "classic"
+  },
+  {
+   "name": "Vasilescu",
+   "style": "classic"
+  },
+  {
+   "name": "Zelenko",
+   "style": "classic"
+  },
+  {
+   "name": "Draculesti",
+   "style": "classic"
+  },
+  {
+   "name": "Mordaunt",
+   "style": "classic"
+  },
+  {
+   "name": "Blackmoor",
+   "style": "classic"
+  },
+  {
+   "name": "Duskwood",
+   "style": "classic"
+  },
+  {
+   "name": "Grey",
+   "style": "classic"
+  },
+  {
+   "name": "Whitlock",
+   "style": "classic"
+  },
+  {
+   "name": "Crowe",
+   "style": "modern"
+  },
+  {
+   "name": "Vale",
+   "style": "modern"
+  },
+  {
+   "name": "Stone",
+   "style": "modern"
+  },
+  {
+   "name": "Night",
+   "style": "modern"
+  },
+  {
+   "name": "Black",
+   "style": "modern"
+  },
+  {
+   "name": "Storm",
+   "style": "modern"
+  },
+  {
+   "name": "Reyes",
+   "style": "modern"
+  },
+  {
+   "name": "Sinclair",
+   "style": "modern"
+  },
+  {
+   "name": "Hale",
+   "style": "modern"
+  },
+  {
+   "name": "Blackburn",
+   "style": "modern"
+  },
+  {
+   "name": "Frost",
+   "style": "modern"
+  },
+  {
+   "name": "Voss",
+   "style": "modern"
+  },
+  {
+   "name": "Kane",
+   "style": "modern"
+  },
+  {
+   "name": "Cross",
+   "style": "modern"
+  },
+  {
+   "name": "Dark",
+   "style": "modern"
+  },
+  {
+   "name": "Steele",
+   "style": "modern"
+  },
+  {
+   "name": "Thorne",
+   "style": "modern"
+  },
+  {
+   "name": "Knight",
+   "style": "modern"
+  },
+  {
+   "name": "Wolfe",
+   "style": "modern"
+  },
+  {
+   "name": "Rivers",
+   "style": "modern"
+  },
+  {
+   "name": "Raven",
+   "style": "modern"
+  },
+  {
+   "name": "Mercer",
+   "style": "modern"
+  },
+  {
+   "name": "Archer",
+   "style": "modern"
+  },
+  {
+   "name": "Carver",
+   "style": "modern"
+  },
+  {
+   "name": "Fox",
+   "style": "modern"
+  },
+  {
+   "name": "Gray",
+   "style": "modern"
+  },
+  {
+   "name": "Hayes",
+   "style": "modern"
+  },
+  {
+   "name": "Jarvis",
+   "style": "modern"
+  },
+  {
+   "name": "Lowell",
+   "style": "modern"
+  },
+  {
+   "name": "Mallory",
+   "style": "modern"
+  },
+  {
+   "name": "Nash",
+   "style": "modern"
+  },
+  {
+   "name": "Pryce",
+   "style": "modern"
+  },
+  {
+   "name": "Quinlan",
+   "style": "modern"
+  },
+  {
+   "name": "Rook",
+   "style": "modern"
+  },
+  {
+   "name": "Sloane",
+   "style": "modern"
+  },
+  {
+   "name": "Tate",
+   "style": "modern"
+  },
+  {
+   "name": "Vance",
+   "style": "modern"
+  },
+  {
+   "name": "Wilder",
+   "style": "modern"
+  },
+  {
+   "name": "Vega",
+   "style": "modern"
+  },
+  {
+   "name": "Marsh",
+   "style": "modern"
+  },
+  {
+   "name": "Ellis",
+   "style": "modern"
+  },
+  {
+   "name": "Cutler",
+   "style": "modern"
+  },
+  {
+   "name": "Draper",
+   "style": "modern"
+  },
+  {
+   "name": "Blackwell",
+   "style": "modern"
+  },
+  {
+   "name": "Nightshade",
+   "style": "modern"
+  },
+  {
+   "name": "Sorrel",
+   "style": "modern"
+  },
+  {
+   "name": "Hollis",
+   "style": "modern"
+  },
+  {
+   "name": "Ash",
+   "style": "modern"
+  },
+  {
+   "name": "Cain",
+   "style": "modern"
+  },
+  {
+   "name": "Locke",
+   "style": "modern"
+  },
+  {
+   "name": "Ankhesen",
+   "style": "ancient"
+  },
+  {
+   "name": "Khepri",
+   "style": "ancient"
+  },
+  {
+   "name": "Nebamun",
+   "style": "ancient"
+  },
+  {
+   "name": "Sethnakht",
+   "style": "ancient"
+  },
+  {
+   "name": "Ptolemaios",
+   "style": "ancient"
+  },
+  {
+   "name": "Ashurbani",
+   "style": "ancient"
+  },
+  {
+   "name": "MardukUr",
+   "style": "ancient"
+  },
+  {
+   "name": "Kalliades",
+   "style": "ancient"
+  },
+  {
+   "name": "Aurelianus",
+   "style": "ancient"
+  },
+  {
+   "name": "Cornelius",
+   "style": "ancient"
+  },
+  {
+   "name": "Flaviani",
+   "style": "ancient"
+  },
+  {
+   "name": "Valerian",
+   "style": "ancient"
+  },
+  {
+   "name": "Tiberian",
+   "style": "ancient"
+  },
+  {
+   "name": "Hadriani",
+   "style": "ancient"
+  },
+  {
+   "name": "Severan",
+   "style": "ancient"
+  },
+  {
+   "name": "Xerxian",
+   "style": "ancient"
+  },
+  {
+   "name": "Nabonid",
+   "style": "ancient"
+  },
+  {
+   "name": "Belshazar",
+   "style": "ancient"
+  },
+  {
+   "name": "Hammurani",
+   "style": "ancient"
+  },
+  {
+   "name": "Sargonid",
+   "style": "ancient"
+  },
+  {
+   "name": "Akkadan",
+   "style": "ancient"
+  },
+  {
+   "name": "Achaemen",
+   "style": "ancient"
+  },
+  {
+   "name": "Seleukis",
+   "style": "ancient"
+  },
+  {
+   "name": "Minoan",
+   "style": "ancient"
+  },
+  {
+   "name": "Thebanus",
+   "style": "ancient"
+  },
+  {
+   "name": "Memphian",
+   "style": "ancient"
+  },
+  {
+   "name": "Karnak",
+   "style": "ancient"
+  },
+  {
+   "name": "Luxorian",
+   "style": "ancient"
+  },
+  {
+   "name": "Sakkara",
+   "style": "ancient"
+  },
+  {
+   "name": "Giza",
+   "style": "ancient"
+  },
+  {
+   "name": "Amarna",
+   "style": "ancient"
+  },
+  {
+   "name": "Osirian",
+   "style": "ancient"
+  },
+  {
+   "name": "Nileborn",
+   "style": "ancient"
+  },
+  {
+   "name": "Sandborn",
+   "style": "ancient"
+  },
+  {
+   "name": "Tombwalker",
+   "style": "ancient"
+  },
+  {
+   "name": "Dunesinger",
+   "style": "ancient"
+  },
+  {
+   "name": "Stonewright",
+   "style": "ancient"
+  },
+  {
+   "name": "Obelisk",
+   "style": "ancient"
+  },
+  {
+   "name": "Papyrus",
+   "style": "ancient"
+  },
+  {
+   "name": "Sphinx",
+   "style": "ancient"
+  },
+  {
+   "name": "Lotusvale",
+   "style": "ancient"
+  },
+  {
+   "name": "Scarabeus",
+   "style": "ancient"
+  },
+  {
+   "name": "Hieratic",
+   "style": "ancient"
+  },
+  {
+   "name": "Canopic",
+   "style": "ancient"
+  },
+  {
+   "name": "Natron",
+   "style": "ancient"
+  },
+  {
+   "name": "Sistrum",
+   "style": "ancient"
+  },
+  {
+   "name": "Ushabti",
+   "style": "ancient"
+  },
+  {
+   "name": "Cartouche",
+   "style": "ancient"
+  },
+  {
+   "name": "Kohl",
+   "style": "ancient"
+  },
+  {
+   "name": "Alabaster",
+   "style": "ancient"
+  }
+ ],
+ "titles": {
+  "male": [
+   "Count",
+   "Baron",
+   "Lord",
+   "Duke",
+   "Prince",
+   "Marquis",
+   "Viscount",
+   "Margrave",
+   "Elder",
+   "Master"
+  ],
+  "female": [
+   "Countess",
+   "Baroness",
+   "Lady",
+   "Duchess",
+   "Princess",
+   "Marchioness",
+   "Viscountess",
+   "Margravine",
+   "Elder",
+   "Mistress"
+  ],
+  "neutral": [
+   "Archon",
+   "Sovereign",
+   "Magister",
+   "Regent",
+   "Warden",
+   "Sentinel",
+   "Ancient",
+   "Elder",
+   "Hierophant",
+   "Seneschal"
+  ]
+ },
+ "places": [
+  {
+   "name": "Ravenmoor",
+   "note": "a fog-bound estate above a black moor"
+  },
+  {
+   "name": "Crimson Keep",
+   "note": "a red-stone fortress on a cliff"
+  },
+  {
+   "name": "Nightfall Abbey",
+   "note": "a ruined abbey that wakes at dusk"
+  },
+  {
+   "name": "Velvet Crypt",
+   "note": "a candlelit tomb under a theatre"
+  },
+  {
+   "name": "Blackthorn Hollow",
+   "note": "a village hidden behind thorns"
+  },
+  {
+   "name": "Grimwald Castle",
+   "note": "a crumbling fortress with a single lit tower"
+  },
+  {
+   "name": "Silent Marches",
+   "note": "a stretch of marsh where nothing sings"
+  },
+  {
+   "name": "Ashen Spire",
+   "note": "a burned cathedral tower"
+  },
+  {
+   "name": "Gloomhaven",
+   "note": "a harbour town without sunrise"
+  },
+  {
+   "name": "Hollowmere",
+   "note": "a lake with no reflection"
+  },
+  {
+   "name": "Cinderfall",
+   "note": "a city rebuilt after the fire"
+  },
+  {
+   "name": "The Pale Court",
+   "note": "a gathering of old, pale nobles"
+  },
+  {
+   "name": "Duskmere Manor",
+   "note": "a manor with every curtain closed"
+  },
+  {
+   "name": "Starless Reach",
+   "note": "a mountain pass without a night sky"
+  },
+  {
+   "name": "Wolfsmoor",
+   "note": "a haunted heath with wolves"
+  },
+  {
+   "name": "Bonegate",
+   "note": "an ossuary at the edge of town"
+  },
+  {
+   "name": "Mourning Vale",
+   "note": "a valley of endless funerals"
+  },
+  {
+   "name": "The Obsidian Throne",
+   "note": "a seat carved from black glass"
+  },
+  {
+   "name": "Hexham Deep",
+   "note": "a mine beneath a lost village"
+  },
+  {
+   "name": "Vesper Hall",
+   "note": "a ballroom open only after sunset"
+  },
+  {
+   "name": "The Ninth Moon",
+   "note": "a secret society of night-owls"
+  },
+  {
+   "name": "Ebonreach",
+   "note": "a dark coast with black sand"
+  },
+  {
+   "name": "Thornwick",
+   "note": "a bramble-choked university town"
+  },
+  {
+   "name": "Winterhelm",
+   "note": "a snow-covered keep"
+  },
+  {
+   "name": "Carrion Fen",
+   "note": "a bird-haunted swamp"
+  },
+  {
+   "name": "Sablewood",
+   "note": "a dark forest of old trees"
+  },
+  {
+   "name": "The Iron Catacombs",
+   "note": "tunnels lined with rusted gates"
+  },
+  {
+   "name": "Lantern Row",
+   "note": "a lamplit lane in the old quarter"
+  },
+  {
+   "name": "The Hollow Court",
+   "note": "a court with an empty seat"
+  },
+  {
+   "name": "Candlemere",
+   "note": "a lake of floating candles"
+  },
+  {
+   "name": "Mirrorfall",
+   "note": "a waterfall that shows other worlds"
+  },
+  {
+   "name": "The Last Parish",
+   "note": "the final church on the hill"
+  },
+  {
+   "name": "Cold Harbor",
+   "note": "a freezing port that hides ships"
+  },
+  {
+   "name": "Briarcross",
+   "note": "a crossroads of roses and thorns"
+  },
+  {
+   "name": "Dreadmoor",
+   "note": "a heath that never rests"
+  },
+  {
+   "name": "The Garnet Vault",
+   "note": "a vault of old blood-red stones"
+  },
+  {
+   "name": "Pallid Isle",
+   "note": "a pale island of white trees"
+  },
+  {
+   "name": "Emberhollow",
+   "note": "a cursed hollow warm with red glow"
+  },
+  {
+   "name": "The Silent Opera",
+   "note": "an opera house that plays without music"
+  },
+  {
+   "name": "Midnight Station",
+   "note": "a station for one train a night"
+  },
+  {
+   "name": "Underhill",
+   "note": "a village under a haunted hill"
+  },
+  {
+   "name": "Moonvault",
+   "note": "a vault lit from a hole in the ceiling"
+  },
+  {
+   "name": "Saltmarsh Priory",
+   "note": "a priory flooded by tide"
+  },
+  {
+   "name": "Greywater Abbey",
+   "note": "an abbey of grey water and fog"
+  },
+  {
+   "name": "The Veiled City",
+   "note": "a city of locked doors"
+  },
+  {
+   "name": "Harrowgate",
+   "note": "a gate no living person uses"
+  },
+  {
+   "name": "Nethervale",
+   "note": "a valley at the world's low edge"
+  },
+  {
+   "name": "The Gilded Cage",
+   "note": "a mansion with golden bars"
+  },
+  {
+   "name": "Sepulchre Hill",
+   "note": "a hill lined with tombs"
+  },
+  {
+   "name": "The Amber Mausoleum",
+   "note": "a tomb of glowing resin"
+  }
+ ]
+}

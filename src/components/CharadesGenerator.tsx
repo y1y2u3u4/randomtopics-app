@@ -2,8 +2,9 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PrintButton from "./PrintButton";
-import { CHARADES_WORDS, CHARADES_CATEGORIES, type CharadesCategory, type CharadesWord } from "@/data/charades";
+import { CHARADES_WORDS, CHARADES_CATEGORIES, type CharadesCategory } from "@/data/charades";
 import { CHARADES_WORDS_ES, CHARADES_CATEGORIES_ES } from "@/data/charades.es";
+import { CHRISTMAS_CHARADES_WORDS, CHRISTMAS_CHARADES_CATEGORIES } from "@/data/charadesChristmas";
 import { drawUnseen } from "@/lib/topicPool";
 import { track } from "@/lib/track";
 
@@ -67,15 +68,25 @@ const DATA = {
   en: { words: CHARADES_WORDS, categories: CHARADES_CATEGORIES, eventParams: { tool_type: "charades_generator", content_source: "charades_hub", locale: "en" } },
   es: { words: CHARADES_WORDS_ES, categories: CHARADES_CATEGORIES_ES, eventParams: { tool_type: "charades_generator", content_source: "charades_hub", locale: "es" } },
 };
+// Seasonal decks replace the word list and categories and hide the quick decks.
+const DECKS = {
+  christmas: { words: CHRISTMAS_CHARADES_WORDS, categories: CHRISTMAS_CHARADES_CATEGORIES, eventParams: { tool_type: "charades_generator", content_source: "charades_christmas", locale: "en" } },
+};
+type Category = CharadesCategory | (typeof CHRISTMAS_CHARADES_CATEGORIES)[number]["id"];
+type Word = { w: string; c: Category; d: 1 | 2 | 3 };
 
-export default function CharadesGenerator({ locale = "en" }: { locale?: "en" | "es" } = {}) {
+export default function CharadesGenerator({ locale = "en", deck }: { locale?: "en" | "es"; deck?: keyof typeof DECKS } = {}) {
   const t = UI[locale];
-  const { words: WORDS, categories: CATEGORIES, eventParams } = DATA[locale];
+  const { words: WORDS, categories: CATEGORIES, eventParams } = (deck ? DECKS[deck] : DATA[locale]) as {
+    words: readonly Word[];
+    categories: readonly { id: Category; label: string; emoji: string }[];
+    eventParams: Record<string, string>;
+  };
   const DIFFICULTIES = t.difficulties.map((label, id) => ({ id: id as 0 | 1 | 2 | 3, label }));
-  const [category, setCategory] = useState<CharadesCategory | "all">("all");
+  const [category, setCategory] = useState<Category | "all">("all");
   const [difficulty, setDifficulty] = useState<0 | 1 | 2 | 3>(0);
   const [timerLength, setTimerLength] = useState(60);
-  const [current, setCurrent] = useState<CharadesWord | null>(null);
+  const [current, setCurrent] = useState<Word | null>(null);
   const [hidden, setHidden] = useState(false);
   const [usedKeys, setUsedKeys] = useState<Set<string>>(new Set());
   const [secondsLeft, setSecondsLeft] = useState(60);
@@ -177,7 +188,7 @@ export default function CharadesGenerator({ locale = "en" }: { locale?: "en" | "
     setTimerState("paused");
     track("timer_pause", { ...eventParams, timer_seconds: timerLength });
   };
-  const changeCategory = (next: CharadesCategory | "all") => {
+  const changeCategory = (next: Category | "all") => {
     setCategory(next);
     track("filter_select", { ...eventParams, filter_name: "category", filter_value: next });
   };
@@ -213,7 +224,7 @@ export default function CharadesGenerator({ locale = "en" }: { locale?: "en" | "
   return (
     <section id="charades-generator" aria-label={t.aria} className="max-w-3xl mx-auto px-4 sm:px-6 scroll-mt-24">
       <div className="glass-card p-5 sm:p-8">
-        <fieldset>
+        {!deck && <fieldset>
           <legend className="mb-2 text-xs uppercase tracking-widest text-[var(--text-muted)]">{t.quick}</legend>
           <div className="mb-5 flex flex-wrap gap-2" data-charades-quick>
             {QUICK_DECKS.map((deck) => {
@@ -224,7 +235,7 @@ export default function CharadesGenerator({ locale = "en" }: { locale?: "en" | "
               }} className={`${buttonClass} ${on ? selectedClass : idleClass}`}>{t.quickLabels[deck.id]}</button>;
             })}
           </div>
-        </fieldset>
+        </fieldset>}
         <fieldset>
           <legend className="mb-2 text-xs uppercase tracking-widest text-[var(--text-muted)]">{t.category}</legend>
           <div className="mb-5 flex flex-wrap gap-2">

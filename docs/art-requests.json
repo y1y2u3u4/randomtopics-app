@@ -18,6 +18,14 @@
       "status": "done"
     },
     {
+      "id": "trivia-christmas-hero",
+      "page": "/trivia-questions/christmas",
+      "path": "public/art/trivia/christmas-hero.jpg",
+      "prompt": "Flat vector illustration, 1600x900, 16:9. Christmas trivia night by a glowing fireplace: a decorated Christmas tree with string lights, wrapped presents, a fanned stack of question cards with large question marks, a mug of hot cocoa, a small round countdown timer and a chunky scoreboard with tally numbers. Dark pine-green and navy background with warm red, gold and neon cyan accents, soft glow. No text other than question marks and digits, no logos, no real people, no film characters.",
+      "alt": "Illustrated Christmas tree, wrapped presents and trivia question cards by a glowing fireplace",
+      "status": "pending"
+    },
+    {
       "id": "classroom-this-or-that-kids",
       "page": "/this-or-that/kids",
       "path": "public/art/classroom/this-or-that-kids.jpg",

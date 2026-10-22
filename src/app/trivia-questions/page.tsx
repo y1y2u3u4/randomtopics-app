@@ -67,6 +67,7 @@ export default function TriviaQuestionsPage() {
       updated="2026-10-14"
       faq={FAQ}
       related={[
+        { href: "/trivia-questions/christmas", label: "Christmas trivia" },
         { href: "/trivia-questions/halloween", label: "Halloween trivia" },
         { href: "/charades", label: "Charades generator" },
         { href: "/paranoia-questions", label: "Paranoia questions" },
@@ -119,7 +120,8 @@ export default function TriviaQuestionsPage() {
             you know the fact. Politics, religion and disasters are left out, so the questions work in classrooms, offices and family game nights.
           </p>
           <p>
-            Want something seasonal? Try the <Link href="/trivia-questions/halloween" className={linkClass}>Halloween trivia questions</Link>. For a
+            Want something seasonal? Try the <Link href="/trivia-questions/christmas" className={linkClass}>Christmas trivia questions</Link> or the{" "}
+            <Link href="/trivia-questions/halloween" className={linkClass}>Halloween trivia questions</Link>. For a
             louder party game between rounds, deal a few <Link href="/charades" className={linkClass}>charades</Link> words or a round of{" "}
             <Link href="/paranoia-questions" className={linkClass}>paranoia questions</Link>.
           </p>

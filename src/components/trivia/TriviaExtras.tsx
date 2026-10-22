@@ -7,7 +7,7 @@ import type { TriviaQuestion } from "@/lib/trivia";
  * generated locally; until the jpg lands in public/ an SVG placeholder with the
  * same 16:9 box is shown, so adding the file causes no layout shift.
  */
-export function TriviaHero({ src, alt, variant }: { src: string; alt: string; variant: "party" | "halloween" }) {
+export function TriviaHero({ src, alt, variant }: { src: string; alt: string; variant: "party" | "halloween" | "christmas" }) {
   const hasArt = existsSync(join(process.cwd(), "public", src));
   return (
     <figure className="max-w-3xl mx-auto px-4 sm:px-6 pt-10">
@@ -23,14 +23,14 @@ export function TriviaHero({ src, alt, variant }: { src: string; alt: string; va
   );
 }
 
-function Placeholder({ variant, label }: { variant: "party" | "halloween"; label: string }) {
-  const accent = variant === "halloween" ? "#ff8a1f" : "#00e5ff";
-  const second = variant === "halloween" ? "#8bff6a" : "#ff4fd8";
+function Placeholder({ variant, label }: { variant: "party" | "halloween" | "christmas"; label: string }) {
+  const accent = { party: "#00e5ff", halloween: "#ff8a1f", christmas: "#ff4d5e" }[variant];
+  const second = { party: "#ff4fd8", halloween: "#8bff6a", christmas: "#5dff9a" }[variant];
   return (
     <svg viewBox="0 0 1600 900" role="img" aria-label={label} className="h-full w-full" preserveAspectRatio="xMidYMid slice">
       <defs>
         <linearGradient id={`tg-${variant}`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor={variant === "halloween" ? "#1a0f24" : "#0b0f1a"} />
+          <stop offset="0" stopColor={{ party: "#0b0f1a", halloween: "#1a0f24", christmas: "#0f1a14" }[variant]} />
           <stop offset="1" stopColor="#08080f" />
         </linearGradient>
       </defs>

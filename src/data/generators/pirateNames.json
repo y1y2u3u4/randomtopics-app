@@ -1,0 +1,3744 @@
+{
+ "first": [
+  {
+   "name": "Barnaby",
+   "gender": "male"
+  },
+  {
+   "name": "Bartholomew",
+   "gender": "male"
+  },
+  {
+   "name": "Cuthbert",
+   "gender": "male"
+  },
+  {
+   "name": "Ezekiel",
+   "gender": "male"
+  },
+  {
+   "name": "Fitzgerald",
+   "gender": "male"
+  },
+  {
+   "name": "Gideon",
+   "gender": "male"
+  },
+  {
+   "name": "Horace",
+   "gender": "male"
+  },
+  {
+   "name": "Ignatius",
+   "gender": "male"
+  },
+  {
+   "name": "Jeremiah",
+   "gender": "male"
+  },
+  {
+   "name": "Kit",
+   "gender": "male"
+  },
+  {
+   "name": "Lazarus",
+   "gender": "male"
+  },
+  {
+   "name": "Mortimer",
+   "gender": "male"
+  },
+  {
+   "name": "Nathaniel",
+   "gender": "male"
+  },
+  {
+   "name": "Obadiah",
+   "gender": "male"
+  },
+  {
+   "name": "Percival",
+   "gender": "male"
+  },
+  {
+   "name": "Quentin",
+   "gender": "male"
+  },
+  {
+   "name": "Rufus",
+   "gender": "male"
+  },
+  {
+   "name": "Silas",
+   "gender": "male"
+  },
+  {
+   "name": "Thaddeus",
+   "gender": "male"
+  },
+  {
+   "name": "Ulysses",
+   "gender": "male"
+  },
+  {
+   "name": "Victor",
+   "gender": "male"
+  },
+  {
+   "name": "Wilhelm",
+   "gender": "male"
+  },
+  {
+   "name": "Zebulon",
+   "gender": "male"
+  },
+  {
+   "name": "Ambrose",
+   "gender": "male"
+  },
+  {
+   "name": "Bligh",
+   "gender": "male"
+  },
+  {
+   "name": "Caspian",
+   "gender": "male"
+  },
+  {
+   "name": "Declan",
+   "gender": "male"
+  },
+  {
+   "name": "Edmund",
+   "gender": "male"
+  },
+  {
+   "name": "Fergus",
+   "gender": "male"
+  },
+  {
+   "name": "Gareth",
+   "gender": "male"
+  },
+  {
+   "name": "Hector",
+   "gender": "male"
+  },
+  {
+   "name": "Isaiah",
+   "gender": "male"
+  },
+  {
+   "name": "Jasper",
+   "gender": "male"
+  },
+  {
+   "name": "Killian",
+   "gender": "male"
+  },
+  {
+   "name": "Lucas",
+   "gender": "male"
+  },
+  {
+   "name": "Magnus",
+   "gender": "male"
+  },
+  {
+   "name": "Nelson",
+   "gender": "male"
+  },
+  {
+   "name": "Oswald",
+   "gender": "male"
+  },
+  {
+   "name": "Peregrine",
+   "gender": "male"
+  },
+  {
+   "name": "Ronan",
+   "gender": "male"
+  },
+  {
+   "name": "Sylvester",
+   "gender": "male"
+  },
+  {
+   "name": "Tobias",
+   "gender": "male"
+  },
+  {
+   "name": "Ulrich",
+   "gender": "male"
+  },
+  {
+   "name": "Vincent",
+   "gender": "male"
+  },
+  {
+   "name": "Walter",
+   "gender": "male"
+  },
+  {
+   "name": "Xavier",
+   "gender": "male"
+  },
+  {
+   "name": "Yorick",
+   "gender": "male"
+  },
+  {
+   "name": "Zachary",
+   "gender": "male"
+  },
+  {
+   "name": "Alaric",
+   "gender": "male"
+  },
+  {
+   "name": "Benedict",
+   "gender": "male"
+  },
+  {
+   "name": "Cormac",
+   "gender": "male"
+  },
+  {
+   "name": "Dashiell",
+   "gender": "male"
+  },
+  {
+   "name": "Ephraim",
+   "gender": "male"
+  },
+  {
+   "name": "Finnegan",
+   "gender": "male"
+  },
+  {
+   "name": "Godfrey",
+   "gender": "male"
+  },
+  {
+   "name": "Hamish",
+   "gender": "male"
+  },
+  {
+   "name": "Ivor",
+   "gender": "male"
+  },
+  {
+   "name": "Jedediah",
+   "gender": "male"
+  },
+  {
+   "name": "Kendrick",
+   "gender": "male"
+  },
+  {
+   "name": "Leopold",
+   "gender": "male"
+  },
+  {
+   "name": "Montgomery",
+   "gender": "male"
+  },
+  {
+   "name": "Nicodemus",
+   "gender": "male"
+  },
+  {
+   "name": "Octavius",
+   "gender": "male"
+  },
+  {
+   "name": "Phineas",
+   "gender": "male"
+  },
+  {
+   "name": "Rafferty",
+   "gender": "male"
+  },
+  {
+   "name": "Seamus",
+   "gender": "male"
+  },
+  {
+   "name": "Tristan",
+   "gender": "male"
+  },
+  {
+   "name": "Umberto",
+   "gender": "male"
+  },
+  {
+   "name": "Valentin",
+   "gender": "male"
+  },
+  {
+   "name": "Winston",
+   "gender": "male"
+  },
+  {
+   "name": "Alistair",
+   "gender": "male"
+  },
+  {
+   "name": "Bertram",
+   "gender": "male"
+  },
+  {
+   "name": "Clement",
+   "gender": "male"
+  },
+  {
+   "name": "Dougal",
+   "gender": "male"
+  },
+  {
+   "name": "Emmett",
+   "gender": "male"
+  },
+  {
+   "name": "Fabian",
+   "gender": "male"
+  },
+  {
+   "name": "Gilbert",
+   "gender": "male"
+  },
+  {
+   "name": "Hugo",
+   "gender": "male"
+  },
+  {
+   "name": "Inigo",
+   "gender": "male"
+  },
+  {
+   "name": "Jonas",
+   "gender": "male"
+  },
+  {
+   "name": "Kane",
+   "gender": "male"
+  },
+  {
+   "name": "Lorcan",
+   "gender": "male"
+  },
+  {
+   "name": "Merrick",
+   "gender": "male"
+  },
+  {
+   "name": "Nolan",
+   "gender": "male"
+  },
+  {
+   "name": "Orrin",
+   "gender": "male"
+  },
+  {
+   "name": "Pascoe",
+   "gender": "male"
+  },
+  {
+   "name": "Rhys",
+   "gender": "male"
+  },
+  {
+   "name": "Stephen",
+   "gender": "male"
+  },
+  {
+   "name": "Torin",
+   "gender": "male"
+  },
+  {
+   "name": "Uriah",
+   "gender": "male"
+  },
+  {
+   "name": "Wolfe",
+   "gender": "male"
+  },
+  {
+   "name": "Yves",
+   "gender": "male"
+  },
+  {
+   "name": "Zeke",
+   "gender": "male"
+  },
+  {
+   "name": "Amos",
+   "gender": "male"
+  },
+  {
+   "name": "Brendan",
+   "gender": "male"
+  },
+  {
+   "name": "Corbin",
+   "gender": "male"
+  },
+  {
+   "name": "Dominic",
+   "gender": "male"
+  },
+  {
+   "name": "Edwin",
+   "gender": "male"
+  },
+  {
+   "name": "Flynn",
+   "gender": "male"
+  },
+  {
+   "name": "Griffin",
+   "gender": "male"
+  },
+  {
+   "name": "Hadley",
+   "gender": "male"
+  },
+  {
+   "name": "Ian",
+   "gender": "male"
+  },
+  {
+   "name": "Jory",
+   "gender": "male"
+  },
+  {
+   "name": "Agatha",
+   "gender": "female"
+  },
+  {
+   "name": "Beatrice",
+   "gender": "female"
+  },
+  {
+   "name": "Cordelia",
+   "gender": "female"
+  },
+  {
+   "name": "Delphine",
+   "gender": "female"
+  },
+  {
+   "name": "Eleanor",
+   "gender": "female"
+  },
+  {
+   "name": "Fiona",
+   "gender": "female"
+  },
+  {
+   "name": "Genevieve",
+   "gender": "female"
+  },
+  {
+   "name": "Hester",
+   "gender": "female"
+  },
+  {
+   "name": "Isabela",
+   "gender": "female"
+  },
+  {
+   "name": "Josephine",
+   "gender": "female"
+  },
+  {
+   "name": "Katherine",
+   "gender": "female"
+  },
+  {
+   "name": "Lavinia",
+   "gender": "female"
+  },
+  {
+   "name": "Margaret",
+   "gender": "female"
+  },
+  {
+   "name": "Nell",
+   "gender": "female"
+  },
+  {
+   "name": "Ottilie",
+   "gender": "female"
+  },
+  {
+   "name": "Philippa",
+   "gender": "female"
+  },
+  {
+   "name": "Rosalind",
+   "gender": "female"
+  },
+  {
+   "name": "Seraphina",
+   "gender": "female"
+  },
+  {
+   "name": "Tamsin",
+   "gender": "female"
+  },
+  {
+   "name": "Ursula",
+   "gender": "female"
+  },
+  {
+   "name": "Violet",
+   "gender": "female"
+  },
+  {
+   "name": "Winifred",
+   "gender": "female"
+  },
+  {
+   "name": "Xanthe",
+   "gender": "female"
+  },
+  {
+   "name": "Yvette",
+   "gender": "female"
+  },
+  {
+   "name": "Zara",
+   "gender": "female"
+  },
+  {
+   "name": "Annika",
+   "gender": "female"
+  },
+  {
+   "name": "Bridget",
+   "gender": "female"
+  },
+  {
+   "name": "Calypso",
+   "gender": "female"
+  },
+  {
+   "name": "Dorothea",
+   "gender": "female"
+  },
+  {
+   "name": "Evangeline",
+   "gender": "female"
+  },
+  {
+   "name": "Flora",
+   "gender": "female"
+  },
+  {
+   "name": "Gwendolyn",
+   "gender": "female"
+  },
+  {
+   "name": "Henrietta",
+   "gender": "female"
+  },
+  {
+   "name": "Imogen",
+   "gender": "female"
+  },
+  {
+   "name": "Jemima",
+   "gender": "female"
+  },
+  {
+   "name": "Kestrel",
+   "gender": "female"
+  },
+  {
+   "name": "Lucinda",
+   "gender": "female"
+  },
+  {
+   "name": "Marigold",
+   "gender": "female"
+  },
+  {
+   "name": "Nerissa",
+   "gender": "female"
+  },
+  {
+   "name": "Odette",
+   "gender": "female"
+  },
+  {
+   "name": "Pearl",
+   "gender": "female"
+  },
+  {
+   "name": "Quinn",
+   "gender": "female"
+  },
+  {
+   "name": "Rowena",
+   "gender": "female"
+  },
+  {
+   "name": "Sabine",
+   "gender": "female"
+  },
+  {
+   "name": "Thalia",
+   "gender": "female"
+  },
+  {
+   "name": "Una",
+   "gender": "female"
+  },
+  {
+   "name": "Verity",
+   "gender": "female"
+  },
+  {
+   "name": "Wilhelmina",
+   "gender": "female"
+  },
+  {
+   "name": "Yara",
+   "gender": "female"
+  },
+  {
+   "name": "Zelda",
+   "gender": "female"
+  },
+  {
+   "name": "Adelaide",
+   "gender": "female"
+  },
+  {
+   "name": "Blythe",
+   "gender": "female"
+  },
+  {
+   "name": "Clara",
+   "gender": "female"
+  },
+  {
+   "name": "Daphne",
+   "gender": "female"
+  },
+  {
+   "name": "Esme",
+   "gender": "female"
+  },
+  {
+   "name": "Freya",
+   "gender": "female"
+  },
+  {
+   "name": "Greta",
+   "gender": "female"
+  },
+  {
+   "name": "Hattie",
+   "gender": "female"
+  },
+  {
+   "name": "Isolde",
+   "gender": "female"
+  },
+  {
+   "name": "Jessamy",
+   "gender": "female"
+  },
+  {
+   "name": "Kitty",
+   "gender": "female"
+  },
+  {
+   "name": "Lorna",
+   "gender": "female"
+  },
+  {
+   "name": "Maeve",
+   "gender": "female"
+  },
+  {
+   "name": "Nora",
+   "gender": "female"
+  },
+  {
+   "name": "Olwen",
+   "gender": "female"
+  },
+  {
+   "name": "Prudence",
+   "gender": "female"
+  },
+  {
+   "name": "Rosalie",
+   "gender": "female"
+  },
+  {
+   "name": "Sorcha",
+   "gender": "female"
+  },
+  {
+   "name": "Tilly",
+   "gender": "female"
+  },
+  {
+   "name": "Ulla",
+   "gender": "female"
+  },
+  {
+   "name": "Vesper",
+   "gender": "female"
+  },
+  {
+   "name": "Wren",
+   "gender": "female"
+  },
+  {
+   "name": "Abigail",
+   "gender": "female"
+  },
+  {
+   "name": "Bess",
+   "gender": "female"
+  },
+  {
+   "name": "Cecily",
+   "gender": "female"
+  },
+  {
+   "name": "Dinah",
+   "gender": "female"
+  },
+  {
+   "name": "Elspeth",
+   "gender": "female"
+  },
+  {
+   "name": "Fenella",
+   "gender": "female"
+  },
+  {
+   "name": "Grace",
+   "gender": "female"
+  },
+  {
+   "name": "Hannah",
+   "gender": "female"
+  },
+  {
+   "name": "Ingrid",
+   "gender": "female"
+  },
+  {
+   "name": "Judith",
+   "gender": "female"
+  },
+  {
+   "name": "Keira",
+   "gender": "female"
+  },
+  {
+   "name": "Lottie",
+   "gender": "female"
+  },
+  {
+   "name": "Mabel",
+   "gender": "female"
+  },
+  {
+   "name": "Nessa",
+   "gender": "female"
+  },
+  {
+   "name": "Opal",
+   "gender": "female"
+  },
+  {
+   "name": "Penelope",
+   "gender": "female"
+  },
+  {
+   "name": "Rhiannon",
+   "gender": "female"
+  },
+  {
+   "name": "Sadie",
+   "gender": "female"
+  },
+  {
+   "name": "Tess",
+   "gender": "female"
+  },
+  {
+   "name": "Uma",
+   "gender": "female"
+  },
+  {
+   "name": "Vera",
+   "gender": "female"
+  },
+  {
+   "name": "Willa",
+   "gender": "female"
+  },
+  {
+   "name": "Yasmin",
+   "gender": "female"
+  },
+  {
+   "name": "Zinnia",
+   "gender": "female"
+  },
+  {
+   "name": "Alma",
+   "gender": "female"
+  },
+  {
+   "name": "Brigid",
+   "gender": "female"
+  },
+  {
+   "name": "Corisande",
+   "gender": "female"
+  },
+  {
+   "name": "Dilys",
+   "gender": "female"
+  },
+  {
+   "name": "Edith",
+   "gender": "female"
+  },
+  {
+   "name": "Ffion",
+   "gender": "female"
+  },
+  {
+   "name": "Gemma",
+   "gender": "female"
+  },
+  {
+   "name": "Hilda",
+   "gender": "female"
+  },
+  {
+   "name": "Isla",
+   "gender": "female"
+  },
+  {
+   "name": "Jocasta",
+   "gender": "female"
+  },
+  {
+   "name": "Kerensa",
+   "gender": "female"
+  },
+  {
+   "name": "Lowenna",
+   "gender": "female"
+  },
+  {
+   "name": "Morwenna",
+   "gender": "female"
+  },
+  {
+   "name": "Rowan",
+   "gender": "neutral"
+  },
+  {
+   "name": "Sage",
+   "gender": "neutral"
+  },
+  {
+   "name": "Quill",
+   "gender": "neutral"
+  },
+  {
+   "name": "Marlow",
+   "gender": "neutral"
+  },
+  {
+   "name": "Ash",
+   "gender": "neutral"
+  },
+  {
+   "name": "Briar",
+   "gender": "neutral"
+  },
+  {
+   "name": "Corsair",
+   "gender": "neutral"
+  },
+  {
+   "name": "Drifter",
+   "gender": "neutral"
+  },
+  {
+   "name": "Ember",
+   "gender": "neutral"
+  },
+  {
+   "name": "Finch",
+   "gender": "neutral"
+  },
+  {
+   "name": "Gale",
+   "gender": "neutral"
+  },
+  {
+   "name": "Harbor",
+   "gender": "neutral"
+  },
+  {
+   "name": "Indigo",
+   "gender": "neutral"
+  },
+  {
+   "name": "Jetty",
+   "gender": "neutral"
+  },
+  {
+   "name": "Lark",
+   "gender": "neutral"
+  },
+  {
+   "name": "Misty",
+   "gender": "neutral"
+  },
+  {
+   "name": "Nomad",
+   "gender": "neutral"
+  },
+  {
+   "name": "Onyx",
+   "gender": "neutral"
+  },
+  {
+   "name": "Pike",
+   "gender": "neutral"
+  },
+  {
+   "name": "Reef",
+   "gender": "neutral"
+  },
+  {
+   "name": "Skye",
+   "gender": "neutral"
+  },
+  {
+   "name": "Tide",
+   "gender": "neutral"
+  },
+  {
+   "name": "Vale",
+   "gender": "neutral"
+  },
+  {
+   "name": "Wave",
+   "gender": "neutral"
+  },
+  {
+   "name": "Zephyr",
+   "gender": "neutral"
+  },
+  {
+   "name": "Sol",
+   "gender": "neutral"
+  },
+  {
+   "name": "Rory",
+   "gender": "neutral"
+  },
+  {
+   "name": "Teal",
+   "gender": "neutral"
+  },
+  {
+   "name": "Albion",
+   "gender": "male"
+  },
+  {
+   "name": "Barclay",
+   "gender": "male"
+  },
+  {
+   "name": "Cassius",
+   "gender": "male"
+  },
+  {
+   "name": "Dermot",
+   "gender": "male"
+  },
+  {
+   "name": "Elias",
+   "gender": "male"
+  },
+  {
+   "name": "Fitch",
+   "gender": "male"
+  },
+  {
+   "name": "Gunnar",
+   "gender": "male"
+  },
+  {
+   "name": "Hiram",
+   "gender": "male"
+  },
+  {
+   "name": "Ansel",
+   "gender": "female"
+  },
+  {
+   "name": "Bronwen",
+   "gender": "female"
+  },
+  {
+   "name": "Carys",
+   "gender": "female"
+  },
+  {
+   "name": "Dagny",
+   "gender": "female"
+  },
+  {
+   "name": "Eira",
+   "gender": "female"
+  },
+  {
+   "name": "Ottoline",
+   "gender": "female"
+  },
+  {
+   "name": "Piper",
+   "gender": "female"
+  },
+  {
+   "name": "Brine",
+   "gender": "neutral"
+  },
+  {
+   "name": "Cobalt",
+   "gender": "neutral"
+  },
+  {
+   "name": "Driftwood",
+   "gender": "neutral"
+  }
+ ],
+ "nicknames": [
+  {
+   "name": "One-Eyed",
+   "meaning": "lost an eye in a boarding fight and never covered the socket",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bloody",
+   "meaning": "never once seen with clean hands",
+   "style": "fearsome"
+  },
+  {
+   "name": "Black",
+   "meaning": "sailed only under a black flag and a black coat",
+   "style": "fearsome"
+  },
+  {
+   "name": "Iron",
+   "meaning": "took a cutlass blow to the chest and shrugged it off",
+   "style": "fearsome"
+  },
+  {
+   "name": "Red",
+   "meaning": "famous for the crimson sash tied round the waist",
+   "style": "fearsome"
+  },
+  {
+   "name": "Mad",
+   "meaning": "laughed all through a storm that sank two ships",
+   "style": "fearsome"
+  },
+  {
+   "name": "Dead-Eye",
+   "meaning": "never misses with a flintlock",
+   "style": "fearsome"
+  },
+  {
+   "name": "Cold",
+   "meaning": "never raises a voice and never forgives a debt",
+   "style": "fearsome"
+  },
+  {
+   "name": "Grim",
+   "meaning": "has not been seen smiling since the siege of the cove",
+   "style": "fearsome"
+  },
+  {
+   "name": "Hook",
+   "meaning": "wears a rusted iron hook where a hand used to be",
+   "style": "fearsome"
+  },
+  {
+   "name": "Silent",
+   "meaning": "a man of few words, all of them threats",
+   "style": "fearsome"
+  },
+  {
+   "name": "Scarred",
+   "meaning": "carries a scar from brow to jaw",
+   "style": "fearsome"
+  },
+  {
+   "name": "Storm",
+   "meaning": "the weather turns whenever they arrive",
+   "style": "fearsome"
+  },
+  {
+   "name": "Shark",
+   "meaning": "circled by sharks and never bitten",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ghost",
+   "meaning": "was reported drowned twice and sailed on regardless",
+   "style": "fearsome"
+  },
+  {
+   "name": "Cruel",
+   "meaning": "known for a very short temper at sea",
+   "style": "fearsome"
+  },
+  {
+   "name": "Gallows",
+   "meaning": "slipped the noose once and kept the rope",
+   "style": "fearsome"
+  },
+  {
+   "name": "Dagger",
+   "meaning": "keeps seven blades and finds a use for each",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bones",
+   "meaning": "chews on a bone to think",
+   "style": "fearsome"
+  },
+  {
+   "name": "Reaper",
+   "meaning": "said to harvest crews instead of crops",
+   "style": "fearsome"
+  },
+  {
+   "name": "Raven",
+   "meaning": "a black bird follows the ship from port to port",
+   "style": "fearsome"
+  },
+  {
+   "name": "Kraken",
+   "meaning": "claims to have fought a sea monster and left with a tentacle",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bonecrusher",
+   "meaning": "wins arm-wrestling bets at every tavern",
+   "style": "fearsome"
+  },
+  {
+   "name": "Tempest",
+   "meaning": "fights like a gale and swears like one too",
+   "style": "fearsome"
+  },
+  {
+   "name": "Hellfire",
+   "meaning": "set a harbour alight to cover an escape",
+   "style": "fearsome"
+  },
+  {
+   "name": "Sharktooth",
+   "meaning": "wears a necklace of teeth from a ten-foot shark",
+   "style": "fearsome"
+  },
+  {
+   "name": "Barbarossa",
+   "meaning": "red-bearded and reputed to boil over",
+   "style": "fearsome"
+  },
+  {
+   "name": "Skullcap",
+   "meaning": "wears a skull on a hat and means it",
+   "style": "fearsome"
+  },
+  {
+   "name": "Deadlight",
+   "meaning": "the last lamp many sailors saw",
+   "style": "fearsome"
+  },
+  {
+   "name": "Blackheart",
+   "meaning": "rumoured never to have had a conscience",
+   "style": "fearsome"
+  },
+  {
+   "name": "Wraith",
+   "meaning": "slips onto decks unseen at night",
+   "style": "fearsome"
+  },
+  {
+   "name": "Thunder",
+   "meaning": "their cannons are heard three bays away",
+   "style": "fearsome"
+  },
+  {
+   "name": "Seawolf",
+   "meaning": "hunts in packs and never stays long",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ironhook",
+   "meaning": "fought a captain for his ship using only a hook",
+   "style": "fearsome"
+  },
+  {
+   "name": "Fangs",
+   "meaning": "keeps two gold teeth sharpened like blades",
+   "style": "fearsome"
+  },
+  {
+   "name": "Grimm",
+   "meaning": "solemn at dinner, fatal at dawn",
+   "style": "fearsome"
+  },
+  {
+   "name": "Blackbeard",
+   "meaning": "wears a dark beard braided with ribbons and fuses",
+   "style": "fearsome"
+  },
+  {
+   "name": "Cutlass",
+   "meaning": "rarely draws anything else",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bloodtide",
+   "meaning": "left a sea red after one fierce night",
+   "style": "fearsome"
+  },
+  {
+   "name": "Stormcrow",
+   "meaning": "arrives with bad weather and worse news",
+   "style": "fearsome"
+  },
+  {
+   "name": "Doom",
+   "meaning": "the name sailors whisper before a sail appears",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ragged",
+   "meaning": "survived three shipwrecks and kept the coat",
+   "style": "fearsome"
+  },
+  {
+   "name": "Venom",
+   "meaning": "carries poison on a dagger and a smile",
+   "style": "fearsome"
+  },
+  {
+   "name": "Hangman",
+   "meaning": "the quartermaster who ties the knot",
+   "style": "fearsome"
+  },
+  {
+   "name": "Darkwater",
+   "meaning": "never sails by day",
+   "style": "fearsome"
+  },
+  {
+   "name": "Redhand",
+   "meaning": "claims to wash only on Sundays and never does",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ironclaw",
+   "meaning": "keeps a gauntlet that has crushed a lock or two",
+   "style": "fearsome"
+  },
+  {
+   "name": "Sinister",
+   "meaning": "has an unsettling habit of smiling at the wrong moments",
+   "style": "fearsome"
+  },
+  {
+   "name": "Sabre",
+   "meaning": "sleeps beside a sabre and wakes before it does",
+   "style": "fearsome"
+  },
+  {
+   "name": "Corpse",
+   "meaning": "has been mistaken for dead on several decks",
+   "style": "fearsome"
+  },
+  {
+   "name": "Shadow",
+   "meaning": "cannot be seen against a night sail",
+   "style": "fearsome"
+  },
+  {
+   "name": "Tidebreaker",
+   "meaning": "smashed a harbour chain with one blow",
+   "style": "fearsome"
+  },
+  {
+   "name": "Dread",
+   "meaning": "crews go quiet when they see the flag",
+   "style": "fearsome"
+  },
+  {
+   "name": "Wolfsbane",
+   "meaning": "hunts alone and eats sailors for breakfast",
+   "style": "fearsome"
+  },
+  {
+   "name": "Scorch",
+   "meaning": "burnt a fleet down from a longboat",
+   "style": "fearsome"
+  },
+  {
+   "name": "Vulture",
+   "meaning": "waits for fights to end, then collects",
+   "style": "fearsome"
+  },
+  {
+   "name": "Barnacle",
+   "meaning": "so old and hard that shells grow on the boots",
+   "style": "fearsome"
+  },
+  {
+   "name": "Gutter",
+   "meaning": "ran the lowest tavern in port before turning to the sea",
+   "style": "fearsome"
+  },
+  {
+   "name": "Fell",
+   "meaning": "a captain whom bad luck follows, but never catches",
+   "style": "fearsome"
+  },
+  {
+   "name": "Deathbell",
+   "meaning": "rings a ship's bell before every attack",
+   "style": "fearsome"
+  },
+  {
+   "name": "Malice",
+   "meaning": "smiles when others are afraid",
+   "style": "fearsome"
+  },
+  {
+   "name": "Moonless",
+   "meaning": "only strikes on the darkest nights",
+   "style": "fearsome"
+  },
+  {
+   "name": "Marauder",
+   "meaning": "raids three ports a week and sleeps in none",
+   "style": "fearsome"
+  },
+  {
+   "name": "Sharkbait",
+   "meaning": "laughs at sharks and has the scars to prove it",
+   "style": "fearsome"
+  },
+  {
+   "name": "Mutineer",
+   "meaning": "took one ship by mutiny and the next by contract",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bonny",
+   "meaning": "the one name they never mock aloud",
+   "style": "fearsome"
+  },
+  {
+   "name": "Cannonball",
+   "meaning": "once survived a direct hit",
+   "style": "fearsome"
+  },
+  {
+   "name": "Skeleton",
+   "meaning": "thin as a mast and twice as tall",
+   "style": "fearsome"
+  },
+  {
+   "name": "Weathered",
+   "meaning": "the sea has taken everything but the stubbornness",
+   "style": "fearsome"
+  },
+  {
+   "name": "Keelhaul",
+   "meaning": "has dragged three captains under the hull",
+   "style": "fearsome"
+  },
+  {
+   "name": "Rotgut",
+   "meaning": "drinks the foulest rum in any port, and thrives",
+   "style": "fearsome"
+  },
+  {
+   "name": "Blackjack",
+   "meaning": "an expert with a leather cosh",
+   "style": "fearsome"
+  },
+  {
+   "name": "Powder",
+   "meaning": "always carries a pouch of black powder",
+   "style": "fearsome"
+  },
+  {
+   "name": "Devil",
+   "meaning": "was said to have bargained for a ship",
+   "style": "fearsome"
+  },
+  {
+   "name": "Grave",
+   "meaning": "digs treasure up and buries enemies down",
+   "style": "fearsome"
+  },
+  {
+   "name": "Wicked",
+   "meaning": "sails with a crooked grin and a crooked map",
+   "style": "fearsome"
+  },
+  {
+   "name": "Cutthroat",
+   "meaning": "the trade is plain from the name",
+   "style": "fearsome"
+  },
+  {
+   "name": "Specter",
+   "meaning": "hardly speaks and appears only at dusk",
+   "style": "fearsome"
+  },
+  {
+   "name": "Dirk",
+   "meaning": "never without a short blade in the boot",
+   "style": "fearsome"
+  },
+  {
+   "name": "Tempestuous",
+   "meaning": "every argument becomes a hurricane",
+   "style": "fearsome"
+  },
+  {
+   "name": "Lash",
+   "meaning": "wields the whip with an artist's care",
+   "style": "fearsome"
+  },
+  {
+   "name": "Sea-Hag",
+   "meaning": "a witch of the waves, sailors say",
+   "style": "fearsome"
+  },
+  {
+   "name": "Maelstrom",
+   "meaning": "loves the middle of the trouble",
+   "style": "fearsome"
+  },
+  {
+   "name": "Barrel",
+   "meaning": "large in girth and larger in thirst",
+   "style": "fearsome"
+  },
+  {
+   "name": "Rapier",
+   "meaning": "fast and fancy in a duel",
+   "style": "fearsome"
+  },
+  {
+   "name": "Vengeful",
+   "meaning": "pursues old wrongs from port to port",
+   "style": "fearsome"
+  },
+  {
+   "name": "Longshanks",
+   "meaning": "legs like a heron, steps like a sentry",
+   "style": "fearsome"
+  },
+  {
+   "name": "Stonefist",
+   "meaning": "punches through a cask lid in one blow",
+   "style": "fearsome"
+  },
+  {
+   "name": "Blackwater",
+   "meaning": "comes from a bay that never clears",
+   "style": "fearsome"
+  },
+  {
+   "name": "Calico",
+   "meaning": "famous for a patchwork coat of stolen cloth",
+   "style": "fearsome"
+  },
+  {
+   "name": "Dreadnought",
+   "meaning": "will not retreat under any circumstances",
+   "style": "fearsome"
+  },
+  {
+   "name": "Plunder",
+   "meaning": "never leaves a ship without its pockets empty",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bilgewater",
+   "meaning": "smells of the bottom of the hold",
+   "style": "fearsome"
+  },
+  {
+   "name": "Whisper",
+   "meaning": "speaks only in the captain's ear",
+   "style": "fearsome"
+  },
+  {
+   "name": "Anchor",
+   "meaning": "drags one on a chain to every fight",
+   "style": "fearsome"
+  },
+  {
+   "name": "Rust",
+   "meaning": "old iron in the heart and the hat",
+   "style": "fearsome"
+  },
+  {
+   "name": "Sunken",
+   "meaning": "found rich wrecks no one else could reach",
+   "style": "fearsome"
+  },
+  {
+   "name": "Gnash",
+   "meaning": "grinds teeth through every night watch",
+   "style": "fearsome"
+  },
+  {
+   "name": "Cannon",
+   "meaning": "a quartermaster who loves gunnery above all",
+   "style": "fearsome"
+  },
+  {
+   "name": "Gilded",
+   "meaning": "wears rings on every finger and a gold chain",
+   "style": "fearsome"
+  },
+  {
+   "name": "Jackal",
+   "meaning": "laughs when the fight turns ugly",
+   "style": "fearsome"
+  },
+  {
+   "name": "Thorn",
+   "meaning": "small, barbed and stuck in a captain's side",
+   "style": "fearsome"
+  },
+  {
+   "name": "Reefer",
+   "meaning": "knows every reef from the Gulf to the Cape",
+   "style": "fearsome"
+  },
+  {
+   "name": "Crimson",
+   "meaning": "wears a coat the colour of fresh paint, or something else",
+   "style": "fearsome"
+  },
+  {
+   "name": "Buccaneer",
+   "meaning": "the old word for a hard life on the sea",
+   "style": "fearsome"
+  },
+  {
+   "name": "Pitch",
+   "meaning": "pours tar on a deck and lights the match",
+   "style": "fearsome"
+  },
+  {
+   "name": "Brine",
+   "meaning": "preserved by salt and spite",
+   "style": "fearsome"
+  },
+  {
+   "name": "Dagon",
+   "meaning": "said to talk to the deep",
+   "style": "fearsome"
+  },
+  {
+   "name": "Vex",
+   "meaning": "happiest when annoying officers",
+   "style": "fearsome"
+  },
+  {
+   "name": "Hellhound",
+   "meaning": "follows ships at night and bites",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bleak",
+   "meaning": "finds the grey in every sunrise",
+   "style": "fearsome"
+  },
+  {
+   "name": "Rogue",
+   "meaning": "never quite on any side",
+   "style": "fearsome"
+  },
+  {
+   "name": "Sable",
+   "meaning": "a coat as dark as the deep",
+   "style": "fearsome"
+  },
+  {
+   "name": "Krakenslayer",
+   "meaning": "claimed to have killed the beast, no witnesses survive",
+   "style": "fearsome"
+  },
+  {
+   "name": "Gunpowder",
+   "meaning": "loves a loud entrance",
+   "style": "fearsome"
+  },
+  {
+   "name": "Stowaway",
+   "meaning": "turned up aboard, and ran the ship by Friday",
+   "style": "fearsome"
+  },
+  {
+   "name": "Noose",
+   "meaning": "keeps the rope neatly coiled",
+   "style": "fearsome"
+  },
+  {
+   "name": "Briney",
+   "meaning": "nobody can remember a dry day",
+   "style": "fearsome"
+  },
+  {
+   "name": "Tarry",
+   "meaning": "smells of resin and old rope",
+   "style": "fearsome"
+  },
+  {
+   "name": "Axe",
+   "meaning": "prefers boarding axes to blades",
+   "style": "fearsome"
+  },
+  {
+   "name": "Sharkfin",
+   "meaning": "wears a fin cut from a great white on a hat",
+   "style": "fearsome"
+  },
+  {
+   "name": "Eclipse",
+   "meaning": "a sudden darkness before an attack",
+   "style": "fearsome"
+  },
+  {
+   "name": "Fishbreath",
+   "meaning": "smells of the catch of the day, every day",
+   "style": "funny"
+  },
+  {
+   "name": "Soggy",
+   "meaning": "has not been dry since the harbour dunking",
+   "style": "funny"
+  },
+  {
+   "name": "Two-Toes",
+   "meaning": "lost three in a bet with a crab",
+   "style": "funny"
+  },
+  {
+   "name": "Peg-Legs",
+   "meaning": "owns four wooden legs, one for every mood",
+   "style": "funny"
+  },
+  {
+   "name": "Sticky",
+   "meaning": "coated in jam from a pastry heist",
+   "style": "funny"
+  },
+  {
+   "name": "Barnacle-Bottom",
+   "meaning": "sat on a hull for a whole tide",
+   "style": "funny"
+  },
+  {
+   "name": "Squawk",
+   "meaning": "parrot refuses to leave, and refuses to be quiet",
+   "style": "funny"
+  },
+  {
+   "name": "Lumpy",
+   "meaning": "refuses to explain the lumps",
+   "style": "funny"
+  },
+  {
+   "name": "Soupspoon",
+   "meaning": "fought a duel with a ladle and lost",
+   "style": "funny"
+  },
+  {
+   "name": "Wobbly",
+   "meaning": "cannot walk straight on land or at sea",
+   "style": "funny"
+  },
+  {
+   "name": "Biscuit",
+   "meaning": "once saved a ship by holding a very stale one",
+   "style": "funny"
+  },
+  {
+   "name": "Giggles",
+   "meaning": "cannot stop at the worst moments",
+   "style": "funny"
+  },
+  {
+   "name": "Sloppy",
+   "meaning": "spills the rum on every map",
+   "style": "funny"
+  },
+  {
+   "name": "Fumble-Fingers",
+   "meaning": "has lost three compasses and one hat",
+   "style": "funny"
+  },
+  {
+   "name": "Dizzy",
+   "meaning": "gets seasick in port",
+   "style": "funny"
+  },
+  {
+   "name": "Crabby",
+   "meaning": "lives with a crab in the hat and a grudge in the heart",
+   "style": "funny"
+  },
+  {
+   "name": "Pudding",
+   "meaning": "once traded a cannon for a pudding",
+   "style": "funny"
+  },
+  {
+   "name": "Flapjack",
+   "meaning": "cooks the pancakes for all hands",
+   "style": "funny"
+  },
+  {
+   "name": "Hiccup",
+   "meaning": "every time, at the worst moment",
+   "style": "funny"
+  },
+  {
+   "name": "Mop",
+   "meaning": "a deck-scrubber turned captain",
+   "style": "funny"
+  },
+  {
+   "name": "Windy",
+   "meaning": "blamed for the ship's shortest journey",
+   "style": "funny"
+  },
+  {
+   "name": "Tickle",
+   "meaning": "cannot be scared, only tickled",
+   "style": "funny"
+  },
+  {
+   "name": "Knobbly",
+   "meaning": "has knees that clatter like coconuts",
+   "style": "funny"
+  },
+  {
+   "name": "Sleepy",
+   "meaning": "naps on watch with an open eye painted on the lid",
+   "style": "funny"
+  },
+  {
+   "name": "Grumble",
+   "meaning": "mutters about wages, weather and the chef",
+   "style": "funny"
+  },
+  {
+   "name": "Snorty",
+   "meaning": "laughs through the nose like a walrus",
+   "style": "funny"
+  },
+  {
+   "name": "Bumble",
+   "meaning": "trips on the plank he is walking",
+   "style": "funny"
+  },
+  {
+   "name": "Lollipop",
+   "meaning": "never seen without sugar in the cheek",
+   "style": "funny"
+  },
+  {
+   "name": "Sardine",
+   "meaning": "smaller than the hat he wears",
+   "style": "funny"
+  },
+  {
+   "name": "Noodle",
+   "meaning": "legs like boiled pasta in a gale",
+   "style": "funny"
+  },
+  {
+   "name": "Pickles",
+   "meaning": "keeps a barrel of them under the bunk",
+   "style": "funny"
+  },
+  {
+   "name": "Wormwood",
+   "meaning": "found a maggot in the hardtack and made a friend",
+   "style": "funny"
+  },
+  {
+   "name": "Gullible",
+   "meaning": "bought the same map six times",
+   "style": "funny"
+  },
+  {
+   "name": "Moonface",
+   "meaning": "round and pale as the sky at night",
+   "style": "funny"
+  },
+  {
+   "name": "Bubbles",
+   "meaning": "sinks every time he laughs",
+   "style": "funny"
+  },
+  {
+   "name": "Porridge",
+   "meaning": "always eats breakfast and always spills it",
+   "style": "funny"
+  },
+  {
+   "name": "Nutmeg",
+   "meaning": "sneezes on every spice shipment",
+   "style": "funny"
+  },
+  {
+   "name": "Sprout",
+   "meaning": "short, green and likes to make a point",
+   "style": "funny"
+  },
+  {
+   "name": "Gravy",
+   "meaning": "splashed on a captain's best coat",
+   "style": "funny"
+  },
+  {
+   "name": "Pipsqueak",
+   "meaning": "a very small voice for a very big sword",
+   "style": "funny"
+  },
+  {
+   "name": "Clumsy",
+   "meaning": "dropped the anchor on the captain's foot",
+   "style": "funny"
+  },
+  {
+   "name": "Soggy-Sock",
+   "meaning": "the one who forgot to bring spares",
+   "style": "funny"
+  },
+  {
+   "name": "Crumpet",
+   "meaning": "legendary for making tea mid-battle",
+   "style": "funny"
+  },
+  {
+   "name": "Duckie",
+   "meaning": "swears he was born in a pond",
+   "style": "funny"
+  },
+  {
+   "name": "Fluffy",
+   "meaning": "wears the softest scarf on the seas",
+   "style": "funny"
+  },
+  {
+   "name": "Tumbleweed",
+   "meaning": "rolls across the deck whenever it pitches",
+   "style": "funny"
+  },
+  {
+   "name": "Dumpling",
+   "meaning": "rounded edges and a very soft heart",
+   "style": "funny"
+  },
+  {
+   "name": "Mumbles",
+   "meaning": "no one understands the commands",
+   "style": "funny"
+  },
+  {
+   "name": "Slippery",
+   "meaning": "cannot hold a rope or a promise",
+   "style": "funny"
+  },
+  {
+   "name": "Rumble",
+   "meaning": "grumbling belly audible across the bay",
+   "style": "funny"
+  },
+  {
+   "name": "Mouldy",
+   "meaning": "lives for old cheese",
+   "style": "funny"
+  },
+  {
+   "name": "Barnabee",
+   "meaning": "believes he is a bee",
+   "style": "funny"
+  },
+  {
+   "name": "Splash",
+   "meaning": "falls in at every landing",
+   "style": "funny"
+  },
+  {
+   "name": "Squid-Eye",
+   "meaning": "has a wandering glance, and an eyepatch that moves",
+   "style": "funny"
+  },
+  {
+   "name": "Gizzard",
+   "meaning": "will eat anything that stays still",
+   "style": "funny"
+  },
+  {
+   "name": "Sneezy",
+   "meaning": "announces every raid with a loud sneeze",
+   "style": "funny"
+  },
+  {
+   "name": "Muffin",
+   "meaning": "stolen from a baker's window, never returned",
+   "style": "funny"
+  },
+  {
+   "name": "Pigeon",
+   "meaning": "feeds on the deck and is fed in return",
+   "style": "funny"
+  },
+  {
+   "name": "Wiggle",
+   "meaning": "cannot stand still on watch",
+   "style": "funny"
+  },
+  {
+   "name": "Dimples",
+   "meaning": "the softest grin on the seven seas",
+   "style": "funny"
+  },
+  {
+   "name": "Fidget",
+   "meaning": "compulsive knot-tier",
+   "style": "funny"
+  },
+  {
+   "name": "Tadpole",
+   "meaning": "the shortest sailor in the fleet",
+   "style": "funny"
+  },
+  {
+   "name": "Spaghetti",
+   "meaning": "tangled in the rigging again",
+   "style": "funny"
+  },
+  {
+   "name": "Toast",
+   "meaning": "burnt just a little too often",
+   "style": "funny"
+  },
+  {
+   "name": "Whiskers",
+   "meaning": "a beard so bushy gulls nest in it",
+   "style": "funny"
+  },
+  {
+   "name": "Bonkers",
+   "meaning": "thinks the sea talks back",
+   "style": "funny"
+  },
+  {
+   "name": "Rumpus",
+   "meaning": "starts a bar fight over sandwiches",
+   "style": "funny"
+  },
+  {
+   "name": "Fizz",
+   "meaning": "eruptive after any bottle",
+   "style": "funny"
+  },
+  {
+   "name": "Plank",
+   "meaning": "walked off on purpose, to prove a point",
+   "style": "funny"
+  },
+  {
+   "name": "Grog",
+   "meaning": "cannot be told from a barrel",
+   "style": "funny"
+  },
+  {
+   "name": "Baloney",
+   "meaning": "tells a tall tale every dinnertime",
+   "style": "funny"
+  },
+  {
+   "name": "Mudlark",
+   "meaning": "always dirty, always smiling",
+   "style": "funny"
+  },
+  {
+   "name": "Cheesy",
+   "meaning": "wears a ring made from rind",
+   "style": "funny"
+  },
+  {
+   "name": "Jellyfish",
+   "meaning": "wobbles and stings",
+   "style": "funny"
+  },
+  {
+   "name": "Clatter",
+   "meaning": "armoured in every pot and pan",
+   "style": "funny"
+  },
+  {
+   "name": "Nitwit",
+   "meaning": "the best at being the worst plan",
+   "style": "funny"
+  },
+  {
+   "name": "Waffle",
+   "meaning": "cannot decide, so everyone gets a vote",
+   "style": "funny"
+  },
+  {
+   "name": "Dribble",
+   "meaning": "a leaky cannon and a leakier mouth",
+   "style": "funny"
+  },
+  {
+   "name": "Ticklefoot",
+   "meaning": "feathers on the boots",
+   "style": "funny"
+  },
+  {
+   "name": "Doodle",
+   "meaning": "draws maps on every napkin and every wall",
+   "style": "funny"
+  },
+  {
+   "name": "Gloop",
+   "meaning": "what the cook calls the stew",
+   "style": "funny"
+  },
+  {
+   "name": "Slumber",
+   "meaning": "three days asleep in the crow's nest",
+   "style": "funny"
+  },
+  {
+   "name": "Smudge",
+   "meaning": "ink on both cheeks, always",
+   "style": "funny"
+  },
+  {
+   "name": "Bangers",
+   "meaning": "loves fireworks and sausages equally",
+   "style": "funny"
+  },
+  {
+   "name": "Haggis",
+   "meaning": "serves it at every feast and nobody asks",
+   "style": "funny"
+  },
+  {
+   "name": "Puddle",
+   "meaning": "the only man who can drown in one",
+   "style": "funny"
+  },
+  {
+   "name": "Yawn",
+   "meaning": "stops a battle with a yawn",
+   "style": "funny"
+  },
+  {
+   "name": "Mustard",
+   "meaning": "puts it on everything, even the rum",
+   "style": "funny"
+  },
+  {
+   "name": "Drumstick",
+   "meaning": "never seen without a leg of something",
+   "style": "funny"
+  },
+  {
+   "name": "Cuddles",
+   "meaning": "the fiercest hugger in the fleet",
+   "style": "funny"
+  },
+  {
+   "name": "Pickle-Pants",
+   "meaning": "fell in a barrel and kept the trousers",
+   "style": "funny"
+  },
+  {
+   "name": "Cockle",
+   "meaning": "loud as a seashell in the ear",
+   "style": "funny"
+  },
+  {
+   "name": "Blunder",
+   "meaning": "the plan that works despite itself",
+   "style": "funny"
+  },
+  {
+   "name": "Tinkle",
+   "meaning": "a bell on every boot",
+   "style": "funny"
+  },
+  {
+   "name": "Chowder",
+   "meaning": "famous for a stew of unknown fish",
+   "style": "funny"
+  },
+  {
+   "name": "Honk",
+   "meaning": "a laugh like a goose in the rain",
+   "style": "funny"
+  },
+  {
+   "name": "Squeaky",
+   "meaning": "boots complain every step",
+   "style": "funny"
+  },
+  {
+   "name": "Mopey",
+   "meaning": "sighs at every sunrise",
+   "style": "funny"
+  },
+  {
+   "name": "Barrelbelly",
+   "meaning": "holds three days of rum and one night of laughter",
+   "style": "funny"
+  },
+  {
+   "name": "Dabble",
+   "meaning": "tries every job, masters none",
+   "style": "funny"
+  },
+  {
+   "name": "Dozy",
+   "meaning": "naps through the cannon fire",
+   "style": "funny"
+  },
+  {
+   "name": "Gumdrop",
+   "meaning": "sticky fingers and sweeter teeth",
+   "style": "funny"
+  },
+  {
+   "name": "Rascal",
+   "meaning": "smiling thief of the sea's snack cupboard",
+   "style": "funny"
+  },
+  {
+   "name": "Titch",
+   "meaning": "small in size, loud in spirit",
+   "style": "funny"
+  },
+  {
+   "name": "Slobber",
+   "meaning": "an affectionate dog's pirate friend",
+   "style": "funny"
+  },
+  {
+   "name": "Twiddle",
+   "meaning": "thumbs spin faster than the wheel",
+   "style": "funny"
+  },
+  {
+   "name": "Quibble",
+   "meaning": "argues about everything and enjoys it",
+   "style": "funny"
+  },
+  {
+   "name": "Snicker",
+   "meaning": "laughs behind the cannon",
+   "style": "funny"
+  },
+  {
+   "name": "Crumbs",
+   "meaning": "everywhere he goes, a trail",
+   "style": "funny"
+  },
+  {
+   "name": "Trousers",
+   "meaning": "lost them overboard once, never forgave the wave",
+   "style": "funny"
+  },
+  {
+   "name": "Paddle",
+   "meaning": "rowed backward all day to avoid a storm",
+   "style": "funny"
+  },
+  {
+   "name": "Squishy",
+   "meaning": "soft at the centre, always",
+   "style": "funny"
+  },
+  {
+   "name": "Bungle",
+   "meaning": "the one who plans in a hurry",
+   "style": "funny"
+  },
+  {
+   "name": "Pancake",
+   "meaning": "flat on the deck after a wave",
+   "style": "funny"
+  },
+  {
+   "name": "Giblets",
+   "meaning": "brave at the stove, nervous elsewhere",
+   "style": "funny"
+  },
+  {
+   "name": "Gabby",
+   "meaning": "talks without drawing breath",
+   "style": "funny"
+  },
+  {
+   "name": "Beanbag",
+   "meaning": "soft landing for any falling sailor",
+   "style": "funny"
+  },
+  {
+   "name": "Lint",
+   "meaning": "pockets full of fluff and treasure maps",
+   "style": "funny"
+  },
+  {
+   "name": "Wheezy",
+   "meaning": "laughs and coughs at once",
+   "style": "funny"
+  },
+  {
+   "name": "Lantern-Jaw",
+   "style": "fearsome",
+   "meaning": "a jaw as long as a lighthouse beam"
+  },
+  {
+   "name": "Tar-Hand",
+   "style": "fearsome",
+   "meaning": "hands blackened from caulking a hundred hulls"
+  },
+  {
+   "name": "Smoke",
+   "style": "fearsome",
+   "meaning": "vanishes in powder smoke"
+  },
+  {
+   "name": "Hatchet",
+   "style": "fearsome",
+   "meaning": "splits cask and skull alike"
+  },
+  {
+   "name": "Cobra",
+   "style": "fearsome",
+   "meaning": "strikes without warning"
+  },
+  {
+   "name": "Cinder",
+   "style": "fearsome",
+   "meaning": "left a burning ship behind them"
+  },
+  {
+   "name": "Wobble-Knees",
+   "style": "funny",
+   "meaning": "legs that give in at the thought of a gangplank"
+  },
+  {
+   "name": "Tuppence",
+   "style": "funny",
+   "meaning": "has never been worth more"
+  },
+  {
+   "name": "Bucket-Head",
+   "style": "funny",
+   "meaning": "wears a pail as a helmet"
+  },
+  {
+   "name": "Toothless",
+   "style": "funny",
+   "meaning": "lost every tooth to a hard biscuit"
+  },
+  {
+   "name": "Mildew",
+   "style": "funny",
+   "meaning": "lives where it is always damp"
+  },
+  {
+   "name": "Gobstopper",
+   "style": "funny",
+   "meaning": "lodged a sweet in the cannon once"
+  }
+ ],
+ "surnames": [
+  {
+   "name": "Blackwater",
+   "meaning": "a family known for dark coves",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bloodworth",
+   "meaning": "owners of an ill-famed reef",
+   "style": "fearsome"
+  },
+  {
+   "name": "Cutter",
+   "meaning": "rooted in a line of blade-smiths",
+   "style": "fearsome"
+  },
+  {
+   "name": "Deadwood",
+   "meaning": "descended from ship-breakers",
+   "style": "fearsome"
+  },
+  {
+   "name": "Drake",
+   "meaning": "named for a sea dragon in a family legend",
+   "style": "fearsome"
+  },
+  {
+   "name": "Grimshaw",
+   "meaning": "from a grey headland",
+   "style": "fearsome"
+  },
+  {
+   "name": "Hawkins",
+   "meaning": "a hunting clan of the coast",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ironside",
+   "meaning": "from a ship that never sank",
+   "style": "fearsome"
+  },
+  {
+   "name": "Kraken",
+   "meaning": "the ones who \"saw\" the beast",
+   "style": "fearsome"
+  },
+  {
+   "name": "Marlowe",
+   "meaning": "once a respected port family",
+   "style": "fearsome"
+  },
+  {
+   "name": "Nightingale",
+   "meaning": "with a sailor's song in the blood",
+   "style": "fearsome"
+  },
+  {
+   "name": "Reaver",
+   "meaning": "a name earned by raiders",
+   "style": "fearsome"
+  },
+  {
+   "name": "Sharkey",
+   "meaning": "from an old quartermaster",
+   "style": "fearsome"
+  },
+  {
+   "name": "Thornwood",
+   "meaning": "from a brambly cove",
+   "style": "fearsome"
+  },
+  {
+   "name": "Vane",
+   "meaning": "from a weather-weathered line",
+   "style": "fearsome"
+  },
+  {
+   "name": "Blackthorn",
+   "meaning": "the clan of a spiky bay",
+   "style": "fearsome"
+  },
+  {
+   "name": "Crowhurst",
+   "meaning": "keepers of a crow-haunted fort",
+   "style": "fearsome"
+  },
+  {
+   "name": "Dreadmore",
+   "meaning": "the harbour that frightened maps",
+   "style": "fearsome"
+  },
+  {
+   "name": "Fallowmere",
+   "meaning": "a lake-turned-ocean wreckers' den",
+   "style": "fearsome"
+  },
+  {
+   "name": "Gallowglass",
+   "meaning": "hardened sell-swords of the sea",
+   "style": "fearsome"
+  },
+  {
+   "name": "Harrowgate",
+   "meaning": "from a notorious cut-throat harbour",
+   "style": "fearsome"
+  },
+  {
+   "name": "Mordaunt",
+   "meaning": "a name from an old feud",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ravenscar",
+   "meaning": "cliff-dwelling wreckers",
+   "style": "fearsome"
+  },
+  {
+   "name": "Silvermane",
+   "meaning": "rich by wreck and rumour",
+   "style": "fearsome"
+  },
+  {
+   "name": "Stormcaller",
+   "meaning": "said to bring the wind",
+   "style": "fearsome"
+  },
+  {
+   "name": "Tidewrath",
+   "meaning": "a line of stormy captains",
+   "style": "fearsome"
+  },
+  {
+   "name": "Vexmoor",
+   "meaning": "an angry marsh with a tavern in the middle",
+   "style": "fearsome"
+  },
+  {
+   "name": "Wolfsbane",
+   "meaning": "old hunters who turned to ships",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ashenfell",
+   "meaning": "descended from a burnt village",
+   "style": "fearsome"
+  },
+  {
+   "name": "Corvane",
+   "meaning": "crow-keepers by trade",
+   "style": "fearsome"
+  },
+  {
+   "name": "Darkholm",
+   "meaning": "from an island sunk in fog",
+   "style": "fearsome"
+  },
+  {
+   "name": "Evergrim",
+   "meaning": "a family that never smiles",
+   "style": "fearsome"
+  },
+  {
+   "name": "Graveline",
+   "meaning": "diggers by trade",
+   "style": "fearsome"
+  },
+  {
+   "name": "Hollowbrook",
+   "meaning": "from a brook where the dead sail",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ironmaw",
+   "meaning": "a name from a bear-trap smith",
+   "style": "fearsome"
+  },
+  {
+   "name": "Jawbone",
+   "meaning": "known for a skull on the door",
+   "style": "fearsome"
+  },
+  {
+   "name": "Kingfell",
+   "meaning": "from the fall of a small king",
+   "style": "fearsome"
+  },
+  {
+   "name": "Longfang",
+   "meaning": "a snarling clan",
+   "style": "fearsome"
+  },
+  {
+   "name": "Mournwood",
+   "meaning": "from a coastal forest of ill-wishes",
+   "style": "fearsome"
+  },
+  {
+   "name": "Nightfall",
+   "meaning": "born at the dusk of an old war",
+   "style": "fearsome"
+  },
+  {
+   "name": "Oathbreaker",
+   "meaning": "a name earned the hard way",
+   "style": "fearsome"
+  },
+  {
+   "name": "Pitchblack",
+   "meaning": "descended from tar-makers",
+   "style": "fearsome"
+  },
+  {
+   "name": "Quickblade",
+   "meaning": "always the first to draw",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ragnarsson",
+   "meaning": "a Northern raider line",
+   "style": "fearsome"
+  },
+  {
+   "name": "Saltbane",
+   "meaning": "from a bitter salt marsh",
+   "style": "fearsome"
+  },
+  {
+   "name": "Tombstone",
+   "meaning": "of the lonely graveyard by the sea",
+   "style": "fearsome"
+  },
+  {
+   "name": "Underwood",
+   "meaning": "from a wooded creek and a few bad deals",
+   "style": "fearsome"
+  },
+  {
+   "name": "Vengemoor",
+   "meaning": "those who never forget",
+   "style": "fearsome"
+  },
+  {
+   "name": "Warhaven",
+   "meaning": "a safe harbour for raiders",
+   "style": "fearsome"
+  },
+  {
+   "name": "Yarrowby",
+   "meaning": "a coastal herbalist family turned poisoners",
+   "style": "fearsome"
+  },
+  {
+   "name": "Zephyrcrest",
+   "meaning": "reefs that whistle in storms",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bonebreaker",
+   "meaning": "a name earned in a rough tavern",
+   "style": "fearsome"
+  },
+  {
+   "name": "Cragmoor",
+   "meaning": "a cliff-top fort",
+   "style": "fearsome"
+  },
+  {
+   "name": "Dunkirk",
+   "meaning": "a harbour town of old wars",
+   "style": "fearsome"
+  },
+  {
+   "name": "Eldermoor",
+   "meaning": "an ancient bay",
+   "style": "fearsome"
+  },
+  {
+   "name": "Gorehaven",
+   "meaning": "an old nickname for a slaughter yard",
+   "style": "fearsome"
+  },
+  {
+   "name": "Hellbent",
+   "meaning": "determined beyond reason",
+   "style": "fearsome"
+  },
+  {
+   "name": "Jolly-Roger",
+   "meaning": "given to those who stole the flag",
+   "style": "fearsome"
+  },
+  {
+   "name": "Knucklebone",
+   "meaning": "a gambling family",
+   "style": "fearsome"
+  },
+  {
+   "name": "Lockwood",
+   "meaning": "a house with no keys left",
+   "style": "fearsome"
+  },
+  {
+   "name": "Marrowbone",
+   "meaning": "dealers of bad news",
+   "style": "fearsome"
+  },
+  {
+   "name": "Nettlethorn",
+   "meaning": "prickly kin",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ozmond",
+   "meaning": "a quiet, dangerous line",
+   "style": "fearsome"
+  },
+  {
+   "name": "Peregrine",
+   "meaning": "falcon-eyed",
+   "style": "fearsome"
+  },
+  {
+   "name": "Quicksilver",
+   "meaning": "slippery as a coin",
+   "style": "fearsome"
+  },
+  {
+   "name": "Redfern",
+   "meaning": "the colour of a storm sunrise",
+   "style": "fearsome"
+  },
+  {
+   "name": "Skullcrest",
+   "meaning": "said to be a gift from a rival",
+   "style": "fearsome"
+  },
+  {
+   "name": "Talonsworth",
+   "meaning": "from hawk-keepers",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ugglethwaite",
+   "meaning": "an old hill-fort",
+   "style": "fearsome"
+  },
+  {
+   "name": "Venomfang",
+   "meaning": "a name for snake-trade sailors",
+   "style": "fearsome"
+  },
+  {
+   "name": "Wraithmoor",
+   "meaning": "ghost-haunted and empty",
+   "style": "fearsome"
+  },
+  {
+   "name": "Yewbridge",
+   "meaning": "from the old ship's bow timber",
+   "style": "fearsome"
+  },
+  {
+   "name": "Zealot",
+   "meaning": "a name for fierce believers",
+   "style": "fearsome"
+  },
+  {
+   "name": "Soggybottom",
+   "meaning": "the family seat is always damp",
+   "style": "funny"
+  },
+  {
+   "name": "Pudding",
+   "meaning": "rose from a pie-selling line",
+   "style": "funny"
+  },
+  {
+   "name": "Mudflap",
+   "meaning": "from a muddy riverbank",
+   "style": "funny"
+  },
+  {
+   "name": "Crumbcake",
+   "meaning": "a bakery turned fleet",
+   "style": "funny"
+  },
+  {
+   "name": "Blunderbuss",
+   "meaning": "famous for loud gunnery and poor aim",
+   "style": "funny"
+  },
+  {
+   "name": "Potbelly",
+   "meaning": "large hearts, larger appetites",
+   "style": "funny"
+  },
+  {
+   "name": "Bumblethorn",
+   "meaning": "clumsy in brambles",
+   "style": "funny"
+  },
+  {
+   "name": "Cheeseworthy",
+   "meaning": "a family famed for odd cheese",
+   "style": "funny"
+  },
+  {
+   "name": "Flapdoodle",
+   "meaning": "talkative kin",
+   "style": "funny"
+  },
+  {
+   "name": "Gigglesworth",
+   "meaning": "a line that cannot stop laughing",
+   "style": "funny"
+  },
+  {
+   "name": "Honeycutt",
+   "meaning": "sweet-toothed sailors",
+   "style": "funny"
+  },
+  {
+   "name": "Jellybean",
+   "meaning": "sticky fingers",
+   "style": "funny"
+  },
+  {
+   "name": "Kettleblack",
+   "meaning": "forged in the galley",
+   "style": "funny"
+  },
+  {
+   "name": "Lumpkin",
+   "meaning": "all bulges and charm",
+   "style": "funny"
+  },
+  {
+   "name": "Muddlewick",
+   "meaning": "confused, but loyal",
+   "style": "funny"
+  },
+  {
+   "name": "Noodlebrain",
+   "meaning": "spaghetti thinkers",
+   "style": "funny"
+  },
+  {
+   "name": "Oddsock",
+   "meaning": "never matched",
+   "style": "funny"
+  },
+  {
+   "name": "Pinchpenny",
+   "meaning": "famous for thrift",
+   "style": "funny"
+  },
+  {
+   "name": "Quibblesworth",
+   "meaning": "argumentative kin",
+   "style": "funny"
+  },
+  {
+   "name": "Ruffleback",
+   "meaning": "their feathers are always up",
+   "style": "funny"
+  },
+  {
+   "name": "Squidgeworth",
+   "meaning": "soft-hearted",
+   "style": "funny"
+  },
+  {
+   "name": "Tumblebuck",
+   "meaning": "always rolling downhill",
+   "style": "funny"
+  },
+  {
+   "name": "Wigglesworth",
+   "meaning": "fidget by nature",
+   "style": "funny"
+  },
+  {
+   "name": "Yodelstein",
+   "meaning": "echoes in every cave",
+   "style": "funny"
+  },
+  {
+   "name": "Bilgepump",
+   "meaning": "lowly beginnings",
+   "style": "funny"
+  },
+  {
+   "name": "Cannonfodder",
+   "meaning": "expected to be cannon fodder, wasn't",
+   "style": "funny"
+  },
+  {
+   "name": "Dingleberry",
+   "meaning": "a family joke",
+   "style": "funny"
+  },
+  {
+   "name": "Eggcup",
+   "meaning": "small and round",
+   "style": "funny"
+  },
+  {
+   "name": "Flipflop",
+   "meaning": "cannot decide on shoes",
+   "style": "funny"
+  },
+  {
+   "name": "Grumbleton",
+   "meaning": "ever dissatisfied",
+   "style": "funny"
+  },
+  {
+   "name": "Hobnail",
+   "meaning": "sturdy-booted kin",
+   "style": "funny"
+  },
+  {
+   "name": "Itchy-Feet",
+   "meaning": "unable to stay put",
+   "style": "funny"
+  },
+  {
+   "name": "Jumblewood",
+   "meaning": "a mess of branches",
+   "style": "funny"
+  },
+  {
+   "name": "Kipperfield",
+   "meaning": "smells of smoked fish",
+   "style": "funny"
+  },
+  {
+   "name": "Limpet",
+   "meaning": "clings to every deal",
+   "style": "funny"
+  },
+  {
+   "name": "Mushroomhead",
+   "meaning": "hat size of a toadstool",
+   "style": "funny"
+  },
+  {
+   "name": "Nincompoop",
+   "meaning": "a stately name for a silly line",
+   "style": "funny"
+  },
+  {
+   "name": "Oatmeal",
+   "meaning": "a bowlful of ancestors",
+   "style": "funny"
+  },
+  {
+   "name": "Pickleback",
+   "meaning": "humped with barrels",
+   "style": "funny"
+  },
+  {
+   "name": "Quackenbush",
+   "meaning": "duck-footed",
+   "style": "funny"
+  },
+  {
+   "name": "Rumbelly",
+   "meaning": "a belly like a drum",
+   "style": "funny"
+  },
+  {
+   "name": "Saltypants",
+   "meaning": "the sweat of ten voyages",
+   "style": "funny"
+  },
+  {
+   "name": "Teacake",
+   "meaning": "fond of afternoon tea",
+   "style": "funny"
+  },
+  {
+   "name": "Underpants",
+   "meaning": "famous for a flag-pole incident",
+   "style": "funny"
+  },
+  {
+   "name": "Waddlesworth",
+   "meaning": "a family of penguins, they claim",
+   "style": "funny"
+  },
+  {
+   "name": "Zigzag",
+   "meaning": "never goes straight",
+   "style": "funny"
+  },
+  {
+   "name": "Bootlace",
+   "meaning": "tied in knots",
+   "style": "funny"
+  },
+  {
+   "name": "Cobblestone",
+   "meaning": "a street turned ship",
+   "style": "funny"
+  },
+  {
+   "name": "Doughnut",
+   "meaning": "ring of confusion",
+   "style": "funny"
+  },
+  {
+   "name": "Fiddlesticks",
+   "meaning": "exclaim at every fall",
+   "style": "funny"
+  },
+  {
+   "name": "Gumboot",
+   "meaning": "wet-footed",
+   "style": "funny"
+  },
+  {
+   "name": "Hodgepodge",
+   "meaning": "mixed bag of ancestors",
+   "style": "funny"
+  },
+  {
+   "name": "Inkblot",
+   "meaning": "ink-stained scribes",
+   "style": "funny"
+  },
+  {
+   "name": "Jibberish",
+   "meaning": "no one understands the family",
+   "style": "funny"
+  },
+  {
+   "name": "Knickerbocker",
+   "meaning": "famous for fancy trousers",
+   "style": "funny"
+  },
+  {
+   "name": "Lollygag",
+   "meaning": "take their time",
+   "style": "funny"
+  },
+  {
+   "name": "Marmalade",
+   "meaning": "tarts from the galley",
+   "style": "funny"
+  },
+  {
+   "name": "Nutbrown",
+   "meaning": "gather on every voyage",
+   "style": "funny"
+  },
+  {
+   "name": "Ooze",
+   "meaning": "slippery family",
+   "style": "funny"
+  },
+  {
+   "name": "Pumpernickel",
+   "meaning": "crusty and brown",
+   "style": "funny"
+  },
+  {
+   "name": "Quagmire",
+   "meaning": "swamp-born",
+   "style": "funny"
+  },
+  {
+   "name": "Rhubarb",
+   "meaning": "sour-faced",
+   "style": "funny"
+  },
+  {
+   "name": "Sausage",
+   "meaning": "string of cousins",
+   "style": "funny"
+  },
+  {
+   "name": "Treacle",
+   "meaning": "slow but sweet",
+   "style": "funny"
+  },
+  {
+   "name": "Umbrella",
+   "meaning": "keeps the rain off the family",
+   "style": "funny"
+  },
+  {
+   "name": "Grimwick",
+   "meaning": "from the grim settlement",
+   "style": "fearsome"
+  },
+  {
+   "name": "Grimmouth",
+   "meaning": "from the grim river mouth",
+   "style": "fearsome"
+  },
+  {
+   "name": "Grimthwaite",
+   "meaning": "from the grim clearing",
+   "style": "fearsome"
+  },
+  {
+   "name": "Stormhaven",
+   "meaning": "from the storm harbour",
+   "style": "fearsome"
+  },
+  {
+   "name": "Stormcliff",
+   "meaning": "from the storm sheer headland",
+   "style": "fearsome"
+  },
+  {
+   "name": "Stormmere",
+   "meaning": "from the storm lake",
+   "style": "fearsome"
+  },
+  {
+   "name": "Saltgate",
+   "meaning": "from the salt gap in the cliffs",
+   "style": "fearsome"
+  },
+  {
+   "name": "Saltford",
+   "meaning": "from the salt shallow crossing",
+   "style": "fearsome"
+  },
+  {
+   "name": "Saltfell",
+   "meaning": "from the salt windy hill",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bonemouth",
+   "meaning": "from the bone river mouth",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bonethwaite",
+   "meaning": "from the bone clearing",
+   "style": "fearsome"
+  },
+  {
+   "name": "Boneholm",
+   "meaning": "from the bone small island",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ravencliff",
+   "meaning": "from the raven sheer headland",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ravenmere",
+   "meaning": "from the raven lake",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ravenwick",
+   "meaning": "from the raven settlement",
+   "style": "fearsome"
+  },
+  {
+   "name": "Wolfford",
+   "meaning": "from the wolf shallow crossing",
+   "style": "fearsome"
+  },
+  {
+   "name": "Wolffell",
+   "meaning": "from the wolf windy hill",
+   "style": "fearsome"
+  },
+  {
+   "name": "Wolfhaven",
+   "meaning": "from the wolf harbour",
+   "style": "fearsome"
+  },
+  {
+   "name": "Crowthwaite",
+   "meaning": "from the crow clearing",
+   "style": "fearsome"
+  },
+  {
+   "name": "Crowholm",
+   "meaning": "from the crow small island",
+   "style": "fearsome"
+  },
+  {
+   "name": "Crowgate",
+   "meaning": "from the crow gap in the cliffs",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ashmere",
+   "meaning": "from the ash lake",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ashwick",
+   "meaning": "from the ash settlement",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ashmouth",
+   "meaning": "from the ash river mouth",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bloodfell",
+   "meaning": "from the blood windy hill",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bloodhaven",
+   "meaning": "from the blood harbour",
+   "style": "fearsome"
+  },
+  {
+   "name": "Bloodcliff",
+   "meaning": "from the blood sheer headland",
+   "style": "fearsome"
+  },
+  {
+   "name": "Nightholm",
+   "meaning": "from the night small island",
+   "style": "fearsome"
+  },
+  {
+   "name": "Nightgate",
+   "meaning": "from the night gap in the cliffs",
+   "style": "fearsome"
+  },
+  {
+   "name": "Nightford",
+   "meaning": "from the night shallow crossing",
+   "style": "fearsome"
+  },
+  {
+   "name": "Duskwick",
+   "meaning": "from the dusk settlement",
+   "style": "fearsome"
+  },
+  {
+   "name": "Duskmouth",
+   "meaning": "from the dusk river mouth",
+   "style": "fearsome"
+  },
+  {
+   "name": "Duskthwaite",
+   "meaning": "from the dusk clearing",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ironhaven",
+   "meaning": "from the iron harbour",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ironcliff",
+   "meaning": "from the iron sheer headland",
+   "style": "fearsome"
+  },
+  {
+   "name": "Ironmere",
+   "meaning": "from the iron lake",
+   "style": "fearsome"
+  },
+  {
+   "name": "Coldgate",
+   "meaning": "from the cold gap in the cliffs",
+   "style": "fearsome"
+  },
+  {
+   "name": "Coldford",
+   "meaning": "from the cold shallow crossing",
+   "style": "fearsome"
+  },
+  {
+   "name": "Coldfell",
+   "meaning": "from the cold windy hill",
+   "style": "fearsome"
+  },
+  {
+   "name": "Darkmouth",
+   "meaning": "from the dark river mouth",
+   "style": "fearsome"
+  },
+  {
+   "name": "Darkthwaite",
+   "meaning": "from the dark clearing",
+   "style": "fearsome"
+  },
+  {
+   "name": "Rotcliff",
+   "meaning": "from the rot sheer headland",
+   "style": "fearsome"
+  },
+  {
+   "name": "Rotmere",
+   "meaning": "from the rot lake",
+   "style": "fearsome"
+  },
+  {
+   "name": "Rotwick",
+   "meaning": "from the rot settlement",
+   "style": "fearsome"
+  },
+  {
+   "name": "Blackford",
+   "meaning": "from the black shallow crossing",
+   "style": "fearsome"
+  },
+  {
+   "name": "Blackfell",
+   "meaning": "from the black windy hill",
+   "style": "fearsome"
+  },
+  {
+   "name": "Blackhaven",
+   "meaning": "from the black harbour",
+   "style": "fearsome"
+  },
+  {
+   "name": "Seathwaite",
+   "meaning": "from the sea clearing",
+   "style": "fearsome"
+  },
+  {
+   "name": "Seaholm",
+   "meaning": "from the sea small island",
+   "style": "fearsome"
+  },
+  {
+   "name": "Seagate",
+   "meaning": "from the sea gap in the cliffs",
+   "style": "fearsome"
+  },
+  {
+   "name": "Gallmere",
+   "meaning": "from the gall lake",
+   "style": "fearsome"
+  },
+  {
+   "name": "Gallwick",
+   "meaning": "from the gall settlement",
+   "style": "fearsome"
+  },
+  {
+   "name": "Gallmouth",
+   "meaning": "from the gall river mouth",
+   "style": "fearsome"
+  },
+  {
+   "name": "Skullfell",
+   "meaning": "from the skull windy hill",
+   "style": "fearsome"
+  },
+  {
+   "name": "Skullhaven",
+   "meaning": "from the skull harbour",
+   "style": "fearsome"
+  },
+  {
+   "name": "Skullcliff",
+   "meaning": "from the skull sheer headland",
+   "style": "fearsome"
+  },
+  {
+   "name": "Thornholm",
+   "meaning": "from the thorn small island",
+   "style": "fearsome"
+  },
+  {
+   "name": "Thorngate",
+   "meaning": "from the thorn gap in the cliffs",
+   "style": "fearsome"
+  },
+  {
+   "name": "Thornford",
+   "meaning": "from the thorn shallow crossing",
+   "style": "fearsome"
+  },
+  {
+   "name": "Wobblebottom",
+   "meaning": "Wobble bottom: named for a famously round behind",
+   "style": "funny"
+  },
+  {
+   "name": "Wobblewhistle",
+   "meaning": "Wobble whistle: named for a whistle that never stops",
+   "style": "funny"
+  },
+  {
+   "name": "Wobblebuckle",
+   "meaning": "Wobble buckle: named for a belt that never closes",
+   "style": "funny"
+  },
+  {
+   "name": "Biscuitpants",
+   "meaning": "Biscuit pants: named after a ridiculous pair of trousers",
+   "style": "funny"
+  },
+  {
+   "name": "Biscuitbreeches",
+   "meaning": "Biscuit breeches: named after patched and stretched breeches",
+   "style": "funny"
+  },
+  {
+   "name": "Biscuithat",
+   "meaning": "Biscuit hat: named after an unusually silly hat",
+   "style": "funny"
+  },
+  {
+   "name": "Puddletoes",
+   "meaning": "Puddle toes: named for a very odd set of feet",
+   "style": "funny"
+  },
+  {
+   "name": "Puddlebuckle",
+   "meaning": "Puddle buckle: named for a belt that never closes",
+   "style": "funny"
+  },
+  {
+   "name": "Puddlebelly",
+   "meaning": "Puddle belly: named for a very well-fed middle",
+   "style": "funny"
+  },
+  {
+   "name": "Noodlewhistle",
+   "meaning": "Noodle whistle: named for a whistle that never stops",
+   "style": "funny"
+  },
+  {
+   "name": "Noodlehat",
+   "meaning": "Noodle hat: named after an unusually silly hat",
+   "style": "funny"
+  },
+  {
+   "name": "Noodlebottom",
+   "meaning": "Noodle bottom: named for a famously round behind",
+   "style": "funny"
+  },
+  {
+   "name": "Picklebreeches",
+   "meaning": "Pickle breeches: named after patched and stretched breeches",
+   "style": "funny"
+  },
+  {
+   "name": "Picklebelly",
+   "meaning": "Pickle belly: named for a very well-fed middle",
+   "style": "funny"
+  },
+  {
+   "name": "Picklepants",
+   "meaning": "Pickle pants: named after a ridiculous pair of trousers",
+   "style": "funny"
+  },
+  {
+   "name": "Ticklebuckle",
+   "meaning": "Tickle buckle: named for a belt that never closes",
+   "style": "funny"
+  },
+  {
+   "name": "Ticklebottom",
+   "meaning": "Tickle bottom: named for a famously round behind",
+   "style": "funny"
+  },
+  {
+   "name": "Tickletoes",
+   "meaning": "Tickle toes: named for a very odd set of feet",
+   "style": "funny"
+  },
+  {
+   "name": "Muffinhat",
+   "meaning": "Muffin hat: named after an unusually silly hat",
+   "style": "funny"
+  },
+  {
+   "name": "Muffinpants",
+   "meaning": "Muffin pants: named after a ridiculous pair of trousers",
+   "style": "funny"
+  },
+  {
+   "name": "Muffinwhistle",
+   "meaning": "Muffin whistle: named for a whistle that never stops",
+   "style": "funny"
+  },
+  {
+   "name": "Bubblebelly",
+   "meaning": "Bubble belly: named for a very well-fed middle",
+   "style": "funny"
+  },
+  {
+   "name": "Bubbletoes",
+   "meaning": "Bubble toes: named for a very odd set of feet",
+   "style": "funny"
+  },
+  {
+   "name": "Bubblebreeches",
+   "meaning": "Bubble breeches: named after patched and stretched breeches",
+   "style": "funny"
+  },
+  {
+   "name": "Crumbbottom",
+   "meaning": "Crumb bottom: named for a famously round behind",
+   "style": "funny"
+  },
+  {
+   "name": "Crumbwhistle",
+   "meaning": "Crumb whistle: named for a whistle that never stops",
+   "style": "funny"
+  },
+  {
+   "name": "Crumbbuckle",
+   "meaning": "Crumb buckle: named for a belt that never closes",
+   "style": "funny"
+  },
+  {
+   "name": "Fizzpants",
+   "meaning": "Fizz pants: named after a ridiculous pair of trousers",
+   "style": "funny"
+  },
+  {
+   "name": "Fizzbreeches",
+   "meaning": "Fizz breeches: named after patched and stretched breeches",
+   "style": "funny"
+  },
+  {
+   "name": "Fizzhat",
+   "meaning": "Fizz hat: named after an unusually silly hat",
+   "style": "funny"
+  },
+  {
+   "name": "Giggletoes",
+   "meaning": "Giggle toes: named for a very odd set of feet",
+   "style": "funny"
+  },
+  {
+   "name": "Gigglebuckle",
+   "meaning": "Giggle buckle: named for a belt that never closes",
+   "style": "funny"
+  },
+  {
+   "name": "Gigglebelly",
+   "meaning": "Giggle belly: named for a very well-fed middle",
+   "style": "funny"
+  },
+  {
+   "name": "Wafflewhistle",
+   "meaning": "Waffle whistle: named for a whistle that never stops",
+   "style": "funny"
+  },
+  {
+   "name": "Wafflehat",
+   "meaning": "Waffle hat: named after an unusually silly hat",
+   "style": "funny"
+  },
+  {
+   "name": "Wafflebottom",
+   "meaning": "Waffle bottom: named for a famously round behind",
+   "style": "funny"
+  },
+  {
+   "name": "Sproutbreeches",
+   "meaning": "Sprout breeches: named after patched and stretched breeches",
+   "style": "funny"
+  },
+  {
+   "name": "Sproutbelly",
+   "meaning": "Sprout belly: named for a very well-fed middle",
+   "style": "funny"
+  },
+  {
+   "name": "Sproutpants",
+   "meaning": "Sprout pants: named after a ridiculous pair of trousers",
+   "style": "funny"
+  },
+  {
+   "name": "Dumplingbuckle",
+   "meaning": "Dumpling buckle: named for a belt that never closes",
+   "style": "funny"
+  },
+  {
+   "name": "Dumplingbottom",
+   "meaning": "Dumpling bottom: named for a famously round behind",
+   "style": "funny"
+  },
+  {
+   "name": "Dumplingtoes",
+   "meaning": "Dumpling toes: named for a very odd set of feet",
+   "style": "funny"
+  },
+  {
+   "name": "Toffeehat",
+   "meaning": "Toffee hat: named after an unusually silly hat",
+   "style": "funny"
+  },
+  {
+   "name": "Toffeepants",
+   "meaning": "Toffee pants: named after a ridiculous pair of trousers",
+   "style": "funny"
+  },
+  {
+   "name": "Toffeewhistle",
+   "meaning": "Toffee whistle: named for a whistle that never stops",
+   "style": "funny"
+  },
+  {
+   "name": "Custardbelly",
+   "meaning": "Custard belly: named for a very well-fed middle",
+   "style": "funny"
+  },
+  {
+   "name": "Custardtoes",
+   "meaning": "Custard toes: named for a very odd set of feet",
+   "style": "funny"
+  },
+  {
+   "name": "Custardbreeches",
+   "meaning": "Custard breeches: named after patched and stretched breeches",
+   "style": "funny"
+  },
+  {
+   "name": "Pretzelbottom",
+   "meaning": "Pretzel bottom: named for a famously round behind",
+   "style": "funny"
+  },
+  {
+   "name": "Pretzelwhistle",
+   "meaning": "Pretzel whistle: named for a whistle that never stops",
+   "style": "funny"
+  },
+  {
+   "name": "Pretzelbuckle",
+   "meaning": "Pretzel buckle: named for a belt that never closes",
+   "style": "funny"
+  },
+  {
+   "name": "Gumdroppants",
+   "meaning": "Gumdrop pants: named after a ridiculous pair of trousers",
+   "style": "funny"
+  },
+  {
+   "name": "Gumdropbreeches",
+   "meaning": "Gumdrop breeches: named after patched and stretched breeches",
+   "style": "funny"
+  },
+  {
+   "name": "Gumdrophat",
+   "meaning": "Gumdrop hat: named after an unusually silly hat",
+   "style": "funny"
+  },
+  {
+   "name": "Jellytoes",
+   "meaning": "Jelly toes: named for a very odd set of feet",
+   "style": "funny"
+  },
+  {
+   "name": "Jellybuckle",
+   "meaning": "Jelly buckle: named for a belt that never closes",
+   "style": "funny"
+  },
+  {
+   "name": "Jellybelly",
+   "meaning": "Jelly belly: named for a very well-fed middle",
+   "style": "funny"
+  },
+  {
+   "name": "Cocoawhistle",
+   "meaning": "Cocoa whistle: named for a whistle that never stops",
+   "style": "funny"
+  },
+  {
+   "name": "Cocoahat",
+   "meaning": "Cocoa hat: named after an unusually silly hat",
+   "style": "funny"
+  },
+  {
+   "name": "Cocoabottom",
+   "meaning": "Cocoa bottom: named for a famously round behind",
+   "style": "funny"
+  }
+ ],
+ "ship": {
+  "fearsome": {
+   "adjectives": [
+    "Black",
+    "Crimson",
+    "Dread",
+    "Grim",
+    "Wicked",
+    "Silent",
+    "Savage",
+    "Iron",
+    "Bloody",
+    "Ghostly",
+    "Cursed",
+    "Merciless",
+    "Stormy",
+    "Vengeful",
+    "Hollow",
+    "Burning",
+    "Sable",
+    "Scarlet",
+    "Fearless",
+    "Raging",
+    "Midnight",
+    "Shadowy",
+    "Sunless",
+    "Brutal",
+    "Frozen",
+    "Howling",
+    "Rotting",
+    "Bitter",
+    "Ruthless",
+    "Thunderous",
+    "Drowned",
+    "Pale",
+    "Ashen",
+    "Doomed",
+    "Haunted",
+    "Venomous",
+    "Sinking",
+    "Gilded",
+    "Broken",
+    "Rusted"
+   ],
+   "nouns": [
+    "Revenge",
+    "Kraken",
+    "Banshee",
+    "Widow",
+    "Raven",
+    "Reaper",
+    "Vengeance",
+    "Corsair",
+    "Tempest",
+    "Serpent",
+    "Specter",
+    "Dagger",
+    "Maelstrom",
+    "Leviathan",
+    "Wolf",
+    "Skull",
+    "Fang",
+    "Talon",
+    "Gallows",
+    "Harpoon",
+    "Fury",
+    "Wrath",
+    "Phantom",
+    "Tide",
+    "Thunder",
+    "Shark",
+    "Cutlass",
+    "Fortune",
+    "Dragon",
+    "Crow",
+    "Siren",
+    "Plunder",
+    "Lantern",
+    "Nightmare",
+    "Abyss",
+    "Hangman",
+    "Dread",
+    "Mutiny",
+    "Anchor",
+    "Barracuda"
+   ]
+  },
+  "funny": {
+   "adjectives": [
+    "Soggy",
+    "Wobbly",
+    "Cheeky",
+    "Tipsy",
+    "Sleepy",
+    "Grumpy",
+    "Squeaky",
+    "Lumpy",
+    "Dizzy",
+    "Giggling",
+    "Sticky",
+    "Fluffy",
+    "Crabby",
+    "Jolly",
+    "Clumsy",
+    "Bouncy",
+    "Wobbling",
+    "Rumbling",
+    "Cranky",
+    "Merry",
+    "Peckish",
+    "Nosy",
+    "Lazy",
+    "Daft",
+    "Silly",
+    "Plucky",
+    "Smelly",
+    "Soppy",
+    "Frisky",
+    "Fickle"
+   ],
+   "nouns": [
+    "Biscuit",
+    "Pudding",
+    "Parrot",
+    "Barnacle",
+    "Teacup",
+    "Pickle",
+    "Noodle",
+    "Dumpling",
+    "Crumpet",
+    "Walrus",
+    "Pancake",
+    "Haddock",
+    "Hiccup",
+    "Tuna",
+    "Goose",
+    "Penguin",
+    "Sardine",
+    "Muffin",
+    "Sock",
+    "Plank",
+    "Bucket",
+    "Kipper",
+    "Lobster",
+    "Trumpet",
+    "Wombat",
+    "Kettle",
+    "Turnip",
+    "Doughnut",
+    "Pebble",
+    "Pelican"
+   ]
+  }
+ }
+}
