@@ -86,6 +86,7 @@ export default function CityNameGeneratorPage() {
       description={DESCRIPTION}
       updated="2026-10-22"
       faq={FAQ}
+      hero={{ src: "/generators/hero/city-name-generator.webp", alt: "Hand-drawn fantasy map dotted with little towns and roads" }}
       inShort="Pick one or more styles and a size, then tap Generate. Every city name comes with its size, a matching population and a one-line hook, so you can drop it straight onto a map or into a story."
       related={[
         { href: "/dnd-name-generator", label: "D&D name generator" },

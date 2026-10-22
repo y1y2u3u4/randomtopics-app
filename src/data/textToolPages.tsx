@@ -28,6 +28,7 @@ export const TEXT_TOOL_PAGES: Record<Variant, TextToolPageData> = {
   fancy: {
     variant: "fancy",
     path: "/fancy-text-generator",
+    hero: { src: "/generators/hero/fancy-text-generator.webp", alt: "Storybook desk with swirling decorative letters floating from a pen" },
     toolType: "fancy_text_generator",
     name: "Fancy Text Generator",
     heading: ["Fancy Text", "Generator"],
@@ -78,6 +79,7 @@ export const TEXT_TOOL_PAGES: Record<Variant, TextToolPageData> = {
   cursed: {
     variant: "cursed",
     path: "/cursed-text-generator",
+    hero: { src: "/generators/hero/cursed-text-generator.webp", alt: "Spooky storybook scene of letters dripping with glitchy marks" },
     toolType: "cursed_text_generator",
     name: "Cursed Text Generator",
     heading: ["Cursed Text", "Generator"],
@@ -128,6 +130,7 @@ export const TEXT_TOOL_PAGES: Record<Variant, TextToolPageData> = {
   glitch: {
     variant: "glitch",
     path: "/glitch-text-generator",
+    hero: { src: "/generators/hero/glitch-text-generator.webp", alt: "Cozy retro CRT monitor showing colorful split glitch shapes" },
     toolType: "glitch_text_generator",
     name: "Glitch Text Generator",
     heading: ["Glitch Text", "Generator"],
@@ -174,6 +177,7 @@ export const TEXT_TOOL_PAGES: Record<Variant, TextToolPageData> = {
   weird: {
     variant: "weird",
     path: "/weird-text-generator",
+    hero: { src: "/generators/hero/weird-text-generator.webp", alt: "Playful alphabet blocks tumbling upside down over a sketchbook" },
     toolType: "weird_text_generator",
     name: "Weird Text Generator",
     heading: ["Weird Text", "Generator"],
@@ -220,6 +224,7 @@ export const TEXT_TOOL_PAGES: Record<Variant, TextToolPageData> = {
   creepy: {
     variant: "creepy",
     path: "/creepy-text-generator",
+    hero: { src: "/generators/hero/creepy-text-generator.webp", alt: "Haunted attic with an old typewriter and ghostly paper sheets" },
     toolType: "creepy_text_generator",
     name: "Creepy Text Generator",
     heading: ["Creepy Text", "Generator"],
@@ -263,6 +268,7 @@ export const TEXT_TOOL_PAGES: Record<Variant, TextToolPageData> = {
   scary: {
     variant: "scary",
     path: "/scary-text-generator",
+    hero: { src: "/generators/hero/scary-text-generator.webp", alt: "Candlelit sealed letter on a windowsill under a full moon" },
     toolType: "scary_text_generator",
     name: "Scary Text Generator",
     heading: ["Scary Text", "Generator"],
@@ -305,6 +311,7 @@ export const TEXT_TOOL_PAGES: Record<Variant, TextToolPageData> = {
   strike: {
     variant: "strike",
     path: "/strikethrough-text-generator",
+    hero: { src: "/generators/hero/strikethrough-text-generator.webp", alt: "Notebook with scribbled lines neatly crossed out" },
     toolType: "strikethrough_text_generator",
     name: "Strikethrough Text Generator",
     heading: ["Strikethrough Text", "Generator"],
@@ -350,6 +357,7 @@ export const TEXT_TOOL_PAGES: Record<Variant, TextToolPageData> = {
   script: {
     variant: "script",
     path: "/subscript-generator",
+    hero: { src: "/generators/hero/subscript-generator.webp", alt: "Chalkboard with tiny letters beside a big formula" },
     toolType: "subscript_generator",
     name: "Subscript & Superscript Generator",
     heading: ["Subscript &", "Superscript Generator"],

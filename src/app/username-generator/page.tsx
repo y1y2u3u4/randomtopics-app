@@ -88,6 +88,7 @@ export default function UsernameGeneratorPage() {
       description={DESCRIPTION}
       updated="2026-10-22"
       faq={FAQ}
+      hero={{ src: "/generators/hero/username-generator.webp", alt: "Gamer holding a phone covered in colorful avatar badges" }}
       inShort="Pick a style (gaming, cute, cool or Instagram), set the length, numbers and format, then tap Generate. Every username shows its length and which platforms' rules it fits, so you only try names that will be accepted."
       related={[
         { href: "/fancy-text-generator", label: "Fancy text generator" },
