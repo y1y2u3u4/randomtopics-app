@@ -1,6 +1,7 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KeepPlaying from "@/components/KeepPlaying";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import Link from "next/link";
@@ -213,6 +214,7 @@ export default function FunnyPage() {
           </div>
         </section>
 
+        <KeepPlaying path="/funny" />
       </main>
       <Footer />
     </>

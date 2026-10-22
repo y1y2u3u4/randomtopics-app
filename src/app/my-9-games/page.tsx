@@ -8,7 +8,7 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/my-9-games";
-const TITLE = "My 9 Games Template — Make a 3×3 Grid of the 9 Games That Made You";
+const TITLE = "My 9 Games Template — Free 3×3 Grid With Box Art";
 const DESCRIPTION =
   "Free My 9 Games template: search any video game — console, PC or retro — pick the 9 games that made you and download a 1080×1080 3×3 grid or story poster. Box art included, no signup, no watermark.";
 

@@ -1,6 +1,7 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KeepPlaying from "@/components/KeepPlaying";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import RandomSubjectPicker from "@/components/RandomSubjectPicker";
@@ -269,6 +270,7 @@ export default function RandomSubjectGeneratorPage() {
           }}
         />
 
+        <KeepPlaying path="/random-subject-generator" />
       </main>
       <Footer />
     </>

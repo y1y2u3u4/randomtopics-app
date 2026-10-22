@@ -2,6 +2,7 @@ import PublicAdPlacement from "@/components/PublicAdPlacement";
 import DirectAnswer from "@/components/DirectAnswer";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KeepPlaying from "@/components/KeepPlaying";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import EditorsPicks from "@/components/EditorsPicks";
@@ -278,6 +279,7 @@ export default function ConversationPage() {
           intro="Eight picks from the conversation pool, spread across Light, Medium, and Deep. Each shows the talking points our editors attached — copy one for your next dinner, date, or meeting, or save it for later."
           topics={pickModeTopics("conversation")}
         />
+        <KeepPlaying path="/conversation" />
       </main>
       <Footer />
     </>

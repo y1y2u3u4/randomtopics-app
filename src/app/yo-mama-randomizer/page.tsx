@@ -9,7 +9,7 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
 
 const path = "/yo-mama-randomizer";
-const title = "Yo Mama Randomizer — Clean Jokes & Text Remixes";
+const title = "Yo Mama Randomizer: 72 Clean Yo Mama Jokes + Joke Remixer";
 const description = `Generate a clean yo mama joke or remix original setups and absurd endings. ${YO_MAMA_JOKES.length} written jokes, six themes, easy copying, and no repeats within your round.`;
 const combinations = YO_MAMA_SETUPS.length * YO_MAMA_ENDINGS.length;
 export const metadata: Metadata = {

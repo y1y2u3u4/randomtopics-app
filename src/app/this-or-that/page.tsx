@@ -16,7 +16,7 @@ import { THIS_OR_THAT } from "@/data/partyGames";
 import KeepPlaying from "@/components/KeepPlaying";
 
 export const metadata: Metadata = withSocial({
-  title: { absolute: "This or That Generator — 38 Fun Questions | Random Topics" },
+  title: { absolute: "This or That Questions: 182 Picks + a Random Generator" },
   description:
     "Free This or That question generator: fun either/or prompts for parties, classrooms, road trips, and icebreakers. One click per question, no repeats — clean and party-safe. No signup.",
   keywords: [
@@ -70,7 +70,7 @@ export default function ThisOrThatPage() {
         <PartyGenerator
           questions={THIS_OR_THAT}
           title="This or That Questions"
-          subtitle="60+ fun either/or prompts — one click per question, no repeats until you've seen the whole deck."
+          subtitle="38 classic either/or prompts — one click per question, no repeats until you've seen the whole deck."
           emoji="⚖️"
         />
         <PartyGameLinks currentPath="/this-or-that" />

@@ -2,6 +2,7 @@ import PublicAdPlacement from "@/components/PublicAdPlacement";
 import QuestionScenarioLinks from "@/components/QuestionScenarioLinks";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KeepPlaying from "@/components/KeepPlaying";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import FaqSchema from "@/components/FaqSchema";
@@ -10,7 +11,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 
 export const metadata: Metadata = withSocial({
-  title: "Random Question Generator — 500+ Questions for Any Group",
+  title: { absolute: "Random Question Generator — 500+ Questions to Ask Anyone" },
   description:
     "Free random question generator: icebreakers, deep questions, funny prompts and discussion questions across 16 categories. Filter by depth, generate up to 10 at once — no signup.",
   keywords: [
@@ -141,6 +142,7 @@ export default function QuestionGeneratorPage() {
           </div>
         </section>
 
+        <KeepPlaying path="/question-generator" />
       </main>
       <Footer />
     </>
