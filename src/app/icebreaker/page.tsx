@@ -1,6 +1,7 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KeepPlaying from "@/components/KeepPlaying";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import EditorsPicks from "@/components/EditorsPicks";
@@ -216,6 +217,7 @@ export default function IcebreakerPage() {
           intro="Eight picks from the icebreaker pool, Light through Deep. The talking points tell you where each question tends to go — copy one with its notes into your session plan."
           topics={pickModeTopics("icebreaker")}
         />
+        <KeepPlaying path="/icebreaker" />
       </main>
       <Footer />
     </>

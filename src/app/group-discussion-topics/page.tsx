@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KeepPlaying from "@/components/KeepPlaying";
 import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
@@ -379,6 +380,7 @@ export default function GroupDiscussionTopicsPage() {
             </div>
           </div>
         </section>
+        <KeepPlaying path="/group-discussion-topics" />
       </main>
       <Footer />
     </>

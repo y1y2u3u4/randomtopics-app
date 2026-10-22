@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KeepPlaying from "@/components/KeepPlaying";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import Link from "next/link";
@@ -269,6 +270,7 @@ export default function EssayTopicGeneratorPage() {
             }),
           }}
         />
+        <KeepPlaying path="/essay-topic-generator" />
       </main>
       <Footer />
     </>

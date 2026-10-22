@@ -8,7 +8,7 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/my-9-albums";
-const TITLE = "My 9 Albums Template — 3×3 Album Grid Maker for Your 9 Favorite Albums";
+const TITLE = "My9Albums Template — Free 3×3 Album Grid, No Watermark";
 const DESCRIPTION =
   "Free My 9 Albums template: search any album, pick the 9 albums that made you and download a 1080×1080 3×3 album grid (or a story-size poster). Real album art, reorder by tapping, no signup, no watermark.";
 
