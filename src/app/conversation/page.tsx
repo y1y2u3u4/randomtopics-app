@@ -14,6 +14,7 @@ import Link from "next/link";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 import { topics } from "@/data/topics";
+import SubEntry from "@/components/subs/SubEntry";
 
 // ISR: hourly, so the server-rendered "today's starter" changes each UTC day.
 export const revalidate = 3600;
@@ -119,6 +120,7 @@ export default function ConversationPage() {
           title="Conversation Topic Generator"
           subtitle="Out of things to talk about? Tap for a random conversation topic for dates, friends, work, parties or ESL practice, then keep it going with a follow-up."
         />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6"><SubEntry product="bot" href="/slack-icebreaker-bot" text="Want a question like this posted to your team’s Slack, Discord or Teams channel every morning? Set it up in 2 minutes, free for 7 days." cta="Set up the icebreaker bot" /></div>
         <DirectAnswer question="What is a random conversation generator?">
           A random conversation generator gives you something to talk about in one tap, so a chat never stalls. This one has 320 conversation topics for dates, friends, work, parties and ESL practice, each with follow-up talking points. Filter by category and depth; no topic repeats until you have seen them all. Free, with no signup.
         </DirectAnswer>

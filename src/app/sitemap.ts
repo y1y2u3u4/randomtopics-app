@@ -209,6 +209,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });
   }
 
+  // Subscription product landing pages (2026-10-24). The Spanish couples page comes in through CUSTOM_SPANISH_ALTERNATES.
+  for (const p of ["teacher-warm-ups", "slack-icebreaker-bot", "discord-qotd-bot", "writing-journal", "couples-daily-question"]) {
+    entries.push({ path: `/${p}`, changeFrequency: "weekly", priority: 0.8, lastModified: "2026-10-24" });
+  }
+
   for (const mode of MODES) entries.push({ path: `/${mode.slug}`, changeFrequency: "weekly", priority: 0.9 });
   for (const cat of CATEGORIES) entries.push({ path: `/categories/${cat.id}`, changeFrequency: "weekly", priority: 0.7 });
   for (const path of INDEXABLE_MODE_CATEGORY_PATHS) {

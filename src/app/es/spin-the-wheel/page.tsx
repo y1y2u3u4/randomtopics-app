@@ -7,6 +7,7 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
+import RosterWheel from "@/components/subs/RosterWheel";
 
 export const metadata: Metadata = {
   title: { absolute: "Ruleta de Temas Aleatorios — Generador Visual Gratis" },
@@ -67,6 +68,7 @@ export default function SpinTheWheelPageEs() {
           title="Ruleta de Temas Aleatorios"
           subtitle="Gira entre 16 categorías y recibe uno de más de 500 temas al azar para conversar, escribir, debatir o practicar en clase."
         />
+        <RosterWheel locale="es" />
 
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">

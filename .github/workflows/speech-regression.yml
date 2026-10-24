@@ -12,6 +12,9 @@ on:
       - 'scripts/adsense-*.mjs'
       - 'scripts/us-ad-signal-regression.mjs'
       - 'scripts/speech-*.mjs'
+      - 'src/lib/subs/**'
+      - 'src/app/api/sub/**'
+      - 'scripts/subs-*.mjs'
       - 'scripts/lib/load-typescript.mjs'
       - 'package*.json'
       - '.github/workflows/speech-regression.yml'
@@ -28,6 +31,9 @@ on:
       - 'scripts/adsense-*.mjs'
       - 'scripts/us-ad-signal-regression.mjs'
       - 'scripts/speech-*.mjs'
+      - 'src/lib/subs/**'
+      - 'src/app/api/sub/**'
+      - 'scripts/subs-*.mjs'
       - 'scripts/lib/load-typescript.mjs'
       - 'package*.json'
       - '.github/workflows/speech-regression.yml'
@@ -48,5 +54,6 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm run speech:test
       - run: npm run billing:test
+      - run: npm run subs:test
       - run: npm run ads:test
       - run: npx eslint src/lib/speech/server.ts src/lib/speech/diagnostics.ts scripts/speech-transcription-regression.mjs

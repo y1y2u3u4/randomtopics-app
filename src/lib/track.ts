@@ -41,8 +41,12 @@ const UMAMI_DIRECT_EVENTS = new Set([
   "host_plan_select", "host_checkout_start", "host_purchase", "host_session_start", "timer_set", "no_repeat_reset",
 ]);
 
+// Subscription products (2026-10-24): {product}_{step}, same names in GA4 and Umami.
+const SUB_EVENT = /^(teacher|bot|journal|couples|wheel)_(entry_view|entry_click|landing_view|trial_start|paywall_view|plan_select|checkout_start|purchase)$/;
+const SUB_USAGE_EVENTS = new Set(["teacher_present", "bot_message_sent", "journal_entry_saved", "couples_reveal", "wheel_list_saved"]);
+
 export function umamiDirectEvent(eventName: string): boolean {
-  return UMAMI_DIRECT_EVENTS.has(eventName);
+  return UMAMI_DIRECT_EVENTS.has(eventName) || SUB_EVENT.test(eventName) || SUB_USAGE_EVENTS.has(eventName);
 }
 
 /** generate_success count in this browser tab session (drives the Host mode entry). */
@@ -52,7 +56,7 @@ export function sessionGenerateCount(): number {
 
 function umamiProps(params: GtagParams): Record<string, string | number | boolean> {
   const out: Record<string, string | number | boolean> = {};
-  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path", "plan", "generator", "seconds"]) {
+  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path", "plan", "generator", "seconds", "product", "entry_page"]) {
     const value = params[key];
     if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") out[key] = value;
   }

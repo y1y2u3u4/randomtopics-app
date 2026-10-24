@@ -17,6 +17,7 @@ import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 import { ES_CONTROVERSIAL_SUPPORT } from "@/data/controversialDiscussion.es";
 import PartyCategoryEntry from "@/components/PartyCategoryEntry";
 import SpanishPartyRound from "@/components/SpanishPartyRound";
+import SubEntry from "@/components/subs/SubEntry";
 import ClassroomQuestionGenerator from "@/components/ClassroomQuestionGenerator";
 import ClassroomToolLinksEs from "@/components/ClassroomToolLinksEs";
 import { KIDS_GRADES_ES, KIDS_JOURNAL_PROMPTS_ES, KIDS_JOURNAL_THEMES_ES } from "@/data/kidsQuestions.es";
@@ -212,6 +213,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
             <SpanishPartyRound
               groups={article.sections.map((section) => ({ label: section.heading, items: section.items }))}
             />
+            <SubEntry product="couples" locale="es" href="/es/pregunta-diaria-pareja" text="¿Jugando en pareja? Recibid una pregunta al día para los dos: cada uno responde y las respuestas se revelan a la vez." cta="Probar la pregunta diaria" />
           </section>
         )}
 
@@ -354,6 +356,12 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
         ).elements}
 
         <PublicAdPlacement path={`/es/topics/${slug}`} />
+
+        {article.slug === "conversation-starters-for-couples" && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <SubEntry product="couples" after="view" locale="es" href="/es/pregunta-diaria-pareja" text="¿Queréis una pregunta al día para los dos? Cada uno responde y las respuestas se revelan a la vez." cta="Probar la pregunta diaria" />
+          </section>
+        )}
 
         {article.faq.length > 0 && (
           <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">

@@ -10,6 +10,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { hreflangAlternates } from "@/i18n/config";
+import SubEntry from "@/components/subs/SubEntry";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Random Subject Generator: Pick From 16 School Subjects (2026)" },
@@ -92,6 +93,7 @@ export default function RandomSubjectGeneratorPage() {
           title="Random Subject Generator"
           subtitle="Choose a school or study subject first, then generate a focused prompt within it. Free, instant, and no signup."
         />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6"><SubEntry product="teacher" href="/teacher-warm-ups" text="Need a class starter every day? Get a new warm-up each school day by grade band, ready for the projector." cta="See daily warm-ups" /></div>
         <TryNext path="/random-subject-generator" />
 
         <RandomSubjectPicker />

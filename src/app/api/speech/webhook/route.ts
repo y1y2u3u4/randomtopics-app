@@ -8,6 +8,7 @@ import {
 } from "@/lib/speech/billing";
 import { sendGuestRecoveryLink } from "@/lib/speech/claim";
 import { HOST_PRODUCT, syncHostSubscription } from "@/lib/host/purchases";
+import { SUB_META, syncSub } from "@/lib/subs/purchases";
 export async function POST(request: Request) {
   try {
     const api = stripe(false);
@@ -49,6 +50,19 @@ export async function POST(request: Request) {
         .eq("user_id", subscription.metadata.user_id).eq("customer_id", customer).maybeSingle();
       if (ownerError || !owner) return response({ error: "Account not ready" }, 503);
       await syncHostSubscription(db, subscription, owner.user_id, event.created);
+      return response({ received: true });
+    }
+    // Subscription products (teacher, bot, journal, couples, wheel): same rules.
+    if (object.metadata?.product === SUB_META) {
+      const subscription = await api.subscriptions.retrieve(object.id);
+      if (subscription.metadata.product !== SUB_META || subscription.livemode !== config.livemode)
+        return response({ received: true });
+      const customer = typeof subscription.customer === "string" ? subscription.customer : subscription.customer.id;
+      const db = database();
+      const { data: owner, error: ownerError } = await db.from("speech_accounts").select("user_id")
+        .eq("user_id", subscription.metadata.user_id).eq("customer_id", customer).maybeSingle();
+      if (ownerError || !owner) return response({ error: "Account not ready" }, 503);
+      await syncSub(db, subscription, owner.user_id, event.created);
       return response({ received: true });
     }
     // Filter the signed snapshot before fetching any other application's objects.
