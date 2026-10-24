@@ -24,7 +24,12 @@ export async function GET(request: Request) {
     const host = await db.from("host_passes").select("id", { count: "exact", head: true })
       .eq("user_id", user.id).gt("expires_at", new Date().toISOString());
     if (host.error) throw new SpeechError(503, "Advertising eligibility is unavailable.");
-    return response({ version: "speech-ad-v1", audience: "verified_session", adFree: (host.count ?? 0) > 0 });
+    if ((host.count ?? 0) > 0) return response({ version: "speech-ad-v1", audience: "verified_session", adFree: true });
+    // And any active subscription product (teacher, bot, journal, couples, wheel).
+    const sub = await db.from("product_subscriptions").select("id", { count: "exact", head: true })
+      .eq("user_id", user.id).gt("expires_at", new Date().toISOString());
+    if (sub.error) throw new SpeechError(503, "Advertising eligibility is unavailable.");
+    return response({ version: "speech-ad-v1", audience: "verified_session", adFree: (sub.count ?? 0) > 0 });
   } catch (error) {
     return failure(error);
   }

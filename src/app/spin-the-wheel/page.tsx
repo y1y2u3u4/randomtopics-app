@@ -14,6 +14,7 @@ import { CATEGORIES } from "@/data/types";
 import { topics } from "@/data/topics";
 import KeepPlaying from "@/components/KeepPlaying";
 import TryNext from "@/components/TryNext";
+import RosterWheel from "@/components/subs/RosterWheel";
 
 export const metadata: Metadata = withSocial({
   title: "Spin the Wheel — Random Topic Wheel Generator, Free & No Signup",
@@ -75,6 +76,7 @@ export default function SpinTheWheelPage() {
           directAnswer={`Spin the wheel to land on a random topic from ${CATEGORIES.length} categories, from science and technology to food, travel, history, and the weird. Each result is a full prompt with talking points, not just a word, drawn from ${topics.length} curated topics, so you can start a conversation, a debate, a class warm-up, or a writing exercise right away. Free, with no signup.`}
         />
         <TryNext path="/spin-the-wheel" />
+        <RosterWheel />
 
         <FactTable
           heading="Spin the wheel or use the topic generator?"

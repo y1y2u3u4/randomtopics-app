@@ -9,6 +9,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import FaqSchema from "@/components/FaqSchema";
+import SubEntry from "@/components/subs/SubEntry";
 
 export const metadata: Metadata = withSocial({
   title: "Funny Random Topic Generator | Hilarious Questions & Weird Discussion Topics",
@@ -65,6 +66,7 @@ export default function FunnyPage() {
           title="Funny Topic Generator"
           subtitle="Hilarious, weird, and wonderfully bizarre topics that'll make everyone crack up."
         />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6"><SubEntry product="bot" href="/discord-qotd-bot" text="Make this a daily habit: post a funny question of the day to your Discord, Slack or Teams channel automatically. Free for 7 days." cta="Set up the question bot" /></div>
         <TryNext path="/funny" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-4">

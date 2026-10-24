@@ -13,6 +13,7 @@ import { notFound } from "next/navigation";
 import ClassroomArt from "@/components/ClassroomArt";
 import PrintButton from "@/components/PrintButton";
 import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
+import SubEntry from "@/components/subs/SubEntry";
 import SpeechTimer from "@/components/SpeechTimer";
 import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 import TwoTruthsRoundBuilder from "@/components/TwoTruthsRoundBuilder";
@@ -297,6 +298,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 library={{ category: "philosophy", modes: ["debate", "conversation"], depth: "deep" }}
                 support={{ title: "Four-step debate lens", items: [...ETHICAL_DEBATE_STEPS] }}
               />
+              <SubEntry product="teacher" href="/teacher-warm-ups" text="Using these as bell ringers? Get a new warm-up every school day, by grade, ready for the projector." cta="See daily warm-ups" />
               <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -556,6 +558,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </div>
           </section>
         ) : null}
+
+        {/* One paid subscription entry (2026-10-24) on pages without a generator; below the article, never in the first screen. */}
+        {article.slug === "conversation-topics-for-teens" && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <SubEntry product="teacher" after="view" href="/teacher-warm-ups" text="Teaching teens? Get a new class warm-up every school day for grades 6–8 or 9–12, ready for the projector." cta="See daily warm-ups" />
+          </section>
+        )}
+        {(article.slug === "conversation-starters-for-couples" || article.slug === "couples-game-night-questions") && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <SubEntry product="couples" after="view" href="/couples-daily-question" text="Want one question a day for the two of you? You both answer, then the answers reveal together." cta="Try the couples daily question" />
+          </section>
+        )}
 
         <PublicAdPlacement path={`/topics/${slug}`} />
 

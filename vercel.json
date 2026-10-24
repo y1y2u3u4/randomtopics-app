@@ -4,6 +4,10 @@
     {
       "path": "/api/cron/analytics-report",
       "schedule": "30 2 * * *"
+    },
+    {
+      "path": "/api/cron/bot-send",
+      "schedule": "0 * * * *"
     }
   ]
 }

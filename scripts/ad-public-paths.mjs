@@ -22,6 +22,8 @@ export const AD_FREE = [
   /^\/(privacy|terms|contact|about|press|stats|how-we-curate|facts)$/,
   // Portuguese (pt-BR) pages launched ad-free (PR #166).
   /^\/pt(\/|$)/,
+  // Subscription product landing pages (2026-10-24): they sell the plan; Teacher is used in class.
+  /^\/(teacher-warm-ups|slack-icebreaker-bot|discord-qotd-bot|writing-journal|couples-daily-question|pregunta-diaria-pareja)$/,
   // Insult humour: kept off to stay clear of ad content policy.
   /^\/yo-mama-randomizer$/,
 ];

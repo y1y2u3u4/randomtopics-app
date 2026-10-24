@@ -13,6 +13,7 @@ import type { Metadata } from "next";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
 import TryNext from "@/components/TryNext";
+import SubEntry from "@/components/subs/SubEntry";
 
 export const metadata: Metadata = {
   title: { absolute: "Writing Prompts Generator: Give Me a Topic to Write About (500+)" },
@@ -99,6 +100,7 @@ export default function WritingPage() {
           title="Writing Prompt Generator"
           subtitle="Need a topic to write about? Tap once for a random writing prompt: stories, essays, journaling and blogs, from light to deep. One click, no signup."
         />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6"><SubEntry product="journal" href="/writing-journal" text="Write one every day? Get a fresh prompt daily, save what you write and keep a streak. Your first 3 entries are free." cta="Start a writing journal" /></div>
         <DirectAnswer question="What is a writing prompts generator?">
           A writing prompts generator gives you a topic to write about in one tap, so you can skip the blank page. Prompts cover stories, essays, journaling and blogs, from light to deep, and each comes with talking points to get you started. Filter by category and depth, save the ones you like, and start writing. Free, no signup.
         </DirectAnswer>

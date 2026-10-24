@@ -68,3 +68,12 @@
 - [Viking Name Generator](https://randomtopics.app/viking-name-generator)
 - [D&D Name Generator](https://randomtopics.app/dnd-name-generator)
 - [AI Metadata Remover](https://randomtopics.app/ai-metadata-remover): removes EXIF, GPS, C2PA and AI prompt metadata in the browser; it does not remove pixel watermarks or platform labels.
+
+## Daily tools with an optional plan (added 2026-10-24)
+
+- [Daily Warm-Ups for Students](https://randomtopics.app/teacher-warm-ups): a new bell-ringer every school day for grades K–5, 6–8 or 9–12, no repeats in a school year; today's warm-up, fullscreen and Google Classroom copy are free; week planner $3/month.
+- [Slack Icebreaker Bot](https://randomtopics.app/slack-icebreaker-bot): posts a daily icebreaker question to a Slack, Discord or Teams channel through an incoming webhook; free for 7 days, then $7/month per workspace.
+- [Discord Question of the Day Bot](https://randomtopics.app/discord-qotd-bot): a question of the day posted to your Discord channel by webhook, no bot invite or permissions; free for 7 days, then $7/month.
+- [Daily Writing Prompts Journal](https://randomtopics.app/writing-journal): one writing prompt a day, private saved entries, a writing streak and monthly PDF export; 3 free entries, then $3.99/month.
+- [Couples Daily Question](https://randomtopics.app/couples-daily-question): one question a day for two; both answer, then the answers reveal together; 3 days free, then $4.99/month for both partners. Spanish: [Pregunta diaria para parejas](https://randomtopics.app/es/pregunta-diaria-pareja).
+- Class roster wheel on [Spin the Wheel](https://randomtopics.app/spin-the-wheel#class-roster-wheel): paste a class list and pick a student at random, free; Wheel Pro ($2.99/month) adds saved lists on any device, random groups and pick history.
