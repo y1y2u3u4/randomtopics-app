@@ -35,9 +35,24 @@ export function canonicalEventName(eventName: string): string | undefined {
   return CANONICAL_EVENTS[eventName];
 }
 
+// Host Pass funnel (2026-10-24): same names in GA4 and Umami.
+const UMAMI_DIRECT_EVENTS = new Set([
+  "host_entry_view", "host_entry_click", "host_trial_start", "host_trial_end", "host_paywall_view",
+  "host_plan_select", "host_checkout_start", "host_purchase", "host_session_start", "timer_set", "no_repeat_reset",
+]);
+
+export function umamiDirectEvent(eventName: string): boolean {
+  return UMAMI_DIRECT_EVENTS.has(eventName);
+}
+
+/** generate_success count in this browser tab session (drives the Host mode entry). */
+export function sessionGenerateCount(): number {
+  try { return Number(sessionStorage.getItem("rt_gen_count")) || 0; } catch { return 0; }
+}
+
 function umamiProps(params: GtagParams): Record<string, string | number | boolean> {
   const out: Record<string, string | number | boolean> = {};
-  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path"]) {
+  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path", "plan", "generator", "seconds"]) {
     const value = params[key];
     if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") out[key] = value;
   }
@@ -65,6 +80,10 @@ export function track(eventName: string, params?: GtagParams): void {
       } catch { usageQa = new URLSearchParams(window.location.search || "").get("usage_qa") === "1"; }
       const qa = usageQa || eventName.startsWith("qa_");
       const rawName = eventName.replace(/^qa_/, "");
+      if (rawName === "generate_success") {
+        try { sessionStorage.setItem("rt_gen_count", String(sessionGenerateCount() + 1)); } catch { /* optional */ }
+        try { window.dispatchEvent(new Event("rt:generate")); } catch { /* optional */ }
+      }
       const lazyStorage = (kind: "localStorage" | "sessionStorage") => ({
         getItem: (key: string) => window[kind].getItem(key),
         setItem: (key: string, value: string) => window[kind].setItem(key, value),
@@ -107,7 +126,7 @@ export function track(eventName: string, params?: GtagParams): void {
             window.gtag = (...args) => { window.dataLayer!.push(args); };
           }
           window.gtag("event", measuredName, eventParams);
-          if (name === canonical && !qa) sendUmami(name, umamiProps(eventParams));
+          if ((name === canonical || umamiDirectEvent(name)) && !qa) sendUmami(name, umamiProps(eventParams));
           diagnose("dispatch_called");
         } catch {
           diagnose("dispatch_error");

@@ -13,6 +13,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { WOULD_YOU_RATHER } from "@/data/partyQuestions";
 import KeepPlaying from "@/components/KeepPlaying";
+import HostPassEntry from "@/components/host/HostPassEntry";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Would You Rather Generator — 60+ Questions | Random Topics" },
@@ -77,6 +78,7 @@ export default function WouldYouRatherPage() {
           subtitle="60+ clean either/or dilemmas — one click per question, no repeats until you've seen the whole deck."
           emoji="🤔"
         />
+        <HostPassEntry generator="would-you-rather" />
         <PartyGameLinks currentPath="/would-you-rather" />
         <PublicAdPlacement path="/would-you-rather" placement="result" />
 

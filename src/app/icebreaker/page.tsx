@@ -12,6 +12,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import FaqSchema from "@/components/FaqSchema";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
+import HostPassEntry from "@/components/host/HostPassEntry";
 
 export const metadata: Metadata = {
   title: { absolute: "Ice Breaker Questions Generator: 300+ Random Icebreakers" },
@@ -82,6 +83,7 @@ export default function IcebreakerPage() {
           title="Icebreaker Question Generator"
           subtitle="Tap for a random ice breaker question for meetings, team building, classrooms or virtual calls. Work-safe, quick to answer, and fun to share."
         />
+        <HostPassEntry generator="icebreaker" />
         <TryNext path="/icebreaker" />
 
         <PublicAdPlacement path="/icebreaker" />

@@ -15,6 +15,7 @@ import QotdListActions from "@/components/QotdListActions";
 import KeepPlaying from "@/components/KeepPlaying";
 import TryNext from "@/components/TryNext";
 import FactSheet from "@/components/FactSheet";
+import HostPassEntry from "@/components/host/HostPassEntry";
 
 // ISR: regenerate hourly so the server-rendered "today's question" (UTC) stays
 // current and crawlers always see a real question in the HTML, not a placeholder.
@@ -110,6 +111,7 @@ export default function QuestionOfTheDayPage() {
         </section>
 
         <QuestionOfTheDay initialIdx={initialIdx} initialDateLabel={initialDateLabel} />
+        <HostPassEntry generator="question-of-the-day" />
         <div className="pt-6">
           <DirectAnswer question="What is today's question of the day?">
             {`Today's question of the day is shown at the top of this page. Everyone using the same category on the same local date sees the same question, and it changes at midnight in your time zone. Choose from ${QOTD_CATEGORIES.length} categories (classroom, work, kids, deep, funny) or draw from all ${QOTD_QUESTIONS.length} question ideas. Free, no signup.`}
