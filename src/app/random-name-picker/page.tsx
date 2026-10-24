@@ -46,6 +46,7 @@ export default function RandomNamePickerPage() {
         { href: "/fake-name-generator", label: "Fake name generator" },
         { href: "/number-randomizer", label: "Number randomizer" },
         { href: "/spin-the-wheel", label: "Spin the wheel" },
+        { href: "/decision-maker", label: "Decision maker" },
         { href: "/question-of-the-day-for-students", label: "Question of the day for students" },
       ]}
       content={
@@ -59,6 +60,8 @@ export default function RandomNamePickerPage() {
           </ul>
           <SectionTitle>Need groups instead of one name?</SectionTitle>
           <p>Use the <Link href="/random-team-generator" className={linkClass}>random team generator</Link> to split the same list into balanced teams or groups, or the <Link href="/number-randomizer" className={linkClass}>number randomizer</Link> when students are numbered.</p>
+          <SectionTitle>Choosing between options, not people?</SectionTitle>
+          <p>The <Link href="/decision-maker" className={linkClass}>decision maker</Link> spins a wheel of your own options, draws lots without repeats or answers a yes-or-no question.</p>
         </>
       }
     >

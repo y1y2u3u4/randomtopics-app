@@ -20,6 +20,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/yo-mama-randomizer", label: "Yo Mama Randomizer", emoji: "😂", blurb: "Clean roast jokes", groups: ["party"] },
   { href: "/riddles-for-kids", label: "Riddles for Kids", emoji: "🧩", blurb: "Riddles with answers to reveal", groups: ["classroom", "party"] },
   { href: "/hot-seat-questions", label: "Hot Seat Questions", emoji: "🔥", blurb: "Rapid-fire questions", groups: ["party", "classroom"] },
+  { href: "/decision-maker", label: "Decision Maker", emoji: "🧭", blurb: "Wheel, draw lots or yes/no", groups: ["party", "classroom"] },
   { href: "/random-name-picker", label: "Random Name Picker", emoji: "🎩", blurb: "Draw names, no repeats", groups: ["classroom", "party"] },
   { href: "/number-randomizer", label: "Number Randomizer", emoji: "🔢", blurb: "Random numbers in any range", groups: ["classroom", "party"] },
   { href: "/random-team-generator", label: "Random Team Generator", emoji: "👥", blurb: "Split names into fair teams", groups: ["classroom", "party"] },

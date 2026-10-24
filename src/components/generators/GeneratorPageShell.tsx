@@ -28,6 +28,8 @@ interface Props {
   related?: { href: string; label: string }[];
   /** Themed illustration above the H1 (public/generators/hero, WebP; size in heroImages.json). */
   hero?: { src: string; alt: string };
+  /** Hide the hero on short viewports so the tool itself stays above the fold. */
+  heroHideOnShort?: boolean;
   /** Two-to-three sentence answer shown first in the explainer ("In short"). */
   inShort?: React.ReactNode;
   /** Extra sections between the tool and the explainer. */
@@ -40,7 +42,7 @@ const UI = {
 };
 
 export default function GeneratorPageShell(props: Props) {
-  const { locale, path, name, heading, intro, description, updated, faq, children, content, related = [], hero, inShort, afterTool } = props;
+  const { locale, path, name, heading, intro, description, updated, faq, children, content, related = [], hero, heroHideOnShort, inShort, afterTool } = props;
   const ui = UI[locale];
   const others = generatorsFor(locale, { crossLinks: true }).filter((g) => g.href !== path);
   const appSchema = {
@@ -65,12 +67,12 @@ export default function GeneratorPageShell(props: Props) {
       <Navbar />
       <main className="flex-1" {...(locale === "es" ? { lang: "es" } : {})}>
         <Breadcrumb items={[{ label: ui.home, href: locale === "es" ? "/es" : "/" }, { label: name }]} />
-        <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-10 pb-6 text-center">
+        <section className={`max-w-3xl mx-auto px-4 sm:px-6 ${heroHideOnShort ? "pt-6 sm:pt-8 pb-4" : "pt-10 pb-6"} text-center`}>
           {hero && (
             // eslint-disable-next-line @next/next/no-img-element -- small pre-sized WebP, no optimizer needed
             <img src={hero.src} alt={hero.alt} decoding="async"
               {...(heroSizes as Record<string, { width: number; height: number }>)[hero.src]}
-              className="mx-auto mb-6 h-28 sm:h-40 w-auto rounded-2xl" />
+              className={`mx-auto mb-6 h-28 sm:h-40 w-auto rounded-2xl${heroHideOnShort ? " [@media(max-height:900px)]:hidden" : ""}`} />
           )}
           <h1 className="section-heading text-4xl sm:text-6xl font-extrabold mb-4" style={{ fontFamily: "var(--font-display)" }}>
             {heading[0]} <span className="gradient-text">{heading[1]}</span>

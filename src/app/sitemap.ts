@@ -201,6 +201,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "acs-citation-generator",
     "chicago-citation-generator",
     "random-name-picker",
+    "decision-maker",
     "number-randomizer",
     "ai-metadata-remover",
     "western-baby-name-generator",

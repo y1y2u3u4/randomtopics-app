@@ -61,6 +61,7 @@
 - [Fake Address Generator](https://randomtopics.app/fake-address-generator): fictional street addresses in 24 countries with real cities, postcodes from each city's real range and the country's own address layout. CSV columns for street, city, region, postcode, country.
 - [Fake Identity Generator](https://randomtopics.app/fake-identity-generator): complete fictional people — name, birthday, address, job, placeholder email, height, weight, blood type, eye/hair colour, star sign, generation, personality, hobby. Never SSN, ID or card numbers.
 - [Fake Person Generator](https://randomtopics.app/fake-person-generator): random people with a personality, hobby and physical details consistent with country and birthday, for characters, NPCs and personas. No AI faces.
+- [Decision Maker](https://randomtopics.app/decision-maker): type your options and let a spinning wheel, a cup of drawing lots (no repeats) or a yes-or-no coin decide. Optional 2×/3× weights, a decision of the day, shareable result card and link. Free, no signup, runs in the browser.
 - [Random Name Picker](https://randomtopics.app/random-name-picker)
 - [Number Randomizer](https://randomtopics.app/number-randomizer)
 - [Spin the Wheel](https://randomtopics.app/spin-the-wheel)
