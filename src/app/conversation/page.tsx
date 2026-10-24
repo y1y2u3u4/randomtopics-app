@@ -3,6 +3,7 @@ import DirectAnswer from "@/components/DirectAnswer";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import EditorsPicks from "@/components/EditorsPicks";
@@ -121,6 +122,7 @@ export default function ConversationPage() {
         <DirectAnswer question="What is a random conversation generator?">
           A random conversation generator gives you something to talk about in one tap, so a chat never stalls. This one has 320 conversation topics for dates, friends, work, parties and ESL practice, each with follow-up talking points. Filter by category and depth; no topic repeats until you have seen them all. Free, with no signup.
         </DirectAnswer>
+        <TryNext path="/conversation" />
 
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-4">
           <div className="glass-card p-6 sm:p-8">

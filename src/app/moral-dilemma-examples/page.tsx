@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import FactSheet from "@/components/FactSheet";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import DeckGenerator from "@/components/DeckGenerator";
 import PublicAdPlacement from "@/components/PublicAdPlacement";
 import { DILEMMA_GROUPS, DILEMMA_ITEMS, MORAL_DILEMMAS } from "@/data/decks/dilemmas";
@@ -48,6 +49,7 @@ export default function MoralDilemmaExamplesPage() {
         <p className="mt-2 text-xs text-[var(--text-secondary)]">{MORAL_DILEMMAS.length} dilemmas · {classic} classics with sources · {DILEMMA_GROUPS.length} themes · Free</p>
       </header>
       <DeckGenerator storageKey="rt-moral-dilemma-v1" items={DILEMMA_ITEMS} groups={DILEMMA_GROUPS} noun="Moral dilemma" toolType="moral_dilemma" saveCategory="philosophy" printHeading="Moral dilemmas" counts={[1, 3]} />
+      <TryNext path={path} />
       <PublicAdPlacement path={path} placement="result" />
       <section className="glass-card p-5 sm:p-8 mt-8">
         <h2 className="text-2xl font-bold">What is a moral dilemma?</h2>

@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import FactSheet from "@/components/FactSheet";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import DeckGenerator from "@/components/DeckGenerator";
 import PublicAdPlacement from "@/components/PublicAdPlacement";
 import { CATEGORY_GROUPS, CATEGORY_ITEMS } from "@/data/decks/categories";
@@ -41,6 +42,7 @@ export default function RandomCategoryGeneratorPage() {
         <p className="mt-2 text-xs text-[var(--text-secondary)]">{CATEGORY_ITEMS.length} categories · {CATEGORY_GROUPS.length} groups · Random letter · Free, no signup</p>
       </header>
       <DeckGenerator storageKey="rt-random-category-v1" items={CATEGORY_ITEMS} groups={CATEGORY_GROUPS} noun="Category" toolType="random_category" saveCategory="weird-fun" printHeading="Random categories" letterRoll counts={[1, 5, 10]} />
+      <TryNext path={path} />
       <PublicAdPlacement path={path} placement="result" />
       <section className="glass-card p-5 sm:p-8 mt-8">
         <h2 className="text-2xl font-bold">What a random category generator does</h2>

@@ -11,6 +11,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { IMPROMPTU_GROUPS, IMPROMPTU_TOPIC_COUNT } from "@/data/impromptuTopics";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Impromptu Speech Topics: 120 Ideas by Category, With Tips & Timer | Random Topics" },
@@ -77,6 +78,7 @@ export default function ImpromptuSpeechPage() {
           title="Impromptu Speech Topics"
           subtitle={`${IMPROMPTU_TOPIC_COUNT} no-research topics sorted by category below. Or draw one at random, try a 60-second answer and get feedback.`}
         />
+        <TryNext path="/impromptu-speech-topics" />
 
         {/* Speech Timer */}
         <section id="impromptu-timer" className="max-w-3xl mx-auto scroll-mt-20 px-4 sm:px-6 pb-4">

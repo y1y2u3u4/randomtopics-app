@@ -105,3 +105,36 @@ Dispatch goal: page RPM ≥ $2 (now $1.18–1.19, 10/10–16). These pages had A
   - AdSense "Ad units" view for slot 8217822741 (impressions should rise).
   - CLS in PSI/CrUX (must not worsen).
   - GA4 `generate_success` per user on the 19 pages vs 10/11–17 (must not fall).
+
+## Week 3: "Try next" links under the result (10/24)
+Dispatch 2026-10-24-randomtopics-rpm: raise page RPM without click bait, mobile CLS must not worsen.
+
+### Baseline (before this change)
+AdSense, randomtopics.app, 10/17–10/23 (account time zone):
+| Metric | Value |
+|---|---|
+| Earnings | $38.43 (≈ $5.49 / day) |
+| Page views | 17,951 |
+| Page RPM | **$2.14** (daily range $1.80–2.43; 10/10–16 was $1.19) |
+| Mobile / desktop page RPM | $2.35 / $1.92 |
+| US page RPM | $4.65 (4,891 page views, $22.74) |
+
+By format (7 days): Anchor $19.87 (impr. RPM $1.41, 88% viewable), Vignette $9.92 ($2.05, 83%), Ad intent chip+anchor+link $5.66 (~$4 impr. RPM, 43%), In-page $1.73 ($0.29, **15% viewable**), Side rail $1.22.
+
+GA4 (property 544861118), 10/17–10/23: 37,517 views, 21,615 sessions, 16,289 users, **1.74 views per session**. Low on top landing pages: /question-of-the-day 1.17, /debate 1.31, /writing 1.31, /speech 1.48, /conversation 1.55, /spin-the-wheel 1.59.
+
+AdSense settings (checked 10/24, read only): Auto ads on; intent-driven 1/1, overlay 3/3 (anchor, vignette, side rail), in-page 2/2 (banner, multiplex). Nothing to switch on.
+
+### Why page views, not more units
+Anchor and vignette earn 77% and are already on every eligible page. A vignette can only show on the next page load, and the in-page unit pays $0.29 per 1,000. One more internal page view per visit is worth more than another in-content unit, and adds no ad clutter.
+
+### Change
+- `TryNext`: a compact row of three related tools right under the tool (after its direct answer where there is one), on 19 pages plus every `GeneratorPageShell` page. The three are different from the "Keep playing" cards at the bottom (`keepPlaying(path, 6)`, items 4–6).
+- Static server HTML above the ad slot. The slot keeps its 456 px reserved height and moves down by about 70 px, so it is still outside the first screen. No new ads, no change to ad gates.
+- `related_tool_click` GA4 event (`slot` = `try_next` | `keep_playing`, `page_path`, `target_path`) on both strips.
+- Party pages that already have `PartyGameLinks` under the tool (this-or-that, truth-or-dare, would-you-rather) are unchanged. Spanish pages are not in this round.
+
+### Compare on 2026-10-31 (7 days after deploy)
+- AdSense page RPM and earnings per day, same report (baseline $2.14, $5.49 per day).
+- GA4 views per session (baseline 1.74) and per landing page above; `related_tool_click` by slot.
+- Mobile CLS in PSI on /debate and /question-of-the-day (must stay at the current value).

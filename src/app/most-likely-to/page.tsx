@@ -11,6 +11,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { MOST_LIKELY_TO } from "@/data/partyGames";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = withSocial({
   title: "Most Likely To Questions Generator — Fun & Clean Party Prompts",
@@ -68,6 +69,7 @@ export default function MostLikelyToPage() {
           subtitle="Clean, funny 'who is most likely to…' prompts — one click per question, no repeats until you've seen the whole deck."
           emoji="👉"
         />
+        <TryNext path="/most-likely-to" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
