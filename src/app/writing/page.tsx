@@ -12,6 +12,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = {
   title: { absolute: "Writing Prompts Generator: Give Me a Topic to Write About (500+)" },
@@ -101,6 +102,7 @@ export default function WritingPage() {
         <DirectAnswer question="What is a writing prompts generator?">
           A writing prompts generator gives you a topic to write about in one tap, so you can skip the blank page. Prompts cover stories, essays, journaling and blogs, from light to deep, and each comes with talking points to get you started. Filter by category and depth, save the ones you like, and start writing. Free, no signup.
         </DirectAnswer>
+        <TryNext path="/writing" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
           <div className="glass-card p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-cyan)]/20">

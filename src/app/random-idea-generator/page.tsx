@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import FactSheet from "@/components/FactSheet";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import DeckGenerator from "@/components/DeckGenerator";
 import PublicAdPlacement from "@/components/PublicAdPlacement";
 import { IDEA_GROUPS, IDEA_ITEMS } from "@/data/decks/ideas";
@@ -40,6 +41,7 @@ export default function RandomIdeaGeneratorPage() {
         <p className="mt-2 text-xs text-[var(--text-secondary)]">{IDEA_ITEMS.length} ideas · {IDEA_GROUPS.length} types · No repeats · Free, no signup</p>
       </header>
       <DeckGenerator storageKey="rt-random-idea-v1" items={IDEA_ITEMS} groups={IDEA_GROUPS} noun="Idea" toolType="random_idea" saveCategory="weird-fun" printHeading="Random ideas" dailyLabel="Idea of the day" dailySalt={53} />
+      <TryNext path={path} />
       <PublicAdPlacement path={path} placement="result" />
       <section className="glass-card p-5 sm:p-8 mt-8">
         <h2 className="text-2xl font-bold">What a random idea generator is for</h2>

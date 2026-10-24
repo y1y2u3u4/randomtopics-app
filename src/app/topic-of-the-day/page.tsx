@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import FactSheet from "@/components/FactSheet";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import PublicAdPlacement from "@/components/PublicAdPlacement";
 import TopicOfTheDay from "@/components/TopicOfTheDay";
 import { DAY, topicIndexForDay } from "@/lib/topicOfTheDay";
@@ -48,6 +49,7 @@ export default function TopicOfTheDayPage() {
         <p className="mt-2 text-xs text-[var(--text-secondary)]">Picked from {topics.length} topics · 16 categories · Talking points included · Free</p>
       </header>
       <TopicOfTheDay topics={topics} initialDay={today} />
+      <TryNext path={path} />
       <PublicAdPlacement path={path} placement="result" />
       <section className="glass-card p-5 sm:p-8 mt-8">
         <h2 className="text-2xl font-bold">What the topic of the day is</h2>

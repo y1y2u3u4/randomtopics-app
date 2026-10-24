@@ -2,6 +2,7 @@ import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import Link from "next/link";
@@ -64,6 +65,7 @@ export default function FunnyPage() {
           title="Funny Topic Generator"
           subtitle="Hilarious, weird, and wonderfully bizarre topics that'll make everyone crack up."
         />
+        <TryNext path="/funny" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-4">
           <Link href="/yo-mama-randomizer" className="glass-card mb-4 p-6 block hover:border-[var(--neon-pink)]/40 transition-colors">

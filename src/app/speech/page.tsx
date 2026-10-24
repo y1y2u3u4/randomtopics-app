@@ -13,6 +13,7 @@ import { withSocial } from "@/lib/metadata/social";
 import FaqSchema from "@/components/FaqSchema";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import DirectAnswer from "@/components/DirectAnswer";
 import FactTable from "@/components/FactTable";
 
@@ -159,6 +160,7 @@ export default function SpeechPage() {
         <DirectAnswer question="What is a speech topic generator?">
           A speech topic generator gives you a random speech topic with talking points in one tap, then lets you practice it against a built-in timer. This one has 296 topics, updated October 2026, for public speaking, presentations, Toastmasters table topics, and informative or persuasive speeches. Try a 60-second answer and get one tip to make it clearer. Free, no signup.
         </DirectAnswer>
+        <TryNext path="/speech" />
 
         <FactTable
           heading="Which kind of speech topic do you need?"

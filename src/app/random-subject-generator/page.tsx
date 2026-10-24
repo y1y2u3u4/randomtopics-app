@@ -2,6 +2,7 @@ import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import RandomSubjectPicker from "@/components/RandomSubjectPicker";
@@ -91,6 +92,7 @@ export default function RandomSubjectGeneratorPage() {
           title="Random Subject Generator"
           subtitle="Choose a school or study subject first, then generate a focused prompt within it. Free, instant, and no signup."
         />
+        <TryNext path="/random-subject-generator" />
 
         <RandomSubjectPicker />
 

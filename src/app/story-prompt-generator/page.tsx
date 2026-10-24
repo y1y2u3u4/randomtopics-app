@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import StoryPromptGenerator from "@/components/StoryPromptGenerator";
 import PublicAdPlacement from "@/components/PublicAdPlacement";
 import { STORY_AUDIENCES, STORY_CHALLENGES, STORY_GENRES, STORY_LENGTHS, STORY_PROMPTS } from "@/data/storyPrompts";
@@ -38,6 +39,7 @@ export default function StoryPromptGeneratorPage() {
         <p className="mt-2 text-xs text-[var(--text-secondary)]">{STORY_PROMPTS.length} original prompts · {STORY_GENRES.length} genres · Kids, teens and adults · Free</p>
       </header>
       <StoryPromptGenerator />
+      <TryNext path={path} />
       <PublicAdPlacement path={path} placement="result" />
       <figure className="mt-8">
         {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized jpg below the tool, no optimizer needed */}

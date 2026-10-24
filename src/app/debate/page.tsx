@@ -12,6 +12,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import DirectAnswer from "@/components/DirectAnswer";
 import FactTable from "@/components/FactTable";
 import { topics } from "@/data/topics";
@@ -110,6 +111,7 @@ export default function DebatePage() {
         <DirectAnswer question="What is a debate topic generator?">
           A debate topic generator picks a random, arguable motion for you, with pro and con talking points, so you can start preparing right away. This one draws from 308 debate topics (updated October 2026) for classrooms, debate clubs and practice rounds. Filter by category and depth; no topic repeats until you have seen them all. Free, with no signup. For moral questions, see these <Link href="/topics/ethical-dilemma-questions" className="text-[var(--neon-cyan)] hover:underline">ethical dilemma questions</Link>.
         </DirectAnswer>
+        <TryNext path="/debate" />
         <ClassroomPackCard pack="debate" page="/debate" />
 
         <FactTable

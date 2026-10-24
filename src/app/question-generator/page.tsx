@@ -3,6 +3,7 @@ import QuestionScenarioLinks from "@/components/QuestionScenarioLinks";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import FaqSchema from "@/components/FaqSchema";
@@ -72,6 +73,7 @@ export default function QuestionGeneratorPage() {
           title="Random Question Generator"
           subtitle="Instant questions for any group — icebreakers, deep questions, funny prompts and everything in between."
         />
+        <TryNext path="/question-generator" />
 
         <PublicAdPlacement path="/question-generator" />
 

@@ -2,6 +2,7 @@ import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import Breadcrumb from "@/components/Breadcrumb";
 import TopicGenerator from "@/components/TopicGenerator";
 import EditorsPicks from "@/components/EditorsPicks";
@@ -81,6 +82,7 @@ export default function IcebreakerPage() {
           title="Icebreaker Question Generator"
           subtitle="Tap for a random ice breaker question for meetings, team building, classrooms or virtual calls. Work-safe, quick to answer, and fun to share."
         />
+        <TryNext path="/icebreaker" />
 
         <PublicAdPlacement path="/icebreaker" />
 

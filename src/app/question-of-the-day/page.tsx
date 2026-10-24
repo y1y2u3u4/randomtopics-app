@@ -13,6 +13,7 @@ import { hreflangAlternates } from "@/i18n/config";
 import { QOTD_QUESTIONS, QOTD_CATEGORIES, qotdIndexForDate } from "@/data/questionOfTheDay";
 import QotdListActions from "@/components/QotdListActions";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import FactSheet from "@/components/FactSheet";
 
 // ISR: regenerate hourly so the server-rendered "today's question" (UTC) stays
@@ -114,6 +115,7 @@ export default function QuestionOfTheDayPage() {
             {`Today's question of the day is shown at the top of this page. Everyone using the same category on the same local date sees the same question, and it changes at midnight in your time zone. Choose from ${QOTD_CATEGORIES.length} categories (classroom, work, kids, deep, funny) or draw from all ${QOTD_QUESTIONS.length} question ideas. Free, no signup.`}
           </DirectAnswer>
         </div>
+        <TryNext path="/question-of-the-day" />
         <ClassroomPackCard pack="question-of-the-day" page="/question-of-the-day" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">

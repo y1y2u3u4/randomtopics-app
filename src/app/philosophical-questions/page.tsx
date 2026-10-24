@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import FactSheet from "@/components/FactSheet";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import DeckGenerator from "@/components/DeckGenerator";
 import PublicAdPlacement from "@/components/PublicAdPlacement";
 import { PHILOSOPHY_GROUPS, PHILOSOPHY_ITEMS } from "@/data/decks/philosophical";
@@ -53,6 +54,7 @@ export default function PhilosophicalQuestionsPage() {
         <p className="mt-2 text-xs text-[var(--text-secondary)]">{PHILOSOPHY_ITEMS.length} questions · {PHILOSOPHY_GROUPS.length} themes · Easy ones for kids · Free</p>
       </header>
       <DeckGenerator storageKey="rt-philosophical-v1" items={PHILOSOPHY_ITEMS} groups={PHILOSOPHY_GROUPS} noun="Philosophical question" toolType="philosophical_question" saveCategory="philosophy" printHeading="Philosophical questions" dailyLabel="Question of the day" dailySalt={59} />
+      <TryNext path={path} />
       <PublicAdPlacement path={path} placement="result" />
       <section className="glass-card p-5 sm:p-8 mt-8">
         <h2 className="text-2xl font-bold">What makes a question philosophical</h2>

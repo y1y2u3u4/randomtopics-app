@@ -11,6 +11,7 @@ import { withSocial } from "@/lib/metadata/social";
 import { hreflangAlternates } from "@/i18n/config";
 import { CHARADES_WORDS, CHARADES_CATEGORIES } from "@/data/charades";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 import FactSheet from "@/components/FactSheet";
 
 export const metadata: Metadata = withSocial({
@@ -141,6 +142,7 @@ export default function CharadesPage() {
             {`A charades generator picks a random word for the actor, so nobody has to think one up. This one draws from ${CHARADES_WORDS.length} charades words in ${CHARADES_CATEGORIES.length} categories, each labeled easy, medium or hard, with a built-in timer and a button to hide the answer. It works on any phone, is free and needs no signup.`}
           </DirectAnswer>
         </div>
+        <TryNext path="/charades" />
 
         <PublicAdPlacement path="/charades" placement="result" />
 
