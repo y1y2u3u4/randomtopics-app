@@ -115,4 +115,6 @@ window.location.hostname = "localhost";
 track("host_purchase", { generator: "charades", plan: "pass30" });
 check(umami.length === 0 && gtag.length === 0, "localhost never sends host events");
 
+check(/persisted\) setBusy\(false\)[\s\S]{0,120}"pageshow"/.test(readFileSync("src/components/host/HostMode.tsx", "utf8")), "Back from Stripe (bfcache) re-enables the checkout button");
+
 console.log(`host-pass regression: ${checks} checks passed`);

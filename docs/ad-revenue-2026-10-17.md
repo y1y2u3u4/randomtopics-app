@@ -138,3 +138,6 @@ Anchor and vignette earn 77% and are already on every eligible page. A vignette 
 - AdSense page RPM and earnings per day, same report (baseline $2.14, $5.49 per day).
 - GA4 views per session (baseline 1.74) and per landing page above; `related_tool_click` by slot.
 - Mobile CLS in PSI on /debate and /question-of-the-day (must stay at the current value).
+
+## Separate change: Host Pass live (10/24, not part of the RPM test)
+Host Pass (PR #178, `docs/host-pass-2026-10-24.md`) went live on 2026-10-24 at about 06:07 UTC (14:07 Beijing). It adds a Host mode entry under the result on charades, this-or-that, would-you-rather, truth-or-dare, question-of-the-day, icebreaker and debate, shown only after the 3rd generation in a session. Paying users get no ads. Expect a small drop in ad impressions from buyers. When reading the 10/31 RPM comparison, check `host_purchase` counts first; if they are near zero, ignore this change. Funnel recheck on 11/07.

@@ -213,6 +213,14 @@ export default function HostMode({ generator, returnSession, onClose }: { genera
     }
   };
 
+  // Back from Stripe restores this page from the back/forward cache with the
+  // button still busy; re-enable it.
+  useEffect(() => {
+    const restored = (event: PageTransitionEvent) => { if (event.persisted) setBusy(false); };
+    window.addEventListener("pageshow", restored);
+    return () => window.removeEventListener("pageshow", restored);
+  }, []);
+
   const dark = theme === "dark";
   const card = current !== null && cards ? cards[current] : null;
   const long = (card?.text.length ?? 0) > 90;
