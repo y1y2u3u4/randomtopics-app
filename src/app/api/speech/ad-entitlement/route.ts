@@ -19,7 +19,12 @@ export async function GET(request: Request) {
     // A classroom pack purchase also removes ads for that account or guest browser.
     const classroom = await db.from("classroom_purchases").select("session_id", { count: "exact", head: true }).eq("user_id", user.id);
     if (classroom.error) throw new SpeechError(503, "Advertising eligibility is unavailable.");
-    return response({ version: "speech-ad-v1", audience: "verified_session", adFree: (classroom.count ?? 0) > 0 });
+    if ((classroom.count ?? 0) > 0) return response({ version: "speech-ad-v1", audience: "verified_session", adFree: true });
+    // So does a valid Host Pass (30-day pass or active subscription).
+    const host = await db.from("host_passes").select("id", { count: "exact", head: true })
+      .eq("user_id", user.id).gt("expires_at", new Date().toISOString());
+    if (host.error) throw new SpeechError(503, "Advertising eligibility is unavailable.");
+    return response({ version: "speech-ad-v1", audience: "verified_session", adFree: (host.count ?? 0) > 0 });
   } catch (error) {
     return failure(error);
   }

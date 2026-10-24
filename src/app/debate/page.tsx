@@ -16,6 +16,7 @@ import TryNext from "@/components/TryNext";
 import DirectAnswer from "@/components/DirectAnswer";
 import FactTable from "@/components/FactTable";
 import { topics } from "@/data/topics";
+import HostPassEntry from "@/components/host/HostPassEntry";
 
 const DEBATE_TOPICS = topics.filter((topic) => topic.modes.includes("debate"));
 const DEBATE_DEPTH_COUNTS = {
@@ -108,6 +109,7 @@ export default function DebatePage() {
           subtitle="Find thought-provoking debate topics with clear arguments for both sides."
           directAnswer="Looking for a good debate topic? Tap Generate for a random, arguable motion with pro and con talking points, drawn from 308 debate topics for classrooms, debate clubs, and practice rounds. Filter by category and by depth, from light warm-ups to deep motions, and no topic repeats until you have seen them all. Free, with no signup."
         />
+        <HostPassEntry generator="debate" />
         <DirectAnswer question="What is a debate topic generator?">
           A debate topic generator picks a random, arguable motion for you, with pro and con talking points, so you can start preparing right away. This one draws from 308 debate topics (updated October 2026) for classrooms, debate clubs and practice rounds. Filter by category and depth; no topic repeats until you have seen them all. Free, with no signup. For moral questions, see these <Link href="/topics/ethical-dilemma-questions" className="text-[var(--neon-cyan)] hover:underline">ethical dilemma questions</Link>.
         </DirectAnswer>

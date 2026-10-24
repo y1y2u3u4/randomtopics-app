@@ -13,6 +13,7 @@ import { CHARADES_WORDS, CHARADES_CATEGORIES } from "@/data/charades";
 import KeepPlaying from "@/components/KeepPlaying";
 import TryNext from "@/components/TryNext";
 import FactSheet from "@/components/FactSheet";
+import HostPassEntry from "@/components/host/HostPassEntry";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Charades Generator: Random Charades Word Generator (528 Words)" },
@@ -136,6 +137,7 @@ export default function CharadesPage() {
         </section>
 
         <CharadesGenerator />
+        <HostPassEntry generator="charades" />
 
         <div className="pt-6">
           <DirectAnswer question="What is a charades generator?">

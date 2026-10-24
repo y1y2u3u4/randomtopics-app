@@ -14,6 +14,7 @@ import { withSocial } from "@/lib/metadata/social";
 import { hreflangAlternates } from "@/i18n/config";
 import { THIS_OR_THAT } from "@/data/partyGames";
 import KeepPlaying from "@/components/KeepPlaying";
+import HostPassEntry from "@/components/host/HostPassEntry";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "This or That Questions: 182 Picks + a Random Generator" },
@@ -73,6 +74,7 @@ export default function ThisOrThatPage() {
           subtitle="38 classic either/or prompts — one click per question, no repeats until you've seen the whole deck."
           emoji="⚖️"
         />
+        <HostPassEntry generator="this-or-that" />
         <PartyGameLinks currentPath="/this-or-that" />
 
         <PublicAdPlacement path="/this-or-that" />
