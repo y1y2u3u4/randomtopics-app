@@ -465,3 +465,10 @@ footer {
   .topic-roll__reel { display: none; }
   .topic-roll__final { animation: none; }
 }
+
+/* Decision maker: cup shake and coin flip (skipped for reduced motion). */
+@keyframes dm-shake { 0%,100% { transform: rotate(0) } 20% { transform: rotate(-7deg) } 40% { transform: rotate(6deg) } 60% { transform: rotate(-5deg) } 80% { transform: rotate(4deg) } }
+@keyframes dm-flip { from { transform: rotateY(0) } to { transform: rotateY(1440deg) } }
+.dm-shake { animation: dm-shake 0.55s ease-in-out 2; transform-origin: 50% 90%; }
+.dm-flip { animation: dm-flip 1.25s cubic-bezier(0.3, 0.7, 0.4, 1); }
+@media (prefers-reduced-motion: reduce) { .dm-shake, .dm-flip { animation: none; } }

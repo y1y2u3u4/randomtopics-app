@@ -158,6 +158,8 @@ export default function SpinTheWheelPage() {
                 . Spinning for a person instead of a topic? Paste names into the{" "}
                 <Link href="/random-name-picker" className="text-[var(--neon-cyan)] hover:underline">random name picker</Link> or pick a number with the{" "}
                 <Link href="/number-randomizer" className="text-[var(--neon-cyan)] hover:underline">number randomizer</Link>.
+                Choosing between your own options — dinner, a movie, yes or no? Type them into the{" "}
+                <Link href="/decision-maker" className="text-[var(--neon-cyan)] hover:underline">decision maker wheel</Link>.
               </p>
 
               <h3

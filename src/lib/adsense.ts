@@ -51,6 +51,8 @@ export const ADSENSE_RESULT_PATHS = [
   "/random-character-generator",
   "/fantasy-map-maker",
   "/story-prompt-generator",
+  // 2026-10-24: new page that lives on ads (no paywall), see docs/decision-maker-2026-10-24.md.
+  "/decision-maker",
 ] as const;
 
 // Public sitemap pages that may load Auto ads (anchor, vignette, Auto in-page)

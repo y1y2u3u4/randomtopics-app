@@ -314,6 +314,13 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     crossLinkOnly: true,
   },
   {
+    href: "/decision-maker",
+    emoji: "🧭",
+    label: { en: "Decision Maker" },
+    detail: { en: "Wheel, draw lots or yes/no" },
+    crossLinkOnly: true,
+  },
+  {
     href: "/random-name-picker",
     emoji: "🎩",
     label: { en: "Random Name Picker" },
