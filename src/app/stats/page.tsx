@@ -268,6 +268,8 @@ export default function StatsPage() {
               name: "Random Topics Database",
               description: `A curated database of ${stats.totalTopics}+ discussion topics across ${CATEGORIES.length} categories and ${MODES.length} modes, with ${stats.totalArticles} in-depth topic collection articles.`,
               url: "https://randomtopics.app/stats",
+              license: "https://randomtopics.app/terms",
+              isAccessibleForFree: true,
               creator: {
                 "@type": "Organization",
                 name: "Random Topics",

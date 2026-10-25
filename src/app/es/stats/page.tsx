@@ -225,6 +225,8 @@ export default function StatsPageEs() {
               name: "Base de Datos de Random Topics",
               description: `Una base de datos seleccionada de más de ${stats.totalTopics} temas de discusión en ${CATEGORIES.length} categorías y ${MODES.length} modos, con ${stats.totalArticles} artículos de colecciones de temas en profundidad.`,
               url: "https://randomtopics.app/es/stats",
+              license: "https://randomtopics.app/terms",
+              isAccessibleForFree: true,
               inLanguage: "es",
               creator: {
                 "@type": "Organization",
