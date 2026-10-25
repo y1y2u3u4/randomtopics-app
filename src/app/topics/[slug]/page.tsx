@@ -14,6 +14,7 @@ import ClassroomArt from "@/components/ClassroomArt";
 import PrintButton from "@/components/PrintButton";
 import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
 import SubEntry from "@/components/subs/SubEntry";
+import SubEntryFor from "@/components/subs/SubEntryFor";
 import SpeechTimer from "@/components/SpeechTimer";
 import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 import TwoTruthsRoundBuilder from "@/components/TwoTruthsRoundBuilder";
@@ -570,6 +571,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <SubEntry product="couples" after="view" href="/couples-daily-question" text="Want one question a day for the two of you? You both answer, then the answers reveal together." cta="Try the couples daily question" />
           </section>
         )}
+
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 empty:hidden"><SubEntryFor path={`/topics/${slug}`} after="view" /></section>
 
         <PublicAdPlacement path={`/topics/${slug}`} />
 

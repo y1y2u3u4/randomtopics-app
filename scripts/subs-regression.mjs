@@ -115,4 +115,25 @@ for (const page of ["src/app/page.tsx", "src/app/charades/page.tsx", "src/app/qu
 }
 check(!read("src/app/impromptu-speech-topics/page.tsx").includes("SubEntry"), "impromptu speech keeps its single classroom entry");
 
+// Widened exposure (2026-10-25): entry shows after the 1st generation; 3–5 extra pages per product
+check(/const SHOW_AFTER = 1;/.test(read("src/components/subs/SubEntry.tsx")), "entry appears after the first generation");
+const { SUB_ENTRY_PAGES } = load("src/lib/subs/entries.ts");
+const taken = [
+  "/", "/charades", "/this-or-that", "/would-you-rather", "/truth-or-dare", "/question-of-the-day", "/icebreaker", "/debate",
+  "/speech", "/morning-meeting-questions", "/impromptu-speech-topics", "/classroom-timer", "/riddles-for-kids",
+  "/pro-and-con-debate-topics", "/random-group-generator", "/topics/get-to-know-you-questions-for-students",
+  "/funny", "/conversation", "/writing", "/random-subject-generator", "/spin-the-wheel",
+  "/topics/ethical-dilemma-questions", "/topics/conversation-topics-for-teens", "/topics/conversation-starters-for-couples",
+  "/topics/couples-game-night-questions", "/es/topics/most-likely-to-questions", "/es/topics/conversation-starters-for-couples",
+];
+const perProduct = {};
+for (const [path, e] of Object.entries(SUB_ENTRY_PAGES)) {
+  check(!taken.some((t) => path === t || path.startsWith(`${t}/`)), `${path} has no other paid entry`);
+  check(!path.includes("kids") || path.startsWith("/topics/"), `${path} is not a Host Pass kids page`);
+  check(products.SUB_PRODUCTS[e.product] && e.href.startsWith("/") && e.text && e.cta, `${path} entry is complete`);
+  check(path.startsWith("/es/") === (e.locale === "es"), `${path} entry language matches the page`);
+  perProduct[e.product] = (perProduct[e.product] ?? 0) + 1;
+}
+for (const p of Object.keys(PRICES)) check(perProduct[p] >= 3 && perProduct[p] <= 5, `${p} gets 3–5 extra pages (${perProduct[p]})`);
+
 console.log(`subs regression: ${checks} checks passed`);

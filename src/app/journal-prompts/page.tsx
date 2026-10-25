@@ -11,6 +11,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { JOURNAL_PROMPTS } from "@/data/journalPrompts";
 import { hreflangAlternates } from "@/i18n/config";
+import SubEntryFor from "@/components/subs/SubEntryFor";
 
 export const metadata: Metadata = withSocial({
   title: "Journal Prompt Generator — Daily Journal Prompts by Style, Free",
@@ -86,6 +87,7 @@ export default function JournalPromptsPage() {
         </section>
 
         <JournalPromptGenerator />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6"><SubEntryFor path="/journal-prompts" /></div>
         <p className="max-w-3xl mx-auto px-4 sm:px-6 pt-4 text-center text-sm">
           <a href="#kids" className="text-[var(--neon-cyan)] hover:underline">🧒 Journal prompts for kids (grades K–6) ↓</a>
         </p>

@@ -1,4 +1,5 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
+import SubEntryFor from "@/components/subs/SubEntryFor";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -132,6 +133,7 @@ export default function PremiumCollectionPage({ config }: { config: PremiumColle
         </section>
 
         <PremiumPromptTool config={config} initialItemId={initialItem?.id} initialDateLabel={initialDateLabel} />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6"><SubEntryFor path={config.path} /></div>
 
         {config.tool.timer && (
           <section className="max-w-md mx-auto px-4 sm:px-6 pt-10" aria-labelledby="five-minute-practice-timer">
