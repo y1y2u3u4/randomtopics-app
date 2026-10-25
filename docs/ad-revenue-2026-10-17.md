@@ -147,6 +147,6 @@ Five optional subscription products (PR #180) went live on 2026-10-24: Teacher (
 
 ## Separate change: subscription entries widened (10/25, splits the 10/31 RPM comparison)
 
-Launched 2026-10-25 (exact deploy time: see the PR merge time; Asia/Shanghai). The 5 subscription entries now appear after the 1st generation (was the 3rd) and sit on 22 more pages (`src/lib/subs/entries.ts`: teacher 5, bot 5, journal 5, couples 4, wheel 3). Each is one text card under the result, or at the end of a topic article before the ad; no popup, no login wall, free use unchanged; homepage and Host Pass pages untouched.
+Launched 2026-10-25 15:12 Asia/Shanghai (07:12 UTC; PR #181, merge 2889d03). The 5 subscription entries now appear after the 1st generation (was the 3rd) and sit on 22 more pages (`src/lib/subs/entries.ts`: teacher 5, bot 5, journal 5, couples 4, wheel 3). Each is one text card under the result, or at the end of a topic article before the ad; no popup, no login wall, free use unchanged; homepage and Host Pass pages untouched.
 
 For the 10/31 comparison, split the window at this launch time: days before it measure "Try next" alone, days after it measure "Try next" + widened entries. If RPM on the newly listed pages drops, compare their generator-page vs related-tool page views before and after.
