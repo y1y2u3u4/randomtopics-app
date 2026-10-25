@@ -1,4 +1,5 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
+import SubEntryFor from "@/components/subs/SubEntryFor";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -32,6 +33,7 @@ export default function PurposeGeneratorPage({ config }: { config: PurposeGenera
         </section>
 
         <PurposeTopicGenerator config={config} />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6"><SubEntryFor path={basePath} /></div>
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
           <div className="glass-card p-8 sm:p-10">

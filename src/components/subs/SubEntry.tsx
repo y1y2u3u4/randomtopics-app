@@ -5,10 +5,10 @@ import { sessionGenerateCount } from "@/lib/track";
 import { trackSub } from "@/lib/subs/client";
 import type { SubProduct } from "@/lib/subs/products";
 
-const SHOW_AFTER = 3;
+const SHOW_AFTER = 1;
 
 /**
- * One paid entry under a result. `after="generate"` shows it after the 3rd
+ * One paid entry under a result. `after="generate"` shows it after the 1st
  * generation in this tab session; `after="view"` (pages without a generator)
  * renders it in place below the fold and counts the view when it scrolls in.
  */

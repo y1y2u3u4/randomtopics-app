@@ -7,6 +7,7 @@ import FaqSchema from "@/components/FaqSchema";
 import type { SpanishMostLikelyConfig } from "@/data/mostLikelySpanishClusters";
 import { SITE_URL } from "@/i18n/config";
 import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
+import SubEntryFor from "@/components/subs/SubEntryFor";
 import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 
 function sectionId(heading: string) {
@@ -77,6 +78,7 @@ export default function SpanishMostLikelyCollectionPage({ config }: { config: Sp
             locale="es"
             actionLabel="Sacar una pregunta"
           />
+          <SubEntryFor path={`/es/topics/${config.slug}`} />
         </section>
 
         {config.sections.map((section, sectionIndex) => (

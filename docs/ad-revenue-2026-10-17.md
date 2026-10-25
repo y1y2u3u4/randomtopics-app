@@ -144,3 +144,9 @@ Host Pass (PR #178, `docs/host-pass-2026-10-24.md`) went live on 2026-10-24 at a
 
 ## Separate change: 5 subscription products live (10/24, not part of the RPM test)
 Five optional subscription products (PR #180) went live on 2026-10-24: Teacher (/teacher-warm-ups), Bot (/slack-icebreaker-bot, /discord-qotd-bot), Journal (/writing-journal), Couples (/couples-daily-question, /es/pregunta-diaria-pareja) and Wheel Pro (section on /spin-the-wheel). The new landing pages are ad-free (`AD_FREE` in `scripts/ad-public-paths.mjs`), so they add no ad inventory. Small entries sit lower on /conversation, /funny, /writing, /random-subject-generator and 5 topic pages. Any active plan turns ads off for that user. **Exclude this change from the 10/31 RPM comparison**: check `{product}_purchase` counts first (`python3 opportunity-hub/steward/scripts/randomtopics_subs_funnel.py 7`); if they are near zero, ignore it.
+
+## Separate change: subscription entries widened (10/25, splits the 10/31 RPM comparison)
+
+Launched 2026-10-25 (exact deploy time: see the PR merge time; Asia/Shanghai). The 5 subscription entries now appear after the 1st generation (was the 3rd) and sit on 22 more pages (`src/lib/subs/entries.ts`: teacher 5, bot 5, journal 5, couples 4, wheel 3). Each is one text card under the result, or at the end of a topic article before the ad; no popup, no login wall, free use unchanged; homepage and Host Pass pages untouched.
+
+For the 10/31 comparison, split the window at this launch time: days before it measure "Try next" alone, days after it measure "Try next" + widened entries. If RPM on the newly listed pages drops, compare their generator-page vs related-tool page views before and after.

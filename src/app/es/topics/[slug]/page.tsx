@@ -18,6 +18,7 @@ import { ES_CONTROVERSIAL_SUPPORT } from "@/data/controversialDiscussion.es";
 import PartyCategoryEntry from "@/components/PartyCategoryEntry";
 import SpanishPartyRound from "@/components/SpanishPartyRound";
 import SubEntry from "@/components/subs/SubEntry";
+import SubEntryFor from "@/components/subs/SubEntryFor";
 import ClassroomQuestionGenerator from "@/components/ClassroomQuestionGenerator";
 import ClassroomToolLinksEs from "@/components/ClassroomToolLinksEs";
 import { KIDS_GRADES_ES, KIDS_JOURNAL_PROMPTS_ES, KIDS_JOURNAL_THEMES_ES } from "@/data/kidsQuestions.es";
@@ -354,6 +355,8 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           },
           { elements: [], runningCount: 0 }
         ).elements}
+
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 empty:hidden"><SubEntryFor path={`/es/topics/${slug}`} after="view" /></section>
 
         <PublicAdPlacement path={`/es/topics/${slug}`} />
 

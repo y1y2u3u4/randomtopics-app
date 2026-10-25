@@ -10,6 +10,7 @@ import StoryPromptGenerator from "@/components/StoryPromptGenerator";
 import PublicAdPlacement from "@/components/PublicAdPlacement";
 import { STORY_AUDIENCES, STORY_CHALLENGES, STORY_GENRES, STORY_LENGTHS, STORY_PROMPTS } from "@/data/storyPrompts";
 import { SITE_URL } from "@/i18n/config";
+import SubEntryFor from "@/components/subs/SubEntryFor";
 
 const path = "/story-prompt-generator";
 const title = `Story Prompt Generator: ${STORY_PROMPTS.length} Random Story Ideas by Genre & Age`;
@@ -39,6 +40,7 @@ export default function StoryPromptGeneratorPage() {
         <p className="mt-2 text-xs text-[var(--text-secondary)]">{STORY_PROMPTS.length} original prompts · {STORY_GENRES.length} genres · Kids, teens and adults · Free</p>
       </header>
       <StoryPromptGenerator />
+      <SubEntryFor path={path} />
       <TryNext path={path} />
       <PublicAdPlacement path={path} placement="result" />
       <figure className="mt-8">

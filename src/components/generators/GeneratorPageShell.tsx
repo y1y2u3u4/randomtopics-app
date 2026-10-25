@@ -1,3 +1,4 @@
+import SubEntryFor from "@/components/subs/SubEntryFor";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -81,6 +82,7 @@ export default function GeneratorPageShell(props: Props) {
         </section>
 
         {children}
+        <SubEntryFor path={path} />
 
         <TryNext path={path} />
 
