@@ -8,6 +8,10 @@
     {
       "path": "/api/cron/bot-send",
       "schedule": "0 * * * *"
+    },
+    {
+      "path": "/api/cron/speech-health",
+      "schedule": "5 * * * *"
     }
   ]
 }
