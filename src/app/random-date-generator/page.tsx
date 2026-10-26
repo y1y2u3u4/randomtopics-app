@@ -107,7 +107,7 @@ export default function RandomDateGeneratorPage() {
             <li><strong>US (MM/DD/YYYY):</strong> month first, used in the United States.</li>
             <li><strong>EU (DD/MM/YYYY):</strong> day first, used in the UK, Europe, India and most of the world.</li>
           </ul>
-          <p className="mt-3">Need other random test values? Pair dates with a <Link href="/random-zip-code-generator" className={linkClass}>random ZIP code</Link> or a <Link href="/number-randomizer" className={linkClass}>random number</Link>.</p>
+          <p className="mt-3">Need other random test values? Pair dates with a <Link prefetch={false} href="/random-zip-code-generator" className={linkClass}>random ZIP code</Link> or a <Link prefetch={false} href="/number-randomizer" className={linkClass}>random number</Link>.</p>
 
           <SectionTitle>How it compares</SectionTitle>
           <div className="overflow-x-auto">

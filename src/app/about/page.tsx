@@ -174,7 +174,7 @@ export default function AboutPage() {
             <p className="text-[var(--text-secondary)]">
               Ready to discover your next great topic?
             </p>
-            <Link
+            <Link prefetch={false}
               href="/"
               className="btn-generate inline-block"
             >

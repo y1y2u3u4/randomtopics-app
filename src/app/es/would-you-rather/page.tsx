@@ -96,11 +96,11 @@ export default function WouldYouRatherPageEs() {
               </p>
               <p>
                 ¿Prefieres una lista imprimible? Consulta nuestra colección de{" "}
-                <Link href="/es/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">80 preguntas de ¿qué prefieres?</Link>.
+                <Link prefetch={false} href="/es/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">80 preguntas de ¿qué prefieres?</Link>.
                 Para más munición para fiestas, prueba{" "}
-                <Link href="/es/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Yo Nunca</Link>,
-                el <Link href="/es/question-generator" className="text-[var(--neon-cyan)] hover:underline">generador de preguntas al azar</Link>{" "}
-                o los <Link href="/es/funny" className="text-[var(--neon-cyan)] hover:underline">temas divertidos</Link>.
+                <Link prefetch={false} href="/es/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Yo Nunca</Link>,
+                el <Link prefetch={false} href="/es/question-generator" className="text-[var(--neon-cyan)] hover:underline">generador de preguntas al azar</Link>{" "}
+                o los <Link prefetch={false} href="/es/funny" className="text-[var(--neon-cyan)] hover:underline">temas divertidos</Link>.
               </p>
 
               <h3
@@ -113,7 +113,7 @@ export default function WouldYouRatherPageEs() {
                 <li><strong>Círculo clásico:</strong> todos responden la misma pregunta y luego el grupo interroga a quien haya hecho la elección más polémica.</li>
                 <li><strong>Manda la mayoría:</strong> votad a la vez a la de tres; la minoría debe defender su elección durante 30 segundos.</li>
                 <li><strong>Adivina a tu amigo:</strong> intenta acertar qué elegirá la persona de al lado antes de que lo revele. Suma un punto por cada predicción correcta.</li>
-                <li><strong>Semilla de debate en clase:</strong> usa una pregunta como mini propuesta de escritura persuasiva —un párrafo defendiendo tu bando. Genial como continuación con nuestro <Link href="/es/debate/middle-school" className="text-[var(--neon-cyan)] hover:underline">generador de debate para secundaria</Link>.</li>
+                <li><strong>Semilla de debate en clase:</strong> usa una pregunta como mini propuesta de escritura persuasiva —un párrafo defendiendo tu bando. Genial como continuación con nuestro <Link prefetch={false} href="/es/debate/middle-school" className="text-[var(--neon-cyan)] hover:underline">generador de debate para secundaria</Link>.</li>
               </ul>
 
               <h3

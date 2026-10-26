@@ -107,13 +107,13 @@ export default function ImpromptuSpeechPage() {
           </div>
           <p className="text-sm text-[var(--text-secondary)] mt-5">
             Preparing a researched talk instead of speaking on the spot? Use the{" "}
-            <Link href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> for persuasive, informative and presentation topics.
+            <Link prefetch={false} href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> for persuasive, informative and presentation topics.
           </p>
           <p className="text-sm text-[var(--text-secondary)] mt-3">
             More versions:{" "}
-            <Link href="/impromptu-speech-topics/students" className="text-[var(--neon-cyan)] hover:underline">impromptu speech topics for students</Link>,{" "}
-            <Link href="/impromptu-speech-topics/funny" className="text-[var(--neon-cyan)] hover:underline">funny impromptu speech topics</Link> and{" "}
-            <Link href="/impromptu-speech-topics/1-minute" className="text-[var(--neon-cyan)] hover:underline">1 minute speech topics</Link>.
+            <Link prefetch={false} href="/impromptu-speech-topics/students" className="text-[var(--neon-cyan)] hover:underline">impromptu speech topics for students</Link>,{" "}
+            <Link prefetch={false} href="/impromptu-speech-topics/funny" className="text-[var(--neon-cyan)] hover:underline">funny impromptu speech topics</Link> and{" "}
+            <Link prefetch={false} href="/impromptu-speech-topics/1-minute" className="text-[var(--neon-cyan)] hover:underline">1 minute speech topics</Link>.
           </p>
         </section>
 
@@ -135,7 +135,7 @@ export default function ImpromptuSpeechPage() {
               </p>
               <p>
                 Impromptu formats show up everywhere: speech class assignments, NSDA and forensics Limited
-                Prep events, Toastmasters <Link href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table Topics</Link>,
+                Prep events, Toastmasters <Link prefetch={false} href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table Topics</Link>,
                 MUN crisis responses, and the classic interview curveball (&quot;Tell me about a time...&quot;).
                 The common thread: a structure you can deploy in seconds and calm delivery while your brain
                 catches up.
@@ -166,15 +166,15 @@ export default function ImpromptuSpeechPage() {
               </ul>
               <p>
                 Want a ready question bank to drill from? Work through our{" "}
-                <Link href="/topics/toastmasters-table-topics" className="text-[var(--neon-cyan)] hover:underline">120 Table Topics questions</Link>{" "}
+                <Link prefetch={false} href="/topics/toastmasters-table-topics" className="text-[var(--neon-cyan)] hover:underline">120 Table Topics questions</Link>{" "}
                 — classic, funny, work, and family prompts you can practice one after another.
               </p>
               <p>
                 Preparing a full presentation instead? Browse
-                our <Link href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> for
+                our <Link prefetch={false} href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> for
                 prepared speech ideas, practice a complete timed talk with the{" "}
-                <Link href="/5-minute-speech-topics" className="text-[var(--neon-cyan)] hover:underline">five-minute speech topics and timer</Link>, or grab ready-made lists
-                like <Link href="/topics/presentation-ideas-for-school" className="text-[var(--neon-cyan)] hover:underline">presentation ideas for school</Link>.
+                <Link prefetch={false} href="/5-minute-speech-topics" className="text-[var(--neon-cyan)] hover:underline">five-minute speech topics and timer</Link>, or grab ready-made lists
+                like <Link prefetch={false} href="/topics/presentation-ideas-for-school" className="text-[var(--neon-cyan)] hover:underline">presentation ideas for school</Link>.
               </p>
 
               <h3

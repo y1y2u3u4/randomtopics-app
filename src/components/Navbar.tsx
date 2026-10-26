@@ -26,7 +26,7 @@ export default function Navbar({
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-[#08080f]/90 border-b" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          <Link href={localizePath("/", locale)} className="flex items-center gap-2 group">
+          <Link prefetch={false} href={localizePath("/", locale)} className="flex items-center gap-2 group">
             <span className="text-2xl">🎲</span>
             <span
               className="font-bold text-lg tracking-tight"
@@ -42,7 +42,7 @@ export default function Navbar({
             {MODES.map((mode) => mode.id === "speech" && feedbackEnabled ? (
               <SpeechNavigationLink key={mode.slug} className={`nav-link px-3 py-2 rounded-lg text-sm whitespace-nowrap ${pathname === "/speech" ? "active" : ""}`} />
             ) : (
-              <Link
+              <Link prefetch={false}
                 key={mode.slug}
                 href={`${base}/${mode.slug}`}
                 className={`nav-link px-3 py-2 rounded-lg text-sm transition-colors ${
@@ -53,7 +53,7 @@ export default function Navbar({
                 {MODE_LABELS[locale][mode.id].short}
               </Link>
             ))}
-            <Link
+            <Link prefetch={false}
               href={`${base}/funny`}
               className={`nav-link px-3 py-2 rounded-lg text-sm transition-colors ${
                 pathname === `${base}/funny` ? "active" : ""
@@ -61,7 +61,7 @@ export default function Navbar({
             >
               <span className="mr-1">😂</span>{t.nav.funny}
             </Link>
-            <Link
+            <Link prefetch={false}
               href={`${base}/saved-topics`}
               className={`nav-link px-3 py-2 rounded-lg text-sm transition-colors ${
                 pathname === `${base}/saved-topics` ? "active" : ""
@@ -103,7 +103,7 @@ export default function Navbar({
                   {MODES.map((mode) => mode.id === "speech" && feedbackEnabled ? (
                     <SpeechNavigationLink key={mode.slug} mobile onClick={() => setMobileOpen(false)} className={`nav-link px-3 py-2.5 rounded-lg text-sm ${pathname === "/speech" ? "active" : ""}`} />
                   ) : (
-                    <Link
+                    <Link prefetch={false}
                       key={mode.slug}
                       href={`${base}/${mode.slug}`}
                       onClick={() => setMobileOpen(false)}
@@ -115,7 +115,7 @@ export default function Navbar({
                       {MODE_LABELS[locale][mode.id].label}
                     </Link>
                   ))}
-                  <Link
+                  <Link prefetch={false}
                     href={`${base}/funny`}
                     onClick={() => setMobileOpen(false)}
                     className={`nav-link px-3 py-2.5 rounded-lg text-sm ${
@@ -124,7 +124,7 @@ export default function Navbar({
                   >
                     <span className="mr-2">😂</span>{t.footer.funnyTopics}
                   </Link>
-                  <Link
+                  <Link prefetch={false}
                     href={localizePath("/categories", locale)}
                     onClick={() => setMobileOpen(false)}
                     className={`nav-link px-3 py-2.5 rounded-lg text-sm ${
@@ -133,7 +133,7 @@ export default function Navbar({
                   >
                     <span className="mr-2">📂</span>{t.nav.allCategories}
                   </Link>
-                  <Link
+                  <Link prefetch={false}
                     href={`${base}/saved-topics`}
                     onClick={() => setMobileOpen(false)}
                     className={`nav-link px-3 py-2.5 rounded-lg text-sm ${

@@ -114,7 +114,7 @@ export default function FakeNameGeneratorPage() {
           <SectionTitle>Who uses a fake name generator?</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
             <li><strong>Developers and QA testers</strong> filling sign-up forms, seeding a staging database or building UI mock-ups — download 100 rows as CSV or JSON.</li>
-            <li><strong>Writers</strong> naming background characters fast; for heroes and villains try the <Link href="/character-name-generator" className={linkClass}>character name generator</Link>.</li>
+            <li><strong>Writers</strong> naming background characters fast; for heroes and villains try the <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link>.</li>
             <li><strong>Teachers</strong> making example names for worksheets, word problems and mock trials, without using real students&apos; names.</li>
             <li><strong>Game masters and role-players</strong> who need a modern NPC with a job and a hometown in two seconds.</li>
             <li><strong>Privacy-minded people</strong> who want a placeholder name for a forum, a raffle or a coffee-shop order.</li>

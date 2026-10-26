@@ -137,8 +137,8 @@ export default function RandomZipCodeGeneratorPage() {
             <li><strong>Data and marketing teams</strong> picking random ZIPs for survey samples, territory tests or demo dashboards.</li>
             <li><strong>Teachers</strong> running geography lessons: draw a ZIP, find the city on a map, guess the region from the first digit.</li>
             <li><strong>Writers and game masters</strong> giving a character a real hometown. For a full address with a street, try the{" "}
-              <Link href="/fake-address-generator" className={linkClass}>fake address generator</Link>; for a state alone, the{" "}
-              <Link href="/random-state-generator" className={linkClass}>random state generator</Link>.</li>
+              <Link prefetch={false} href="/fake-address-generator" className={linkClass}>fake address generator</Link>; for a state alone, the{" "}
+              <Link prefetch={false} href="/random-state-generator" className={linkClass}>random state generator</Link>.</li>
           </ul>
 
           <SectionTitle>How it compares</SectionTitle>

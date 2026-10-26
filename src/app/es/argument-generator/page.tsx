@@ -113,7 +113,7 @@ export default function ArgumentGeneratorPageEs() {
                 entrevistas los usan para practicar el pensamiento estructurado y los amigos amenizan
                 los viajes largos en coche con ellos. Si prefieres resoluciones planteadas de forma
                 más formal, prueba nuestro{" "}
-                <Link href="/es/debate" className="text-[var(--neon-cyan)] hover:underline">generador de temas de debate</Link>:
+                <Link prefetch={false} href="/es/debate" className="text-[var(--neon-cyan)] hover:underline">generador de temas de debate</Link>:
                 parte de la misma base de datos seleccionada con un planteamiento de torneo.
               </p>
 
@@ -138,10 +138,10 @@ export default function ArgumentGeneratorPageEs() {
               </h3>
               <ul className="space-y-2 list-disc pl-5">
                 <li><strong>Práctica de debate:</strong> genera un argumento sorpresa, toma el bando con el que no estás de acuerdo y date dos minutos para defenderlo.</li>
-                <li><strong>Ensayos persuasivos:</strong> usa una afirmación generada como tu tesis y los puntos de conversación como esquemas de párrafo. Mira también nuestros <Link href="/es/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">temas de ensayo para la universidad</Link>.</li>
+                <li><strong>Ensayos persuasivos:</strong> usa una afirmación generada como tu tesis y los puntos de conversación como esquemas de párrafo. Mira también nuestros <Link prefetch={false} href="/es/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">temas de ensayo para la universidad</Link>.</li>
                 <li><strong>Discusiones en clase:</strong> pon un argumento generado en la pizarra y haz que los estudiantes se coloquen en el espectro de acuerdo/desacuerdo y luego defiendan su postura.</li>
                 <li><strong>Ejercicios de pensamiento crítico:</strong> para cualquier argumento generado, enumera las tres objeciones más fuertes antes de mirar los puntos de conversación en contra.</li>
-                <li><strong>Disputas amistosas:</strong> nuestro modo de <Link href="/es/funny" className="text-[var(--neon-cyan)] hover:underline">temas divertidos</Link> produce argumentos de bajo riesgo como «un perrito caliente es un sándwich»: perfectos para fiestas.</li>
+                <li><strong>Disputas amistosas:</strong> nuestro modo de <Link prefetch={false} href="/es/funny" className="text-[var(--neon-cyan)] hover:underline">temas divertidos</Link> produce argumentos de bajo riesgo como «un perrito caliente es un sándwich»: perfectos para fiestas.</li>
               </ul>
 
               <h3

@@ -86,9 +86,9 @@ export default function NameGeneratorPage({ kind }: { kind: NameKind }) {
       <nav aria-label="Related creative tools" className="mt-8 border-t border-white/10 pt-5">
         <h2 className="font-bold">Keep creating</h2>
         <div className="mt-3 flex flex-col gap-3 text-sm text-[var(--neon-cyan)]">
-          <Link className="min-h-11 py-2 underline" href="/writing-topic-generator">Find a writing theme or story starting point</Link>
-          {kind === "dragon" ? <><Link className="min-h-11 py-2 underline" href="/country-name-generator">Name a fictional country for your world</Link><Link className="min-h-11 py-2 underline" href="/random-drawing-generator">Choose a subject to sketch</Link><Link className="min-h-11 py-2 underline" href="/band-name-generator">Naming a music project instead? Try Band Names</Link></>
-            : <Link className="min-h-11 py-2 underline" href="/dragon-name-generator">Naming a fantasy character instead? Try Dragon Names</Link>}
+          <Link prefetch={false} className="min-h-11 py-2 underline" href="/writing-topic-generator">Find a writing theme or story starting point</Link>
+          {kind === "dragon" ? <><Link prefetch={false} className="min-h-11 py-2 underline" href="/country-name-generator">Name a fictional country for your world</Link><Link prefetch={false} className="min-h-11 py-2 underline" href="/random-drawing-generator">Choose a subject to sketch</Link><Link prefetch={false} className="min-h-11 py-2 underline" href="/band-name-generator">Naming a music project instead? Try Band Names</Link></>
+            : <Link prefetch={false} className="min-h-11 py-2 underline" href="/dragon-name-generator">Naming a fantasy character instead? Try Dragon Names</Link>}
         </div>
       </nav>
     </div>

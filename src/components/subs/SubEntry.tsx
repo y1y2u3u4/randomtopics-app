@@ -49,7 +49,7 @@ export default function SubEntry({ product, href, text, cta, after = "generate",
   return (
     <div ref={box} className="mx-auto mt-4 flex max-w-2xl flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-center sm:flex-row sm:justify-between sm:text-left" data-sub-entry={product}>
       <p className="text-sm opacity-90">{text}</p>
-      <Link
+      <Link prefetch={false}
         href={from ? `${href}?from=${encodeURIComponent(from)}` : href}
         className="shrink-0 rounded-full bg-[#f4ecdf] px-4 py-2 text-sm font-bold text-[#14110f] hover:opacity-90"
         onClick={() => trackSub(product, "entry_click", { entry_page: from, locale })}

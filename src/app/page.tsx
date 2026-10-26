@@ -31,7 +31,7 @@ export default function Home() {
                 Pick from 16 subjects for study drills, assignments, presentations, and revision roulette.
               </p>
             </div>
-            <Link
+            <Link prefetch={false}
               href="/random-subject-generator"
               className="text-sm font-semibold text-[var(--neon-cyan)] whitespace-nowrap hover:underline"
             >
@@ -69,7 +69,7 @@ export default function Home() {
                 <h3 className="text-sm font-semibold text-[var(--text-secondary)] mb-2">{group.heading}</h3>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                   {group.tools.map((tool) => (
-                    <Link key={tool.href} href={tool.href} className="glass-card p-4 hover:border-[var(--neon-pink)]/30 transition-all group">
+                    <Link prefetch={false} key={tool.href} href={tool.href} className="glass-card p-4 hover:border-[var(--neon-pink)]/30 transition-all group">
                       <span className="text-2xl" aria-hidden="true">{tool.emoji}</span>
                       <p className="text-sm font-bold text-[var(--text-primary)] mt-2 group-hover:text-[var(--neon-pink)]">{tool.label}</p>
                       <p className="text-xs text-[var(--text-muted)] mt-1">{tool.detail}</p>
@@ -114,7 +114,7 @@ export default function Home() {
               { emoji: "✨", label: "Question of the Day", detail: "A fresh daily prompt", href: "/question-of-the-day" },
               { emoji: "⚖️", label: "Moral Dilemmas", detail: "65+ ethical questions", href: "/topics/ethical-dilemma-questions" },
             ].map((tool) => (
-              <Link
+              <Link prefetch={false}
                 key={tool.href}
                 href={tool.href}
                 className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-all group"
@@ -145,7 +145,7 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {MODES.map((mode) => (
-              <Link
+              <Link prefetch={false}
                 key={mode.slug}
                 href={`/${mode.slug}`}
                 className="glass-card p-7 transition-all duration-300 hover:translate-y-[-4px] group
@@ -163,7 +163,7 @@ export default function Home() {
                 <p className="text-sm text-[var(--text-muted)] leading-relaxed">{mode.description}</p>
               </Link>
             ))}
-            <Link
+            <Link prefetch={false}
               href="/funny"
               className="glass-card p-7 transition-all duration-300 hover:translate-y-[-4px] group
                 hover:border-[var(--neon-pink)]/40
@@ -196,7 +196,7 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             {CATEGORIES.map((cat) => (
-              <Link
+              <Link prefetch={false}
                 key={cat.id}
                 href={`/categories/${cat.id}`}
                 className="glass-card p-4 sm:p-5 text-center transition-all duration-300 hover:translate-y-[-4px] group
@@ -246,7 +246,7 @@ export default function Home() {
               { title: "60 Random Essay Topics for College", href: "/topics/random-essay-topics-for-college" },
               { title: "65 Get to Know You Questions", href: "/topics/get-to-know-you-questions-for-adults" },
             ].map((item) => (
-              <Link
+              <Link prefetch={false}
                 key={item.href}
                 href={item.href}
                 className="glass-card p-5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] transition-all hover:translate-y-[-2px] hover:border-[var(--neon-cyan)]/30"
@@ -257,7 +257,7 @@ export default function Home() {
             ))}
           </div>
           <div className="text-center mt-6">
-            <Link
+            <Link prefetch={false}
               href="/topics"
               className="text-sm text-[var(--text-muted)] hover:text-[var(--neon-cyan)] transition-colors"
             >
@@ -430,7 +430,7 @@ export default function Home() {
               </h3>
               <p>
                 Stuck in small talk? Use the random topic generator in{" "}
-                <Link href="/conversation" className="text-[var(--neon-cyan)] underline underline-offset-2">conversation mode</Link>{" "}
+                <Link prefetch={false} href="/conversation" className="text-[var(--neon-cyan)] underline underline-offset-2">conversation mode</Link>{" "}
                 to discover thought-provoking discussion starters. Whether you&apos;re on a first date, at a
                 networking event, or just hanging out with friends, a well-chosen topic transforms
                 an awkward silence into an engaging exchange. Our conversation topics span casual
@@ -450,13 +450,13 @@ export default function Home() {
                 posts, short stories, journal entries, or creative nonfiction. Each writing topic
                 comes with angle suggestions and talking points to help you develop your piece.
                 Choose Essay, Journal, Fiction, or Blog in the focused{" "}
-                <Link href="/writing-topic-generator" className="text-[var(--neon-cyan)] underline underline-offset-2">Writing Topic Generator</Link>{" "}
+                <Link prefetch={false} href="/writing-topic-generator" className="text-[var(--neon-cyan)] underline underline-offset-2">Writing Topic Generator</Link>{" "}
                 when you want a usable angle tailored to the format you are producing.
                 Whether you&apos;re a student looking for{" "}
-                <Link href="/essay-topic-generator" className="text-[var(--neon-cyan)] underline underline-offset-2">essay ideas</Link>{" "}
+                <Link prefetch={false} href="/essay-topic-generator" className="text-[var(--neon-cyan)] underline underline-offset-2">essay ideas</Link>{" "}
                 or a professional content creator seeking fresh angles, the generator delivers
                 inspiration instantly. Not sure what to write about at all? Spin a{" "}
-                <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] underline underline-offset-2">random subject</Link>{" "}
+                <Link prefetch={false} href="/random-subject-generator" className="text-[var(--neon-cyan)] underline underline-offset-2">random subject</Link>{" "}
                 and get assigned a school subject to explore.
               </p>
 

@@ -81,10 +81,10 @@ export default function TruthOrDarePageEs() {
               </p>
               <p>
                 ¿Más munición para la fiesta? Prueba{" "}
-                <Link href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Qué Prefieres</Link>,{" "}
-                <Link href="/es/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Yo Nunca</Link>,{" "}
-                <Link href="/es/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Quién Es Más Probable</Link> o el{" "}
-                <Link href="/es/question-generator" className="text-[var(--neon-cyan)] hover:underline">generador de preguntas</Link>.
+                <Link prefetch={false} href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Qué Prefieres</Link>,{" "}
+                <Link prefetch={false} href="/es/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Yo Nunca</Link>,{" "}
+                <Link prefetch={false} href="/es/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Quién Es Más Probable</Link> o el{" "}
+                <Link prefetch={false} href="/es/question-generator" className="text-[var(--neon-cyan)] hover:underline">generador de preguntas</Link>.
               </p>
 
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>

@@ -76,7 +76,7 @@ export default function RandomLetterGeneratorPage() {
           </ul>
           <SectionTitle>Classroom and game ideas</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Categories</strong> — draw a letter, then everyone names an animal, a country and a food starting with it. Pair it with the <Link href="/random-animal-generator" className={linkClass}>random animal generator</Link> to check answers.</li>
+            <li><strong>Categories</strong> — draw a letter, then everyone names an animal, a country and a food starting with it. Pair it with the <Link prefetch={false} href="/random-animal-generator" className={linkClass}>random animal generator</Link> to check answers.</li>
             <li><strong>Alphabet hunt</strong> — young learners find an object in the room that starts with the letter.</li>
             <li><strong>Story challenge</strong> — every sentence must start with the next drawn letter.</li>
           </ul>

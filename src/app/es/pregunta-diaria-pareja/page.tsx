@@ -77,8 +77,8 @@ export default function PreguntaDiariaParejaPage() {
           <p>
             Cuando una persona responde en voz alta primero, la otra suele darle la razón o suavizar su respuesta. Escribir la tuya antes de ver
             la de tu pareja la mantiene sincera, y la revelación os da algo real de lo que hablar en la cena o antes de dormir. Si queréis una
-            lista más larga para charlar en persona, probad las <Link href="/es/preguntas-profundas" className={linkClass}>preguntas profundas</Link>.
-            La versión en inglés es <Link href="/couples-daily-question" className={linkClass}>Couples Daily Question</Link>.
+            lista más larga para charlar en persona, probad las <Link prefetch={false} href="/es/preguntas-profundas" className={linkClass}>preguntas profundas</Link>.
+            La versión en inglés es <Link prefetch={false} href="/couples-daily-question" className={linkClass}>Couples Daily Question</Link>.
           </p>
         </>
       }

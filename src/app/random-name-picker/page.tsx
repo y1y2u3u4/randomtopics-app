@@ -56,12 +56,12 @@ export default function RandomNamePickerPage() {
             <li><strong>Classroom cold calls</strong> — paste the class list once; with no repeats on, every student gets a turn before anyone is called twice.</li>
             <li><strong>Presentation order</strong> — “Random order for everyone” gives a numbered running order you can copy to the board.</li>
             <li><strong>Raffles and giveaways</strong> — one line per ticket; add a name twice to give it two tickets.</li>
-            <li><strong>Game night</strong> — decide who goes first in <Link href="/charades" className={linkClass}>charades</Link> or who answers the next <Link href="/hot-seat-questions" className={linkClass}>hot seat question</Link>.</li>
+            <li><strong>Game night</strong> — decide who goes first in <Link prefetch={false} href="/charades" className={linkClass}>charades</Link> or who answers the next <Link prefetch={false} href="/hot-seat-questions" className={linkClass}>hot seat question</Link>.</li>
           </ul>
           <SectionTitle>Need groups instead of one name?</SectionTitle>
-          <p>Use the <Link href="/random-team-generator" className={linkClass}>random team generator</Link> to split the same list into balanced teams or groups, or the <Link href="/number-randomizer" className={linkClass}>number randomizer</Link> when students are numbered.</p>
+          <p>Use the <Link prefetch={false} href="/random-team-generator" className={linkClass}>random team generator</Link> to split the same list into balanced teams or groups, or the <Link prefetch={false} href="/number-randomizer" className={linkClass}>number randomizer</Link> when students are numbered.</p>
           <SectionTitle>Choosing between options, not people?</SectionTitle>
-          <p>The <Link href="/decision-maker" className={linkClass}>decision maker</Link> spins a wheel of your own options, draws lots without repeats or answers a yes-or-no question.</p>
+          <p>The <Link prefetch={false} href="/decision-maker" className={linkClass}>decision maker</Link> spins a wheel of your own options, draws lots without repeats or answers a yes-or-no question.</p>
         </>
       }
     >

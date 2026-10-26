@@ -97,9 +97,9 @@ export default function QuestionGeneratorPageEs() {
               <p>
                 Está construido sobre la misma base de datos de más de 500 temas que nuestras otras
                 herramientas, así que si necesitas un matiz más específico, salta al generador
-                dedicado: <Link href="/es/icebreaker" className="text-[var(--neon-cyan)] hover:underline">preguntas rompehielos</Link> para
-                equipos, <Link href="/es/conversation" className="text-[var(--neon-cyan)] hover:underline">iniciadores de conversación</Link> para
-                entornos sociales o <Link href="/es/debate" className="text-[var(--neon-cyan)] hover:underline">preguntas de debate</Link> cuando
+                dedicado: <Link prefetch={false} href="/es/icebreaker" className="text-[var(--neon-cyan)] hover:underline">preguntas rompehielos</Link> para
+                equipos, <Link prefetch={false} href="/es/conversation" className="text-[var(--neon-cyan)] hover:underline">iniciadores de conversación</Link> para
+                entornos sociales o <Link prefetch={false} href="/es/debate" className="text-[var(--neon-cyan)] hover:underline">preguntas de debate</Link> cuando
                 quieras un desacuerdo estructurado.
               </p>
 
@@ -110,10 +110,10 @@ export default function QuestionGeneratorPageEs() {
                 Estilos de Preguntas y Cuándo Usarlos
               </h3>
               <ul className="space-y-2 list-disc pl-5">
-                <li><strong>Rompehielos</strong> — primeras reuniones, incorporaciones, arranques de clase. Bajo riesgo, todos pueden responder. Prueba nuestros <Link href="/es/topics/icebreaker-questions-for-work" className="text-[var(--neon-cyan)] hover:underline">50 rompehielos para el trabajo</Link>.</li>
-                <li><strong>Preguntas para conocerse</strong> — fiestas y nuevas amistades. Mira las <Link href="/es/topics/get-to-know-you-questions-for-adults" className="text-[var(--neon-cyan)] hover:underline">preguntas para adultos</Link>.</li>
-                <li><strong>Preguntas profundas</strong> — amigos cercanos, parejas, diario. Explora las <Link href="/es/topics/deep-questions-to-ask-your-partner" className="text-[var(--neon-cyan)] hover:underline">preguntas profundas para tu pareja</Link>.</li>
-                <li><strong>Preguntas graciosas</strong> — noches de juegos y chats de grupo. El <Link href="/es/funny" className="text-[var(--neon-cyan)] hover:underline">generador de temas divertidos</Link> se especializa en ellas.</li>
+                <li><strong>Rompehielos</strong> — primeras reuniones, incorporaciones, arranques de clase. Bajo riesgo, todos pueden responder. Prueba nuestros <Link prefetch={false} href="/es/topics/icebreaker-questions-for-work" className="text-[var(--neon-cyan)] hover:underline">50 rompehielos para el trabajo</Link>.</li>
+                <li><strong>Preguntas para conocerse</strong> — fiestas y nuevas amistades. Mira las <Link prefetch={false} href="/es/topics/get-to-know-you-questions-for-adults" className="text-[var(--neon-cyan)] hover:underline">preguntas para adultos</Link>.</li>
+                <li><strong>Preguntas profundas</strong> — amigos cercanos, parejas, diario. Explora las <Link prefetch={false} href="/es/topics/deep-questions-to-ask-your-partner" className="text-[var(--neon-cyan)] hover:underline">preguntas profundas para tu pareja</Link>.</li>
+                <li><strong>Preguntas graciosas</strong> — noches de juegos y chats de grupo. El <Link prefetch={false} href="/es/funny" className="text-[var(--neon-cyan)] hover:underline">generador de temas divertidos</Link> se especializa en ellas.</li>
                 <li><strong>Preguntas de discusión</strong> — aulas y clubes de lectura. Filtra por categorías académicas como ciencia, historia o filosofía.</li>
               </ul>
 

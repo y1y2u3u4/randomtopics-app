@@ -32,7 +32,7 @@ export default function FactSheet({ heading, rows, updated, steps, stepsName }: 
         )}
         <p className="mt-4 text-xs text-[var(--text-muted)]">
           Updated <time dateTime={updated}>{updatedLabel}</time> · Written and checked by the RandomTopics editors ·{" "}
-          <Link href="/how-we-curate" className="underline">How we curate</Link> · <Link href="/facts" className="underline">Site facts</Link>
+          <Link prefetch={false} href="/how-we-curate" className="underline">How we curate</Link> · <Link prefetch={false} href="/facts" className="underline">Site facts</Link>
         </p>
       </div>
       {steps && (

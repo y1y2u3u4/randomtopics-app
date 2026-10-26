@@ -69,7 +69,7 @@ export default function RandomCategoryGeneratorPage() {
           <li><strong>Scattergories-style lists.</strong> 10 categories, one letter, 2 minutes. Only unique answers score.</li>
           <li><strong>Stop (Basta / Tutti Frutti).</strong> Everyone writes as fast as they can; the first to finish shouts &ldquo;Stop!&rdquo; and pens go down.</li>
           <li><strong>Hot potato.</strong> Pass a ball around a circle. Holding it, you name something in the category; repeat or freeze and you are out.</li>
-          <li><strong>Category charades.</strong> Draw one category and act out something in it. See also the <Link href="/charades" className="text-[var(--neon-cyan)] underline">charades generator</Link>.</li>
+          <li><strong>Category charades.</strong> Draw one category and act out something in it. See also the <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] underline">charades generator</Link>.</li>
         </ul>
       </section>
       <section className="mt-8">
@@ -90,7 +90,7 @@ export default function RandomCategoryGeneratorPage() {
       </section>
       <section className="mt-8">
         <h2 className="font-bold">More party and word games</h2>
-        <p className="mt-3 text-[var(--text-muted)]">Browse conversation <Link href="/categories" className="text-[var(--neon-cyan)] underline">topic categories</Link>, act it out with the <Link href="/charades" className="text-[var(--neon-cyan)] underline">charades generator</Link>, or try <Link href="/would-you-rather" className="text-[var(--neon-cyan)] underline">Would You Rather</Link> and <Link href="/random-idea-generator" className="text-[var(--neon-cyan)] underline">random ideas</Link> for a bored afternoon.</p>
+        <p className="mt-3 text-[var(--text-muted)]">Browse conversation <Link prefetch={false} href="/categories" className="text-[var(--neon-cyan)] underline">topic categories</Link>, act it out with the <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] underline">charades generator</Link>, or try <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] underline">Would You Rather</Link> and <Link prefetch={false} href="/random-idea-generator" className="text-[var(--neon-cyan)] underline">random ideas</Link> for a bored afternoon.</p>
       </section>
     </div>
     <FaqSchema items={faqs} />

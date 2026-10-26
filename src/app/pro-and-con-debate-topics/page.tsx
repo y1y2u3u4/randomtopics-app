@@ -156,7 +156,7 @@ export default function ProAndConDebateTopicsPage() {
             <p className="text-sm text-[var(--text-secondary)] mb-5">
               Generate unlimited debate topics with filters for category and depth, plus talking points for prep.
             </p>
-            <Link href="/debate" className="btn-generate inline-flex px-6 py-3 text-sm">
+            <Link prefetch={false} href="/debate" className="btn-generate inline-flex px-6 py-3 text-sm">
               ⚔️ Open the Debate Topic Generator
             </Link>
           </div>

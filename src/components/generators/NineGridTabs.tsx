@@ -20,7 +20,7 @@ export default function NineGridTabs({ current }: { current: GridKind }) {
             {p.kind === current ? (
               <span aria-current="page" className="block text-sm px-3 py-1.5 rounded-lg border border-[var(--neon-cyan)] text-[var(--neon-cyan)] bg-[rgba(0,229,255,0.08)]">{p.label}</span>
             ) : (
-              <Link href={p.href} className="block text-sm px-3 py-1.5 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/40">{p.label}</Link>
+              <Link prefetch={false} href={p.href} className="block text-sm px-3 py-1.5 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-[var(--neon-cyan)]/40">{p.label}</Link>
             )}
           </li>
         ))}

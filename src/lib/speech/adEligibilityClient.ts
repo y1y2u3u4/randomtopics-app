@@ -6,6 +6,34 @@ import { createSpeechAdGate, type SpeechAdGateState } from "./adGate";
 
 type Auth = Pick<SupabaseClient["auth"], "getSession" | "onAuthStateChange">;
 
+// Vercel cost (2026-10-27): this request ran on every page view and every 30s
+// poll, about half of all account requests. A visitor with no session gets the
+// fixed signed-out answer locally (the route returns exactly that without a
+// credential). A signed-in result is cached per user for two minutes across
+// documents; identity changes miss the cache and query-string documents
+// (checkout returns, rt_ads=off) always ask the server.
+const CACHE_KEY = "rt_ad_entitlement_v1";
+const CACHE_MS = 120_000;
+function cacheable() {
+  try {
+    return typeof sessionStorage !== "undefined" &&
+      [...new URLSearchParams(location.search).keys()].every((key) => key.startsWith("utm_"));
+  } catch { return false; }
+}
+function cachedEntitlement(user: string) {
+  if (!cacheable()) return null;
+  try {
+    const value = JSON.parse(sessionStorage.getItem(CACHE_KEY) ?? "null");
+    if (value?.user !== user || typeof value.adFree !== "boolean" ||
+      !(Date.now() - value.at >= 0 && Date.now() - value.at < CACHE_MS)) return null;
+    return { version: "speech-ad-v1", audience: "verified_session", adFree: value.adFree } as const;
+  } catch { return null; }
+}
+function storeEntitlement(user: string, adFree: boolean) {
+  try { if (typeof sessionStorage !== "undefined") sessionStorage.setItem(CACHE_KEY, JSON.stringify({ user, adFree, at: Date.now() })); }
+  catch { /* Storage blocked: the next check asks the server again. */ }
+}
+
 export async function readSpeechAdEntitlement(auth: Pick<Auth, "getSession">, signal: AbortSignal,
   acceptIdentity?: (identity: string | null) => boolean) {
   let identity: string | null | undefined;
@@ -20,6 +48,9 @@ export async function readSpeechAdEntitlement(auth: Pick<Auth, "getSession">, si
       throw new Error("identity_changed");
     }
     identity = current;
+    if (!session) return { version: "speech-ad-v1", audience: "signed_out", adFree: false } as const;
+    const cached = cachedEntitlement(session.user.id);
+    if (cached) return cached;
     const request = new AbortController();
     const abort = () => request.abort(signal.reason);
     signal.addEventListener("abort", abort, { once: true });
@@ -33,7 +64,7 @@ export async function readSpeechAdEntitlement(auth: Pick<Auth, "getSession">, si
       try {
         result = await fetch("/api/speech/ad-entitlement", {
           method: "GET", cache: "no-store", credentials: "omit", redirect: "error", referrerPolicy: "no-referrer", signal: request.signal,
-          headers: session ? { Authorization: `Bearer ${session.access_token}` } : {},
+          headers: { Authorization: `Bearer ${session.access_token}` },
         });
       } catch (error) {
         // Classify only fetch transport errors. Body decoding, schema and
@@ -52,7 +83,8 @@ export async function readSpeechAdEntitlement(auth: Pick<Auth, "getSession">, si
       const value: unknown = await result.json();
       if (signal.aborted || request.signal.aborted) throw new Error("entitlement_unavailable");
       const entitlement = parseAdEntitlement(value);
-      if (entitlement.audience !== (session ? "verified_session" : "signed_out")) throw new Error("entitlement_unavailable");
+      if (entitlement.audience !== "verified_session") throw new Error("entitlement_unavailable");
+      storeEntitlement(session.user.id, entitlement.adFree);
       return entitlement;
     } catch {
       throw new Error("entitlement_unavailable");

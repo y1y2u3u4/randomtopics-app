@@ -67,16 +67,16 @@ export default function HotSeatPageEs() {
               <li><strong>Pon un temporizador</strong>: tres minutos por persona.</li>
               <li><strong>Saca preguntas del generador</strong> y léelas tal cual.</li>
               <li><strong>Dos pases por persona</strong>: nadie se siente acorralado.</li>
-              <li><strong>Rota en el sentido del reloj</strong> o usa la <Link href="/es/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">ruleta</Link> para elegir al siguiente.</li>
+              <li><strong>Rota en el sentido del reloj</strong> o usa la <Link prefetch={false} href="/es/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">ruleta</Link> para elegir al siguiente.</li>
               <li><strong>Votad la mejor respuesta</strong> de cada turno.</li>
             </ol>
             <p>
               Más juegos para la noche:{" "}
-              <Link href="/es/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Verdad o Reto</Link>,{" "}
-              <Link href="/es/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Yo Nunca</Link>,{" "}
-              <Link href="/es/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Quién Es Más Probable</Link>,{" "}
-              <Link href="/es/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Dos Verdades y una Mentira</Link> y{" "}
-              <Link href="/es/charades" className="text-[var(--neon-cyan)] hover:underline">Mímica</Link>.
+              <Link prefetch={false} href="/es/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Verdad o Reto</Link>,{" "}
+              <Link prefetch={false} href="/es/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Yo Nunca</Link>,{" "}
+              <Link prefetch={false} href="/es/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Quién Es Más Probable</Link>,{" "}
+              <Link prefetch={false} href="/es/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Dos Verdades y una Mentira</Link> y{" "}
+              <Link prefetch={false} href="/es/charades" className="text-[var(--neon-cyan)] hover:underline">Mímica</Link>.
             </p>
             <h2 className="section-heading text-2xl text-[var(--text-primary)] pt-4">Todas las preguntas ({COUNT})</h2>
             <ol className="list-decimal pl-5 space-y-1">

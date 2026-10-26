@@ -91,7 +91,7 @@ export default function ClassroomPacksPage() {
             </p>
             <ClassroomBuyButtons page="/classroom-packs" />
             <p className="text-sm text-[var(--text-secondary)]">
-              Already bought a pack? <Link href="/account" rel="nofollow" className="text-[var(--neon-cyan)] underline-offset-4 hover:underline">Open your downloads</Link>.
+              Already bought a pack? <Link prefetch={false} href="/account" rel="nofollow" className="text-[var(--neon-cyan)] underline-offset-4 hover:underline">Open your downloads</Link>.
             </p>
           </div>
         </section>
@@ -129,9 +129,9 @@ export default function ClassroomPacksPage() {
               </div>
               <ClassroomBuyButtons pack={pack.id} page="/classroom-packs" />
               <p className="text-sm">
-                <Link href={`/classroom/present?pack=${pack.id}`} rel="nofollow" className="text-[var(--neon-cyan)] underline-offset-4 hover:underline">Try 5 free slides in presenter mode</Link>
+                <Link prefetch={false} href={`/classroom/present?pack=${pack.id}`} rel="nofollow" className="text-[var(--neon-cyan)] underline-offset-4 hover:underline">Try 5 free slides in presenter mode</Link>
                 <span className="text-[var(--text-muted)]"> · </span>
-                <Link href={pack.page} className="text-[var(--neon-cyan)] underline-offset-4 hover:underline">Free generator</Link>
+                <Link prefetch={false} href={pack.page} className="text-[var(--neon-cyan)] underline-offset-4 hover:underline">Free generator</Link>
               </p>
             </div>
           </section>

@@ -141,9 +141,9 @@ export default function UsernameGeneratorPage() {
           </ul>
           <p>
             Want your name to stand out in a bio or a Discord nickname? Paste it into the{" "}
-            <Link href="/fancy-text-generator" className={linkClass}>fancy text generator</Link> for 30+ font styles, or the{" "}
-            <Link href="/glitch-text-generator" className={linkClass}>glitch text generator</Link> for a corrupted look. For characters in a
-            story, the <Link href="/character-name-generator" className={linkClass}>character name generator</Link> is a better fit.
+            <Link prefetch={false} href="/fancy-text-generator" className={linkClass}>fancy text generator</Link> for 30+ font styles, or the{" "}
+            <Link prefetch={false} href="/glitch-text-generator" className={linkClass}>glitch text generator</Link> for a corrupted look. For characters in a
+            story, the <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link> is a better fit.
           </p>
           <SectionTitle>How this username generator compares</SectionTitle>
           <div className="overflow-x-auto">

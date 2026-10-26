@@ -525,7 +525,7 @@ export default function TopicGenerator({
                     {locale === "es" ? "Guarda tus favoritos o sigue explorando" : "Save your favorites or keep exploring"}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <Link
+                    <Link prefetch={false}
                       href={locale === "es" ? "/es/saved-topics" : "/saved-topics"}
                       className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-pink)]/30 text-[var(--neon-pink)] hover:bg-[var(--neon-pink)]/10 transition-colors"
                     >
@@ -533,37 +533,37 @@ export default function TopicGenerator({
                     </Link>
                     {selectedMode === "debate" ? (
                       <>
-                        <Link href={locale === "es" ? "/es/debate/students" : "/pro-and-con-debate-topics"} className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/10 transition-colors">
+                        <Link prefetch={false} href={locale === "es" ? "/es/debate/students" : "/pro-and-con-debate-topics"} className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/10 transition-colors">
                           {locale === "es" ? "Temas para estudiantes" : "100 pro & con topics"}
                         </Link>
-                        <Link href={locale === "es" ? "/es/debate" : "/debate/motions"} className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-white/20 transition-colors">
+                        <Link prefetch={false} href={locale === "es" ? "/es/debate" : "/debate/motions"} className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-white/20 transition-colors">
                           {locale === "es" ? "Más temas de debate" : "Debate motions"}
                         </Link>
                       </>
                     ) : selectedMode === "speech" ? (
                       <>
-                        <Link href={locale === "es" ? "/es/table-topics-generator" : "/table-topics-generator"} className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/10 transition-colors">
+                        <Link prefetch={false} href={locale === "es" ? "/es/table-topics-generator" : "/table-topics-generator"} className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/10 transition-colors">
                           Table Topics
                         </Link>
-                        <Link href={locale === "es" ? "/es/impromptu-speech-topics" : "/impromptu-speech-topics"} className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-white/20 transition-colors">
+                        <Link prefetch={false} href={locale === "es" ? "/es/impromptu-speech-topics" : "/impromptu-speech-topics"} className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-white/20 transition-colors">
                           {locale === "es" ? "Práctica improvisada" : "Impromptu practice"}
                         </Link>
                       </>
                     ) : selectedMode === "conversation" ? (
                       <>
-                        <Link href={locale === "es" ? "/es/topics/conversation-starters-for-couples" : "/topics/conversation-starters-for-couples"} className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/10 transition-colors">
+                        <Link prefetch={false} href={locale === "es" ? "/es/topics/conversation-starters-for-couples" : "/topics/conversation-starters-for-couples"} className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/10 transition-colors">
                           {locale === "es" ? "Listas de conversación" : "Conversation lists"}
                         </Link>
-                        <Link href={locale === "es" ? "/es/question-generator" : "/question-generator"} className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-white/20 transition-colors">
+                        <Link prefetch={false} href={locale === "es" ? "/es/question-generator" : "/question-generator"} className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-white/20 transition-colors">
                           {locale === "es" ? "Generador de preguntas" : "Question generator"}
                         </Link>
                       </>
                     ) : (
                       <>
-                        <Link href={locale === "es" ? "/es/categories" : "/random-subject-generator"} className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/10 transition-colors">
+                        <Link prefetch={false} href={locale === "es" ? "/es/categories" : "/random-subject-generator"} className="text-xs px-3 py-2 rounded-lg border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/10 transition-colors">
                           {locale === "es" ? "Explorar categorías" : "Random subject generator"}
                         </Link>
-                        <Link href={locale === "es" ? "/es/spin-the-wheel" : "/spin-the-wheel"} className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-white/20 transition-colors">
+                        <Link prefetch={false} href={locale === "es" ? "/es/spin-the-wheel" : "/spin-the-wheel"} className="text-xs px-3 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:border-white/20 transition-colors">
                           {locale === "es" ? "Gira la rueda" : "Spin the wheel"}
                         </Link>
                       </>

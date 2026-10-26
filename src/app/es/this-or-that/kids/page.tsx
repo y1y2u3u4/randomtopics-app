@@ -106,12 +106,12 @@ export default function ThisOrThatKidsPageEs() {
                 <li><strong>Primer día de clase:</strong> con cinco preguntas ya sabes a quién le encantan los perros y quién prefiere leer.</li>
                 <li><strong>Pausa activa:</strong> dos minutos de moverse entre una clase y otra, sin materiales.</li>
                 <li><strong>Asamblea de la mañana:</strong> una pregunta como saludo: «Buenos días, elegí tortitas porque…».</li>
-                <li><strong>Antes de escribir una opinión:</strong> elegir un lado y dar tres razones. Un buen paso previo a los <Link href="/es/topics/debate-topics-for-students" className="text-[var(--neon-cyan)] hover:underline">temas de debate para estudiantes</Link>.</li>
+                <li><strong>Antes de escribir una opinión:</strong> elegir un lado y dar tres razones. Un buen paso previo a los <Link prefetch={false} href="/es/topics/debate-topics-for-students" className="text-[var(--neon-cyan)] hover:underline">temas de debate para estudiantes</Link>.</li>
                 <li><strong>Matemáticas:</strong> contad los dos lados en cinco preguntas y haced un gráfico de barras.</li>
               </ul>
               <p>
-                ¿Buscas dilemas más grandes? Prueba las <Link href="/es/would-you-rather/kids" className="text-[var(--neon-cyan)] hover:underline">preguntas de qué prefieres para niños</Link>.
-                Para adolescentes y adultos, el <Link href="/es/this-or-that" className="text-[var(--neon-cyan)] hover:underline">generador de esto o aquello</Link> tiene opciones cotidianas.
+                ¿Buscas dilemas más grandes? Prueba las <Link prefetch={false} href="/es/would-you-rather/kids" className="text-[var(--neon-cyan)] hover:underline">preguntas de qué prefieres para niños</Link>.
+                Para adolescentes y adultos, el <Link prefetch={false} href="/es/this-or-that" className="text-[var(--neon-cyan)] hover:underline">generador de esto o aquello</Link> tiene opciones cotidianas.
               </p>
             </div>
           </div>

@@ -107,7 +107,7 @@ export default function TriviaQuestionsPage() {
           </p>
           <SectionTitle>How to host a trivia night</SectionTitle>
           <ol className="list-decimal pl-5 space-y-1">
-            <li><strong>Split into teams.</strong> Two to eight teams of two to five players works best; the <Link href="/random-team-generator" className={linkClass}>random team generator</Link> makes fair teams in seconds.</li>
+            <li><strong>Split into teams.</strong> Two to eight teams of two to five players works best; the <Link prefetch={false} href="/random-team-generator" className={linkClass}>random team generator</Link> makes fair teams in seconds.</li>
             <li><strong>Open Host mode.</strong> Put the screen on a TV or laptop facing the room, set the timer (20 seconds is a good default) and name the teams.</li>
             <li><strong>Play rounds of ten.</strong> Pick one category per round, read each question, let the timer run, then reveal the answer and the one-line explanation.</li>
             <li><strong>Score as you go.</strong> Tap + for a correct answer. If your house rules punish wrong buzz-ins, tap − — scores may go below zero. The leader gets a crown.</li>
@@ -120,10 +120,10 @@ export default function TriviaQuestionsPage() {
             you know the fact. Politics, religion and disasters are left out, so the questions work in classrooms, offices and family game nights.
           </p>
           <p>
-            Want something seasonal? Try the <Link href="/trivia-questions/christmas" className={linkClass}>Christmas trivia questions</Link> or the{" "}
-            <Link href="/trivia-questions/halloween" className={linkClass}>Halloween trivia questions</Link>. For a
-            louder party game between rounds, deal a few <Link href="/charades" className={linkClass}>charades</Link> words or a round of{" "}
-            <Link href="/paranoia-questions" className={linkClass}>paranoia questions</Link>.
+            Want something seasonal? Try the <Link prefetch={false} href="/trivia-questions/christmas" className={linkClass}>Christmas trivia questions</Link> or the{" "}
+            <Link prefetch={false} href="/trivia-questions/halloween" className={linkClass}>Halloween trivia questions</Link>. For a
+            louder party game between rounds, deal a few <Link prefetch={false} href="/charades" className={linkClass}>charades</Link> words or a round of{" "}
+            <Link prefetch={false} href="/paranoia-questions" className={linkClass}>paranoia questions</Link>.
           </p>
         </>
       }

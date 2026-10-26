@@ -102,8 +102,8 @@ export default function HalloweenTriviaPage() {
           <p>
             Dim the lights and set the timer to 15 seconds for the easy round, 30 for the hard one. Give a bonus point for the best costume on each
             team, and let the losing team pick the next round&apos;s difficulty. Between rounds, act out monsters with the{" "}
-            <Link href="/charades" className={linkClass}>charades generator</Link> or switch to the year-round{" "}
-            <Link href="/trivia-questions" className={linkClass}>trivia questions</Link> in ten categories.
+            <Link prefetch={false} href="/charades" className={linkClass}>charades generator</Link> or switch to the year-round{" "}
+            <Link prefetch={false} href="/trivia-questions" className={linkClass}>trivia questions</Link> in ten categories.
           </p>
           <p>
             Every question is written in-house, sticks to facts that won&apos;t change, and avoids film plot details beyond titles and years. Each

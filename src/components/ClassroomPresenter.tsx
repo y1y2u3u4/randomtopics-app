@@ -97,7 +97,7 @@ export default function ClassroomPresenter({ pack }: { pack: ClassroomPackId }) 
           <span aria-live="polite">{Math.min(index + 1, count)} / {deck.full ? deck.total : `${deck.slides.length} of ${deck.total}`}</span>
           <button type="button" onClick={() => setTimerOn((v) => !v)} className="rounded-lg border border-[#d9d4c8] px-3 py-1.5">{timerOn ? "Hide timer" : "Timer (T)"}</button>
           <button type="button" onClick={() => void toggleFullscreen()} className="rounded-lg border border-[#d9d4c8] px-3 py-1.5">Full screen (F)</button>
-          <Link href={deck.full ? "/account" : "/classroom-packs"} className="rounded-lg border border-[#d9d4c8] px-3 py-1.5">Exit</Link>
+          <Link prefetch={false} href={deck.full ? "/account" : "/classroom-packs"} className="rounded-lg border border-[#d9d4c8] px-3 py-1.5">Exit</Link>
         </div>
       </header>
 
@@ -123,7 +123,7 @@ export default function ClassroomPresenter({ pack }: { pack: ClassroomPackId }) 
             <h1 className="text-3xl sm:text-5xl font-bold">That&apos;s the free preview</h1>
             <p className="text-lg sm:text-2xl text-[#5b5b70]">The full pack has {deck.total} slides, plus the editable PPTX and printable PDF. One-time payment, no subscription.</p>
             <div className="rounded-2xl bg-[#1b1b2f] p-5 text-white"><ClassroomBuyButtons pack={pack} page="/classroom/present" /></div>
-            <Link href="/classroom-packs" className="underline">Compare classroom packs</Link>
+            <Link prefetch={false} href="/classroom-packs" className="underline">Compare classroom packs</Link>
           </div>
         )}
       </main>

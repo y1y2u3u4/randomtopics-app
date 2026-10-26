@@ -392,7 +392,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">Use this broad hub for quick moral dilemmas, or open a focused collection for original scenarios and audience-specific follow-ups.</p>
                 <div className="mt-5 grid grid-cols-1 gap-3">
                   {ETHICAL_COLLECTIONS.map((collection) => (
-                    <Link key={collection.href} href={collection.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
+                    <Link prefetch={false} key={collection.href} href={collection.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
                       <span className="block text-sm font-semibold text-[var(--text-primary)]">{collection.title} →</span>
                       <span className="block mt-1 text-xs text-[var(--text-muted)]">{collection.detail}</span>
                     </Link>
@@ -443,17 +443,17 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   ))}
                 </ol>
                 <div className="mt-5 flex flex-wrap gap-2 text-xs">
-                  <Link href="/table-topics-generator" className="mode-chip">Run live rounds with the focused generator</Link>
-                  <Link href="/5-minute-speech-topics" className="mode-chip">Practice a longer prepared talk</Link>
+                  <Link prefetch={false} href="/table-topics-generator" className="mode-chip">Run live rounds with the focused generator</Link>
+                  <Link prefetch={false} href="/5-minute-speech-topics" className="mode-chip">Practice a longer prepared talk</Link>
                 </div>
               </div>
             </section>
             <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
               <SpeechTimer defaultSeconds={120} contentSource="toastmasters_article" toastmastersCues />
               <div className="mt-4 flex flex-wrap justify-center gap-2 text-xs">
-                <Link href="/table-topics-generator" className="mode-chip">Open the focused generator</Link>
-                <Link href="/impromptu-speech-topics" className="mode-chip">More impromptu practice</Link>
-                <Link href="/speech" className="mode-chip">Speech practice hub</Link>
+                <Link prefetch={false} href="/table-topics-generator" className="mode-chip">Open the focused generator</Link>
+                <Link prefetch={false} href="/impromptu-speech-topics" className="mode-chip">More impromptu practice</Link>
+                <Link prefetch={false} href="/speech" className="mode-chip">Speech practice hub</Link>
               </div>
             </section>
           </>
@@ -464,7 +464,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 text-center">
               <h2 className="text-xl font-bold text-[var(--text-primary)]">Need a topic matched to your subject and difficulty?</h2>
               <p className="mt-2 text-sm text-[var(--text-secondary)]">Use the focused generator for a presentation idea plus a slide-ready starting angle.</p>
-              <Link href="/presentation-topic-generator" className="btn-generate inline-flex mt-5 items-center gap-2 text-sm px-6 py-3">
+              <Link prefetch={false} href="/presentation-topic-generator" className="btn-generate inline-flex mt-5 items-center gap-2 text-sm px-6 py-3">
                 <span aria-hidden="true">📊</span> Generate a Presentation Topic
               </Link>
             </div>
@@ -527,7 +527,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     <p className="text-sm text-[var(--text-secondary)] mb-4">
                       {articleCta.text}
                     </p>
-                    <Link
+                    <Link prefetch={false}
                       href={articleCta.href}
                       className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3"
                     >
@@ -555,7 +555,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </ol>
               <p className="mt-4 text-base leading-relaxed text-[var(--text-secondary)]">For example, a real habit of making tea can become a believable false claim about making coffee. The builder cannot know your biography: you choose the lie. Keep the editor private, share the copied statements, and reveal your answer after voting.</p>
               <p className="mt-4 text-sm text-[var(--text-muted)]">These original starting points are grouped for work, school, light humor, and everyday conversation. They are suggestions to personalize, not facts to repeat unchanged.</p>
-              <Link href="/two-truths-and-a-lie" className="mt-3 inline-flex min-h-11 items-center text-base text-[var(--neon-cyan)] underline underline-offset-4">Need a theme instead of a statement? Explore the 30-prompt generator.</Link>
+              <Link prefetch={false} href="/two-truths-and-a-lie" className="mt-3 inline-flex min-h-11 items-center text-base text-[var(--neon-cyan)] underline underline-offset-4">Need a theme instead of a statement? Explore the 30-prompt generator.</Link>
             </div>
           </section>
         ) : null}
@@ -633,7 +633,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 {articleToPages[article.slug].modes.map((modeSlug) => {
                   const mode = MODES.find((m) => m.slug === modeSlug);
                   return mode ? (
-                    <Link
+                    <Link prefetch={false}
                       key={mode.slug}
                       href={`/${mode.slug}`}
                       className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-pink)] hover:border-[var(--neon-pink)]/30 hover:bg-[rgba(255,45,120,0.05)] transition-all"
@@ -645,7 +645,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 {articleToPages[article.slug].categories.map((catId) => {
                   const cat = CATEGORIES.find((c) => c.id === catId);
                   return cat ? (
-                    <Link
+                    <Link prefetch={false}
                       key={cat.id}
                       href={`/categories/${cat.id}`}
                       className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
@@ -655,7 +655,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   ) : null;
                 })}
                 {articleToPages[article.slug].tools?.map((tool) => (
-                  <Link
+                  <Link prefetch={false}
                     key={tool.href}
                     href={tool.href}
                     className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-pink)] hover:border-[var(--neon-pink)]/30 hover:bg-[rgba(255,45,120,0.05)] transition-all"
@@ -680,7 +680,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </h2>
               <div className="flex flex-wrap gap-3">
                 {article.relatedLinks.map((link, i) => (
-                  <Link
+                  <Link prefetch={false}
                     key={i}
                     href={link.href}
                     className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
@@ -701,7 +701,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {contextualCollections.map((a) => (
-                  <Link
+                  <Link prefetch={false}
                     key={a.slug}
                     href={`/topics/${a.slug}`}
                     className="text-sm p-3 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
@@ -715,7 +715,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         {/* CTA to generator */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16 text-center">
-          <Link
+          <Link prefetch={false}
             href={articleCta.href}
             className="btn-generate animate-pulse-glow inline-flex items-center gap-2 text-lg px-10 py-4"
           >

@@ -28,7 +28,7 @@ export default function CategoriesPageEs() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {CATEGORIES.map((cat) => (
-              <Link
+              <Link prefetch={false}
                 key={cat.id}
                 href={`/es/categories/${cat.id}`}
                 className="glass-card p-6 hover:border-[var(--accent-blue)]/30 transition-all hover:translate-y-[-2px] group"

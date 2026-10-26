@@ -86,7 +86,7 @@ export default function SpinTheWheelPageEs() {
               </p>
               <p>
                 La ruleta es la forma visual y divertida de usar nuestro{" "}
-                <Link href="/es" className="text-[var(--neon-cyan)] hover:underline">
+                <Link prefetch={false} href="/es" className="text-[var(--neon-cyan)] hover:underline">
                   generador de temas al azar
                 </Link>
                 . Ambos usan la misma base de datos seleccionada de más de 500 temas; la ruleta añade el
@@ -107,7 +107,7 @@ export default function SpinTheWheelPageEs() {
                 </li>
                 <li>
                   <strong>Aulas:</strong> úsala como pregunta de arranque o calentamiento de discusión. Combínala con el{" "}
-                  <Link href="/es/debate/middle-school" className="text-[var(--neon-cyan)] hover:underline">
+                  <Link prefetch={false} href="/es/debate/middle-school" className="text-[var(--neon-cyan)] hover:underline">
                     generador de debate para secundaria
                   </Link>{" "}
                   como semilla rápida de escritura persuasiva.
@@ -115,7 +115,7 @@ export default function SpinTheWheelPageEs() {
                 <li>
                   <strong>Oratoria:</strong> gira, tómate 30 segundos y da una charla improvisada de dos minutos —
                   ideal para practicar los{" "}
-                  <Link href="/es/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">
+                  <Link prefetch={false} href="/es/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">
                     Table Topics de Toastmasters
                   </Link>
                   .
@@ -127,15 +127,15 @@ export default function SpinTheWheelPageEs() {
 
               <p>
                 ¿Prefieres un mazo fijo? Prueba{" "}
-                <Link href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">
+                <Link prefetch={false} href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">
                   Qué Prefieres
                 </Link>
                 ,{" "}
-                <Link href="/es/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">
+                <Link prefetch={false} href="/es/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">
                   Yo Nunca
                 </Link>
                 , o el{" "}
-                <Link href="/es/question-generator" className="text-[var(--neon-cyan)] hover:underline">
+                <Link prefetch={false} href="/es/question-generator" className="text-[var(--neon-cyan)] hover:underline">
                   generador de preguntas al azar
                 </Link>
                 .

@@ -70,7 +70,7 @@ export default function AiMetadataRemoverPage() {
           <ul className="list-disc pl-5 space-y-1">
             <li>Many social networks strip some metadata on upload, but not all, and files sent by email, chat or cloud links usually keep everything.</li>
             <li>Keep your original if you want to remember the prompt or settings — the clean copy is saved with “-clean” in its name.</li>
-            <li>Making a collage to post? Clean the images first, then build it with the <Link href="/my-9-grid" className={linkClass}>My 9 grid maker</Link>.</li>
+            <li>Making a collage to post? Clean the images first, then build it with the <Link prefetch={false} href="/my-9-grid" className={linkClass}>My 9 grid maker</Link>.</li>
           </ul>
         </>
       }

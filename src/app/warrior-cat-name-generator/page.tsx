@@ -105,8 +105,8 @@ export default function WarriorCatNameGeneratorPage() {
             temperament or backstory.
           </p>
           <p>
-            Need names for other fantasy creatures? Try the <Link href="/dragon-name-generator" className={linkClass}>dragon name
-            generator</Link> or the <Link href="/character-name-generator" className={linkClass}>character name generator</Link> for people.
+            Need names for other fantasy creatures? Try the <Link prefetch={false} href="/dragon-name-generator" className={linkClass}>dragon name
+            generator</Link> or the <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link> for people.
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Real output at each rank:"} sets={EXAMPLES} />

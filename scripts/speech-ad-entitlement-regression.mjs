@@ -70,7 +70,7 @@ try{
  const before=calls;await assert.rejects(()=>readSpeechAdEntitlement({getSession:async()=>({data:{session:null},error:Error('session')})},new AbortController().signal));checks++;check(calls===before,'Session lookup failure never queries as guest');
  await assert.rejects(()=>readSpeechAdEntitlement(auth,new AbortController().signal,()=>false));checks++;check(calls===before,'Identity change blocks outgoing stale request');
  globalThis.fetch=async()=>Response.json(guest);await assert.rejects(()=>readSpeechAdEntitlement(auth,new AbortController().signal));checks++;
- globalThis.fetch=async()=>Response.json(guest);assert.deepEqual(await readSpeechAdEntitlement({getSession:async()=>({data:{session:null},error:null})},new AbortController().signal),guest);checks++;
+ {const before=calls;globalThis.fetch=async()=>{calls++;return Response.json(guest)};assert.deepEqual(await readSpeechAdEntitlement({getSession:async()=>({data:{session:null},error:null})},new AbortController().signal),guest);checks++;check(calls===before,'Signed-out visitor is answered locally without a request');}
 }finally{globalThis.fetch=originalFetch;}
 
 // One transport retry shares the owning gate's deadline. All sessions, bodies,

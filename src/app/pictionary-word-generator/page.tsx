@@ -88,7 +88,7 @@ export default function PictionaryWordGeneratorPage() {
         <>
           <SectionTitle>How to play Pictionary with this generator</SectionTitle>
           <ol className="list-decimal pl-5 space-y-1">
-            <li><strong>Split into two teams</strong> (the <Link href="/random-team-generator" className={linkClass}>team generator</Link> does it fairly). Team A draws first.</li>
+            <li><strong>Split into two teams</strong> (the <Link prefetch={false} href="/random-team-generator" className={linkClass}>team generator</Link> does it fairly). Team A draws first.</li>
             <li><strong>Choose a theme and difficulty</strong>, or leave both on Any for a mixed game.</li>
             <li><strong>The drawer presses Get a word</strong>, reads it, then presses Start. The word hides and the clock runs.</li>
             <li><strong>Draw — no letters, numbers or talking.</strong> Your team shouts guesses until someone says the word or time runs out.</li>
@@ -105,12 +105,12 @@ export default function PictionaryWordGeneratorPage() {
               </div>
             ))}
           </div>
-          <p className="mt-3">See every word on the <Link href="/pictionary-words" className={linkClass}>full Pictionary word list</Link>, or try longer prompts with the{" "}
-            <Link href="/pictionary-phrase-generator" className={linkClass}>Pictionary phrase generator</Link>.</p>
+          <p className="mt-3">See every word on the <Link prefetch={false} href="/pictionary-words" className={linkClass}>full Pictionary word list</Link>, or try longer prompts with the{" "}
+            <Link prefetch={false} href="/pictionary-phrase-generator" className={linkClass}>Pictionary phrase generator</Link>.</p>
 
           <SectionTitle>House rules that keep the game fun</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li><strong>No letters or numbers</strong> in the drawing, and no gestures — that is <Link href="/charades" className={linkClass}>charades</Link>.</li>
+            <li><strong>No letters or numbers</strong> in the drawing, and no gestures — that is <Link prefetch={false} href="/charades" className={linkClass}>charades</Link>.</li>
             <li><strong>&quot;Sounds like&quot; is allowed</strong> if you draw an ear first, then something that rhymes.</li>
             <li><strong>All-play round:</strong> every 5th word, both teams guess at once; first correct shout wins the point.</li>
             <li><strong>Mixed ages:</strong> give kids Easy words and adults Hard ones in the same game so everyone has a fair chance.</li>

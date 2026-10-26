@@ -37,7 +37,7 @@ export default function RandomSubjectPicker() {
             <p className="mt-2 text-3xl font-extrabold text-[var(--text-primary)]">
               {subject.emoji} {subject.label}
             </p>
-            <Link
+            <Link prefetch={false}
               href={`/categories/${subject.id}`}
               className="mt-3 inline-block text-sm font-semibold text-[var(--neon-cyan)] hover:underline"
             >

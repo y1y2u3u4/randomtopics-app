@@ -131,9 +131,9 @@ export default function CityNameGeneratorPage() {
             <li><strong>Mix for borderlands.</strong> Pick two styles at once for a frontier where two cultures meet.</li>
           </ul>
           <p>
-            Need people to live there? The <Link href="/character-name-generator" className={linkClass}>character name generator</Link>{" "}
-            and <Link href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link> give you townsfolk, and the{" "}
-            <Link href="/fancy-text-generator" className={linkClass}>fancy text generator</Link> turns a city name into a title for a map or a
+            Need people to live there? The <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link>{" "}
+            and <Link prefetch={false} href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link> give you townsfolk, and the{" "}
+            <Link prefetch={false} href="/fancy-text-generator" className={linkClass}>fancy text generator</Link> turns a city name into a title for a map or a
             Discord server.
           </p>
           <SectionTitle>How this city name generator compares</SectionTitle>

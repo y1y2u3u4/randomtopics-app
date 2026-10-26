@@ -87,8 +87,8 @@ export default function JapaneseNameGeneratorPage() {
           <p>
             Writers and manga artists naming a cast, gamers creating characters, learners practising kanji readings, and anyone curious about
             what common Japanese names mean. For surnames from other cultures use the{" "}
-            <Link href="/last-name-generator" className={linkClass}>last name generator</Link>; for fantasy or sci-fi casts try the{" "}
-            <Link href="/character-name-generator" className={linkClass}>character name generator</Link>.
+            <Link prefetch={false} href="/last-name-generator" className={linkClass}>last name generator</Link>; for fantasy or sci-fi casts try the{" "}
+            <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link>.
           </p>
         </>
       }

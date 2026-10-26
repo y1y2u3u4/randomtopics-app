@@ -94,7 +94,7 @@ export default function StudentDebatePageEs() {
                 Los profesores lo usan de tres maneras: proyectándolo en directo y generando temas hasta que
                 la clase encuentra uno que la divide; generando 10 temas para debates paralelos en grupos
                 pequeños; o asignándolo como tarea para practicar réplicas. ¿Prefieres una lista fija para
-                imprimir? Nuestra selección de <Link href="/es/topics/debate-topics-for-students" className="text-[var(--neon-cyan)] hover:underline">75 temas de debate para estudiantes</Link> está
+                imprimir? Nuestra selección de <Link prefetch={false} href="/es/topics/debate-topics-for-students" className="text-[var(--neon-cyan)] hover:underline">75 temas de debate para estudiantes</Link> está
                 organizada por franja de edad.
               </p>
 
@@ -107,7 +107,7 @@ export default function StudentDebatePageEs() {
               <ul className="space-y-2 list-disc pl-5">
                 <li><strong>1.º-2.º de ESO (11-13 años):</strong> temas concretos y cercanos a su experiencia — normas del centro, tarea, deporte, tecnología en casa. Usa el filtro de profundidad «ligero».</li>
                 <li><strong>3.º-4.º de ESO (14-15 años):</strong> introduce temas basados en evidencia — redes sociales, videojuegos, política escolar — donde el alumnado debe citar al menos una fuente por argumento.</li>
-                <li><strong>Bachillerato y universidad:</strong> temas de política y ética con implicaciones reales — IA, clima, justicia penal, economía. Usa los filtros «medio» y «profundo», y consulta nuestra colección de <Link href="/es/topics/controversial-topics-to-discuss" className="text-[var(--neon-cyan)] hover:underline">temas controvertidos</Link> para clases avanzadas.</li>
+                <li><strong>Bachillerato y universidad:</strong> temas de política y ética con implicaciones reales — IA, clima, justicia penal, economía. Usa los filtros «medio» y «profundo», y consulta nuestra colección de <Link prefetch={false} href="/es/topics/controversial-topics-to-discuss" className="text-[var(--neon-cyan)] hover:underline">temas controvertidos</Link> para clases avanzadas.</li>
               </ul>
 
               <h3

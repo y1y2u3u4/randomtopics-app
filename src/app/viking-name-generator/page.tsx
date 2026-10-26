@@ -93,8 +93,8 @@ export default function VikingNameGeneratorPage() {
           <p>
             Choose the name style that suits your story: a full saga-style name for a jarl, a single given name for a farmhand, or a name and
             byname for a warrior everyone fears. For other fantasy cultures try the{" "}
-            <Link href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link>, or the{" "}
-            <Link href="/last-name-generator" className={linkClass}>last name generator</Link> for modern Scandinavian surnames.
+            <Link prefetch={false} href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link>, or the{" "}
+            <Link prefetch={false} href="/last-name-generator" className={linkClass}>last name generator</Link> for modern Scandinavian surnames.
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Real Old Norse names in three styles:"} sets={EXAMPLES} />

@@ -17,7 +17,7 @@ export default function LocaleSwitcher() {
   if (!href) return null;
 
   return (
-    <Link
+    <Link prefetch={false}
       href={href}
       hrefLang={target}
       aria-label={target === "es" ? "Ver en español" : "View in English"}

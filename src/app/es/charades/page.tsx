@@ -149,13 +149,13 @@ export default function CharadesPageEs() {
               </ol>
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>Una noche de juegos completa</h3>
               <p>
-                Combina la mímica con otros juegos: <Link href="/es/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Verdad o Reto</Link> entre rondas,{" "}
-                <Link href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">¿Qué prefieres?</Link> o{" "}
-                <Link href="/es/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Yo nunca</Link> para empezar, la{" "}
-                <Link href="/es/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">ruleta</Link> para decidir quién actúa primero y{" "}
-                <Link href="/es/this-or-that" className="text-[var(--neon-cyan)] hover:underline">Esto o Aquello</Link> para terminar. ¿Preferís dibujar? Usa el{" "}
-                <Link href="/es/generador-de-palabras-aleatorias" className="text-[var(--neon-cyan)] hover:underline">generador de palabras aleatorias</Link>.
-                ¿Jugáis en inglés? Prueba el <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades generator</Link> con 528 palabras.
+                Combina la mímica con otros juegos: <Link prefetch={false} href="/es/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Verdad o Reto</Link> entre rondas,{" "}
+                <Link prefetch={false} href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">¿Qué prefieres?</Link> o{" "}
+                <Link prefetch={false} href="/es/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Yo nunca</Link> para empezar, la{" "}
+                <Link prefetch={false} href="/es/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">ruleta</Link> para decidir quién actúa primero y{" "}
+                <Link prefetch={false} href="/es/this-or-that" className="text-[var(--neon-cyan)] hover:underline">Esto o Aquello</Link> para terminar. ¿Preferís dibujar? Usa el{" "}
+                <Link prefetch={false} href="/es/generador-de-palabras-aleatorias" className="text-[var(--neon-cyan)] hover:underline">generador de palabras aleatorias</Link>.
+                ¿Jugáis en inglés? Prueba el <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades generator</Link> con 528 palabras.
               </p>
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>Preguntas frecuentes</h3>
               {FAQ_ITEMS.map((item) => (

@@ -81,13 +81,13 @@ export default function RandomWordGeneratorPage() {
             <li><strong>Part of speech</strong> — nouns, verbs, adjectives, adverbs, or any mix.</li>
             <li><strong>Difficulty</strong> — easy words kids know, everyday words, or advanced vocabulary like &quot;ephemeral&quot;.</li>
             <li><strong>Length</strong> — short (3–4 letters), medium (5–7) or long (8+), useful for spelling and word puzzles.</li>
-            <li><strong>Starts with</strong> — pick a letter, or draw one with the <Link href="/random-letter-generator" className={linkClass}>random letter generator</Link>.</li>
+            <li><strong>Starts with</strong> — pick a letter, or draw one with the <Link prefetch={false} href="/random-letter-generator" className={linkClass}>random letter generator</Link>.</li>
             <li><strong>Drawable / actable</strong> — only concrete nouns and actions for Pictionary and charades.</li>
           </ul>
           <SectionTitle>Ideas for random words</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Pictionary</strong> — drawable + easy, one word per turn; for solo sketch practice try the <Link href="/random-drawing-generator" className={linkClass}>random drawing generator</Link>; for acting rounds use the <Link href="/charades" className={linkClass}>charades generator</Link>.</li>
-            <li><strong>Three-word stories</strong> — generate three words and write a story that uses all of them; more ideas in the <Link href="/writing" className={linkClass}>writing prompt generator</Link>.</li>
+            <li><strong>Pictionary</strong> — drawable + easy, one word per turn; for solo sketch practice try the <Link prefetch={false} href="/random-drawing-generator" className={linkClass}>random drawing generator</Link>; for acting rounds use the <Link prefetch={false} href="/charades" className={linkClass}>charades generator</Link>.</li>
+            <li><strong>Three-word stories</strong> — generate three words and write a story that uses all of them; more ideas in the <Link prefetch={false} href="/writing" className={linkClass}>writing prompt generator</Link>.</li>
             <li><strong>Vocabulary warm-ups</strong> — hard adjectives or verbs: define it, use it in a sentence, find a synonym.</li>
             <li><strong>Word games</strong> — Taboo-style clue giving, 20 Questions, or spelling bees with long words.</li>
           </ul>

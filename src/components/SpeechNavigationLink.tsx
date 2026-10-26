@@ -16,7 +16,7 @@ export default function SpeechNavigationLink({ className, mobile = false, onClic
       trackSpeech("speech_nav_view", { content_source: "navigation", entry_surface: mobile ? "mobile_nav" : "desktop_nav" });
     });
   }, [mobile]);
-  return <Link ref={link} href="/speech" className={className} title="Speech topics and AI feedback · two free attempts"
+  return <Link prefetch={false} ref={link} href="/speech" className={className} title="Speech topics and AI feedback · two free attempts"
     onClick={() => {
       trackSpeech("speech_nav_click", { content_source: "navigation", entry_surface: mobile ? "mobile_nav" : "desktop_nav" });
       onClick?.();

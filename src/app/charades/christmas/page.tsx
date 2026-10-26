@@ -117,8 +117,8 @@ export default function ChristmasCharadesPage() {
             <li>For a printed game, print a deck and draw the cards from a stocking.</li>
           </ul>
           <p>
-            Between rounds, switch to <Link href="/trivia-questions/christmas" className={linkClass}>Christmas trivia</Link> with the same
-            teams, or play the full year-round <Link href="/charades" className={linkClass}>charades generator</Link> once the holiday deck is
+            Between rounds, switch to <Link prefetch={false} href="/trivia-questions/christmas" className={linkClass}>Christmas trivia</Link> with the same
+            teams, or play the full year-round <Link prefetch={false} href="/charades" className={linkClass}>charades generator</Link> once the holiday deck is
             used up.
           </p>
         </>

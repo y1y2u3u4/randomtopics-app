@@ -102,8 +102,8 @@ export default function PirateNameGeneratorPage() {
             team or a game server.
           </p>
           <p>
-            Want something from colder seas? Try the <Link href="/viking-name-generator" className={linkClass}>Viking name generator</Link>, or
-            the <Link href="/character-name-generator" className={linkClass}>character name generator</Link> for more genres.
+            Want something from colder seas? Try the <Link prefetch={false} href="/viking-name-generator" className={linkClass}>Viking name generator</Link>, or
+            the <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link> for more genres.
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Real output in each mode:"} sets={EXAMPLES} />

@@ -33,7 +33,7 @@ export default function TopicsIndexPageEs() {
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {SEO_ARTICLES_ES.map((article) => (
-              <Link
+              <Link prefetch={false}
                 key={article.slug}
                 href={`/es/topics/${article.slug}`}
                 className="glass-card p-6 transition-all duration-300 hover:translate-y-[-3px] group hover:border-[var(--neon-cyan)]/40 hover:shadow-[0_0_20px_rgba(0,229,255,0.12)] hover:bg-gradient-to-br hover:from-[rgba(0,229,255,0.05)] hover:to-transparent"

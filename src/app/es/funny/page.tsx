@@ -89,7 +89,7 @@ export default function FunnyPageEs() {
                 conspiración inventarías?» y «¿Cuál es el peor superpoder que se te ocurre?» siempre
                 provocan respuestas que arrancan carcajadas. Para más material listo para fiestas,
                 explora los{" "}
-                <Link href="/es/topics/funny-conversation-topics" className="text-[var(--neon-cyan)] hover:underline">temas de conversación divertidos</Link>.
+                <Link prefetch={false} href="/es/topics/funny-conversation-topics" className="text-[var(--neon-cyan)] hover:underline">temas de conversación divertidos</Link>.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--neon-pink)] pt-2">Viajes por Carretera y Quedadas Largas</h4>
@@ -114,7 +114,7 @@ export default function FunnyPageEs() {
                 se han inventado. Los mejores presentan dos opciones igual de absurdas o igual de
                 terribles, lo que provoca debates apasionados y divertidísimos. Nuestro generador
                 incluye decenas de ellos: echa un vistazo a las{" "}
-                <Link href="/es/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">preguntas de qué prefieres</Link> para
+                <Link prefetch={false} href="/es/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">preguntas de qué prefieres</Link> para
                 acceder a una colección dedicada.
               </p>
 

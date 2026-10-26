@@ -110,7 +110,7 @@ export default function StatsPageEs() {
             </h2>
             <div className="space-y-3">
               {stats.byCat.map((cat) => (
-                <Link
+                <Link prefetch={false}
                   key={cat.id}
                   href={`/es/categories/${cat.id}`}
                   className="flex items-center gap-3 group"
@@ -149,7 +149,7 @@ export default function StatsPageEs() {
             </h2>
             <div className="space-y-3">
               {stats.byMode.map((mode) => (
-                <Link
+                <Link prefetch={false}
                   key={mode.id}
                   href={`/es/${mode.slug}`}
                   className="flex items-center gap-3 group"
@@ -245,7 +245,7 @@ export default function StatsPageEs() {
 
         {/* CTA */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16 text-center">
-          <Link
+          <Link prefetch={false}
             href="/es"
             className="btn-generate animate-pulse-glow inline-flex items-center gap-2 text-lg px-10 py-4"
           >

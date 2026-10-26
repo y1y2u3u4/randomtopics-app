@@ -38,11 +38,11 @@ export default function ThisOrThatCollectionPage({ c }: { c: ThisOrThatCollectio
             <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{c.lead}</p>
             <p className="text-sm text-[var(--text-secondary)] mt-3">
               More versions:{" "}
-              <Link href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">all this or that questions</Link>
+              <Link prefetch={false} href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">all this or that questions</Link>
               {siblings.map((s) => (
-                <span key={s.slug}>, <Link href={s.path} className="text-[var(--neon-cyan)] hover:underline">{s.h1.toLowerCase()}</Link></span>
+                <span key={s.slug}>, <Link prefetch={false} href={s.path} className="text-[var(--neon-cyan)] hover:underline">{s.h1.toLowerCase()}</Link></span>
               ))}
-              , <Link href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link>.
+              , <Link prefetch={false} href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link>.
             </p>
           </div>
         </section>

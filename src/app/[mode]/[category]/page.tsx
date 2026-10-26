@@ -193,7 +193,7 @@ export default async function ModeCategoryPage({ params }: ComboPageProps) {
             </h2>
             <div className="flex flex-wrap gap-3">
               {relatedModes.map((m) => (
-                <Link
+                <Link prefetch={false}
                   key={m.slug}
                   href={`/${m.slug}/${category}`}
                   className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
@@ -216,7 +216,7 @@ export default async function ModeCategoryPage({ params }: ComboPageProps) {
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {relatedCategories.map((c) => (
-                <Link
+                <Link prefetch={false}
                   key={c.id}
                   href={`/${mode}/${c.id}`}
                   className="text-sm p-3 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-pink)] hover:border-[var(--neon-pink)]/30 hover:bg-[rgba(255,45,120,0.05)] transition-all text-center"

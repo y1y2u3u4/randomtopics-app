@@ -112,7 +112,7 @@ export default function WritingPage() {
               <p className="text-sm font-bold text-[var(--text-primary)]">Need a topic matched to the thing you are writing?</p>
               <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1">Filter specifically for essays, journals, fiction, or blog posts and get a usable angle with every result.</p>
             </div>
-            <Link href="/writing-topic-generator" className="text-sm font-semibold text-[var(--neon-cyan)] whitespace-nowrap hover:underline">
+            <Link prefetch={false} href="/writing-topic-generator" className="text-sm font-semibold text-[var(--neon-cyan)] whitespace-nowrap hover:underline">
               Writing Topic Generator →
             </Link>
           </div>
@@ -130,7 +130,7 @@ export default function WritingPage() {
                 { title: "Journal Prompt Generator", detail: "Reflection prompts with a guided writing flow", href: "/journal-prompts" },
                 { title: "Writing Prompts for Kids", detail: "Age-appropriate story starters for younger writers", href: "/topics/writing-prompts-for-kids" },
               ].map((item) => (
-                <Link key={item.href} href={item.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
+                <Link prefetch={false} key={item.href} href={item.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
                   <span className="block text-sm font-semibold text-[var(--text-primary)]">{item.title}</span>
                   <span className="block mt-1 text-xs text-[var(--text-muted)]">{item.detail}</span>
                 </Link>
@@ -157,7 +157,7 @@ export default function WritingPage() {
                 ideas</strong> they might never have considered on their own.
               </p>
               <p>
-                For a short daily warm-up, answer the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> in five sentences before starting a longer prompt.
+                For a short daily warm-up, answer the <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> in five sentences before starting a longer prompt.
               </p>
               <p>
                 Our generator provides over 500 curated <strong>writing prompts</strong> spanning fiction,
@@ -180,10 +180,10 @@ export default function WritingPage() {
                 the writing takes you. People use it four main ways:
               </p>
               <ul className="space-y-2 list-disc pl-5">
-                <li><strong>Essays &amp; assignments:</strong> generate until a topic clicks, then turn its talking points into a thesis. For full essay prompts by type, use our <Link href="/essay-topic-generator" className="text-[var(--neon-cyan)] hover:underline">essay topic generator</Link>.</li>
-                <li><strong>Daily journaling:</strong> a random topic beats staring at a blank page — respond to whatever you get for ten minutes, no editing allowed. For reflection questions rather than story starters, use the <Link href="/journal-prompts" className="text-[var(--neon-cyan)] hover:underline">journal prompt generator</Link>.</li>
+                <li><strong>Essays &amp; assignments:</strong> generate until a topic clicks, then turn its talking points into a thesis. For full essay prompts by type, use our <Link prefetch={false} href="/essay-topic-generator" className="text-[var(--neon-cyan)] hover:underline">essay topic generator</Link>.</li>
+                <li><strong>Daily journaling:</strong> a random topic beats staring at a blank page — respond to whatever you get for ten minutes, no editing allowed. For reflection questions rather than story starters, use the <Link prefetch={false} href="/journal-prompts" className="text-[var(--neon-cyan)] hover:underline">journal prompt generator</Link>.</li>
                 <li><strong>Blogs &amp; newsletters:</strong> out of content ideas? Random topics push you outside the subjects you always circle back to.</li>
-                <li><strong>Fiction warm-ups:</strong> free-write on a random topic before your main project to loosen up. Prefer the broad subject first? Try the <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">random subject generator</Link>.</li>
+                <li><strong>Fiction warm-ups:</strong> free-write on a random topic before your main project to loosen up. Prefer the broad subject first? Try the <Link prefetch={false} href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">random subject generator</Link>.</li>
               </ul>
 
               <h3
@@ -241,9 +241,9 @@ export default function WritingPage() {
               </ul>
               <p>
                 For younger writers, our collection
-                of <Link href="/topics/writing-prompts-for-kids" className="text-[var(--neon-cyan)] hover:underline">writing prompts for kids</Link> offers
+                of <Link prefetch={false} href="/topics/writing-prompts-for-kids" className="text-[var(--neon-cyan)] hover:underline">writing prompts for kids</Link> offers
                 age-appropriate scenarios that make writing fun rather than intimidating. For fiction by genre and length, use the{" "}
-                <Link href="/story-prompt-generator" className="text-[var(--neon-cyan)] hover:underline">story prompt generator</Link>.
+                <Link prefetch={false} href="/story-prompt-generator" className="text-[var(--neon-cyan)] hover:underline">story prompt generator</Link>.
               </p>
 
               <h3
@@ -308,8 +308,8 @@ export default function WritingPage() {
           topics={pickModeTopics("writing")}
         />
         <nav aria-label="Creative naming tools" className="mx-auto max-w-4xl px-4 pb-6 text-sm text-[var(--neon-cyan)] flex flex-wrap gap-4">
-          <Link className="min-h-11 py-2 underline" href="/dragon-name-generator">Name a dragon for your story</Link>
-          <Link className="min-h-11 py-2 underline" href="/band-name-generator">Name a band for your music project</Link>
+          <Link prefetch={false} className="min-h-11 py-2 underline" href="/dragon-name-generator">Name a dragon for your story</Link>
+          <Link prefetch={false} className="min-h-11 py-2 underline" href="/band-name-generator">Name a band for your music project</Link>
         </nav>
         <KeepPlaying path="/writing" />
       </main>

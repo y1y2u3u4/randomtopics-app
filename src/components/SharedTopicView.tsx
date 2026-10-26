@@ -38,7 +38,7 @@ export default function SharedTopicView({ topic, locale }: { topic: Topic; local
                 ? "Genera más temas gratis, sin registro y con puntos para iniciar la conversación."
                 : "Generate more free topics—no signup, with talking points included."}
             </p>
-            <Link href={home} className="btn-generate inline-flex px-6 py-3 text-sm">
+            <Link prefetch={false} href={home} className="btn-generate inline-flex px-6 py-3 text-sm">
               🎲 {isEs ? "Generar otro tema" : "Generate another topic"}
             </Link>
           </div>

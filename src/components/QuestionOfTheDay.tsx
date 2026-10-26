@@ -207,7 +207,7 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
         {shown?.c === "funny" ? <div className="mt-4 rounded-xl border border-[var(--neon-yellow)]/20 p-4 text-center">
           <p className="text-sm font-semibold">Want a funny question that fits your group?</p>
           <p className="mt-1 text-xs leading-relaxed text-[var(--text-muted)]">Choose from a separate collection of 100 funny questions, with filters for family, students, work teams, or friends.</p>
-          <Link href="/funny-question-of-the-day#weekly-plan-filters" onClick={() => track("qotd_funny_collection_click", { tool_type: "question_of_the_day", content_source: "qotd_hub", action_surface: isToday ? "qotd_daily" : "qotd_random", locale: "en" })} className="mt-2 inline-flex min-h-11 items-center text-sm text-[var(--neon-yellow)] underline underline-offset-4">Choose funny questions for my group →</Link>
+          <Link prefetch={false} href="/funny-question-of-the-day#weekly-plan-filters" onClick={() => track("qotd_funny_collection_click", { tool_type: "question_of_the_day", content_source: "qotd_hub", action_surface: isToday ? "qotd_daily" : "qotd_random", locale: "en" })} className="mt-2 inline-flex min-h-11 items-center text-sm text-[var(--neon-yellow)] underline underline-offset-4">Choose funny questions for my group →</Link>
         </div> : null}
 
         <p className="mt-5 text-center text-sm font-semibold">Want a different question? Choose a category for your next draw.</p>
@@ -269,7 +269,7 @@ export default function QuestionOfTheDay({ initialIdx, initialDateLabel }: Quest
           <p className="text-center text-sm font-semibold">Ready for next week?</p>
           <p className="mt-2 text-center text-xs leading-relaxed text-[var(--text-muted)]">Choose questions written for your class or team, keep a favorite for Monday, and copy a five-day plan with follow-ups.</p>
           <div className="mt-3 flex flex-wrap justify-center gap-3">
-            {planLinks.map((link) => <Link key={link.href} href={link.href} onClick={() => track("weekly_plan_entry", { tool_type: "question_of_the_day", content_source: "qotd_hub", plan_audience: link.audience, locale: "en" })} className="inline-flex min-h-11 items-center rounded-xl border border-[var(--neon-cyan)]/30 px-4 py-2 text-sm text-[var(--neon-cyan)]">{link.label} →</Link>)}
+            {planLinks.map((link) => <Link prefetch={false} key={link.href} href={link.href} onClick={() => track("weekly_plan_entry", { tool_type: "question_of_the_day", content_source: "qotd_hub", plan_audience: link.audience, locale: "en" })} className="inline-flex min-h-11 items-center rounded-xl border border-[var(--neon-cyan)]/30 px-4 py-2 text-sm text-[var(--neon-cyan)]">{link.label} →</Link>)}
           </div>
         </div>
       </div>

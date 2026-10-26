@@ -446,11 +446,11 @@ export default function SpeechAccount() {
           <p className="text-sm text-[var(--text-muted)]">
             Signing in to another account opens that account’s history; guest
             attempts are not automatically transferred.{" "}
-            <Link href="/privacy" className="underline">
+            <Link prefetch={false} href="/privacy" className="underline">
               Privacy
             </Link>{" "}
             ·{" "}
-            <Link href="/terms" className="underline">
+            <Link prefetch={false} href="/terms" className="underline">
               Terms
             </Link>
           </p>
@@ -458,7 +458,7 @@ export default function SpeechAccount() {
   );
   return (
     <div data-clarity-mask="true" className="space-y-7">
-      <Link href="/speech" onClick={() => { clearCheckoutIntent(); clearHistoryReturn(); }} className="text-sm underline">
+      <Link prefetch={false} href="/speech" onClick={() => { clearCheckoutIntent(); clearHistoryReturn(); }} className="text-sm underline">
         Back to speech topics
       </Link>
       <h1 className="text-3xl font-bold">Your speech practice</h1>
@@ -611,7 +611,7 @@ export default function SpeechAccount() {
               <>
                 <SpeechHistorySummary nextStep={attempt.feedback.priority.nextStep} repeated={Boolean(attempt.previous_id)}
                   comparison={attempt.feedback.comparison} optional={attempt.feedback.drill?.kind === "refine"} />
-                <Link className="inline-flex min-h-11 items-center rounded-xl bg-[var(--neon-cyan)] px-4 py-2 text-sm font-semibold text-black"
+                <Link prefetch={false} className="inline-flex min-h-11 items-center rounded-xl bg-[var(--neon-cyan)] px-4 py-2 text-sm font-semibold text-black"
                   href={`/speech/practice?attempt=${attempt.id}&next=1`}>{nextRound(attempt.feedback).mode === "transfer" ? "Practice this goal on a new topic" : attempt.feedback.drill ? "Practice this change in 20 seconds" : "Continue this practice"}</Link>
                 <details>
                   <summary className="cursor-pointer py-2 text-sm">

@@ -82,14 +82,14 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
             <ul className="space-y-2">
               {MODES.map((mode) => (
                 <li key={mode.slug}>
-                  <Link href={`${base}/${mode.slug}`} className={linkClass}>
+                  <Link prefetch={false} href={`${base}/${mode.slug}`} className={linkClass}>
                     {mode.emoji} {MODE_LABELS[locale][mode.id].label}
                   </Link>
                 </li>
               ))}
               {tools.map((tool) => (
                 <li key={tool.href}>
-                  <Link href={tool.href} className={linkClass}>
+                  <Link prefetch={false} href={tool.href} className={linkClass}>
                     {tool.label}
                   </Link>
                 </li>
@@ -103,7 +103,7 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
             <ul className="space-y-2">
               {CATEGORIES.slice(0, 8).map((cat) => (
                 <li key={cat.id}>
-                  <Link href={localizePath(`/categories/${cat.id}`, locale)} className={linkClass}>
+                  <Link prefetch={false} href={localizePath(`/categories/${cat.id}`, locale)} className={linkClass}>
                     {cat.emoji} {CATEGORY_LABELS[locale][cat.id].label}
                   </Link>
                 </li>
@@ -117,7 +117,7 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
             <ul className="space-y-2">
               {CATEGORIES.slice(8).map((cat) => (
                 <li key={cat.id}>
-                  <Link href={localizePath(`/categories/${cat.id}`, locale)} className={linkClass}>
+                  <Link prefetch={false} href={localizePath(`/categories/${cat.id}`, locale)} className={linkClass}>
                     {cat.emoji} {CATEGORY_LABELS[locale][cat.id].label}
                   </Link>
                 </li>
@@ -129,14 +129,14 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
               {t.footer.about}
             </h3>
             <ul className="space-y-2">
-              <li><Link href={localizePath("/about", locale)} className={linkClass}>{t.footer.aboutUs}</Link></li>
-              <li><Link href="/how-we-curate" className={linkClass}>How We Curate</Link></li>
-              <li><Link href={localizePath("/privacy", locale)} className={linkClass}>{t.footer.privacy}</Link></li>
-              <li><Link href={localizePath("/terms", locale)} className={linkClass}>{t.footer.terms}</Link></li>
-              <li><Link href={localizePath("/press", locale)} className={linkClass}>{t.footer.press}</Link></li>
-              <li><Link href={localizePath("/contact", locale)} className={linkClass}>{t.footer.contact}</Link></li>
-              <li><Link href={localizePath("/categories", locale)} className={linkClass}>{t.footer.allCategories}</Link></li>
-              <li><Link href={localizePath("/topics", locale)} className={linkClass}>{t.footer.topicCollections}</Link></li>
+              <li><Link prefetch={false} href={localizePath("/about", locale)} className={linkClass}>{t.footer.aboutUs}</Link></li>
+              <li><Link prefetch={false} href="/how-we-curate" className={linkClass}>How We Curate</Link></li>
+              <li><Link prefetch={false} href={localizePath("/privacy", locale)} className={linkClass}>{t.footer.privacy}</Link></li>
+              <li><Link prefetch={false} href={localizePath("/terms", locale)} className={linkClass}>{t.footer.terms}</Link></li>
+              <li><Link prefetch={false} href={localizePath("/press", locale)} className={linkClass}>{t.footer.press}</Link></li>
+              <li><Link prefetch={false} href={localizePath("/contact", locale)} className={linkClass}>{t.footer.contact}</Link></li>
+              <li><Link prefetch={false} href={localizePath("/categories", locale)} className={linkClass}>{t.footer.allCategories}</Link></li>
+              <li><Link prefetch={false} href={localizePath("/topics", locale)} className={linkClass}>{t.footer.topicCollections}</Link></li>
             </ul>
           </div>
         </div>

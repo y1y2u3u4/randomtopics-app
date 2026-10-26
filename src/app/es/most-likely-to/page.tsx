@@ -72,7 +72,7 @@ export default function MostLikelyToPageEs() {
           <div className="rounded-xl border border-[var(--neon-cyan)]/25 p-5">
             <h2 className="font-semibold">¿Prefieres preparar 5 o 10 preguntas?</h2>
             <p className="mt-2 text-sm text-[var(--text-muted)]">Aquí juegas una pregunta a la vez. En la colección de 100 puedes elegir una categoría, preparar una ronda y copiarla completa. Son dos mazos distintos; la pregunta actual no se traslada.</p>
-            <Link href="/es/topics/most-likely-to-questions#generator-es_most_likely_article" className="mt-2 inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Elegir categoría y preparar una ronda →</Link>
+            <Link prefetch={false} href="/es/topics/most-likely-to-questions#generator-es_most_likely_article" className="mt-2 inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">Elegir categoría y preparar una ronda →</Link>
           </div>
         </section>
         {/* Below the first content block, not beside the short party card. */}
@@ -88,7 +88,7 @@ export default function MostLikelyToPageEs() {
               { label: "Preguntas incómodas", detail: "Vergonzosas y comprometedoras", href: "/es/topics/quien-es-mas-probable-preguntas-incomodas" },
               { label: "Preguntas chistosas", detail: "Graciosas y aptas para todos", href: "/es/topics/quien-es-mas-probable-preguntas-chistosas" },
             ].map((collection) => (
-              <Link key={collection.href} href={collection.href} className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-colors">
+              <Link prefetch={false} key={collection.href} href={collection.href} className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-colors">
                 <p className="text-sm font-bold text-[var(--text-primary)]">{collection.label}</p>
                 <p className="text-xs text-[var(--text-muted)] mt-1">{collection.detail}</p>
               </Link>
@@ -110,14 +110,14 @@ export default function MostLikelyToPageEs() {
               </p>
               <p>
                 Sigue la fiesta con{" "}
-                <Link href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Qué Prefieres</Link>,{" "}
-                <Link href="/es/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Verdad o Reto</Link>,{" "}
-                <Link href="/es/this-or-that" className="text-[var(--neon-cyan)] hover:underline">Esto o Aquello</Link> y{" "}
-                <Link href="/es/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Dos Verdades y una Mentira</Link>.
+                <Link prefetch={false} href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Qué Prefieres</Link>,{" "}
+                <Link prefetch={false} href="/es/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Verdad o Reto</Link>,{" "}
+                <Link prefetch={false} href="/es/this-or-that" className="text-[var(--neon-cyan)] hover:underline">Esto o Aquello</Link> y{" "}
+                <Link prefetch={false} href="/es/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Dos Verdades y una Mentira</Link>.
               </p>
               <p>
                 ¿Prefieres elegir por categoría o imprimir las preguntas? Consulta nuestra{" "}
-                <Link href="/es/topics/most-likely-to-questions" className="text-[var(--neon-cyan)] hover:underline">
+                <Link prefetch={false} href="/es/topics/most-likely-to-questions" className="text-[var(--neon-cyan)] hover:underline">
                   lista de 100 preguntas de Quién Es Más Probable para amigos, fiestas y familia
                 </Link>.
               </p>

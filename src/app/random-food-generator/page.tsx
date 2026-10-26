@@ -86,8 +86,8 @@ export default function RandomFoodGeneratorPage() {
           <ul className="list-disc pl-5 space-y-1">
             <li><strong>Weekly meal plan</strong> — generate seven dinners and shop once.</li>
             <li><strong>Learn to cook</strong> — pick one new dish a week from a cuisine you&apos;ve never tried.</li>
-            <li><strong>Party games</strong> — food rounds of <Link href="/this-or-that" className={linkClass}>this or that</Link> or{" "}
-              <Link href="/would-you-rather" className={linkClass}>would you rather</Link>.</li>
+            <li><strong>Party games</strong> — food rounds of <Link prefetch={false} href="/this-or-that" className={linkClass}>this or that</Link> or{" "}
+              <Link prefetch={false} href="/would-you-rather" className={linkClass}>would you rather</Link>.</li>
           </ul>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Three ways people use the filters:"} sets={EXAMPLES} />

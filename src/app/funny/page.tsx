@@ -77,7 +77,7 @@ export default function FunnyPage() {
         <section id="all-funny-topics" className="max-w-3xl mx-auto px-4 sm:px-6 pt-6 scroll-mt-24">
           <div className="glass-card p-5 sm:p-6">
             <h2 className="section-heading text-2xl text-[var(--text-primary)]">All {FUNNY_TOPICS.length} Funny Topics</h2>
-            <p className="mt-2 text-sm text-[var(--text-secondary)]">Every weird and funny prompt the generator can draw. Copy the list for a game night or print it for a classroom. Need more? Try the <Link href="/funny-question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">100 funny questions of the day</Link>.</p>
+            <p className="mt-2 text-sm text-[var(--text-secondary)]">Every weird and funny prompt the generator can draw. Copy the list for a game night or print it for a classroom. Need more? Try the <Link prefetch={false} href="/funny-question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">100 funny questions of the day</Link>.</p>
             <div className="mt-4"><FullListActions items={FUNNY_TOPICS.map((t) => t.text)} label="funny topics" page="/funny" /></div>
             <ol className="mt-4 list-decimal space-y-1.5 pl-5 text-sm text-[var(--text-secondary)]">
               {FUNNY_TOPICS.map((t) => <li key={t.id}>{t.text}</li>)}
@@ -86,12 +86,12 @@ export default function FunnyPage() {
         </section>
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-4">
-          <Link href="/yo-mama-randomizer" className="glass-card mb-4 p-6 block hover:border-[var(--neon-pink)]/40 transition-colors">
+          <Link prefetch={false} href="/yo-mama-randomizer" className="glass-card mb-4 p-6 block hover:border-[var(--neon-pink)]/40 transition-colors">
             <h2 className="text-lg font-bold">Yo Mama Randomizer · original text jokes</h2>
             <p className="mt-2 text-sm text-[var(--text-secondary)]">Pick a clean one-liner, or keep a silly setup and remix its ending. A quick joke tool for when you want a punchline instead of a discussion question.</p>
             <span className="mt-3 inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)]">Try the text randomizer →</span>
           </Link>
-          <Link href="/funny-question-of-the-day" className="glass-card p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-yellow)]/20 hover:border-[var(--neon-yellow)]/40 transition-colors">
+          <Link prefetch={false} href="/funny-question-of-the-day" className="glass-card p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-[var(--neon-yellow)]/20 hover:border-[var(--neon-yellow)]/40 transition-colors">
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-yellow)]">A repeatable daily ritual</p>
               <h2 className="mt-2 text-lg font-bold text-[var(--text-primary)]">100 Funny Questions of the Day</h2>
@@ -118,7 +118,7 @@ export default function FunnyPage() {
                 question is profound, but because it invites playfulness and creativity.
               </p>
               <p>
-                For one funny prompt the whole group shares each day, try the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">random question of the day</Link>; to act things out instead, grab a word from the <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades generator</Link>.
+                For one funny prompt the whole group shares each day, try the <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">random question of the day</Link>; to act things out instead, grab a word from the <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades generator</Link>.
               </p>
               <p>
                 Humor also makes conversations more memorable. Research shows people remember
@@ -144,7 +144,7 @@ export default function FunnyPage() {
                 question, the better the answers. &quot;What conspiracy theory would you invent?&quot;
                 and &quot;What&apos;s the worst superpower you can think of?&quot; consistently produce
                 laugh-out-loud responses. For more party-ready
-                material, browse <Link href="/topics/funny-conversation-topics" className="text-[var(--neon-cyan)] hover:underline">funny conversation topics</Link>.
+                material, browse <Link prefetch={false} href="/topics/funny-conversation-topics" className="text-[var(--neon-cyan)] hover:underline">funny conversation topics</Link>.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--neon-pink)] pt-2">Road Trips & Long Hangouts</h4>
@@ -169,7 +169,7 @@ export default function FunnyPage() {
                 generators ever invented. The best ones present two options that are equally absurd
                 or equally terrible, forcing hilariously passionate debates. Our generator includes
                 dozens of these — check
-                out <Link href="/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">would you rather questions</Link> for
+                out <Link prefetch={false} href="/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">would you rather questions</Link> for
                 a dedicated collection.
               </p>
 

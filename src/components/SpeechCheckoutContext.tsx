@@ -32,7 +32,7 @@ export default function SpeechCheckoutContext({ attempt }: { attempt: { id: stri
         : next.mode === "retry" ? "Stay with this topic and work on this one goal. Improvement is not guaranteed." : next.description}</p>
     <p className="text-sm">{next.why}</p>
     {next.check && <p className="text-sm"><strong>Next check: </strong>{next.check}</p>}
-    <Link href={`/speech/practice?attempt=${attempt.id}&next=1`} className="inline-block min-h-11 py-2 text-sm underline">
+    <Link prefetch={false} href={`/speech/practice?attempt=${attempt.id}&next=1`} className="inline-block min-h-11 py-2 text-sm underline">
       {next.mode === "review" ? "Review my saved evidence" : "Preview this practice"}
     </Link>
   </aside>;

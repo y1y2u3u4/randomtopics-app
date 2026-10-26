@@ -56,8 +56,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           ]}
         />
         <CategoryIllustration category={category as Category} />
-        {category === "education" && <section className="max-w-3xl mx-auto px-4 sm:px-6 py-4"><p className="glass-card p-5">Teaching a class? Free tools for the board: <Link href="/this-or-that/kids" className="text-[var(--neon-cyan)] underline">this or that for kids</Link>, <Link href="/would-you-rather/kids" className="text-[var(--neon-cyan)] underline">would you rather for kids</Link>, <Link href="/topics/get-to-know-you-questions-for-students" className="text-[var(--neon-cyan)] underline">get to know you questions for students</Link>, <Link href="/morning-meeting-questions" className="text-[var(--neon-cyan)] underline">morning meeting questions</Link>, <Link href="/riddles-for-kids" className="text-[var(--neon-cyan)] underline">riddles for kids</Link>, a <Link href="/classroom-timer" className="text-[var(--neon-cyan)] underline">classroom timer</Link> and a <Link href="/random-group-generator" className="text-[var(--neon-cyan)] underline">random group generator</Link>.</p></section>}
-        {category === "art-culture" && <section className="max-w-3xl mx-auto px-4 sm:px-6 py-4"><p className="glass-card p-5">Want to make art rather than discuss it? <Link href="/random-drawing-generator" className="text-[var(--neon-cyan)] underline">Get a random drawing idea and sketch tip</Link>.</p></section>}
+        {category === "education" && <section className="max-w-3xl mx-auto px-4 sm:px-6 py-4"><p className="glass-card p-5">Teaching a class? Free tools for the board: <Link prefetch={false} href="/this-or-that/kids" className="text-[var(--neon-cyan)] underline">this or that for kids</Link>, <Link prefetch={false} href="/would-you-rather/kids" className="text-[var(--neon-cyan)] underline">would you rather for kids</Link>, <Link prefetch={false} href="/topics/get-to-know-you-questions-for-students" className="text-[var(--neon-cyan)] underline">get to know you questions for students</Link>, <Link prefetch={false} href="/morning-meeting-questions" className="text-[var(--neon-cyan)] underline">morning meeting questions</Link>, <Link prefetch={false} href="/riddles-for-kids" className="text-[var(--neon-cyan)] underline">riddles for kids</Link>, a <Link prefetch={false} href="/classroom-timer" className="text-[var(--neon-cyan)] underline">classroom timer</Link> and a <Link prefetch={false} href="/random-group-generator" className="text-[var(--neon-cyan)] underline">random group generator</Link>.</p></section>}
+        {category === "art-culture" && <section className="max-w-3xl mx-auto px-4 sm:px-6 py-4"><p className="glass-card p-5">Want to make art rather than discuss it? <Link prefetch={false} href="/random-drawing-generator" className="text-[var(--neon-cyan)] underline">Get a random drawing idea and sketch tip</Link>.</p></section>}
         <TopicGenerator
           initialCategory={category as Category}
           title={`${label} Topic Generator`}
@@ -128,7 +128,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                     <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">
                       The complete curated {label.toLowerCase()} deck — the same database the generator
                       deals from, in one scannable list. Every entry passed the five-point bar in our{" "}
-                      <Link href="/how-we-curate" className="text-[var(--neon-cyan)] hover:underline">
+                      <Link prefetch={false} href="/how-we-curate" className="text-[var(--neon-cyan)] hover:underline">
                         editorial policy
                       </Link>{" "}
                       and ships with talking points in the generator above.
@@ -190,7 +190,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {categoryToArticles[category].map((article, i) => (
-                      <Link
+                      <Link prefetch={false}
                         key={i}
                         href={article.href}
                         className="text-sm p-3 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
@@ -214,7 +214,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 </h2>
                 <div className="flex flex-wrap gap-3">
                   {MODES.map((mode) => (
-                    <Link
+                    <Link prefetch={false}
                       key={mode.slug}
                       href={`/${mode.slug}/${category}`}
                       className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-pink)] hover:border-[var(--neon-pink)]/30 hover:bg-[rgba(255,45,120,0.05)] transition-all"

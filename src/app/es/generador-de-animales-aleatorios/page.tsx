@@ -81,8 +81,8 @@ export default function GeneradorDeAnimalesPage() {
           <ul className="list-disc pl-5 space-y-1">
             <li><strong>Retos de dibujo</strong> — dibuja el animal en dos minutos y luego en diez; o combina dos animales en una criatura nueva.</li>
             <li><strong>Juegos de adivinar</strong> — alguien lee el dato curioso en voz alta y el resto adivina el animal, o lo representa con mímica.</li>
-            <li><strong>Investigación en clase</strong> — asigna a cada alumno un animal al azar para una ficha o una exposición; mira los <Link href="/es/generador-de-temas-para-exponer" className={linkClass}>temas para exponer</Link>.</li>
-            <li><strong>Nombres de equipo</strong> — nuestro <Link href="/es/generador-de-equipos-aleatorios" className={linkClass}>generador de equipos</Link> ya pone nombres de animales a los equipos.</li>
+            <li><strong>Investigación en clase</strong> — asigna a cada alumno un animal al azar para una ficha o una exposición; mira los <Link prefetch={false} href="/es/generador-de-temas-para-exponer" className={linkClass}>temas para exponer</Link>.</li>
+            <li><strong>Nombres de equipo</strong> — nuestro <Link prefetch={false} href="/es/generador-de-equipos-aleatorios" className={linkClass}>generador de equipos</Link> ya pone nombres de animales a los equipos.</li>
           </ul>
           <p>
             La lista incluye más de cien mamíferos, decenas de aves, vida marina desde el pez payaso hasta la ballena azul, y los insectos y

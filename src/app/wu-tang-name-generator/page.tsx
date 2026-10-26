@@ -111,8 +111,8 @@ export default function WuTangNameGeneratorPage() {
           <GeneratorExamples note="Real results for common names — type the same name above and you'll get the same Wu name:" sets={EXAMPLES} />
           <p>
             Looking for a different kind of alias? Try the{" "}
-            <Link href="/character-name-generator" className={linkClass}>character name generator</Link> or the{" "}
-            <Link href="/japanese-name-generator" className={linkClass}>Japanese name generator</Link>.
+            <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link> or the{" "}
+            <Link prefetch={false} href="/japanese-name-generator" className={linkClass}>Japanese name generator</Link>.
           </p>
           <p className="text-xs text-[var(--text-muted)]">
             Unofficial fan tool. Not affiliated with or endorsed by Wu-Tang Clan or its members. All word lists and origin lines are original.

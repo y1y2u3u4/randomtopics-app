@@ -116,7 +116,7 @@ export default function StoryPromptGenerator() {
     </div>
     <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
       <button type="button" className="min-h-11 font-semibold text-[var(--neon-yellow)] underline underline-offset-4" onClick={showDaily}>📅 Today&apos;s story prompt</button>
-      <Link href="/question-of-the-day" className="min-h-11 inline-flex items-center text-[var(--neon-cyan)] underline underline-offset-4" onClick={() => track("story_qotd_entry_click", { action_surface: "story_prompt_generator" })}>☀️ Answer today&apos;s question of the day →</Link>
+      <Link prefetch={false} href="/question-of-the-day" className="min-h-11 inline-flex items-center text-[var(--neon-cyan)] underline underline-offset-4" onClick={() => track("story_qotd_entry_click", { action_surface: "story_prompt_generator" })}>☀️ Answer today&apos;s question of the day →</Link>
     </div>
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5 border-t border-white/10 pt-4">
       <label className="text-sm font-semibold">Genre<select aria-label="Genre" className={selectClass} value={genre} onChange={changeFilter(setGenre)}>

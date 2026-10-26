@@ -99,11 +99,11 @@ export default function RandomGroupGeneratorPage() {
               <li><strong className="text-[var(--text-primary)]">Groups of 5–6:</strong> stations, debates and games where roles keep everyone involved.</li>
             </ul>
             <p>
-              Give each group something to talk about with a <Link href="/morning-meeting-questions" className="text-[var(--neon-cyan)] hover:underline">morning meeting question</Link> or
-              a <Link href="/would-you-rather/kids" className="text-[var(--neon-cyan)] hover:underline">would you rather question</Link>, and time it with
-              the <Link href="/classroom-timer" className="text-[var(--neon-cyan)] hover:underline">classroom timer</Link>. Picking teams for a game or sport?
-              The <Link href="/random-team-generator" className="text-[var(--neon-cyan)] hover:underline">random team generator</Link> balances by skill.
-              Need one name, not groups? Use the <Link href="/random-name-picker" className="text-[var(--neon-cyan)] hover:underline">random name picker</Link>.
+              Give each group something to talk about with a <Link prefetch={false} href="/morning-meeting-questions" className="text-[var(--neon-cyan)] hover:underline">morning meeting question</Link> or
+              a <Link prefetch={false} href="/would-you-rather/kids" className="text-[var(--neon-cyan)] hover:underline">would you rather question</Link>, and time it with
+              the <Link prefetch={false} href="/classroom-timer" className="text-[var(--neon-cyan)] hover:underline">classroom timer</Link>. Picking teams for a game or sport?
+              The <Link prefetch={false} href="/random-team-generator" className="text-[var(--neon-cyan)] hover:underline">random team generator</Link> balances by skill.
+              Need one name, not groups? Use the <Link prefetch={false} href="/random-name-picker" className="text-[var(--neon-cyan)] hover:underline">random name picker</Link>.
             </p>
           </div>
         </section>

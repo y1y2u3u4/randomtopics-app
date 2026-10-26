@@ -80,7 +80,7 @@ export default function StudentDebatePage() {
                 Teachers use it three ways: projecting it live and generating topics until the class finds
                 one they&apos;re split on; generating 10 topics for small-group parallel debates; or
                 assigning it for homework rebuttal practice. Prefer a fixed list you can print? Our
-                curated <Link href="/topics/debate-topics-for-students" className="text-[var(--neon-cyan)] hover:underline">75 debate topics for students</Link> is
+                curated <Link prefetch={false} href="/topics/debate-topics-for-students" className="text-[var(--neon-cyan)] hover:underline">75 debate topics for students</Link> is
                 organized by grade band.
               </p>
 
@@ -93,7 +93,7 @@ export default function StudentDebatePage() {
               <ul className="space-y-2 list-disc pl-5">
                 <li><strong>Grades 6-8:</strong> concrete, experience-near topics — school rules, homework, sports, technology at home. Use the &quot;light&quot; depth filter.</li>
                 <li><strong>Grades 9-10:</strong> introduce evidence-based topics — social media, gaming, school policy — where students must cite at least one source per argument.</li>
-                <li><strong>Grades 11-12 &amp; college:</strong> policy and ethics topics with real stakes — AI, climate, criminal justice, economics. Use &quot;medium&quot; and &quot;deep&quot; filters, and see our <Link href="/topics/controversial-topics-to-discuss" className="text-[var(--neon-cyan)] hover:underline">controversial topics</Link> collection for advanced classes.</li>
+                <li><strong>Grades 11-12 &amp; college:</strong> policy and ethics topics with real stakes — AI, climate, criminal justice, economics. Use &quot;medium&quot; and &quot;deep&quot; filters, and see our <Link prefetch={false} href="/topics/controversial-topics-to-discuss" className="text-[var(--neon-cyan)] hover:underline">controversial topics</Link> collection for advanced classes.</li>
               </ul>
 
               <h3

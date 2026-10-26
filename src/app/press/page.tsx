@@ -279,7 +279,7 @@ export default function PressPage() {
             <p className="text-[var(--text-secondary)]">
               Want to try it yourself?
             </p>
-            <Link href="/" className="btn-generate inline-block">
+            <Link prefetch={false} href="/" className="btn-generate inline-block">
               Generate a Topic
             </Link>
           </section>

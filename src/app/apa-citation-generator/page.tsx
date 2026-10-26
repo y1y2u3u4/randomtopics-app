@@ -76,10 +76,10 @@ export default function ApaCitationGeneratorPage() {
           </ol>
           <p>
             Writing in another style? Use the{" "}
-            <Link href="/asa-citation-generator" className={linkClass}>ASA citation generator</Link> for sociology,{" "}
-            <Link href="/chicago-citation-generator" className={linkClass}>Chicago style</Link> for history and the humanities, or the{" "}
-            <Link href="/acs-citation-generator" className={linkClass}>ACS citation generator</Link> for chemistry. Still choosing what to write about? Try the{" "}
-            <Link href="/research-topic-generator" className={linkClass}>research topic generator</Link>.
+            <Link prefetch={false} href="/asa-citation-generator" className={linkClass}>ASA citation generator</Link> for sociology,{" "}
+            <Link prefetch={false} href="/chicago-citation-generator" className={linkClass}>Chicago style</Link> for history and the humanities, or the{" "}
+            <Link prefetch={false} href="/acs-citation-generator" className={linkClass}>ACS citation generator</Link> for chemistry. Still choosing what to write about? Try the{" "}
+            <Link prefetch={false} href="/research-topic-generator" className={linkClass}>research topic generator</Link>.
           </p>
         </>
       }

@@ -69,7 +69,7 @@ export default function FactsPage() {
       <header className="py-6">
         <h1 className="text-3xl sm:text-4xl font-extrabold" style={{ fontFamily: "var(--font-display)" }}>RandomTopics facts</h1>
         <p className="mt-3 text-[var(--text-secondary)]">RandomTopics is a free website of random topic generators and question banks for classrooms, teams, parties and speaking practice. It has {topics.length} editor-written topics in {CATEGORIES.length} categories, a daily question of the day, and party games like charades. Everything works in the browser with no signup; results come from curated lists, not live AI.</p>
-        <p className="mt-2 text-xs text-[var(--text-muted)]">Updated <time dateTime={UPDATED}>October 18, 2026</time> · Maintained by the RandomTopics editors · <Link href="/how-we-curate" className="underline">How we curate</Link> · <Link href="/about" className="underline">About</Link></p>
+        <p className="mt-2 text-xs text-[var(--text-muted)]">Updated <time dateTime={UPDATED}>October 18, 2026</time> · Maintained by the RandomTopics editors · <Link prefetch={false} href="/how-we-curate" className="underline">How we curate</Link> · <Link prefetch={false} href="/about" className="underline">About</Link></p>
       </header>
       {sections.map(s => <section key={s.h} className="glass-card p-5 sm:p-8 mt-6">
         <h2 className="text-xl sm:text-2xl font-bold">{s.h}</h2>
@@ -78,7 +78,7 @@ export default function FactsPage() {
       <section className="glass-card p-5 sm:p-8 mt-6">
         <h2 className="text-xl sm:text-2xl font-bold">Common questions</h2>
         {faqs.map(f => <div key={f.question} className="mt-4"><h3 className="font-bold">{f.question}</h3><p className="mt-2 text-[var(--text-secondary)]">{f.answer}</p></div>)}
-        <p className="mt-6 text-sm text-[var(--text-muted)]">More detail: <Link href="/privacy" className="underline">privacy policy</Link>, <Link href="/terms" className="underline">terms</Link>, <Link href="/classroom-packs" className="underline">classroom packs</Link>, <Link href="/stats" className="underline">site stats</Link>.</p>
+        <p className="mt-6 text-sm text-[var(--text-muted)]">More detail: <Link prefetch={false} href="/privacy" className="underline">privacy policy</Link>, <Link prefetch={false} href="/terms" className="underline">terms</Link>, <Link prefetch={false} href="/classroom-packs" className="underline">classroom packs</Link>, <Link prefetch={false} href="/stats" className="underline">site stats</Link>.</p>
       </section>
     </div>
     <FaqSchema items={faqs} />

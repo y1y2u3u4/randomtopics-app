@@ -108,9 +108,9 @@ export default function WritingPageEs() {
                 como una semilla de historia para tu próxima novela, aquí lo encontrarás.
               </p>
               <p>
-                ¿Buscas otros tipos de propuestas? Combina esta herramienta con nuestro <Link href="/es/debate" className="text-[var(--neon-cyan)] hover:underline">generador de temas de debate</Link> para
-                ensayos argumentativos, el <Link href="/es/conversation" className="text-[var(--neon-cyan)] hover:underline">generador de temas de conversación</Link> para
-                practicar diálogos, o explora <Link href="/es/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">temas de ensayo para la universidad</Link> ya preparados.
+                ¿Buscas otros tipos de propuestas? Combina esta herramienta con nuestro <Link prefetch={false} href="/es/debate" className="text-[var(--neon-cyan)] hover:underline">generador de temas de debate</Link> para
+                ensayos argumentativos, el <Link prefetch={false} href="/es/conversation" className="text-[var(--neon-cyan)] hover:underline">generador de temas de conversación</Link> para
+                practicar diálogos, o explora <Link prefetch={false} href="/es/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">temas de ensayo para la universidad</Link> ya preparados.
               </p>
 
               <h3
@@ -168,7 +168,7 @@ export default function WritingPageEs() {
               </ul>
               <p>
                 Para los más pequeños, nuestra colección
-                de <Link href="/es/topics/writing-prompts-for-kids" className="text-[var(--neon-cyan)] hover:underline">ideas para escribir para niños</Link> ofrece
+                de <Link prefetch={false} href="/es/topics/writing-prompts-for-kids" className="text-[var(--neon-cyan)] hover:underline">ideas para escribir para niños</Link> ofrece
                 escenarios adecuados a su edad que hacen que escribir sea divertido en lugar de intimidante.
               </p>
 

@@ -117,7 +117,7 @@ export default function EssayTopicGeneratorPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {ESSAY_SUBJECTS.map((s) => (
-                <Link
+                <Link prefetch={false}
                   key={s.label}
                   href={s.href}
                   className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
@@ -141,7 +141,7 @@ export default function EssayTopicGeneratorPage() {
             <p className="text-[var(--text-muted)] text-sm mb-5">
               The same generated topics adapt to whatever format you have been assigned. Turn any prompt
               into one of these with our{" "}
-              <Link href="/writing" className="text-[var(--neon-cyan)] hover:underline">writing prompts</Link>{" "}
+              <Link prefetch={false} href="/writing" className="text-[var(--neon-cyan)] hover:underline">writing prompts</Link>{" "}
               tool.
             </p>
             <div className="grid sm:grid-cols-2 gap-3">
@@ -196,7 +196,7 @@ export default function EssayTopicGeneratorPage() {
                   <span className="text-[var(--neon-cyan)] font-bold text-lg leading-tight">2.</span>
                   <div>
                     <strong className="text-[var(--text-primary)]">College Applications</strong>
-                    <p className="mt-1">Warm up before writing personal statements by riffing on random reflective prompts. For ready-made lists, see our <Link href="/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">random essay topics for college</Link>.</p>
+                    <p className="mt-1">Warm up before writing personal statements by riffing on random reflective prompts. For ready-made lists, see our <Link prefetch={false} href="/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">random essay topics for college</Link>.</p>
                   </div>
                 </li>
                 <li className="flex gap-3 items-start">
@@ -210,14 +210,14 @@ export default function EssayTopicGeneratorPage() {
                   <span className="text-[var(--neon-cyan)] font-bold text-lg leading-tight">4.</span>
                   <div>
                     <strong className="text-[var(--text-primary)]">Argumentative &amp; Debate Essays</strong>
-                    <p className="mt-1">Many prompts are two-sided by design. Pair the tool with our <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topics</Link> when you need a clear for-and-against to structure your argument.</p>
+                    <p className="mt-1">Many prompts are two-sided by design. Pair the tool with our <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topics</Link> when you need a clear for-and-against to structure your argument.</p>
                   </div>
                 </li>
                 <li className="flex gap-3 items-start">
                   <span className="text-[var(--neon-cyan)] font-bold text-lg leading-tight">5.</span>
                   <div>
                     <strong className="text-[var(--text-primary)]">Bloggers &amp; Journalers</strong>
-                    <p className="mt-1">Out of things to write? Use a random essay prompt as a <Link href="/writing" className="text-[var(--neon-cyan)] hover:underline">writing prompt</Link> or a daily journaling seed to keep the words flowing.</p>
+                    <p className="mt-1">Out of things to write? Use a random essay prompt as a <Link prefetch={false} href="/writing" className="text-[var(--neon-cyan)] hover:underline">writing prompt</Link> or a daily journaling seed to keep the words flowing.</p>
                   </div>
                 </li>
               </ul>
@@ -237,8 +237,8 @@ export default function EssayTopicGeneratorPage() {
 
               <p className="pt-2">
                 Looking for a broader subject rather than a full prompt? Try the{" "}
-                <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">random subject generator</Link>. Want any topic across every category? Use the general{" "}
-                <Link href="/" className="text-[var(--neon-cyan)] hover:underline">topic generator</Link>.
+                <Link prefetch={false} href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">random subject generator</Link>. Want any topic across every category? Use the general{" "}
+                <Link prefetch={false} href="/" className="text-[var(--neon-cyan)] hover:underline">topic generator</Link>.
               </p>
 
               <h3

@@ -111,13 +111,13 @@ export default function ThisOrThatKidsPage() {
                 <li><strong>First day of school:</strong> five questions and you already know who loves dogs, who reads and who wants outdoor recess.</li>
                 <li><strong>Brain break:</strong> two minutes of standing up and moving between lessons, no materials needed.</li>
                 <li><strong>Morning meeting:</strong> one question as the greeting — “Good morning, I picked pancakes because…”.</li>
-                <li><strong>Opinion writing warm-up:</strong> pick a side, then write three reasons. A gentle start before <Link href="/debate/middle-school" className="text-[var(--neon-cyan)] hover:underline">real debate topics</Link>.</li>
+                <li><strong>Opinion writing warm-up:</strong> pick a side, then write three reasons. A gentle start before <Link prefetch={false} href="/debate/middle-school" className="text-[var(--neon-cyan)] hover:underline">real debate topics</Link>.</li>
                 <li><strong>Data and graphing:</strong> tally both sides for five questions and make a bar graph as a class.</li>
               </ul>
               <p>
-                Want bigger dilemmas for older kids? Try <Link href="/would-you-rather/kids" className="text-[var(--neon-cyan)] hover:underline">would you rather questions for kids</Link>.
-                Starting a new class? Use <Link href="/topics/get-to-know-you-questions-for-students" className="text-[var(--neon-cyan)] hover:underline">get to know you questions for students</Link>.
-                For teens and adults, the main <Link href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">this or that generator</Link> has everyday choices.
+                Want bigger dilemmas for older kids? Try <Link prefetch={false} href="/would-you-rather/kids" className="text-[var(--neon-cyan)] hover:underline">would you rather questions for kids</Link>.
+                Starting a new class? Use <Link prefetch={false} href="/topics/get-to-know-you-questions-for-students" className="text-[var(--neon-cyan)] hover:underline">get to know you questions for students</Link>.
+                For teens and adults, the main <Link prefetch={false} href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">this or that generator</Link> has everyday choices.
               </p>
             </div>
           </div>

@@ -83,7 +83,7 @@ export default function LocaleToolPage({ path, title, lead, groups, mode, button
           <h2 className="text-lg font-bold text-[var(--text-primary)] mb-4">{copy.siblingsHeading}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {siblings.filter((p) => p.href !== path).map((p) => (
-              <Link key={p.href} href={p.href} className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-colors">
+              <Link prefetch={false} key={p.href} href={p.href} className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-colors">
                 <p className="text-sm font-bold text-[var(--text-primary)]">{p.label}</p>
                 <p className="text-xs text-[var(--text-muted)] mt-1">{p.detail}</p>
               </Link>
@@ -119,7 +119,7 @@ export default function LocaleToolPage({ path, title, lead, groups, mode, button
               </div>
             ))}
             <p className="pt-4 text-xs text-[var(--text-muted)]">
-              {copy.englishNote} <Link href={englishHref} className="text-[var(--neon-cyan)] hover:underline">{copy.englishLabel}</Link>.
+              {copy.englishNote} <Link prefetch={false} href={englishHref} className="text-[var(--neon-cyan)] hover:underline">{copy.englishLabel}</Link>.
             </p>
           </div>
         </section>

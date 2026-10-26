@@ -43,11 +43,11 @@ export default function ImpromptuCollectionPage({ c }: { c: ImpromptuCollection 
             <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{c.lead}</p>
             <p className="text-sm text-[var(--text-secondary)] mt-3">
               More versions:{" "}
-              <Link href="/impromptu-speech-topics" className="text-[var(--neon-cyan)] hover:underline">all 120 impromptu speech topics</Link>
+              <Link prefetch={false} href="/impromptu-speech-topics" className="text-[var(--neon-cyan)] hover:underline">all 120 impromptu speech topics</Link>
               {siblings.map((s) => (
-                <span key={s.slug}>, <Link href={s.path} className="text-[var(--neon-cyan)] hover:underline">{s.h1.toLowerCase()}</Link></span>
+                <span key={s.slug}>, <Link prefetch={false} href={s.path} className="text-[var(--neon-cyan)] hover:underline">{s.h1.toLowerCase()}</Link></span>
               ))}
-              , <Link href="/5-minute-speech-topics" className="text-[var(--neon-cyan)] hover:underline">5 minute speech topics</Link>.
+              , <Link prefetch={false} href="/5-minute-speech-topics" className="text-[var(--neon-cyan)] hover:underline">5 minute speech topics</Link>.
             </p>
           </div>
         </section>
@@ -77,7 +77,7 @@ export default function ImpromptuCollectionPage({ c }: { c: ImpromptuCollection 
                 {c.structure.steps.map((s) => <li key={s}>{s}</li>)}
               </ol>
               <p>
-                Practicing for Toastmasters? Try the <Link href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table Topics generator</Link>. Need a prepared talk instead? Use the <Link href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link>.
+                Practicing for Toastmasters? Try the <Link prefetch={false} href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table Topics generator</Link>. Need a prepared talk instead? Use the <Link prefetch={false} href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link>.
               </p>
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>Frequently Asked Questions</h3>
               {c.faq.map((item) => (

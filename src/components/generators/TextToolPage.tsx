@@ -89,7 +89,7 @@ export default function TextToolPage({ variant }: { variant: Variant }) {
           </div>
           <p className="text-xs text-[var(--text-muted)]">
             Compared with the top results for “{p.name.toLowerCase()}” in October 2026. Need a name to style? Try the{" "}
-            <Link href="/username-generator" className={linkClass}>username generator</Link>.
+            <Link prefetch={false} href="/username-generator" className={linkClass}>username generator</Link>.
           </p>
         </>
       }

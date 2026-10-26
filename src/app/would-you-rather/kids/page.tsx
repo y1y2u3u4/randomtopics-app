@@ -102,9 +102,9 @@ export default function WouldYouRatherKidsPage() {
                 <li><strong>Indoor recess:</strong> a student “host” runs the projector while the class plays.</li>
               </ul>
               <p>
-                Need faster warm-ups? Try <Link href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link>.
-                For teens and adults, the main <Link href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">would you rather generator</Link> has
-                grown-up dilemmas, and <Link href="/question-of-the-day-for-students" className="text-[var(--neon-cyan)] hover:underline">question of the day for students</Link> gives
+                Need faster warm-ups? Try <Link prefetch={false} href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link>.
+                For teens and adults, the main <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">would you rather generator</Link> has
+                grown-up dilemmas, and <Link prefetch={false} href="/question-of-the-day-for-students" className="text-[var(--neon-cyan)] hover:underline">question of the day for students</Link> gives
                 you a bell-ringer for every day.
               </p>
             </div>

@@ -105,10 +105,10 @@ export default function ClassroomTimerPage() {
               {BRAIN_BREAKS.map((b) => <li key={b}>{b}</li>)}
             </ol>
             <p>
-              Need something to talk about while the timer runs? Try a <Link href="/morning-meeting-questions" className="text-[var(--neon-cyan)] hover:underline">morning meeting question</Link>,
-              a <Link href="/riddles-for-kids" className="text-[var(--neon-cyan)] hover:underline">riddle for kids</Link> or
-              a <Link href="/would-you-rather/kids" className="text-[var(--neon-cyan)] hover:underline">would you rather question</Link>. To call on students,
-              use the <Link href="/random-name-picker" className="text-[var(--neon-cyan)] hover:underline">random name picker</Link>.
+              Need something to talk about while the timer runs? Try a <Link prefetch={false} href="/morning-meeting-questions" className="text-[var(--neon-cyan)] hover:underline">morning meeting question</Link>,
+              a <Link prefetch={false} href="/riddles-for-kids" className="text-[var(--neon-cyan)] hover:underline">riddle for kids</Link> or
+              a <Link prefetch={false} href="/would-you-rather/kids" className="text-[var(--neon-cyan)] hover:underline">would you rather question</Link>. To call on students,
+              use the <Link prefetch={false} href="/random-name-picker" className="text-[var(--neon-cyan)] hover:underline">random name picker</Link>.
             </p>
           </div>
         </section>

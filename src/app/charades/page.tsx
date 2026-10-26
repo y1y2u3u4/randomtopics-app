@@ -250,26 +250,26 @@ export default function CharadesPage() {
               </h3>
               <p>
                 Charades pairs perfectly with our other party tools — run{" "}
-                <Link href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>{" "}
+                <Link prefetch={false} href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>{" "}
                 between rounds, warm up with{" "}
-                <Link href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>{" "}
+                <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>{" "}
                 or{" "}
-                <Link href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>,
+                <Link prefetch={false} href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>,
                 spin the{" "}
-                <Link href="/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">wheel</Link>{" "}
+                <Link prefetch={false} href="/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">wheel</Link>{" "}
                 to pick who acts first, and cool down with{" "}
-                <Link href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">This or That</Link>.
+                <Link prefetch={false} href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">This or That</Link>.
                 Same teams, different game: the{" "}
-                <Link href="/trivia-questions" className="text-[var(--neon-cyan)] hover:underline">trivia questions</Link>{" "}
+                <Link prefetch={false} href="/trivia-questions" className="text-[var(--neon-cyan)] hover:underline">trivia questions</Link>{" "}
                 host mode keeps score for up to eight teams.
                 Hosting a bigger crowd? Grab openers from{" "}
-                <Link href="/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">questions to ask at a party</Link>.
+                <Link prefetch={false} href="/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">questions to ask at a party</Link>.
                 Between rounds, put someone in the{" "}
-                <Link href="/hot-seat-questions" className="text-[var(--neon-cyan)] hover:underline">hot seat</Link>{" "}
+                <Link prefetch={false} href="/hot-seat-questions" className="text-[var(--neon-cyan)] hover:underline">hot seat</Link>{" "}
                 or swap stories with{" "}
-                <Link href="/topics/two-truths-and-a-lie-ideas" className="text-[var(--neon-cyan)] hover:underline">two truths and a lie ideas</Link>.
+                <Link prefetch={false} href="/topics/two-truths-and-a-lie-ideas" className="text-[var(--neon-cyan)] hover:underline">two truths and a lie ideas</Link>.
                 Playing Pictionary instead? The{" "}
-                <Link href="/random-word-generator" className="text-[var(--neon-cyan)] hover:underline">random word generator</Link>{" "}
+                <Link prefetch={false} href="/random-word-generator" className="text-[var(--neon-cyan)] hover:underline">random word generator</Link>{" "}
                 has a drawable-words-only filter.
               </p>
 

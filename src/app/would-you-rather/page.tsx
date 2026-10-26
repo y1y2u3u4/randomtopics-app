@@ -98,16 +98,16 @@ export default function WouldYouRatherPage() {
                 trade-offs, and impossible food choices — with no repeats until the deck runs out.
               </p>
               <p>
-                Turn it into a daily habit with a <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">daily question</Link> everyone answers, or get people moving with <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades words for adults and kids</Link>.
+                Turn it into a daily habit with a <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">daily question</Link> everyone answers, or get people moving with <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades words for adults and kids</Link>.
               </p>
               <p>
                 Want a printable list instead? See
-                our <Link href="/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">80 would you rather questions</Link> collection.
+                our <Link prefetch={false} href="/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">80 would you rather questions</Link> collection.
                 For more party ammunition,
-                try <Link href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>,
-                the <Link href="/question-generator" className="text-[var(--neon-cyan)] hover:underline">random question generator</Link>,
-                or <Link href="/funny" className="text-[var(--neon-cyan)] hover:underline">funny topics</Link>.
-                Can&apos;t decide what to eat after the game? Let the <Link href="/random-food-generator" className="text-[var(--neon-cyan)] hover:underline">random food generator</Link> pick, or settle a debate with a <Link href="/random-animal-generator" className="text-[var(--neon-cyan)] hover:underline">random animal</Link>.
+                try <Link prefetch={false} href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>,
+                the <Link prefetch={false} href="/question-generator" className="text-[var(--neon-cyan)] hover:underline">random question generator</Link>,
+                or <Link prefetch={false} href="/funny" className="text-[var(--neon-cyan)] hover:underline">funny topics</Link>.
+                Can&apos;t decide what to eat after the game? Let the <Link prefetch={false} href="/random-food-generator" className="text-[var(--neon-cyan)] hover:underline">random food generator</Link> pick, or settle a debate with a <Link prefetch={false} href="/random-animal-generator" className="text-[var(--neon-cyan)] hover:underline">random animal</Link>.
               </p>
 
               <h3
@@ -120,7 +120,7 @@ export default function WouldYouRatherPage() {
                 <li><strong>Classic circle:</strong> everyone answers the same question, then the group grills the most controversial pick.</li>
                 <li><strong>Majority rules:</strong> vote simultaneously on a count of three; the minority must defend their choice for 30 seconds.</li>
                 <li><strong>Predict-your-friend:</strong> guess what the person next to you will pick before they reveal it. Score a point per correct prediction.</li>
-                <li><strong>Classroom debate seed:</strong> use a question as a mini persuasive-writing prompt — one paragraph defending your side. Great with our <Link href="/debate/middle-school" className="text-[var(--neon-cyan)] hover:underline">middle school debate generator</Link> as a follow-up.</li>
+                <li><strong>Classroom debate seed:</strong> use a question as a mini persuasive-writing prompt — one paragraph defending your side. Great with our <Link prefetch={false} href="/debate/middle-school" className="text-[var(--neon-cyan)] hover:underline">middle school debate generator</Link> as a follow-up.</li>
               </ul>
 
               <h3

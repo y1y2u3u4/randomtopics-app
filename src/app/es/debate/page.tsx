@@ -105,7 +105,7 @@ export default function DebatePageEs() {
                 contra</strong>. Ya te prepares para un torneo de debate competitivo o dirijas una discusión en
                 clase, estos temas retarán a los participantes a pensar de forma crítica y a articular sus
                 posturas con claridad. Para temas específicos de estudiantes, consulta
-                nuestra guía de <Link href="/es/topics/debate-topics-for-students" className="text-[var(--neon-cyan)] hover:underline">temas de debate para estudiantes</Link>.
+                nuestra guía de <Link prefetch={false} href="/es/topics/debate-topics-for-students" className="text-[var(--neon-cyan)] hover:underline">temas de debate para estudiantes</Link>.
               </p>
 
               <h3
@@ -163,7 +163,7 @@ export default function DebatePageEs() {
               </ol>
               <p>
                 ¿Quieres explorar temas que rompen esquemas? Echa un vistazo a
-                nuestros <Link href="/es/topics/controversial-topics-to-discuss" className="text-[var(--neon-cyan)] hover:underline">temas controversiales y polémicos para debatir</Link> para
+                nuestros <Link prefetch={false} href="/es/topics/controversial-topics-to-discuss" className="text-[var(--neon-cyan)] hover:underline">temas controversiales y polémicos para debatir</Link> para
                 debates que de verdad desafían el pensamiento convencional.
               </p>
 
@@ -197,7 +197,7 @@ export default function DebatePageEs() {
                 especializados. Algunos ejemplos son «¿Debería eliminarse la tarea escolar?» o «¿Hacen las redes
                 sociales más daño que bien?». Así los principiantes pueden centrarse en la estructura del argumento
                 en lugar de luchar con un asunto desconocido. Hemos reunido 40 de ellos
-                en nuestra guía de <Link href="/es/topics/debate-topics-for-beginners" className="text-[var(--neon-cyan)] hover:underline">temas de debate fáciles para principiantes</Link>.
+                en nuestra guía de <Link prefetch={false} href="/es/topics/debate-topics-for-beginners" className="text-[var(--neon-cyan)] hover:underline">temas de debate fáciles para principiantes</Link>.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">¿Cómo elijo un tema de debate para mi clase?</h4>
@@ -258,7 +258,7 @@ export default function DebatePageEs() {
               { title: "50 Preguntas de Dilemas Éticos", href: "/es/topics/ethical-dilemma-questions" },
               { title: "50 Preguntas Filosóficas Profundas", href: "/es/topics/deep-philosophical-questions" },
             ].map((item) => (
-              <Link
+              <Link prefetch={false}
                 key={item.href}
                 href={item.href}
                 className="glass-card p-5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] transition-all hover:translate-y-[-2px] hover:border-[var(--neon-cyan)]/30"
@@ -269,7 +269,7 @@ export default function DebatePageEs() {
             ))}
           </div>
           <div className="text-center mt-6">
-            <Link
+            <Link prefetch={false}
               href="/es/topics"
               className="text-sm text-[var(--text-muted)] hover:text-[var(--neon-cyan)] transition-colors"
             >

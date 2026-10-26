@@ -94,10 +94,10 @@ export default function FunnyDebatePageEs() {
               <p>
                 Este generador se centra en el extremo raro y divertido de nuestra base de datos de temas.
                 ¿Quieres la versión seria para aulas y clubes? Usa el
-                {" "}<Link href="/es/debate" className="text-[var(--neon-cyan)] hover:underline">generador de temas de debate</Link> principal
-                o la <Link href="/es/debate/students" className="text-[var(--neon-cyan)] hover:underline">edición para estudiantes</Link>.
+                {" "}<Link prefetch={false} href="/es/debate" className="text-[var(--neon-cyan)] hover:underline">generador de temas de debate</Link> principal
+                o la <Link prefetch={false} href="/es/debate/students" className="text-[var(--neon-cyan)] hover:underline">edición para estudiantes</Link>.
                 Para preguntas de fiesta con formato de pregunta, prueba
-                nuestras <Link href="/es/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">preguntas de qué prefieres</Link>.
+                nuestras <Link prefetch={false} href="/es/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">preguntas de qué prefieres</Link>.
               </p>
 
               <h3

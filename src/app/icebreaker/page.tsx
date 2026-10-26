@@ -129,7 +129,7 @@ export default function IcebreakerPage() {
                 sets the tone for everything that follows.
               </p>
               <p>
-                To run a quick icebreaker every morning, pin the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> in your team chat; for in-person energy, play a round with the <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades word generator</Link>.
+                To run a quick icebreaker every morning, pin the <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> in your team chat; for in-person energy, play a round with the <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades word generator</Link>.
               </p>
               <p>
                 A short, structured prompt gives everyone an easy first contribution and helps a group
@@ -152,7 +152,7 @@ export default function IcebreakerPage() {
                 &quot;What&apos;s one skill you&apos;d love to learn?&quot; — warms up the room and
                 makes people more willing to contribute later. Keep workplace icebreakers professional
                 but personal enough to feel genuine. For curated
-                options, see <Link href="/topics/icebreaker-questions-for-work" className="text-[var(--neon-cyan)] hover:underline">icebreaker questions for work</Link>.
+                options, see <Link prefetch={false} href="/topics/icebreaker-questions-for-work" className="text-[var(--neon-cyan)] hover:underline">icebreaker questions for work</Link>.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--neon-pink)] pt-2">Classroom & Education</h4>
@@ -178,9 +178,9 @@ export default function IcebreakerPage() {
                 At parties or social gatherings, icebreakers should be playful and surprising. Hypothetical
                 questions, &quot;would you rather&quot; scenarios, and quirky preference questions work
                 best. The goal is laughter and curiosity, not deep reflection. Once the ice is broken,
-                keep the momentum going with a few good <Link href="/conversation" className="text-[var(--neon-cyan)] hover:underline">conversation starters</Link>.
+                keep the momentum going with a few good <Link prefetch={false} href="/conversation" className="text-[var(--neon-cyan)] hover:underline">conversation starters</Link>.
                 For team-oriented options, explore
-                our <Link href="/topics/team-building-questions" className="text-[var(--neon-cyan)] hover:underline">team building questions</Link> collection.
+                our <Link prefetch={false} href="/topics/team-building-questions" className="text-[var(--neon-cyan)] hover:underline">team building questions</Link> collection.
               </p>
 
               <h3

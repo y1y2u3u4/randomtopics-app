@@ -84,10 +84,10 @@ export default function DecisionMakerPage() {
           </p>
           <SectionTitle>Need a different picker?</SectionTitle>
           <p>
-            Picking a person from a class list? The <Link href="/random-name-picker" className={linkClass}>random name picker</Link> removes
-            each winner and can put everyone in a random order. Need a topic to talk about instead of a choice? <Link href="/spin-the-wheel" className={linkClass}>Spin the topic wheel</Link>.
-            Splitting a group? Use the <Link href="/random-team-generator" className={linkClass}>random team generator</Link>, and for “what should I eat”
-            with real dishes, try the <Link href="/random-food-generator" className={linkClass}>random food generator</Link>.
+            Picking a person from a class list? The <Link prefetch={false} href="/random-name-picker" className={linkClass}>random name picker</Link> removes
+            each winner and can put everyone in a random order. Need a topic to talk about instead of a choice? <Link prefetch={false} href="/spin-the-wheel" className={linkClass}>Spin the topic wheel</Link>.
+            Splitting a group? Use the <Link prefetch={false} href="/random-team-generator" className={linkClass}>random team generator</Link>, and for “what should I eat”
+            with real dishes, try the <Link prefetch={false} href="/random-food-generator" className={linkClass}>random food generator</Link>.
           </p>
         </>
       }

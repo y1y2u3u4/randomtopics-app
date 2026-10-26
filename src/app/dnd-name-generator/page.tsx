@@ -93,8 +93,8 @@ export default function DndNameGeneratorPage() {
           <SectionTitle>For players and Dungeon Masters</SectionTitle>
           <p>
             Players can shortlist a name before session zero; DMs can generate a tavern full of NPCs in a click. Need more than a name? The{" "}
-            <Link href="/random-character-generator" className={linkClass}>random character generator</Link> adds a personality, a motivation
-            and a secret, and the <Link href="/viking-name-generator" className={linkClass}>Viking name generator</Link> covers Norse-flavoured
+            <Link prefetch={false} href="/random-character-generator" className={linkClass}>random character generator</Link> adds a personality, a motivation
+            and a secret, and the <Link prefetch={false} href="/viking-name-generator" className={linkClass}>Viking name generator</Link> covers Norse-flavoured
             campaigns.
           </p>
           <SectionTitle>Examples</SectionTitle>

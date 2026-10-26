@@ -77,7 +77,7 @@ export default function ContactPageEs() {
             <p className="text-[var(--text-secondary)] leading-relaxed">
               Esta es también la dirección para prensa y medios: los logotipos, capturas
               y datos que quieras citar ya están en nuestra{" "}
-              <Link href="/es/press" className="text-[var(--accent-blue)] hover:underline">
+              <Link prefetch={false} href="/es/press" className="text-[var(--accent-blue)] hover:underline">
                 página de prensa
               </Link>
               .
@@ -107,15 +107,15 @@ export default function ContactPageEs() {
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
               Cómo tratamos los datos y la publicidad está explicado en nuestra{" "}
-              <Link href="/es/privacy" className="text-[var(--accent-blue)] hover:underline">
+              <Link prefetch={false} href="/es/privacy" className="text-[var(--accent-blue)] hover:underline">
                 Política de Privacidad
               </Link>
               , y las normas de uso de los generadores están en los{" "}
-              <Link href="/es/terms" className="text-[var(--accent-blue)] hover:underline">
+              <Link prefetch={false} href="/es/terms" className="text-[var(--accent-blue)] hover:underline">
                 Términos del Servicio
               </Link>
               . Puedes saber más sobre quién está detrás en la página{" "}
-              <Link href="/es/about" className="text-[var(--accent-blue)] hover:underline">
+              <Link prefetch={false} href="/es/about" className="text-[var(--accent-blue)] hover:underline">
                 sobre nosotros
               </Link>
               .

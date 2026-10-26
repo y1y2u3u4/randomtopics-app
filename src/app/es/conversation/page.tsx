@@ -113,7 +113,7 @@ export default function ConversationPageEs() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {CONVERSATION_COLLECTIONS_ES.map((collection) => (
-                <Link
+                <Link prefetch={false}
                   key={collection.href}
                   href={collection.href}
                   className="rounded-xl border border-[rgba(255,255,255,0.06)] p-4 transition-all hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)]"
@@ -149,10 +149,10 @@ export default function ConversationPageEs() {
                 conjunto variado de ideas en español para distintas ocasiones.
               </p>
               <p>
-                ¿Necesitas otro tipo de propuesta? Prueba nuestro <Link href="/es/writing" className="text-[var(--neon-cyan)] hover:underline">generador de ideas para escribir</Link>,
-                el <Link href="/es/debate" className="text-[var(--neon-cyan)] hover:underline">generador de temas de debate</Link>,
-                nuevas <Link href="/es/icebreaker" className="text-[var(--neon-cyan)] hover:underline">preguntas rompehielos</Link> para reuniones,
-                o <Link href="/es/speech" className="text-[var(--neon-cyan)] hover:underline">temas para discursos</Link> con un cronómetro de práctica integrado.
+                ¿Necesitas otro tipo de propuesta? Prueba nuestro <Link prefetch={false} href="/es/writing" className="text-[var(--neon-cyan)] hover:underline">generador de ideas para escribir</Link>,
+                el <Link prefetch={false} href="/es/debate" className="text-[var(--neon-cyan)] hover:underline">generador de temas de debate</Link>,
+                nuevas <Link prefetch={false} href="/es/icebreaker" className="text-[var(--neon-cyan)] hover:underline">preguntas rompehielos</Link> para reuniones,
+                o <Link prefetch={false} href="/es/speech" className="text-[var(--neon-cyan)] hover:underline">temas para discursos</Link> con un cronómetro de práctica integrado.
               </p>
 
               <h3
@@ -169,7 +169,7 @@ export default function ConversationPageEs() {
                 infancia o qué haría con un día libre inesperado. Evita al principio los temas demasiado
                 personales o polémicos: céntrate en asuntos que revelen personalidad y valores sin que parezca un
                 interrogatorio. ¿Buscas más ideas específicas para citas? Echa un vistazo a nuestra guía de{" "}
-                <Link href="/es/topics/conversation-starters-for-couples" className="text-[var(--neon-cyan)] hover:underline">iniciadores de conversación para parejas</Link>.
+                <Link prefetch={false} href="/es/topics/conversation-starters-for-couples" className="text-[var(--neon-cyan)] hover:underline">iniciadores de conversación para parejas</Link>.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--neon-pink)] pt-2">En el Trabajo</h4>
@@ -185,7 +185,7 @@ export default function ConversationPageEs() {
                 Incluso los amigos más cercanos pueden caer en rutinas de conversación. Rompe el patrón con
                 preguntas hipotéticas («Si pudieras vivir en cualquier época, ¿cuál elegirías?»), propuestas
                 nostálgicas o preguntas profundas sobre metas de vida. Para ideas frescas,
-                explora <Link href="/es/topics/random-questions-to-ask-friends" className="text-[var(--neon-cyan)] hover:underline">preguntas al azar para hacer a los amigos</Link>.
+                explora <Link prefetch={false} href="/es/topics/random-questions-to-ask-friends" className="text-[var(--neon-cyan)] hover:underline">preguntas al azar para hacer a los amigos</Link>.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--neon-pink)] pt-2">Con la Familia</h4>

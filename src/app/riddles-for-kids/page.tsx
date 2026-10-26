@@ -101,9 +101,9 @@ export default function RiddlesForKidsPage() {
                 <li><strong>Car rides and dinner:</strong> one person reads, everyone else guesses — no screen needed after the first look.</li>
               </ul>
               <p>
-                Pair riddles with <Link href="/morning-meeting-questions" className="text-[var(--neon-cyan)] hover:underline">morning meeting questions</Link>,
-                quick <Link href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link> or
-                silly <Link href="/would-you-rather/kids" className="text-[var(--neon-cyan)] hover:underline">would you rather questions for kids</Link>.
+                Pair riddles with <Link prefetch={false} href="/morning-meeting-questions" className="text-[var(--neon-cyan)] hover:underline">morning meeting questions</Link>,
+                quick <Link prefetch={false} href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link> or
+                silly <Link prefetch={false} href="/would-you-rather/kids" className="text-[var(--neon-cyan)] hover:underline">would you rather questions for kids</Link>.
               </p>
             </div>
           </div>

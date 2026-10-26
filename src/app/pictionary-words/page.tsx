@@ -63,7 +63,7 @@ export default function PictionaryWordsPage() {
         <>
           This is a free list of {TOTAL} Pictionary words: 60 each for animals, objects, actions and movies, and each labelled easy, medium
           or hard. Press the button to pick one at random, or use the{" "}
-          <Link href="/pictionary-word-generator" className={linkClass}>Pictionary word generator</Link> for a timer and team scores.
+          <Link prefetch={false} href="/pictionary-word-generator" className={linkClass}>Pictionary word generator</Link> for a timer and team scores.
         </>
       }
       related={[
@@ -96,7 +96,7 @@ export default function PictionaryWordsPage() {
           <ol className="list-decimal pl-5 space-y-1">
             <li><strong>On a screen:</strong> press Pick a random word, show it to the drawer only, and start drawing.</li>
             <li><strong>On paper:</strong> press Print / PDF, cut the words into slips and draw them from a bowl.</li>
-            <li><strong>For a timed game:</strong> open the <Link href="/pictionary-word-generator" className={linkClass}>generator</Link> with a 60-second timer, team scores and projector mode.</li>
+            <li><strong>For a timed game:</strong> open the <Link prefetch={false} href="/pictionary-word-generator" className={linkClass}>generator</Link> with a 60-second timer, team scores and projector mode.</li>
           </ol>
 
           <SectionTitle>How it compares</SectionTitle>

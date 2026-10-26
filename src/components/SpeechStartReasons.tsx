@@ -30,7 +30,7 @@ export default function SpeechStartReasons({ visible, contentSource }: {
     <p ref={prompt}>Not ready to record? You can tell us why — optional.</p>
     {answer ? <p role="status" className="leading-relaxed">
       {choices.find(([key]) => key === answer)?.[2]}
-      {answer === "privacy" && <> <Link className="underline" href="/privacy">Privacy details</Link></>}
+      {answer === "privacy" && <> <Link prefetch={false} className="underline" href="/privacy">Privacy details</Link></>}
     </p> : <div className="flex flex-wrap gap-2">
       {choices.map(([reason, label]) => <button type="button" key={reason}
         className="min-h-11 rounded-lg border border-white/15 px-3 py-2 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--neon-cyan)]"

@@ -107,13 +107,13 @@ export default function ChristmasTriviaPage() {
           <p>
             Set the timer to 20 seconds for the easy round and 40 for the hard one, and play the easy questions with kids on one team and adults on
             another. Award a bonus point for the best ugly sweater, and let the team in last place choose the next round&apos;s difficulty. Between
-            rounds, act out movies and carols with <Link href="/charades/christmas" className={linkClass}>Christmas charades</Link>, or switch to the
-            year-round <Link href="/trivia-questions" className={linkClass}>trivia questions</Link> in ten categories.
+            rounds, act out movies and carols with <Link prefetch={false} href="/charades/christmas" className={linkClass}>Christmas charades</Link>, or switch to the
+            year-round <Link prefetch={false} href="/trivia-questions" className={linkClass}>trivia questions</Link> in ten categories.
           </p>
           <p>
             Every question is written in-house, sticks to facts that won&apos;t change, and comes with the basis for its answer, so you can settle
             arguments before the cookies run out. Looking for a movie to watch afterwards? The{" "}
-            <Link href="/random-movie-generator" className={linkClass}>random movie generator</Link> picks one for you.
+            <Link prefetch={false} href="/random-movie-generator" className={linkClass}>random movie generator</Link> picks one for you.
           </p>
         </>
       }

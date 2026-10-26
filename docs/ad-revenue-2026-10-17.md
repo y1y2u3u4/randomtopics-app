@@ -150,3 +150,10 @@ Five optional subscription products (PR #180) went live on 2026-10-24: Teacher (
 Launched 2026-10-25 15:12 Asia/Shanghai (07:12 UTC; PR #181, merge 2889d03). The 5 subscription entries now appear after the 1st generation (was the 3rd) and sit on 22 more pages (`src/lib/subs/entries.ts`: teacher 5, bot 5, journal 5, couples 4, wheel 3). Each is one text card under the result, or at the end of a topic article before the ad; no popup, no login wall, free use unchanged; homepage and Host Pass pages untouched.
 
 For the 10/31 comparison, split the window at this launch time: days before it measure "Try next" alone, days after it measure "Try next" + widened entries. If RPM on the newly listed pages drops, compare their generator-page vs related-tool page views before and after.
+
+## Separate change: Vercel request cuts (10/27, exclude from the 10/31 RPM comparison)
+
+Launched 2026-10-27, PR "Vercel cost: local signed-out ad check, cached entitlement, no Link prefetch" (launch time recorded below after deploy). Two request cuts, no visible change:
+- `/api/speech/ad-entitlement` is no longer called for visitors without a session (answered locally with the same signed-out result the route returned). Signed-in results are cached per user for 2 minutes in sessionStorage; query-string documents and identity changes always ask the server. Host Pass, classroom and the 5 subscriptions still remove ads via the same route; a buyer may see ads for up to 2 minutes after paying on a cached page, after which the page retires as before.
+- Every `next/link` has `prefetch={false}` (homepage had ~124 viewport prefetches; ad pages reload the document on navigation anyway, so prefetches were wasted).
+Ad requests themselves are unchanged. If RPM moves around 10/27, check this before crediting the "Try next" or subscription changes.

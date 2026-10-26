@@ -122,17 +122,17 @@ export default function QuestionOfTheDayPage() {
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Link href="/question-of-the-day-for-students" className="glass-card p-6 border-[var(--neon-cyan)]/20 hover:border-[var(--neon-cyan)]/40 transition-colors">
+            <Link prefetch={false} href="/question-of-the-day-for-students" className="glass-card p-6 border-[var(--neon-cyan)]/20 hover:border-[var(--neon-cyan)]/40 transition-colors">
               <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-cyan)]">For classrooms</p>
               <h2 className="mt-2 text-lg font-bold text-[var(--text-primary)]">Question of the Day for Students</h2>
               <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">180 grade-aware prompts, classroom filters, facilitation notes, and printable five-day plans.</p>
             </Link>
-            <Link href="/question-of-the-day-for-work" className="glass-card p-6 border-[var(--neon-pink)]/20 hover:border-[var(--neon-pink)]/40 transition-colors">
+            <Link prefetch={false} href="/question-of-the-day-for-work" className="glass-card p-6 border-[var(--neon-pink)]/20 hover:border-[var(--neon-pink)]/40 transition-colors">
               <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-pink)]">For teams</p>
               <h2 className="mt-2 text-lg font-bold text-[var(--text-primary)]">Question of the Day for Work</h2>
               <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">120 professional prompts for remote, hybrid, onboarding, meetings, and retrospectives.</p>
             </Link>
-            <Link href="/funny-question-of-the-day" className="glass-card p-6 border-[var(--neon-yellow)]/20 hover:border-[var(--neon-yellow)]/40 transition-colors">
+            <Link prefetch={false} href="/funny-question-of-the-day" className="glass-card p-6 border-[var(--neon-yellow)]/20 hover:border-[var(--neon-yellow)]/40 transition-colors">
               <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-yellow)]">For an easy laugh</p>
               <h2 className="mt-2 text-lg font-bold text-[var(--text-primary)]">Funny Question of the Day</h2>
               <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">100 audience-safe funny prompts, daily rotation, filters, and printable five-day plans.</p>
@@ -212,16 +212,16 @@ export default function QuestionOfTheDayPage() {
               </p>
               <p>
                 Need more than one a day? Our{" "}
-                <Link href="/question-generator" className="text-[var(--neon-cyan)] hover:underline">random question generator</Link>{" "}
+                <Link prefetch={false} href="/question-generator" className="text-[var(--neon-cyan)] hover:underline">random question generator</Link>{" "}
                 deals unlimited questions, the{" "}
-                <Link href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">icebreaker generator</Link>{" "}
+                <Link prefetch={false} href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">icebreaker generator</Link>{" "}
                 is tuned for meetings and events, and{" "}
-                <Link href="/topics/get-to-know-you-questions-for-adults" className="text-[var(--neon-cyan)] hover:underline">get-to-know-you questions</Link>{" "}
+                <Link prefetch={false} href="/topics/get-to-know-you-questions-for-adults" className="text-[var(--neon-cyan)] hover:underline">get-to-know-you questions</Link>{" "}
                 go deeper for new groups. Want a debate instead? Try{" "}
-                <Link href="/topics/ethical-dilemma-questions" className="text-[var(--neon-cyan)] hover:underline">ethical dilemma questions</Link>{" "}
+                <Link prefetch={false} href="/topics/ethical-dilemma-questions" className="text-[var(--neon-cyan)] hover:underline">ethical dilemma questions</Link>{" "}
                 or the{" "}
-                <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link>. For journaling instead of discussion, use the{" "}
-                <Link href="/journal-prompts" className="text-[var(--neon-cyan)] hover:underline">journal prompt generator</Link>.
+                <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link>. For journaling instead of discussion, use the{" "}
+                <Link prefetch={false} href="/journal-prompts" className="text-[var(--neon-cyan)] hover:underline">journal prompt generator</Link>.
               </p>
 
               <h3

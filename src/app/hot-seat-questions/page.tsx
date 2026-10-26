@@ -97,21 +97,21 @@ export default function HotSeatPage() {
                 <li><strong>Set the timer</strong> — three minutes per person is the sweet spot.</li>
                 <li><strong>Deal questions from the generator</strong> — the asker reads it exactly as written.</li>
                 <li><strong>Two passes each</strong> — everyone gets outs, nobody gets cornered.</li>
-                <li><strong>Rotate clockwise</strong> — and the person leaving the seat picks who&apos;s next... or spin the <Link href="/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">wheel</Link> to decide.</li>
+                <li><strong>Rotate clockwise</strong> — and the person leaving the seat picks who&apos;s next... or spin the <Link prefetch={false} href="/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">wheel</Link> to decide.</li>
                 <li><strong>Vote a best answer</strong> per round to keep the audience invested.</li>
               </ol>
               <p>
                 Build the rest of game night with our party decks:{" "}
-                <Link href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}
-                <Link href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>,{" "}
-                <Link href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>,{" "}
-                <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">Charades</Link>,{" "}
-                <Link href="/paranoia-questions" className="text-[var(--neon-cyan)] hover:underline">Paranoia</Link>, and{" "}
-                <Link href="/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Two Truths and a Lie</Link>.
+                <Link prefetch={false} href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}
+                <Link prefetch={false} href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>,{" "}
+                <Link prefetch={false} href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>,{" "}
+                <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">Charades</Link>,{" "}
+                <Link prefetch={false} href="/paranoia-questions" className="text-[var(--neon-cyan)] hover:underline">Paranoia</Link>, and{" "}
+                <Link prefetch={false} href="/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Two Truths and a Lie</Link>.
                 Quieter group? Start with{" "}
-                <Link href="/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">questions to ask at a party</Link>.
+                <Link prefetch={false} href="/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">questions to ask at a party</Link>.
                 Need statements for Two Truths? Use these{" "}
-                <Link href="/topics/two-truths-and-a-lie-ideas" className="text-[var(--neon-cyan)] hover:underline">120 two truths and a lie ideas</Link>.
+                <Link prefetch={false} href="/topics/two-truths-and-a-lie-ideas" className="text-[var(--neon-cyan)] hover:underline">120 two truths and a lie ideas</Link>.
               </p>
 
               <h3

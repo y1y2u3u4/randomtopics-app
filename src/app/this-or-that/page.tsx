@@ -92,21 +92,21 @@ export default function ThisOrThatPage() {
                 deck of clean either/or prompts, one per click, with no repeats until the deck runs out.
               </p>
               <p>
-                Played every choice? Keep the ritual going with a <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">QOTD</Link> that changes at midnight, or move to <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades ideas</Link> sorted from easy to hard.
+                Played every choice? Keep the ritual going with a <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">QOTD</Link> that changes at midnight, or move to <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades ideas</Link> sorted from easy to hard.
               </p>
               <p>
                 More party games:{" "}
-                <Link href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>,{" "}
-                <Link href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}
-                <Link href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>, and{" "}
-                <Link href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>.
+                <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>,{" "}
+                <Link prefetch={false} href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}
+                <Link prefetch={false} href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>, and{" "}
+                <Link prefetch={false} href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>.
               </p>
               <p>
                 More versions:{" "}
-                <Link href="/this-or-that/couples" className="text-[var(--neon-cyan)] hover:underline">this or that questions for couples</Link>,{" "}
-                <Link href="/this-or-that/hard" className="text-[var(--neon-cyan)] hover:underline">hard this or that questions</Link>,{" "}
-                <Link href="/this-or-that/work" className="text-[var(--neon-cyan)] hover:underline">this or that questions for work</Link> and{" "}
-                <Link href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link>.
+                <Link prefetch={false} href="/this-or-that/couples" className="text-[var(--neon-cyan)] hover:underline">this or that questions for couples</Link>,{" "}
+                <Link prefetch={false} href="/this-or-that/hard" className="text-[var(--neon-cyan)] hover:underline">hard this or that questions</Link>,{" "}
+                <Link prefetch={false} href="/this-or-that/work" className="text-[var(--neon-cyan)] hover:underline">this or that questions for work</Link> and{" "}
+                <Link prefetch={false} href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link>.
               </p>
 
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>
@@ -134,7 +134,7 @@ export default function ThisOrThatPage() {
               <p><strong className="text-[var(--text-primary)]">Couples predict.</strong> Write your answer down, then guess your partner&apos;s. A point per correct guess &mdash; low stakes, weirdly revealing.</p>
               <p><strong className="text-[var(--text-primary)]">Road trip mode.</strong> Passenger reads, everyone answers in seat order, driver breaks ties. The no-wrong-answers format is exactly what hour three of a drive needs.</p>
               <p className="text-xs text-[var(--text-muted)]">Facilitator tip: alternate easy comfort picks (coffee or tea) with genuinely hard ones &mdash; the rhythm keeps both kids and adults locked in.</p>
-              <p>After the picks, share your favourites as a 3×3 grid: <Link href="/my-9-albums" className="text-[var(--neon-cyan)] hover:underline">My 9 Albums</Link>, <Link href="/my-9-games" className="text-[var(--neon-cyan)] hover:underline">My 9 Games</Link>, <Link href="/my-9-movies" className="text-[var(--neon-cyan)] hover:underline">My 9 Movies</Link>, <Link href="/my-9-anime" className="text-[var(--neon-cyan)] hover:underline">My 9 Anime</Link>, <Link href="/my-9-books" className="text-[var(--neon-cyan)] hover:underline">My 9 Books</Link> or the <Link href="/my-9-grid" className="text-[var(--neon-cyan)] hover:underline">3x3 grid maker</Link>.</p>
+              <p>After the picks, share your favourites as a 3×3 grid: <Link prefetch={false} href="/my-9-albums" className="text-[var(--neon-cyan)] hover:underline">My 9 Albums</Link>, <Link prefetch={false} href="/my-9-games" className="text-[var(--neon-cyan)] hover:underline">My 9 Games</Link>, <Link prefetch={false} href="/my-9-movies" className="text-[var(--neon-cyan)] hover:underline">My 9 Movies</Link>, <Link prefetch={false} href="/my-9-anime" className="text-[var(--neon-cyan)] hover:underline">My 9 Anime</Link>, <Link prefetch={false} href="/my-9-books" className="text-[var(--neon-cyan)] hover:underline">My 9 Books</Link> or the <Link prefetch={false} href="/my-9-grid" className="text-[var(--neon-cyan)] hover:underline">3x3 grid maker</Link>.</p>
             </div>
           </div>
         </section>

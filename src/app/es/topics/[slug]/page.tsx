@@ -248,7 +248,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
               <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">Usa la lista completa para mezclar estilos, o abre una colección de 45 preguntas escrita específicamente para tu grupo.</p>
               <div className="mt-5 grid grid-cols-1 gap-3">
                 {MOST_LIKELY_COLLECTIONS_ES.map((collection) => (
-                  <Link key={collection.href} href={collection.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
+                  <Link prefetch={false} key={collection.href} href={collection.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
                     <span className="block text-sm font-semibold text-[var(--text-primary)]">{collection.title} →</span>
                     <span className="block mt-1 text-xs text-[var(--text-muted)]">{collection.detail}</span>
                   </Link>
@@ -285,7 +285,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
             <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 text-center">
               <h2 className="text-xl font-bold text-[var(--text-primary)]">¿Necesitas un tema según la asignatura y el nivel?</h2>
               <p className="mt-2 text-sm text-[var(--text-secondary)]">El generador especializado entrega una idea y un enfoque que puedes convertir directamente en diapositivas.</p>
-              <Link href="/es/generador-de-temas-para-exponer" className="btn-generate inline-flex mt-5 items-center gap-2 text-sm px-6 py-3">
+              <Link prefetch={false} href="/es/generador-de-temas-para-exponer" className="btn-generate inline-flex mt-5 items-center gap-2 text-sm px-6 py-3">
                 <span aria-hidden="true">📊</span> Generar un Tema para Exponer
               </Link>
             </div>
@@ -344,7 +344,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
                     <p className="text-sm text-[var(--text-secondary)] mb-4">
                       {articleCta.text}
                     </p>
-                    <Link href={articleCta.href} className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
+                    <Link prefetch={false} href={articleCta.href} className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
                       <span>{articleCta.emoji}</span> {articleCta.label}
                     </Link>
                   </div>
@@ -409,7 +409,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
                 {articleToPages[article.slug].modes.map((modeSlug) => {
                   const mode = MODES.find((m) => m.slug === modeSlug);
                   return mode ? (
-                    <Link
+                    <Link prefetch={false}
                       key={mode.slug}
                       href={`/es/${mode.slug}`}
                       className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-pink)] hover:border-[var(--neon-pink)]/30 hover:bg-[rgba(255,45,120,0.05)] transition-all"
@@ -421,7 +421,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
                 {articleToPages[article.slug].categories.map((catId) => {
                   const cat = CATEGORIES.find((c) => c.id === catId);
                   return cat ? (
-                    <Link
+                    <Link prefetch={false}
                       key={cat.id}
                       href={`/es/categories/${cat.id}`}
                       className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
@@ -443,7 +443,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
               </h2>
               <div className="flex flex-wrap gap-3">
                 {article.relatedLinks.map((link, i) => (
-                  <Link
+                  <Link prefetch={false}
                     key={i}
                     href={link.href}
                     className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
@@ -465,7 +465,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
               {SEO_ARTICLES_ES.filter((a) => a.slug !== article.slug)
                 .slice(0, 6)
                 .map((a) => (
-                  <Link
+                  <Link prefetch={false}
                     key={a.slug}
                     href={`/es/topics/${a.slug}`}
                     className="text-sm p-3 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
@@ -478,7 +478,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
         </section>
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16 text-center">
-          <Link href={articleCta.href} className="btn-generate animate-pulse-glow inline-flex items-center gap-2 text-lg px-10 py-4">
+          <Link prefetch={false} href={articleCta.href} className="btn-generate animate-pulse-glow inline-flex items-center gap-2 text-lg px-10 py-4">
             <span>{articleCta.emoji}</span> {articleCta.label}
           </Link>
         </section>

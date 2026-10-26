@@ -138,13 +138,13 @@ export default function JournalPromptsPage() {
 
               <p className="pt-2">
                 Want story starters instead of reflection questions? Try the{" "}
-                <Link href="/writing" className="text-[var(--neon-cyan)] hover:underline">writing prompt generator</Link>.
+                <Link prefetch={false} href="/writing" className="text-[var(--neon-cyan)] hover:underline">writing prompt generator</Link>.
                 Journaling with a partner or group? Our{" "}
-                <Link href="/topics/deep-questions-to-ask-your-partner" className="text-[var(--neon-cyan)] hover:underline">deep questions for your partner</Link>{" "}
+                <Link prefetch={false} href="/topics/deep-questions-to-ask-your-partner" className="text-[var(--neon-cyan)] hover:underline">deep questions for your partner</Link>{" "}
                 and{" "}
-                <Link href="/topics/deep-philosophical-questions" className="text-[var(--neon-cyan)] hover:underline">philosophical questions</Link>{" "}
+                <Link prefetch={false} href="/topics/deep-philosophical-questions" className="text-[var(--neon-cyan)] hover:underline">philosophical questions</Link>{" "}
                 make excellent shared prompts. For school use, see{" "}
-                <Link href="/topics/writing-prompts-for-kids" className="text-[var(--neon-cyan)] hover:underline">writing prompts for kids</Link>.
+                <Link prefetch={false} href="/topics/writing-prompts-for-kids" className="text-[var(--neon-cyan)] hover:underline">writing prompts for kids</Link>.
               </p>
 
               <h3
@@ -177,9 +177,9 @@ export default function JournalPromptsPage() {
           />
           <p className="max-w-3xl mx-auto px-4 sm:px-6 pt-4 text-sm text-[var(--text-secondary)] leading-relaxed">
             Tip for teachers: give 5–10 minutes of quiet writing, let younger students draw first and add one sentence, and invite two volunteers to share.
-            Need story starters instead? Try <Link href="/topics/writing-prompts-for-kids" className="text-[var(--neon-cyan)] hover:underline">writing prompts for kids</Link>, the{" "}
-            <Link href="/story-prompt-generator" className="text-[var(--neon-cyan)] hover:underline">story prompt generator</Link> or
-            today&apos;s <Link href="/morning-meeting-questions" className="text-[var(--neon-cyan)] hover:underline">morning meeting questions</Link>.
+            Need story starters instead? Try <Link prefetch={false} href="/topics/writing-prompts-for-kids" className="text-[var(--neon-cyan)] hover:underline">writing prompts for kids</Link>, the{" "}
+            <Link prefetch={false} href="/story-prompt-generator" className="text-[var(--neon-cyan)] hover:underline">story prompt generator</Link> or
+            today&apos;s <Link prefetch={false} href="/morning-meeting-questions" className="text-[var(--neon-cyan)] hover:underline">morning meeting questions</Link>.
           </p>
         </section>
         <ClassroomToolLinks currentPath="/journal-prompts" />

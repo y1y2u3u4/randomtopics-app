@@ -102,8 +102,8 @@ export default function ElfNameGeneratorPage() {
           <p>
             Elves live for centuries, so many fantasy settings give them more than one name: a birth name, a name earned in service, and a
             house name. Use the first name here for the birth name, then roll a few more and keep your favourite as an epithet. If your elf
-            will share a table with other races, the <Link href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link>{" "}
-            covers dwarves, halflings and more, and the <Link href="/character-name-generator" className={linkClass}>character name
+            will share a table with other races, the <Link prefetch={false} href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link>{" "}
+            covers dwarves, halflings and more, and the <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name
             generator</Link> works for any setting.
           </p>
           <SectionTitle>Examples</SectionTitle>

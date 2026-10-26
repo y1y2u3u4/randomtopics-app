@@ -196,7 +196,7 @@ function GrowthPagesTable({ rows }: { rows: GrowthPageRow[] }) {
             return (
               <tr key={row.path} className="border-b border-white/5 last:border-0">
                 <td className="px-4 py-3">
-                  <Link href={row.path} className="font-semibold text-cyan-100 hover:text-cyan-300">
+                  <Link prefetch={false} href={row.path} className="font-semibold text-cyan-100 hover:text-cyan-300">
                     {row.label}
                   </Link>
                   {row.launchedRecently ? (
@@ -371,8 +371,8 @@ export default async function AnalyticsPage({
             服务端没有返回凭证详情。请先检查公开健康接口，再重新刷新。
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/api/internal/analytics/health" className="mode-chip">Health check</Link>
-            <Link href="/internal/analytics?refresh=1" className="mode-chip">Retry</Link>
+            <Link prefetch={false} href="/api/internal/analytics/health" className="mode-chip">Health check</Link>
+            <Link prefetch={false} href="/internal/analytics?refresh=1" className="mode-chip">Retry</Link>
           </div>
         </section>
       </main>
@@ -410,8 +410,8 @@ export default async function AnalyticsPage({
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Link href="/internal/analytics?refresh=1" className="mode-chip">↻ Refresh</Link>
-          <Link href="/api/internal/analytics/summary" className="mode-chip">JSON</Link>
+          <Link prefetch={false} href="/internal/analytics?refresh=1" className="mode-chip">↻ Refresh</Link>
+          <Link prefetch={false} href="/api/internal/analytics/summary" className="mode-chip">JSON</Link>
           <SitewideReportSync />
           <form action="/api/internal/analytics/logout" method="post">
             <button type="submit" className="mode-chip">Log out</button>

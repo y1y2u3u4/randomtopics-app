@@ -17,7 +17,7 @@ export default function ClassroomToolLinksEs({ currentPath }: { currentPath?: st
       <ul className="grid gap-3 sm:grid-cols-2">
         {CLASSROOM_TOOLS_ES.filter((t) => t.href !== currentPath).map((t) => (
           <li key={t.href}>
-            <Link href={t.href} className="glass-card flex items-start gap-3 p-4 h-full hover:border-[var(--neon-cyan)]/40 transition-colors">
+            <Link prefetch={false} href={t.href} className="glass-card flex items-start gap-3 p-4 h-full hover:border-[var(--neon-cyan)]/40 transition-colors">
               <span className="text-2xl" aria-hidden="true">{t.emoji}</span>
               <span>
                 <span className="block text-sm font-semibold text-[var(--text-primary)]">{t.label}</span>

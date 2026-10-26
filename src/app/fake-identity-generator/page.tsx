@@ -97,7 +97,7 @@ export default function FakeIdentityGeneratorPage() {
           <ul className="list-disc pl-5 space-y-1">
             <li><strong>Name</strong> — common first names and real surnames from the chosen country, with feminine surname forms where the language has them.</li>
             <li><strong>Birthday, age, star sign, generation</strong> — calculated from one date, so they never contradict each other.</li>
-            <li><strong>Address</strong> — invented street, real city, postcode from that city&apos;s range, in the country&apos;s own layout. See the <Link href="/fake-address-generator" className={linkClass}>fake address generator</Link> for formats.</li>
+            <li><strong>Address</strong> — invented street, real city, postcode from that city&apos;s range, in the country&apos;s own layout. See the <Link prefetch={false} href="/fake-address-generator" className={linkClass}>fake address generator</Link> for formats.</li>
             <li><strong>Job, username, email, phone</strong> — emails on reserved example.com domains; phones only from ranges set aside for fiction.</li>
             <li><strong>Height, weight, blood type, eyes, hair</strong> — height, eye and hair colour follow the country; blood types follow real population frequencies.</li>
             <li><strong>Favourite colour, personality, hobby</strong> — small details that make a test user or an NPC feel like a person.</li>
@@ -133,8 +133,8 @@ export default function FakeIdentityGeneratorPage() {
           <p>
             Social Security, national ID, passport, driving licence and card numbers are not generated. A random number in a valid format can
             belong to a real person, and none of the legitimate uses above need one. If you only need names, the{" "}
-            <Link href="/fake-name-generator" className={linkClass}>fake name generator</Link> is faster; for a character without an address, try
-            the <Link href="/fake-person-generator" className={linkClass}>fake person generator</Link>.
+            <Link prefetch={false} href="/fake-name-generator" className={linkClass}>fake name generator</Link> is faster; for a character without an address, try
+            the <Link prefetch={false} href="/fake-person-generator" className={linkClass}>fake person generator</Link>.
           </p>
         </>
       }

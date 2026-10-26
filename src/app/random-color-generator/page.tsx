@@ -82,8 +82,8 @@ export default function RandomColorGeneratorPage() {
           </ol>
           <SectionTitle>Ideas</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Art challenges</strong> — three random colors + a subject from the <Link href="/random-drawing-generator" className={linkClass}>random drawing generator</Link>.</li>
-            <li><strong>Pictionary twist</strong> — draw a <Link href="/random-word-generator?use=draw" className={linkClass}>random drawable word</Link> using only the colors you got.</li>
+            <li><strong>Art challenges</strong> — three random colors + a subject from the <Link prefetch={false} href="/random-drawing-generator" className={linkClass}>random drawing generator</Link>.</li>
+            <li><strong>Pictionary twist</strong> — draw a <Link prefetch={false} href="/random-word-generator?use=draw" className={linkClass}>random drawable word</Link> using only the colors you got.</li>
             <li><strong>Design work</strong> — brand moodboards, UI theme tests, chart colors, slide backgrounds.</li>
             <li><strong>Classroom</strong> — color-mixing lessons, naming colors in another language, warm vs cool sorting.</li>
           </ul>

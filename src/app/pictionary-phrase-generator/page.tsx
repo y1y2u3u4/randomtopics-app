@@ -109,7 +109,7 @@ export default function PictionaryPhraseGeneratorPage() {
             <li><strong>Small words are free:</strong> once the team has the big words, they can usually fill in &quot;in&quot;, &quot;the&quot; and &quot;a&quot;.</li>
             <li><strong>Draw the verb with arrows:</strong> motion lines and arrows turn a still picture into &quot;chasing&quot; or &quot;melting&quot;.</li>
             <li><strong>Idioms:</strong> draw the literal picture; the guessers then have to jump to the saying. Short on ideas? The{" "}
-              <Link href="/pictionary-word-generator" className={linkClass}>word generator</Link> is quicker for warm-up rounds.</li>
+              <Link prefetch={false} href="/pictionary-word-generator" className={linkClass}>word generator</Link> is quicker for warm-up rounds.</li>
           </ul>
 
           <SectionTitle>How it compares</SectionTitle>

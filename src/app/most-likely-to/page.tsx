@@ -84,14 +84,14 @@ export default function MostLikelyToPage() {
                 clean, funny prompts, one per click, with no repeats until the deck runs out.
               </p>
               <p>
-                Between rounds, share the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> or switch to a game of <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">random charades</Link>.
+                Between rounds, share the <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> or switch to a game of <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">random charades</Link>.
               </p>
               <p>
                 Keep the party going with{" "}
-                <Link href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>,{" "}
-                <Link href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}
-                <Link href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">This or That</Link>, and{" "}
-                <Link href="/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Two Truths and a Lie</Link>.
+                <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>,{" "}
+                <Link prefetch={false} href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}
+                <Link prefetch={false} href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">This or That</Link>, and{" "}
+                <Link prefetch={false} href="/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Two Truths and a Lie</Link>.
               </p>
 
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>

@@ -63,11 +63,11 @@ export default function TopicsIndexPage() {
               <h2 className="text-2xl font-bold text-[var(--text-primary)]">Guided collections</h2>
               <p className="text-sm text-[var(--text-muted)] mt-1">Filterable, printable collections with original prompts and built-in workflows.</p>
             </div>
-            <Link href="/how-we-curate" className="text-sm text-[var(--neon-cyan)] hover:underline">How we curate →</Link>
+            <Link prefetch={false} href="/how-we-curate" className="text-sm text-[var(--neon-cyan)] hover:underline">How we curate →</Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {GUIDED_COLLECTIONS.map((collection) => (
-              <Link
+              <Link prefetch={false}
                 key={collection.slug}
                 href={collection.path}
                 className="glass-card p-6 border-[var(--neon-cyan)]/20 transition-all duration-300 hover:translate-y-[-3px] hover:border-[var(--neon-cyan)]/40 hover:shadow-[0_0_20px_rgba(0,229,255,0.12)]"
@@ -84,7 +84,7 @@ export default function TopicsIndexPage() {
           <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-5">All topic lists and guides</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {SEO_ARTICLES.map((article) => (
-              <Link
+              <Link prefetch={false}
                 key={article.slug}
                 href={`/topics/${article.slug}`}
                 className="glass-card p-6 transition-all duration-300 hover:translate-y-[-3px] group
