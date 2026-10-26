@@ -93,10 +93,10 @@ export default function NeverHaveIEverPageEs() {
               <p>
                 El generador reparte una propuesta por clic sin repetir hasta usar las más de 60, así que
                 nadie puede acusarte de elegir preguntas con intención. Combínalo con{" "}
-                <Link href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">¿Qué prefieres?</Link>{" "}
+                <Link prefetch={false} href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">¿Qué prefieres?</Link>{" "}
                 para una noche de juegos completa, o mantén la conversación viva con{" "}
-                <Link href="/es/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">preguntas para fiestas</Link>{" "}
-                y el <Link href="/es/question-generator" className="text-[var(--neon-cyan)] hover:underline">generador de preguntas al azar</Link>.
+                <Link prefetch={false} href="/es/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">preguntas para fiestas</Link>{" "}
+                y el <Link prefetch={false} href="/es/question-generator" className="text-[var(--neon-cyan)] hover:underline">generador de preguntas al azar</Link>.
               </p>
 
               <h3
@@ -109,7 +109,7 @@ export default function NeverHaveIEverPageEs() {
                 <li><strong>Impuesto de historia:</strong> bajar un dedo te cuesta la anécdota que hay detrás. Esta única regla convierte un juego de contar dedos en la mejor hora de la noche.</li>
                 <li><strong>Ronda inversa:</strong> una vez por partida, un jugador puede cantar &quot;inversa&quot;: quien NO lo haya hecho baja un dedo. Salva a los inocentes de ganar siempre.</li>
                 <li><strong>Modo por equipos:</strong> las parejas comparten una mano de diez dedos; parejas y mejores amigos discuten sobre de quién cuenta el historial.</li>
-                <li><strong>Modo rompehielos:</strong> solo tres rondas, compartir es opcional, sin eliminación: perfecto para sesiones de incorporación y <Link href="/es/icebreaker" className="text-[var(--neon-cyan)] hover:underline">rompehielos de equipo</Link>.</li>
+                <li><strong>Modo rompehielos:</strong> solo tres rondas, compartir es opcional, sin eliminación: perfecto para sesiones de incorporación y <Link prefetch={false} href="/es/icebreaker" className="text-[var(--neon-cyan)] hover:underline">rompehielos de equipo</Link>.</li>
               </ul>
 
               <h3

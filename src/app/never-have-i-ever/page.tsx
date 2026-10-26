@@ -91,10 +91,10 @@ export default function NeverHaveIEverPage() {
               <p>
                 The generator deals one prompt per click with no repeats until all 60+ are used, so
                 nobody can accuse you of picking targeted questions. Pair it
-                with <Link href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link> for
+                with <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link> for
                 a full game night, or keep the conversation rolling
-                with <Link href="/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">party questions</Link> and
-                the <Link href="/question-generator" className="text-[var(--neon-cyan)] hover:underline">random question generator</Link>.
+                with <Link prefetch={false} href="/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">party questions</Link> and
+                the <Link prefetch={false} href="/question-generator" className="text-[var(--neon-cyan)] hover:underline">random question generator</Link>.
               </p>
 
               <h3
@@ -107,7 +107,7 @@ export default function NeverHaveIEverPage() {
                 <li><strong>Story tax:</strong> putting a finger down costs you the story behind it. This single rule turns a counting game into the best hour of the night.</li>
                 <li><strong>Reverse round:</strong> once per game, a player may call &quot;reverse&quot; — everyone who HASN&apos;T done it puts a finger down. Saves the innocent from always winning.</li>
                 <li><strong>Team mode:</strong> pairs share a hand of ten fingers; couples and best friends argue about whose history counts.</li>
-                <li><strong>Icebreaker mode:</strong> three rounds only, sharing optional, no elimination — perfect for onboarding sessions and <Link href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">team icebreakers</Link>.</li>
+                <li><strong>Icebreaker mode:</strong> three rounds only, sharing optional, no elimination — perfect for onboarding sessions and <Link prefetch={false} href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">team icebreakers</Link>.</li>
               </ul>
 
               <h3

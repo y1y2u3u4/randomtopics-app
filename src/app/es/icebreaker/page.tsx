@@ -91,7 +91,7 @@ export default function IcebreakerPageEs() {
                 —«¿Qué es lo mejor que te ha pasado esta semana?» o «¿Qué habilidad te encantaría aprender?»—
                 anima la sala y hace que la gente esté más dispuesta a participar después. Mantén los rompehielos
                 del trabajo profesionales pero lo bastante personales como para que resulten genuinos. Para
-                opciones seleccionadas, consulta <Link href="/es/topics/icebreaker-questions-for-work" className="text-[var(--neon-cyan)] hover:underline">preguntas rompehielos para el trabajo</Link>.
+                opciones seleccionadas, consulta <Link prefetch={false} href="/es/topics/icebreaker-questions-for-work" className="text-[var(--neon-cyan)] hover:underline">preguntas rompehielos para el trabajo</Link>.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--neon-pink)] pt-2">Aula y Educación</h4>
@@ -118,7 +118,7 @@ export default function IcebreakerPageEs() {
                 preguntas hipotéticas, los dilemas del tipo «¿qué prefieres?» y las preguntas de preferencias
                 peculiares funcionan de maravilla. El objetivo es la risa y la curiosidad, no la reflexión
                 profunda. Para opciones orientadas al equipo, explora
-                nuestra colección de <Link href="/es/topics/team-building-questions" className="text-[var(--neon-cyan)] hover:underline">preguntas de team building</Link>.
+                nuestra colección de <Link prefetch={false} href="/es/topics/team-building-questions" className="text-[var(--neon-cyan)] hover:underline">preguntas de team building</Link>.
               </p>
 
               <h3

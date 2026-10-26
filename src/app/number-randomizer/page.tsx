@@ -57,7 +57,7 @@ export default function NumberRandomizerPage() {
             <li><strong>Math practice</strong> — generate numbers to add, multiply or sort, then check with Sort results.</li>
           </ul>
           <SectionTitle>Picking names instead?</SectionTitle>
-          <p>Paste the names into the <Link href="/random-name-picker" className={linkClass}>random name picker</Link>; it removes winners so nobody is picked twice.</p>
+          <p>Paste the names into the <Link prefetch={false} href="/random-name-picker" className={linkClass}>random name picker</Link>; it removes winners so nobody is picked twice.</p>
         </>
       }
     >

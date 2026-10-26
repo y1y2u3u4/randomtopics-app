@@ -97,9 +97,9 @@ export default function GeneradorDeEquiposPage() {
           </p>
           <SectionTitle>Usos más comunes</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li>Trabajo en grupo, debates y juegos de repaso — combínalo con el <Link href="/es/debate" className={linkClass}>generador de temas de debate</Link>.</li>
+            <li>Trabajo en grupo, debates y juegos de repaso — combínalo con el <Link prefetch={false} href="/es/debate" className={linkClass}>generador de temas de debate</Link>.</li>
             <li>Educación física, fútbol sala, baloncesto y jornadas deportivas de empresa.</li>
-            <li>Noches de trivia, escape rooms y juegos de fiesta como <Link href="/es/two-truths-and-a-lie" className={linkClass}>dos verdades y una mentira</Link>.</li>
+            <li>Noches de trivia, escape rooms y juegos de fiesta como <Link prefetch={false} href="/es/two-truths-and-a-lie" className={linkClass}>dos verdades y una mentira</Link>.</li>
             <li>Salas para grupos en reuniones online y mesas de taller.</li>
           </ul>
         </>

@@ -24,7 +24,7 @@ export default function SpeechTimerInvite({ topic, contentSource }: { topic: Top
     <p className="text-xs leading-relaxed text-[var(--text-muted)]">This timer doesn’t record you. Say it once more — or type it — and the AI coach gives you one clear change for your point, example or ending.</p>
     {topic ? <div onClickCapture={click}>
       <PracticeSelectedTopic topic={topic} source="timer" className={action} label="Get free AI feedback on this topic →" />
-    </div> : <Link href="/speech" onClick={click} className={`${action} block`}>Get free AI feedback →</Link>}
+    </div> : <Link prefetch={false} href="/speech" onClick={click} className={`${action} block`}>Get free AI feedback →</Link>}
     <p className="text-xs text-[var(--text-muted)]">Two free attempts, no sign-up.</p>
   </div>;
 }

@@ -99,11 +99,11 @@ export default function CharacterNameGeneratorPage() {
             <li>Check the meaning — then decide whether irony or a hint works better.</li>
             <li>Search the full name once so you don&apos;t accidentally name a famous person.</li>
           </ol>
-          <p>Naming a real baby rather than a character? Browse cowboy, country and Southern names with meanings in the <Link href="/western-baby-name-generator" className={linkClass}>Western baby name generator</Link>.</p>
-          <p>Need dozens of ordinary, modern names for background characters or test data? The <Link href="/fake-name-generator" className={linkClass}>fake name generator</Link> makes up to 100 at once by country, with optional profiles.</p>
+          <p>Naming a real baby rather than a character? Browse cowboy, country and Southern names with meanings in the <Link prefetch={false} href="/western-baby-name-generator" className={linkClass}>Western baby name generator</Link>.</p>
+          <p>Need dozens of ordinary, modern names for background characters or test data? The <Link prefetch={false} href="/fake-name-generator" className={linkClass}>fake name generator</Link> makes up to 100 at once by country, with optional profiles.</p>
           <p>
-            Stuck on the story itself? Try the <Link href="/writing" className={linkClass}>writing prompt generator</Link>, or build a
-            complete cast with the <Link href="/random-character-generator" className={linkClass}>random character generator</Link>.
+            Stuck on the story itself? Try the <Link prefetch={false} href="/writing" className={linkClass}>writing prompt generator</Link>, or build a
+            complete cast with the <Link prefetch={false} href="/random-character-generator" className={linkClass}>random character generator</Link>.
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Three genres, four names each, straight from the generator:"} sets={EXAMPLES} />

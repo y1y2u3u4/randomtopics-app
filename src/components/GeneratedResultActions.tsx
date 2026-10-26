@@ -250,7 +250,7 @@ function ResultActions({ text, copyValue = text, shareTitle, copyLabel, saveTopi
 
       {saved && (isPostGenerate || showSavedLink) ? (
         <p className="mt-1 text-center text-xs">
-          <Link href={isSpanish ? "/es/saved-topics" : "/saved-topics"}
+          <Link prefetch={false} href={isSpanish ? "/es/saved-topics" : "/saved-topics"}
             onClick={() => track("open_saved_topics", eventParams)}
             className="inline-flex min-h-11 items-center text-[var(--neon-cyan)] underline underline-offset-4">
             {isSpanish ? "Abrir mis preguntas guardadas →" : "Open my saved topics →"}

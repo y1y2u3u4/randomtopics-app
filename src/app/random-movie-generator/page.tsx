@@ -133,7 +133,7 @@ export default function RandomMovieGeneratorPage() {
             <li><strong>Blind double feature</strong>: pick one film, then watch one of its three similar movies the same night.</li>
             <li><strong>Family night</strong>: Family-friendly only plus Animation or Musical; let the kids press the button.</li>
             <li><strong>Film club</strong>: Acclaimed only, one new decade each week. Afterwards, settle debates with{" "}
-              <Link href="/this-or-that" className={linkClass}>this or that</Link> or build your <Link href="/my-9-movies" className={linkClass}>9 favourite movies grid</Link>.</li>
+              <Link prefetch={false} href="/this-or-that" className={linkClass}>this or that</Link> or build your <Link prefetch={false} href="/my-9-movies" className={linkClass}>9 favourite movies grid</Link>.</li>
           </ul>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note="Three real draws with fixed filters:" sets={EXAMPLES} />

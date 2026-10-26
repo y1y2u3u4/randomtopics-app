@@ -512,7 +512,7 @@ export default function SpeechCoach({
             {topic.text}
           </h3>
         </div>
-        <Link
+        <Link prefetch={false}
           href="/speech/account"
           onClick={() => emit("speech_history_open")}
           className="min-h-11 py-2 text-sm underline"
@@ -637,7 +637,7 @@ export default function SpeechCoach({
               <button type="button" className={primary} disabled={typedWords(typedText) < 8} onClick={submitTyped}>Get my feedback</button>
               <span className="text-[var(--text-muted)]" aria-live="polite">{typedWords(typedText) < 8 ? `${typedWords(typedText)} words · write at least 8` : `${typedWords(typedText)} words · about ${Math.max(5, Math.round(typedWords(typedText) / 2.5))} seconds spoken`}</span>
             </div>
-            <p className="text-xs leading-relaxed text-[var(--text-muted)]">Uses one of your free attempts. Your text goes through OpenRouter to a model provider for feedback; we save it privately. Next, try saying the improved version out loud and compare. <Link href="/privacy" className="underline">Privacy details</Link></p>
+            <p className="text-xs leading-relaxed text-[var(--text-muted)]">Uses one of your free attempts. Your text goes through OpenRouter to a model provider for feedback; we save it privately. Next, try saying the improved version out loud and compare. <Link prefetch={false} href="/privacy" className="underline">Privacy details</Link></p>
           </div>}
           {stage === "ready" && !previous && !carriedGoal && !beganAttempt.current && <details className="mt-3 text-sm">
             <summary className="min-h-11 cursor-pointer py-3">Personalize my practice goal · optional</summary>
@@ -711,7 +711,7 @@ export default function SpeechCoach({
           </div>
           {!quotaHit && <p className="text-sm leading-relaxed text-[var(--text-muted)]">
             “Get my feedback” sends this recording through OpenRouter to a model provider for transcription and feedback.
-            We save your transcript and feedback privately, not the audio. <Link href="/privacy" className="underline">Privacy details</Link>
+            We save your transcript and feedback privately, not the audio. <Link prefetch={false} href="/privacy" className="underline">Privacy details</Link>
           </p>}
           {!quotaHit && <label className="flex min-h-11 items-center gap-2 text-sm">
             <input type="checkbox" checked={reviewFirst} onChange={e => setReviewFirst(e.target.checked)} />
@@ -810,7 +810,7 @@ export default function SpeechCoach({
           className="rounded-xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm leading-relaxed"
         >
           {error}{" "}
-          <Link href="/speech/account" className="underline">
+          <Link prefetch={false} href="/speech/account" className="underline">
             Open practice history
           </Link>
         </p>

@@ -285,7 +285,7 @@ export default function PressPageEs() {
             <p className="text-[var(--text-secondary)]">
               ¿Quieres probarlo tú mismo?
             </p>
-            <Link href="/es" className="btn-generate inline-block">
+            <Link prefetch={false} href="/es" className="btn-generate inline-block">
               Generar un Tema
             </Link>
           </section>

@@ -9,7 +9,7 @@ export default function RelatedToolLink({ from, href, slot, className, children 
   from: string; href: string; slot: "try_next" | "keep_playing"; className?: string; children: ReactNode;
 }) {
   return (
-    <Link href={href} data-related-slot={slot} className={className}
+    <Link prefetch={false} href={href} data-related-slot={slot} className={className}
       onClick={() => track("related_tool_click", { page_path: from, target_path: href, slot })}>
       {children}
     </Link>

@@ -26,7 +26,7 @@ export default function QotdVoteCard({ category = "all", source }: { category?: 
         <p className="text-sm text-[var(--text-muted)] mt-2">One new question every day. Vote, see how everyone answered and keep your streak going.</p>
         {state && question ? <QotdDailyRitual key={state.idx} questionIndex={state.idx} question={question} dateLabel={state.dateLabel} source={source} /> : null}
         <p className="text-sm mt-4">
-          <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">See every question of the day →</Link>
+          <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">See every question of the day →</Link>
         </p>
       </div>
     </section>

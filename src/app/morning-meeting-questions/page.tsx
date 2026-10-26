@@ -74,9 +74,9 @@ export default function MorningMeetingPage() {
               <div><h3 className="text-base font-bold text-[var(--text-primary)]">4. Morning message (2 min)</h3><p className="mt-1">A short note about the day, read together. Younger students hunt for sight words; older ones fix a planted mistake.</p></div>
             </div>
             <p className="mt-6 text-sm text-[var(--text-secondary)] leading-relaxed">
-              Short on time? Swap the activity for a <Link href="/riddles-for-kids" className="text-[var(--neon-cyan)] hover:underline">riddle of the day</Link> or
-              one <Link href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that question</Link>. For older students,
-              a <Link href="/question-of-the-day-for-students" className="text-[var(--neon-cyan)] hover:underline">question of the day for students</Link> works as a bell-ringer.
+              Short on time? Swap the activity for a <Link prefetch={false} href="/riddles-for-kids" className="text-[var(--neon-cyan)] hover:underline">riddle of the day</Link> or
+              one <Link prefetch={false} href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that question</Link>. For older students,
+              a <Link prefetch={false} href="/question-of-the-day-for-students" className="text-[var(--neon-cyan)] hover:underline">question of the day for students</Link> works as a bell-ringer.
             </p>
           </div>
         </section>

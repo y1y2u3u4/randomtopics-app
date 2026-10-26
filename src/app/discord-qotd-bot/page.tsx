@@ -92,8 +92,8 @@ export default function Page() {
           <p>
             One question per post, with a small “via randomtopics.app” link. Pick a category: work and team, funny and light, deep and
             reflective, this-or-that, classroom or kids and family, or a mix. The same questions are free to browse in the{" "}
-            <Link href="/question-of-the-day" className={linkClass}>question of the day</Link> and{" "}
-            <Link href="/this-or-that/work" className={linkClass}>work this-or-that</Link> lists.
+            <Link prefetch={false} href="/question-of-the-day" className={linkClass}>question of the day</Link> and{" "}
+            <Link prefetch={false} href="/this-or-that/work" className={linkClass}>work this-or-that</Link> lists.
           </p>
         </>
       }

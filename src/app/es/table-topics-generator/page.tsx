@@ -101,7 +101,7 @@ export default function TableTopicsPageEs() {
                 &quot;¿qué prefieres?&quot; hasta preguntas más profundas sobre valores y experiencias, para que
                 puedas simular de todo, desde una noche informal de club hasta un concurso de distrito.
                 ¿Necesitas una lista completa de preguntas para imprimir? Consulta nuestras{" "}
-                <Link href="/es/topics/toastmasters-table-topics" className="text-[var(--neon-cyan)] hover:underline">70 preguntas de Table Topics de Toastmasters</Link>.
+                <Link prefetch={false} href="/es/topics/toastmasters-table-topics" className="text-[var(--neon-cyan)] hover:underline">70 preguntas de Table Topics de Toastmasters</Link>.
               </p>
 
               <h3
@@ -131,9 +131,9 @@ export default function TableTopicsPageEs() {
               </ol>
               <p>
                 ¿Buscas práctica de formato más largo? Nuestro{" "}
-                <Link href="/es/speech" className="text-[var(--neon-cyan)] hover:underline">generador de temas para discursos</Link>{" "}
+                <Link prefetch={false} href="/es/speech" className="text-[var(--neon-cyan)] hover:underline">generador de temas para discursos</Link>{" "}
                 cubre ideas de discursos preparados, y la página de{" "}
-                <Link href="/es/impromptu-speech-topics" className="text-[var(--neon-cyan)] hover:underline">temas de discurso improvisado</Link>{" "}
+                <Link prefetch={false} href="/es/impromptu-speech-topics" className="text-[var(--neon-cyan)] hover:underline">temas de discurso improvisado</Link>{" "}
                 se centra en formatos de aula y de competición de oratoria.
               </p>
 

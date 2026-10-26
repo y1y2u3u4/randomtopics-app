@@ -98,7 +98,7 @@ export default function ImpromptuSpeechPageEs() {
               <p>
                 Los formatos improvisados aparecen por todas partes: tareas de clase de oratoria, pruebas de
                 preparación limitada de la NSDA y competiciones de debate, los{" "}
-                <Link href="/es/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table Topics</Link>{" "}
+                <Link prefetch={false} href="/es/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table Topics</Link>{" "}
                 de Toastmasters, las respuestas de crisis en simulacros de la ONU y la clásica pregunta trampa
                 de entrevista (&quot;Cuéntame de una vez que...&quot;). El hilo común: una estructura que puedes
                 desplegar en segundos y una entrega serena mientras tu mente se pone al día.
@@ -129,9 +129,9 @@ export default function ImpromptuSpeechPageEs() {
               </ul>
               <p>
                 ¿Preparas una presentación completa en su lugar? Explora nuestro{" "}
-                <Link href="/es/speech" className="text-[var(--neon-cyan)] hover:underline">generador de temas para discursos</Link>{" "}
+                <Link prefetch={false} href="/es/speech" className="text-[var(--neon-cyan)] hover:underline">generador de temas para discursos</Link>{" "}
                 para ideas de discursos preparados, o toma listas ya hechas como{" "}
-                <Link href="/es/topics/presentation-ideas-for-school" className="text-[var(--neon-cyan)] hover:underline">ideas de presentación para la escuela</Link>.
+                <Link prefetch={false} href="/es/topics/presentation-ideas-for-school" className="text-[var(--neon-cyan)] hover:underline">ideas de presentación para la escuela</Link>.
               </p>
 
               <h3

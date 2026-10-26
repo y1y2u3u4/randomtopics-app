@@ -171,7 +171,7 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
       <p className="text-sm">{next.why}</p>
       {next.check && <p className="text-sm"><strong>Next check: </strong>{next.check}</p>}
       {next.mode === "review" ? <button type="button" className={button} onClick={openEvidence}>Check the evidence</button> :
-        <Link ref={nextAction} href={`/speech/practice?attempt=${result.id}&next=1`} className={`${button} inline-flex items-center`}
+        <Link prefetch={false} ref={nextAction} href={`/speech/practice?attempt=${result.id}&next=1`} className={`${button} inline-flex items-center`}
           onClick={() => trackSpeech("speech_round_next_click", { content_source: contentSource, attempt, purpose, outcome: next.mode })}>
           {!canRetry ? "Preview my next round" : next.mode === "transfer" ? "Choose a new topic for this goal" : "Open my next practice"}
         </Link>}
@@ -179,12 +179,12 @@ export default function SpeechFeedbackResult({ result, repeated, visible, conten
     </aside>}
     {!result.allowance?.paid && !recovery && next.mode !== "review" && <SpeechPlanTeaser attempt={attempt} contentSource={contentSource} visible={visible}
       compact={false} purpose={purpose} nextCheck={next.check} onReview={openEvidence} attemptId={result.id} focusLabel={drill ? focusLabels[drill.target] : undefined} />}
-    {result.allowance?.paid && !canRetry && <p className="text-sm">You’ve used this billing month’s included attempts. Your saved feedback is still available. <Link className="underline" href="/speech/account">View your account and renewal date</Link>.</p>}
+    {result.allowance?.paid && !canRetry && <p className="text-sm">You’ve used this billing month’s included attempts. Your saved feedback is still available. <Link prefetch={false} className="underline" href="/speech/account">View your account and renewal date</Link>.</p>}
     <div className="text-sm">
       {!finished ? <button type="button" className={`${button} border-transparent`} onClick={() => {
         setFinished(true); trackSpeech("speech_done_for_now", { content_source: contentSource, attempt, purpose });
       }}>Done for now</button> : <div className="space-y-2">
-        <p>Your feedback is saved. <Link href={`/speech/account?attempt=${result.id}`} className="underline">Return to this practice</Link>.</p>
+        <p>Your feedback is saved. <Link prefetch={false} href={`/speech/account?attempt=${result.id}`} className="underline">Return to this practice</Link>.</p>
         {!reason && <div className="flex flex-wrap gap-2" aria-label="Optional reason for stopping">
           {([["task_complete", "I got what I needed"], ["later", "I’ll practice later"], ["too_much_work", "Too many steps"]] as const).map(([value, label]) => <button type="button" key={value} className={button} onClick={() => feedbackReason(value)}>{label}</button>)}
         </div>}

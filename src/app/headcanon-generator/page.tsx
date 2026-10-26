@@ -73,8 +73,8 @@ export default function HeadcanonGeneratorPage() {
           <SectionTitle>Using headcanons in your writing</SectionTitle>
           <p>
             Roll five at a time, keep the ones that surprise you and rewrite the rest in your own words. For dialogue to go with them, try the{" "}
-            <Link href="/incorrect-quote-generator" className={linkClass}>incorrect quote generator</Link>, or start a new cast with the{" "}
-            <Link href="/random-character-generator" className={linkClass}>random character generator</Link>.
+            <Link prefetch={false} href="/incorrect-quote-generator" className={linkClass}>incorrect quote generator</Link>, or start a new cast with the{" "}
+            <Link prefetch={false} href="/random-character-generator" className={linkClass}>random character generator</Link>.
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Real output, no name entered:"} sets={EXAMPLES} />

@@ -20,7 +20,7 @@ export default function PartyGameLinks({ currentPath }: { currentPath: string })
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {PARTY_GAMES.filter((game) => game.href !== currentPath).map((game) => (
-          <Link
+          <Link prefetch={false}
             key={game.href}
             href={game.href}
             className="glass-card p-4 flex items-center gap-3 hover:border-[var(--neon-cyan)]/30 transition-all group"

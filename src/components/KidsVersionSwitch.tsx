@@ -8,8 +8,8 @@ export default function KidsVersionSwitch({ general, kids, active, locale = "en"
   return (
     <nav aria-label={es ? "Tipo de preguntas" : "Question set"} className="max-w-3xl mx-auto px-4 sm:px-6 pt-4 flex justify-center">
       <div className="inline-flex gap-1 rounded-full border border-white/10 p-1">
-        <Link href={general} aria-current={active === "general" ? "page" : undefined} className={pill(active === "general")}>{es ? "Para todos" : "Everyone"}</Link>
-        <Link href={kids} aria-current={active === "kids" ? "page" : undefined} className={pill(active === "kids")}>{es ? "🧒 Versión niños · aula" : "🧒 Kids version · classroom"}</Link>
+        <Link prefetch={false} href={general} aria-current={active === "general" ? "page" : undefined} className={pill(active === "general")}>{es ? "Para todos" : "Everyone"}</Link>
+        <Link prefetch={false} href={kids} aria-current={active === "kids" ? "page" : undefined} className={pill(active === "kids")}>{es ? "🧒 Versión niños · aula" : "🧒 Kids version · classroom"}</Link>
       </div>
     </nav>
   );

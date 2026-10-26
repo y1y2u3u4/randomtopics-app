@@ -82,7 +82,7 @@ export default function ClassroomAccount() {
       {owned.length === 0 ? (
         <div className="glass-card p-6 space-y-3">
           <p className="text-[var(--text-secondary)]">No classroom packs on this browser yet.</p>
-          <Link href="/classroom-packs" className="btn-generate inline-flex px-5 py-3 text-sm">See the classroom packs</Link>
+          <Link prefetch={false} href="/classroom-packs" className="btn-generate inline-flex px-5 py-3 text-sm">See the classroom packs</Link>
         </div>
       ) : (
         <div className="space-y-4">
@@ -97,7 +97,7 @@ export default function ClassroomAccount() {
                 <button type="button" onClick={() => void download(p.id, "pdf")} disabled={busy !== ""} className="min-h-11 rounded-xl border border-white/15 px-4 py-2 text-sm text-[var(--text-primary)]">
                   {busy === `${p.id}-pdf` ? "Preparing…" : "Download printable PDF"}
                 </button>
-                <Link href={`/classroom/present?pack=${p.id}`} className="min-h-11 inline-flex items-center rounded-xl border border-[var(--neon-cyan)]/50 px-4 py-2 text-sm text-[var(--neon-cyan)]">Present ad-free</Link>
+                <Link prefetch={false} href={`/classroom/present?pack=${p.id}`} className="min-h-11 inline-flex items-center rounded-xl border border-[var(--neon-cyan)]/50 px-4 py-2 text-sm text-[var(--neon-cyan)]">Present ad-free</Link>
               </div>
             </div>
           ))}
@@ -120,7 +120,7 @@ export default function ClassroomAccount() {
           {sent === "error" && <p role="alert" className="text-sm text-[var(--neon-pink)]">The link could not be sent. Please try again in a minute.</p>}
         </form>
       )}
-      <p className="text-sm text-[var(--text-muted)]">Speech feedback practice is on <Link href="/speech/account" className="text-[var(--neon-cyan)]">your speech account</Link>.</p>
+      <p className="text-sm text-[var(--text-muted)]">Speech feedback practice is on <Link prefetch={false} href="/speech/account" className="text-[var(--neon-cyan)]">your speech account</Link>.</p>
     </div>
   );
 }

@@ -97,11 +97,11 @@ export default function RandomCharacterGeneratorPage() {
           <ol className="list-decimal pl-5 space-y-1">
             <li>Generate two characters and write the first conversation between them.</li>
             <li>Write the scene where the character&apos;s secret is discovered — from someone else&apos;s point of view.</li>
-            <li>Give the character a <Link href="/writing" className={linkClass}>random writing prompt</Link> and let their flaw ruin the plan.</li>
+            <li>Give the character a <Link prefetch={false} href="/writing" className={linkClass}>random writing prompt</Link> and let their flaw ruin the plan.</li>
           </ol>
           <p>
-            Want just a name? Use the <Link href="/character-name-generator" className={linkClass}>character name generator</Link>, or the{" "}
-            <Link href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link> for elves, dwarves and tieflings.
+            Want just a name? Use the <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link>, or the{" "}
+            <Link prefetch={false} href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link> for elves, dwarves and tieflings.
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Three complete characters generated with the genre filter — each comes with a job, personality, motivation, secret, quirk and flaw:"} sets={EXAMPLES} />

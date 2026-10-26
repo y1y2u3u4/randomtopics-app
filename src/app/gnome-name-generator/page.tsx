@@ -84,8 +84,8 @@ export default function GnomeNameGeneratorPage() {
             <li><strong>Name + clan</strong> — shorter, for NPCs and quick introductions.</li>
           </ul>
           <p>
-            Playing another race? The <Link href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link> covers elves,
-            dwarves, halflings, tieflings and more, and the <Link href="/random-character-generator" className={linkClass}>random character
+            Playing another race? The <Link prefetch={false} href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link> covers elves,
+            dwarves, halflings, tieflings and more, and the <Link prefetch={false} href="/random-character-generator" className={linkClass}>random character
             generator</Link> adds a personality and a secret.
           </p>
           <SectionTitle>Examples</SectionTitle>

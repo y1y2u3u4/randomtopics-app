@@ -55,7 +55,7 @@ export default function SpeechResume({ attemptId, next = false, topics = [] }: {
     id: saved.id, text: saved.topic, category: "education", depth: "medium", modes: ["speech"], talkingPoints: [],
   } : null;
   return <div className="mx-auto max-w-3xl px-4 py-8">
-    <Link className="underline" href={`/speech/account?attempt=${encodeURIComponent(attemptId)}`}>Back to practice history</Link>
+    <Link prefetch={false} className="underline" href={`/speech/account?attempt=${encodeURIComponent(attemptId)}`}>Back to practice history</Link>
     <h1 className="mt-5 text-3xl font-bold">{next && goal ? goal.title : "Continue one small improvement"}</h1>
     {next && goal && <div className="mt-3 space-y-2 text-sm"><p>{goal.description}</p><p>{goal.why}</p>
       {goal.check && <p><strong>Next check: </strong>{goal.check}</p>}</div>}

@@ -107,7 +107,7 @@ export default function FakeAddressGeneratorPage() {
             <li><strong>Developers and QA testers</strong> checking checkout forms, address validation, shipping-rate and tax rules across countries.</li>
             <li><strong>Designers</strong> who want realistic text in mock-ups instead of &quot;123 Main Street&quot; on every card.</li>
             <li><strong>Writers and game masters</strong> giving a character a believable home in Lyon or Osaka.</li>
-            <li><strong>Teachers</strong> making envelope-writing and form-filling exercises without real addresses. For whole fictional people, try the <Link href="/fake-identity-generator" className={linkClass}>fake identity generator</Link>.</li>
+            <li><strong>Teachers</strong> making envelope-writing and form-filling exercises without real addresses. For whole fictional people, try the <Link prefetch={false} href="/fake-identity-generator" className={linkClass}>fake identity generator</Link>.</li>
           </ul>
 
           <SectionTitle>How it compares</SectionTitle>
@@ -132,7 +132,7 @@ export default function FakeAddressGeneratorPage() {
           <p>
             Every street name is made up, so no real household ends up in your test database or screenshots. The page never prints Social
             Security, ID or card numbers. If you are testing payments, use your provider&apos;s official test cards; for names alone, the{" "}
-            <Link href="/fake-name-generator" className={linkClass}>fake name generator</Link> is quicker.
+            <Link prefetch={false} href="/fake-name-generator" className={linkClass}>fake name generator</Link> is quicker.
           </p>
         </>
       }

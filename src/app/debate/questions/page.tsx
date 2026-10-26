@@ -98,10 +98,10 @@ export default function DebateQuestionsPage() {
                 Who Uses a Debate Question Generator?
               </h3>
               <ul className="space-y-2 list-disc pl-5">
-                <li><strong>Teachers &amp; classrooms:</strong> project it live, spin until the class splits, assign pro/con teams. Pair it with our <Link href="/debate/students" className="text-[var(--neon-cyan)] hover:underline">student debate generator</Link> for grade-banded questions.</li>
+                <li><strong>Teachers &amp; classrooms:</strong> project it live, spin until the class splits, assign pro/con teams. Pair it with our <Link prefetch={false} href="/debate/students" className="text-[var(--neon-cyan)] hover:underline">student debate generator</Link> for grade-banded questions.</li>
                 <li><strong>Debate clubs &amp; tournament prep:</strong> random questions are the closest thing to real impromptu rounds — you cannot prepare, only think. Practice both sides of every question you draw.</li>
                 <li><strong>ESL &amp; conversation classes:</strong> debate questions force complete arguments rather than one-word answers, which makes them excellent speaking practice.</li>
-                <li><strong>Friends &amp; family:</strong> lighter categories turn the generator into a party game — see our <Link href="/debate/funny" className="text-[var(--neon-cyan)] hover:underline">funny debate generator</Link> for the silly end of the spectrum.</li>
+                <li><strong>Friends &amp; family:</strong> lighter categories turn the generator into a party game — see our <Link prefetch={false} href="/debate/funny" className="text-[var(--neon-cyan)] hover:underline">funny debate generator</Link> for the silly end of the spectrum.</li>
               </ul>
 
               <h3
@@ -119,11 +119,11 @@ export default function DebateQuestionsPage() {
 
               <p className="pt-2">
                 Want the formal framing instead? Our main{" "}
-                <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link>{" "}
+                <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link>{" "}
                 covers topics and motions, and the{" "}
-                <Link href="/argument-generator" className="text-[var(--neon-cyan)] hover:underline">argument generator</Link>{" "}
+                <Link prefetch={false} href="/argument-generator" className="text-[var(--neon-cyan)] hover:underline">argument generator</Link>{" "}
                 builds out full pro/con cases. Prefer a printable list? Start with{" "}
-                <Link href="/topics/debate-topics-for-students" className="text-[var(--neon-cyan)] hover:underline">75 debate topics for students</Link>.
+                <Link prefetch={false} href="/topics/debate-topics-for-students" className="text-[var(--neon-cyan)] hover:underline">75 debate topics for students</Link>.
               </p>
 
               <h3

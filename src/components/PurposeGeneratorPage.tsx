@@ -113,7 +113,7 @@ export default function PurposeGeneratorPage({ config }: { config: PurposeGenera
           <h2 className="section-heading text-2xl text-center mb-6">{isSpanish ? "Herramientas y colecciones relacionadas" : "Related tools and collections"}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {config.relatedLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="glass-card p-5 text-sm font-semibold text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-colors">
+              <Link prefetch={false} key={link.href} href={link.href} className="glass-card p-5 text-sm font-semibold text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-colors">
                 <span aria-hidden="true">{link.emoji}</span> {link.label} →
               </Link>
             ))}

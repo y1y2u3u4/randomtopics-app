@@ -78,7 +78,7 @@ export default function RandomIdeaGeneratorPage() {
       </section>
       <section className="mt-8">
         <h2 className="font-bold">More idea generators</h2>
-        <p className="mt-3 text-[var(--text-muted)]">Find something to draw with the <Link href="/random-drawing-generator" className="text-[var(--neon-cyan)] underline">drawing prompt generator</Link>, write with the <Link href="/story-prompt-generator" className="text-[var(--neon-cyan)] underline">story prompt generator</Link>, play a word game with the <Link href="/random-category-generator" className="text-[var(--neon-cyan)] underline">random category generator</Link>, or start a conversation with the <Link href="/" className="text-[var(--neon-cyan)] underline">random topic generator</Link>.</p>
+        <p className="mt-3 text-[var(--text-muted)]">Find something to draw with the <Link prefetch={false} href="/random-drawing-generator" className="text-[var(--neon-cyan)] underline">drawing prompt generator</Link>, write with the <Link prefetch={false} href="/story-prompt-generator" className="text-[var(--neon-cyan)] underline">story prompt generator</Link>, play a word game with the <Link prefetch={false} href="/random-category-generator" className="text-[var(--neon-cyan)] underline">random category generator</Link>, or start a conversation with the <Link prefetch={false} href="/" className="text-[var(--neon-cyan)] underline">random topic generator</Link>.</p>
       </section>
     </div>
     <FaqSchema items={faqs} />

@@ -26,7 +26,7 @@ export default function HomeQotdEntry() {
     return () => window.clearTimeout(id);
   }, []);
   return <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-8" aria-labelledby="home-qotd">
-    <Link href="/question-of-the-day" onClick={() => track("home_qotd_entry_click", { tool_type: "question_of_the_day", content_source: "homepage", answered_today: today?.answered ?? false, streak_days: today?.streak ?? 0, locale: "en" })}
+    <Link prefetch={false} href="/question-of-the-day" onClick={() => track("home_qotd_entry_click", { tool_type: "question_of_the_day", content_source: "homepage", answered_today: today?.answered ?? false, streak_days: today?.streak ?? 0, locale: "en" })}
       className="glass-card block p-5 sm:p-6 border-[var(--neon-yellow)]/25 hover:border-[var(--neon-yellow)]/50 transition-colors min-h-[8.5rem]">
       <p id="home-qotd" className="text-xs font-bold uppercase tracking-widest text-[var(--neon-yellow)]">☀️ Today&apos;s question{today?.streak ? ` · 🔥 ${today.streak}-day streak` : ""}</p>
       <p className="mt-2 text-base sm:text-lg font-semibold text-[var(--text-primary)] line-clamp-2">{today?.q ?? " "}</p>

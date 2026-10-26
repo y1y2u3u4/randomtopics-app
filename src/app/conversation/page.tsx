@@ -136,7 +136,7 @@ export default function ConversationPage() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {CONVERSATION_COLLECTIONS.map((collection) => (
-                <Link
+                <Link prefetch={false}
                   key={collection.href}
                   href={collection.href}
                   className="rounded-xl border border-[rgba(255,255,255,0.06)] p-4 transition-all hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)]"
@@ -165,7 +165,7 @@ export default function ConversationPage() {
                 a classroom speaking activity, a team meeting, or a party.
               </p>
               <p>
-                If you want the same starter for a whole group each day, use the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link>; when the talk winds down, switch to a game with <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">random charades words</Link>.
+                If you want the same starter for a whole group each day, use the <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link>; when the talk winds down, switch to a game with <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">random charades words</Link>.
               </p>
               <p>
                 Conversation starters are questions or topics designed to spark meaningful dialogue between
@@ -195,7 +195,7 @@ export default function ConversationPage() {
                 with a surprise day off. Avoid overly personal or controversial subjects early on — focus
                 on topics that reveal personality and values without feeling like an interrogation. Looking
                 for more date-specific ideas? Check out our guide
-                to <Link href="/topics/conversation-starters-for-couples" className="text-[var(--neon-cyan)] hover:underline">conversation starters for couples</Link>.
+                to <Link prefetch={false} href="/topics/conversation-starters-for-couples" className="text-[var(--neon-cyan)] hover:underline">conversation starters for couples</Link>.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--neon-pink)] pt-2">At Work</h4>
@@ -211,7 +211,7 @@ export default function ConversationPage() {
                 Even close friends can fall into conversational ruts. Break the pattern with hypothetical
                 questions (&quot;If you could live in any era, when?&quot;), nostalgia prompts, or deep
                 questions about life goals. For fresh ideas,
-                explore <Link href="/topics/random-questions-to-ask-friends" className="text-[var(--neon-cyan)] hover:underline">random questions to ask friends</Link>.
+                explore <Link prefetch={false} href="/topics/random-questions-to-ask-friends" className="text-[var(--neon-cyan)] hover:underline">random questions to ask friends</Link>.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--neon-pink)] pt-2">With Family</h4>

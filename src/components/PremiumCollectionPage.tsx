@@ -127,7 +127,7 @@ export default function PremiumCollectionPage({ config }: { config: PremiumColle
           <div className="glass-card p-7 sm:p-9">
             <p className="text-sm leading-relaxed text-[var(--text-secondary)]">{config.intro}</p>
             <p className="mt-4 text-xs leading-relaxed text-[var(--text-muted)]">
-              Every item follows the site&apos;s published <Link href="/how-we-curate" className="text-[var(--neon-cyan)] hover:underline">editorial standards</Link>: open-ended, usable without specialist knowledge, safe for the named audience, and paired with a way to keep the discussion moving.
+              Every item follows the site&apos;s published <Link prefetch={false} href="/how-we-curate" className="text-[var(--neon-cyan)] hover:underline">editorial standards</Link>: open-ended, usable without specialist knowledge, safe for the named audience, and paired with a way to keep the discussion moving.
             </p>
           </div>
         </section>
@@ -234,12 +234,12 @@ export default function PremiumCollectionPage({ config }: { config: PremiumColle
           <div className="glass-card p-7 sm:p-9">
             <h2 className="text-xl font-bold text-[var(--text-primary)]">Continue with the right collection</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
-              <Link href={config.parentLink.href} className="rounded-xl border border-[var(--neon-cyan)]/20 p-4 hover:bg-[rgba(0,229,255,0.05)] transition-colors">
+              <Link prefetch={false} href={config.parentLink.href} className="rounded-xl border border-[var(--neon-cyan)]/20 p-4 hover:bg-[rgba(0,229,255,0.05)] transition-colors">
                 <p className="font-semibold text-[var(--neon-cyan)]">{config.parentLink.label} ←</p>
                 <p className="mt-1 text-xs text-[var(--text-muted)]">Return to the broader parent collection.</p>
               </Link>
               {config.relatedLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 transition-colors">
+                <Link prefetch={false} key={link.href} href={link.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 transition-colors">
                   <p className="font-semibold text-[var(--text-primary)]">{link.label} →</p>
                   <p className="mt-1 text-xs text-[var(--text-muted)]">{link.description}</p>
                 </Link>

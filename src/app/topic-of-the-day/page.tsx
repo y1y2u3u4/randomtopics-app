@@ -85,7 +85,7 @@ export default function TopicOfTheDayPage() {
       </section>
       <section className="mt-8">
         <h2 className="font-bold">More daily and random prompts</h2>
-        <p className="mt-3 text-[var(--text-muted)]">Answer the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] underline">question of the day</Link>, get any topic with the <Link href="/" className="text-[var(--neon-cyan)] underline">random topic generator</Link>, browse <Link href="/categories" className="text-[var(--neon-cyan)] underline">topics by category</Link>, or go deeper with <Link href="/philosophical-questions" className="text-[var(--neon-cyan)] underline">philosophical questions</Link>.</p>
+        <p className="mt-3 text-[var(--text-muted)]">Answer the <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] underline">question of the day</Link>, get any topic with the <Link prefetch={false} href="/" className="text-[var(--neon-cyan)] underline">random topic generator</Link>, browse <Link prefetch={false} href="/categories" className="text-[var(--neon-cyan)] underline">topics by category</Link>, or go deeper with <Link prefetch={false} href="/philosophical-questions" className="text-[var(--neon-cyan)] underline">philosophical questions</Link>.</p>
       </section>
     </div>
     <FaqSchema items={faqs} />

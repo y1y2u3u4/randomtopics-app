@@ -72,9 +72,9 @@ export default function PutAFingerDownPage() {
           <SectionTitle>Game mode and variations</SectionTitle>
           <p>
             Tap Finger down each time a statement is true for you. The counter shows how many fingers are left, and Reset starts a new
-            round. For more party games, try <Link href="/never-have-i-ever" className={linkClass}>Never Have I Ever</Link>,{" "}
-            <Link href="/would-you-rather" className={linkClass}>Would You Rather</Link> or{" "}
-            <Link href="/truth-or-dare" className={linkClass}>Truth or Dare</Link>.
+            round. For more party games, try <Link prefetch={false} href="/never-have-i-ever" className={linkClass}>Never Have I Ever</Link>,{" "}
+            <Link prefetch={false} href="/would-you-rather" className={linkClass}>Would You Rather</Link> or{" "}
+            <Link prefetch={false} href="/truth-or-dare" className={linkClass}>Truth or Dare</Link>.
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Real statements from three categories:"} sets={EXAMPLES} />

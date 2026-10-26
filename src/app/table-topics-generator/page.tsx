@@ -99,7 +99,7 @@ export default function TableTopicsPage() {
                 The question database spans 16 categories — from light &quot;would you rather&quot; style
                 prompts to deeper questions about values and experiences — so you can simulate everything
                 from a casual club night to a district contest. Need a full question list to print instead?
-                See our curated <Link href="/topics/toastmasters-table-topics" className="text-[var(--neon-cyan)] hover:underline">120 Table Topics questions</Link>.
+                See our curated <Link prefetch={false} href="/topics/toastmasters-table-topics" className="text-[var(--neon-cyan)] hover:underline">120 Table Topics questions</Link>.
               </p>
 
               <h3
@@ -128,8 +128,8 @@ export default function TableTopicsPage() {
                 <li><strong>Contest simulation:</strong> generate one question, wait 5 seconds, then speak for exactly 1:30. Repeat weekly and track how often you land in the qualifying window.</li>
               </ol>
               <p>
-                Looking for longer-form practice? Our <Link href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> covers
-                prepared speech ideas, and the <Link href="/impromptu-speech-topics" className="text-[var(--neon-cyan)] hover:underline">impromptu speech topics</Link> page
+                Looking for longer-form practice? Our <Link prefetch={false} href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> covers
+                prepared speech ideas, and the <Link prefetch={false} href="/impromptu-speech-topics" className="text-[var(--neon-cyan)] hover:underline">impromptu speech topics</Link> page
                 targets classroom and forensics formats.
               </p>
 

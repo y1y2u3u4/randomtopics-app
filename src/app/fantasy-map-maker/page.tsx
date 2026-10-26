@@ -73,12 +73,12 @@ export default function FantasyMapMakerPage() {
           <ul className="list-disc pl-5 space-y-1">
             <li><strong>Land type</strong> — one continent, a chain of islands, or a supercontinent.</li>
             <li><strong>Style</strong> — colored terrain, or a sepia parchment look for handouts.</li>
-            <li><strong>Names</strong> — realms, the tallest mountain and a sea are named for you; rename them with the <Link href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link> or the <Link href="/country-name-generator" className={linkClass}>country name generator</Link>.</li>
+            <li><strong>Names</strong> — realms, the tallest mountain and a sea are named for you; rename them with the <Link prefetch={false} href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link> or the <Link prefetch={false} href="/country-name-generator" className={linkClass}>country name generator</Link>.</li>
             <li><strong>Download</strong> — save a PNG and draw your own cities and roads on top.</li>
           </ul>
           <SectionTitle>Ideas</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li>Generate a world for a one-shot campaign, then roll NPCs with the <Link href="/random-character-generator" className={linkClass}>random character generator</Link>.</li>
+            <li>Generate a world for a one-shot campaign, then roll NPCs with the <Link prefetch={false} href="/random-character-generator" className={linkClass}>random character generator</Link>.</li>
             <li>Writing prompt: describe a journey from the westernmost realm to the named mountain.</li>
             <li>Classroom: label climate zones, invent trade routes, or write a travel guide for one realm.</li>
           </ul>

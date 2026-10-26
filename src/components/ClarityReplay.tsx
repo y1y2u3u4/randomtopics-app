@@ -96,7 +96,7 @@ export default function ClarityReplay() {
       <div className="flex flex-wrap gap-3">
         <button className="min-h-11 rounded-lg border border-white/20 px-3" onClick={() => choose("allowed")}>I’m 18 or older · Allow replay</button>
         <button className="min-h-11 rounded-lg border border-white/20 px-3" onClick={() => choose("denied")}>Continue without replay</button>
-        <Link href="/privacy" className="py-3 underline">Privacy details</Link>
+        <Link prefetch={false} href="/privacy" className="py-3 underline">Privacy details</Link>
       </div>
     </div> : <button className="min-h-11 underline text-[var(--text-muted)]" onClick={() => setSettings(true)}>Session replay: {consent === "allowed" ? "allowed" : "off"} · Change</button>}
   </aside>;

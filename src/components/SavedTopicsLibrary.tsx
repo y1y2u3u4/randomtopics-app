@@ -72,7 +72,7 @@ export default function SavedTopicsLibrary({ locale }: { locale: Locale }) {
                 ? "Pulsa el corazón en cualquier resultado para añadirlo aquí."
                 : "Tap the heart on any generated result to add it here."}
             </p>
-            <Link href={isEs ? "/es" : "/"} className="btn-generate inline-flex px-5 py-2.5 text-sm">
+            <Link prefetch={false} href={isEs ? "/es" : "/"} className="btn-generate inline-flex px-5 py-2.5 text-sm">
               {isEs ? "Generar temas" : "Generate topics"}
             </Link>
           </div>

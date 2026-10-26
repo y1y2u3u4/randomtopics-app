@@ -115,7 +115,7 @@ export default async function CategoryPageEs({ params }: CategoryPageProps) {
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {related.map((article, i) => (
-                      <Link
+                      <Link prefetch={false}
                         key={i}
                         href={article.href}
                         className="text-sm p-3 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
@@ -135,7 +135,7 @@ export default async function CategoryPageEs({ params }: CategoryPageProps) {
                 </h2>
                 <div className="flex flex-wrap gap-3">
                   {MODES.map((mode) => (
-                    <Link
+                    <Link prefetch={false}
                       key={mode.slug}
                       href={`/es/${mode.slug}/${category}`}
                       className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-pink)] hover:border-[var(--neon-pink)]/30 hover:bg-[rgba(255,45,120,0.05)] transition-all"

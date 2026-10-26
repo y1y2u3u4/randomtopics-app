@@ -70,7 +70,7 @@ export default function TwoTruthsAndALiePage() {
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-6">
           <p className="glass-card p-5 text-base leading-relaxed text-[var(--text-secondary)]">
-            Want specific statements to adapt? Browse <Link href="/topics/two-truths-and-a-lie-ideas" className="text-[var(--neon-cyan)] underline underline-offset-4">120 Two Truths and a Lie examples</Link> for work, students, and friends, and edit a three-statement round. This page draws themes for writing your own.
+            Want specific statements to adapt? Browse <Link prefetch={false} href="/topics/two-truths-and-a-lie-ideas" className="text-[var(--neon-cyan)] underline underline-offset-4">120 Two Truths and a Lie examples</Link> for work, students, and friends, and edit a three-statement round. This page draws themes for writing your own.
           </p>
         </section>
 
@@ -88,10 +88,10 @@ export default function TwoTruthsAndALiePage() {
               </p>
               <p>
                 Pair it with more group games:{" "}
-                <Link href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>,{" "}
-                <Link href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>,{" "}
-                <Link href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">This or That</Link>, or{" "}
-                <Link href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">icebreaker questions</Link> for work.
+                <Link prefetch={false} href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>,{" "}
+                <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>,{" "}
+                <Link prefetch={false} href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">This or That</Link>, or{" "}
+                <Link prefetch={false} href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">icebreaker questions</Link> for work.
               </p>
 
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>

@@ -22,7 +22,7 @@ export default function ClassroomToolLinks({ currentPath, heading = "More free c
       <p className="text-sm text-center text-[var(--text-muted)] mt-2 mb-6">{intro}</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {CLASSROOM_TOOLS.filter((t) => t.href !== currentPath).map((t) => (
-          <Link key={t.href} href={t.href} className="glass-card p-4 flex items-center gap-3 hover:border-[var(--neon-cyan)]/30 transition-all group">
+          <Link prefetch={false} key={t.href} href={t.href} className="glass-card p-4 flex items-center gap-3 hover:border-[var(--neon-cyan)]/30 transition-all group">
             <span className="text-2xl" aria-hidden="true">{t.emoji}</span>
             <span>
               <span className="block text-sm font-bold text-[var(--text-primary)] group-hover:text-[var(--neon-cyan)]">{t.label}</span>

@@ -85,7 +85,7 @@ export default function SpinTheWheelPage() {
             ["How you pick", "One spin, one topic, chosen by chance", "Filter by mode, category, and depth"],
             ["Topics per click", "One", "Several at once"],
             ["Best for", "Groups, parties, classrooms on a screen", "Planning a lesson, debate, or speech practice"],
-            ["Start here", "The wheel above", <Link key="g" href="/" className="text-[var(--neon-cyan)] hover:underline">Random topic generator</Link>],
+            ["Start here", "The wheel above", <Link prefetch={false} key="g" href="/" className="text-[var(--neon-cyan)] hover:underline">Random topic generator</Link>],
           ]}
         />
 
@@ -104,11 +104,11 @@ export default function SpinTheWheelPage() {
                 gloriously weird. Give it a spin and let chance break the deadlock.
               </p>
               <p>
-                Want one shared prompt instead of a spin? The <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> gives everyone the same question each day, and the <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades word generator</Link> deals a word to act out.
+                Want one shared prompt instead of a spin? The <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> gives everyone the same question each day, and the <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades word generator</Link> deals a word to act out.
               </p>
               <p>
                 The wheel is the playful cousin of our{" "}
-                <Link href="/" className="text-[var(--neon-cyan)] hover:underline">
+                <Link prefetch={false} href="/" className="text-[var(--neon-cyan)] hover:underline">
                   random topic generator
                 </Link>
                 . Both draw from the same curated database of 500+ topics, but the wheel adds the spin-and-reveal
@@ -129,7 +129,7 @@ export default function SpinTheWheelPage() {
                 </li>
                 <li>
                   <strong>Classrooms:</strong> use it as a bell-ringer or discussion warm-up. Pair it with the{" "}
-                  <Link href="/debate/middle-school" className="text-[var(--neon-cyan)] hover:underline">
+                  <Link prefetch={false} href="/debate/middle-school" className="text-[var(--neon-cyan)] hover:underline">
                     middle school debate generator
                   </Link>{" "}
                   for a quick persuasive-writing seed.
@@ -137,7 +137,7 @@ export default function SpinTheWheelPage() {
                 <li>
                   <strong>Public speaking:</strong> spin, take 30 seconds, and give a two-minute impromptu talk —
                   great for{" "}
-                  <Link href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">
+                  <Link prefetch={false} href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">
                     Toastmasters Table Topics
                   </Link>{" "}
                   practice.
@@ -149,22 +149,22 @@ export default function SpinTheWheelPage() {
 
               <p>
                 Prefer a fixed deck? Try{" "}
-                <Link href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">
+                <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">
                   Would You Rather
                 </Link>
                 ,{" "}
-                <Link href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">
+                <Link prefetch={false} href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">
                   Never Have I Ever
                 </Link>
                 , or the{" "}
-                <Link href="/question-generator" className="text-[var(--neon-cyan)] hover:underline">
+                <Link prefetch={false} href="/question-generator" className="text-[var(--neon-cyan)] hover:underline">
                   random question generator
                 </Link>
                 . Spinning for a person instead of a topic? Paste names into the{" "}
-                <Link href="/random-name-picker" className="text-[var(--neon-cyan)] hover:underline">random name picker</Link> or pick a number with the{" "}
-                <Link href="/number-randomizer" className="text-[var(--neon-cyan)] hover:underline">number randomizer</Link>.
+                <Link prefetch={false} href="/random-name-picker" className="text-[var(--neon-cyan)] hover:underline">random name picker</Link> or pick a number with the{" "}
+                <Link prefetch={false} href="/number-randomizer" className="text-[var(--neon-cyan)] hover:underline">number randomizer</Link>.
                 Choosing between your own options — dinner, a movie, yes or no? Type them into the{" "}
-                <Link href="/decision-maker" className="text-[var(--neon-cyan)] hover:underline">decision maker wheel</Link>.
+                <Link prefetch={false} href="/decision-maker" className="text-[var(--neon-cyan)] hover:underline">decision maker wheel</Link>.
               </p>
 
               <h3
@@ -200,7 +200,7 @@ export default function SpinTheWheelPage() {
               {CATEGORIES.map((cat) => {
                 const sample = topics.find((t) => t.category === cat.id && t.depth !== "light") ?? topics.find((t) => t.category === cat.id);
                 return (
-                  <Link key={cat.id} href={`/categories/${cat.id}`} className="rounded-xl border border-[rgba(255,255,255,0.06)] p-4 hover:border-[var(--neon-cyan)]/30 transition-all">
+                  <Link prefetch={false} key={cat.id} href={`/categories/${cat.id}`} className="rounded-xl border border-[rgba(255,255,255,0.06)] p-4 hover:border-[var(--neon-cyan)]/30 transition-all">
                     <p className="text-xs font-bold text-[var(--text-primary)] mb-1">{cat.emoji} {cat.label}</p>
                     {sample && <p className="text-[var(--text-secondary)] text-xs leading-relaxed">{sample.text}</p>}
                   </Link>

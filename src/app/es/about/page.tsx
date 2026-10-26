@@ -180,7 +180,7 @@ export default function AboutPageEs() {
             <p className="text-[var(--text-secondary)]">
               ¿Listo para descubrir tu próximo gran tema?
             </p>
-            <Link
+            <Link prefetch={false}
               href="/es"
               className="btn-generate inline-block"
             >

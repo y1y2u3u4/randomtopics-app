@@ -111,7 +111,7 @@ export default function DebatePage() {
         />
         <HostPassEntry generator="debate" />
         <DirectAnswer question="What is a debate topic generator?">
-          A debate topic generator picks a random, arguable motion for you, with pro and con talking points, so you can start preparing right away. This one draws from 308 debate topics (updated October 2026) for classrooms, debate clubs and practice rounds. Filter by category and depth; no topic repeats until you have seen them all. Free, with no signup. For moral questions, see these <Link href="/topics/ethical-dilemma-questions" className="text-[var(--neon-cyan)] hover:underline">ethical dilemma questions</Link>.
+          A debate topic generator picks a random, arguable motion for you, with pro and con talking points, so you can start preparing right away. This one draws from 308 debate topics (updated October 2026) for classrooms, debate clubs and practice rounds. Filter by category and depth; no topic repeats until you have seen them all. Free, with no signup. For moral questions, see these <Link prefetch={false} href="/topics/ethical-dilemma-questions" className="text-[var(--neon-cyan)] hover:underline">ethical dilemma questions</Link>.
         </DirectAnswer>
         <TryNext path="/debate" />
         <ClassroomPackCard pack="debate" page="/debate" />
@@ -136,7 +136,7 @@ export default function DebatePage() {
                 Browse 100 balanced topics grouped by subject, with research angles for each motion.
               </p>
             </div>
-            <Link
+            <Link prefetch={false}
               href="/pro-and-con-debate-topics"
               className="text-sm font-semibold text-[var(--neon-cyan)] whitespace-nowrap hover:underline"
             >
@@ -163,7 +163,7 @@ export default function DebatePage() {
                 because there&apos;s no objectively correct answer.
               </p>
               <p>
-                For a lighter warm-up before a debate round, open with today&apos;s <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">daily discussion question</Link> so everyone speaks once before taking sides.
+                For a lighter warm-up before a debate round, open with today&apos;s <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">daily discussion question</Link> so everyone speaks once before taking sides.
               </p>
               <p>
                 Our generator curates <strong>argumentative topics</strong> across politics, technology,
@@ -171,7 +171,7 @@ export default function DebatePage() {
                 con arguments</strong>. Whether you&apos;re preparing for a competitive debate tournament
                 or leading a classroom discussion, these topics will challenge participants to think
                 critically and articulate their positions clearly. For student-specific topics, see
-                our <Link href="/topics/debate-topics-for-students" className="text-[var(--neon-cyan)] hover:underline">debate topics for students</Link> guide.
+                our <Link prefetch={false} href="/topics/debate-topics-for-students" className="text-[var(--neon-cyan)] hover:underline">debate topics for students</Link> guide.
               </p>
 
               <h3
@@ -228,7 +228,7 @@ export default function DebatePage() {
               </ol>
               <p>
                 Want to explore topics that push boundaries? Browse
-                our <Link href="/topics/controversial-topics-to-discuss" className="text-[var(--neon-cyan)] hover:underline">controversial topics to discuss</Link> for
+                our <Link prefetch={false} href="/topics/controversial-topics-to-discuss" className="text-[var(--neon-cyan)] hover:underline">controversial topics to discuss</Link> for
                 debates that really challenge conventional thinking.
               </p>
 
@@ -263,8 +263,8 @@ export default function DebatePage() {
                 wording in seconds. Coaches use the 10-at-once mode to build a motions bank for
                 tournament prep, and clubs use random draws so neither side can prepare in advance —
                 the closest thing to a real impromptu round. Want questions instead of propositions?
-                Use the <Link href="/debate/questions" className="text-[var(--neon-cyan)] hover:underline">debate question generator</Link> — or
-                browse our curated bank of <Link href="/debate/motions" className="text-[var(--neon-cyan)] hover:underline">100+ debate motions</Link> in
+                Use the <Link prefetch={false} href="/debate/questions" className="text-[var(--neon-cyan)] hover:underline">debate question generator</Link> — or
+                browse our curated bank of <Link prefetch={false} href="/debate/motions" className="text-[var(--neon-cyan)] hover:underline">100+ debate motions</Link> in
                 This-House format.
               </p>
 
@@ -281,7 +281,7 @@ export default function DebatePage() {
                 knowledge. Examples include &quot;Should homework be abolished?&quot; or &quot;Is social
                 media doing more harm than good?&quot; These let beginners focus on argument structure
                 rather than struggling with unfamiliar subject matter. We&apos;ve collected 40 of them
-                in our <Link href="/topics/debate-topics-for-beginners" className="text-[var(--neon-cyan)] hover:underline">easy debate topics for beginners</Link> guide.
+                in our <Link prefetch={false} href="/topics/debate-topics-for-beginners" className="text-[var(--neon-cyan)] hover:underline">easy debate topics for beginners</Link> guide.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">How do I choose a debate topic for my class?</h4>
@@ -354,7 +354,7 @@ export default function DebatePage() {
               { title: "50 Ethical Dilemma Questions", href: "/topics/ethical-dilemma-questions" },
               { title: "50 Deep Philosophical Questions", href: "/topics/deep-philosophical-questions" },
             ].map((item) => (
-              <Link
+              <Link prefetch={false}
                 key={item.href}
                 href={item.href}
                 className="glass-card p-5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] transition-all hover:translate-y-[-2px] hover:border-[var(--neon-cyan)]/30"
@@ -365,7 +365,7 @@ export default function DebatePage() {
             ))}
           </div>
           <div className="text-center mt-6">
-            <Link
+            <Link prefetch={false}
               href="/topics"
               className="text-sm text-[var(--text-muted)] hover:text-[var(--neon-cyan)] transition-colors"
             >

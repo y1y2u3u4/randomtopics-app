@@ -84,7 +84,7 @@ export default function GeneradorDePalabrasPage() {
           <SectionTitle>Ideas para usar palabras aleatorias</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
             <li><strong>Pictionary y mímica</strong> — palabras dibujables y fáciles, una por turno.</li>
-            <li><strong>Cuentos de tres palabras</strong> — genera tres y escribe una historia con todas; más ideas en <Link href="/es/writing" className={linkClass}>temas para escribir</Link>.</li>
+            <li><strong>Cuentos de tres palabras</strong> — genera tres y escribe una historia con todas; más ideas en <Link prefetch={false} href="/es/writing" className={linkClass}>temas para escribir</Link>.</li>
             <li><strong>Vocabulario</strong> — adjetivos difíciles: defínelos, úsalos en una frase y busca un sinónimo.</li>
             <li><strong>Basta / Stop</strong> — elige letra y saca ejemplos para comprobar respuestas.</li>
           </ul>

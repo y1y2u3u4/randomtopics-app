@@ -106,7 +106,7 @@ export default function SpanishMostLikelyCollectionPage({ config }: { config: Sp
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10 text-center">
           <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 bg-gradient-to-r from-[rgba(0,229,255,0.04)] to-[rgba(255,45,120,0.04)]">
             <p className="text-sm text-[var(--text-secondary)] mb-4">¿Prefieres sacar una pregunta nueva con cada clic?</p>
-            <Link href="/es/most-likely-to" className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
+            <Link prefetch={false} href="/es/most-likely-to" className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
               <span aria-hidden="true">👉</span> Abrir el generador de Quién es más probable
             </Link>
           </div>
@@ -131,7 +131,7 @@ export default function SpanishMostLikelyCollectionPage({ config }: { config: Sp
             <h2 className="text-lg font-bold text-[var(--text-primary)] mb-4">Más preguntas para jugar</h2>
             <div className="flex flex-wrap gap-3">
               {config.relatedLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="text-sm px-4 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-colors">
+                <Link prefetch={false} key={link.href} href={link.href} className="text-sm px-4 py-2 rounded-lg border border-white/10 text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-colors">
                   {link.label}
                 </Link>
               ))}

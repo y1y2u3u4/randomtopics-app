@@ -26,7 +26,7 @@ export default async function SpeechAnalytics({ days = 7, refresh = false }: { d
     {process.env.NEXT_PUBLIC_SPEECH_COACH_ENABLED !== "true" && <p role="status" className="rounded-xl border border-amber-300/30 p-4 text-sm text-amber-100">正式练习入口尚未开放。统计已部署，但目前不能用练习漏斗的零值判断用户是否愿意练习或付费。</p>}
     <div className="flex flex-wrap items-center justify-between gap-3">
       <div><h2 className="text-2xl font-bold">演讲练习 · 从流量到价值</h2><p className="mt-2 text-sm text-[var(--text-muted)]">{report.days === 0 ? "今日截至目前，数据仍在处理" : `最近 ${report.days} 个完整日`}（GA4 属性时区）· 仅正式域名 · 基础事件 v2 / 当前入口和反馈 v5</p></div>
-      <div className="flex gap-3"><Link className="underline" href="?speech_days=0#speech-analytics">今日</Link><Link className="underline" href="?speech_days=1#speech-analytics">昨日</Link><Link className="underline" href="?speech_days=7#speech-analytics">7 天</Link><Link className="underline" href="?speech_days=28#speech-analytics">28 天</Link>
+      <div className="flex gap-3"><Link prefetch={false} className="underline" href="?speech_days=0#speech-analytics">今日</Link><Link prefetch={false} className="underline" href="?speech_days=1#speech-analytics">昨日</Link><Link prefetch={false} className="underline" href="?speech_days=7#speech-analytics">7 天</Link><Link prefetch={false} className="underline" href="?speech_days=28#speech-analytics">28 天</Link>
         {clarity && <a className="underline" href={`https://clarity.microsoft.com/projects/view/${clarity}/recordings`} target="_blank" rel="noreferrer">Clarity 回放</a>}</div>
     </div>
     <p className="text-sm text-[var(--text-secondary)]">本次入口更新另外记录 expanded 入口事件，首练与重练反馈沿用 v5。旧版 v3/v4 兼容事件仍会记录，不能当作独立对照组。反馈可见要求标题至少50%可见、前台连续一秒，不代表已阅读或满意。有效曝光要求可用按钮至少 50% 可见、前台连续一秒。快速点击不会补记曝光；点击独立计数，旧版曝光率不可直接比较。QA 使用独立事件名称，不进入下方漏斗。</p>

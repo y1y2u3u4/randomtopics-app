@@ -266,10 +266,10 @@ export default function DebateMotionsPage() {
             real clash, and suitable for BP, parliamentary, World Schools, and club debate.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-6">
-            <Link href="/debate" className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
+            <Link prefetch={false} href="/debate" className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
               <span>🎲</span> Random Motion Generator
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/debate/questions"
               className="inline-flex items-center gap-2 text-sm px-6 py-3 rounded-lg border border-[rgba(255,255,255,0.1)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-all"
             >
@@ -324,11 +324,11 @@ export default function DebateMotionsPage() {
                 </ol>
                 <p className="text-xs text-[var(--text-muted)] mt-5">
                   Want more like these?{" "}
-                  <Link href={section.href} className="text-[var(--neon-cyan)] hover:underline">
+                  <Link prefetch={false} href={section.href} className="text-[var(--neon-cyan)] hover:underline">
                     Browse {section.theme.toLowerCase()} topics
                   </Link>{" "}
                   or spin the{" "}
-                  <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">
+                  <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">
                     debate generator
                   </Link>{" "}
                   filtered to this category.
@@ -371,13 +371,13 @@ export default function DebateMotionsPage() {
               <p>
                 For impromptu practice, do not pick — draw. Random selection is the point: it forces
                 debaters to build cases from scratch under time pressure, exactly like a real round. Our{" "}
-                <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link>{" "}
+                <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link>{" "}
                 deals random propositions with pro/con talking points, the{" "}
-                <Link href="/debate/questions" className="text-[var(--neon-cyan)] hover:underline">question generator</Link>{" "}
+                <Link prefetch={false} href="/debate/questions" className="text-[var(--neon-cyan)] hover:underline">question generator</Link>{" "}
                 phrases them as direct questions, and the{" "}
-                <Link href="/argument-generator" className="text-[var(--neon-cyan)] hover:underline">argument generator</Link>{" "}
+                <Link prefetch={false} href="/argument-generator" className="text-[var(--neon-cyan)] hover:underline">argument generator</Link>{" "}
                 helps build out full cases. Teaching a class? The{" "}
-                <Link href="/debate/students" className="text-[var(--neon-cyan)] hover:underline">student debate generator</Link>{" "}
+                <Link prefetch={false} href="/debate/students" className="text-[var(--neon-cyan)] hover:underline">student debate generator</Link>{" "}
                 keeps motions age-appropriate.
               </p>
 

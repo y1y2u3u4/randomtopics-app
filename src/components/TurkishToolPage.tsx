@@ -68,7 +68,7 @@ export default function TurkishToolPage({ path, title, lead, groups, mode, butto
           <h2 className="text-lg font-bold text-[var(--text-primary)] mb-4">Diğer Türkçe araçlar</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {TR_PAGES.filter((p) => p.href !== path).map((p) => (
-              <Link key={p.href} href={p.href} className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-colors">
+              <Link prefetch={false} key={p.href} href={p.href} className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-colors">
                 <p className="text-sm font-bold text-[var(--text-primary)]">{p.label}</p>
                 <p className="text-xs text-[var(--text-muted)] mt-1">{p.detail}</p>
               </Link>
@@ -103,7 +103,7 @@ export default function TurkishToolPage({ path, title, lead, groups, mode, butto
               </div>
             ))}
             <p className="pt-4 text-xs text-[var(--text-muted)]">
-              İngilizce konu üretici için <Link href="/" className="text-[var(--neon-cyan)] hover:underline">Random Topics</Link> ana sayfasına göz atın.
+              İngilizce konu üretici için <Link prefetch={false} href="/" className="text-[var(--neon-cyan)] hover:underline">Random Topics</Link> ana sayfasına göz atın.
             </p>
           </div>
         </section>

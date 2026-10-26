@@ -79,10 +79,10 @@ export default function FunnyDebatePage() {
               <p>
                 This generator focuses on the weird-and-fun end of our topic database. Want the serious
                 counterpart for classrooms and clubs? Use the
-                main <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link> or
-                the <Link href="/debate/students" className="text-[var(--neon-cyan)] hover:underline">student edition</Link>.
+                main <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link> or
+                the <Link prefetch={false} href="/debate/students" className="text-[var(--neon-cyan)] hover:underline">student edition</Link>.
                 For question-style party prompts, try
-                our <Link href="/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">would you rather questions</Link>.
+                our <Link prefetch={false} href="/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">would you rather questions</Link>.
               </p>
 
               <h3

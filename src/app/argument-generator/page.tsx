@@ -101,7 +101,7 @@ export default function ArgumentGeneratorPage() {
                 drill rebuttals against surprise claims, writing teachers assign them as persuasive essay
                 thesis statements, interview coaches use them to practice structured thinking, and friends
                 settle long car rides with them. If you want formally framed resolutions instead, try
-                our <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link> —
+                our <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link> —
                 it draws from the same curated database with a tournament-style framing.
               </p>
 
@@ -126,10 +126,10 @@ export default function ArgumentGeneratorPage() {
               </h3>
               <ul className="space-y-2 list-disc pl-5">
                 <li><strong>Debate practice:</strong> generate a surprise argument, take the side you disagree with, and give yourself two minutes to defend it.</li>
-                <li><strong>Persuasive essays:</strong> use a generated claim as your thesis and the talking points as paragraph outlines. See also our <Link href="/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">essay topics for college</Link>.</li>
+                <li><strong>Persuasive essays:</strong> use a generated claim as your thesis and the talking points as paragraph outlines. See also our <Link prefetch={false} href="/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">essay topics for college</Link>.</li>
                 <li><strong>Classroom discussions:</strong> put a generated argument on the board and have students line up on the agree/disagree spectrum, then defend their position.</li>
                 <li><strong>Critical thinking drills:</strong> for any generated argument, list the three strongest objections before looking at the con talking points.</li>
-                <li><strong>Friendly disputes:</strong> our <Link href="/funny" className="text-[var(--neon-cyan)] hover:underline">funny topics</Link> mode produces low-stakes arguments like &quot;a hot dog is a sandwich&quot; — perfect for parties.</li>
+                <li><strong>Friendly disputes:</strong> our <Link prefetch={false} href="/funny" className="text-[var(--neon-cyan)] hover:underline">funny topics</Link> mode produces low-stakes arguments like &quot;a hot dog is a sandwich&quot; — perfect for parties.</li>
               </ul>
 
               <h3

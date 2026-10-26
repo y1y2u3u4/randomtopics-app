@@ -129,7 +129,7 @@ export default function PracticeDemo() {
         </div>
 
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <Link href="/speech" onClick={() => track("speech_nav_click", { source: "home_demo", content_source: "homepage" })}
+          <Link prefetch={false} href="/speech" onClick={() => track("speech_nav_click", { source: "home_demo", content_source: "homepage" })}
             className="btn-generate inline-flex items-center justify-center gap-2 text-sm">
             🎙️ Try a practice round
           </Link>

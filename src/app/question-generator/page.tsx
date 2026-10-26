@@ -92,16 +92,16 @@ export default function QuestionGeneratorPage() {
                 friendly banter, and <strong>deep questions</strong> for conversations that matter.
               </p>
               <p>
-                Prefer acting to answering? The <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">random charades generator</Link> draws a word, hides it, and runs the timer.
+                Prefer acting to answering? The <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">random charades generator</Link> draws a word, hides it, and runs the timer.
               </p>
               <p>
                 It&apos;s built on the same 500+ topic database as our other tools, so if you need a more
                 specific flavor, jump to the dedicated
-                generator: <Link href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">icebreaker questions</Link> for
-                teams, <Link href="/conversation" className="text-[var(--neon-cyan)] hover:underline">conversation starters</Link> for
-                social settings, or <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate questions</Link> when
+                generator: <Link prefetch={false} href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">icebreaker questions</Link> for
+                teams, <Link prefetch={false} href="/conversation" className="text-[var(--neon-cyan)] hover:underline">conversation starters</Link> for
+                social settings, or <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate questions</Link> when
                 you want structured disagreement. Prefer one great question daily instead of many?
-                See the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link>.
+                See the <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link>.
               </p>
 
               <h3
@@ -111,10 +111,10 @@ export default function QuestionGeneratorPage() {
                 Question Styles and When to Use Them
               </h3>
               <ul className="space-y-2 list-disc pl-5">
-                <li><strong>Icebreakers</strong> — first meetings, onboarding, class kickoffs. Low stakes, everyone can answer. Try our <Link href="/topics/icebreaker-questions-for-work" className="text-[var(--neon-cyan)] hover:underline">50 icebreakers for work</Link>.</li>
-                <li><strong>Get-to-know-you questions</strong> — parties and new friendships. See <Link href="/topics/get-to-know-you-questions-for-adults" className="text-[var(--neon-cyan)] hover:underline">questions for adults</Link>.</li>
-                <li><strong>Deep questions</strong> — close friends, partners, journaling. Browse <Link href="/topics/deep-questions-to-ask-your-partner" className="text-[var(--neon-cyan)] hover:underline">deep questions for your partner</Link>.</li>
-                <li><strong>Funny questions</strong> — game nights and group chats. The <Link href="/funny" className="text-[var(--neon-cyan)] hover:underline">funny generator</Link> specializes in these.</li>
+                <li><strong>Icebreakers</strong> — first meetings, onboarding, class kickoffs. Low stakes, everyone can answer. Try our <Link prefetch={false} href="/topics/icebreaker-questions-for-work" className="text-[var(--neon-cyan)] hover:underline">50 icebreakers for work</Link>.</li>
+                <li><strong>Get-to-know-you questions</strong> — parties and new friendships. See <Link prefetch={false} href="/topics/get-to-know-you-questions-for-adults" className="text-[var(--neon-cyan)] hover:underline">questions for adults</Link>.</li>
+                <li><strong>Deep questions</strong> — close friends, partners, journaling. Browse <Link prefetch={false} href="/topics/deep-questions-to-ask-your-partner" className="text-[var(--neon-cyan)] hover:underline">deep questions for your partner</Link>.</li>
+                <li><strong>Funny questions</strong> — game nights and group chats. The <Link prefetch={false} href="/funny" className="text-[var(--neon-cyan)] hover:underline">funny generator</Link> specializes in these.</li>
                 <li><strong>Discussion questions</strong> — classrooms and book clubs. Filter by academic categories like science, history, or philosophy.</li>
               </ul>
 

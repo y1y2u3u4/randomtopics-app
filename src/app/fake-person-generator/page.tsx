@@ -97,10 +97,10 @@ export default function FakePersonGeneratorPage() {
 
           <SectionTitle>Ways to use random people</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Writers</strong> filling a scene with background characters; pair them with a <Link href="/story-prompt-generator" className={linkClass}>story prompt</Link>.</li>
+            <li><strong>Writers</strong> filling a scene with background characters; pair them with a <Link prefetch={false} href="/story-prompt-generator" className={linkClass}>story prompt</Link>.</li>
             <li><strong>Game masters</strong> running modern or near-future campaigns who need an NPC in seconds.</li>
             <li><strong>UX researchers and marketers</strong> sketching personas before real interviews.</li>
-            <li><strong>Developers</strong> who want profile pages that look lived-in; add addresses with the <Link href="/fake-identity-generator" className={linkClass}>fake identity generator</Link>.</li>
+            <li><strong>Developers</strong> who want profile pages that look lived-in; add addresses with the <Link prefetch={false} href="/fake-identity-generator" className={linkClass}>fake identity generator</Link>.</li>
             <li><strong>Teachers and drama groups</strong> handing out role cards for improv, mock interviews or class debates.</li>
           </ul>
 

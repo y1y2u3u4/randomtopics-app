@@ -58,7 +58,7 @@ export default function UnicodeTextTool({ variant, toolType }: { variant: Varian
       <div className="glass-card p-4 sm:p-7">
         <nav aria-label="Text styles" className="flex flex-wrap gap-1.5 mb-4">
           {TEXT_TOOLS.map((t) => (
-            <Link
+            <Link prefetch={false}
               key={t.variant}
               href={t.href}
               aria-current={t.variant === variant ? "page" : undefined}

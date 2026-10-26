@@ -92,8 +92,8 @@ export default function WouldYouRatherKidsPageEs() {
                 <li><strong>Debate exprés:</strong> divide la clase en dos lados y da un minuto a cada lado para convencer al otro.</li>
               </ul>
               <p>
-                Para elecciones rápidas del día a día, usa <Link href="/es/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">esto o aquello para niños</Link>.
-                Para adolescentes y adultos, el <Link href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">generador de qué prefieres</Link> tiene preguntas más atrevidas.
+                Para elecciones rápidas del día a día, usa <Link prefetch={false} href="/es/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">esto o aquello para niños</Link>.
+                Para adolescentes y adultos, el <Link prefetch={false} href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">generador de qué prefieres</Link> tiene preguntas más atrevidas.
               </p>
             </div>
           </div>

@@ -37,11 +37,11 @@ export default function ClassroomPackCard({ pack, page }: { pack: ClassroomPackI
         </ul>
         <ClassroomBuyButtons pack={pack} page={page} />
         <p className="text-sm">
-          <Link href="/classroom-packs" className="text-[var(--neon-cyan)] underline-offset-4 hover:underline">See every classroom pack and the FAQ</Link>
+          <Link prefetch={false} href="/classroom-packs" className="text-[var(--neon-cyan)] underline-offset-4 hover:underline">See every classroom pack and the FAQ</Link>
           <span className="text-[var(--text-muted)]"> · </span>
-          <Link href={`/classroom/present?pack=${pack}`} className="text-[var(--neon-cyan)] underline-offset-4 hover:underline" rel="nofollow">Try the presenter with 5 free slides</Link>
+          <Link prefetch={false} href={`/classroom/present?pack=${pack}`} className="text-[var(--neon-cyan)] underline-offset-4 hover:underline" rel="nofollow">Try the presenter with 5 free slides</Link>
           <span className="text-[var(--text-muted)]"> · </span>
-          <Link href="/account" className="text-[var(--neon-cyan)] underline-offset-4 hover:underline" rel="nofollow">Already bought? Your downloads</Link>
+          <Link prefetch={false} href="/account" className="text-[var(--neon-cyan)] underline-offset-4 hover:underline" rel="nofollow">Already bought? Your downloads</Link>
         </p>
       </div>
     </section>

@@ -107,7 +107,7 @@ export default function TwentyOneQuestionsPage() {
           <ul className="list-disc pl-5 space-y-0.5 text-sm columns-1 sm:columns-2">
             {GUESS_STARTERS.map((q) => <li key={q}>{q}</li>)}
           </ul>
-          <p className="mt-3 text-sm">Secrets in the deck include {GUESS_SECRETS.filter((_, i) => i % 6 === 0).map((s) => s.w).join(", ")} and more. Want a drawing round instead? Try <Link href="/pictionary-word-generator" className={linkClass}>Pictionary</Link> or <Link href="/charades" className={linkClass}>charades</Link>.</p>
+          <p className="mt-3 text-sm">Secrets in the deck include {GUESS_SECRETS.filter((_, i) => i % 6 === 0).map((s) => s.w).join(", ")} and more. Want a drawing round instead? Try <Link prefetch={false} href="/pictionary-word-generator" className={linkClass}>Pictionary</Link> or <Link prefetch={false} href="/charades" className={linkClass}>charades</Link>.</p>
 
           <SectionTitle>How it compares</SectionTitle>
           <div className="overflow-x-auto">

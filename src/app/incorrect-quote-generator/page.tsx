@@ -70,8 +70,8 @@ export default function IncorrectQuoteGeneratorPage() {
           <SectionTitle>Where to use them</SectionTitle>
           <p>
             Incorrect quotes work as posts for fan accounts, captions for edits, prompts for fanfiction and roleplay, or as warm-ups for a
-            writing group. Pair them with the <Link href="/headcanon-generator" className={linkClass}>headcanon generator</Link> to flesh out the
-            characters, or build a new cast with the <Link href="/random-character-generator" className={linkClass}>random character generator</Link>.
+            writing group. Pair them with the <Link prefetch={false} href="/headcanon-generator" className={linkClass}>headcanon generator</Link> to flesh out the
+            characters, or build a new cast with the <Link prefetch={false} href="/random-character-generator" className={linkClass}>random character generator</Link>.
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Real output, shown with placeholder names:"} sets={EXAMPLES} />

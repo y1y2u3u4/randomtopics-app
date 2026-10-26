@@ -116,12 +116,12 @@ export default function RandomTeamGeneratorPage() {
           </p>
           <SectionTitle>Popular uses</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li>Classroom group work, debates and review games — pair it with our <Link href="/debate" className={linkClass}>debate topic generator</Link>.</li>
+            <li>Classroom group work, debates and review games — pair it with our <Link prefetch={false} href="/debate" className={linkClass}>debate topic generator</Link>.</li>
             <li>PE lessons, five-a-side football, pickup basketball and office sports days.</li>
-            <li>Trivia nights, escape rooms and party games like <Link href="/charades" className={linkClass}>charades</Link>.</li>
+            <li>Trivia nights, escape rooms and party games like <Link prefetch={false} href="/charades" className={linkClass}>charades</Link>.</li>
             <li>Breakout rooms in online meetings and workshop tables.</li>
-            <li>Grouping a class? The <Link href="/random-group-generator" className={linkClass}>random group generator</Link> keeps chosen students together or apart and hands out group roles.</li>
-            <li>Need one person, not teams? Use the <Link href="/random-name-picker" className={linkClass}>random name picker</Link> — or the <Link href="/number-randomizer" className={linkClass}>number randomizer</Link> for numbered students.</li>
+            <li>Grouping a class? The <Link prefetch={false} href="/random-group-generator" className={linkClass}>random group generator</Link> keeps chosen students together or apart and hands out group roles.</li>
+            <li>Need one person, not teams? Use the <Link prefetch={false} href="/random-name-picker" className={linkClass}>random name picker</Link> — or the <Link prefetch={false} href="/number-randomizer" className={linkClass}>number randomizer</Link> for numbered students.</li>
           </ul>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note="Real splits made with this generator, with the random team names it suggests:" sets={EXAMPLES} />

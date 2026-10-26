@@ -97,7 +97,7 @@ export default function MoralDilemmaExamplesPage() {
       </section>
       <section className="mt-8">
         <h2 className="font-bold">More ethics discussion</h2>
-        <p className="mt-3 text-[var(--text-muted)]">Try <Link href="/topics/ethical-dilemma-questions" className="text-[var(--neon-cyan)] underline">ethical dilemma questions</Link>, <Link href="/topics/ethical-dilemmas-for-students" className="text-[var(--neon-cyan)] underline">ethical dilemmas for students</Link>, <Link href="/topics/ethical-dilemmas-for-adults" className="text-[var(--neon-cyan)] underline">dilemmas for adults</Link> and <Link href="/topics/workplace-ethical-dilemmas" className="text-[var(--neon-cyan)] underline">workplace ethical dilemmas</Link>, or go deeper with <Link href="/philosophical-questions" className="text-[var(--neon-cyan)] underline">philosophical questions</Link>.</p>
+        <p className="mt-3 text-[var(--text-muted)]">Try <Link prefetch={false} href="/topics/ethical-dilemma-questions" className="text-[var(--neon-cyan)] underline">ethical dilemma questions</Link>, <Link prefetch={false} href="/topics/ethical-dilemmas-for-students" className="text-[var(--neon-cyan)] underline">ethical dilemmas for students</Link>, <Link prefetch={false} href="/topics/ethical-dilemmas-for-adults" className="text-[var(--neon-cyan)] underline">dilemmas for adults</Link> and <Link prefetch={false} href="/topics/workplace-ethical-dilemmas" className="text-[var(--neon-cyan)] underline">workplace ethical dilemmas</Link>, or go deeper with <Link prefetch={false} href="/philosophical-questions" className="text-[var(--neon-cyan)] underline">philosophical questions</Link>.</p>
       </section>
     </div>
     <FaqSchema items={faqs} />

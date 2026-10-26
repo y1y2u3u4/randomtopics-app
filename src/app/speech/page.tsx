@@ -167,9 +167,9 @@ export default function SpeechPage() {
           intro="Pick the speech type first; it decides what a good topic looks like and which page to start from."
           columns={["Speech type", "Goal", "Typical length", "Start here"]}
           rows={[
-            ["Informative", "Teach the audience something they did not know, with examples or numbers", "Set by your class or event", <Link key="i" href="/speech/informative" className="text-[var(--neon-cyan)] hover:underline">Informative speech topics</Link>],
-            ["Persuasive", "Change a belief or get the audience to act, with reasons and evidence", "Set by your class or event", <Link key="p" href="/speech/persuasive" className="text-[var(--neon-cyan)] hover:underline">Persuasive speech topics</Link>],
-            ["Impromptu / Table Topics", "Answer a surprise question with a clear point and one example", "1–2 minutes (Toastmasters: green 1:00, red 2:00)", <Link key="t" href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table topics generator</Link>],
+            ["Informative", "Teach the audience something they did not know, with examples or numbers", "Set by your class or event", <Link prefetch={false} key="i" href="/speech/informative" className="text-[var(--neon-cyan)] hover:underline">Informative speech topics</Link>],
+            ["Persuasive", "Change a belief or get the audience to act, with reasons and evidence", "Set by your class or event", <Link prefetch={false} key="p" href="/speech/persuasive" className="text-[var(--neon-cyan)] hover:underline">Persuasive speech topics</Link>],
+            ["Impromptu / Table Topics", "Answer a surprise question with a clear point and one example", "1–2 minutes (Toastmasters: green 1:00, red 2:00)", <Link prefetch={false} key="t" href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table topics generator</Link>],
             ["Quick practice", "Warm up: say one point, one reason, one example out loud", "60 seconds", "Generator above, with timer and one tip"],
           ]}
         />
@@ -206,7 +206,7 @@ export default function SpeechPage() {
                   href: "/presentation-topic-generator",
                 },
               ].map((path) => (
-                <Link
+                <Link prefetch={false}
                   key={path.href}
                   href={path.href}
                   className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors"
@@ -218,7 +218,7 @@ export default function SpeechPage() {
             </div>
             <p className="mt-4 text-xs text-[var(--text-muted)]">
               Running a club round? Use the focused{" "}
-              <Link href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">
+              <Link prefetch={false} href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">
                 Table Topics generator
               </Link>{" "}
               to draw prompts without browsing the full list.
@@ -237,7 +237,7 @@ export default function SpeechPage() {
                 Our built-in <strong>speech practice timer</strong> helps you develop impromptu speaking skills.
                 Generate a speech topic, start the timer, and practice delivering a 1, 2, 3, or 5-minute
                 speech on the spot. This is the same technique used in{" "}
-                <Link href="/topics/toastmasters-table-topics" className="text-[var(--neon-cyan)] hover:underline">
+                <Link prefetch={false} href="/topics/toastmasters-table-topics" className="text-[var(--neon-cyan)] hover:underline">
                   Toastmasters Table Topics practice
                 </Link>{" "}
                 and speech competitions worldwide.
@@ -294,11 +294,11 @@ export default function SpeechPage() {
               </div>
               <p>
                 Looking for a broader starting point before choosing a speaking angle? Use the dedicated{" "}
-                <Link href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">
+                <Link prefetch={false} href="/random-subject-generator" className="text-[var(--neon-cyan)] hover:underline">
                   random subject generator
                 </Link>{" "}
                 to pick a field first. For writing prompts, use the{" "}
-                <Link href="/writing-topic-generator" className="text-[var(--neon-cyan)] hover:underline">writing topic generator</Link>
+                <Link prefetch={false} href="/writing-topic-generator" className="text-[var(--neon-cyan)] hover:underline">writing topic generator</Link>
                 {" "}instead.
               </p>
             </div>
@@ -326,7 +326,7 @@ export default function SpeechPage() {
               { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
               { title: "Presentation Topic Generator", href: "/presentation-topic-generator" },
             ].map((item) => (
-              <Link
+              <Link prefetch={false}
                 key={item.href}
                 href={item.href}
                 className="glass-card p-5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] transition-all hover:translate-y-[-2px] hover:border-[var(--neon-cyan)]/30"

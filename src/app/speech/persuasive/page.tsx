@@ -242,10 +242,10 @@ export default function PersuasiveSpeechTopicsPage() {
             topic with talking points included.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-6">
-            <Link href="/speech" className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
+            <Link prefetch={false} href="/speech" className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
               <span>🎲</span> Random Speech Topic Generator
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/speech/informative"
               className="inline-flex items-center gap-2 text-sm px-6 py-3 rounded-lg border border-[rgba(255,255,255,0.1)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-all"
             >
@@ -299,11 +299,11 @@ export default function PersuasiveSpeechTopicsPage() {
                 </ol>
                 <p className="text-xs text-[var(--text-muted)] mt-5">
                   Want more angles?{" "}
-                  <Link href={section.href} className="text-[var(--neon-cyan)] hover:underline">
+                  <Link prefetch={false} href={section.href} className="text-[var(--neon-cyan)] hover:underline">
                     Browse {section.theme.toLowerCase()} topics
                   </Link>{" "}
                   or spin the{" "}
-                  <Link href="/speech" className="text-[var(--neon-cyan)] hover:underline">
+                  <Link prefetch={false} href="/speech" className="text-[var(--neon-cyan)] hover:underline">
                     speech generator
                   </Link>{" "}
                   filtered to this category.
@@ -330,15 +330,15 @@ export default function PersuasiveSpeechTopicsPage() {
               </p>
               <p>
                 Practice with random draws to build that structure into muscle memory: our{" "}
-                <Link href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link>{" "}
+                <Link prefetch={false} href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link>{" "}
                 deals topics with talking points, the{" "}
-                <Link href="/impromptu-speech-topics" className="text-[var(--neon-cyan)] hover:underline">impromptu speech tool</Link>{" "}
+                <Link prefetch={false} href="/impromptu-speech-topics" className="text-[var(--neon-cyan)] hover:underline">impromptu speech tool</Link>{" "}
                 adds a timer, and{" "}
-                <Link href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table Topics</Link>{" "}
+                <Link prefetch={false} href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table Topics</Link>{" "}
                 runs the Toastmasters format. Prefer a ready-made list for class? See{" "}
-                <Link href="/topics/speech-topics-for-college-students" className="text-[var(--neon-cyan)] hover:underline">75 speech topics for college students</Link>{" "}
+                <Link prefetch={false} href="/topics/speech-topics-for-college-students" className="text-[var(--neon-cyan)] hover:underline">75 speech topics for college students</Link>{" "}
                 or grab a two-sided angle from the{" "}
-                <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link>.
+                <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link>.
               </p>
 
               <h3

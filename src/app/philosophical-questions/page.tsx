@@ -99,7 +99,7 @@ export default function PhilosophicalQuestionsPage() {
       </section>
       <section className="mt-8">
         <h2 className="font-bold">Keep thinking</h2>
-        <p className="mt-3 text-[var(--text-muted)]">Read <Link href="/topics/deep-philosophical-questions" className="text-[var(--neon-cyan)] underline">50 deep philosophical questions with talking points</Link>, work through <Link href="/moral-dilemma-examples" className="text-[var(--neon-cyan)] underline">moral dilemma examples</Link> and <Link href="/topics/ethical-dilemma-questions" className="text-[var(--neon-cyan)] underline">ethical dilemma questions</Link>, or get a fresh prompt each day from the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] underline">question of the day</Link>.</p>
+        <p className="mt-3 text-[var(--text-muted)]">Read <Link prefetch={false} href="/topics/deep-philosophical-questions" className="text-[var(--neon-cyan)] underline">50 deep philosophical questions with talking points</Link>, work through <Link prefetch={false} href="/moral-dilemma-examples" className="text-[var(--neon-cyan)] underline">moral dilemma examples</Link> and <Link prefetch={false} href="/topics/ethical-dilemma-questions" className="text-[var(--neon-cyan)] underline">ethical dilemma questions</Link>, or get a fresh prompt each day from the <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] underline">question of the day</Link>.</p>
       </section>
     </div>
     <FaqSchema items={faqs} />

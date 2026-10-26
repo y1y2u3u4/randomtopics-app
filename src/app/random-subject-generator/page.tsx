@@ -113,7 +113,7 @@ export default function RandomSubjectGeneratorPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {SCHOOL_SUBJECTS.map((s) => (
-                <Link
+                <Link prefetch={false}
                   key={s.label}
                   href={s.href}
                   className="text-sm px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.05)] transition-all"
@@ -136,7 +136,7 @@ export default function RandomSubjectGeneratorPage() {
                 { title: "Build a presentation", detail: "Presentation topics with a slide-ready angle", href: "/presentation-topic-generator" },
                 { title: "Write about it", detail: "Essay, journal, fiction, and blog directions", href: "/writing-topic-generator" },
               ].map((item) => (
-                <Link key={item.href} href={item.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
+                <Link prefetch={false} key={item.href} href={item.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
                   <span className="block text-sm font-semibold text-[var(--text-primary)]">{item.title}</span>
                   <span className="block mt-1 text-xs text-[var(--text-muted)]">{item.detail}</span>
                 </Link>
@@ -162,7 +162,7 @@ export default function RandomSubjectGeneratorPage() {
                 subject for you, then get a ready-to-use prompt to run with.
               </p>
               <p>
-                For a single prompt the whole class answers today, use the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day for class</Link>; for a movement break, try <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades for kids</Link>.
+                For a single prompt the whole class answers today, use the <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day for class</Link>; for a movement break, try <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades for kids</Link>.
               </p>
               <p>
                 Unlike a plain word picker, every subject here comes attached to real, hand-crafted
@@ -188,14 +188,14 @@ export default function RandomSubjectGeneratorPage() {
                   <span className="text-[var(--neon-cyan)] font-bold text-lg leading-tight">2.</span>
                   <div>
                     <strong className="text-[var(--text-primary)]">Essays &amp; Research Papers</strong>
-                    <p className="mt-1">Stuck on what to write about? Generate a random subject, then narrow to a specific prompt. Send it straight to our <Link href="/essay-topic-generator" className="text-[var(--neon-cyan)] hover:underline">essay topic generator</Link>, or browse <Link href="/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">random essay topics for college</Link> for ready-made lists.</p>
+                    <p className="mt-1">Stuck on what to write about? Generate a random subject, then narrow to a specific prompt. Send it straight to our <Link prefetch={false} href="/essay-topic-generator" className="text-[var(--neon-cyan)] hover:underline">essay topic generator</Link>, or browse <Link prefetch={false} href="/topics/random-essay-topics-for-college" className="text-[var(--neon-cyan)] hover:underline">random essay topics for college</Link> for ready-made lists.</p>
                   </div>
                 </li>
                 <li className="flex gap-3 items-start">
                   <span className="text-[var(--neon-cyan)] font-bold text-lg leading-tight">3.</span>
                   <div>
                     <strong className="text-[var(--text-primary)]">Speech &amp; Debate Practice</strong>
-                    <p className="mt-1">Assign yourself a surprise subject and speak on it — the fastest way to build confidence. See our <Link href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table Topics generator</Link> and <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topics</Link>.</p>
+                    <p className="mt-1">Assign yourself a surprise subject and speak on it — the fastest way to build confidence. See our <Link prefetch={false} href="/table-topics-generator" className="text-[var(--neon-cyan)] hover:underline">Table Topics generator</Link> and <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topics</Link>.</p>
                   </div>
                 </li>
                 <li className="flex gap-3 items-start">
@@ -209,7 +209,7 @@ export default function RandomSubjectGeneratorPage() {
                   <span className="text-[var(--neon-cyan)] font-bold text-lg leading-tight">5.</span>
                   <div>
                     <strong className="text-[var(--text-primary)]">Conversation &amp; Journaling</strong>
-                    <p className="mt-1">Break out of the same old subjects. Use a random subject as a <Link href="/conversation" className="text-[var(--neon-cyan)] hover:underline">conversation starter</Link> or a daily <Link href="/writing" className="text-[var(--neon-cyan)] hover:underline">journaling prompt</Link>.</p>
+                    <p className="mt-1">Break out of the same old subjects. Use a random subject as a <Link prefetch={false} href="/conversation" className="text-[var(--neon-cyan)] hover:underline">conversation starter</Link> or a daily <Link prefetch={false} href="/writing" className="text-[var(--neon-cyan)] hover:underline">journaling prompt</Link>.</p>
                   </div>
                 </li>
               </ul>

@@ -37,7 +37,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
             <li key={i} className="flex items-center gap-1.5">
               {i > 0 && <span className="opacity-40">/</span>}
               {item.href ? (
-                <Link
+                <Link prefetch={false}
                   href={item.href}
                   className="hover:text-[var(--text-secondary)] transition-colors"
                 >

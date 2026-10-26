@@ -77,9 +77,9 @@ export default function CouplesDailyQuestionPage() {
           <p>
             When one person answers out loud first, the other tends to agree or soften their own answer. Writing yours before you see theirs
             keeps it honest, and the reveal gives you something real to talk about over dinner or before bed. For a longer list to talk through
-            in person, see our <Link href="/topics/conversation-starters-for-couples" className={linkClass}>conversation starters for couples</Link>;
-            for something lighter, try <Link href="/this-or-that/couples" className={linkClass}>this or that for couples</Link>. The Spanish version
-            is <Link href={ES_PATH} className={linkClass}>Pregunta diaria para parejas</Link>.
+            in person, see our <Link prefetch={false} href="/topics/conversation-starters-for-couples" className={linkClass}>conversation starters for couples</Link>;
+            for something lighter, try <Link prefetch={false} href="/this-or-that/couples" className={linkClass}>this or that for couples</Link>. The Spanish version
+            is <Link prefetch={false} href={ES_PATH} className={linkClass}>Pregunta diaria para parejas</Link>.
           </p>
         </>
       }

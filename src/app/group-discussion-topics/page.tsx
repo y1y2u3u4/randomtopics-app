@@ -270,10 +270,10 @@ export default function GroupDiscussionTopicsPage() {
           </p>
           <p className="text-xs text-[var(--text-muted)] mt-3">Updated August 15, 2026</p>
           <div className="flex flex-wrap justify-center gap-3 mt-6">
-            <Link href="/debate" className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
+            <Link prefetch={false} href="/debate" className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
               <span>🎲</span> Random Debate Topic Generator
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/conversation"
               className="inline-flex items-center gap-2 text-sm px-6 py-3 rounded-lg border border-[rgba(255,255,255,0.1)] text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] hover:border-[var(--neon-cyan)]/30 transition-all"
             >
@@ -327,11 +327,11 @@ export default function GroupDiscussionTopicsPage() {
                 </ol>
                 <p className="text-xs text-[var(--text-muted)] mt-5">
                   Want more angles?{" "}
-                  <Link href={section.href} className="text-[var(--neon-cyan)] hover:underline">
+                  <Link prefetch={false} href={section.href} className="text-[var(--neon-cyan)] hover:underline">
                     Browse {section.theme.toLowerCase()} topics
                   </Link>{" "}
                   or practice both sides with the{" "}
-                  <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">
+                  <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">
                     debate generator
                   </Link>.
                 </p>
@@ -356,13 +356,13 @@ export default function GroupDiscussionTopicsPage() {
               </p>
               <p>
                 Sharpen the underlying skills with our tools: the{" "}
-                <Link href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link>{" "}
+                <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link>{" "}
                 gives you two-sided practice with pro/con talking points, the{" "}
-                <Link href="/speech/persuasive" className="text-[var(--neon-cyan)] hover:underline">persuasive speech topics</Link>{" "}
+                <Link prefetch={false} href="/speech/persuasive" className="text-[var(--neon-cyan)] hover:underline">persuasive speech topics</Link>{" "}
                 bank trains you to land a position, and the{" "}
-                <Link href="/impromptu-speech-topics" className="text-[var(--neon-cyan)] hover:underline">impromptu speech tool</Link>{" "}
+                <Link prefetch={false} href="/impromptu-speech-topics" className="text-[var(--neon-cyan)] hover:underline">impromptu speech tool</Link>{" "}
                 adds the time pressure of a real GD round. For quieter practice groups, start with{" "}
-                <Link href="/topics/controversial-topics-to-discuss" className="text-[var(--neon-cyan)] hover:underline">controversial topics to discuss</Link>.
+                <Link prefetch={false} href="/topics/controversial-topics-to-discuss" className="text-[var(--neon-cyan)] hover:underline">controversial topics to discuss</Link>.
               </p>
 
               <h3

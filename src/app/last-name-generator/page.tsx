@@ -93,7 +93,7 @@ export default function LastNameGeneratorPage() {
           </p>
           <SectionTitle>Who uses a surname generator?</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Writers</strong> naming a cast — combine with the <Link href="/writing" className={linkClass}>writing prompt generator</Link> for a story idea.</li>
+            <li><strong>Writers</strong> naming a cast — combine with the <Link prefetch={false} href="/writing" className={linkClass}>writing prompt generator</Link> for a story idea.</li>
             <li><strong>Gamers and role-players</strong> who need believable non-fantasy names for modern or historical settings.</li>
             <li><strong>Teachers</strong> creating example names for worksheets, word problems and mock trials.</li>
             <li><strong>Curious people</strong> looking up what common surnames actually mean.</li>

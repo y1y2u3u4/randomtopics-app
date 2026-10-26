@@ -11,7 +11,7 @@ export default function QuestionScenarioLinks() {
   return <nav aria-label="Find questions for your situation" className="mt-6 text-left">
     <p className="text-sm font-semibold text-[var(--text-primary)]">Have a situation in mind?</p>
     <p className="mt-1 text-xs text-[var(--text-muted)]">Open a matching collection, or use the general generator below.</p>
-    <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">{QUESTION_SCENARIOS.map(scene => <Link key={scene.id} href={scene.href}
+    <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">{QUESTION_SCENARIOS.map(scene => <Link prefetch={false} key={scene.id} href={scene.href}
       onClick={() => track(`question_scenario_${scene.id}`, { content_source: "question_generator", locale: "en" })}
       className="rounded-xl border border-white/10 p-4 transition-colors hover:border-[var(--neon-cyan)]/40">
       <span className="block text-sm font-semibold text-[var(--neon-cyan)]">{scene.title} →</span>

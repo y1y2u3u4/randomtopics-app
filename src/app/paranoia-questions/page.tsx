@@ -100,13 +100,13 @@ export default function ParanoiaPage() {
               </p>
               <p>
                 Round out game night with{" "}
-                <Link href="/hot-seat-questions" className="text-[var(--neon-cyan)] hover:underline">Hot Seat</Link>,{" "}
-                <Link href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}
-                <Link href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>{" "}
+                <Link prefetch={false} href="/hot-seat-questions" className="text-[var(--neon-cyan)] hover:underline">Hot Seat</Link>,{" "}
+                <Link prefetch={false} href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}
+                <Link prefetch={false} href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>{" "}
                 (paranoia&apos;s louder cousin),{" "}
-                <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">Charades</Link>,{" "}
-                <Link href="/trivia-questions" className="text-[var(--neon-cyan)] hover:underline">team trivia</Link>, and{" "}
-                <Link href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>.
+                <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">Charades</Link>,{" "}
+                <Link prefetch={false} href="/trivia-questions" className="text-[var(--neon-cyan)] hover:underline">team trivia</Link>, and{" "}
+                <Link prefetch={false} href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>.
               </p>
 
               <h3

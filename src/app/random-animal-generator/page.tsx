@@ -91,11 +91,11 @@ export default function RandomAnimalGeneratorPage() {
           </ul>
           <SectionTitle>Ideas for using random animals</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Drawing prompts</strong> — draw the animal in two minutes, then in ten; or combine two random animals into one creature. More subjects in the <Link href="/random-drawing-generator" className={linkClass}>random drawing generator</Link>.</li>
-            <li><strong>Guessing games</strong> — one player reads the fun fact aloud and the others guess the animal, or act it out like <Link href="/charades" className={linkClass}>charades</Link>.</li>
+            <li><strong>Drawing prompts</strong> — draw the animal in two minutes, then in ten; or combine two random animals into one creature. More subjects in the <Link prefetch={false} href="/random-drawing-generator" className={linkClass}>random drawing generator</Link>.</li>
+            <li><strong>Guessing games</strong> — one player reads the fun fact aloud and the others guess the animal, or act it out like <Link prefetch={false} href="/charades" className={linkClass}>charades</Link>.</li>
             <li><strong>Class research</strong> — give each student a random animal for a one-page report or a presentation.</li>
-            <li><strong>Story starters</strong> — make the animal the hero of a short story; see our <Link href="/topics/writing-prompts-for-kids" className={linkClass}>writing prompts for kids</Link>.</li>
-            <li><strong>Team names</strong> — our <Link href="/random-team-generator" className={linkClass}>random team generator</Link> already names teams after animals.</li>
+            <li><strong>Story starters</strong> — make the animal the hero of a short story; see our <Link prefetch={false} href="/topics/writing-prompts-for-kids" className={linkClass}>writing prompts for kids</Link>.</li>
+            <li><strong>Team names</strong> — our <Link prefetch={false} href="/random-team-generator" className={linkClass}>random team generator</Link> already names teams after animals.</li>
           </ul>
           <p>
             The full list covers more than a hundred mammals, dozens of birds, ocean life from clownfish to blue whales, and the insects and

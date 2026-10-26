@@ -80,7 +80,7 @@ export default function GeneradorDeApellidosPage() {
           </p>
           <SectionTitle>¿Para qué sirve un generador de apellidos?</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Escritores</strong> que necesitan nombrar a su reparto — combínalo con el <Link href="/es/writing" className={linkClass}>generador de temas para escribir</Link>.</li>
+            <li><strong>Escritores</strong> que necesitan nombrar a su reparto — combínalo con el <Link prefetch={false} href="/es/writing" className={linkClass}>generador de temas para escribir</Link>.</li>
             <li><strong>Jugadores de rol y videojuegos</strong> que buscan nombres creíbles para ambientaciones modernas o históricas.</li>
             <li><strong>Docentes</strong> que preparan nombres de ejemplo para fichas, problemas y juicios simulados.</li>
             <li><strong>Curiosos</strong> que quieren saber qué significan los apellidos más comunes.</li>

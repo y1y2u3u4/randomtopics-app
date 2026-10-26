@@ -99,8 +99,8 @@ export default function VampireNameGeneratorPage() {
             moor to a ballroom open only after sunset, comes with a one-line description you can lift straight into a scene.
           </p>
           <p>
-            Building a whole cast? The <Link href="/character-name-generator" className={linkClass}>character name generator</Link> covers
-            other genres, and the <Link href="/last-name-generator" className={linkClass}>last name generator</Link> is handy for the
+            Building a whole cast? The <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link> covers
+            other genres, and the <Link prefetch={false} href="/last-name-generator" className={linkClass}>last name generator</Link> is handy for the
             humans they hunt.
           </p>
           <SectionTitle>Examples</SectionTitle>

@@ -93,7 +93,7 @@ export default function ArticleAdvertisement({ path, slot, placement = "content"
       <div className="h-11">{choicesReady && <button type="button" className="min-h-11 px-3 underline underline-offset-4" onClick={() => {
         showAdPrivacyChoices();
       }}>{spanish ? "Opciones de privacidad publicitaria" : "Advertising privacy choices"}</button>}</div>
-      <Link href={spanish ? "/es/privacy" : "/privacy"} className="block underline underline-offset-4">{spanish ? "Política de privacidad" : "Privacy policy"}</Link>
+      <Link prefetch={false} href={spanish ? "/es/privacy" : "/privacy"} className="block underline underline-offset-4">{spanish ? "Política de privacidad" : "Privacy policy"}</Link>
     </div>
   </aside>;
 }

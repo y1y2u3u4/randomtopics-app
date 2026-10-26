@@ -43,7 +43,7 @@ export default function CategoriesPage() {
                 Let the dedicated picker assign one of these 16 subjects instantly.
               </p>
             </div>
-            <Link
+            <Link prefetch={false}
               href="/random-subject-generator"
               className="text-sm font-semibold text-[var(--neon-cyan)] whitespace-nowrap hover:underline"
             >
@@ -52,7 +52,7 @@ export default function CategoriesPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {CATEGORIES.map((cat) => (
-              <Link
+              <Link prefetch={false}
                 key={cat.id}
                 href={`/categories/${cat.id}`}
                 className="glass-card p-6 hover:border-[var(--accent-blue)]/30 transition-all hover:translate-y-[-2px] group"
@@ -75,7 +75,7 @@ export default function CategoriesPage() {
           <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>Party games</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {PARTY_GAMES.map((g) => (
-              <Link key={g.href} href={g.href} className="glass-card p-4 hover:border-[var(--accent-blue)]/30 transition-all">
+              <Link prefetch={false} key={g.href} href={g.href} className="glass-card p-4 hover:border-[var(--accent-blue)]/30 transition-all">
                 <span className="font-semibold">{g.emoji} {g.label}</span>
                 <span className="block text-sm text-[var(--text-muted)] mt-1">{g.detail}</span>
               </Link>

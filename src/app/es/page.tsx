@@ -112,7 +112,7 @@ export default function HomeEs() {
           </h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {POPULAR_TOOLS.map((tool) => (
-              <Link
+              <Link prefetch={false}
                 key={tool.href}
                 href={tool.href}
                 className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-all group"
@@ -136,7 +136,7 @@ export default function HomeEs() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {MODES.map((mode) => (
-              <Link
+              <Link prefetch={false}
                 key={mode.slug}
                 href={`/es/${mode.slug}`}
                 className="glass-card p-7 transition-all duration-300 hover:translate-y-[-4px] group hover:border-[var(--neon-pink)]/40 hover:shadow-[0_0_20px_rgba(255,45,120,0.15)] hover:bg-gradient-to-br hover:from-[rgba(255,45,120,0.06)] hover:to-transparent"
@@ -148,7 +148,7 @@ export default function HomeEs() {
                 <p className="text-sm text-[var(--text-muted)] leading-relaxed">{MODE_LABELS.es[mode.id].description}</p>
               </Link>
             ))}
-            <Link
+            <Link prefetch={false}
               href="/es/funny"
               className="glass-card p-7 transition-all duration-300 hover:translate-y-[-4px] group hover:border-[var(--neon-pink)]/40 hover:shadow-[0_0_20px_rgba(255,45,120,0.15)] hover:bg-gradient-to-br hover:from-[rgba(255,45,120,0.06)] hover:to-transparent"
             >
@@ -174,7 +174,7 @@ export default function HomeEs() {
           </h2>
           <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             {CATEGORIES.map((cat) => (
-              <Link
+              <Link prefetch={false}
                 key={cat.id}
                 href={`/es/categories/${cat.id}`}
                 className="glass-card p-4 sm:p-5 text-center transition-all duration-300 hover:translate-y-[-4px] group hover:border-[var(--neon-cyan)]/40 hover:shadow-[0_0_20px_rgba(0,229,255,0.12)] hover:bg-gradient-to-br hover:from-[rgba(0,229,255,0.06)] hover:to-transparent"
@@ -202,7 +202,7 @@ export default function HomeEs() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {COLLECTIONS.map((item) => (
-              <Link
+              <Link prefetch={false}
                 key={item.href}
                 href={item.href}
                 className="glass-card p-5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--neon-cyan)] transition-all hover:translate-y-[-2px] hover:border-[var(--neon-cyan)]/30"
@@ -213,7 +213,7 @@ export default function HomeEs() {
             ))}
           </div>
           <div className="text-center mt-6">
-            <Link href="/es/topics" className="text-sm text-[var(--text-muted)] hover:text-[var(--neon-cyan)] transition-colors">
+            <Link prefetch={false} href="/es/topics" className="text-sm text-[var(--text-muted)] hover:text-[var(--neon-cyan)] transition-colors">
               Ver todas las colecciones de temas →
             </Link>
           </div>

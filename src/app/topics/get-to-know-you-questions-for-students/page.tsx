@@ -151,13 +151,13 @@ export default function GetToKnowYouStudentsPage() {
             <ul className="space-y-2 list-disc pl-5">
               <li><strong>Inside–outside circle:</strong> two circles face each other, answer one question, then the outer circle moves one step.</li>
               <li><strong>Find someone who:</strong> turn five answers into a scavenger hunt (“find someone whose favorite season is winter”).</li>
-              <li><strong>Four corners:</strong> for either/or questions, students walk to a corner — or project <Link href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link>.</li>
+              <li><strong>Four corners:</strong> for either/or questions, students walk to a corner — or project <Link prefetch={false} href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link>.</li>
               <li><strong>Exit ticket:</strong> one question on a sticky note on the way out; you learn something about every student in a minute.</li>
-              <li><strong>Random partners:</strong> pair students with the <Link href="/random-team-generator" className="text-[var(--neon-cyan)] hover:underline">random team generator</Link> and give each pair three questions.</li>
+              <li><strong>Random partners:</strong> pair students with the <Link prefetch={false} href="/random-team-generator" className="text-[var(--neon-cyan)] hover:underline">random team generator</Link> and give each pair three questions.</li>
             </ul>
             <p>
-              For adults and staff meetings, see <Link href="/topics/get-to-know-you-questions-for-adults" className="text-[var(--neon-cyan)] hover:underline">get to know you questions for adults</Link>.
-              After the first week, keep the conversation going with a <Link href="/question-of-the-day-for-students" className="text-[var(--neon-cyan)] hover:underline">question of the day for students</Link>.
+              For adults and staff meetings, see <Link prefetch={false} href="/topics/get-to-know-you-questions-for-adults" className="text-[var(--neon-cyan)] hover:underline">get to know you questions for adults</Link>.
+              After the first week, keep the conversation going with a <Link prefetch={false} href="/question-of-the-day-for-students" className="text-[var(--neon-cyan)] hover:underline">question of the day for students</Link>.
             </p>
             <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] pt-4" style={{ fontFamily: "var(--font-display)" }}>Frequently Asked Questions</h2>
             {FAQ_ITEMS.map((item) => (

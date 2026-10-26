@@ -62,10 +62,10 @@ export default function WesternBabyNamePage() {
           ))}
           <SectionTitle>Choosing a Western name</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Say it with the last name.</strong> One-syllable names (Colt, Wade, Rose) pair well with longer surnames; longer ones (Clementine, Augustus) with short surnames. Try surnames in the <Link href="/last-name-generator" className={linkClass}>last name generator</Link>.</li>
+            <li><strong>Say it with the last name.</strong> One-syllable names (Colt, Wade, Rose) pair well with longer surnames; longer ones (Clementine, Augustus) with short surnames. Try surnames in the <Link prefetch={false} href="/last-name-generator" className={linkClass}>last name generator</Link>.</li>
             <li><strong>Nickname test.</strong> Augustus becomes Gus, Josephine becomes Josie, Wesley becomes Wes — check you like both.</li>
             <li><strong>Place names</strong> such as Dallas, Cheyenne, Montana or Laramie carry the West without sounding like a costume.</li>
-            <li>Writing a Western story instead? The <Link href="/character-name-generator" className={linkClass}>character name generator</Link> and <Link href="/country-name-generator" className={linkClass}>country name generator</Link> help with the rest of the cast and the world.</li>
+            <li>Writing a Western story instead? The <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link> and <Link prefetch={false} href="/country-name-generator" className={linkClass}>country name generator</Link> help with the rest of the cast and the world.</li>
           </ul>
         </>
       }

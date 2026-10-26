@@ -73,7 +73,7 @@ export default function ContactPage() {
             <p className="text-[var(--text-secondary)] leading-relaxed">
               This is also the address for press and media enquiries — logos, screenshots
               and the facts you may want to quote are already on our{" "}
-              <Link href="/press" className="text-[var(--accent-blue)] hover:underline">
+              <Link prefetch={false} href="/press" className="text-[var(--accent-blue)] hover:underline">
                 press page
               </Link>
               .
@@ -103,15 +103,15 @@ export default function ContactPage() {
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
               How we handle data and advertising is set out in our{" "}
-              <Link href="/privacy" className="text-[var(--accent-blue)] hover:underline">
+              <Link prefetch={false} href="/privacy" className="text-[var(--accent-blue)] hover:underline">
                 Privacy Policy
               </Link>
               , and the rules for using the generators are in our{" "}
-              <Link href="/terms" className="text-[var(--accent-blue)] hover:underline">
+              <Link prefetch={false} href="/terms" className="text-[var(--accent-blue)] hover:underline">
                 Terms of Service
               </Link>
               . More about who builds this is on the{" "}
-              <Link href="/about" className="text-[var(--accent-blue)] hover:underline">
+              <Link prefetch={false} href="/about" className="text-[var(--accent-blue)] hover:underline">
                 about page
               </Link>
               .

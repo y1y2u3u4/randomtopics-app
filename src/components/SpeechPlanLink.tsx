@@ -28,7 +28,7 @@ export default function SpeechPlanLink({ surface, visible, attempt, contentSourc
       trackSpeech(events[surface][0], { content_source: contentSource, attempt, purpose });
     });
   }, [visible, surface, attempt, contentSource, purpose]);
-  return <Link ref={link} href={href} className={className} onClick={() => {
+  return <Link prefetch={false} ref={link} href={href} className={className} onClick={() => {
     trackSpeech(events[surface][1], { content_source: contentSource, attempt, purpose });
     onClick?.();
   }}>{children}</Link>;

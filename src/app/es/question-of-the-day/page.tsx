@@ -96,9 +96,9 @@ export default function QuestionOfTheDayPageEs() {
             </ol>
             <p>
               ¿Quieres más? Prueba los{" "}
-              <Link href="/es/conversation" className="text-[var(--neon-cyan)] hover:underline">temas de conversación</Link>, las{" "}
-              <Link href="/es/icebreaker" className="text-[var(--neon-cyan)] hover:underline">preguntas rompehielos</Link> o los{" "}
-              <Link href="/es/debate" className="text-[var(--neon-cyan)] hover:underline">temas de debate</Link>.
+              <Link prefetch={false} href="/es/conversation" className="text-[var(--neon-cyan)] hover:underline">temas de conversación</Link>, las{" "}
+              <Link prefetch={false} href="/es/icebreaker" className="text-[var(--neon-cyan)] hover:underline">preguntas rompehielos</Link> o los{" "}
+              <Link prefetch={false} href="/es/debate" className="text-[var(--neon-cyan)] hover:underline">temas de debate</Link>.
             </p>
             <h2 className="section-heading text-2xl text-[var(--text-primary)] pt-4">Las {COUNT} preguntas del día</h2>
             <ol className="list-decimal pl-5 space-y-1">

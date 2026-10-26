@@ -71,14 +71,14 @@ export default function Page() {
         </details>)}</div>
       </section>
 
-      <section className="glass-card mt-8 p-5 sm:p-7"><h2 className="text-xl font-bold">Keep it playful</h2><p className="mt-3 text-sm text-[var(--text-secondary)]">A good round needs people who want to join in. Keep the joke about the imaginary scene, skip personal insecurities, and let anyone pass. For a classroom, workplace or unfamiliar group, a <Link href="/funny-question-of-the-day" className="text-[var(--neon-cyan)] underline">funny question of the day</Link> may be a better opener.</p>
-        <p className="mt-3 text-xs text-[var(--text-secondary)]">Collection written and reviewed by Random Topics. Updated <time dateTime="2026-10-04">October 4, 2026</time>. <Link href="/how-we-curate" className="underline">How we curate</Link></p>
+      <section className="glass-card mt-8 p-5 sm:p-7"><h2 className="text-xl font-bold">Keep it playful</h2><p className="mt-3 text-sm text-[var(--text-secondary)]">A good round needs people who want to join in. Keep the joke about the imaginary scene, skip personal insecurities, and let anyone pass. For a classroom, workplace or unfamiliar group, a <Link prefetch={false} href="/funny-question-of-the-day" className="text-[var(--neon-cyan)] underline">funny question of the day</Link> may be a better opener.</p>
+        <p className="mt-3 text-xs text-[var(--text-secondary)]">Collection written and reviewed by Random Topics. Updated <time dateTime="2026-10-04">October 4, 2026</time>. <Link prefetch={false} href="/how-we-curate" className="underline">How we curate</Link></p>
       </section>
       <section className="mt-8"><h2 className="text-xl font-bold">Questions about the randomizer</h2><div className="mt-4 space-y-4">{faq.map(([question, answer]) => <div key={question} className="glass-card p-5"><h3 className="font-semibold">{question}</h3><p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">{answer}</p></div>)}</div></section>
       <section className="mt-8"><h2 className="font-bold">Keep the conversation going</h2><div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm text-[var(--neon-cyan)]">
-        <Link href="/funny" className="inline-flex min-h-11 items-center underline">Funny conversation topics</Link>
-        <Link href="/funny-question-of-the-day" className="inline-flex min-h-11 items-center underline">Funny question of the day</Link>
-        <Link href="/would-you-rather" className="inline-flex min-h-11 items-center underline">Would you rather?</Link>
+        <Link prefetch={false} href="/funny" className="inline-flex min-h-11 items-center underline">Funny conversation topics</Link>
+        <Link prefetch={false} href="/funny-question-of-the-day" className="inline-flex min-h-11 items-center underline">Funny question of the day</Link>
+        <Link prefetch={false} href="/would-you-rather" className="inline-flex min-h-11 items-center underline">Would you rather?</Link>
       </div></section>
     </div>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "WebApplication", name: "Yo Mama Randomizer", url: SITE_URL + path, description, applicationCategory: "EntertainmentApplication", operatingSystem: "Any", inLanguage: "en", isAccessibleForFree: true, offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } }) }} />
