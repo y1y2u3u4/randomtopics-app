@@ -92,6 +92,9 @@ export default function ThisOrThatPage() {
                 deck of clean either/or prompts, one per click, with no repeats until the deck runs out.
               </p>
               <p>
+                Played every choice? Keep the ritual going with a <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">QOTD</Link> that changes at midnight, or move to <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades ideas</Link> sorted from easy to hard.
+              </p>
+              <p>
                 More party games:{" "}
                 <Link href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>,{" "}
                 <Link href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}

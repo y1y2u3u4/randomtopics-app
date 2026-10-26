@@ -13,11 +13,19 @@ import type { Metadata } from "next";
 import FaqSchema from "@/components/FaqSchema";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import HostPassEntry from "@/components/host/HostPassEntry";
+import FullListActions from "@/components/FullListActions";
+import { topics } from "@/data/topics";
+import { CATEGORIES } from "@/data/types";
+
+// Full bank rendered on the page (2026-10-26). Old title for rollback:
+// "Ice Breaker Questions Generator: 300+ Random Icebreakers" (claimed more than the bank holds).
+const ICEBREAKERS = topics.filter((t) => t.modes.includes("icebreaker"));
+const ICEBREAKER_GROUPS = CATEGORIES.map((c) => ({ ...c, items: ICEBREAKERS.filter((t) => t.category === c.id) })).filter((g) => g.items.length > 0);
 
 export const metadata: Metadata = {
-  title: { absolute: "Ice Breaker Questions Generator: 300+ Random Icebreakers" },
+  title: { absolute: `Ice Breaker Questions Generator: ${ICEBREAKERS.length} Random Icebreakers (Free)` },
   description:
-    "Generate 300+ icebreaker questions for meetings, team building, classrooms and virtual events. One click, work-safe prompts, free and no signup.",
+    `One click for a random icebreaker question for meetings, team building, classrooms and virtual events. All ${ICEBREAKERS.length} work-safe prompts listed to copy or print. Free, no signup.`,
   keywords: [
     "icebreaker questions",
     "icebreaker generator",
@@ -33,7 +41,7 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/icebreaker"),
   },
   openGraph: {
-    title: "Ice Breaker Questions Generator: 300+ Random Icebreakers",
+    title: `Ice Breaker Questions Generator: ${ICEBREAKERS.length} Random Icebreakers (Free)`,
     description:
       "One-click icebreaker questions for meetings, classrooms, team building and virtual events.",
     url: `${SITE_URL}/icebreaker`,
@@ -77,14 +85,30 @@ export default function IcebreakerPage() {
             { label: "Icebreaker Questions" },
           ]}
         />
-        <ModeIllustration mode="icebreaker" />
         <TopicGenerator
           initialMode="icebreaker"
           title="Icebreaker Question Generator"
           subtitle="Tap for a random ice breaker question for meetings, team building, classrooms or virtual calls. Work-safe, quick to answer, and fun to share."
         />
         <HostPassEntry generator="icebreaker" />
+        <ModeIllustration mode="icebreaker" />
         <TryNext path="/icebreaker" />
+
+        <section id="all-icebreaker-questions" className="max-w-3xl mx-auto px-4 sm:px-6 pt-10 scroll-mt-24">
+          <h2 className="section-heading text-2xl sm:text-3xl text-[var(--text-primary)]">All {ICEBREAKERS.length} Icebreaker Questions</h2>
+          <p className="mt-3 text-sm text-[var(--text-secondary)]">Every question the generator can draw, grouped by theme. Copy the whole list into your meeting notes or slides, or print it for a classroom or workshop.</p>
+          <div className="mt-4"><FullListActions items={ICEBREAKERS.map((t) => t.text)} label="icebreakers" page="/icebreaker" /></div>
+          <div className="mt-6 space-y-4">
+            {ICEBREAKER_GROUPS.map((g) => (
+              <div key={g.id} className="glass-card p-5 sm:p-6">
+                <h3 className="text-lg font-bold text-[var(--text-primary)]"><span aria-hidden="true">{g.emoji} </span>{g.label} <span className="text-sm font-normal text-[var(--text-muted)]">· {g.items.length}</span></h3>
+                <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-sm text-[var(--text-secondary)]">
+                  {g.items.map((t) => <li key={t.id}>{t.text}</li>)}
+                </ol>
+              </div>
+            ))}
+          </div>
+        </section>
 
         <PublicAdPlacement path="/icebreaker" />
 
@@ -105,8 +129,11 @@ export default function IcebreakerPage() {
                 sets the tone for everything that follows.
               </p>
               <p>
+                To run a quick icebreaker every morning, pin the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> in your team chat; for in-person energy, play a round with the <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades word generator</Link>.
+              </p>
+              <p>
                 A short, structured prompt gives everyone an easy first contribution and helps a group
-                move past awkward introductions. Our generator provides hundreds of curated
+                move past awkward introductions. Our generator draws from curated
                 <strong> get-to-know-you questions</strong> and <strong>team building questions</strong>
                 for different group sizes, settings, and levels of formality.
               </p>

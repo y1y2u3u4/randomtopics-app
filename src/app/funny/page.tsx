@@ -10,11 +10,16 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import FaqSchema from "@/components/FaqSchema";
 import SubEntry from "@/components/subs/SubEntry";
+import FullListActions from "@/components/FullListActions";
+import { topics } from "@/data/topics";
+
+const FUNNY_TOPICS = topics.filter((t) => t.category === "weird-fun");
 
 export const metadata: Metadata = withSocial({
-  title: "Funny Random Topic Generator | Hilarious Questions & Weird Discussion Topics",
+  // Old title (rollback, 2026-10-26): "Funny Random Topic Generator | Hilarious Questions & Weird Discussion Topics"
+  title: "Funny Random Topic Generator: Free Hilarious Questions & Weird Discussion Topics",
   description:
-    "Generate funny, weird, and bizarre random topics guaranteed to make everyone laugh. Hilarious conversation starters, would-you-rather questions, and absurd discussion topics for parties, games, and groups.",
+    `One click for a funny, weird or bizarre random topic that makes everyone laugh. Free, no signup, with all ${FUNNY_TOPICS.length} hilarious questions listed to copy or print for parties, games and groups.`,
   keywords: [
     "funny topic generator",
     "funny random topic generator",
@@ -69,6 +74,17 @@ export default function FunnyPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6"><SubEntry product="bot" href="/discord-qotd-bot" text="Make this a daily habit: post a funny question of the day to your Discord, Slack or Teams channel automatically. Free for 7 days." cta="Set up the question bot" /></div>
         <TryNext path="/funny" />
 
+        <section id="all-funny-topics" className="max-w-3xl mx-auto px-4 sm:px-6 pt-6 scroll-mt-24">
+          <div className="glass-card p-5 sm:p-6">
+            <h2 className="section-heading text-2xl text-[var(--text-primary)]">All {FUNNY_TOPICS.length} Funny Topics</h2>
+            <p className="mt-2 text-sm text-[var(--text-secondary)]">Every weird and funny prompt the generator can draw. Copy the list for a game night or print it for a classroom. Need more? Try the <Link href="/funny-question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">100 funny questions of the day</Link>.</p>
+            <div className="mt-4"><FullListActions items={FUNNY_TOPICS.map((t) => t.text)} label="funny topics" page="/funny" /></div>
+            <ol className="mt-4 list-decimal space-y-1.5 pl-5 text-sm text-[var(--text-secondary)]">
+              {FUNNY_TOPICS.map((t) => <li key={t.id}>{t.text}</li>)}
+            </ol>
+          </div>
+        </section>
+
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-4">
           <Link href="/yo-mama-randomizer" className="glass-card mb-4 p-6 block hover:border-[var(--neon-pink)]/40 transition-colors">
             <h2 className="text-lg font-bold">Yo Mama Randomizer · original text jokes</h2>
@@ -100,6 +116,9 @@ export default function FunnyPage() {
                 people feel comfortable being themselves. When someone asks &quot;If animals could talk,
                 which species would be the rudest?&quot; the room instantly lights up — not because the
                 question is profound, but because it invites playfulness and creativity.
+              </p>
+              <p>
+                For one funny prompt the whole group shares each day, try the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">random question of the day</Link>; to act things out instead, grab a word from the <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades generator</Link>.
               </p>
               <p>
                 Humor also makes conversations more memorable. Research shows people remember

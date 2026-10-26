@@ -165,6 +165,9 @@ export default function ConversationPage() {
                 a classroom speaking activity, a team meeting, or a party.
               </p>
               <p>
+                If you want the same starter for a whole group each day, use the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link>; when the talk winds down, switch to a game with <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">random charades words</Link>.
+              </p>
+              <p>
                 Conversation starters are questions or topics designed to spark meaningful dialogue between
                 people. Whether you&apos;re meeting someone new, reconnecting with an old friend, or trying to
                 liven up a dinner party, having a few good <strong>conversation topics</strong> ready can make

@@ -157,6 +157,9 @@ export default function WritingPage() {
                 ideas</strong> they might never have considered on their own.
               </p>
               <p>
+                For a short daily warm-up, answer the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> in five sentences before starting a longer prompt.
+              </p>
+              <p>
                 Our generator provides over 500 curated <strong>writing prompts</strong> spanning fiction,
                 non-fiction, poetry, and academic writing. Each prompt is designed to be open-ended enough
                 for personal interpretation while specific enough to give your writing direction and focus.

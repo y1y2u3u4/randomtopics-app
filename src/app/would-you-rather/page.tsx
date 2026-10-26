@@ -98,6 +98,9 @@ export default function WouldYouRatherPage() {
                 trade-offs, and impossible food choices — with no repeats until the deck runs out.
               </p>
               <p>
+                Turn it into a daily habit with a <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">daily question</Link> everyone answers, or get people moving with <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades words for adults and kids</Link>.
+              </p>
+              <p>
                 Want a printable list instead? See
                 our <Link href="/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">80 would you rather questions</Link> collection.
                 For more party ammunition,

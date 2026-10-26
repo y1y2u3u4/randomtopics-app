@@ -104,6 +104,9 @@ export default function SpinTheWheelPage() {
                 gloriously weird. Give it a spin and let chance break the deadlock.
               </p>
               <p>
+                Want one shared prompt instead of a spin? The <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> gives everyone the same question each day, and the <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades word generator</Link> deals a word to act out.
+              </p>
+              <p>
                 The wheel is the playful cousin of our{" "}
                 <Link href="/" className="text-[var(--neon-cyan)] hover:underline">
                   random topic generator

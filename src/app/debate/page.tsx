@@ -163,6 +163,9 @@ export default function DebatePage() {
                 because there&apos;s no objectively correct answer.
               </p>
               <p>
+                For a lighter warm-up before a debate round, open with today&apos;s <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">daily discussion question</Link> so everyone speaks once before taking sides.
+              </p>
+              <p>
                 Our generator curates <strong>argumentative topics</strong> across politics, technology,
                 ethics, education, and more — each chosen because it supports compelling <strong>pro and
                 con arguments</strong>. Whether you&apos;re preparing for a competitive debate tournament

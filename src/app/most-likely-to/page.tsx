@@ -84,6 +84,9 @@ export default function MostLikelyToPage() {
                 clean, funny prompts, one per click, with no repeats until the deck runs out.
               </p>
               <p>
+                Between rounds, share the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> or switch to a game of <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">random charades</Link>.
+              </p>
+              <p>
                 Keep the party going with{" "}
                 <Link href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>,{" "}
                 <Link href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}

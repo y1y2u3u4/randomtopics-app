@@ -14,6 +14,7 @@ import KeepPlaying from "@/components/KeepPlaying";
 import TryNext from "@/components/TryNext";
 import FactSheet from "@/components/FactSheet";
 import HostPassEntry from "@/components/host/HostPassEntry";
+import FullListActions from "@/components/FullListActions";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Charades Generator: Random Charades Word Generator (528 Words)" },
@@ -124,7 +125,7 @@ export default function CharadesPage() {
         />
 
         {/* Hero */}
-        <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-8 text-center">
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-6 pb-4 text-center">
           <h1
             className="section-heading text-4xl sm:text-6xl font-extrabold mb-4"
             style={{ fontFamily: "var(--font-display)" }}
@@ -169,6 +170,7 @@ export default function CharadesPage() {
           <h2 className="text-2xl font-bold">{`All ${CHARADES_WORDS.length} Charades Words by Category`}</h2>
           <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)]">Browse the complete generator deck below. Each word is labeled Easy, Medium or Hard. Pick a category your group knows; titles and idioms depend on shared familiarity. Difficulty is an editorial guide, not an age guarantee.</p>
           <p className="mt-2 text-xs text-[var(--text-muted)]">Collection and game guide reviewed September 21, 2026.</p>
+          <div className="mt-4"><FullListActions items={CHARADES_WORDS.map((word) => word.w)} label="charades words" page="/charades" /></div>
           <nav aria-label="Charades word categories" className="my-5 flex flex-wrap gap-2">
             {CHARADES_CATEGORIES.map((cat) => <a key={cat.id} href={`#charades-${cat.id}`} className="inline-flex min-h-11 items-center rounded-xl border border-white/10 px-3 py-2 text-sm text-[var(--neon-cyan)]">{cat.emoji} {cat.label} · {CHARADES_WORDS.filter((word) => word.c === cat.id).length}</a>)}
           </nav>
