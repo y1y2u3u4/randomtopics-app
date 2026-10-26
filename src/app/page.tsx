@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import TopicGenerator from "@/components/TopicGenerator";
 import EditorsPicks from "@/components/EditorsPicks";
 import LazyPracticeDemo from "@/components/LazyPracticeDemo";
+import HomeQotdEntry from "@/components/HomeQotdEntry";
 import Link from "next/link";
 import { MODES, CATEGORIES } from "@/data/types";
 import { pickFeaturedTopics } from "@/lib/editorial";
@@ -18,6 +19,7 @@ export default function Home() {
         <SelectedTopicPractice returnSource="home" />
         <TopicGenerator contentSource="homepage" rollOnGenerate />
         <LazyPracticeDemo />
+        <HomeQotdEntry />
 
         {/* High-intent handoff: helps the dedicated subject page own its query
             instead of forcing Google to route "random subject generator" to /. */}
