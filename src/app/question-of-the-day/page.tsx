@@ -95,7 +95,7 @@ export default function QuestionOfTheDayPage() {
         />
 
         {/* Hero */}
-        <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 pb-6 text-center">
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-6 pb-4 text-center">
           <h1
             className="section-heading text-4xl sm:text-6xl font-extrabold mb-4"
             style={{ fontFamily: "var(--font-display)" }}
@@ -105,13 +105,13 @@ export default function QuestionOfTheDayPage() {
           <p className="text-[var(--text-muted)] max-w-xl mx-auto">
             Today’s question is ready below. Copy it for your group chat, or choose another from 120 question ideas. Free, with no signup.
           </p>
-          <p className="mt-3 text-sm text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed">
-            {`A question of the day is one short prompt everyone answers on the same day: a classroom bell-ringer, a stand-up icebreaker, or a family dinner starter. Pick one of ${QOTD_CATEGORIES.length} categories (classroom, work, kids, deep, or funny); everyone on the same category and local date gets the same question, and a new one appears at midnight in your time zone.`}
-          </p>
         </section>
 
         <QuestionOfTheDay initialIdx={initialIdx} initialDateLabel={initialDateLabel} />
         <HostPassEntry generator="question-of-the-day" />
+        <p className="mt-6 px-4 text-sm text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed text-center">
+          {`A question of the day is one short prompt everyone answers on the same day: a classroom bell-ringer, a stand-up icebreaker, or a family dinner starter. Pick one of ${QOTD_CATEGORIES.length} categories (classroom, work, kids, deep, or funny); everyone on the same category and local date gets the same question, and a new one appears at midnight in your time zone.`}
+        </p>
         <div className="pt-6">
           <DirectAnswer question="What is today's question of the day?">
             {`Today's question of the day is shown at the top of this page. Everyone using the same category on the same local date sees the same question, and it changes at midnight in your time zone. Choose from ${QOTD_CATEGORIES.length} categories (classroom, work, kids, deep, funny) or draw from all ${QOTD_QUESTIONS.length} question ideas. Free, no signup.`}

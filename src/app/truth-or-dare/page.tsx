@@ -95,6 +95,9 @@ export default function TruthOrDarePage() {
                 itself moving.
               </p>
               <p>
+                Want a gentler opener first? Start with today&apos;s <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link>, then move to dares.
+              </p>
+              <p>
                 Want more party ammunition? Try{" "}
                 <Link href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>,{" "}
                 <Link href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>,{" "}

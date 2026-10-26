@@ -162,6 +162,9 @@ export default function RandomSubjectGeneratorPage() {
                 subject for you, then get a ready-to-use prompt to run with.
               </p>
               <p>
+                For a single prompt the whole class answers today, use the <Link href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day for class</Link>; for a movement break, try <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades for kids</Link>.
+              </p>
+              <p>
                 Unlike a plain word picker, every subject here comes attached to real, hand-crafted
                 talking points and prompts. That means you do not just get told &quot;history&quot; — you get a
                 specific angle within history you can actually discuss, debate, or write about.

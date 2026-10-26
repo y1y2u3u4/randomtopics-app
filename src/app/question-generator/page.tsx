@@ -92,6 +92,9 @@ export default function QuestionGeneratorPage() {
                 friendly banter, and <strong>deep questions</strong> for conversations that matter.
               </p>
               <p>
+                Prefer acting to answering? The <Link href="/charades" className="text-[var(--neon-cyan)] hover:underline">random charades generator</Link> draws a word, hides it, and runs the timer.
+              </p>
+              <p>
                 It&apos;s built on the same 500+ topic database as our other tools, so if you need a more
                 specific flavor, jump to the dedicated
                 generator: <Link href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">icebreaker questions</Link> for

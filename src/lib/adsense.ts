@@ -77,12 +77,22 @@ export function adConfiguration(mode: string | undefined, slot: string | undefin
     ? { slot: slot! } : null;
 }
 
+// Campaign tags only (e.g. ?utm_source=chatgpt.com from AI-assistant links,
+// ~240 documents a week in Oct 2026). Any other query, including rt_ads=off,
+// still fails closed.
+const CAMPAIGN_PARAM = /^utm_(source|medium|campaign|term|content)$/;
+function campaignOnlySearch(search: string) {
+  if (!search) return true;
+  const keys = [...new URLSearchParams(search).keys()];
+  return keys.length > 0 && keys.length <= 5 && keys.every((key) => CAMPAIGN_PARAM.test(key));
+}
+
 export function adRequestAllowed(options: {
   path: string; host: string; search: string; qa: boolean; globalPrivacyControl: boolean;
 }) {
   return adPageAllowed(options.path) &&
     ["randomtopics.app", "www.randomtopics.app"].includes(options.host) &&
-    !options.search && !options.qa && !options.globalPrivacyControl;
+    campaignOnlySearch(options.search) && !options.qa && !options.globalPrivacyControl;
 }
 
 // Personalized ads only where the visitor has not refused them: the published

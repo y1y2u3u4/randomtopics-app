@@ -9,8 +9,9 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
 
 const path = "/yo-mama-randomizer";
-const title = "Yo Mama Randomizer: 72 Clean Yo Mama Jokes + Joke Remixer";
-const description = `Generate a clean yo mama joke or remix original setups and absurd endings. ${YO_MAMA_JOKES.length} written jokes, six themes, easy copying, and no repeats within your round.`;
+// Old title (rollback, 2026-10-26): "Yo Mama Randomizer: 72 Clean Yo Mama Jokes + Joke Remixer"
+const title = `Yo Mama Randomizer & Generator: ${YO_MAMA_JOKES.length} Clean Yo Mama Jokes + Joke Remixer`;
+const description = `Free yo mama joke generator: one click for a clean yo mama joke, or remix original setups and absurd endings. ${YO_MAMA_JOKES.length} written jokes, six themes, easy copying, no sign-up and no repeats within your round.`;
 const combinations = YO_MAMA_SETUPS.length * YO_MAMA_ENDINGS.length;
 export const metadata: Metadata = {
   title: { absolute: title }, description,
