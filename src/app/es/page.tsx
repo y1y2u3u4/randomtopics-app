@@ -3,6 +3,7 @@ import PublicAdPlacement from "@/components/PublicAdPlacement";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopicGenerator from "@/components/TopicGenerator";
+import TryNext, { ES_TRY_NEXT } from "@/components/TryNext";
 import Link from "next/link";
 import { MODES, CATEGORIES } from "@/data/types";
 import { MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
@@ -85,6 +86,7 @@ export default function HomeEs() {
           title="Generador de Temas Aleatorios"
           subtitle="Genera temas al azar para conversar, escribir, debatir, practicar discursos o romper el hielo — más de 500 ideas, gratis y sin registro."
         />
+        <TryNext path="/es" tools={ES_TRY_NEXT} locale="es" />
 
         {/* Social proof / stats bar */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
