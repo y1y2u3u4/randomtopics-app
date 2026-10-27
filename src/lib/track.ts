@@ -39,6 +39,8 @@ export function canonicalEventName(eventName: string): string | undefined {
 const UMAMI_DIRECT_EVENTS = new Set([
   "host_entry_view", "host_entry_click", "host_trial_start", "host_trial_end", "host_paywall_view",
   "host_plan_select", "host_checkout_start", "host_purchase", "host_session_start", "timer_set", "no_repeat_reset",
+  // 2026-10-27: related-tool strips, for the daily pages-per-visit report.
+  "related_tool_click",
 ]);
 
 // Subscription products (2026-10-24): {product}_{step}, same names in GA4 and Umami.
@@ -56,7 +58,7 @@ export function sessionGenerateCount(): number {
 
 function umamiProps(params: GtagParams): Record<string, string | number | boolean> {
   const out: Record<string, string | number | boolean> = {};
-  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path", "plan", "generator", "seconds", "product", "entry_page"]) {
+  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path", "plan", "generator", "seconds", "product", "entry_page", "slot", "target_path"]) {
     const value = params[key];
     if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") out[key] = value;
   }

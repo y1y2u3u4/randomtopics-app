@@ -8,6 +8,7 @@ import { NAME_STYLES, nameRecipes, type NameKind } from "@/data/nameGenerators";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import styles from "./NameGeneratorPage.module.css";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 
 const pages = {
   band: {
@@ -55,6 +56,7 @@ export default function NameGeneratorPage({ kind }: { kind: NameKind }) {
         <p className="mt-2 text-xs text-[var(--text-secondary)]">Free · No account · {recipes.length} starting names</p>
       </header>
       <NameGenerator key={kind} kind={kind} />
+      <TryNext path={path} />
       <section className="glass-card mt-8 p-5 sm:p-7">
         <h2 className="text-xl font-bold">{kind === "band" ? "Choose a name you can say on stage" : "Give the name a place in your story"}</h2>
         <ol className="mt-3 list-decimal pl-5 space-y-3 text-sm sm:text-base">{page.steps.map(step => <li key={step}>{step}</li>)}</ol>

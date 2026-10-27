@@ -7,6 +7,7 @@ import FactTable from "@/components/FactTable";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
+import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = withSocial({
   title: "Random Argument Generator — Free Pro/Con Argument Topics",
@@ -69,6 +70,7 @@ export default function ArgumentGeneratorPage() {
           subtitle="Generate arguable claims with ready-made pro and con talking points — for debates, essays, and sharpening your reasoning."
           directAnswer="Need something to argue about? Tap Generate for a random, arguable claim with pro and con talking points, so you can practice rebuttals, pick a persuasive essay thesis, or start a friendly debate. Filter by category and depth, and every claim can genuinely be defended and attacked with reasons and evidence. Free, with no signup."
         />
+        <TryNext path="/argument-generator" />
 
         <FactTable
           heading="Fact vs. opinion vs. argument"

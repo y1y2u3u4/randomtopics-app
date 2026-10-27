@@ -15,6 +15,7 @@ import PrintButton from "@/components/PrintButton";
 import InlineQuestionGenerator from "@/components/InlineQuestionGenerator";
 import SubEntry from "@/components/subs/SubEntry";
 import SubEntryFor from "@/components/subs/SubEntryFor";
+import TryNext, { topicTryNext } from "@/components/TryNext";
 import SpeechTimer from "@/components/SpeechTimer";
 import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 import TwoTruthsRoundBuilder from "@/components/TwoTruthsRoundBuilder";
@@ -573,6 +574,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         )}
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 empty:hidden"><SubEntryFor path={`/topics/${slug}`} after="view" /></section>
+        <TryNext path={`/topics/${slug}`} tools={topicTryNext(slug)} />
 
         <PublicAdPlacement path={`/topics/${slug}`} />
 

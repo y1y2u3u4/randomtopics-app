@@ -7,6 +7,7 @@ import YoMamaRandomizer from "@/components/YoMamaRandomizer";
 import { YO_MAMA_JOKES, YO_MAMA_THEMES, YO_MAMA_SETUPS, YO_MAMA_ENDINGS } from "@/data/yoMama";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 
 const path = "/yo-mama-randomizer";
 // Old title (rollback, 2026-10-26): "Yo Mama Randomizer: 72 Clean Yo Mama Jokes + Joke Remixer"
@@ -40,6 +41,7 @@ export default function Page() {
         <a href="#joke-collection" className="mt-2 inline-flex min-h-11 items-center text-xs text-[var(--neon-cyan)] underline underline-offset-4">Browse all {YO_MAMA_JOKES.length} clean jokes and the remix parts ↓</a>
       </header>
       <YoMamaRandomizer />
+      <TryNext path="/yo-mama-randomizer" />
 
       <section className="glass-card mt-8 p-5 sm:p-7" aria-labelledby="how-it-works">
         <h2 id="how-it-works" className="text-xl font-bold">A quick joke, or a little nonsense engineering</h2>

@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { hreflangAlternates } from "@/i18n/config";
 import SubEntryFor from "@/components/subs/SubEntryFor";
+import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = withSocial({
   title: "Essay Topic Generator — Random Essay Topics & Prompts, Free",
@@ -100,6 +101,7 @@ export default function EssayTopicGeneratorPage() {
           title="Essay Topic Generator"
           subtitle="Get a random essay topic or prompt instantly. Pick a subject to focus your essay, or leave it on random and let the generator hand you one to write about."
         />
+        <TryNext path="/essay-topic-generator" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6"><SubEntryFor path="/essay-topic-generator" /></div>
 
         {/* Essay subjects picker */}

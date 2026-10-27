@@ -8,6 +8,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = withSocial({
   title: "Table Topics Generator — Toastmasters Questions + Timer",
@@ -73,6 +74,7 @@ export default function TableTopicsPage() {
           title="Table Topics Generator"
           subtitle="Random impromptu speaking questions for Toastmasters. Try a 60-second answer with AI feedback, or rehearse with the free 1–2 minute timer."
         />
+        <TryNext path="/table-topics-generator" />
 
         {/* Speech Timer */}
         <section id="table-topics-timer" className="max-w-3xl mx-auto scroll-mt-20 px-4 sm:px-6 pb-4">

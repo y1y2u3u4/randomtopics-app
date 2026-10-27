@@ -13,6 +13,7 @@ import { withSocial } from "@/lib/metadata/social";
 import { TRUTH_OR_DARE } from "@/data/partyGames";
 import KeepPlaying from "@/components/KeepPlaying";
 import HostPassEntry from "@/components/host/HostPassEntry";
+import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Truth or Dare Generator — Clean Questions & Dares | Random Topics" },
@@ -77,6 +78,7 @@ export default function TruthOrDarePage() {
           ]}
         />
         <HostPassEntry generator="truth-or-dare" />
+        <TryNext path="/truth-or-dare" />
         <PartyGameLinks currentPath="/truth-or-dare" />
 
         <PublicAdPlacement path="/truth-or-dare" />

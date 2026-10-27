@@ -7,6 +7,7 @@ import DrawingGenerator from "@/components/DrawingGenerator";
 import { DRAWING_CATEGORIES, DRAWING_PROMPTS } from "@/data/drawingPrompts";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 const title = "Random Drawing Generator — What to Draw & Drawing Prompts | Random Topics";
 const description = "Not sure what to draw? Get free random drawing ideas and drawing prompts with sketch tips. Pick a subject and difficulty; draw without repeats. No signup.";
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function RandomDrawingGeneratorPage() {
     <div className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
       <header className="text-center py-4 sm:py-6"><h1 className="text-3xl sm:text-4xl font-extrabold" style={{fontFamily:"var(--font-display)"}}>Random Drawing Generator</h1><p className="mt-3 text-base text-[var(--text-secondary)]">Not sure what to draw? Start with this idea, or draw another.</p><p className="mt-2 text-xs text-[var(--text-secondary)]">48 ideas · Free · Draw them yourself</p></header>
       <DrawingGenerator />
+      <TryNext path="/random-drawing-generator" />
       <section className="glass-card p-5 sm:p-8 mt-8"><h2 className="text-2xl font-bold">What to draw: start small, then add one challenge</h2><p className="mt-3 text-[var(--text-muted)]">A drawing prompt is a starting point, not a test. For a quick warm-up, choose Everyday or Nature and Simple shapes. For perspective, movement, or an imaginary scene, try More detail. Fantasy ideas use the More detail level. Nine simple subjects include original line guides you can show or hide.</p><ol className="list-decimal pl-5 mt-4 space-y-2"><li>Choose one idea and give yourself five minutes.</li><li>Block in the largest shapes; leave fine details until last.</li><li>Use the sketch tip to practise one thing, such as overlap, light, or viewpoint.</li><li>Keep your first sketch. Try the subject again from a different angle.</li></ol></section>
       <section className="mt-8"><h2 className="text-2xl font-bold">Explore the drawing prompt collection</h2><p className="mt-3 text-[var(--text-muted)]">These are the same original ideas used by the picker. Open a subject to browse without generating.</p><div className="mt-4 space-y-3">{DRAWING_CATEGORIES.map(c => <details key={c} className="glass-card p-5"><summary className="cursor-pointer font-bold min-h-11">{c[0].toUpperCase()+c.slice(1)} drawing ideas</summary><ul className="space-y-4 mt-3">{DRAWING_PROMPTS.filter(p => p.category===c).map(p => <li key={p.id}><h3 className="font-semibold">{p.text}</h3><p className="text-sm text-[var(--text-muted)]">{p.difficulty === "easy" ? "Simple shapes" : "More detail"} · {p.hint}</p></li>)}</ul></details>)}</div></section>
       <section className="glass-card p-5 sm:p-8 mt-8"><h2 className="text-2xl font-bold">Drawing prompt questions</h2>{faqs.map(([q,a]) => <div key={q} className="mt-5"><h3 className="font-bold">{q}</h3><p className="mt-2 text-[var(--text-muted)]">{a}</p></div>)}</section>

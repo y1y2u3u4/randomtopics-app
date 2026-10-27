@@ -15,6 +15,8 @@ import { hreflangAlternates } from "@/i18n/config";
 import { THIS_OR_THAT } from "@/data/partyGames";
 import KeepPlaying from "@/components/KeepPlaying";
 import HostPassEntry from "@/components/host/HostPassEntry";
+import TryNext from "@/components/TryNext";
+import { THIS_OR_THAT_CATEGORIES } from "@/data/thisOrThatCategories";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "This or That Questions: 182 Picks + a Random Generator" },
@@ -75,6 +77,7 @@ export default function ThisOrThatPage() {
           emoji="⚖️"
         />
         <HostPassEntry generator="this-or-that" />
+        <TryNext path="/this-or-that" />
         <PartyGameLinks currentPath="/this-or-that" />
 
         <PublicAdPlacement path="/this-or-that" />
@@ -136,6 +139,34 @@ export default function ThisOrThatPage() {
               <p className="text-xs text-[var(--text-muted)]">Facilitator tip: alternate easy comfort picks (coffee or tea) with genuinely hard ones &mdash; the rhythm keeps both kids and adults locked in.</p>
               <p>After the picks, share your favourites as a 3×3 grid: <Link prefetch={false} href="/my-9-albums" className="text-[var(--neon-cyan)] hover:underline">My 9 Albums</Link>, <Link prefetch={false} href="/my-9-games" className="text-[var(--neon-cyan)] hover:underline">My 9 Games</Link>, <Link prefetch={false} href="/my-9-movies" className="text-[var(--neon-cyan)] hover:underline">My 9 Movies</Link>, <Link prefetch={false} href="/my-9-anime" className="text-[var(--neon-cyan)] hover:underline">My 9 Anime</Link>, <Link prefetch={false} href="/my-9-books" className="text-[var(--neon-cyan)] hover:underline">My 9 Books</Link> or the <Link prefetch={false} href="/my-9-grid" className="text-[var(--neon-cyan)] hover:underline">3x3 grid maker</Link>.</p>
             </div>
+          </div>
+        </section>
+        <section id="by-category" className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-3" style={{ fontFamily: "var(--font-display)" }}>
+              This or That Game Questions by Category
+            </h2>
+            <p className="text-sm text-[var(--text-secondary)] mb-5">
+              144 more picks sorted by theme, on top of the 38-card deck above. Pick a category that fits the room &mdash; kids and school sets for class, work for team meetings, food and travel for any group.
+            </p>
+            <nav aria-label="Categories" className="flex flex-wrap gap-2 mb-6">
+              {THIS_OR_THAT_CATEGORIES.map((c) => (
+                <a key={c.id} href={`#tot-${c.id}`} className="mode-chip"><span aria-hidden="true">{c.emoji}</span> {c.title}</a>
+              ))}
+            </nav>
+            <div className="space-y-6">
+              {THIS_OR_THAT_CATEGORIES.map((c) => (
+                <div key={c.id} id={`tot-${c.id}`}>
+                  <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">{c.emoji} This or That Questions: {c.title}</h3>
+                  <ol className="list-decimal pl-6 grid sm:grid-cols-2 gap-x-6 gap-y-1 text-sm text-[var(--text-secondary)]">
+                    {c.questions.map((q) => <li key={q}>{q}</li>)}
+                  </ol>
+                </div>
+              ))}
+            </div>
+            <p className="text-sm text-[var(--text-secondary)] mt-6">
+              Want a themed deck instead? Try <Link prefetch={false} href="/this-or-that/couples" className="text-[var(--neon-cyan)] hover:underline">couples</Link>, <Link prefetch={false} href="/this-or-that/hard" className="text-[var(--neon-cyan)] hover:underline">hard</Link>, <Link prefetch={false} href="/this-or-that/work" className="text-[var(--neon-cyan)] hover:underline">work</Link> or <Link prefetch={false} href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">kids</Link> This or That, or the bigger hypotheticals in <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>.
+            </p>
           </div>
         </section>
         <QuestionBank

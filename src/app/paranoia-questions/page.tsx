@@ -12,6 +12,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { PARANOIA_QUESTIONS } from "@/data/paranoia";
 import { hreflangAlternates } from "@/i18n/config";
+import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Paranoia Questions Generator — 60+ Clean Prompts | Random Topics" },
@@ -76,6 +77,7 @@ export default function ParanoiaPage() {
           subtitle="The whisper game: whisper the question, answer with a name out loud, flip a coin to reveal. One click per question — all clean, no repeats."
           emoji="🤫"
         />
+        <TryNext path="/paranoia-questions" />
         <PartyGameLinks currentPath="/paranoia-questions" />
         <PublicAdPlacement path="/paranoia-questions" placement="result" />
 

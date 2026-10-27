@@ -10,6 +10,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { NEVER_HAVE_I_EVER } from "@/data/partyQuestions";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = withSocial({
   title: "Never Have I Ever Generator — 60+ Clean Questions",
@@ -73,6 +74,7 @@ export default function NeverHaveIEverPage() {
           subtitle="60+ clean, funny prompts — ten fingers up, and let the confessions begin."
           emoji="🙈"
         />
+        <TryNext path="/never-have-i-ever" />
 
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">

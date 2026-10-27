@@ -10,6 +10,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { TWO_TRUTHS_AND_A_LIE } from "@/data/partyGames";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = withSocial({
   title: "Two Truths and a Lie — Idea Generator & Prompts",
@@ -67,6 +68,7 @@ export default function TwoTruthsAndALiePage() {
           subtitle="Themed prompts to help you craft a convincing round — one click per idea, no repeats until you've seen the whole deck."
           emoji="🕵️"
         />
+        <TryNext path="/two-truths-and-a-lie" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-6">
           <p className="glass-card p-5 text-base leading-relaxed text-[var(--text-secondary)]">

@@ -14,6 +14,7 @@ import { QOTD_QUESTIONS, QOTD_CATEGORIES, qotdIndexForDate } from "@/data/questi
 import QotdListActions from "@/components/QotdListActions";
 import KeepPlaying from "@/components/KeepPlaying";
 import TryNext from "@/components/TryNext";
+import { QOTD_OCCASIONS } from "@/data/qotdOccasions";
 import FactSheet from "@/components/FactSheet";
 import HostPassEntry from "@/components/host/HostPassEntry";
 
@@ -237,6 +238,53 @@ export default function QuestionOfTheDayPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+        <section id="qotd-occasions" className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-3" style={{ fontFamily: "var(--font-display)" }}>
+              More Question of the Day Ideas by Occasion
+            </h2>
+            <p className="text-sm text-[var(--text-secondary)] mb-6">
+              Extra questions for specific moments, outside the daily rotation. Copy one into Slack, Teams or the whiteboard when the day calls for it.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {QOTD_OCCASIONS.map((o) => (
+                <div key={o.id} id={`qotd-${o.id}`}>
+                  <h3 className="text-base font-semibold text-[var(--text-primary)] mb-2">{o.emoji} {o.title}</h3>
+                  <ul className="list-disc pl-5 space-y-1 text-sm text-[var(--text-secondary)]">
+                    {o.questions.map((q) => <li key={q}>{q}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mt-10 mb-3" style={{ fontFamily: "var(--font-display)" }}>
+              Sample Answers to Get People Started
+            </h2>
+            <div className="space-y-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+              <p><strong className="text-[var(--text-primary)]">&ldquo;What&apos;s one small thing that made you smile this week?&rdquo;</strong> &mdash; &ldquo;My neighbor&apos;s dog figured out how to open the gate and came to say hi at 7 a.m.&rdquo; Short, specific and a little funny is the tone to model.</p>
+              <p><strong className="text-[var(--text-primary)]">&ldquo;If you could instantly master one school subject, which would you pick?&rdquo;</strong> &mdash; &ldquo;Chemistry, so I&apos;d finally know why my cookies go flat.&rdquo; A reason in one line invites follow-up questions.</p>
+              <p><strong className="text-[var(--text-primary)]">&ldquo;Which app could you not work without?&rdquo;</strong> &mdash; &ldquo;My calendar. If it&apos;s not in there, it doesn&apos;t exist.&rdquo; When the host answers first, quieter people join in.</p>
+            </div>
+
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mt-10 mb-3" style={{ fontFamily: "var(--font-display)" }}>
+              Question of the Day Mistakes to Avoid
+            </h2>
+            <ul className="list-disc pl-5 space-y-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+              <li><strong className="text-[var(--text-primary)]">Making it mandatory.</strong> Answering should stay optional; a forced answer turns a warm-up into a chore.</li>
+              <li><strong className="text-[var(--text-primary)]">Asking about sensitive topics.</strong> Skip politics, religion, money, health and family situations in mixed groups &mdash; keep it to preferences, memories and small wins.</li>
+              <li><strong className="text-[var(--text-primary)]">Going too deep too early.</strong> Start with light and funny questions; save reflective ones for groups that already trust each other.</li>
+              <li><strong className="text-[var(--text-primary)]">Letting it run long.</strong> One or two minutes per person is enough. The daily habit matters more than any single answer.</li>
+              <li><strong className="text-[var(--text-primary)]">Never reading the answers.</strong> Reply, react or bring an answer up later &mdash; that&apos;s what makes people keep answering.</li>
+            </ul>
+
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mt-10 mb-3" style={{ fontFamily: "var(--font-display)" }}>
+              Question of the Day vs. Icebreaker Questions
+            </h2>
+            <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+              An icebreaker is a one-off opener for a group that is meeting for the first time or starting an event. A question of the day is a repeating ritual: the same slot every day, one question, short answers, building familiarity over weeks. Use the <Link prefetch={false} href="/icebreaker" className="text-[var(--neon-cyan)] hover:underline">icebreaker generator</Link> for kickoffs and workshops, and this page for the daily habit &mdash; or pick a set made for your group: <Link prefetch={false} href="/question-of-the-day-for-work" className="text-[var(--neon-cyan)] hover:underline">work</Link>, <Link prefetch={false} href="/question-of-the-day-for-students" className="text-[var(--neon-cyan)] hover:underline">students</Link>, <Link prefetch={false} href="/funny-question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">funny</Link> or <Link prefetch={false} href="/couples-daily-question" className="text-[var(--neon-cyan)] hover:underline">couples</Link>.
+            </p>
           </div>
         </section>
         <KeepPlaying path="/question-of-the-day" />

@@ -11,6 +11,7 @@ import ClassroomArt from "@/components/ClassroomArt";
 import RiddleList from "@/components/RiddleList";
 import { RIDDLES_FOR_KIDS, RIDDLE_LEVELS, RIDDLE_TYPES, type RiddleLevel } from "@/data/riddlesForKids";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
+import TryNext from "@/components/TryNext";
 
 const PATH = "/riddles-for-kids";
 const TITLE = `${RIDDLES_FOR_KIDS.length} Riddles for Kids with Answers (Easy to Hard)`;
@@ -77,6 +78,7 @@ export default function RiddlesForKidsPage() {
           allThemesLabel="Any type"
           firstPrompt="Tap the button for a riddle"
         />
+        <TryNext path="/riddles-for-kids" />
         <ClassroomArt src="/art/classroom/riddles-for-kids.jpg" alt="Illustrated kids puzzling over a projected riddle with a question mark and a lightbulb" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
