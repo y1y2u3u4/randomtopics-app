@@ -40,4 +40,7 @@ export const FR_SIBLINGS = [
   { href: "/fr/tu-preferes", label: "Tu préfères", detail: "Des dilemmes à départager" },
   { href: "/fr/idees-de-mime", label: "Idées de mime", detail: "Pour le jeu du mime entre amis" },
   { href: "/fr/sujets-de-debat", label: "Sujets de débat", detail: "Pour l'école et les clubs" },
+  { href: "/fr/roue-des-sujets", label: "Roue des sujets", detail: "Tourne la roue, le sujet tombe" },
+  { href: "/fr/questions-droles", label: "Questions drôles", detail: "Pour rire en groupe" },
+  { href: "/fr/plutot-ceci-ou-cela", label: "Plutôt ceci ou cela ?", detail: "Choisir un camp en un clin d'œil" },
 ];

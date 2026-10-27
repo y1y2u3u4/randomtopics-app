@@ -135,7 +135,9 @@ export function categorySwitch(path: string): TryNextTool[] {
 // Compact row of related tools right under the result, so the next click is in
 // view when a visitor finishes. Static server HTML (no layout shift); picks
 // differ from the "Keep playing" cards at the bottom of the page.
-export default function TryNext({ path, tools: fixed, locale = "en" }: { path: string; tools?: TryNextTool[]; locale?: "en" | "es" }) {
+const TRY_NEXT_TITLE = { en: "Try next", es: "Prueba también", pt: "Experimente também", fr: "À essayer ensuite", tr: "Sırada bunlar var" } as const;
+
+export default function TryNext({ path, tools: fixed, locale = "en" }: { path: string; tools?: TryNextTool[]; locale?: "en" | "es" | "pt" | "fr" | "tr" }) {
   const all = fixed ? [] : keepPlaying(path, 6);
   // Pages outside RELATED_TOOLS (topic lists, premium collections) fall back to
   // the scene picks so every tool page shows a next step.
@@ -143,9 +145,9 @@ export default function TryNext({ path, tools: fixed, locale = "en" }: { path: s
   const tools = picked ? picked.filter((t) => t.href !== path) : all.length >= 6 ? all.slice(3) : all.slice(0, 3);
   const switches = locale === "en" ? categorySwitch(path) : [];
   if (!tools.length && !switches.length) return null;
-  const title = locale === "es" ? "Prueba también" : "Try next";
+  const title = TRY_NEXT_TITLE[locale];
   return (
-    <nav aria-label="Try next" className="max-w-3xl mx-auto px-4 sm:px-6 pt-4 pb-2 print:hidden">
+    <nav aria-label={title} className="max-w-3xl mx-auto px-4 sm:px-6 pt-4 pb-2 print:hidden">
       {switches.length > 0 && (
         <>
           <p className="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-2">Switch category</p>
