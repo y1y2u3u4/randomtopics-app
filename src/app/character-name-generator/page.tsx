@@ -71,6 +71,7 @@ export default function CharacterNameGeneratorPage() {
       faq={FAQ}
       related={[
         { href: "/random-character-generator", label: "Random character generator" },
+        { href: "/random-marvel-character-generator", label: "Random Marvel character generator" },
         { href: "/writing", label: "Writing prompt generator" },
         { href: "/writing-topic-generator", label: "Writing topic generator" },
         { href: "/last-name-generator", label: "Last name generator" },

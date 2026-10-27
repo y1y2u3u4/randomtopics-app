@@ -92,6 +92,12 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Name, traits, motive & secret" },
   },
   {
+    href: "/random-marvel-character-generator",
+    emoji: "🦸",
+    label: { en: "Random Marvel Character Generator" },
+    detail: { en: "Heroes, villains, wheel & daily guess" },
+  },
+  {
     href: "/gnome-name-generator",
     emoji: "⚙️",
     label: { en: "Gnome Name Generator" },

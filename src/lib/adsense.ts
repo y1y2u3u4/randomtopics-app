@@ -49,6 +49,7 @@ export const ADSENSE_RESULT_PATHS = [
   "/paranoia-questions",
   "/last-name-generator",
   "/random-character-generator",
+  "/random-marvel-character-generator",
   "/fantasy-map-maker",
   "/story-prompt-generator",
   // 2026-10-24: new page that lives on ads (no paywall), see docs/decision-maker-2026-10-24.md.
