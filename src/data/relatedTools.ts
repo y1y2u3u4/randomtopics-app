@@ -126,6 +126,18 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/charades/kids", label: "Charades for Kids", emoji: "🧸", blurb: "Easy words by age, with timer", groups: ["party", "classroom"] },
   { href: "/random-theme-generator", label: "Random Theme Generator", emoji: "🎨", blurb: "Themes for parties, writing, art", groups: ["creative", "party"] },
   { href: "/1-minute-speech-topics", label: "1-Minute Speech Topics", emoji: "⏱️", blurb: "60-second topics with a timer", groups: ["speaking", "classroom"] },
+  { href: "/wheel-of-names", label: "Wheel of Names", emoji: "🎡", blurb: "Spin a wheel of your own names", groups: ["party", "classroom"] },
+  { href: "/random-number-generator", label: "Random Number Generator", emoji: "🔢", blurb: "Numbers in any range", groups: ["classroom", "party"] },
+  { href: "/random-name-generator", label: "Random Name Generator", emoji: "🧑", blurb: "Names from 24 nationalities", groups: ["names"] },
+  { href: "/fantasy-name-generator", label: "Fantasy Name Generator", emoji: "🧝", blurb: "Elf, dwarf, orc and more", groups: ["names"] },
+  { href: "/random-country-generator", label: "Random Country Generator", emoji: "🌍", blurb: "A random real country", groups: ["classroom", "party"] },
+  { href: "/flip-a-coin", label: "Flip a Coin", emoji: "🪙", blurb: "Heads or tails, 1 to 10 coins", groups: ["party", "classroom"] },
+  { href: "/dice-roller", label: "Dice Roller", emoji: "🎲", blurb: "d4 to d100, with modifiers", groups: ["party"] },
+  { href: "/yes-or-no-wheel", label: "Yes or No Wheel", emoji: "✅", blurb: "Spin for yes, no or maybe", groups: ["party"] },
+  { href: "/random-city-generator", label: "Random City Generator", emoji: "🏙️", blurb: "A random real city", groups: ["classroom", "creative"] },
+  { href: "/random-sentence-generator", label: "Random Sentence Generator", emoji: "💬", blurb: "Everyday, funny and story lines", groups: ["creative", "classroom"] },
+  { href: "/random-noun-generator", label: "Random Noun Generator", emoji: "📦", blurb: "Nouns by level and letter", groups: ["creative", "classroom"] },
+  { href: "/random-emoji-generator", label: "Random Emoji Generator", emoji: "😀", blurb: "Tap to copy", groups: ["party", "creative"] },
 ];
 
 /** When a group has fewer than three other tools, continue with these. */
