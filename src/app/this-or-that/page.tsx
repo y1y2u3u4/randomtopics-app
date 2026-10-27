@@ -17,7 +17,7 @@ import KeepPlaying from "@/components/KeepPlaying";
 import HostPassEntry from "@/components/host/HostPassEntry";
 
 export const metadata: Metadata = withSocial({
-  title: { absolute: "This or That Questions: 182 Picks + a Random Generator" },
+  title: { absolute: `This or That Questions: ${THIS_OR_THAT.length} Picks + a Random Generator` },
   description:
     "Free This or That question generator: fun either/or prompts for parties, classrooms, road trips, and icebreakers. One click per question, no repeats — clean and party-safe. No signup.",
   keywords: [
@@ -71,7 +71,7 @@ export default function ThisOrThatPage() {
         <PartyGenerator
           questions={THIS_OR_THAT}
           title="This or That Questions"
-          subtitle="38 classic either/or prompts — one click per question, no repeats until you've seen the whole deck."
+          subtitle={`${THIS_OR_THAT.length} classic either/or prompts — one click per question, no repeats until you've seen the whole deck.`}
           emoji="⚖️"
         />
         <HostPassEntry generator="this-or-that" />
@@ -139,7 +139,7 @@ export default function ThisOrThatPage() {
           </div>
         </section>
         <QuestionBank
-          heading="All 38 This or That Questions"
+          heading={`All ${THIS_OR_THAT.length} This or That Questions`}
           intro="The complete deck of quick either/or prompts &mdash; scan it, steal from it, or copy the whole list for your next session."
           questions={THIS_OR_THAT}
         />
