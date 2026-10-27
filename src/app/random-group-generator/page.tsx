@@ -11,6 +11,7 @@ import ClassroomArt from "@/components/ClassroomArt";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import { createRng } from "@/lib/randomGenerators";
 import { GROUP_ROLES, makeGroups, parsePairs } from "@/lib/groupRules";
+import TryNext from "@/components/TryNext";
 
 const PATH = "/random-group-generator";
 const TITLE = "Random Group Generator — Keep Students Together or Apart";
@@ -71,6 +72,7 @@ export default function RandomGroupGeneratorPage() {
       <main className="flex-1">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Random Group Generator" }]} />
         <GroupGenerator />
+        <TryNext path="/random-group-generator" />
         <ClassroomArt src="/art/classroom/random-group-generator.jpg" alt="Illustrated students moving into small color-coded groups shown on a classroom board" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-12">

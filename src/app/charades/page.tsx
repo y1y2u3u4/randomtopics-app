@@ -309,6 +309,24 @@ export default function CharadesPage() {
             </div>
           </div>
         </section>
+        <section id="virtual-charades" className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
+          <div className="glass-card p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-5" style={{ fontFamily: "var(--font-display)" }}>
+              How to Play Charades Online (Zoom, Teams or Google Meet)
+            </h2>
+            <ol className="list-decimal pl-6 space-y-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+              <li><strong className="text-[var(--text-primary)]">Send the actor a word privately.</strong> The actor opens this page on their own phone and taps for a word, so the screen they share never shows it. Hide the answer before turning the camera back on.</li>
+              <li><strong className="text-[var(--text-primary)]">Pin the actor.</strong> Ask everyone to pin or spotlight the actor&apos;s video, and have the actor step back so their whole upper body is in frame.</li>
+              <li><strong className="text-[var(--text-primary)]">Guess in chat or unmuted.</strong> Small groups can shout guesses; groups over eight work better typing guesses in chat, where the first correct message wins.</li>
+              <li><strong className="text-[var(--text-primary)]">Use a shorter timer.</strong> Video lag eats time, so 60 to 90 seconds per word keeps rounds moving. Set it in the round timer above.</li>
+              <li><strong className="text-[var(--text-primary)]">Pick big, visual words.</strong> Actions, Animals, Sports and Emotions read well on a small video tile; Idioms and long titles are harder over a webcam.</li>
+            </ol>
+            <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-6 mb-2">Charades categories at a glance</h3>
+            <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+              {CHARADES_CATEGORIES.map((cat) => `${cat.label} (${CHARADES_WORDS.filter((word) => word.c === cat.id).length})`).join(" \u00b7 ")}. For drawing instead of acting, use the <Link prefetch={false} href="/pictionary-word-generator" className="text-[var(--neon-cyan)] hover:underline">Pictionary word generator</Link>; for the holidays, the <Link prefetch={false} href="/charades/christmas" className="text-[var(--neon-cyan)] hover:underline">Christmas charades list</Link>.
+            </p>
+          </div>
+        </section>
         <KeepPlaying path="/charades" />
       </main>
       <Footer />

@@ -1,4 +1,5 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
+import TryNext from "@/components/TryNext";
 import SubEntryFor from "@/components/subs/SubEntryFor";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -134,6 +135,7 @@ export default function PremiumCollectionPage({ config }: { config: PremiumColle
 
         <PremiumPromptTool config={config} initialItemId={initialItem?.id} initialDateLabel={initialDateLabel} />
         <div className="max-w-3xl mx-auto px-4 sm:px-6"><SubEntryFor path={config.path} /></div>
+        <TryNext path={config.path} />
 
         {config.tool.timer && (
           <section className="max-w-md mx-auto px-4 sm:px-6 pt-10" aria-labelledby="five-minute-practice-timer">

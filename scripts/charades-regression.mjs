@@ -46,7 +46,7 @@ function shown(value) { assert.ok(text(render()).includes(value), `Expected: ${v
 function tick(ms) { now += ms; [...intervals.values()].forEach((fn) => fn()); render(); }
 const result = () => text(descend(render()).find((n) => n.props?.["data-charades-result"]));
 const count = (name) => events.filter((event) => event.name === name).length;
-assert.equal(new Set(bank.CHARADES_WORDS.map((w) => w.w.toLowerCase())).size, 528);
+assert.equal(new Set(bank.CHARADES_WORDS.map((w) => w.w.toLowerCase())).size, 621); // 528 + 93 Songs/Food/Nature/Emotions words (2026-10-27)
 // Spanish deck: unique words, every category used, valid difficulty tags.
 assert.equal(new Set(bankEs.CHARADES_WORDS_ES.map((w) => w.w.toLowerCase())).size, bankEs.CHARADES_WORDS_ES.length);
 assert.deepEqual(new Set(bankEs.CHARADES_WORDS_ES.map((w) => w.c)), new Set(bankEs.CHARADES_CATEGORIES_ES.map((c) => c.id)));

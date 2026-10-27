@@ -109,6 +109,20 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/asa-citation-generator", label: "ASA Citation Generator", emoji: "📑", blurb: "ASA 7th from a DOI", groups: ["citation"] },
   { href: "/acs-citation-generator", label: "ACS Citation Generator", emoji: "🧪", blurb: "Numbered ACS references", groups: ["citation"] },
   { href: "/chicago-citation-generator", label: "Chicago Citation Generator", emoji: "📚", blurb: "Notes and bibliography", groups: ["citation"] },
+  // 2026-10-27: tool pages that had no "Try next" row (appended so existing picks don't shift).
+  { href: "/paranoia-questions", label: "Paranoia Questions", emoji: "🤫", blurb: "Whisper-and-reveal prompts", groups: ["party"] },
+  { href: "/deep-conversation-question-generator", label: "Deep Conversation Questions", emoji: "🌊", blurb: "Questions that go past small talk", groups: ["party", "speaking"] },
+  { href: "/funny-question-of-the-day", label: "Funny Question of the Day", emoji: "😄", blurb: "A silly question every day", groups: ["party", "classroom"] },
+  { href: "/question-of-the-day-for-students", label: "Question of the Day for Students", emoji: "🎒", blurb: "Daily class discussion starter", groups: ["classroom"] },
+  { href: "/question-of-the-day-for-work", label: "Question of the Day for Work", emoji: "💼", blurb: "Daily team check-in question", groups: ["party", "speaking"] },
+  { href: "/5-minute-speech-topics", label: "5-Minute Speech Topics", emoji: "🕔", blurb: "Topics with a 5-minute timer", groups: ["speaking", "classroom"] },
+  { href: "/argument-generator", label: "Argument Generator", emoji: "🧠", blurb: "Claims with reasons to argue", groups: ["speaking", "classroom"] },
+  { href: "/writing-topic-generator", label: "Writing Topic Generator", emoji: "🖋️", blurb: "Topics by writing purpose", groups: ["creative", "classroom"] },
+  { href: "/random-learning-topic-generator", label: "Random Learning Topic Generator", emoji: "🧠", blurb: "Something new to learn today", groups: ["classroom", "creative"] },
+  { href: "/journal-prompts", label: "Journal Prompts", emoji: "📓", blurb: "Prompts for daily journaling", groups: ["creative", "classroom"] },
+  { href: "/morning-meeting-questions", label: "Morning Meeting Questions", emoji: "🌅", blurb: "Greeting and share prompts", groups: ["classroom"] },
+  { href: "/random-group-generator", label: "Random Group Generator", emoji: "🧩", blurb: "Split a class into groups", groups: ["classroom"] },
+  { href: "/classroom-timer", label: "Classroom Timer", emoji: "⏲️", blurb: "Big countdown for the projector", groups: ["classroom"] },
 ];
 
 /** When a group has fewer than three other tools, continue with these. */

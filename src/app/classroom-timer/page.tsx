@@ -10,6 +10,7 @@ import ClassroomToolLinks from "@/components/ClassroomToolLinks";
 import ClassroomArt from "@/components/ClassroomArt";
 import { BRAIN_BREAKS, TIMER_ROUTINES, clock, routineLength } from "@/data/classroomTimer";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
+import TryNext from "@/components/TryNext";
 
 const PATH = "/classroom-timer";
 const TITLE = "Classroom Timer — Free Full-Screen Countdown with Routines";
@@ -65,6 +66,7 @@ export default function ClassroomTimerPage() {
       <main className="flex-1">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Classroom Timer" }]} />
         <ClassroomTimer />
+        <TryNext path="/classroom-timer" />
         <ClassroomArt src="/art/classroom/classroom-timer.jpg" alt="Illustrated classroom with a big countdown ring on the board while pairs of students talk" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-12">

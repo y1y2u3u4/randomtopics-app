@@ -11,6 +11,7 @@ import ClassroomToolLinks from "@/components/ClassroomToolLinks";
 import ClassroomArt from "@/components/ClassroomArt";
 import { MORNING_ACTIVITIES, MORNING_GREETINGS, MORNING_SHARE } from "@/data/morningMeeting";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
+import TryNext from "@/components/TryNext";
 
 const PATH = "/morning-meeting-questions";
 const TITLE = `Morning Meeting Questions: ${MORNING_SHARE.length} Ideas + Greetings & Activities`;
@@ -62,6 +63,7 @@ export default function MorningMeetingPage() {
       <main className="flex-1">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Morning Meeting Questions" }]} />
         <MorningMeeting />
+        <TryNext path="/morning-meeting-questions" />
         <ClassroomArt src="/art/classroom/morning-meeting.jpg" alt="Illustrated children greeting each other in a circle on a classroom rug during morning meeting" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-12">

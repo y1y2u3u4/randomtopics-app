@@ -11,6 +11,7 @@ import { withSocial } from "@/lib/metadata/social";
 import { hreflangAlternates } from "@/i18n/config";
 import { HOT_SEAT_QUESTIONS } from "@/data/hotSeat";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "75 Hot Seat Questions to Ask Friends: Spicy but Clean (2026)" },
@@ -76,6 +77,7 @@ export default function HotSeatPage() {
           subtitle="Put a friend on the spot — one click per question, from warm-ups to rapid-fire rounds. All spicy, all clean, no repeats until the deck runs out."
           emoji="🔥"
         />
+        <TryNext path="/hot-seat-questions" />
 
         {/* SEO content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">

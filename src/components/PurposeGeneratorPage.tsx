@@ -9,6 +9,7 @@ import PurposeTopicGenerator from "@/components/PurposeTopicGenerator";
 import type { PurposeGeneratorConfig } from "@/data/purposeGenerators";
 import { SITE_URL } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
+import TryNext from "@/components/TryNext";
 
 export default function PurposeGeneratorPage({ config }: { config: PurposeGeneratorConfig }) {
   const isSpanish = config.locale === "es";
@@ -34,6 +35,7 @@ export default function PurposeGeneratorPage({ config }: { config: PurposeGenera
 
         <PurposeTopicGenerator config={config} />
         <div className="max-w-3xl mx-auto px-4 sm:px-6"><SubEntryFor path={basePath} /></div>
+        <TryNext path={basePath} />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
           <div className="glass-card p-8 sm:p-10">
