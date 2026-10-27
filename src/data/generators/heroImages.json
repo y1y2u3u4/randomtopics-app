@@ -66,5 +66,9 @@
   "/generators/hero/decide.webp": {
     "width": 380,
     "height": 400
+  },
+  "/generators/hero/marvel.webp": {
+    "width": 361,
+    "height": 400
   }
 }

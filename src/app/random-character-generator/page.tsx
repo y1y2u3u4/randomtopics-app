@@ -74,7 +74,7 @@ export default function RandomCharacterGeneratorPage() {
         { href: "/character-name-generator", label: "Character name generator" },
         { href: "/dnd-name-generator", label: "D&D name generator" },
         { href: "/writing", label: "Writing prompt generator" },
-        { href: "/journal-prompts", label: "Journal prompts" },
+        { href: "/random-marvel-character-generator", label: "Random Marvel character generator" },
       ]}
       content={
         <>

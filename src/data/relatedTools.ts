@@ -57,6 +57,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/random-animal-generator", label: "Random Animal Generator", emoji: "🦊", blurb: "Animals with fun facts", groups: ["creative", "classroom"] },
   { href: "/random-food-generator", label: "Random Food Generator", emoji: "🍜", blurb: "What should I eat?", groups: ["creative", "party"] },
   { href: "/random-character-generator", label: "Random Character Generator", emoji: "🎭", blurb: "Name, traits and a secret", groups: ["creative", "names"] },
+  { href: "/random-marvel-character-generator", label: "Random Marvel Character Generator", emoji: "🦸", blurb: "Heroes, villains, wheel & daily guess", groups: ["creative"] },
   { href: "/fantasy-map-maker", label: "Fantasy Map Maker", emoji: "🗺️", blurb: "Random worlds as PNG", groups: ["creative", "names"] },
   { href: "/random-object-generator", label: "Random Object Generator", emoji: "🧸", blurb: "Everyday objects", groups: ["creative", "classroom"] },
   { href: "/dnd-name-generator", label: "D&D Name Generator", emoji: "🐉", blurb: "Fantasy names by race", groups: ["names"] },

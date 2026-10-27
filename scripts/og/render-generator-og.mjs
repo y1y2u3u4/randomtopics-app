@@ -63,6 +63,7 @@ const CARDS = [
   { id: "pick", slug: "number-randomizer", title: "Number Randomizer", line: "Random numbers in any range", chips: ["1–100 in one tap", "No repeats", "Up to 1,000 at once"], mosaic: true },
   { id: "pick", slug: "random-name-picker", title: "Random Name Picker", line: "Draw names from a hat — no repeats", chips: ["Paste a class list", "Pick 1 or 10", "Random order"],
     paper: ["Ava", "Ben", "<b>✓ Chloe</b>", "Diego", "Emma", "Finn"], paperTitle: "Picked" },
+  { id: "marvel", slug: "random-marvel-character-generator", title: "Random Marvel Character Generator", line: "Heroes, villains, a wheel & a daily guess", chips: ["Spider-Man · Hero · 1962", "Doctor Doom · Villain · 1962", "Deadpool · Anti-hero · 1991"] },
   { id: "decide", slug: "decision-maker", title: "Decision Maker", line: "Wheel, draw lots or yes / no — you pick the options", chips: ["🎡 Pizza · Tacos · Sushi", "🥢 No-repeat lots", "🪙 Yes or no"] },
   { id: "meta", slug: "ai-metadata-remover", title: "AI Metadata Remover", line: "Strip EXIF, GPS, C2PA & prompts — no upload", chips: ["JPG · PNG · WebP", "Batch + ZIP", "Lossless"],
     paper: ["📍 GPS location — <s>40.44610, -79.98222</s>", "📷 Camera model — <s>EOS R5</s>", "🤖 Stable Diffusion parameters — <s>prompt, seed…</s>", "🔏 Content Credentials (C2PA) — <s>removed</s>", "<b>✓ Clean copy · image unchanged</b>"], paperTitle: "Found in the file" },
@@ -151,7 +152,7 @@ for (const card of CARDS) {
 
 // Hero banners: the illustration with its empty cream margin trimmed, at most
 // 960×400, WebP. Sizes go to heroImages.json so the <img> reserves its box.
-const HEROES = ["dnd", "viking", "japanese", "gnome", "charactername", "character", "decide"];
+const HEROES = ["dnd", "viking", "japanese", "gnome", "charactername", "character", "decide", "marvel"];
 const sizesPath = join(root, "src/data/generators/heroImages.json");
 const sizes = existsSync(sizesPath) ? JSON.parse(readFileSync(sizesPath, "utf8")) : {};
 for (const id of HEROES) {

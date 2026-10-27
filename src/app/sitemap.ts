@@ -150,6 +150,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: p === "fake-name-generator" ? 0.9 : 0.88, lastModified: "2026-10-19" });
   }
 
+  // Random Marvel character generator (2026-10-27).
+  entries.push({ path: "/random-marvel-character-generator", changeFrequency: "weekly", priority: 0.88, lastModified: "2026-10-27" });
+
   // Random ZIP code generator (2026-10-19).
   entries.push({ path: "/random-zip-code-generator", changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-19" });
 
