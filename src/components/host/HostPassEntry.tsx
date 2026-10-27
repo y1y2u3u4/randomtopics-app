@@ -15,6 +15,7 @@ export default function HostPassEntry({ generator }: { generator: HostGenerator 
   const [open, setOpen] = useState(false);
   const [returnSession, setReturnSession] = useState<string | null>(null);
   const viewed = useRef(false);
+  const box = useRef<HTMLDivElement>(null);
 
   /* eslint-disable react-hooks/set-state-in-effect -- one-time read of this tab's generate count and the Checkout return */
   useEffect(() => {
@@ -37,15 +38,28 @@ export default function HostPassEntry({ generator }: { generator: HostGenerator 
   /* eslint-enable react-hooks/set-state-in-effect */
 
   useEffect(() => {
-    if (!visible || viewed.current) return;
-    viewed.current = true;
-    track("host_entry_view", { generator, tool_type: "host_mode" });
+    const el = box.current;
+    if (!visible || viewed.current || !el) return;
+    const fire = () => {
+      if (viewed.current) return;
+      viewed.current = true;
+      track("host_entry_view", { generator, tool_type: "host_mode" });
+    };
+    if (typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.5)) {
+        fire();
+        observer.disconnect();
+      }
+    }, { threshold: 0.5 });
+    observer.observe(el);
+    return () => observer.disconnect();
   }, [visible, generator]);
 
   if (!visible) return null;
   return (
     <>
-      <div className="mx-auto mt-4 flex max-w-2xl flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-center sm:flex-row sm:justify-between sm:text-left">
+      <div ref={box} className="mx-auto mt-4 flex max-w-2xl flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-center sm:flex-row sm:justify-between sm:text-left">
         <p className="text-sm opacity-90">
           <strong>Playing with a group?</strong> Put one big prompt on the TV or projector, with a round timer and no repeats.
         </p>
