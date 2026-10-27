@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import TurkishToolPage from "@/components/TurkishToolPage";
 import { TR_GENERAL_TOPICS } from "@/data/turkishTopics";
-import { SITE_URL } from "@/i18n/config";
+import { hreflangAlternates } from "@/i18n/config";
 
 const path = "/tr/rastgele-konu-carki";
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = withSocial({
   title: { absolute: "Rastgele Konu Çarkı — Çarkı Çevir, Konu Seç | Random Topics" },
   description:
     "Rastgele konu çarkı: çarkı çevir, Türkçe bir sohbet veya tartışma konusu çıksın. Kategori seç, tekrar yok, ücretsiz ve kayıtsız konu çarkı.",
-  alternates: { canonical: path, languages: { tr: `${SITE_URL}${path}`, "x-default": `${SITE_URL}${path}` } },
+  alternates: { canonical: path, languages: hreflangAlternates("/spin-the-wheel") },
 });
 
 export default function TurkishTopicWheelPage() {

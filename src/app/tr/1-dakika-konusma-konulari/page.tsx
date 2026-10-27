@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import TurkishToolPage from "@/components/TurkishToolPage";
 import { TR_SPEAKING_TOPICS } from "@/data/turkishTopics";
-import { SITE_URL } from "@/i18n/config";
+import { hreflangAlternates } from "@/i18n/config";
 
 const path = "/tr/1-dakika-konusma-konulari";
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = withSocial({
   title: { absolute: "1 Dakika Konuşma Konuları — Süreli Rastgele Konu | Random Topics" },
   description:
     "1 dakika konuşma konuları: rastgele Türkçe konu seç, 60 saniyelik sayacı başlat. Kolay, orta ve zor seviyede 30 hazırlıksız konuşma konusu, ücretsiz.",
-  alternates: { canonical: path, languages: { tr: `${SITE_URL}${path}`, "x-default": `${SITE_URL}${path}` } },
+  alternates: { canonical: path, languages: hreflangAlternates("/impromptu-speech-topics/1-minute") },
 });
 
 export default function TurkishOneMinuteTopicsPage() {

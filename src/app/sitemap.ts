@@ -9,6 +9,9 @@ import {
   isEnOnly,
   spanishCounterpartPath,
   PORTUGUESE_ALTERNATES,
+  TURKISH_ALTERNATES,
+  FRENCH_ALTERNATES,
+  hreflangAlternates,
 } from "@/i18n/config";
 import { ES_PAGES } from "@/data/localePages/es";
 
@@ -244,7 +247,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const customSpanishPath = spanishCounterpartPath(e.path);
     if (isEnOnly(e.path) && !customSpanishPath) {
-      const languages = { en: enUrl, "x-default": enUrl };
+      const languages = hreflangAlternates(e.path);
       result.push({
         url: enUrl,
         ...(e.lastModified ? { lastModified: e.lastModified } : {}),
@@ -256,10 +259,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     const esUrl = abs(customSpanishPath ?? localizePath(e.path, "es"));
-    const ptPath = PORTUGUESE_ALTERNATES[e.path];
-    const languages: Record<string, string> = ptPath
-      ? { en: enUrl, es: esUrl, pt: abs(ptPath), "x-default": enUrl }
-      : { en: enUrl, es: esUrl, "x-default": enUrl };
+    const languages = hreflangAlternates(e.path);
     // One entry per locale, each advertising both alternates.
     result.push({
       url: enUrl,
@@ -314,30 +314,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // Standalone Turkish pages (2026-10-19). Turkish is not a site locale, so
-  // these advertise only themselves.
-  for (const path of ["/tr", "/tr/rastgele-konu-carki", "/tr/rastgele-arastirma-konulari", "/tr/1-dakika-konusma-konulari"]) {
-    const url = abs(path);
-    result.push({
-      url,
-      lastModified: "2026-10-19",
-      changeFrequency: "monthly",
-      priority: path === "/tr" ? 0.85 : 0.8,
-      alternates: { languages: { tr: url, "x-default": url } },
-    });
-  }
-
-  // Standalone Portuguese pages (2026-10-21), each a counterpart of an EN page
-  // and carrying the same en/es/pt alternates as its EN and ES siblings.
-  for (const [enPath, ptPath] of Object.entries(PORTUGUESE_ALTERNATES)) {
-    const enUrl = abs(enPath);
-    result.push({
-      url: abs(ptPath),
-      lastModified: "2026-10-21",
-      changeFrequency: "monthly",
-      priority: 0.8,
-      alternates: { languages: { en: enUrl, es: abs(spanishCounterpartPath(enPath) ?? localizePath(enPath, "es")), pt: abs(ptPath), "x-default": enUrl } },
-    });
+  // Standalone Turkish, Portuguese and French pages. None is a site locale;
+  // each is the counterpart of an EN page and carries the same full alternate
+  // set (en / es where it exists / pt / tr / fr / x-default) as that page.
+  const standalone: [Record<string, string>, string, number][] = [
+    [TURKISH_ALTERNATES, "2026-10-27", 0.8],
+    [PORTUGUESE_ALTERNATES, "2026-10-21", 0.8],
+    [FRENCH_ALTERNATES, "2026-10-27", 0.8],
+  ];
+  for (const [map, lastModified, priority] of standalone) {
+    for (const [enPath, localPath] of Object.entries(map)) {
+      result.push({
+        url: abs(localPath),
+        lastModified: localPath === "/pt" ? "2026-10-27" : lastModified,
+        changeFrequency: "monthly",
+        priority: enPath === "/" ? 0.85 : priority,
+        alternates: { languages: hreflangAlternates(enPath) },
+      });
+    }
   }
 
   return result;

@@ -5,7 +5,7 @@ export function ptCopy(englishLabel: string, buttonLabel: string, listHeading = 
   return {
     lang: "pt-BR",
     currency: "BRL",
-    homeHref: "/pt/temas-para-conversar",
+    homeHref: "/pt",
     homeLabel: "Início",
     meta: "Grátis · sem cadastro · {n} opções · atualizado em outubro de 2026",
     siblingsHeading: "Mais geradores em português",
@@ -34,6 +34,7 @@ export function ptCopy(englishLabel: string, buttonLabel: string, listHeading = 
 }
 
 export const PT_SIBLINGS = [
+  { href: "/pt", label: "Gerador de temas aleatórios", detail: "Um tema na hora, para qualquer ocasião" },
   { href: "/pt/temas-para-conversar", label: "Assuntos para conversar", detail: "Puxar papo sem silêncio" },
   { href: "/pt/temas-para-debate", label: "Temas para debate", detail: "Polêmicas para a sala de aula" },
   { href: "/pt/temas-para-apresentacao", label: "Temas para apresentação", detail: "Com cronômetro de 1 minuto" },
