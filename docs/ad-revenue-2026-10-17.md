@@ -167,3 +167,16 @@ Launched 2026-10-27, PR "Ad coverage: share-link landings keep ads, one Umami vi
 4. Ad page list: no change. The only non-ad pages with traffic are deliberate (yo-mama stays off for ad content policy; saved topics, school, legal, pt pages).
 
 **Daily coverage metric** (baseline 0.37 = AdSense page views / Umami page views, Asia/Shanghai days): `python3 opportunity-hub/steward/scripts/randomtopics_ad_coverage.py 14` → `steward/data/randomtopics-ad-coverage.csv`. From this launch both parts move: numerator up (item 1), denominator down ~10% (item 2), so expect ~0.45–0.50; compare AdSense page views and earnings directly too. For the 10/31 RPM comparison, split at the live time above; RPM per AdSense page view should be unaffected.
+
+## Separate change: 200k page-view push (10/27, splits the 10/31 RPM comparison)
+
+Dispatch `opportunity-hub/steward/dispatch/2026-10-27-randomtopics-200k.md` (goal: Umami 30-day page views 149k → 200k by 12/01). No ad unit added or moved; homepage and /speech ads untouched.
+1. **Try next + Switch category everywhere** — PR #196, merged 2026-10-27 15:39 UTC, **live ~15:42 UTC**. Every generator template, 17 custom tool pages and all /topics/* pages get a "Try next" row (3 same-scene tools) plus, where siblings exist, a "Switch category" row of real URLs. `related_tool_click` (props `slot`, `target_path`) now goes to Umami. Daily metric: `python3 opportunity-hub/steward/scripts/randomtopics_engagement.py 14` → `steward/data/randomtopics-engagement.csv` (pages per visit, baseline 2.0–2.3 for 10/20–10/27; goal 2.6).
+2. **Content on the 4–7 ranked pages** (same PR, same live time; titles/H1/intros/FAQs unchanged). For the 11/10 CTR/position comparison:
+   | Page | Term (28-day impr., pos. at 10/27) | Change |
+   |---|---|---|
+   | /question-of-the-day | question of the day (51,210, 4.6) | Occasion lists (remote, onboarding, wellbeing, gratitude, seasonal, yes/no), sample answers, mistakes to avoid, QOTD vs icebreakers |
+   | /charades | charades generator (25,292, 7.3) | +Songs, Food, Nature & Weather, Emotions categories (+93 words, 621 total), online play section |
+   | /this-or-that | this or that (16,753, 4.1); this or that game (4,222, 5.2) | +144 questions in 8 categories (page now holds the 182 its title states), "This or That Game" H2 |
+   | / | topics (10,424, 5.3) | none (homepage left alone) |
+3. **Languages** — PR #195, merged 2026-10-27 15:37 UTC, **live ~15:40 UTC**: /pt home, /tr +2 pages (/tr/munazara-konulari, /tr/sohbet-konulari), new /fr home + 5 pages; hreflang both ways, sitemap, no redirects. /fr and the new /tr pages are on the Auto ads list (no manual unit). IndexNow 200 for all 12 URLs at 15:45 UTC; GSC queue updated.
