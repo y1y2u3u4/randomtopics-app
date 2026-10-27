@@ -10,6 +10,8 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
+import RankBoost, { faqForSchema } from "@/components/RankBoost";
+import { QUESTION_GENERATOR_BOOST } from "@/data/rankBoost";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Random Question Generator — 500+ Questions to Ask Anyone" },
@@ -57,7 +59,7 @@ const FAQ_ITEMS = [
 export default function QuestionGeneratorPage() {
   return (
     <>
-      <FaqSchema items={FAQ_ITEMS} />
+      <FaqSchema items={[...FAQ_ITEMS, ...faqForSchema(QUESTION_GENERATOR_BOOST.faq)]} />
       <Navbar />
       <main className="flex-1">
         <Breadcrumb
@@ -146,6 +148,8 @@ export default function QuestionGeneratorPage() {
             </div>
           </div>
         </section>
+
+        <RankBoost sections={QUESTION_GENERATOR_BOOST.sections} faq={QUESTION_GENERATOR_BOOST.faq} />
 
         <KeepPlaying path="/question-generator" />
       </main>

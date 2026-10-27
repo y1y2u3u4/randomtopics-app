@@ -15,6 +15,8 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 import { topics } from "@/data/topics";
 import SubEntry from "@/components/subs/SubEntry";
+import RankBoost, { faqForSchema } from "@/components/RankBoost";
+import { CONVERSATION_BOOST } from "@/data/rankBoost";
 
 // ISR: hourly, so the server-rendered "today's starter" changes each UTC day.
 export const revalidate = 3600;
@@ -98,7 +100,7 @@ export default function ConversationPage() {
   const todayLabel = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", timeZone: "UTC" });
   return (
     <>
-      <FaqSchema items={FAQ_ITEMS} />
+      <FaqSchema items={[...FAQ_ITEMS, ...faqForSchema(CONVERSATION_BOOST.faq)]} />
       <Navbar />
       <main className="flex-1">
         <Breadcrumb
@@ -280,6 +282,8 @@ export default function ConversationPage() {
             </div>
           </div>
         </section>
+
+        <RankBoost sections={CONVERSATION_BOOST.sections} faq={CONVERSATION_BOOST.faq} />
 
         <EditorsPicks
           heading="Conversation Starters with Talking Points"

@@ -19,6 +19,14 @@ import TryNext, { topicTryNext } from "@/components/TryNext";
 import SpeechTimer from "@/components/SpeechTimer";
 import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 import TwoTruthsRoundBuilder from "@/components/TwoTruthsRoundBuilder";
+import RankBoost, { faqForSchema, renderInline } from "@/components/RankBoost";
+import { ETHICAL_DILEMMA_BOOST, TOASTMASTERS_BOOST, TWO_TRUTHS_BOOST, type Boost } from "@/data/rankBoost";
+
+const ARTICLE_BOOST: Record<string, Boost> = {
+  "ethical-dilemma-questions": ETHICAL_DILEMMA_BOOST,
+  "toastmasters-table-topics": TOASTMASTERS_BOOST,
+  "two-truths-and-a-lie-ideas": TWO_TRUTHS_BOOST,
+};
 
 function sectionId(heading: string) {
   return heading
@@ -149,6 +157,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   };
 
   const articleItems = article.sections.flatMap((section) => section.items);
+  const boost = ARTICLE_BOOST[article.slug];
+  const faqAll = [...article.faq, ...(boost ? boost.faq : [])];
   const dailyLabel = DAILY_PICK[article.slug];
   const dailyItem = dailyLabel ? articleItems[Math.floor(Date.now() / 86_400_000) % articleItems.length] : null;
   const isTwoTruths = article.slug === "two-truths-and-a-lie-ideas";
@@ -591,8 +601,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         <PublicAdPlacement path={`/topics/${slug}`} />
 
+        {boost && <RankBoost sections={boost.sections} />}
+
         {/* FAQ Section with Schema */}
-        {article.faq.length > 0 && (
+        {faqAll.length > 0 && (
           <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
             <div className="glass-card p-8 sm:p-10">
               <h2
@@ -602,13 +614,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 Frequently Asked Questions
               </h2>
               <div className="space-y-5">
-                {article.faq.map((f, i) => (
+                {faqAll.map((f, i) => (
                   <div key={i}>
                     <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-1.5">
                       {f.question}
                     </h3>
                     <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                      {f.answer}
+                      {renderInline(f.answer)}
                     </p>
                   </div>
                 ))}
@@ -620,7 +632,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 __html: JSON.stringify({
                   "@context": "https://schema.org",
                   "@type": "FAQPage",
-                  mainEntity: article.faq.map((f) => ({
+                  mainEntity: faqForSchema(faqAll).map((f) => ({
                     "@type": "Question",
                     name: f.question,
                     acceptedAnswer: {

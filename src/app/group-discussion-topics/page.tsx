@@ -6,6 +6,8 @@ import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
+import RankBoost, { faqForSchema, renderInline } from "@/components/RankBoost";
+import { GROUP_DISCUSSION_BOOST } from "@/data/rankBoost";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "100+ Group Discussion Topics for 2026 | Random Topics" },
@@ -246,7 +248,7 @@ const FAQ_ITEMS = [
 export default function GroupDiscussionTopicsPage() {
   return (
     <>
-      <FaqSchema items={FAQ_ITEMS} />
+      <FaqSchema items={[...FAQ_ITEMS, ...faqForSchema(GROUP_DISCUSSION_BOOST.faq)]} />
       <Navbar />
       <main className="flex-1">
         <Breadcrumb
@@ -340,6 +342,8 @@ export default function GroupDiscussionTopicsPage() {
           );
         })}
 
+        <RankBoost sections={GROUP_DISCUSSION_BOOST.sections} />
+
         {/* SEO content + FAQ */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-16">
           <div className="glass-card p-8 sm:p-10">
@@ -375,6 +379,12 @@ export default function GroupDiscussionTopicsPage() {
                 <div key={item.question}>
                   <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">{item.question}</h4>
                   <p>{item.answer}</p>
+                </div>
+              ))}
+              {GROUP_DISCUSSION_BOOST.faq.map((item) => (
+                <div key={item.question}>
+                  <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">{item.question}</h4>
+                  <p>{renderInline(item.answer)}</p>
                 </div>
               ))}
             </div>

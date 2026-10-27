@@ -7,6 +7,9 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 import GeneratorExamples from "@/components/generators/GeneratorExamples";
 import { animalGenerator } from "@/lib/generators/animals";
+import RankBoost, { faqForSchema } from "@/components/RankBoost";
+import type { BoostSection } from "@/components/RankBoost";
+import { ANIMAL_BOOST } from "@/data/rankBoost";
 
 const PATH = "/random-animal-generator";
 const TITLE = `Random Animal Generator: ${ANIMALS.length} Animals With Pictures & Facts`;
@@ -57,6 +60,28 @@ const FAQ = [
   },
 ];
 
+const CLASS_ROWS: [string, string][] = [
+  ["mammal", "Mammals"], ["bird", "Birds"], ["reptile", "Reptiles"], ["amphibian", "Amphibians"], ["fish", "Fish"], ["invertebrate", "Bugs & sea creatures"],
+];
+const HABITAT_ROWS: [string, string][] = [
+  ["ocean", "Ocean"], ["farm", "Farm"], ["pet", "Pets"], ["jungle", "Jungle"], ["savanna", "Savanna"], ["forest", "Forest"],
+  ["desert", "Desert"], ["polar", "Polar"], ["freshwater", "Rivers & lakes"], ["mountain", "Mountains"], ["grassland", "Grassland"], ["wetland", "Wetland"],
+];
+const examplesOf = (list: typeof ANIMALS) => list.slice(0, 6).map((a) => a.en).join(", ");
+
+const BROWSE_SECTION: BoostSection = {
+  h2: `What's in the Random Animal List: ${ANIMALS.length} Animals by Type and Habitat`,
+  id: "animal-list",
+  blocks: [
+    { t: "p", x: "Use the filters above to draw only the kind of animal you need. This is what each filter contains, with a few examples from the list. An animal can live in more than one habitat." },
+    { t: "h3", x: "Animals by type" },
+    { t: "table", head: ["Type", "Animals", "Examples"], rows: CLASS_ROWS.map(([id, label]) => { const l = ANIMALS.filter((a) => a.class === id); return [label, String(l.length), examplesOf(l)]; }) },
+    { t: "h3", x: "Animals by habitat" },
+    { t: "table", head: ["Where it lives", "Animals", "Examples"], rows: HABITAT_ROWS.map(([id, label]) => { const l = ANIMALS.filter((a) => a.habitats.includes(id)); return [label, String(l.length), examplesOf(l)]; }) },
+    { t: "p", x: `${ANIMALS.filter((a) => a.kids).length} of the animals are marked Easy, meaning most young children know them.` },
+  ],
+};
+
 export default function RandomAnimalGeneratorPage() {
   return (
     <GeneratorPageShell
@@ -67,7 +92,7 @@ export default function RandomAnimalGeneratorPage() {
       intro={`${ANIMALS.length}+ real animals with a picture and a fun fact. Filter by type or habitat, generate one or a dozen, no repeats.`}
       description={DESCRIPTION}
       updated="2026-10-10"
-      faq={FAQ}
+      faq={[...FAQ, ...faqForSchema(ANIMAL_BOOST.faq)]}
       related={[
         { href: "/charades", label: "Charades generator" },
         { href: "/question-of-the-day-for-students", label: "Question of the day for students" },
@@ -103,6 +128,7 @@ export default function RandomAnimalGeneratorPage() {
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Three filtered draws, four animals each:"} sets={EXAMPLES} />
+          <RankBoost variant="inline" sections={[BROWSE_SECTION, ...ANIMAL_BOOST.sections]} />
         </>
       }
     >

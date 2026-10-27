@@ -107,7 +107,7 @@ export default function ImpromptuSpeechPage() {
           </div>
           <p className="text-sm text-[var(--text-secondary)] mt-5">
             Preparing a researched talk instead of speaking on the spot? Use the{" "}
-            <Link prefetch={false} href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> for persuasive, informative and presentation topics.
+            <Link prefetch={false} href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> for persuasive, informative and presentation topics, or practise listening and speaking in turns with these <Link prefetch={false} href="/group-discussion-topics" className="text-[var(--neon-cyan)] hover:underline">group discussion topics</Link>.
           </p>
           <p className="text-sm text-[var(--text-secondary)] mt-3">
             More versions:{" "}
