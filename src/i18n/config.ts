@@ -218,6 +218,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/random-sentence-generator",
   "/random-noun-generator",
   "/random-emoji-generator",
+  "/random-nba-player-generator",
   "/ai-metadata-remover",
   "/western-baby-name-generator",
   "/this-or-that/couples",

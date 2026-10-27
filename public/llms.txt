@@ -78,6 +78,7 @@
 - [Random City Generator](https://randomtopics.app/random-city-generator): A random real city by continent or country.
 - [Random Sentence Generator](https://randomtopics.app/random-sentence-generator): Random grammatical sentences, from everyday to funny.
 - [Random Noun Generator](https://randomtopics.app/random-noun-generator): Random nouns filtered by level, length and letter.
+- [Random NBA Player Generator](https://randomtopics.app/random-nba-player-generator): Random NBA players, current and all-time, filtered by active or retired, team, position and decade, with card locking and a daily random starting five.
 - [Random Emoji Generator](https://randomtopics.app/random-emoji-generator): Random emoji from 8 categories, tap to copy.
 - [Spin the Wheel](https://randomtopics.app/spin-the-wheel)
 - [Viking Name Generator](https://randomtopics.app/viking-name-generator)

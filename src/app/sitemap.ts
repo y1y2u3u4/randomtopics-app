@@ -232,6 +232,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "random-sentence-generator",
     "random-noun-generator",
     "random-emoji-generator",
+    "random-nba-player-generator",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-28" });
   }
