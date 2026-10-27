@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import TurkishToolPage from "@/components/TurkishToolPage";
 import { TR_GENERAL_TOPICS } from "@/data/turkishTopics";
-import { SITE_URL } from "@/i18n/config";
+import { hreflangAlternates } from "@/i18n/config";
 
 const path = "/tr";
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = withSocial({
   title: { absolute: "Rastgele Konu Seçici — Ücretsiz Türkçe Konu Üretici | Random Topics" },
   description:
     "Rastgele konu seçici: tek tıkla Türkçe sohbet, tartışma, kompozisyon ve sunum konusu. 72 konu, 6 kategori, tekrar yok, kayıt yok, ücretsiz.",
-  alternates: { canonical: path, languages: { tr: `${SITE_URL}${path}`, "x-default": `${SITE_URL}${path}` } },
+  alternates: { canonical: path, languages: hreflangAlternates("/") },
 });
 
 export default function TurkishTopicPickerPage() {

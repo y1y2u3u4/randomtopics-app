@@ -16,6 +16,8 @@ export const TR_PAGES = [
   { href: "/tr/rastgele-konu-carki", label: "Rastgele Konu Çarkı", detail: "Çarkı çevir, konu çıksın" },
   { href: "/tr/rastgele-arastirma-konulari", label: "Rastgele Araştırma Konuları", detail: "Ödev ve proje fikirleri" },
   { href: "/tr/1-dakika-konusma-konulari", label: "1 Dakika Konuşma Konuları", detail: "60 saniyelik sayaçla" },
+  { href: "/tr/munazara-konulari", label: "Münazara Konuları", detail: "Sınıf ve kulüp için tartışma" },
+  { href: "/tr/sohbet-konulari", label: "Sohbet Konuları", detail: "Konuşmayı başlatan sorular" },
 ];
 
 type Faq = { question: string; answer: string };

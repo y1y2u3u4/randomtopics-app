@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import TurkishToolPage from "@/components/TurkishToolPage";
 import { TR_RESEARCH_TOPICS } from "@/data/turkishTopics";
-import { SITE_URL } from "@/i18n/config";
+import { hreflangAlternates } from "@/i18n/config";
 
 const path = "/tr/rastgele-arastirma-konulari";
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = withSocial({
   title: { absolute: "Rastgele Araştırma Konuları — Ödev ve Proje Konusu Seç | Random Topics" },
   description:
     "Rastgele araştırma konuları: fen, sosyal bilimler, teknoloji ve tarih alanlarında 40 Türkçe ödev ve proje konusu. Tek tıkla seç, tekrar yok, ücretsiz.",
-  alternates: { canonical: path, languages: { tr: `${SITE_URL}${path}`, "x-default": `${SITE_URL}${path}` } },
+  alternates: { canonical: path, languages: hreflangAlternates("/research-topic-generator") },
 });
 
 export default function TurkishResearchTopicsPage() {

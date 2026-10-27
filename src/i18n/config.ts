@@ -286,7 +286,7 @@ export function isEnOnly(rootPath: string): boolean {
  * page emits correct hreflang (en, es, x-default) links.
  */
 export function hreflangAlternates(path: string): Record<string, string> {
-  return withPortuguese(path, hreflangAlternatesEnEs(path));
+  return withStandaloneLocales(path, hreflangAlternatesEnEs(path));
 }
 
 /**
@@ -295,6 +295,7 @@ export function hreflangAlternates(path: string): Record<string, string> {
  * every member of the set (en, es, pt) lists all of them.
  */
 export const PORTUGUESE_ALTERNATES: Readonly<Record<string, string>> = {
+  "/": "/pt",
   "/conversation": "/pt/temas-para-conversar",
   "/debate": "/pt/temas-para-debate",
   "/speech": "/pt/temas-para-apresentacao",
@@ -314,11 +315,40 @@ export const PORTUGUESE_ALTERNATES: Readonly<Record<string, string>> = {
   "/random-animal-generator": "/pt/gerador-de-animais-aleatorios",
 };
 
-function withPortuguese(path: string, languages: Record<string, string>): Record<string, string> {
-  const ptPath = PORTUGUESE_ALTERNATES[path];
-  if (!ptPath) return languages;
+/**
+ * Standalone Turkish pages (2026-10-19, extended 2026-10-27). Turkish is not a
+ * site locale either; every EN page listed here lists its tr page and back.
+ */
+export const TURKISH_ALTERNATES: Readonly<Record<string, string>> = {
+  "/": "/tr",
+  "/spin-the-wheel": "/tr/rastgele-konu-carki",
+  "/research-topic-generator": "/tr/rastgele-arastirma-konulari",
+  "/impromptu-speech-topics/1-minute": "/tr/1-dakika-konusma-konulari",
+  "/debate": "/tr/munazara-konulari",
+  "/conversation": "/tr/sohbet-konulari",
+};
+
+/**
+ * Standalone French pages (2026-10-27). French is not a site locale (no
+ * dictionaries); only EN pages with a real fr counterpart list an fr alternate.
+ */
+export const FRENCH_ALTERNATES: Readonly<Record<string, string>> = {
+  "/": "/fr",
+  "/conversation": "/fr/sujets-de-discussion",
+  "/question-of-the-day": "/fr/question-du-jour",
+  "/would-you-rather": "/fr/tu-preferes",
+  "/charades": "/fr/idees-de-mime",
+  "/debate": "/fr/sujets-de-debat",
+};
+
+function withStandaloneLocales(path: string, languages: Record<string, string>): Record<string, string> {
   const { "x-default": xDefault, ...rest } = languages;
-  return { ...rest, pt: `${SITE_URL}${ptPath}`, "x-default": xDefault };
+  const out: Record<string, string> = { ...rest };
+  if (PORTUGUESE_ALTERNATES[path]) out.pt = `${SITE_URL}${PORTUGUESE_ALTERNATES[path]}`;
+  if (TURKISH_ALTERNATES[path]) out.tr = `${SITE_URL}${TURKISH_ALTERNATES[path]}`;
+  if (FRENCH_ALTERNATES[path]) out.fr = `${SITE_URL}${FRENCH_ALTERNATES[path]}`;
+  out["x-default"] = xDefault;
+  return out;
 }
 
 function hreflangAlternatesEnEs(path: string): Record<string, string> {
