@@ -27,13 +27,13 @@ interface PremiumPromptToolProps {
   initialDateLabel?: string;
 }
 
-function itemToText(item: PremiumPromptItem, style: PremiumCollectionConfig["tool"]["copyStyle"]) {
+function itemToText(item: PremiumPromptItem, style: PremiumCollectionConfig["tool"]["copyStyle"], word = "Five") {
   const prefix = style === "classroom"
     ? "Classroom question of the day"
     : style === "work"
       ? "💬 Question of the day"
       : style === "speech"
-        ? "Five-minute speech topic"
+        ? `${word}-minute speech topic`
         : style === "qotd"
           ? "😄 Funny question of the day"
           : "Discussion prompt";
@@ -41,7 +41,7 @@ function itemToText(item: PremiumPromptItem, style: PremiumCollectionConfig["too
   if (item.choices) lines.push(`Option A: ${item.choices[0]}`, `Option B: ${item.choices[1]}`);
   if (item.values?.length) lines.push(`Values in tension: ${item.values.join(" vs. ")}`);
   if (item.followUps.length) {
-    const supportLabel = style === "speech" ? "Five-minute outline" : "Follow-up";
+    const supportLabel = style === "speech" ? `${word}-minute outline` : "Follow-up";
     lines.push(`${supportLabel}: ${item.followUps.join(" · ")}`);
   }
   return lines.join("\n");
@@ -74,6 +74,7 @@ export default function PremiumPromptTool({
   initialItemId,
   initialDateLabel,
 }: PremiumPromptToolProps) {
+  const minuteLabel = config.speechMinutes === 1 ? "One" : "Five";
   const [filters, setFilters] = useState<FilterState>({});
   const [currentId, setCurrentId] = useState<string | null>(initialItemId ?? null);
   const [currentWasGenerated, setCurrentWasGenerated] = useState(false);
@@ -198,7 +199,7 @@ export default function PremiumPromptTool({
   const copy = useCallback(async () => {
     if (!current) return;
     try {
-      await writeClipboard(itemToText(current, config.tool.copyStyle));
+      await writeClipboard(itemToText(current, config.tool.copyStyle, minuteLabel));
       setManualCopyText(null);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
@@ -221,7 +222,7 @@ export default function PremiumPromptTool({
       }
     } catch {
       setCopied(false);
-      setManualCopyText(itemToText(current, config.tool.copyStyle));
+      setManualCopyText(itemToText(current, config.tool.copyStyle, minuteLabel));
       track("copy_error", {
         tool_type: "premium_prompt_collection",
         content_source: config.source,
@@ -230,11 +231,11 @@ export default function PremiumPromptTool({
         locale: "en",
       });
     }
-  }, [config.slug, config.source, config.tool.copyStyle, current, currentWasGenerated]);
+  }, [config.slug, config.source, config.tool.copyStyle, current, currentWasGenerated, minuteLabel]);
 
   const share = useCallback(async () => {
     if (!current) return;
-    const text = itemToText(current, config.tool.copyStyle);
+    const text = itemToText(current, config.tool.copyStyle, minuteLabel);
     const url = `${window.location.origin}${window.location.pathname}`;
     try {
       if (typeof navigator.share === "function") {
@@ -281,7 +282,7 @@ export default function PremiumPromptTool({
         locale: "en",
       });
     }
-  }, [config, current, currentWasGenerated]);
+  }, [config, current, currentWasGenerated, minuteLabel]);
 
   const save = useCallback(() => {
     if (!current) return;
@@ -315,7 +316,7 @@ export default function PremiumPromptTool({
     }
   }, [config, current, currentWasGenerated]);
 
-  const printItems = pool.map((item) => itemToText(item, config.tool.copyStyle));
+  const printItems = pool.map((item) => itemToText(item, config.tool.copyStyle, minuteLabel));
 
   return (
     <section className="max-w-4xl mx-auto px-4 sm:px-6" aria-labelledby="premium-tool-title">

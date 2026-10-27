@@ -48,6 +48,7 @@
 - [Question of the Day](https://randomtopics.app/question-of-the-day): a new question every day for classrooms and teams.
 - [Debate Topic Generator](https://randomtopics.app/debate): debate topics with arguments for both sides.
 - [Impromptu Speech Topics](https://randomtopics.app/impromptu-speech-topics): no-research speech topics by category, with a speech timer.
+- [1 Minute Speech Topics](https://randomtopics.app/1-minute-speech-topics): 96 random topics to talk about for one minute, each with a 60-second outline and a built-in 1-minute timer.
 - [Pro and Con Debate Topics](https://randomtopics.app/pro-and-con-debate-topics): 100 balanced topics with prep notes.
 - [Classroom Packs](https://randomtopics.app/classroom-packs): paid one-time PPTX + PDF packs for teachers (Question of the Day for 180 school days, 60 classroom debate motions, 102 impromptu speech topics) with an ad-free presenter mode.
 
@@ -57,6 +58,8 @@
 - [Random Team Generator](https://randomtopics.app/random-team-generator)
 - [Random Animal Generator](https://randomtopics.app/random-animal-generator)
 - [Random Food Generator](https://randomtopics.app/random-food-generator)
+- [Random Theme Generator](https://randomtopics.app/random-theme-generator): themes for parties, writing, art, photography, events, classrooms and game jams, filtered by use and mood.
+- [Charades Generator for Kids](https://randomtopics.app/charades/kids): kid-safe charades words by age band (3-5, 6-8, 9-12) with a timer.
 - [Fake Name Generator](https://randomtopics.app/fake-name-generator): random names from 24 countries with optional safe fake profiles (age, birthday, city, job, username, example.com email; phone only from fiction-reserved ranges). No ID or card numbers. Up to 100 at once, CSV/JSON download.
 - [Fake Address Generator](https://randomtopics.app/fake-address-generator): fictional street addresses in 24 countries with real cities, postcodes from each city's real range and the country's own address layout. CSV columns for street, city, region, postcode, country.
 - [Fake Identity Generator](https://randomtopics.app/fake-identity-generator): complete fictional people — name, birthday, address, job, placeholder email, height, weight, blood type, eye/hair colour, star sign, generation, personality, hobby. Never SSN, ID or card numbers.

@@ -69,6 +69,7 @@ const CATEGORY_FAMILIES: TryNextTool[][] = [
   ],
   [
     { href: "/charades", label: "All charades", emoji: "🎭" },
+    { href: "/charades/kids", label: "For kids", emoji: "🧸" },
     { href: "/charades/christmas", label: "Christmas", emoji: "🎅" },
     { href: "/pictionary-word-generator", label: "Pictionary", emoji: "✏️" },
   ],

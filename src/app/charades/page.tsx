@@ -249,7 +249,9 @@ export default function CharadesPage() {
                 Make It a Full Game Night
               </h3>
               <p>
-                Charades pairs perfectly with our other party tools — run{" "}
+                Playing with young children? Try the{" "}
+                <Link prefetch={false} href="/charades/kids" className="text-[var(--neon-cyan)] hover:underline">charades generator for kids</Link>{" "}
+                with easy words by age. Charades also pairs perfectly with our other party tools — run{" "}
                 <Link prefetch={false} href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>{" "}
                 between rounds, warm up with{" "}
                 <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>{" "}

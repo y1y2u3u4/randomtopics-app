@@ -287,6 +287,7 @@ export const FIVE_MINUTE_SPEECH_CONFIG: PremiumCollectionConfig = {
   parentLink: { label: "Speech topic generator and timer", href: "/speech" },
   relatedLinks: [
     { label: "Impromptu speech topics", href: "/impromptu-speech-topics", description: "Practice faster one- and two-minute responses." },
+    { label: "1 minute speech topics", href: "/1-minute-speech-topics", description: "Shorter 60-second topics with a one-minute timer." },
     { label: "Speech topics for college students", href: "/topics/speech-topics-for-college-students", description: "Browse a college-focused long-form collection." },
     { label: "120 Toastmasters Table Topics (1–2 minutes)", href: "/topics/toastmasters-table-topics", description: "Run a club-style speaking drill with timed feedback." },
   ],

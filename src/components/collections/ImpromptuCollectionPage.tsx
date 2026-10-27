@@ -47,7 +47,7 @@ export default function ImpromptuCollectionPage({ c }: { c: ImpromptuCollection 
               {siblings.map((s) => (
                 <span key={s.slug}>, <Link prefetch={false} href={s.path} className="text-[var(--neon-cyan)] hover:underline">{s.h1.toLowerCase()}</Link></span>
               ))}
-              , <Link prefetch={false} href="/5-minute-speech-topics" className="text-[var(--neon-cyan)] hover:underline">5 minute speech topics</Link>.
+              , <Link prefetch={false} href="/1-minute-speech-topics" className="text-[var(--neon-cyan)] hover:underline">1 minute speech topics with outlines</Link>, <Link prefetch={false} href="/5-minute-speech-topics" className="text-[var(--neon-cyan)] hover:underline">5 minute speech topics</Link>.
             </p>
           </div>
         </section>

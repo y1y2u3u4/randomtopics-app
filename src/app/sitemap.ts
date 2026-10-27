@@ -136,7 +136,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Trivia question bank + seasonal Halloween page (2026-10-14).
-  for (const p of ["trivia-questions", "trivia-questions/halloween", "trivia-questions/christmas", "charades/christmas"]) {
+  for (const p of ["trivia-questions", "trivia-questions/halloween", "trivia-questions/christmas", "charades/christmas", "charades/kids"]) {
     entries.push({ path: `/${p}`, changeFrequency: "weekly", priority: 0.88, lastModified: "2026-10-14" });
   }
 
@@ -213,9 +213,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "number-randomizer",
     "ai-metadata-remover",
     "western-baby-name-generator",
+    "random-theme-generator",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });
   }
+
+  // Speech timer collection (2026-10-27).
+  entries.push({ path: "/1-minute-speech-topics", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-27" });
 
   // Subscription product landing pages (2026-10-24). The Spanish couples page comes in through CUSTOM_SPANISH_ALTERNATES.
   for (const p of ["teacher-warm-ups", "slack-icebreaker-bot", "discord-qotd-bot", "writing-journal", "couples-daily-question"]) {
