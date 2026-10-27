@@ -70,5 +70,9 @@
   "/generators/hero/marvel.webp": {
     "width": 361,
     "height": 400
+  },
+  "/generators/hero/h3.webp": {
+    "width": 385,
+    "height": 400
   }
 }

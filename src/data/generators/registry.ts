@@ -98,6 +98,12 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Heroes, villains, wheel & daily guess" },
   },
   {
+    href: "/minimax-h3-prompt-generator",
+    emoji: "🎬",
+    label: { en: "MiniMax H3 Prompt Generator" },
+    detail: { en: "Hailuo 3 video prompts: camera, beats, sound" },
+  },
+  {
     href: "/gnome-name-generator",
     emoji: "⚙️",
     label: { en: "Gnome Name Generator" },
