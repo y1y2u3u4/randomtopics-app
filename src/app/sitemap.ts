@@ -218,6 +218,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-10" });
   }
 
+  // Random generator matrix, batch 1 (2026-10-28).
+  for (const p of [
+    "wheel-of-names",
+    "random-number-generator",
+    "random-name-generator",
+    "fantasy-name-generator",
+    "random-country-generator",
+    "flip-a-coin",
+    "dice-roller",
+    "yes-or-no-wheel",
+    "random-city-generator",
+    "random-sentence-generator",
+    "random-noun-generator",
+    "random-emoji-generator",
+  ]) {
+    entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-28" });
+  }
+
   // Speech timer collection (2026-10-27).
   entries.push({ path: "/1-minute-speech-topics", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-27" });
 

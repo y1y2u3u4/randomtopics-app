@@ -67,6 +67,18 @@
 - [Decision Maker](https://randomtopics.app/decision-maker): type your options and let a spinning wheel, a cup of drawing lots (no repeats) or a yes-or-no coin decide. Optional 2×/3× weights, a decision of the day, shareable result card and link. Free, no signup, runs in the browser.
 - [Random Name Picker](https://randomtopics.app/random-name-picker)
 - [Number Randomizer](https://randomtopics.app/number-randomizer)
+- [Wheel of Names](https://randomtopics.app/wheel-of-names): Spin a wheel of names, up to 200 entries.
+- [Random Number Generator](https://randomtopics.app/random-number-generator): Random numbers in any range, with presets.
+- [Random Name Generator](https://randomtopics.app/random-name-generator): Random first and last names by gender and origin.
+- [Fantasy Name Generator](https://randomtopics.app/fantasy-name-generator): Fantasy names for elves, dwarves, orcs, tieflings and more.
+- [Random Country Generator](https://randomtopics.app/random-country-generator): A random real country by continent and size, with flag and capital.
+- [Flip a Coin](https://randomtopics.app/flip-a-coin): Flip 1 to 10 coins with heads, tails and streak counts.
+- [Dice Roller](https://randomtopics.app/dice-roller): Roll 1 to 10 dice from d4 to d100 with a modifier.
+- [Yes or No Wheel](https://randomtopics.app/yes-or-no-wheel): A spinning yes, no or maybe wheel for a quick answer.
+- [Random City Generator](https://randomtopics.app/random-city-generator): A random real city by continent or country.
+- [Random Sentence Generator](https://randomtopics.app/random-sentence-generator): Random grammatical sentences, from everyday to funny.
+- [Random Noun Generator](https://randomtopics.app/random-noun-generator): Random nouns filtered by level, length and letter.
+- [Random Emoji Generator](https://randomtopics.app/random-emoji-generator): Random emoji from 8 categories, tap to copy.
 - [Spin the Wheel](https://randomtopics.app/spin-the-wheel)
 - [Viking Name Generator](https://randomtopics.app/viking-name-generator)
 - [D&D Name Generator](https://randomtopics.app/dnd-name-generator)

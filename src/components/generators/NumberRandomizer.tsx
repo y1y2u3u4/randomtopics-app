@@ -12,10 +12,21 @@ const PRESETS = [
   { label: "1–1000", min: 1, max: 1000 },
   { label: "Dice 🎲", min: 1, max: 6 },
 ];
-const ev = { tool_type: "number_randomizer", locale: "en" };
+const GENERATOR_PRESETS = [
+  { label: "1–10", min: 1, max: 10 },
+  { label: "1–100", min: 1, max: 100 },
+  { label: "0–9", min: 0, max: 9 },
+  { label: "1–1000", min: 1, max: 1000 },
+  { label: "1–1,000,000", min: 1, max: 1000000 },
+  { label: "Coin 1–2", min: 1, max: 2 },
+  { label: "d20", min: 1, max: 20 },
+];
 const fmt = (n: number) => n.toLocaleString("en-US");
 
-export default function NumberRandomizer() {
+/** `variant="generator"` powers /random-number-generator: same engine, more presets, its own analytics name. */
+export default function NumberRandomizer({ variant = "randomizer" }: { variant?: "randomizer" | "generator" }) {
+  const presets = variant === "generator" ? GENERATOR_PRESETS : PRESETS;
+  const ev = { tool_type: variant === "generator" ? "random_number_generator" : "number_randomizer", locale: "en" };
   const [min, setMin] = useState("1");
   const [max, setMax] = useState("100");
   const [count, setCount] = useState("1");
@@ -60,7 +71,7 @@ export default function NumberRandomizer() {
     <section className="max-w-3xl mx-auto px-4 sm:px-6">
       <div className="glass-card p-5 sm:p-8">
         <div className="flex flex-wrap gap-2 mb-4" role="group" aria-label="Presets">
-          {PRESETS.map((p) => (
+          {presets.map((p) => (
             <button key={p.label} type="button" className={ghost} onClick={() => { setMin(String(p.min)); setMax(String(p.max)); generate(String(p.min), String(p.max)); }}>{p.label}</button>
           ))}
         </div>

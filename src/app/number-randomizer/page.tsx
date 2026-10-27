@@ -46,6 +46,7 @@ export default function NumberRandomizerPage() {
         { href: "/random-letter-generator", label: "Random letter generator" },
         { href: "/random-team-generator", label: "Random team generator" },
         { href: "/spin-the-wheel", label: "Spin the wheel" },
+        { href: "/random-number-generator", label: "Random number generator" },
       ]}
       content={
         <>
