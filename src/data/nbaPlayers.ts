@@ -211,7 +211,7 @@ Derrick Rose;PG;Bulls/Knicks;2008;2024;2011 MVP (youngest ever)
 Blake Griffin;PF;Clippers/Pistons;2010;2023;2011 Rookie of the Year|2011 Slam Dunk Contest champion
 Kemba Walker;PG;Hornets/Celtics;2011;2023;4× All-Star
 Lou Williams;SG;Clippers/Hawks;2005;2022;3× Sixth Man of the Year
-Kevin Love;PF;Timberwolves/Cavaliers/Heat;2008;0;2016 champion
+Kevin Love;PF;Timberwolves/Cavaliers/Heat/Jazz;2008;0;2016 champion
 Chris Paul;PG;Pelicans/Clippers/Suns;2005;0;12× All-Star|2006 Rookie of the Year
 Russell Westbrook;PG;Thunder/Rockets/Lakers;2008;0;2017 MVP|Triple-double record holder
 James Harden;SG;Rockets/Nets/76ers/Clippers;2009;0;2018 MVP|3× scoring champion
@@ -232,7 +232,7 @@ Jamal Murray;PG;Nuggets;2016;0;2023 champion
 Aaron Gordon;PF;Magic/Nuggets;2014;0;2023 champion
 Andrew Wiggins;SF;Timberwolves/Warriors/Heat;2014;0;2015 Rookie of the Year|2022 champion
 Karl-Anthony Towns;C;Timberwolves/Knicks;2015;0;2016 Rookie of the Year
-Kristaps Porzingis;C;Knicks/Mavericks/Celtics;2015;0;2024 champion
+Kristaps Porzingis;C;Knicks/Mavericks/Celtics/Hawks;2015;0;2024 champion
 Devin Booker;SG;Suns;2015;0;Scored 70 points in a game
 Giannis Antetokounmpo;PF;Bucks;2013;0;2× MVP|2021 champion and Finals MVP
 Nikola Jokic;C;Nuggets;2015;0;3× MVP|2023 champion and Finals MVP
@@ -245,10 +245,10 @@ Rudy Gobert;C;Jazz/Timberwolves;2013;0;4× Defensive Player of the Year
 Domantas Sabonis;C;Pacers/Kings;2016;0;2023 rebounding leader
 Fred VanVleet;PG;Raptors/Rockets;2016;0;2019 champion
 Pascal Siakam;PF;Raptors/Pacers;2016;0;2019 champion|2019 Most Improved Player
-Brook Lopez;C;Nets/Bucks;2008;0;2021 champion
-Malcolm Brogdon;SG;Bucks/Pacers/Celtics;2016;0;2017 Rookie of the Year|2023 Sixth Man of the Year
-Zach LaVine;SG;Timberwolves/Bulls;2014;0;2015 and 2016 Slam Dunk Contest champion
-Julius Randle;PF;Lakers/Knicks;2014;0;2021 Most Improved Player
+Brook Lopez;C;Nets/Bucks/Clippers;2008;0;2021 champion
+Malcolm Brogdon;SG;Bucks/Pacers/Celtics/Trail Blazers/Wizards;2016;2025;2017 Rookie of the Year|2023 Sixth Man of the Year
+Zach LaVine;SG;Timberwolves/Bulls/Kings;2014;0;2015 and 2016 Slam Dunk Contest champion
+Julius Randle;PF;Lakers/Knicks/Timberwolves;2014;0;2021 Most Improved Player
 Lauri Markkanen;PF;Bulls/Jazz;2017;0;2023 Most Improved Player
 Derrick White;SG;Celtics;2017;0;2024 champion
 Marcus Smart;SG;Celtics/Lakers;2014;0;2022 Defensive Player of the Year
@@ -286,7 +286,7 @@ Gilbert Arenas;PG;Warriors/Wizards;2001;2012;2003 Most Improved Player
 Drazen Petrovic;SG;Nets/Trail Blazers;1989;1993;Hall of Fame|Croatian guard and shooter
 Andrew Bogut;C;Bucks/Warriors;2005;2019;#1 pick in 2005|2015 champion
 Shaun Livingston;PG;Clippers/Warriors;2004;2019;3× champion with the Warriors
-Khris Middleton;SF;Bucks;2012;0;2021 champion
+Khris Middleton;SF;Bucks/Wizards;2012;0;2021 champion
 Bobby Portis;PF;Bulls/Bucks;2015;0;2021 champion
 Dennis Schroder;PG;Hawks/Thunder/Lakers;2013;0;2023 FIBA World Cup MVP with Germany
 Paul Westphal;PG;Suns/Celtics;1972;1984;1974 champion|Hall of Fame
