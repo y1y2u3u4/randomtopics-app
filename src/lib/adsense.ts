@@ -50,6 +50,7 @@ export const ADSENSE_RESULT_PATHS = [
   "/last-name-generator",
   "/random-character-generator",
   "/random-marvel-character-generator",
+  "/book-idea-generator",
   "/minimax-h3-prompt-generator",
   "/fantasy-map-maker",
   "/story-prompt-generator",

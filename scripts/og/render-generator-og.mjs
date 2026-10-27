@@ -64,6 +64,7 @@ const CARDS = [
   { id: "pick", slug: "random-name-picker", title: "Random Name Picker", line: "Draw names from a hat — no repeats", chips: ["Paste a class list", "Pick 1 or 10", "Random order"],
     paper: ["Ava", "Ben", "<b>✓ Chloe</b>", "Diego", "Emma", "Finn"], paperTitle: "Picked" },
   { id: "marvel", slug: "random-marvel-character-generator", title: "Random Marvel Character Generator", line: "Heroes, villains, a wheel & a daily guess", chips: ["Spider-Man · Hero · 1962", "Doctor Doom · Villain · 1962", "Deadpool · Anti-hero · 1991"] },
+  { id: "book", slug: "book-idea-generator", title: "Book Idea Generator", line: "Title, logline, conflict & twist", chips: ["Fantasy · The Hollow Crown", "Mystery · Blackwater Manor", "Sci-fi · The Quiet Signal"] },
   { id: "h3", slug: "minimax-h3-prompt-generator", title: "MiniMax H3 Prompt Generator", line: "Hailuo 3 video prompts, shot by shot", chips: ["Camera: slow dolly-in", "0–3s · 3–7s · 7–10s beats", "Dialogue + SFX + music"] },
   { id: "decide", slug: "decision-maker", title: "Decision Maker", line: "Wheel, draw lots or yes / no — you pick the options", chips: ["🎡 Pizza · Tacos · Sushi", "🥢 No-repeat lots", "🪙 Yes or no"] },
   { id: "meta", slug: "ai-metadata-remover", title: "AI Metadata Remover", line: "Strip EXIF, GPS, C2PA & prompts — no upload", chips: ["JPG · PNG · WebP", "Batch + ZIP", "Lossless"],
@@ -153,7 +154,7 @@ for (const card of CARDS) {
 
 // Hero banners: the illustration with its empty cream margin trimmed, at most
 // 960×400, WebP. Sizes go to heroImages.json so the <img> reserves its box.
-const HEROES = ["dnd", "viking", "japanese", "gnome", "charactername", "character", "decide", "marvel", "h3"];
+const HEROES = ["dnd", "viking", "japanese", "gnome", "charactername", "character", "decide", "marvel", "h3", "book"];
 const sizesPath = join(root, "src/data/generators/heroImages.json");
 const sizes = existsSync(sizesPath) ? JSON.parse(readFileSync(sizesPath, "utf8")) : {};
 for (const id of HEROES) {

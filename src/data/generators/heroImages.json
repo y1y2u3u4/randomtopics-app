@@ -74,5 +74,9 @@
   "/generators/hero/h3.webp": {
     "width": 385,
     "height": 400
+  },
+  "/generators/hero/book.webp": {
+    "width": 359,
+    "height": 400
   }
 }

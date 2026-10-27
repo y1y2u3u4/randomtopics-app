@@ -98,6 +98,12 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Heroes, villains, wheel & daily guess" },
   },
   {
+    href: "/book-idea-generator",
+    emoji: "📚",
+    label: { en: "Book Idea Generator" },
+    detail: { en: "Title, logline, conflict & twist" },
+  },
+  {
     href: "/minimax-h3-prompt-generator",
     emoji: "🎬",
     label: { en: "MiniMax H3 Prompt Generator" },
