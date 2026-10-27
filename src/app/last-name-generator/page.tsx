@@ -5,6 +5,9 @@ import LastNameGenerator from "@/components/generators/LastNameGenerator";
 import { LAST_NAMES, ORIGIN_LABELS } from "@/lib/generators/lastNames";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
+import RankBoost, { faqForSchema } from "@/components/RankBoost";
+import type { BoostSection } from "@/components/RankBoost";
+import { LASTNAME_BOOST } from "@/data/rankBoost";
 import GeneratorExamples from "@/components/generators/GeneratorExamples";
 import { lastNameGenerator } from "@/lib/generators/lastNames";
 
@@ -57,6 +60,22 @@ const FAQ = [
   },
 ];
 
+const ORIGIN_SECTION: BoostSection = {
+  h2: `Last Names by Origin: ${LAST_NAMES.length} Surnames From ${Object.keys(ORIGIN_LABELS).length} Cultures`,
+  id: "surnames-by-origin",
+  blocks: [
+    { t: "p", x: "Every origin in the filter has its own pool of real surnames. This table shows how many each contains and a few examples; press Generate for the full meaning of each." },
+    {
+      t: "table",
+      head: ["Origin", "Surnames", "Examples"],
+      rows: Object.entries(ORIGIN_LABELS).map(([id, label]) => {
+        const l = LAST_NAMES.filter((n) => n.origin === id);
+        return [label.en, String(l.length), l.slice(0, 5).map((n) => n.name).join(", ")];
+      }),
+    },
+  ],
+};
+
 export default function LastNameGeneratorPage() {
   return (
     <GeneratorPageShell
@@ -67,7 +86,7 @@ export default function LastNameGeneratorPage() {
       intro={`${LAST_NAMES.length}+ real surnames from ${Object.keys(ORIGIN_LABELS).length} cultures, each with its meaning and origin. Filter by country, generate up to 20 at a time.`}
       description={DESCRIPTION}
       updated="2026-10-10"
-      faq={FAQ}
+      faq={[...FAQ, ...faqForSchema(LASTNAME_BOOST.faq)]}
       related={[
         { href: "/japanese-name-generator", label: "Japanese name generator" },
         { href: "/western-baby-name-generator", label: "Western baby name generator" },
@@ -105,6 +124,7 @@ export default function LastNameGeneratorPage() {
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Four surnames from three origins, each with its meaning:"} sets={EXAMPLES} />
+          <RankBoost variant="inline" sections={[ORIGIN_SECTION, ...LASTNAME_BOOST.sections]} />
         </>
       }
     >

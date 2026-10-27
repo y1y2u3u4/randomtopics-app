@@ -5,6 +5,9 @@ import JapaneseNameGenerator from "@/components/generators/JapaneseNameGenerator
 import { JP_FAMILY, JP_GIVEN } from "@/lib/generators/japanese";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
+import RankBoost, { faqForSchema } from "@/components/RankBoost";
+import type { BoostSection } from "@/components/RankBoost";
+import { JAPANESE_BOOST } from "@/data/rankBoost";
 
 const PATH = "/japanese-name-generator";
 const TITLE = `Japanese Name Generator: ${JP_GIVEN.length} Real Names, Kanji & Meanings`;
@@ -48,6 +51,26 @@ const FAQ = [
   },
 ];
 
+const SAMPLE_COUNT = 6;
+const givenRows = (gender: "male" | "female" | "neutral") =>
+  JP_GIVEN.filter((g) => g.gender === gender).slice(0, SAMPLE_COUNT).map((g) => [`${g.romaji} (${g.kanji})`, g.kana, g.meaning]);
+
+const SAMPLE_SECTION: BoostSection = {
+  h2: "Japanese Name Examples With Meanings",
+  id: "name-examples",
+  blocks: [
+    { t: "p", x: `These are sample names from the generator's list of ${JP_GIVEN.length}+ given names, shown with the kanji, the hiragana reading and the meaning of the characters. Press Generate above for more.` },
+    { t: "h3", x: "Japanese girl names" },
+    { t: "table", head: ["Name", "Reading", "Meaning"], rows: givenRows("female") },
+    { t: "h3", x: "Japanese boy names" },
+    { t: "table", head: ["Name", "Reading", "Meaning"], rows: givenRows("male") },
+    { t: "h3", x: "Gender-neutral Japanese names" },
+    { t: "table", head: ["Name", "Reading", "Meaning"], rows: givenRows("neutral") },
+    { t: "h3", x: "Common Japanese surnames" },
+    { t: "table", head: ["Surname", "Reading", "Meaning"], rows: JP_FAMILY.slice(0, 8).map((f) => [`${f.romaji} (${f.kanji})`, f.kana, f.meaning]) },
+  ],
+};
+
 export default function JapaneseNameGeneratorPage() {
   return (
     <GeneratorPageShell
@@ -59,7 +82,7 @@ export default function JapaneseNameGeneratorPage() {
       description={DESCRIPTION}
       hero={{ src: "/generators/hero/japanese.webp", alt: "Cherry blossom branches, a red torii gate by a lake and Mount Fuji" }}
       updated="2026-10-11"
-      faq={FAQ}
+      faq={[...FAQ, ...faqForSchema(JAPANESE_BOOST.faq)]}
       related={[
         { href: "/western-baby-name-generator", label: "Western baby name generator" },
         { href: "/last-name-generator", label: "Last name generator" },
@@ -90,6 +113,7 @@ export default function JapaneseNameGeneratorPage() {
             <Link prefetch={false} href="/last-name-generator" className={linkClass}>last name generator</Link>; for fantasy or sci-fi casts try the{" "}
             <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link>.
           </p>
+          <RankBoost variant="inline" sections={[SAMPLE_SECTION, ...JAPANESE_BOOST.sections]} />
         </>
       }
     >

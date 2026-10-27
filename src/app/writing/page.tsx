@@ -14,6 +14,8 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import KeepPlaying from "@/components/KeepPlaying";
 import TryNext from "@/components/TryNext";
 import SubEntry from "@/components/subs/SubEntry";
+import RankBoost, { faqForSchema } from "@/components/RankBoost";
+import { WRITING_BOOST } from "@/data/rankBoost";
 
 export const metadata: Metadata = {
   title: { absolute: "Writing Prompts Generator: Give Me a Topic to Write About (500+)" },
@@ -84,7 +86,7 @@ const FAQ_ITEMS = [
 export default function WritingPage() {
   return (
     <>
-      <FaqSchema items={FAQ_ITEMS} />
+      <FaqSchema items={[...FAQ_ITEMS, ...faqForSchema(WRITING_BOOST.faq)]} />
       <Navbar />
       <main className="flex-1">
         <Breadcrumb
@@ -301,6 +303,8 @@ export default function WritingPage() {
             </div>
           </div>
         </section>
+
+        <RankBoost sections={WRITING_BOOST.sections} faq={WRITING_BOOST.faq} />
 
         <EditorsPicks
           heading="Writing Prompts with Angle Notes"

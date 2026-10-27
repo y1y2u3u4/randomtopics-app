@@ -95,7 +95,7 @@ export default function DndNameGeneratorPage() {
             Players can shortlist a name before session zero; DMs can generate a tavern full of NPCs in a click. Need more than a name? The{" "}
             <Link prefetch={false} href="/random-character-generator" className={linkClass}>random character generator</Link> adds a personality, a motivation
             and a secret, and the <Link prefetch={false} href="/viking-name-generator" className={linkClass}>Viking name generator</Link> covers Norse-flavoured
-            campaigns.
+            campaigns. For eastern-fantasy settings try the <Link prefetch={false} href="/japanese-name-generator" className={linkClass}>Japanese name generator</Link>, and pair any first name with a surname from the <Link prefetch={false} href="/last-name-generator" className={linkClass}>last name generator</Link>.
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"A party’s worth of names for three races, with what each part of the name suggests:"} sets={EXAMPLES} />

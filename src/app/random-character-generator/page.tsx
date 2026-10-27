@@ -7,6 +7,9 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 import GeneratorExamples from "@/components/generators/GeneratorExamples";
 import { randomCharacterGenerator } from "@/lib/generators/characters";
+import RankBoost, { faqForSchema } from "@/components/RankBoost";
+import type { BoostSection } from "@/components/RankBoost";
+import { CHARACTER_BOOST } from "@/data/rankBoost";
 
 const PATH = "/random-character-generator";
 const TITLE = "Random Character Generator — Name, Personality, Secret & More";
@@ -58,6 +61,27 @@ const FAQ = [
   },
 ];
 
+const PARTS_SECTION: BoostSection = {
+  h2: "What Every Random Character Includes",
+  id: "character-parts",
+  blocks: [
+    { t: "p", x: "Each character is assembled from seven pools of hand-written traits plus a name that fits the genre you choose. This is the size of each pool." },
+    {
+      t: "table",
+      head: ["Part", "Options", "What it gives you"],
+      rows: [
+        ["Occupation", String(TRAITS.occupation.length), "Where they spend their days and who they know"],
+        ["Personality", String(TRAITS.personality.length), "How they behave under pressure"],
+        ["Appearance", String(TRAITS.appearance.length), "One detail a reader will remember"],
+        ["Motivation", String(TRAITS.motivation.length), "The goal that drives the plot"],
+        ["Secret", String(TRAITS.secret.length), "What they hide, and what happens if it comes out"],
+        ["Quirk", String(TRAITS.quirk.length), "A habit that makes them human"],
+        ["Flaw", String(TRAITS.flaw.length), "The weakness that trips them up"],
+      ],
+    },
+  ],
+};
+
 export default function RandomCharacterGeneratorPage() {
   return (
     <GeneratorPageShell
@@ -69,7 +93,7 @@ export default function RandomCharacterGeneratorPage() {
       description={DESCRIPTION}
       hero={{ src: "/generators/hero/character.webp", alt: "Character cards with a sword, rocket, magnifying glass and crown, next to a pair of dice" }}
       updated="2026-10-10"
-      faq={FAQ}
+      faq={[...FAQ, ...faqForSchema(CHARACTER_BOOST.faq)]}
       related={[
         { href: "/character-name-generator", label: "Character name generator" },
         { href: "/dnd-name-generator", label: "D&D name generator" },
@@ -105,6 +129,7 @@ export default function RandomCharacterGeneratorPage() {
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Three complete characters generated with the genre filter — each comes with a job, personality, motivation, secret, quirk and flaw:"} sets={EXAMPLES} />
+          <RankBoost variant="inline" sections={[PARTS_SECTION, ...CHARACTER_BOOST.sections]} />
         </>
       }
     >

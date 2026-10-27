@@ -15,6 +15,8 @@ import TryNext from "@/components/TryNext";
 import FactSheet from "@/components/FactSheet";
 import HostPassEntry from "@/components/host/HostPassEntry";
 import FullListActions from "@/components/FullListActions";
+import RankBoost, { faqForSchema } from "@/components/RankBoost";
+import type { BoostFaq, BoostSection } from "@/components/RankBoost";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Charades Generator: Random Charades Word Generator (528 Words)" },
@@ -111,10 +113,142 @@ const CATEGORY_GUIDES: Record<string, string> = {
   phrases: "Signal the number of words, then act the expression literally. Agree on a longer timer for idioms and allow a pass if the phrase is unfamiliar.",
 };
 
+// One sample word per category for each difficulty, taken from the real deck.
+const sampleWords = (d: number) =>
+  CHARADES_CATEGORIES.map((cat) => CHARADES_WORDS.find((w) => w.c === cat.id && w.d === d)?.w).filter((w): w is string => Boolean(w));
+const catLabels = CHARADES_CATEGORIES.map((c) => c.label).join(", ");
+
+const BOOST_SECTIONS: BoostSection[] = [
+  {
+    h2: "What the Charades Generator Does",
+    id: "what-the-generator-does",
+    blocks: [
+      { t: "p", x: `A charades generator replaces the paper slips and the hat. Each tap deals one random charades word from ${CHARADES_WORDS.length} words, only the actor sees it, and the page keeps the clock and the score. You can shape the deck before you play:` },
+      {
+        t: "ul",
+        items: [
+          `Category: ${catLabels}.`,
+          `Difficulty: Easy (${CHARADES_WORDS.filter((w) => w.d === 1).length} words), Medium (${CHARADES_WORDS.filter((w) => w.d === 2).length}) or Hard (${CHARADES_WORDS.filter((w) => w.d === 3).length}), or all three mixed.`,
+          "Quick decks: one tap for Movies, Animals, Kids, Actions or Hard.",
+          "Timer: 30, 60, 90 or 120 seconds, or off. The word hides when the round starts.",
+          "Teams: 2 to 4 teams with automatic turn order and a running score.",
+          "No repeats until the deck is used up, so a long game does not recycle words.",
+        ],
+      },
+    ],
+  },
+  {
+    h2: "Best Charades Settings for Your Group",
+    id: "charades-settings",
+    blocks: [
+      {
+        t: "table",
+        head: ["Group", "Category", "Difficulty", "Timer"],
+        rows: [
+          ["Kids' party", "Kids & Family, Animals", "Easy", "90-120 s, or off. See [charades for kids](/charades/kids)"],
+          ["Family game night", "Animals, Actions, Objects", "Easy to Medium", "60-90 s"],
+          ["Adult party", "Movies, Idioms & Phrases, TV & Books", "Medium to Hard", "60 s"],
+          ["Classroom", "Actions, Animals, People & Jobs", "Easy", "60-90 s. Pair with the [random team generator](/random-team-generator)"],
+          ["Office or team building", "People & Jobs, Sports & Games, Actions", "Medium", "60 s. More ideas in the [icebreaker generator](/icebreaker)"],
+          ["Christmas or holidays", "Dedicated list", "Mixed", "60-90 s. Use the [Christmas charades list](/charades/christmas)"],
+        ],
+      },
+    ],
+  },
+  {
+    h2: "Charades Word Ideas by Difficulty",
+    id: "charades-word-ideas",
+    blocks: [
+      { t: "p", x: "A sample from the deck, one word per category at each level. Tap the generator for the rest." },
+      { t: "h3", x: "Easy charades words" },
+      { t: "p", x: sampleWords(1).join(", ") + "." },
+      { t: "h3", x: "Medium charades words" },
+      { t: "p", x: sampleWords(2).join(", ") + "." },
+      { t: "h3", x: "Hard charades words" },
+      { t: "p", x: sampleWords(3).join(", ") + "." },
+    ],
+  },
+  {
+    h2: "How Many Charades Words Do You Need?",
+    id: "how-many-words",
+    blocks: [
+      { t: "p", x: "A 60-second turn usually gets through one to three words. Plan on about three words per player for a 20 to 30 minute game, and keep a few spare for passes." },
+      {
+        t: "table",
+        head: ["Players", "Teams", "Turns per player", "Words to deal"],
+        rows: [
+          ["4", "2", "3", "About 12"],
+          ["8", "2", "3", "About 24"],
+          ["12", "3", "3", "About 36"],
+          ["20", "4", "2", "About 40"],
+        ],
+      },
+      { t: "p", x: "The generator never repeats a word until the deck is exhausted, so you do not have to count. If you play offline, set your filters and print the cards." },
+    ],
+  },
+  {
+    h2: "Playing Charades in Teams",
+    id: "charades-team-play",
+    blocks: [
+      {
+        t: "ol",
+        items: [
+          "Choose 2 to 4 teams in Teams & scoring and name them if you like.",
+          "The first actor reads the word, taps Start round, and acts. The word hides so the room cannot see it.",
+          "The team guesses out loud. Tap Got it for a point or Missed to pass.",
+          "Turns move to the next team automatically; rotate the actor inside each team.",
+          "Agree a target score, usually 10, or play a fixed number of rounds.",
+          "Break ties with one sudden-death word from the Hard deck.",
+        ],
+      },
+      { t: "p", x: "For a bigger event, add [trivia questions](/trivia-questions) or a round of the [Pictionary word generator](/pictionary-word-generator). To pick who goes first, use the [spin the wheel](/spin-the-wheel)." },
+    ],
+  },
+  {
+    h2: "Charades Words Printable List",
+    id: "printable-charades-words",
+    blocks: [
+      {
+        t: "ol",
+        items: [
+          "Choose your category and difficulty in the generator.",
+          "Press Print this deck to open a print-ready sheet of every word in that deck.",
+          "Cut along the lines, fold the cards and put them in a bowl.",
+          "Or open the full word bank above and copy the list to paste into a document.",
+        ],
+      },
+      { t: "p", x: "For drawing games, the [Pictionary words list](/pictionary-words) has printable words for drawing games. For a single word at a time, the [random word generator](/random-word-generator) is also useful." },
+    ],
+  },
+];
+
+const BOOST_FAQ: BoostFaq[] = [
+  {
+    question: "Is there a random word generator for charades?",
+    answer: `Yes. This page is one: tap once for a random charades word from ${CHARADES_WORDS.length} actable words, with a hide-the-word screen and a timer. Choose a category or difficulty first if you want to narrow it.`,
+  },
+  {
+    question: "How many words does the charades generator have?",
+    answer: `${CHARADES_WORDS.length} words in ${CHARADES_CATEGORIES.length} categories: ${catLabels}. Each word is labelled Easy, Medium or Hard.`,
+  },
+  {
+    question: "What are easy charades words for beginners?",
+    answer: `Set the difficulty to Easy for simple, familiar words such as ${sampleWords(1).slice(0, 6).join(", ")}. The Kids & Family category is another good place to start.`,
+  },
+  {
+    question: "How long should each charades turn be?",
+    answer: "Sixty seconds is the standard. Use 90 or 120 seconds for kids, hard words or online play, and 30 seconds for a fast party round.",
+  },
+  {
+    question: "What is dumb charades?",
+    answer: "Dumb charades is another name for charades: one person acts out a word or title without speaking while the others guess. Use the Movies category for the classic film version.",
+  },
+];
+
 export default function CharadesPage() {
   return (
     <>
-      <FaqSchema items={FAQ_ITEMS} />
+      <FaqSchema items={[...FAQ_ITEMS, ...faqForSchema(BOOST_FAQ)]} />
       <Navbar />
       <main className="flex-1">
         <Breadcrumb
@@ -329,6 +463,7 @@ export default function CharadesPage() {
             </p>
           </div>
         </section>
+        <RankBoost sections={BOOST_SECTIONS} faq={BOOST_FAQ} />
         <KeepPlaying path="/charades" />
       </main>
       <Footer />
