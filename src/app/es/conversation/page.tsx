@@ -6,6 +6,9 @@ import TopicGenerator from "@/components/TopicGenerator";
 import FaqSchema from "@/components/FaqSchema";
 import ConversationExamplesEs from "@/components/ConversationExamplesEs";
 import Link from "next/link";
+import TryNext from "@/components/TryNext";
+import EsExtraBlocks, { EsRich, stripMarkup } from "@/components/EsExtraBlocks";
+import { ES_CONVERSATION_GUIDE } from "@/data/seoExtras.es";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 
@@ -79,7 +82,7 @@ const FAQ_ITEMS = [
 export default function ConversationPageEs() {
   return (
     <>
-      <FaqSchema items={FAQ_ITEMS} />
+      <FaqSchema items={[...FAQ_ITEMS, ...ES_CONVERSATION_GUIDE.faq.map((f) => ({ question: f.question, answer: stripMarkup(f.answer) }))]} />
       <Navbar />
       <main className="flex-1" lang="es">
         <Breadcrumb
@@ -125,6 +128,19 @@ export default function ConversationPageEs() {
             </div>
           </div>
         </section>
+
+        <div className="h-8" />
+        <EsExtraBlocks blocks={ES_CONVERSATION_GUIDE.blocks} />
+        <TryNext
+          path="/es/conversation"
+          locale="es"
+          tools={[
+            { href: "/es/topics/conversation-starters-for-couples", label: "Temas para parejas", emoji: "💞" },
+            { href: "/es/topics/conversation-topics-for-teens", label: "Temas para adolescentes", emoji: "🧑" },
+            { href: "/es/icebreaker", label: "Rompehielos", emoji: "🧊" },
+            { href: "/es/preguntas-profundas", label: "Preguntas profundas", emoji: "🌊" },
+          ]}
+        />
 
         <PublicAdPlacement path="/es/conversation" />
 
@@ -253,6 +269,13 @@ export default function ConversationPageEs() {
                 azar para practicar la fluidez. La variedad de asuntos ayuda a quienes aprenden a ampliar
                 vocabulario en múltiples ámbitos mientras mantienen las sesiones de práctica interesantes.
               </p>
+
+              {ES_CONVERSATION_GUIDE.faq.map((f) => (
+                <div key={f.question}>
+                  <h4 className="text-base font-semibold text-[var(--text-primary)] pt-2">{f.question}</h4>
+                  <p><EsRich text={f.answer} /></p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

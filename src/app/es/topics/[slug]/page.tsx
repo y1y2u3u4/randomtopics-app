@@ -18,6 +18,9 @@ import { ES_CONTROVERSIAL_SUPPORT } from "@/data/controversialDiscussion.es";
 import PartyCategoryEntry from "@/components/PartyCategoryEntry";
 import SpanishPartyRound from "@/components/SpanishPartyRound";
 import SubEntry from "@/components/subs/SubEntry";
+import TryNext from "@/components/TryNext";
+import EsExtraBlocks from "@/components/EsExtraBlocks";
+import { ES_ARTICLE_EXTRAS } from "@/data/seoExtras.es";
 import SubEntryFor from "@/components/subs/SubEntryFor";
 import ClassroomQuestionGenerator from "@/components/ClassroomQuestionGenerator";
 import ClassroomToolLinksEs from "@/components/ClassroomToolLinksEs";
@@ -117,6 +120,8 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
     label: "Prueba el Generador — Es Gratis",
     emoji: "🎲",
   };
+  const extras = ES_ARTICLE_EXTRAS[article.slug];
+  const faqItems = extras ? [...article.faq, ...extras.faq] : article.faq;
   const articleItems = article.sections.flatMap((section) => section.items);
   const isControversial = article.slug === "controversial-topics-to-discuss";
   const discussionByPrompt = new Map(ES_CONTROVERSIAL_SUPPORT.map((item) => [item.prompt, item]));
@@ -356,6 +361,9 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           { elements: [], runningCount: 0 }
         ).elements}
 
+        {extras && <EsExtraBlocks blocks={extras.blocks} />}
+        {extras && <TryNext path={`/es/topics/${slug}`} tools={extras.tryNext} locale="es" />}
+
         <section className="max-w-3xl mx-auto px-4 sm:px-6 empty:hidden"><SubEntryFor path={`/es/topics/${slug}`} after="view" /></section>
 
         <PublicAdPlacement path={`/es/topics/${slug}`} />
@@ -366,14 +374,14 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
           </section>
         )}
 
-        {article.faq.length > 0 && (
+        {faqItems.length > 0 && (
           <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
             <div className="glass-card p-8 sm:p-10">
               <h2 className="text-xl sm:text-2xl font-bold mb-6 text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
                 Preguntas Frecuentes
               </h2>
               <div className="space-y-5">
-                {article.faq.map((f, i) => (
+                {faqItems.map((f, i) => (
                   <div key={i}>
                     <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-1.5">{f.question}</h3>
                     <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{f.answer}</p>
@@ -388,7 +396,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
                   "@context": "https://schema.org",
                   "@type": "FAQPage",
                   inLanguage: "es",
-                  mainEntity: article.faq.map((f) => ({
+                  mainEntity: faqItems.map((f) => ({
                     "@type": "Question",
                     name: f.question,
                     acceptedAnswer: { "@type": "Answer", text: f.answer },
