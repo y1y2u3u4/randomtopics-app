@@ -80,14 +80,27 @@ export function adConfiguration(mode: string | undefined, slot: string | undefin
     ? { slot: slot! } : null;
 }
 
-// Campaign tags only (e.g. ?utm_source=chatgpt.com from AI-assistant links,
-// ~240 documents a week in Oct 2026). Any other query, including rt_ads=off,
-// still fails closed.
+// Campaign tags (e.g. ?utm_source=chatgpt.com from AI-assistant links) and the
+// public generator state that share links carry (?gender=f&r=…, ?i=…&t=… on
+// My 9, ?c=…&m=… on colors). These landings were ~12% of page views with no
+// ads until 2026-10-27, see docs/ad-revenue-2026-10-17.md. Keys that can hold
+// a person's name (team roster ?d=, Wu-Tang ?name=), account, checkout, QA and
+// rt_ads=off markers, and any unknown key still fail closed.
 const CAMPAIGN_PARAM = /^utm_(source|medium|campaign|term|content)$/;
-function campaignOnlySearch(search: string) {
+export const PUBLIC_STATE_PARAMS: ReadonlySet<string> = new Set([
+  // GeneratorUI: count, result keys and every FilterGroup id (scripts/adsense-regression.mjs checks the ids).
+  "n", "r", "case", "cat", "chars", "clan", "cuisine", "diet", "format", "gender", "genre", "length", "letter", "level",
+  "meal", "mood", "numbers", "order", "origin", "pos", "race", "rank", "set", "ship", "size", "style", "theme", "type",
+  "use", "where",
+  // Other generators: My 9 (i, t), colors (c, l, m), numbers (min, max, u), map (seed, shape),
+  // ZIP (state), movie, fancy text (k), book/Marvel daily mode.
+  "i", "t", "c", "l", "m", "min", "max", "u", "seed", "shape", "state", "movie", "k", "mode",
+]);
+function publicSearch(search: string) {
   if (!search) return true;
   const keys = [...new URLSearchParams(search).keys()];
-  return keys.length > 0 && keys.length <= 5 && keys.every((key) => CAMPAIGN_PARAM.test(key));
+  return keys.length > 0 && keys.length <= 12 && new Set(keys).size === keys.length &&
+    keys.every((key) => CAMPAIGN_PARAM.test(key) || PUBLIC_STATE_PARAMS.has(key));
 }
 
 export function adRequestAllowed(options: {
@@ -95,7 +108,7 @@ export function adRequestAllowed(options: {
 }) {
   return adPageAllowed(options.path) &&
     ["randomtopics.app", "www.randomtopics.app"].includes(options.host) &&
-    campaignOnlySearch(options.search) && !options.qa && !options.globalPrivacyControl;
+    publicSearch(options.search) && !options.qa && !options.globalPrivacyControl;
 }
 
 // Personalized ads only where the visitor has not refused them: the published

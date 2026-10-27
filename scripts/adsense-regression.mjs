@@ -23,6 +23,10 @@ check(ads.adRetirementUrl('https://randomtopics.app/?topic=sample&rt_ads=on#demo
 check(!ads.adRequestAllowed({...base,search:new URL(ads.adRetirementUrl('https://randomtopics.app/')).search}),'Retired document cannot request another ad');
 check(ads.adRequestAllowed({...base,search:'?utm_source=chatgpt.com'}),'Campaign-tagged landing keeps ads');
 check(!ads.adRequestAllowed({...base,search:new URL(ads.adRetirementUrl('https://randomtopics.app/?utm_source=chatgpt.com')).search}),'Retired campaign document cannot request another ad');
+for(const search of ['?gender=f&r=a1~b2','?i=abc.def&t=My%209','?cuisine=thai&meal=dinner&n=5&r=x','?c=FF0000-00FF00&m=pastel&l=0','?min=1&max=10&n=3&u=0','?letter=b&utm_source=chatgpt.com'])check(ads.adRequestAllowed({...base,path:'/random-food-generator',search}),'Public share-link state keeps ads '+search);
+for(const search of ['?gender=f&rt_ads=off','?i=abc&token=synthetic','?gender=f&usage_qa=1','?d=eyJuYW1lcyI6W119','?name=Alex','?gender=f&gender=m','?r=x&session_id=cs_test'])check(!ads.adRequestAllowed({...base,path:'/random-food-generator',search}),'Fail closed with private, retired or unknown key '+search);
+{const {readdirSync}=await import('node:fs');const ids=new Set();const walk=d=>{for(const e of readdirSync(d,{withFileTypes:true})){const f=d+'/'+e.name;if(e.isDirectory())walk(f);else if(/\.tsx?$/.test(e.name)){const src=readFileSync(f,'utf8');if(src.includes('FilterGroup'))for(const m of src.matchAll(/\{\s*id:\s*"([a-z_]+)",\s*label:[^{}]*?options:/gs))ids.add(m[1]);}}};walk('src');
+check(ids.size>20,'Found GeneratorUI filter ids');for(const id of ids)check(ads.PUBLIC_STATE_PARAMS.has(id),'Filter id is an allowed share-link key: '+id);}
 const allowed={cmpStatus:'loaded',eventStatus:'useractioncomplete',gdprApplies:true,purpose:{consents:{1:true}},vendor:{consents:{755:true}}};
 check(advertisingConsent(allowed,'unknown'),'EU consent can allow NPA');
 for(const override of [{purpose:{}},{vendor:{}},{cmpStatus:'error'},{eventStatus:'cmpuishown'},{gdprApplies:undefined}])check(!advertisingConsent({...allowed,...override},'not-applicable'),'EU unknown/denied remains blocked');
