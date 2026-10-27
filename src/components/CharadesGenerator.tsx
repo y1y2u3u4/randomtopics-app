@@ -5,6 +5,7 @@ import PrintButton from "./PrintButton";
 import { CHARADES_WORDS, CHARADES_CATEGORIES, type CharadesCategory } from "@/data/charades";
 import { CHARADES_WORDS_ES, CHARADES_CATEGORIES_ES } from "@/data/charades.es";
 import { CHRISTMAS_CHARADES_WORDS, CHRISTMAS_CHARADES_CATEGORIES } from "@/data/charadesChristmas";
+import { KIDS_CHARADES_WORDS, KIDS_CHARADES_CATEGORIES, KIDS_CHARADES_AGE_LABELS } from "@/data/charadesKids";
 import { drawUnseen } from "@/lib/topicPool";
 import { track } from "@/lib/track";
 
@@ -70,9 +71,11 @@ const DATA = {
 };
 // Seasonal decks replace the word list and categories and hide the quick decks.
 const DECKS = {
-  christmas: { words: CHRISTMAS_CHARADES_WORDS, categories: CHRISTMAS_CHARADES_CATEGORIES, eventParams: { tool_type: "charades_generator", content_source: "charades_christmas", locale: "en" } },
+  christmas: { words: CHRISTMAS_CHARADES_WORDS, categories: CHRISTMAS_CHARADES_CATEGORIES, levels: null, timer: 60, eventParams: { tool_type: "charades_generator", content_source: "charades_christmas", locale: "en" } },
+  // Child-directed deck: age bands replace Easy/Medium/Hard and rounds default to 90 seconds.
+  kids: { words: KIDS_CHARADES_WORDS, categories: KIDS_CHARADES_CATEGORIES, levels: KIDS_CHARADES_AGE_LABELS, timer: 90, eventParams: { tool_type: "charades_generator", content_source: "charades_kids", locale: "en" } },
 };
-type Category = CharadesCategory | (typeof CHRISTMAS_CHARADES_CATEGORIES)[number]["id"];
+type Category = CharadesCategory | (typeof CHRISTMAS_CHARADES_CATEGORIES)[number]["id"] | (typeof KIDS_CHARADES_CATEGORIES)[number]["id"];
 type Word = { w: string; c: Category; d: 1 | 2 | 3 };
 
 export default function CharadesGenerator({ locale = "en", deck }: { locale?: "en" | "es"; deck?: keyof typeof DECKS } = {}) {
@@ -82,17 +85,19 @@ export default function CharadesGenerator({ locale = "en", deck }: { locale?: "e
     categories: readonly { id: Category; label: string; emoji: string }[];
     eventParams: Record<string, string>;
   };
-  const DIFFICULTIES = t.difficulties.map((label, id) => ({ id: id as 0 | 1 | 2 | 3, label }));
+  const deckLevels: readonly string[] | null = deck ? DECKS[deck].levels : null;
+  const defaultTimer = deck ? DECKS[deck].timer : 60;
+  const DIFFICULTIES = (deckLevels ?? t.difficulties).map((label, id) => ({ id: id as 0 | 1 | 2 | 3, label }));
   const [category, setCategory] = useState<Category | "all">("all");
   const [difficulty, setDifficulty] = useState<0 | 1 | 2 | 3>(0);
-  const [timerLength, setTimerLength] = useState(60);
+  const [timerLength, setTimerLength] = useState(defaultTimer);
   const [current, setCurrent] = useState<Word | null>(null);
   const [hidden, setHidden] = useState(false);
   const [usedKeys, setUsedKeys] = useState<Set<string>>(new Set());
-  const [secondsLeft, setSecondsLeft] = useState(60);
+  const [secondsLeft, setSecondsLeft] = useState(defaultTimer);
   const [timerState, setTimerState] = useState<"ready" | "running" | "paused" | "complete">("ready");
   const deadline = useRef<number | null>(null);
-  const remainingMs = useRef(60_000);
+  const remainingMs = useRef(defaultTimer * 1000);
   const interval = useRef<ReturnType<typeof setInterval> | null>(null);
   const [teamCount, setTeamCount] = useState(2);
   const [scores, setScores] = useState([0, 0, 0, 0]);
@@ -315,7 +320,7 @@ export default function CharadesGenerator({ locale = "en", deck }: { locale?: "e
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <button type="button" onClick={deal} className="btn-generate disabled:opacity-40" disabled={!pool.length}>🎭 {current ? t.next : t.deal}</button>
           <button type="button" onClick={enterBig} className={`${buttonClass} ${idleClass}`} data-charades-fullscreen>{t.fullscreen}</button>
-          {pool.length > 0 && <PrintButton heading={t.printHeading} items={pool.map((word) => `${word.w} — ${DIFFICULTIES[word.d].label}`)} intro={t.printIntro(pool.length, category === "all" ? t.allCategories : CATEGORIES.find((item) => item.id === category)?.label ?? "", DIFFICULTIES[difficulty].label)} label={t.printLabel} />}
+          {pool.length > 0 && <PrintButton heading={t.printHeading} items={pool.map((word) => `${word.w} — ${DIFFICULTIES[word.d].label}`)} intro={deckLevels ? `${pool.length} words · ${category === "all" ? t.allCategories : CATEGORIES.find((item) => item.id === category)?.label ?? ""} · ${DIFFICULTIES[difficulty].label}. Print and cut into cards.` : t.printIntro(pool.length, category === "all" ? t.allCategories : CATEGORIES.find((item) => item.id === category)?.label ?? "", DIFFICULTIES[difficulty].label)} label={t.printLabel} />}
         </div>
         <p className="mt-4 text-center text-xs text-[var(--text-muted)]">{t.deckLine(pool.length, remaining)}</p>
         <p className="mt-3 text-center"><a href="#charades-word-bank" className="inline-flex min-h-11 items-center text-sm text-[var(--neon-cyan)] underline underline-offset-4">{t.browse(WORDS.length)}</a></p>

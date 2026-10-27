@@ -139,6 +139,8 @@ export const articleToPages: Record<
       { emoji: "⏱️", label: "Impromptu Speech Timer", href: "/impromptu-speech-topics" },
     ],
   },
+  "random-topics-to-talk-about-with-friends": { modes: ["conversation", "icebreaker"], categories: ["relationships", "weird-fun"] },
+  "psychology-topics-to-talk-about": { modes: ["conversation"], categories: ["psychology"] },
   "random-questions-to-ask-friends": { modes: ["conversation", "icebreaker"], categories: ["relationships", "weird-fun"] },
   "debate-topics-for-middle-school": { modes: ["debate"], categories: ["education"] },
   "icebreaker-questions-for-virtual-meetings": { modes: ["icebreaker"], categories: ["business"] },

@@ -53,6 +53,10 @@ export interface PremiumCollectionConfig {
     intro: string;
     steps: { title: string; description: string }[];
   };
+  /** Speech length in minutes for the timer and labels (default 5). */
+  speechMinutes?: number;
+  /** Emit FAQPage JSON-LD for the visible FAQ. */
+  faqSchema?: boolean;
   qualityNotes: string[];
   disclaimer?: string;
   parentLink: { label: string; href: string };

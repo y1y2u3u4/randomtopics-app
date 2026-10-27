@@ -366,6 +366,13 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Cowboy & country names with meanings" },
     crossLinkOnly: true,
   },
+  {
+    href: "/random-theme-generator",
+    emoji: "🎨",
+    label: { en: "Random Theme Generator" },
+    detail: { en: "Themes for parties, writing, art & game jams" },
+    crossLinkOnly: true,
+  },
 ];
 
 export function generatorsFor(locale: "en" | "es", opts: { crossLinks?: boolean } = {}): { href: string; emoji: string; label: string; detail: string }[] {

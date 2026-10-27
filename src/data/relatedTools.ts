@@ -123,6 +123,9 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/morning-meeting-questions", label: "Morning Meeting Questions", emoji: "🌅", blurb: "Greeting and share prompts", groups: ["classroom"] },
   { href: "/random-group-generator", label: "Random Group Generator", emoji: "🧩", blurb: "Split a class into groups", groups: ["classroom"] },
   { href: "/classroom-timer", label: "Classroom Timer", emoji: "⏲️", blurb: "Big countdown for the projector", groups: ["classroom"] },
+  { href: "/charades/kids", label: "Charades for Kids", emoji: "🧸", blurb: "Easy words by age, with timer", groups: ["party", "classroom"] },
+  { href: "/random-theme-generator", label: "Random Theme Generator", emoji: "🎨", blurb: "Themes for parties, writing, art", groups: ["creative", "party"] },
+  { href: "/1-minute-speech-topics", label: "1-Minute Speech Topics", emoji: "⏱️", blurb: "60-second topics with a timer", groups: ["speaking", "classroom"] },
 ];
 
 /** When a group has fewer than three other tools, continue with these. */

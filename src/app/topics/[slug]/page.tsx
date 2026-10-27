@@ -332,6 +332,19 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </section>
         )}
 
+        {(article.slug === "random-topics-to-talk-about-with-friends" || article.slug === "psychology-topics-to-talk-about") && (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+            <InlineQuestionGenerator
+              items={articleItems}
+              groups={article.sections.map((section) => ({ label: section.heading, items: section.items }))}
+              title={article.slug === "psychology-topics-to-talk-about" ? "Pick a Random Psychology Topic" : "Pick a Random Topic to Talk About"}
+              description={`Draw from all ${articleItems.length} topics without repeats, or filter to one section. Copy it for the group chat or read it out loud.`}
+              source={article.slug === "psychology-topics-to-talk-about" ? "psychology_topics_article" : "friends_topics_article"}
+              actionLabel="Give Me a Topic"
+            />
+          </section>
+        )}
+
         {article.slug === "ethical-dilemma-questions" && <EthicsDiscussionCards />}
 
         {/* Intro */}
