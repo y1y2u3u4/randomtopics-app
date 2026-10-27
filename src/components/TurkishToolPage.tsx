@@ -18,6 +18,9 @@ export const TR_PAGES = [
   { href: "/tr/1-dakika-konusma-konulari", label: "1 Dakika Konuşma Konuları", detail: "60 saniyelik sayaçla" },
   { href: "/tr/munazara-konulari", label: "Münazara Konuları", detail: "Sınıf ve kulüp için tartışma" },
   { href: "/tr/sohbet-konulari", label: "Sohbet Konuları", detail: "Konuşmayı başlatan sorular" },
+  { href: "/tr/gunun-sorusu", label: "Günün Sorusu", detail: "Her gün yeni bir soru" },
+  { href: "/tr/komik-sorular", label: "Komik Sorular", detail: "Arkadaş ortamı için" },
+  { href: "/tr/bugun-ne-yesem", label: "Bugün Ne Yesem?", detail: "Karar veremeyenlere yemek önerisi" },
 ];
 
 type Faq = { question: string; answer: string };
@@ -31,9 +34,11 @@ type Props = {
   buttonLabel?: string;
   howTo: string[];
   faq: Faq[];
+  /** Override the sibling cards (the /tr home lists every page). */
+  siblings?: { href: string; label: string; detail: string }[];
 };
 
-export default function TurkishToolPage({ path, title, lead, groups, mode, buttonLabel, howTo, faq }: Props) {
+export default function TurkishToolPage({ path, title, lead, groups, mode, buttonLabel, howTo, faq, siblings = TR_PAGES }: Props) {
   const total = groups.reduce((n, g) => n + g.topics.length, 0);
   return (
     <>
@@ -69,7 +74,7 @@ export default function TurkishToolPage({ path, title, lead, groups, mode, butto
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
           <h2 className="text-lg font-bold text-[var(--text-primary)] mb-4">Diğer Türkçe araçlar</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {TR_PAGES.filter((p) => p.href !== path).map((p) => (
+            {siblings.filter((p) => p.href !== path).map((p) => (
               <Link prefetch={false} key={p.href} href={p.href} className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-colors">
                 <p className="text-sm font-bold text-[var(--text-primary)]">{p.label}</p>
                 <p className="text-xs text-[var(--text-muted)] mt-1">{p.detail}</p>

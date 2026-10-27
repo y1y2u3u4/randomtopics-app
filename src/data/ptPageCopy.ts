@@ -40,4 +40,7 @@ export const PT_SIBLINGS = [
   { href: "/pt/temas-para-apresentacao", label: "Temas para apresentação", detail: "Com cronômetro de 1 minuto" },
   { href: "/pt/pergunta-do-dia", label: "Pergunta do dia", detail: "Uma pergunta nova todo dia" },
   { href: "/pt/gerador-de-materias-aleatorias", label: "Gerador de matérias", detail: "Sorteie o que estudar" },
+  { href: "/pt/roleta-de-temas", label: "Roleta de temas", detail: "Gire e descubra o tema" },
+  { href: "/pt/perguntas-engracadas", label: "Perguntas engraçadas", detail: "Para rir em grupo" },
+  { href: "/pt/voce-prefere", label: "Você prefere?", detail: "Dilemas para escolher um lado" },
 ];

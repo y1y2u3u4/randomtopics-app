@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import LocaleTopicPicker, { type LocaleTopicGroup, type PickerUi } from "@/components/LocaleTopicPicker";
+import TryNext from "@/components/TryNext";
 import { SITE_URL } from "@/i18n/config";
 
 // Shared shell for standalone language pages that are not a full site locale
@@ -44,9 +45,11 @@ type Props = {
   extra?: React.ReactNode;
   /** Spanish is a full site locale, so its pages keep the en/es switcher. */
   showLocaleSwitcher?: boolean;
+  /** Quick next-step chips shown under the tool (batch-1 pt/fr/tr pages). */
+  tryNext?: { href: string; label: string; emoji: string }[];
 };
 
-export default function LocaleToolPage({ path, title, lead, groups, mode, buttonLabel, howTo, faq, copy, siblings, englishHref = "/", extra, showLocaleSwitcher = false }: Props) {
+export default function LocaleToolPage({ path, title, lead, groups, mode, buttonLabel, howTo, faq, copy, siblings, englishHref = "/", extra, showLocaleSwitcher = false, tryNext }: Props) {
   const total = groups.reduce((n, g) => n + g.topics.length, 0);
   return (
     <>
@@ -78,6 +81,10 @@ export default function LocaleToolPage({ path, title, lead, groups, mode, button
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
           <LocaleTopicPicker groups={groups} mode={mode} buttonLabel={buttonLabel} ui={copy.ui} />
         </section>
+
+        {tryNext && tryNext.length > 0 && (
+          <TryNext path={path} tools={tryNext} locale={copy.lang.slice(0, 2) as "pt" | "fr" | "tr" | "es"} />
+        )}
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
           <h2 className="text-lg font-bold text-[var(--text-primary)] mb-4">{copy.siblingsHeading}</h2>

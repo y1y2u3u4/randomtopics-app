@@ -318,6 +318,22 @@ export const PORTUGUESE_ALTERNATES: Readonly<Record<string, string>> = {
   "/this-or-that": "/pt/isso-ou-aquilo",
   "/icebreaker": "/pt/perguntas-para-quebrar-o-gelo",
   "/random-animal-generator": "/pt/gerador-de-animais-aleatorios",
+  // 2026-10-28 batch 1 (src/data/localePages/pt.batch1.ts)
+  "/spin-the-wheel": "/pt/roleta-de-temas",
+  "/topics/ethical-dilemma-questions": "/pt/dilemas-eticos",
+  "/charades": "/pt/palavras-para-mimica",
+  "/impromptu-speech-topics": "/pt/temas-para-discurso-improvisado",
+  "/funny": "/pt/perguntas-engracadas",
+  "/would-you-rather": "/pt/voce-prefere",
+  "/topics/conversation-topics-for-teens": "/pt/assuntos-para-adolescentes",
+  "/question-generator": "/pt/gerador-de-perguntas",
+  "/japanese-name-generator": "/pt/gerador-de-nomes-japoneses",
+  "/topics/toastmasters-table-topics": "/pt/temas-para-toastmasters",
+  "/random-food-generator": "/pt/o-que-comer-hoje",
+  "/funny-question-of-the-day": "/pt/pergunta-do-dia-engracada",
+  "/most-likely-to": "/pt/quem-e-mais-provavel",
+  "/5-minute-speech-topics": "/pt/temas-para-discurso-de-5-minutos",
+  "/random-character-generator": "/pt/gerador-de-personagens-aleatorios",
 };
 
 /**
@@ -331,6 +347,22 @@ export const TURKISH_ALTERNATES: Readonly<Record<string, string>> = {
   "/impromptu-speech-topics/1-minute": "/tr/1-dakika-konusma-konulari",
   "/debate": "/tr/munazara-konulari",
   "/conversation": "/tr/sohbet-konulari",
+  // 2026-10-28 batch 1 (src/data/localePages/tr.batch1.ts)
+  "/question-of-the-day": "/tr/gunun-sorusu",
+  "/speech": "/tr/konusma-konulari",
+  "/this-or-that": "/tr/bu-mu-su-mu",
+  "/topics/ethical-dilemma-questions": "/tr/etik-ikilemler",
+  "/charades": "/tr/mimik-oyunu-kelimeleri",
+  "/writing": "/tr/kompozisyon-konulari",
+  "/random-subject-generator": "/tr/rastgele-ders-secici",
+  "/impromptu-speech-topics": "/tr/dogaclama-konusma-konulari",
+  "/funny": "/tr/komik-sorular",
+  "/would-you-rather": "/tr/hangisini-tercih-edersin",
+  "/topics/conversation-topics-for-teens": "/tr/genc-sohbet-konulari",
+  "/question-generator": "/tr/soru-uretici",
+  "/japanese-name-generator": "/tr/japon-isim-uretici",
+  "/topics/toastmasters-table-topics": "/tr/hitabet-konulari",
+  "/random-food-generator": "/tr/bugun-ne-yesem",
 };
 
 /**
@@ -344,6 +376,22 @@ export const FRENCH_ALTERNATES: Readonly<Record<string, string>> = {
   "/would-you-rather": "/fr/tu-preferes",
   "/charades": "/fr/idees-de-mime",
   "/debate": "/fr/sujets-de-debat",
+  // 2026-10-28 batch 1 (src/data/localePages/fr.batch1.ts)
+  "/spin-the-wheel": "/fr/roue-des-sujets",
+  "/speech": "/fr/sujets-de-discours",
+  "/this-or-that": "/fr/plutot-ceci-ou-cela",
+  "/topics/ethical-dilemma-questions": "/fr/dilemmes-ethiques",
+  "/writing": "/fr/idees-d-ecriture",
+  "/random-subject-generator": "/fr/generateur-de-matieres",
+  "/impromptu-speech-topics": "/fr/sujets-de-discours-improvise",
+  "/funny": "/fr/questions-droles",
+  "/topics/conversation-topics-for-teens": "/fr/sujets-de-conversation-ados",
+  "/question-generator": "/fr/generateur-de-questions",
+  "/japanese-name-generator": "/fr/generateur-de-prenoms-japonais",
+  "/topics/toastmasters-table-topics": "/fr/sujets-d-eloquence",
+  "/random-food-generator": "/fr/quoi-manger-ce-soir",
+  "/funny-question-of-the-day": "/fr/question-du-jour-drole",
+  "/most-likely-to": "/fr/qui-est-le-plus-susceptible-de",
 };
 
 function withStandaloneLocales(path: string, languages: Record<string, string>): Record<string, string> {

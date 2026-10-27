@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import LocaleToolPage from "@/components/LocaleToolPage";
 import { FR_GENERAL } from "@/data/frenchTopics";
-import { FR_SIBLINGS, frCopy } from "@/data/frPageCopy";
+import { frCopy } from "@/data/frPageCopy";
+import { allLocaleSiblings } from "@/lib/localePages";
 import { hreflangAlternates } from "@/i18n/config";
 
 const path = "/fr";
@@ -23,7 +24,7 @@ export default function FrHomePage() {
       lead={`Appuie sur le bouton et reçois un sujet tout de suite. ${COUNT} sujets en français pour lancer une discussion, ouvrir un débat ou nourrir une réflexion — choisis une catégorie ou tire un peu de tout.`}
       buttonLabel="Tirer un sujet"
       copy={frCopy("Random Topic Generator", "Tirer un sujet")}
-      siblings={FR_SIBLINGS}
+      siblings={allLocaleSiblings("fr")}
       howTo={[
         "Choisis une catégorie (discussion, débat ou réflexion) ou laisse « Toutes ».",
         "Appuie sur « Tirer un sujet » : le sujet s'affiche dans la carte.",

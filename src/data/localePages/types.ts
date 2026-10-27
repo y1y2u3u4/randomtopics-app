@@ -1,6 +1,6 @@
 import type { LocaleTopicGroup } from "@/components/LocaleTopicPicker";
 
-// One standalone es/pt landing page rendered by LocaleToolPage (2026-10-21 batch).
+// One standalone es/pt/fr/tr landing page rendered by LocaleToolPage (2026-10-21 batch).
 export type LocalePageConfig = {
   /** Full path, e.g. "/es/preguntas-filosoficas". */
   path: string;
@@ -19,7 +19,7 @@ export type LocalePageConfig = {
   buttonLabel: string;
   mode?: "card" | "wheel" | "timer";
   /** Short label + detail for the sibling-page cards. */
-  sibling: { label: string; detail: string };
+  sibling: { label: string; detail: string; emoji?: string };
   groups: LocaleTopicGroup[];
   howTo: string[];
   faq: { question: string; answer: string }[];

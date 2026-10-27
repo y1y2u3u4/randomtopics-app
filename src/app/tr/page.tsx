@@ -3,6 +3,7 @@ import { withSocial } from "@/lib/metadata/social";
 import TurkishToolPage from "@/components/TurkishToolPage";
 import { TR_GENERAL_TOPICS } from "@/data/turkishTopics";
 import { hreflangAlternates } from "@/i18n/config";
+import { allLocaleSiblings } from "@/lib/localePages";
 
 const path = "/tr";
 
@@ -18,6 +19,7 @@ export default function TurkishTopicPickerPage() {
     <TurkishToolPage
       path={path}
       groups={TR_GENERAL_TOPICS}
+      siblings={allLocaleSiblings("tr")}
       title="Rastgele Konu Seçici"
       lead="Butona bas, rastgele bir konu gelsin. Sohbet başlatmak, sınıfta tartışma açmak, kompozisyon yazmak ya da arkadaşlarla oyun oynamak için 6 kategoride 72 Türkçe konu; deste bitene kadar aynı konu tekrar çıkmaz."
       howTo={[

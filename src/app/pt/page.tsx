@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import LocaleToolPage from "@/components/LocaleToolPage";
 import { PT_CONVERSATION, PT_DEBATE, PT_QOTD } from "@/data/portugueseTopics";
-import { PT_SIBLINGS, ptCopy } from "@/data/ptPageCopy";
+import { ptCopy } from "@/data/ptPageCopy";
+import { allLocaleSiblings } from "@/lib/localePages";
 import { hreflangAlternates } from "@/i18n/config";
 
 const path = "/pt";
@@ -28,7 +29,7 @@ export default function PtHomePage() {
       lead={`Aperte o botão e receba um tema na hora. São ${COUNT} temas em português para puxar conversa, abrir um debate, treinar uma apresentação ou escrever uma redação — escolha a categoria ou sorteie de tudo um pouco.`}
       buttonLabel="Sortear tema"
       copy={ptCopy("Random Topic Generator", "Sortear tema")}
-      siblings={PT_SIBLINGS}
+      siblings={allLocaleSiblings("pt")}
       howTo={[
         "Escolha uma categoria (conversa, debate ou pergunta do dia) ou deixe em «Todos».",
         "Aperte «Sortear tema»: o tema aparece no cartão.",

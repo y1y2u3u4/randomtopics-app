@@ -34,6 +34,10 @@ for (const locale of ["", "/es"]) {
 }
 for (const article of SEO_ARTICLES) routes.add("/topics/" + article.slug);
 for (const article of SEO_ARTICLES_ES) routes.add("/es/topics/" + article.slug);
+// Data-driven locale pages served by src/app/{pt,fr,tr}/[slug] (dynamicParams = false).
+for (const [file, name] of [["pt", "PT_BATCH1"], ["fr", "FR_BATCH1"], ["tr", "TR_BATCH1"]]) {
+  for (const page of read(`src/data/localePages/${file}.batch1.ts`)[name]) routes.add(page.path);
+}
 function assertRoute(href, context) {
   const url = new URL(href, SITE_URL);
   assert.equal(url.origin, SITE_URL, context + ": unexpected origin " + href);
