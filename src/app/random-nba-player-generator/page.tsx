@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import type { Metadata } from "next";
 import Link from "next/link";
 import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/generators/GeneratorPageShell";
@@ -6,6 +8,7 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 import { DECADES, NBA_PLAYERS, NBA_TEAMS, POSITIONS, eraSummary } from "@/lib/nbaPlayers";
 
+const HERO_ON = fs.existsSync(path.join(process.cwd(), "public/nba/hero.jpg"));
 const PATH = "/random-nba-player-generator";
 const TITLE = "Random NBA Player Generator — Filter by Team, Era & Position";
 const DESCRIPTION =
@@ -60,7 +63,7 @@ const FAQ = [
   },
   {
     question: "Does it show player photos or team logos?",
-    answer: "No. The cards are text only: name, position, teams, years and honors. That keeps the page fast and avoids using league or team trademarks. This is an unofficial fan tool, not affiliated with the NBA.",
+    answer: "No photos and no logos. The cards are jersey-style: your player's main-team colours, jersey number, name, position, teams, years and honors. Some stars also get an original illustrated portrait, which is fan art, not a photo. Team logos and official fonts are never used. This is an unofficial fan tool, not affiliated with the NBA.",
   },
   {
     question: "How are positions and eras decided?",
@@ -96,6 +99,7 @@ export default function RandomNbaPlayerGeneratorPage() {
       heading={["Random NBA Player", "Generator"]}
       intro={`Press Generate to get random NBA players from a hand-written bank of ${N} stars, current and all-time, across all 30 franchises. Filter by active or retired, team, position and decade, draw up to 10, lock the cards you like and reroll the rest. Each card shows position, teams, career years and key honors.`}
       description={DESCRIPTION}
+      {...(HERO_ON ? { hero: { src: "/nba/hero.jpg", alt: "Illustrated basketball scene (original fan art)", width: 1280, height: 720, className: "mx-auto mb-4 h-20 w-full max-w-xl rounded-2xl object-cover sm:h-36" } } : {})}
       updated="2026-10-28"
       faq={FAQ}
       inShort={`This random basketball player generator draws from ${N} NBA players: ${ACTIVE} active in 2025-26 and ${N - ACTIVE} retired legends back to the 1940s. Filter by team, position or decade, lock any card, then reroll only the rest. A daily random starting five gives you a lineup to share.`}
@@ -169,7 +173,7 @@ export default function RandomNbaPlayerGeneratorPage() {
             or <Link prefetch={false} href="/categories/sports" className={linkClass}>sports discussion topics</Link> for debates about the game.
           </p>
           <p className="rounded-xl border border-white/10 p-3 text-xs" data-nba-disclaimer>
-            <strong className="text-[var(--text-primary)]">Disclaimer:</strong> Random Topics is an unofficial fan tool and is not affiliated with, endorsed by or sponsored by the National Basketball Association or any NBA team. Player and team names are used only to identify real people and franchises. Honors and years are summarised from well-known public record and may omit details; check an official source before you publish them.
+            <strong className="text-[var(--text-primary)]">Disclaimer:</strong> Random Topics is an unofficial fan tool and is not affiliated with, endorsed by or sponsored by the National Basketball Association or any NBA team. Player and team names are used only to identify real people and franchises. Honors and years are summarised from well-known public record and may omit details; check an official source before you publish them. Unofficial fan tool. Not affiliated with or endorsed by the NBA, its teams or players. Player illustrations are original fan art.
           </p>
         </>
       }

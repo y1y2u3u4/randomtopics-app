@@ -1,8 +1,19 @@
 import { NBA_PLAYERS, NBA_TEAMS, POSITIONS, DECADES, type NbaPlayer, type Position } from "@/data/nbaPlayers";
+import { TEAM_COLORS, type TeamColors } from "@/data/nbaJerseys";
+import { NBA_PORTRAIT_IDS } from "@/data/nbaPortraits";
 import { createRng, drawUnique, type Rng } from "@/lib/randomGenerators";
 
 export { NBA_PLAYERS, NBA_TEAMS, POSITIONS, DECADES };
 export type { NbaPlayer, Position };
+
+export { TEAM_COLORS };
+export type { TeamColors };
+
+const PORTRAITS = new Set<string>(NBA_PORTRAIT_IDS);
+export const hasPortrait = (p: NbaPlayer): boolean => PORTRAITS.has(p.id);
+export const portraitSrc = (p: NbaPlayer): string => `/nba/players/${p.id}.jpg`;
+/** Jersey colours of the player's main (first listed) franchise. */
+export const jerseyColors = (p: NbaPlayer): TeamColors => TEAM_COLORS[p.teams[0]];
 
 export type Status = "all" | "active" | "retired";
 export interface NbaFilters { status: Status; team: string; pos: string; era: string }
