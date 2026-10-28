@@ -73,4 +73,40 @@ test("daily five is deterministic, one per position, and varies by day", () => {
   assert.match(lib.fiveShareText(d, a, "https://x.test"), /^Random NBA starting five · Oct 28, 2026\nPG /);
 });
 
+const jerseys = load("src/data/nbaJerseys.ts");
+const portraits = load("src/data/nbaPortraits.ts");
+
+const lum = (hex) => {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+};
+const contrast = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x + 0.05) / (y + 0.05); };
+
+test("every franchise has jersey colours with readable number contrast", () => {
+  for (const t of NBA_TEAMS) {
+    const c = jerseys.TEAM_COLORS[t];
+    assert.ok(c, `no colours for ${t}`);
+    for (const k of ["primary", "secondary", "text"]) assert.match(c[k], /^#[0-9A-F]{6}$/i, `${t}.${k}`);
+    assert.ok(contrast(c.text, c.primary) >= 3, `${t} number contrast ${contrast(c.text, c.primary).toFixed(2)}`);
+  }
+  assert.deepEqual(Object.keys(jerseys.TEAM_COLORS).sort(), [...NBA_TEAMS].sort());
+});
+
+test("jersey numbers are 0-99 integers or absent, and map to real players", () => {
+  const ids = new Set(NBA_PLAYERS.map((p) => p.id));
+  for (const [id, n] of Object.entries(jerseys.JERSEY_NUMBERS)) {
+    assert.ok(ids.has(id), `number for unknown id ${id}`);
+    assert.ok(Number.isInteger(n) && n >= 0 && n <= 99, `${id} number ${n}`);
+  }
+  for (const p of NBA_PLAYERS) assert.ok(p.number === null || (Number.isInteger(p.number) && p.number >= 0 && p.number <= 99), p.name);
+  assert.ok(NBA_PLAYERS.filter((p) => p.number !== null).length >= 150);
+});
+
+test("portrait manifest ids all exist in the bank", () => {
+  const ids = new Set(NBA_PLAYERS.map((p) => p.id));
+  assert.ok(Array.isArray(portraits.NBA_PORTRAIT_IDS));
+  for (const id of portraits.NBA_PORTRAIT_IDS) assert.ok(ids.has(id), `portrait for unknown id ${id}`);
+  assert.equal(new Set(portraits.NBA_PORTRAIT_IDS).size, portraits.NBA_PORTRAIT_IDS.length);
+});
+
 console.log(`nba players: ${passed} tests passed`);

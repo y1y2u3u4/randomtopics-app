@@ -4,9 +4,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { copyText } from "@/lib/clipboard";
 import { track } from "@/lib/track";
 import { createRng, newSeed } from "@/lib/randomGenerators";
+import { shareFiveImage, type ShareFormat } from "@/lib/nbaShareCanvas";
 import {
   DECADES, DEFAULT_FILTERS, FIVE_ORDER, NBA_PLAYERS, NBA_TEAMS, POSITIONS,
-  careerYears, dailyFive, dateLabel, dayNumber, drawSlots, filterPlayers, fiveShareText, resultsText,
+  careerYears, dailyFive, dateLabel, dayNumber, drawSlots, filterPlayers, fiveShareText, hasPortrait, jerseyColors, portraitSrc, resultsText,
   type NbaFilters, type NbaPlayer, type Status,
 } from "@/lib/nbaPlayers";
 
@@ -21,60 +22,93 @@ const STATUS: { value: Status; label: string }[] = [
 
 const ACCENT = "var(--neon-orange)";
 const mono = { fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace", fontVariantNumeric: "tabular-nums" as const };
+const JERSEY_FONT = "Impact, Haettenschweiler, 'Arial Narrow Bold', 'Arial Black', system-ui, sans-serif";
 const selectClass = "w-full rounded-lg border border-white/15 bg-[var(--bg-secondary)] px-3 py-2 text-sm text-[var(--text-primary)] focus:border-[var(--neon-orange)] focus:outline-none";
 
+/** Tank-top jersey in the player's main-team colours: big number (or position), optional fan-art portrait. */
+function Jersey({ p }: { p: NbaPlayer }) {
+  const c = jerseyColors(p);
+  const portrait = hasPortrait(p);
+  const big = p.number === null ? p.pos : String(p.number);
+  const size = p.number === null ? 64 : big.length > 1 ? 96 : 110;
+  return (
+    <div className="relative w-[132px] shrink-0 sm:w-[148px]" style={{ aspectRatio: "200 / 220" }} data-nba-jersey>
+      <svg viewBox="0 0 200 220" className="absolute inset-0 h-full w-full" aria-hidden="true" focusable="false">
+        <path d="M62 6 L38 10 C36 50 34 62 22 78 L22 212 H178 V78 C166 62 164 50 162 10 L138 6 C130 36 70 36 62 6 Z" fill={c.primary} stroke={c.secondary} strokeWidth="3" strokeLinejoin="round" />
+        <g fill="none" stroke={c.secondary} strokeWidth="7" strokeLinecap="round">
+          <path d="M62 6 C70 36 130 36 138 6" />
+          <path d="M38 10 C36 50 34 62 22 78" />
+          <path d="M162 10 C164 50 166 62 178 78" />
+        </g>
+        <path d="M22 196 H178" stroke={c.secondary} strokeWidth="6" />
+        <text
+          x="100" y={portrait ? 172 : 150} textAnchor="middle" fontSize={portrait ? size * 0.78 : size}
+          fill={c.text} stroke={c.secondary} strokeWidth="3" paintOrder="stroke" strokeLinejoin="round"
+          style={{ fontFamily: JERSEY_FONT, fontWeight: 400 }}
+        >{big}</text>
+      </svg>
+      {portrait && (
+        // eslint-disable-next-line @next/next/no-img-element -- small pre-sized fan-art JPG, lazy loaded
+        <img
+          src={portraitSrc(p)} alt={`${p.name} illustrated portrait (unofficial fan art)`} width={384} height={384}
+          loading="lazy" decoding="async"
+          className="absolute rounded-full object-cover"
+          style={{ left: "29%", top: "17%", width: "42%", height: "auto", aspectRatio: "1 / 1", border: `3px solid ${c.secondary}`, background: c.secondary }}
+        />
+      )}
+    </div>
+  );
+}
+
 function PlayerCard({ p, slot, locked, onLock }: { p: NbaPlayer; slot: number; locked: boolean; onLock: () => void }) {
+  const c = jerseyColors(p);
   return (
     <li
       data-nba-card
       className="relative overflow-hidden rounded-2xl border text-left"
       style={{
-        borderColor: locked ? ACCENT : "rgba(255,107,53,0.28)",
-        background: "linear-gradient(155deg, rgba(255,107,53,0.10) 0%, rgba(14,14,26,0.92) 55%)",
+        borderColor: locked ? ACCENT : "rgba(255,255,255,0.14)",
+        background: `linear-gradient(155deg, ${c.primary}55 0%, rgba(14,14,26,0.94) 60%)`,
         boxShadow: locked ? "0 0 0 1px rgba(255,107,53,0.6), 0 8px 28px rgba(255,107,53,0.18)" : undefined,
       }}
     >
-      {/* scoreboard strip */}
-      <div className="flex items-center justify-between border-b border-dashed px-4 py-2 text-[11px] uppercase tracking-[0.18em]" style={{ borderColor: "rgba(255,107,53,0.35)", color: ACCENT, ...mono }}>
+      <div className="flex items-center justify-between border-b border-dashed px-4 py-2 text-[11px] uppercase tracking-[0.18em]" style={{ borderColor: "rgba(255,255,255,0.22)", color: "var(--text-secondary)", ...mono }}>
         <span>Slot {String(slot).padStart(2, "0")}</span>
         <span>{p.active ? "Active" : "Retired"}</span>
       </div>
-      <div className="relative px-4 pb-4 pt-3">
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-1 -top-1 select-none text-7xl font-black leading-none"
-          style={{ color: "transparent", WebkitTextStroke: "1.5px rgba(255,107,53,0.22)", fontFamily: "var(--font-display)" }}
-        >
-          {p.pos}
-        </span>
-        <h3 className="relative pr-16 text-xl font-extrabold leading-tight text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>{p.name}</h3>
-        <p className="relative mt-1 text-sm text-[var(--text-secondary)]">
-          <span className="mr-2 rounded px-1.5 py-0.5 text-xs font-bold" style={{ background: ACCENT, color: "#1a0d05", ...mono }}>{p.pos}</span>
-          {p.teams.join(" · ")}
-        </p>
-        <dl className="relative mt-3 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs">
-          <dt className="uppercase tracking-wider text-[var(--text-muted)]">Years</dt>
-          <dd className="text-[var(--text-primary)]" style={mono}>{careerYears(p)}</dd>
-          {p.honors.length > 0 && (
-            <>
-              <dt className="uppercase tracking-wider text-[var(--text-muted)]">Honors</dt>
-              <dd className="flex flex-wrap gap-1">
-                {p.honors.slice(0, 2).map((h) => (
-                  <span key={h} className="rounded-full border px-2 py-0.5 text-[var(--text-primary)]" style={{ borderColor: "rgba(255,226,52,0.4)", background: "rgba(255,226,52,0.07)" }}>{h}</span>
-                ))}
-              </dd>
-            </>
-          )}
-        </dl>
-        <button
-          type="button"
-          onClick={onLock}
-          aria-pressed={locked}
-          className="relative mt-4 rounded-lg border px-3 py-1.5 text-xs font-semibold transition-colors"
-          style={locked ? { background: ACCENT, color: "#1a0d05", borderColor: ACCENT } : { borderColor: "rgba(255,255,255,0.18)", color: "var(--text-secondary)" }}
-        >
-          {locked ? "🔒 Locked" : "🔓 Lock"}
-        </button>
+      <div className="flex gap-3 px-3 pb-4 pt-3 sm:gap-4 sm:px-4">
+        <Jersey p={p} />
+        <div className="min-w-0 flex-1">
+          <h3 className="text-xl font-extrabold leading-tight text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>{p.name}</h3>
+          <p className="mt-1 text-sm text-[var(--text-secondary)]">
+            <span className="mr-2 rounded px-1.5 py-0.5 text-xs font-bold" style={{ background: c.primary, color: c.text, border: `1px solid ${c.secondary}`, ...mono }}>{p.pos}</span>
+            {p.number !== null && <span className="sr-only">Jersey number {p.number}. </span>}
+            {p.teams.join(" · ")}
+          </p>
+          <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs">
+            <dt className="uppercase tracking-wider text-[var(--text-muted)]">Years</dt>
+            <dd className="text-[var(--text-primary)]" style={mono}>{careerYears(p)}</dd>
+            {p.honors.length > 0 && (
+              <>
+                <dt className="uppercase tracking-wider text-[var(--text-muted)]">Honors</dt>
+                <dd className="flex flex-wrap gap-1">
+                  {p.honors.slice(0, 2).map((h) => (
+                    <span key={h} className="rounded-full border px-2 py-0.5 text-[var(--text-primary)]" style={{ borderColor: "rgba(255,226,52,0.4)", background: "rgba(255,226,52,0.07)" }}>{h}</span>
+                  ))}
+                </dd>
+              </>
+            )}
+          </dl>
+          <button
+            type="button"
+            onClick={onLock}
+            aria-pressed={locked}
+            className="mt-3 rounded-lg border px-3 py-1.5 text-xs font-semibold transition-colors"
+            style={locked ? { background: ACCENT, color: "#1a0d05", borderColor: ACCENT } : { borderColor: "rgba(255,255,255,0.18)", color: "var(--text-secondary)" }}
+          >
+            {locked ? "🔒 Locked" : "🔓 Lock"}
+          </button>
+        </div>
       </div>
     </li>
   );
@@ -90,6 +124,13 @@ function DailyFive() {
   const five = useMemo(() => (day === null ? [] : dailyFive(day)), [day]);
   if (day === null) return <div className="mx-auto mt-10 h-48 max-w-4xl" aria-hidden="true" />;
   const text = fiveShareText(day, five, PAGE_URL);
+  const image = async (format: ShareFormat) => {
+    try {
+      const r = await shareFiveImage(day, five, format);
+      flash(r === "shared" ? "Image ready ✓" : "Image downloaded ✓");
+      track("share_click", { tool_type: TOOL, share_method: `image_${format}`, locale: "en" });
+    } catch { flash("Could not create the image"); }
+  };
   const flash = (m: string) => { setNote(m); window.setTimeout(() => setNote(""), 1800); };
   const share = async () => {
     try {
@@ -113,7 +154,7 @@ function DailyFive() {
             return (
               <li key={pos} className="flex items-baseline gap-3 px-3 py-2.5 text-sm">
                 <span className="w-9 shrink-0 rounded px-1.5 py-0.5 text-center text-xs font-bold" style={{ background: ACCENT, color: "#1a0d05", ...mono }}>{pos}</span>
-                <span className="font-semibold text-[var(--text-primary)]">{p.name}</span>
+                <span className="font-semibold text-[var(--text-primary)]">{p.name}{p.number !== null && <span className="ml-2 text-xs font-normal text-[var(--text-muted)]" style={mono}>#{p.number}</span>}</span>
                 <span className="ml-auto text-right text-xs text-[var(--text-muted)]">{p.teams[0]} · {careerYears(p)}</span>
               </li>
             );
@@ -128,6 +169,8 @@ function DailyFive() {
           >
             Copy text
           </button>
+          <button type="button" onClick={() => image("square")} className="rounded-lg border border-white/15 px-4 py-2 text-sm text-[var(--text-secondary)] hover:border-white/40">Share image (square)</button>
+          <button type="button" onClick={() => image("story")} className="rounded-lg border border-white/15 px-4 py-2 text-sm text-[var(--text-secondary)] hover:border-white/40">Share image (story)</button>
           <span role="status" className="text-sm text-[var(--neon-green)]">{note}</span>
         </div>
       </div>
@@ -263,7 +306,7 @@ export default function NbaPlayerGenerator() {
             <p className="mt-3 text-center text-xs text-[var(--text-muted)]">Locked cards stay in place when you generate again — handy for draft and pick games.</p>
           </>
         )}
-        <p className="mt-4 text-center text-xs text-[var(--text-muted)]">Unofficial fan tool, not affiliated with or endorsed by the NBA or any team. Text only, no photos or logos.</p>
+        <p className="mt-4 text-center text-xs text-[var(--text-muted)]">Unofficial fan tool. Not affiliated with or endorsed by the NBA, its teams or players. Player illustrations are original fan art.</p>
       </section>
       <DailyFive />
     </>

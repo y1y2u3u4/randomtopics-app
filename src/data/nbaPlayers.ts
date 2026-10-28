@@ -9,6 +9,8 @@
 
 export type Position = "PG" | "SG" | "SF" | "PF" | "C";
 
+import { JERSEY_NUMBERS } from "@/data/nbaJerseys";
+
 export interface NbaPlayer {
   id: string;
   name: string;
@@ -19,6 +21,8 @@ export interface NbaPlayer {
   to: number;
   active: boolean;
   honors: string[];
+  /** Jersey number the player is best known for; null when not certain. */
+  number: number | null;
 }
 
 export const NBA_TEAMS = [
@@ -302,8 +306,9 @@ export const NBA_PLAYERS: NbaPlayer[] = RAW.trim()
   .map((line) => {
     const [name, pos, teams, from, to, honors] = line.split(";");
     if (!POS_SET.has(pos)) throw new Error(`Bad position for ${name}`);
+    const id = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
     return {
-      id: name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""),
+      id,
       name,
       pos: pos as Position,
       teams: teams.split("/"),
@@ -311,5 +316,6 @@ export const NBA_PLAYERS: NbaPlayer[] = RAW.trim()
       to: Number(to),
       active: Number(to) === 0,
       honors: honors ? honors.split("|") : [],
+      number: Object.hasOwn(JERSEY_NUMBERS, id) ? JERSEY_NUMBERS[id] : null,
     };
   });

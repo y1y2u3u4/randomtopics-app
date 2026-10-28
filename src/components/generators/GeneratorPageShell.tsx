@@ -28,7 +28,7 @@ interface Props {
   content: React.ReactNode;
   related?: { href: string; label: string }[];
   /** Themed illustration above the H1 (public/generators/hero, WebP; size in heroImages.json). */
-  hero?: { src: string; alt: string };
+  hero?: { src: string; alt: string; width?: number; height?: number; className?: string };
   /** Hide the hero on short viewports so the tool itself stays above the fold. */
   heroHideOnShort?: boolean;
   /** Two-to-three sentence answer shown first in the explainer ("In short"). */
@@ -72,8 +72,8 @@ export default function GeneratorPageShell(props: Props) {
           {hero && (
             // eslint-disable-next-line @next/next/no-img-element -- small pre-sized WebP, no optimizer needed
             <img src={hero.src} alt={hero.alt} decoding="async"
-              {...(heroSizes as Record<string, { width: number; height: number }>)[hero.src]}
-              className={`mx-auto mb-6 h-28 sm:h-40 w-auto rounded-2xl${heroHideOnShort ? " [@media(max-height:900px)]:hidden" : ""}`} />
+              {...(hero.width && hero.height ? { width: hero.width, height: hero.height } : (heroSizes as Record<string, { width: number; height: number }>)[hero.src])}
+              className={`${hero.className ?? "mx-auto mb-6 h-28 sm:h-40 w-auto rounded-2xl"}${heroHideOnShort ? " [@media(max-height:900px)]:hidden" : ""}`} />
           )}
           <h1 className="section-heading text-4xl sm:text-6xl font-extrabold mb-4" style={{ fontFamily: "var(--font-display)" }}>
             {heading[0]} <span className="gradient-text">{heading[1]}</span>
