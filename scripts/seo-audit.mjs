@@ -120,6 +120,8 @@ const checks = [
   { path: "/fake-identity-generator", index: true, canonical: "/fake-identity-generator", titleMax: 60, titleHas: "Fake Identity Generator", enOnlyHreflang: true, bodyHas: ["What we leave out, and why", "Frequently asked questions"] },
   { path: "/fake-person-generator", index: true, canonical: "/fake-person-generator", titleMax: 60, titleHas: "Fake Person Generator", enOnlyHreflang: true, bodyHas: ["What makes a fake person believable", "Frequently asked questions"] },
   { path: "/fake-name-generator", index: true, canonical: "/fake-name-generator", titleMax: 60, titleHas: "Fake Name Generator", enOnlyHreflang: true, bodyHas: ["Safe fake data, on purpose", "Frequently asked questions"] },
+  { path: "/topics/would-you-rather-questions", index: true, canonical: "/topics/would-you-rather-questions", titleMax: 75, titleHas: "Would You Rather Questions", hreflang: true, bodyHas: ["Funny Would You Rather Questions", "Would You Rather Questions for Kids", "Hard Would You Rather Questions", "Would You Rather Questions for Couples", "Would You Rather Questions for Work", "Random question"] },
+  { path: "/topics/truth-or-dare-questions", index: true, canonical: "/topics/truth-or-dare-questions", titleMax: 75, titleHas: "Truth or Dare Questions", hreflang: true, bodyHas: ["Truth or Dare Questions for Kids", "Truth or Dare Questions for Teens", "Truth or Dare Questions for Couples", "Funny Truth or Dare Questions", "Truth or Dare Questions Over Text", "Party Truth or Dare Questions"] },
 ];
 
 function fail(message) {

@@ -40,3 +40,11 @@ for (const name of ['magic_8_ball_use','magic_8_ball_share','random_pokemon_gene
 }
 umami.length=0;track('magic_8_ball_other',{});track('random_nba_player_generator_use',{});assert.equal(umami.length,0);
 console.log('PASS: magic_8_ball / random_pokemon_generator use+share events reach Umami');
+
+// 2026-10-28 question-bank list pages: {page}_use / {page}_share reach Umami.
+for (const name of ['would_you_rather_questions_use','would_you_rather_questions_share','truth_or_dare_questions_use','truth_or_dare_questions_share']) {
+  umami.length=0;track(name,{tool_type:'x',share_method:'copy_link',locale:'en'});
+  assert.equal(umami.length,1);assert.equal(umami[0][0],name);
+}
+umami.length=0;track('would_you_rather_questions_other',{});assert.equal(umami.length,0);
+console.log('PASS: would_you_rather_questions / truth_or_dare_questions use+share events reach Umami');
