@@ -61,3 +61,11 @@ for (const name of ['would_you_rather_questions_use','would_you_rather_questions
 }
 umami.length=0;track('would_you_rather_questions_other',{});assert.equal(umami.length,0);
 console.log('PASS: would_you_rather_questions / truth_or_dare_questions use+share events reach Umami');
+
+// 2026-10-28 result-area actions on speech/debate pages reach Umami; look-alikes do not.
+for (const name of ['speech_timer_start','speech_reroll','speech_rubric_open','debate_timer_start','debate_reroll']) {
+  umami.length=0;track(name,{tool_type:'topic_generator',seconds:120});
+  assert.equal(umami.length,1);assert.equal(umami[0][0],name);assert.equal(umami[0][1].seconds,120);
+}
+umami.length=0;track('speech_other',{});track('debate_rubric_open',{});assert.equal(umami.length,0);
+console.log('PASS: speech/debate timer, reroll, rubric events reach Umami');
