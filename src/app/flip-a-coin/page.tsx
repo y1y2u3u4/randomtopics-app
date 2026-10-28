@@ -68,6 +68,8 @@ export default function FlipACoinPage() {
         { href: "/decision-maker", label: "Decision maker" },
         { href: "/random-number-generator", label: "Random number generator" },
         { href: "/wheel-of-names", label: "Wheel of names" },
+        { href: "/toss-a-coin", label: "Toss a coin" },
+        { href: "/heads-or-tails", label: "Heads or tails" },
       ]}
       content={
         <>

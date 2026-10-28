@@ -104,7 +104,7 @@ export default function SpinTheWheelPage() {
                 gloriously weird. Give it a spin and let chance break the deadlock.
               </p>
               <p>
-                Want one shared prompt instead of a spin? The <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> gives everyone the same question each day, and the <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades word generator</Link> deals a word to act out.
+                Want one shared prompt instead of a spin? The <Link prefetch={false} href="/question-of-the-day" className="text-[var(--neon-cyan)] hover:underline">question of the day</Link> gives everyone the same question each day, and the <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades word generator</Link> deals a word to act out. Want to spin your own names or choices instead? Try the <Link prefetch={false} href="/picker-wheel" className="text-[var(--neon-cyan)] hover:underline">picker wheel</Link>.
               </p>
               <p>
                 The wheel is the playful cousin of our{" "}
