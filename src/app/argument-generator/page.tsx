@@ -66,6 +66,7 @@ export default function ArgumentGeneratorPage() {
         />
         <TopicGenerator
           initialMode="debate"
+          nextActions="debate"
           title="Random Argument Generator"
           subtitle="Generate arguable claims with ready-made pro and con talking points — for debates, essays, and sharpening your reasoning."
           directAnswer="Need something to argue about? Tap Generate for a random, arguable claim with pro and con talking points, so you can practice rebuttals, pick a persuasive essay thesis, or start a friendly debate. Filter by category and depth, and every claim can genuinely be defended and attacked with reasons and evidence. Free, with no signup."

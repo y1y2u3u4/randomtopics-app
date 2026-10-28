@@ -105,6 +105,7 @@ export default function DebatePage() {
         <TopicGenerator
           initialMode="debate"
           contentSource="debate_hub"
+          nextActions="debate"
           title="Debate Topic Generator"
           subtitle="Find thought-provoking debate topics with clear arguments for both sides."
           directAnswer="Looking for a good debate topic? Tap Generate for a random, arguable motion with pro and con talking points, drawn from 308 debate topics for classrooms, debate clubs, and practice rounds. Filter by category and by depth, from light warm-ups to deep motions, and no topic repeats until you have seen them all. Free, with no signup."

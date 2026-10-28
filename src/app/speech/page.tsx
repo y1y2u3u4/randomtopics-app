@@ -154,6 +154,7 @@ export default function SpeechPage() {
           contentSource="speech_hub"
           compactMobileHero
           speechPractice
+          nextActions="speech"
           directAnswer="Need a speech topic fast? Tap Generate for a random topic with talking points, drawn from 296 speech topics for class presentations, Toastmasters table topics, and informative or persuasive speeches. Then practice a 60-second answer against the built-in timer and get one specific tip to make it clearer. Free, with no signup."
         />
 

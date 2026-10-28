@@ -20,6 +20,7 @@ import { readTopicResult, saveTopicResult } from "@/lib/topicResultSession";
 
 const SpeechPracticePanel = dynamic(() => import("./SpeechPracticePanel"));
 const SpeechCoachEntry = dynamic(() => import("./SpeechCoachEntry"));
+const ResultNextActions = dynamic(() => import("./ResultNextActions"), { ssr: false });
 
 interface TopicGeneratorProps {
   initialMode?: Mode | null;
@@ -31,6 +32,8 @@ interface TopicGeneratorProps {
   speechPractice?: boolean;
   speechFeedback?: boolean;
   speechTimerHref?: string;
+  /** Speech/debate pages: timer, reroll (and rubric for speech) directly under the result. */
+  nextActions?: "speech" | "debate";
   heroLinks?: ReactNode;
   /** Optional 40–80 word answer shown under the subtitle (GEO direct answer). */
   directAnswer?: ReactNode;
@@ -68,6 +71,7 @@ export default function TopicGenerator({
   speechPractice = false,
   speechFeedback = speechPractice,
   speechTimerHref = "#speech-practice",
+  nextActions,
   heroLinks,
   directAnswer,
   compactMobileHero = false,
@@ -472,6 +476,7 @@ export default function TopicGenerator({
       {coachEnabled && generatedTopics.length > 1 && <div className="mb-4 space-y-4" aria-label="More generated topics">
         {generatedTopics.slice(1).map((topic, i) => <TopicCard key={topic.id} topic={topic} index={i + 1} locale={locale} contentSource={contentSource} actionContext="generated_result" />)}
       </div>}
+      {nextActions && hasGenerated && generatedTopics.length > 0 && <ResultNextActions kind={nextActions} busy={isSpinning} onReroll={() => { void generate(); }} resetKey={generatedTopics.map((t) => t.id).join(",")} />}
       {hasGenerated && generatedTopics.length > 0 && <div className="mb-6 space-y-4">
                 <div className="glass-card border-[var(--neon-cyan)]/20 p-5 sm:p-6">
                   <p className="text-center text-sm font-semibold text-[var(--text-primary)]">
