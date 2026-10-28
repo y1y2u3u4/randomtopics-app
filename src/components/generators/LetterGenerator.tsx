@@ -4,6 +4,14 @@ import { useMemo } from "react";
 import GeneratorUI, { GENERATOR_STRINGS_EN } from "./GeneratorUI";
 import { letterFilters, letterGenerator } from "@/lib/generators/letters";
 
+const PRESETS = [
+  { id: "any", label: "Random letter A–Z", filters: { set: ["all"] }, count: 1 },
+  { id: "vowel", label: "Vowel", filters: { set: ["vowels"] }, count: 1 },
+  { id: "consonant", label: "Consonant", filters: { set: ["consonants"] }, count: 1 },
+  { id: "scattergories", label: "Scattergories", filters: { set: ["easy"] }, count: 1 },
+  { id: "alphabet", label: "Shuffled A–Z", filters: { set: ["all"] }, count: 26 },
+];
+
 export default function LetterGenerator() {
   const gen = useMemo(() => letterGenerator(), []);
   return (
@@ -18,6 +26,8 @@ export default function LetterGenerator() {
       generate={gen.generate}
       resolve={gen.resolve}
       layout="tiles"
+      pageId="random_letter_generator"
+      presets={PRESETS}
     />
   );
 }

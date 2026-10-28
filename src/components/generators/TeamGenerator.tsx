@@ -14,6 +14,7 @@ import {
   type Person,
 } from "@/lib/randomGenerators";
 import { makeTeamNames } from "@/lib/generators/teamNames";
+import { typingTarget, usePreset } from "./QuickSet";
 
 type Locale = "en" | "es";
 
@@ -111,7 +112,16 @@ function storeLists(lists: Record<string, string>) {
   }
 }
 
-export default function TeamGenerator({ locale = "en" }: { locale?: Locale }) {
+const SAMPLE_NAMES = ["Ava", "Ben", "Chloe", "Diego", "Emma", "Finn", "Grace", "Hiro", "Isla", "Jonah", "Kai", "Luna"];
+const SAMPLE_LEVELS = [5, 2, 4, 3, 1, 5, 3, 2, 4, 1, 3, 4];
+const TEAM_PRESETS: Record<string, { mode: "teams" | "size"; value: number; balance?: boolean }> = {
+  "size-2": { mode: "size", value: 2 }, "size-3": { mode: "size", value: 3 }, "size-4": { mode: "size", value: 4 },
+  "teams-2": { mode: "teams", value: 2 }, "teams-3": { mode: "teams", value: 3 }, "teams-4": { mode: "teams", value: 4 },
+  balanced: { mode: "teams", value: 2, balance: true },
+};
+const QUICK: [string, string][] = [["teams-2", "2 teams"], ["teams-3", "3 teams"], ["teams-4", "4 teams"], ["size-2", "Pairs"], ["size-3", "Groups of 3"], ["size-4", "Groups of 4"], ["balanced", "Balanced by skill"]];
+
+export default function TeamGenerator({ locale = "en", pageId }: { locale?: Locale; pageId?: string }) {
   const t = T[locale];
   const [text, setText] = useState("");
   const [mode, setMode] = useState<"teams" | "size">("teams");
@@ -126,6 +136,7 @@ export default function TeamGenerator({ locale = "en" }: { locale?: Locale }) {
   const [lists, setLists] = useState<Record<string, string>>({});
   const [listName, setListName] = useState("");
   const [isFull, setIsFull] = useState(false);
+  const [history, setHistory] = useState<string[]>([]);
   const boardRef = useRef<HTMLDivElement>(null);
 
   const names = useMemo(() => parseNames(text), [text]);
@@ -133,7 +144,6 @@ export default function TeamGenerator({ locale = "en" }: { locale?: Locale }) {
     () => names.map((name, i) => ({ id: `p${i}`, name, tag: meta[name]?.tag, level: meta[name]?.level })),
     [names, meta],
   );
-  const teamCount = teamCountFor(people.length, { mode, value });
 
   // Saved lists and shared links live in the browser only, so they are read
   // after hydration rather than during render.
@@ -171,35 +181,72 @@ export default function TeamGenerator({ locale = "en" }: { locale?: Locale }) {
   }, []);
 
   const writeShare = useCallback(
-    (nextTeams: Person[][], nextLabels: string[]) => {
-      const index = new Map(people.map((p, i) => [p.id, i]));
+    (nextTeams: Person[][], nextLabels: string[], ppl: Person[] = people, m = mode, v = value) => {
+      const index = new Map(ppl.map((p, i) => [p.id, i]));
       const payload: SharedState = {
-        names,
+        names: ppl.map((p) => p.name),
         teams: nextTeams.map((team) => team.map((p) => index.get(p.id) ?? -1).filter((i) => i >= 0)),
         labels: nextLabels,
-        mode,
-        value,
+        mode: m,
+        value: v,
       };
       const encoded = toBase64Url(JSON.stringify(payload));
       // Very long rosters would make an unwieldy URL; keep those local only.
       const qs = encoded.length < 6000 ? `?d=${encoded}` : "";
       window.history.replaceState(null, "", `${window.location.pathname}${qs}`);
     },
-    [people, names, mode, value],
+    [people, mode, value],
   );
 
-  const generate = () => {
-    if (people.length < 2) return;
+  const generate = (over?: { text?: string; mode?: "teams" | "size"; value?: number; balance?: boolean; meta?: Record<string, Meta> }, source = "button") => {
+    const o = over ?? {};
+    const useText = o.text ?? text;
+    const ppl: Person[] = o.text !== undefined ? parseNames(useText).map((name, i) => ({ id: `p${i}`, name, tag: o.meta?.[name]?.tag, level: o.meta?.[name]?.level })) : people;
+    const m = o.mode ?? mode, v = o.value ?? value, bal = o.balance ?? balance;
+    const tc = teamCountFor(ppl.length, { mode: m, value: v });
+    if (ppl.length < 2) return;
     const seed = newSeed();
     const rng = createRng(seed);
-    const validLocks = Object.fromEntries(Object.entries(locks).filter(([id, i]) => people.some((p) => p.id === id) && i < teamCount));
-    const next = makeTeams(people, { mode, value, balanceTag: balance, balanceLevel: balance, locks: validLocks }, rng);
+    const validLocks = Object.fromEntries(Object.entries(locks).filter(([id, i]) => ppl.some((p) => p.id === id) && i < tc));
+    const next = makeTeams(ppl, { mode: m, value: v, balanceTag: bal, balanceLevel: bal, locks: validLocks }, rng);
     const nextLabels = useNames ? (labels.length === next.length && teams.length ? labels : makeTeamNames(next.length, locale, rng)) : [];
     setTeams(next);
     setLabels(nextLabels);
-    writeShare(next, nextLabels);
-    track("generate_success", { tool_type: "random_team_generator", result_count: next.length, requested_count: people.length, locale, balanced: balance, locked: Object.keys(validLocks).length });
+    writeShare(next, nextLabels, ppl, m, v);
+    track("generate_success", { tool_type: "random_team_generator", result_count: next.length, requested_count: ppl.length, locale, balanced: bal, locked: Object.keys(validLocks).length });
+    if (pageId) {
+      track(`${pageId}_use`, { tool_type: pageId, result_count: next.length, requested_count: ppl.length, content_source: source, locale });
+      setHistory((h) => [next.map((t, i) => `${nextLabels[i] || t_(i)}: ${t.map((p) => p.name).join(", ")}`).join("\n"), ...h].slice(0, 5));
+    }
   };
+  const t_ = (i: number) => t.team(i);
+
+  const applyQuick = (id: string, source: string) => {
+    const pr = TEAM_PRESETS[id];
+    if (!pr) return;
+    const empty = names.length < 2;
+    const meta2 = pr.balance ? Object.fromEntries(SAMPLE_NAMES.map((n, i) => [n, { level: SAMPLE_LEVELS[i] }])) : undefined;
+    setMode(pr.mode); setValue(pr.value);
+    if (pr.balance) setBalance(true);
+    if (empty) { setText(SAMPLE_NAMES.join("\n")); if (meta2) setMeta(meta2); }
+    setLocks({});
+    generate({ mode: pr.mode, value: pr.value, balance: pr.balance ? true : balance, ...(empty ? { text: SAMPLE_NAMES.join("\n"), meta: meta2 ?? {} } : {}) }, `${source}_${id}`);
+    window.setTimeout(() => boardRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" }), 80);
+  };
+  usePreset("teams", (id) => applyQuick(id, "section"));
+
+  // Ctrl/Cmd+Enter shuffles from anywhere; Space or Enter when focus is not in a field.
+  const keyRef = useRef<() => void>(() => {});
+  useEffect(() => { keyRef.current = () => generate(undefined, "keyboard"); });
+  useEffect(() => {
+    if (!pageId) return;
+    const on = (e: KeyboardEvent) => {
+      const combo = (e.ctrlKey || e.metaKey) && e.key === "Enter";
+      if (combo || ((e.key === " " || e.key === "Enter") && !typingTarget(e.target) && !e.metaKey && !e.ctrlKey)) { e.preventDefault(); keyRef.current(); }
+    };
+    window.addEventListener("keydown", on);
+    return () => window.removeEventListener("keydown", on);
+  }, [pageId]);
 
   const toggleLock = (personId: string, teamIndex: number) => {
     setLocks((prev) => {
@@ -266,10 +313,15 @@ export default function TeamGenerator({ locale = "en" }: { locale?: Locale }) {
   const colors = ["var(--neon-pink)", "var(--neon-cyan)", "var(--neon-yellow)", "var(--neon-green)", "var(--neon-purple)", "var(--neon-orange)"];
 
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6">
+    <section id="tool" className="max-w-5xl mx-auto px-4 sm:px-6 scroll-mt-20">
       <div className="glass-card p-5 sm:p-8">
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
           <div>
+            {pageId && (
+              <div className="flex flex-wrap gap-2 mb-3" role="group" aria-label="Quick splits">
+                {QUICK.map(([id, text2]) => <button key={id} type="button" className={chip(false)} onClick={() => applyQuick(id, "chip")}>{text2}</button>)}
+              </div>
+            )}
             <label htmlFor="team-names" className="text-xs uppercase tracking-widest text-[var(--text-muted)]">{t.names}</label>
             <textarea
               id="team-names"
@@ -282,7 +334,7 @@ export default function TeamGenerator({ locale = "en" }: { locale?: Locale }) {
               rows={9}
               className="mt-2 w-full rounded-xl bg-[var(--bg-secondary)] border border-white/10 p-3 text-sm text-[var(--text-primary)] focus:outline-none focus:border-[var(--neon-cyan)]/60"
             />
-            <p className="text-xs text-[var(--text-muted)] mt-1">{t.people(people.length)}</p>
+            <p className="text-xs text-[var(--text-muted)] mt-1">{t.people(people.length)}{pageId && !text && <> · <button type="button" className="underline hover:text-[var(--text-primary)]" onClick={() => setText(SAMPLE_NAMES.join("\n"))}>Try a sample list</button></>}</p>
             {Object.keys(lists).length > 0 && (
               <div className="mt-3">
                 <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-1">{t.saved}</p>
@@ -365,7 +417,7 @@ export default function TeamGenerator({ locale = "en" }: { locale?: Locale }) {
         </div>
 
         <div className="flex flex-col items-center mt-6">
-          <button type="button" onClick={generate} disabled={people.length < 2} className="btn-generate disabled:opacity-40">
+          <button type="button" onClick={() => generate()} disabled={people.length < 2} className="btn-generate disabled:opacity-40">
             <span aria-hidden="true">🎲</span> {teams.length ? t.again : t.generate}
           </button>
           {people.length < 2 && <p className="text-xs text-[var(--text-muted)] mt-2">{t.needMore}</p>}
@@ -406,17 +458,23 @@ export default function TeamGenerator({ locale = "en" }: { locale?: Locale }) {
               </div>
               {isFull && (
                 <div className="flex justify-center gap-3 mt-8">
-                  <button type="button" onClick={generate} className="btn-generate">🎲 {t.again}</button>
+                  <button type="button" onClick={() => generate()} className="btn-generate">🎲 {t.again}</button>
                   <button type="button" onClick={toggleFullscreen} className={ghost}>{t.exitFullscreen}</button>
                 </div>
               )}
             </div>
-            <p className="text-xs text-[var(--text-muted)] text-center mt-3">{t.lockHint}</p>
+            <p className="text-xs text-[var(--text-muted)] text-center mt-3">{t.lockHint}{pageId && " Press Ctrl+Enter to shuffle again."}</p>
+            {history.length > 1 && (
+              <details className="mt-3 text-sm text-[var(--text-secondary)] max-w-xl mx-auto">
+                <summary className="cursor-pointer text-center">Earlier shuffles ({history.length - 1})</summary>
+                {history.slice(1).map((h, i) => <pre key={i} className="mt-2 whitespace-pre-wrap rounded-lg border border-white/10 p-2 text-xs font-sans">{h}</pre>)}
+              </details>
+            )}
             <div className="flex flex-wrap justify-center gap-3 mt-4">
-              <button type="button" className={ghost} onClick={async () => { if (await copyText(tableText)) { flashFor("copy"); track("copy_result", { tool_type: "random_team_generator", locale }); } }}>
+              <button type="button" className={ghost} onClick={async () => { if (await copyText(tableText)) { flashFor("copy"); track("copy_result", { tool_type: "random_team_generator", locale }); if (pageId) track(`${pageId}_share`, { tool_type: pageId, share_method: "copy", locale }); } }}>
                 {flash === "copy" ? t.copied : t.copy}
               </button>
-              <button type="button" className={ghost} onClick={async () => { if (await copyText(window.location.href)) { flashFor("share"); track("share_click", { tool_type: "random_team_generator", locale }); } }}>
+              <button type="button" className={ghost} onClick={async () => { if (await copyText(window.location.href)) { flashFor("share"); track("share_click", { tool_type: "random_team_generator", locale }); if (pageId) track(`${pageId}_share`, { tool_type: pageId, share_method: "link", locale }); } }}>
                 {flash === "share" ? t.shared : t.share}
               </button>
               <button type="button" className={ghost} onClick={downloadCsv}>{t.csv}</button>
