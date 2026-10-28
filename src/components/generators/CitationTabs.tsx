@@ -5,6 +5,7 @@ export const CITATION_PAGES = [
   { id: "asa", href: "/asa-citation-generator", label: "ASA" },
   { id: "acs", href: "/acs-citation-generator", label: "ACS" },
   { id: "chicago", href: "/chicago-citation-generator", label: "Chicago" },
+  { id: "vancouver", href: "/vancouver-citation-generator", label: "Vancouver" },
 ] as const;
 
 export default function CitationTabs({ current }: { current: (typeof CITATION_PAGES)[number]["id"] }) {

@@ -629,6 +629,100 @@ test("citations: input detection, metadata mapping and the URL guard", () => {
   assert.equal(su.ipBlocked("151.101.1.140"), false);
 });
 
+/* ---------------- Vancouver citation generator ---------------- */
+
+const vf = mod("src/lib/citations/vancouver.ts");
+const vl = mod("src/lib/citations/vancouverLookup.ts");
+const VP = (given, family) => ({ given, family });
+const halpern = { type: "journal", authors: [VP("Scott D.", "Halpern"), VP("Peter A.", "Ubel"), VP("Arthur L.", "Caplan")], title: "Solid-organ transplantation in HIV-infected patients", container: "New England Journal of Medicine", abbrev: "N Engl J Med", volume: "347", issue: "4", pages: "284-287", year: "2002", month: 7, day: 25 };
+
+test("vancouver: journal article matches the ICMJE sample (date, volume(issue):short pages, doi)", () => {
+  assert.equal(vf.formatVancouver(halpern), "Halpern SD, Ubel PA, Caplan AL. Solid-organ transplantation in HIV-infected patients. N Engl J Med. 2002 Jul 25;347(4):284-7.");
+  assert.equal(vf.formatVancouver({ ...halpern, doi: "https://doi.org/10.1056/nejmsb020632" }).endsWith("284-7. doi:10.1056/nejmsb020632"), true);
+  assert.equal(vf.formatVancouver({ ...halpern, month: undefined, day: undefined, issue: "" }), "Halpern SD, Ubel PA, Caplan AL. Solid-organ transplantation in HIV-infected patients. N Engl J Med. 2002;347:284-7.");
+  assert.equal(vf.formatVancouver({ ...halpern, abbrev: "", container: "The Lancet" }).includes(" Lancet. 2002 Jul 25;"), true, "known journals get their NLM abbreviation");
+  assert.equal(vf.formatVancouver({ ...halpern, abbrev: "", container: "Journal of Obscure Things" }).includes(" Journal of Obscure Things. 2002"), true, "unknown journal keeps the typed name");
+});
+
+test("vancouver: authors are Surname Initials, six then et al., organizations kept whole", () => {
+  assert.equal(vf.vPerson(VP("Jean-Paul", "Sartre")), "Sartre JP");
+  assert.equal(vf.vPerson({ given: "", family: "de Azevedo", initials: "WF", suffix: "Jr" }), "de Azevedo WF Jr");
+  assert.equal(vf.vPerson({ given: "", family: "World Health Organization", org: true }), "World Health Organization");
+  const n = (k) => Array.from({ length: k }, (_, i) => VP(`Given`, `Fam${i}`));
+  assert.equal(vf.authorsBlock(n(6)), "Fam0 G, Fam1 G, Fam2 G, Fam3 G, Fam4 G, Fam5 G.", "exactly six are all listed");
+  assert.equal(vf.authorsBlock(n(7)), "Fam0 G, Fam1 G, Fam2 G, Fam3 G, Fam4 G, Fam5 G, et al.", "seven or more: first six then et al.");
+  assert.equal(vf.authorsBlock(n(30)).split(",").length, 7);
+  assert.equal(vf.authorsBlock([]), "");
+  const noAuthor = vf.formatVancouver({ ...halpern, authors: [] });
+  assert.ok(noAuthor.startsWith("Solid-organ"), "no author: the title leads");
+});
+
+test("vancouver: page ranges are shortened the NLM way", () => {
+  for (const [raw, want] of [["284-287", "284-7"], ["123-128", "123-8"], ["1203-1210", "1203-10"], ["325-333", "325-33"], ["88-133", "88-133"], ["99-101", "99-101"], ["1234–1245", "1234-45"], ["e1234", "e1234"], ["S12-S15", "S12-S15"], ["150-120", "150-120"], ["200-200", "200-200"], ["12", "12"], ["", ""]]) {
+    assert.equal(vf.shortenPages(raw), want, raw);
+  }
+});
+
+test("vancouver: book, chapter, report and thesis follow Citing Medicine", () => {
+  assert.equal(vf.formatVancouver({ type: "book", authors: [VP("Noel R.", "Rose"), VP("Ian R.", "Mackay")], title: "The autoimmune diseases", edition: "4", place: "St. Louis", publisher: "Elsevier", year: "2006" }), "Rose NR, Mackay IR. The autoimmune diseases. 4th ed. St. Louis: Elsevier; 2006.");
+  assert.equal(vf.formatVancouver({ type: "book", authors: [VP("A", "Smith")], title: "T", edition: "1", place: "Oxford", publisher: "OUP", year: "2020" }), "Smith A. T. Oxford: OUP; 2020.", "a first edition is not stated");
+  assert.equal(vf.formatVancouver({ type: "book", authors: [VP("A", "Smith")], title: "T", edition: "22", publisher: "OUP", year: "2020" }), "Smith A. T. 22nd ed. OUP; 2020.");
+  const ch = vf.formatVancouver({ type: "chapter", authors: [VP("Paul S.", "Meltzer"), VP("Anita", "Kallioniemi"), VP("Jeffrey M.", "Trent")], title: "Chromosome alterations in human solid tumors", container: "The genetic basis of human cancer", editors: [VP("Bert", "Vogelstein"), VP("Kenneth W.", "Kinzler")], place: "New York", publisher: "McGraw-Hill", year: "2002", pages: "93-113" });
+  assert.equal(ch, "Meltzer PS, Kallioniemi A, Trent JM. Chromosome alterations in human solid tumors. In: Vogelstein B, Kinzler KW, editors. The genetic basis of human cancer. New York: McGraw-Hill; 2002. p. 93-113.");
+  assert.ok(vf.formatVancouver({ type: "chapter", authors: [VP("A", "B")], title: "T", container: "Book", editors: [VP("C", "Dee")], pages: "120-125" }).includes("editor. Book."), "single editor");
+  assert.equal(vf.formatVancouver({ type: "report", authors: [{ given: "", family: "World Health Organization", org: true }], title: "Global report on infection prevention and control", place: "Geneva", publisher: "World Health Organization", year: "2022", detail: "WHO/UHC/SDS/2022.1" }), "World Health Organization. Global report on infection prevention and control. Geneva: World Health Organization; 2022. Report No.: WHO/UHC/SDS/2022.1.");
+  assert.equal(vf.formatVancouver({ type: "thesis", authors: [VP("Maria", "Lopez")], title: "Sleep and recovery", detail: "dissertation", place: "Boston", publisher: "Harvard University", year: "2019" }), "Lopez M. Sleep and recovery [dissertation]. Boston: Harvard University; 2019.");
+});
+
+test("vancouver: web citations use [Internet], [cited YYYY Mon DD] and Available from", () => {
+  assert.equal(vf.citedDate("2026-10-28"), "2026 Oct 28");
+  assert.equal(vf.citedDate("2026-01-05"), "2026 Jan 5", "no leading zero on the day");
+  assert.equal(vf.citedDate("bad"), "");
+  const web = { type: "web", authors: [{ given: "", family: "World Health Organization", org: true }], title: "Diabetes", place: "Geneva", publisher: "World Health Organization", year: "2024", month: 11, day: 14, url: "https://www.who.int/news-room/fact-sheets/detail/diabetes", accessed: "2026-10-28" };
+  assert.equal(vf.formatVancouver(web), "World Health Organization. Diabetes [Internet]. Geneva: World Health Organization; 2024 Nov 14 [cited 2026 Oct 28]. Available from: https://www.who.int/news-room/fact-sheets/detail/diabetes");
+  assert.equal(vf.formatVancouver({ ...web, place: "", year: "", month: undefined, day: undefined, authors: [] }), "Diabetes [Internet]. World Health Organization; [cited 2026 Oct 28]. Available from: https://www.who.int/news-room/fact-sheets/detail/diabetes", "undated page, no author");
+  assert.equal(vf.formatVancouver({ ...web, title: "Is it safe?" }).includes("Is it safe? [Internet]."), true);
+});
+
+test("vancouver: in-text markers, numbered list and reordering", () => {
+  assert.deepEqual([vf.marker(3), vf.marker(3, "parentheses"), vf.marker(12, "superscript")], ["[3]", "(3)", "¹²"]);
+  assert.equal(vf.numberedText(["A.", "B."]), "1. A.\n2. B.");
+  assert.ok(vf.numberedHtml(["A & B <x>"]).includes("A &amp; B &lt;x&gt;"));
+  assert.deepEqual(vf.moveItem(["a", "b", "c"], 2, -1), ["a", "c", "b"]);
+  assert.deepEqual(vf.moveItem(["a", "b", "c"], 0, -1), ["a", "b", "c"], "top item stays");
+  assert.deepEqual(vf.moveItem(["a", "b", "c"], 2, 1), ["a", "b", "c"], "bottom item stays");
+});
+
+const vancouverAsync = [];
+test("vancouver: PMID and DOI detection, PubMed mapping and the NLM abbreviation", () => {
+  assert.deepEqual(vl.detectVInput("12140307"), { kind: "pmid", value: "12140307" });
+  assert.deepEqual(vl.detectVInput("PMID: 12140307"), { kind: "pmid", value: "12140307" });
+  assert.deepEqual(vl.detectVInput("https://pubmed.ncbi.nlm.nih.gov/12140307/"), { kind: "pmid", value: "12140307" });
+  assert.equal(vl.detectVInput("10.1056/nejmsb020632").kind, "doi");
+  assert.equal(vl.detectVInput("978-0-553-44743-9").kind, "isbn", "ISBNs are not mistaken for PMIDs");
+  assert.equal(vl.detectVInput("hello").kind, "unknown");
+  assert.deepEqual(vl.parsePubMedAuthor("de Azevedo WF Jr"), { given: "", family: "de Azevedo", initials: "WF", suffix: "Jr" });
+  assert.deepEqual(vl.parsePubDate("2019 Jun 1"), { year: "2019", month: 6, day: 1 });
+  assert.deepEqual(vl.parsePubDate("2018 Winter"), { year: "2018", month: undefined, day: undefined });
+  const rec = { uid: "31452104", pubdate: "2019", source: "Methods Mol Biol", authors: [{ name: "Bitencourt-Ferreira G", authtype: "Author" }, { name: "de Azevedo WF Jr", authtype: "Author" }, { name: "Consortium", authtype: "CollectiveName" }], title: "Molegro Virtual Docker for Docking.", volume: "2053", issue: "", pages: "149-167", articleids: [{ idtype: "doi", value: "10.1007/978-1-4939-9752-7_10" }] };
+  assert.equal(vf.formatVancouver(vl.fromPubMed(rec)), "Bitencourt-Ferreira G, de Azevedo WF Jr. Molegro Virtual Docker for Docking. Methods Mol Biol. 2019;2053:149-67. doi:10.1007/978-1-4939-9752-7_10");
+});
+
+vancouverAsync.push((async () => {
+  const calls = [];
+  const fakeFetch = async (url) => {
+    calls.push(String(url));
+    const ok = (body) => ({ ok: true, status: 200, json: async () => body });
+    if (String(url).includes("esummary")) return ok({ result: { 12140307: { uid: "12140307", pubdate: "2002 Jul 25", source: "N Engl J Med", authors: [{ name: "Halpern SD", authtype: "Author" }], title: "Solid-organ transplantation in HIV-infected patients.", volume: "347", issue: "4", pages: "284-7" } } });
+    return ok({ esearchresult: { idlist: [] } });
+  };
+  const pm = await vl.lookupPmid("12140307", fakeFetch);
+  assert.deepEqual([pm.abbrev, pm.month, pm.day, pm.pmid], ["N Engl J Med", 7, 25, "12140307"]);
+  await assert.rejects(() => vl.lookupPmid("12; DROP", fakeFetch), /PMID/);
+  assert.equal(calls.length, 1, "bad PMIDs never reach the network");
+  passed++;
+})());
+
 test("keep playing: three different tools, never the page itself, all routed", () => {
   const rt = mod("src/data/relatedTools.ts");
   for (const tool of rt.RELATED_TOOLS) {
@@ -885,6 +979,6 @@ test("city names: 8 styles, size filter, population and hook on every name", () 
   ], 1000, CITY_ROOTS.length);
 });
 
-await Promise.all(asyncTests);
+await Promise.all([...asyncTests, ...vancouverAsync]);
 
 console.log(`✓ random generators: ${passed} tests passed`);

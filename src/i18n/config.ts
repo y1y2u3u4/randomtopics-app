@@ -199,6 +199,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/asa-citation-generator",
   "/acs-citation-generator",
   "/chicago-citation-generator",
+  "/vancouver-citation-generator",
   "/random-name-picker",
   "/decision-maker",
   "/teacher-warm-ups",

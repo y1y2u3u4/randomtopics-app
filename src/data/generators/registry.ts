@@ -318,6 +318,13 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     crossLinkOnly: true,
   },
   {
+    href: "/vancouver-citation-generator",
+    emoji: "🩺",
+    label: { en: "Vancouver Citation Generator" },
+    detail: { en: "Numbered references from a PMID or DOI" },
+    crossLinkOnly: true,
+  },
+  {
     href: "/random-movie-generator",
     emoji: "🎬",
     label: { en: "Random Movie Generator" },

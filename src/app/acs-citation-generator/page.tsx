@@ -41,7 +41,7 @@ export default function AcsCitationGeneratorPage() {
       description={DESCRIPTION}
       updated="2026-10-12"
       faq={FAQ.map((f) => ({ ...f, answer: f.answer.replace(/<[^>]+>/g, "") }))}
-      related={[{ href: "/asa-citation-generator", label: "ASA citation generator" }, { href: "/chicago-citation-generator", label: "Chicago style citation generator" }, { href: "/writing", label: "Writing prompts" }, { href: "/random-word-generator", label: "Random word generator" }]}
+      related={[{ href: "/asa-citation-generator", label: "ASA citation generator" }, { href: "/chicago-citation-generator", label: "Chicago style citation generator" }, { href: "/vancouver-citation-generator", label: "Vancouver citation generator" }, { href: "/writing", label: "Writing prompts" }, { href: "/random-word-generator", label: "Random word generator" }]}
       inShort="Paste a DOI, ISBN or URL and copy an ACS reference such as Marucho, M.; Kelley, C. T.; Pettitt, B. M. Title. J. Chem. Theory Comput. 2008, 4 (3), 385–396. DOI: 10.1021/ct700202h — with the year in bold and the volume in italics kept when you paste into Word or Google Docs. References are numbered in the order you add them and cited with superscript numbers."
       content={
         <>
