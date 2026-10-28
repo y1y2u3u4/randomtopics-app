@@ -128,6 +128,15 @@ export const EXTRA_CATEGORY_FAMILIES: NextTool[][] = [
 NEXT_STEPS["/toss-a-coin"] = { next: t("/dice-roller", "Roll a dice next", "🎲"), collection: t("/flip-a-coin", "Flip up to 10 coins at once", "🪙") };
 NEXT_STEPS["/heads-or-tails"] = { next: t("/yes-or-no-wheel", "Spin the yes or no wheel", "✅"), collection: t("/decision-maker", "Choose between 3 or more options", "🧭") };
 NEXT_STEPS["/picker-wheel"] = { next: t("/decision-maker", "Let it decide: Decision Maker", "🧭"), collection: t("/random-name-picker", "Draw several names at once", "🎩") };
+NEXT_STEPS["/food-wheel"] = { next: t("/random-food-generator", "Get a dish idea", "🍜"), collection: t("/decision-maker", "Choose between 3 or more options", "🧭") };
+NEXT_STEPS["/name-wheel"] = { next: t("/random-name-picker", "Draw several names at once", "🎩"), collection: t("/raffle-wheel", "Run a raffle draw", "🎟️") };
+NEXT_STEPS["/spin-the-wheel-custom"] = { next: t("/picker-wheel", "Saved lists: Picker Wheel", "🎡"), collection: t("/spin-the-wheel", "Spin the topic wheel", "🎡") };
+NEXT_STEPS["/random-wheel"] = { next: t("/number-randomizer", "Random number in any range", "🔢"), collection: t("/spin-the-wheel-custom", "Make your own wheel", "🎛️") };
+NEXT_STEPS["/classroom-name-picker-wheel"] = { next: t("/random-team-generator", "Split the class into teams", "👥"), collection: t("/random-name-picker", "Draw several names at once", "🎩") };
+NEXT_STEPS["/raffle-wheel"] = { next: t("/random-name-picker", "Draw several winners at once", "🎩"), collection: t("/wheel-of-names", "Plain wheel of names", "🎡") };
+NEXT_STEPS["/yes-or-no-wheel"] = { next: t("/magic-8-ball", "Ask the Magic 8 Ball", "🎱"), collection: t("/spin-the-wheel-custom", "Make your own wheel", "🎛️") };
+NEXT_STEPS["/wheel-of-names"] = { next: t("/raffle-wheel", "Run a raffle draw", "🎟️"), collection: t("/spin-the-wheel", "Spin the topic wheel", "🎡") };
+NEXT_STEPS["/random-name-picker"] = { next: t("/wheel-of-names", "Spin it as a wheel", "🎡"), collection: t("/spin-the-wheel", "Spin the topic wheel", "🎡") };
 
 // ---------------------------------------------------------------- other languages
 export type LocaleCode = "es" | "pt" | "fr" | "tr";

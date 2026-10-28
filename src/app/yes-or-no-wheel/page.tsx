@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/generators/GeneratorPageShell";
+import WheelFamilyLinks from "@/components/wheel/WheelFamilyLinks";
 import YesNoWheel from "@/components/generators/YesNoWheel";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/yes-or-no-wheel";
-const TITLE = "Yes or No Wheel — Spin for a Random Yes/No/Maybe Answer";
+const TITLE = "Yes or No Wheel — Free Spinner for Yes, No or Maybe";
 const DESCRIPTION =
   "Ask a question and spin the yes or no wheel. Switch to yes, no or maybe for a third option, keep score of the answers, and let a fair random wheel make the call. Free, no signup.";
 
@@ -46,6 +47,18 @@ const FAQ = [
     question: "Does it save my questions?",
     answer: "No. Your question stays on your screen and in your browser; nothing is stored or sent to a server.",
   },
+  {
+    question: "How do I make a yes no maybe wheel?",
+    answer: "Press the Yes / No / Maybe button above the wheel. The wheel changes to nine slices, three each of Yes, No and Maybe, so every answer has a one-in-three chance.",
+  },
+  {
+    question: "Can I share my yes or no wheel result?",
+    answer: "Yes. After a spin, press Share this result. It copies your question, the answer and a link to the wheel, ready to paste into a chat.",
+  },
+  {
+    question: "Can I add my own options to the wheel?",
+    answer: "For your own labels, use the custom spin the wheel. You can type any entries, import a list, set weights and share the wheel by link.",
+  },
 ];
 
 export default function YesNoWheelPage() {
@@ -59,12 +72,15 @@ export default function YesNoWheelPage() {
       description={DESCRIPTION}
       updated="2026-10-28"
       faq={FAQ}
+      afterTool={<WheelFamilyLinks path={PATH} />}
       inShort="Choose Yes / No or Yes / No / Maybe, type your question if you want to, and press Spin. The wheel lands on a random answer with equal odds for each, and a tally keeps count of how many of each you have had. It is free, takes no signup and keeps your question in your browser."
       related={[
         { href: "/decision-maker", label: "Decision maker" },
         { href: "/flip-a-coin", label: "Flip a coin" },
         { href: "/wheel-of-names", label: "Wheel of names" },
         { href: "/spin-the-wheel", label: "Spin the wheel (topics)" },
+        { href: "/spin-the-wheel-custom", label: "Custom wheel" },
+        { href: "/magic-8-ball", label: "Magic 8 ball" },
         { href: "/this-or-that", label: "This or That" },
       ]}
       content={
@@ -81,6 +97,17 @@ export default function YesNoWheelPage() {
             The two-answer wheel is a coin flip with a better show. Add <strong>Maybe</strong> when a plain verdict would be a lie: it turns the result into &lsquo;ask me later&rsquo;
             or &lsquo;do more research&rsquo;, which is often the honest answer to a big question. All answers carry the same odds, and slices alternate around the wheel, so
             it never looks lopsided.
+          </p>
+          <SectionTitle>Yes or no wheel odds, in numbers</SectionTitle>
+          <p>
+            In Yes / No mode five of the ten slices are Yes and five are No: a 50% chance each, like a coin. In Yes / No / Maybe mode it is three slices each, so about 33% for every answer.
+            The tally under the wheel shows your own percentages. Over a few spins they wander, which is normal: ten spins can easily come out 7 to 3.
+          </p>
+          <SectionTitle>Spin a yes or no wheel with friends</SectionTitle>
+          <p>
+            Pass the screen round and let everyone ask a question, or put the wheel on a shared screen for a truth-or-dare style game. Use <strong>Share this result</strong> to
+            send a spin to the group chat. For a wheel with your own labels, try <Link prefetch={false} href="/spin-the-wheel-custom" className={linkClass}>spin the wheel custom</Link> or the{" "}
+            <Link prefetch={false} href="/picker-wheel" className={linkClass}>picker wheel</Link>.
           </p>
           <SectionTitle>Make it fun, not final</SectionTitle>
           <p>

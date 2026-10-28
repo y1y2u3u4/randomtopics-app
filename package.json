@@ -22,6 +22,7 @@
     "classroom:build": "node scripts/classroom/build-content.mjs && node scripts/classroom/export-pptx.mjs --preview .classroom-preview && node scripts/classroom/export-pdf.mjs --preview .classroom-preview && node scripts/classroom/previews.mjs .classroom-preview",
     "classroom:test": "node scripts/classroom-pack-regression.mjs",
     "next:test": "node scripts/next-cards-regression.mjs",
+    "wheel:test": "node scripts/wheel-regression.mjs",
     "umami:test": "node scripts/umami-funnel-regression.mjs",
     "i18n:test": "node scripts/locale-pages-regression.mjs",
     "host:test": "node scripts/host-pass-regression.mjs && node scripts/host-webhook-regression.mjs",

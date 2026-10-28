@@ -34,6 +34,17 @@ export default function NamePicker() {
     try { localStorage.setItem(STORAGE, value); } catch { /* storage blocked */ }
   };
 
+  const [importMsg, setImportMsg] = useState("");
+  const importFile = async (file: File | undefined) => {
+    if (!file) return;
+    if (file.size > 1_000_000) { setImportMsg("That file is too large (1 MB max)."); return; }
+    const { parseWheelFile } = await import("@/lib/wheelImport");
+    const res = parseWheelFile(await file.text(), 500);
+    if (!res.names.length) { setImportMsg("No names found in that file."); return; }
+    updateText(res.names.join("\n"));
+    setImportMsg(`Imported ${res.names.length} names.`);
+  };
+
   const names = parseNames(text);
   const pool = remaining ?? names;
 
@@ -82,6 +93,7 @@ export default function NamePicker() {
             <span>{names.length} names{remaining && removePicked ? ` · ${remaining.length} left in the hat` : ""}</span>
             <span className="flex gap-3">
               {!text && <button type="button" className="text-[var(--neon-cyan)] hover:underline" onClick={() => updateText(SAMPLE)}>Use a sample class list</button>}
+              <label className="cursor-pointer text-[var(--neon-cyan)] hover:underline">Import CSV/TXT<input type="file" accept=".txt,.csv,text/plain,text/csv" className="sr-only" onChange={(e) => { void importFile(e.target.files?.[0]); e.target.value = ""; }} /></label>
               {text && <button type="button" className="hover:text-[var(--text-primary)]" onClick={() => updateText("")}>Clear</button>}
             </span>
           </div>
@@ -94,7 +106,8 @@ export default function NamePicker() {
             </label>
             <label className="flex items-center gap-2"><input type="checkbox" checked={removePicked} onChange={(e) => { setRemovePicked(e.target.checked); setRemaining(null); }} /> Remove picked names (no repeats)</label>
           </div>
-          <p className="text-xs text-[var(--text-muted)] mt-3">Your list is saved only in this browser.</p>
+          {importMsg && <p className="text-xs text-[var(--neon-cyan)] mt-2" role="status">{importMsg}</p>}
+          <p className="text-xs text-[var(--text-muted)] mt-3">Your list is saved only in this browser. Files you import are read here and never uploaded.</p>
         </div>
 
         <div className="flex flex-col">
