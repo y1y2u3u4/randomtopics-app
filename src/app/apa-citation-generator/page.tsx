@@ -43,7 +43,7 @@ export default function ApaCitationGeneratorPage() {
       description={DESCRIPTION}
       updated="2026-10-14"
       faq={FAQ}
-      related={[{ href: "/asa-citation-generator", label: "ASA citation generator" }, { href: "/chicago-citation-generator", label: "Chicago style citation generator" }, { href: "/acs-citation-generator", label: "ACS citation generator" }, { href: "/research-topic-generator", label: "Research topic generator" }]}
+      related={[{ href: "/asa-citation-generator", label: "ASA citation generator" }, { href: "/chicago-citation-generator", label: "Chicago style citation generator" }, { href: "/acs-citation-generator", label: "ACS citation generator" }, { href: "/vancouver-citation-generator", label: "Vancouver citation generator" }, { href: "/research-topic-generator", label: "Research topic generator" }]}
       inShort="Paste one DOI, ISBN or URL — or up to 50 at once, one per line — check the filled-in fields, and copy an APA 7th edition reference such as Desmond, M. (2012). Eviction and the reproduction of urban poverty. American Journal of Sociology, 118(1), 88–133, with its in-text citations (Desmond, 2012, p. 95) and Desmond (2012). The reference page sorts itself into APA order and downloads as a Word file with the bold “References” heading, double spacing and hanging indents."
       content={
         <>

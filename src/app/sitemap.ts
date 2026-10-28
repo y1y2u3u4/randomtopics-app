@@ -208,6 +208,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "asa-citation-generator",
     "acs-citation-generator",
     "chicago-citation-generator",
+    "vancouver-citation-generator",
     "random-name-picker",
     "decision-maker",
     "number-randomizer",

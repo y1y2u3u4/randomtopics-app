@@ -60,6 +60,8 @@ const CARDS = [
     paper: ["(1) Marucho, M.; Kelley, C. T.; Pettitt, B. M. Solutions of the Optimized Closure Integral Equation Theory. <i>J. Chem. Theory Comput.</i> <b>2008</b>, <i>4</i> (3), 385–396.", "(2) Chen, Z. Graphical Representation of Hückel Molecular Orbitals. <i>J. Chem. Educ.</i> <b>2020</b>, <i>97</i> (2), 448–456."] },
   { id: "cite", slug: "chicago-citation-generator", title: "Chicago Citation Generator", line: "18th edition — notes, bibliography, author-date", chips: ["Footnotes & short notes", "Bibliography", "Author-date"],
     paper: ["Desmond, Matthew. <i>Evicted: Poverty and Profit in the American City</i>. Crown, 2016.", "Desmond, Matthew. “Eviction and the Reproduction of Urban Poverty.” <i>American Journal of Sociology</i> 118, no. 1 (2012): 88–133."] },
+  { id: "vancouver", slug: "vancouver-citation-generator", title: "Vancouver Citation Generator", line: "ICMJE / NLM references from a PMID or DOI", chips: ["PMID & DOI autofill", "Numbered reference list", "Six authors, then et al."],
+    paper: ["Halpern SD, Ubel PA, Caplan AL. Solid-organ transplantation in HIV-infected patients. N Engl J Med. 2002 Jul 25;347(4):284-7.", "World Health Organization. Diabetes [Internet]. Geneva: World Health Organization; 2024 Nov 14 [cited 2026 Oct 28]. Available from: https://www.who.int/news-room/fact-sheets/detail/diabetes"], paperTitle: "References" },
   // Random generator matrix batch 1 (2026-10-28): code-drawn cards, no illustration needed.
   { id: "g1", slug: "wheel-of-names", title: "Wheel of Names", line: "Spin a wheel of your own names", chips: ["Paste your names", "Remove the winner", "Shareable link"],
     paper: ["Ava", "Ben", "<b>✓ Chloe</b>", "Diego", "Emma", "Finn"], paperTitle: "Winner" },
