@@ -1,4 +1,5 @@
 import { TWO_TRUTHS_IDEA_GROUPS } from "./twoTruthsIdeas";
+import { applyQuestionBanks } from "./questionBanks/apply";
 
 export interface SeoArticle {
   slug: string;
@@ -4955,3 +4956,6 @@ export const SEO_ARTICLES: SeoArticle[] = [
 },
 
 ];
+
+// 2026-10-28: 300+ question banks for the two list pages (see questionBanks/).
+applyQuestionBanks(SEO_ARTICLES);

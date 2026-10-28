@@ -52,7 +52,7 @@ const SUB_USAGE_EVENTS = new Set(["teacher_present", "bot_message_sent", "journa
 const NEXT_EVENT = /^next_[a-z_]+$/;
 
 // 2026-10-28: per-page {page}_use / {page}_share events on phrasing and new tool pages (toss_a_coin_use, magic_8_ball_share ...).
-const PAGE_USE_SHARE_EVENT = /^(toss_a_coin|heads_or_tails|picker_wheel|magic_8_ball|random_pokemon_generator)_(use|share)$/;
+const PAGE_USE_SHARE_EVENT = /^(toss_a_coin|heads_or_tails|picker_wheel|magic_8_ball|random_pokemon_generator|would_you_rather_questions|truth_or_dare_questions)_(use|share)$/;
 
 // 2026-10-28: wheel family {page}_use / {page}_share (yes_or_no_wheel_use, food_wheel_share ...).
 const WHEEL_USE_SHARE_EVENT = /^(yes_or_no_wheel|spin_the_wheel|food_wheel|name_wheel|spin_the_wheel_custom|random_wheel|classroom_name_picker_wheel|raffle_wheel|wheel_of_names|random_name_picker)_(use|share)$/;
