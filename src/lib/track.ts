@@ -51,8 +51,8 @@ const SUB_USAGE_EVENTS = new Set(["teacher_present", "bot_message_sent", "journa
 // next_result_click, next_locale_click) with props slot, from, target_path.
 const NEXT_EVENT = /^next_[a-z_]+$/;
 
-// 2026-10-28: per-page {page}_use / {page}_share events on phrasing pages (toss_a_coin_use ...).
-const PAGE_USE_SHARE_EVENT = /^(toss_a_coin|heads_or_tails|picker_wheel)_(use|share)$/;
+// 2026-10-28: per-page {page}_use / {page}_share events on phrasing and new tool pages (toss_a_coin_use, magic_8_ball_share ...).
+const PAGE_USE_SHARE_EVENT = /^(toss_a_coin|heads_or_tails|picker_wheel|magic_8_ball|random_pokemon_generator)_(use|share)$/;
 
 export function umamiDirectEvent(eventName: string): boolean {
   return UMAMI_DIRECT_EVENTS.has(eventName) || PAGE_USE_SHARE_EVENT.test(eventName) || NEXT_EVENT.test(eventName) || SUB_EVENT.test(eventName) || SUB_USAGE_EVENTS.has(eventName);

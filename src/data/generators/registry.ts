@@ -492,6 +492,20 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "NBA players by team, era and position, with lock and daily five" },
     crossLinkOnly: true,
   },
+  {
+    href: "/magic-8-ball",
+    emoji: "🎱",
+    label: { en: "Magic 8 Ball" },
+    detail: { en: "Shake for one of 20 classic answers, add your own, daily question" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/random-pokemon-generator",
+    emoji: "⚡",
+    label: { en: "Random Pokémon Generator" },
+    detail: { en: "All 1025 species by generation and type, plus random teams of six" },
+    crossLinkOnly: true,
+  },
 ];
 
 export function generatorsFor(locale: "en" | "es", opts: { crossLinks?: boolean } = {}): { href: string; emoji: string; label: string; detail: string }[] {

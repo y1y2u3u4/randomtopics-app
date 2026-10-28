@@ -141,6 +141,8 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/random-sentence-generator", label: "Random Sentence Generator", emoji: "💬", blurb: "Everyday, funny and story lines", groups: ["creative", "classroom"] },
   { href: "/random-noun-generator", label: "Random Noun Generator", emoji: "📦", blurb: "Nouns by level and letter", groups: ["creative", "classroom"] },
   { href: "/random-nba-player-generator", label: "Random NBA Player Generator", emoji: "🏀", blurb: "Lock picks, daily starting five", groups: ["party", "creative"] },
+  { href: "/magic-8-ball", label: "Magic 8 Ball", emoji: "🎱", blurb: "Shake for an answer, daily question", groups: ["party", "creative"] },
+  { href: "/random-pokemon-generator", label: "Random Pokémon Generator", emoji: "⚡", blurb: "Gen 1-9, types, teams of six", groups: ["party", "creative"] },
   { href: "/random-emoji-generator", label: "Random Emoji Generator", emoji: "😀", blurb: "Tap to copy", groups: ["party", "creative"] },
   { href: "/vancouver-citation-generator", label: "Vancouver Citation Generator", emoji: "🩺", blurb: "Numbered Vancouver references", groups: ["citation"] },
 ];
