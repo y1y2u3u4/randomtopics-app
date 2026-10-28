@@ -77,6 +77,12 @@
 - [Toss a Coin](https://randomtopics.app/toss-a-coin): Toss a coin online: call heads or tails, play best of 3, 5 or 7, and keep all-time stats. Fine for a cricket toss.
 - [Heads or Tails](https://randomtopics.app/heads-or-tails): Heads or tails coin flip with best-of-N series, streaks and shareable results.
 - [Picker Wheel](https://randomtopics.app/picker-wheel): A random picker wheel for names and choices, with saved lists kept in your browser.
+- [Food Wheel](https://randomtopics.app/food-wheel): Spin a wheel to decide what to eat, with your own dishes, weights and a shareable link.
+- [Name Wheel](https://randomtopics.app/name-wheel): A name wheel that picks a random name from a pasted or imported list.
+- [Spin the Wheel Custom](https://randomtopics.app/spin-the-wheel-custom): Make your own custom wheel: your entries, weights, remove-winner mode and a share link.
+- [Random Wheel](https://randomtopics.app/random-wheel): A random wheel for numbers, names or choices.
+- [Classroom Name Picker Wheel](https://randomtopics.app/classroom-name-picker-wheel): Call on students at random, one turn each, with the roll kept in your browser.
+- [Raffle Wheel](https://randomtopics.app/raffle-wheel): Pick giveaway and raffle winners with a spin; remove winners so nobody wins twice.
 - [Dice Roller](https://randomtopics.app/dice-roller): Roll 1 to 10 dice from d4 to d100 with a modifier.
 - [Yes or No Wheel](https://randomtopics.app/yes-or-no-wheel): A spinning yes, no or maybe wheel for a quick answer.
 - [Random City Generator](https://randomtopics.app/random-city-generator): A random real city by continent or country.

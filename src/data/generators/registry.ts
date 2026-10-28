@@ -437,6 +437,27 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     crossLinkOnly: true,
   },
   {
+    href: "/spin-the-wheel",
+    emoji: "🎡",
+    label: { en: "Spin the Wheel" },
+    detail: { en: "A random topic wheel, plus your own custom wheel" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/food-wheel",
+    emoji: "🍜",
+    label: { en: "Food Wheel" },
+    detail: { en: "Spin to decide what to eat" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/raffle-wheel",
+    emoji: "🎟️",
+    label: { en: "Raffle Wheel" },
+    detail: { en: "Draw giveaway and raffle winners" },
+    crossLinkOnly: true,
+  },
+  {
     href: "/picker-wheel",
     emoji: "🎡",
     label: { en: "Picker Wheel" },
