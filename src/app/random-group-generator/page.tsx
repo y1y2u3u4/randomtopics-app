@@ -12,6 +12,7 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import { createRng } from "@/lib/randomGenerators";
 import { GROUP_ROLES, makeGroups, parsePairs } from "@/lib/groupRules";
 import TryNext from "@/components/TryNext";
+import QuickSet, { QuickRow } from "@/components/generators/QuickSet";
 
 const PATH = "/random-group-generator";
 const TITLE = "Random Group Generator — Keep Students Together or Apart";
@@ -59,6 +60,14 @@ const FAQ_ITEMS = [
     answer: "Nothing is uploaded. Saved class lists stay in this browser only (they are shared with our random team generator on the same device), so Period 3 is one click away next time.",
   },
   {
+    question: "How do I make random groups of 3 or 4?",
+    answer: "Tap Groups of 3 or Groups of 4 in the section below the tool (or set People per group). With an empty list a sample class is used; paste your own names and tap again. Leftovers are spread so no group is more than one student bigger than another.",
+  },
+  {
+    question: "How do I make random pairs?",
+    answer: "Tap Pairs. With an odd number of students one group becomes a trio, so nobody is left out. Add keep-apart rules if two students should not be partners.",
+  },
+  {
     question: "What's the difference between this and the random team generator?",
     answer: "Both split a list fairly. This group generator is built for classrooms — together/apart rules, group roles and a board view. The random team generator is built for games and sports — balance by skill, lock players, team names and share links.",
   },
@@ -94,6 +103,15 @@ export default function RandomGroupGeneratorPage() {
             <ul className="space-y-1 list-disc pl-5" data-group-example>
               {EXAMPLE.groups.map((g, i) => <li key={i}><strong className="text-[var(--text-primary)]">Group {i + 1}:</strong> {g.join(", ")}</li>)}
             </ul>
+            <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-2" style={{ fontFamily: "var(--font-display)" }}>Random pairs, groups of 3, 4 or 5</h3>
+            <p>One tap splits the list (a sample class is used if yours is empty). Paste your names and tap again for the real thing.</p>
+            <QuickRow>
+              <QuickSet tool="groups" id="size-2">Pairs</QuickSet>
+              <QuickSet tool="groups" id="size-3">Groups of 3</QuickSet>
+              <QuickSet tool="groups" id="size-4">Groups of 4</QuickSet>
+              <QuickSet tool="groups" id="groups-3">3 groups</QuickSet>
+              <QuickSet tool="groups" id="groups-5">5 groups</QuickSet>
+            </QuickRow>
             <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-2" style={{ fontFamily: "var(--font-display)" }}>What size should student groups be?</h3>
             <ul className="space-y-2 list-disc pl-5">
               <li><strong className="text-[var(--text-primary)]">Pairs:</strong> think–pair–share, peer editing, reading buddies. Everyone talks.</li>
@@ -106,6 +124,7 @@ export default function RandomGroupGeneratorPage() {
               the <Link prefetch={false} href="/classroom-timer" className="text-[var(--neon-cyan)] hover:underline">classroom timer</Link>. Picking teams for a game or sport?
               The <Link prefetch={false} href="/random-team-generator" className="text-[var(--neon-cyan)] hover:underline">random team generator</Link> balances by skill.
               Need one name, not groups? Use the <Link prefetch={false} href="/random-name-picker" className="text-[var(--neon-cyan)] hover:underline">random name picker</Link>.
+              Can&apos;t decide which activity to run? <Link prefetch={false} href="/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">Spin the wheel</Link> or use the <Link prefetch={false} href="/decision-maker" className="text-[var(--neon-cyan)] hover:underline">decision maker</Link>.
             </p>
           </div>
         </section>

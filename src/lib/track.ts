@@ -54,11 +54,17 @@ const NEXT_EVENT = /^next_[a-z_]+$/;
 // 2026-10-28: per-page {page}_use / {page}_share events on phrasing and new tool pages (toss_a_coin_use, magic_8_ball_share ...).
 const PAGE_USE_SHARE_EVENT = /^(toss_a_coin|heads_or_tails|picker_wheel|magic_8_ball|random_pokemon_generator|would_you_rather_questions|truth_or_dare_questions)_(use|share)$/;
 
+// 2026-10-28: wheel family {page}_use / {page}_share (yes_or_no_wheel_use, food_wheel_share ...).
+const WHEEL_USE_SHARE_EVENT = /^(yes_or_no_wheel|spin_the_wheel|food_wheel|name_wheel|spin_the_wheel_custom|random_wheel|classroom_name_picker_wheel|raffle_wheel|wheel_of_names|random_name_picker)_(use|share)$/;
+
 // 2026-10-28: result-area actions on /speech, /debate and /argument-generator.
 const RESULT_ACTION_EVENT = /^(speech_(timer_start|reroll|rubric_open)|debate_(timer_start|reroll))$/;
 
+// 2026-10-28: small random tools (letters, numbers, groups/teams, decision maker).
+const SMALL_TOOL_EVENT = /^(random_letter_generator|random_group_generator|random_team_generator|decision_maker|number_randomizer|random_number_generator)_(use|share)$/;
+
 export function umamiDirectEvent(eventName: string): boolean {
-  return UMAMI_DIRECT_EVENTS.has(eventName) || PAGE_USE_SHARE_EVENT.test(eventName) || NEXT_EVENT.test(eventName) || RESULT_ACTION_EVENT.test(eventName) || SUB_EVENT.test(eventName) || SUB_USAGE_EVENTS.has(eventName);
+  return UMAMI_DIRECT_EVENTS.has(eventName) || SMALL_TOOL_EVENT.test(eventName) || PAGE_USE_SHARE_EVENT.test(eventName) || WHEEL_USE_SHARE_EVENT.test(eventName) || NEXT_EVENT.test(eventName) || RESULT_ACTION_EVENT.test(eventName) || SUB_EVENT.test(eventName) || SUB_USAGE_EVENTS.has(eventName);
 }
 
 /** generate_success count in this browser tab session (drives the Host mode entry). */

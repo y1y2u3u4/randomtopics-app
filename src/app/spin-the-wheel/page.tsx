@@ -15,6 +15,8 @@ import { topics } from "@/data/topics";
 import KeepPlaying from "@/components/KeepPlaying";
 import TryNext from "@/components/TryNext";
 import RosterWheel from "@/components/subs/RosterWheel";
+import LazyCustomWheel from "@/components/wheel/LazyCustomWheel";
+import WheelFamilyLinks from "@/components/wheel/WheelFamilyLinks";
 
 export const metadata: Metadata = withSocial({
   title: "Spin the Wheel — Random Topic Wheel Generator, Free & No Signup",
@@ -208,6 +210,20 @@ export default function SpinTheWheelPage() {
               })}
             </div>
           </div>
+        </section>
+        {/* Make your own wheel: loaded only when scrolled near, so first load is unchanged. */}
+        <section id="custom-wheel" className="max-w-4xl mx-auto px-4 sm:px-6 pb-8">
+          <div className="text-center max-w-2xl mx-auto mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-3" style={{ fontFamily: "var(--font-display)" }}>
+              Spin Your Own Custom Wheel
+            </h2>
+            <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+              Need a wheel of names, dinner ideas or raffle tickets instead of topics? Type or import your own entries, give some of them better odds,
+              remove winners after each spin and share the wheel with a link. It runs in your browser, so nothing is uploaded.
+            </p>
+          </div>
+          <LazyCustomWheel pageId="spin_the_wheel_custom" />
+          <WheelFamilyLinks heading="Wheel templates: pick one and spin" />
         </section>
         <KeepPlaying path="/spin-the-wheel" />
       </main>

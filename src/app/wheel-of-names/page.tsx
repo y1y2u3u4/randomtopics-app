@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/generators/GeneratorPageShell";
 import WheelOfNames from "@/components/generators/WheelOfNames";
+import WheelFamilyLinks from "@/components/wheel/WheelFamilyLinks";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
@@ -40,7 +41,19 @@ const FAQ = [
   {
     question: "Are my names saved or uploaded anywhere?",
     answer:
-      "No. Names stay in your browser tab and are not sent to a server. If you want to reuse a wheel, press 'Copy link to this wheel': the names are packed into the link itself, so whoever opens it sees the same wheel.",
+      "No. Names stay in your browser and are not sent to a server. The list you used last is kept in this browser so it is there next time, and you can save named lists. To reuse a wheel somewhere else, press 'Copy link to this wheel': the names are packed into the link itself, so whoever opens it sees the same wheel.",
+  },
+  {
+    question: "Can I import names from a spreadsheet or file?",
+    answer: "Yes. Press Import CSV or TXT and choose a file. The first column becomes the names and an optional second column sets weights. It is read in your browser and never uploaded. You can also paste a column straight from a spreadsheet.",
+  },
+  {
+    question: "Can I give some names a better chance?",
+    answer: "Yes. Switch on weights and set a number from 1 to 100 next to each name. A name with weight 3 gets a slice three times as wide and three times the chance.",
+  },
+  {
+    question: "Can I run it without keeping the mouse? Is there a keyboard shortcut?",
+    answer: "Yes. Press Ctrl+Enter (Cmd+Enter on Mac) to spin. Tab moves between the controls, and if your device is set to reduce motion the wheel skips the long spin.",
   },
   {
     question: "How many names can I put on the wheel?",
@@ -60,6 +73,7 @@ export default function WheelOfNamesPage() {
       description={DESCRIPTION}
       updated="2026-10-28"
       faq={FAQ}
+      afterTool={<WheelFamilyLinks path={PATH} />}
       inShort="Put one name per line in the box, press Spin and the wheel lands on a random winner. Turn on 'Remove the winner after each spin' to avoid repeats, shuffle or sort the list, and copy a link that reopens the same wheel. It is free, needs no signup and keeps your names in your browser."
       related={[
         { href: "/random-name-picker", label: "Random name picker" },
@@ -96,7 +110,7 @@ export default function WheelOfNamesPage() {
         </>
       }
     >
-      <WheelOfNames />
+      <WheelOfNames extended={{ pageId: "wheel_of_names", pro: true }} />
     </GeneratorPageShell>
   );
 }

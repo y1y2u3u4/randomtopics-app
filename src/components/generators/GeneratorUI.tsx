@@ -1,9 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { copyText } from "@/lib/clipboard";
 import { track } from "@/lib/track";
 import { newSeed } from "@/lib/randomGenerators";
+import { typingTarget, usePreset } from "./QuickSet";
 
 export interface GeneratorResult {
   /** Stable, URL-safe-ish key that `resolve` can turn back into the result. */
@@ -89,6 +90,10 @@ export interface GeneratorUIProps {
   footer?: React.ReactNode;
   /** Also send the shared tool_use event when results are generated. */
   trackToolUse?: boolean;
+  /** Fires {pageId}_use on every draw and {pageId}_share on copy-link, and enables history, keyboard and QuickSet presets. */
+  pageId?: string;
+  /** Quick buttons above the filters; also reachable from QuickSet buttons in the page copy (tool "letters"). */
+  presets?: { id: string; label: string; filters: FilterState; count: number }[];
 }
 
 function readUrlState(filters: FilterGroup[], counts: number[], defaultCount: number) {
@@ -106,7 +111,7 @@ function readUrlState(filters: FilterGroup[], counts: number[], defaultCount: nu
 }
 
 export default function GeneratorUI(props: GeneratorUIProps) {
-  const { toolType, locale, strings, filters, counts, defaultCount, poolSize, generate, resolve, layout = "list", trackToolUse = false } = props;
+  const { toolType, locale, strings, filters, counts, defaultCount, poolSize, generate, resolve, layout = "list", trackToolUse = false, pageId, presets } = props;
   const [state, setState] = useState<FilterState>(() =>
     Object.fromEntries(filters.map((g) => [g.id, [] as string[]])),
   );
@@ -114,6 +119,7 @@ export default function GeneratorUI(props: GeneratorUIProps) {
   const [results, setResults] = useState<GeneratorResult[]>([]);
   const [used, setUsed] = useState<string[]>([]);
   const [flash, setFlash] = useState<"" | "copy" | "share">("");
+  const [history, setHistory] = useState<string[]>([]);
 
   // Restore a shared link (?filters&n&r=key~key) once on mount.
   useEffect(() => {
@@ -142,16 +148,42 @@ export default function GeneratorUI(props: GeneratorUIProps) {
     [filters, defaultCount],
   );
 
-  const run = useCallback(() => {
-    if (size === 0) return;
-    track("generate_start", { tool_type: toolType, requested_count: count, locale });
-    const out = generate(state, count, used, newSeed());
+  const runWith = useCallback((st: FilterState, n: number, prevUsed: string[], source: string) => {
+    if (poolSize(st) === 0) return;
+    track("generate_start", { tool_type: toolType, requested_count: n, locale });
+    const out = generate(st, n, prevUsed, newSeed());
     setResults(out.results);
     setUsed(out.used);
-    writeUrl(state, count, out.results);
+    writeUrl(st, n, out.results);
     track("generate_success", { tool_type: toolType, result_count: out.results.length, result_source: "editorial_pool", locale });
     if (trackToolUse) track("tool_use", { tool_type: toolType, action: "generate", locale });
-  }, [size, toolType, count, locale, generate, state, used, writeUrl, trackToolUse]);
+    if (pageId) {
+      track(`${pageId}_use`, { tool_type: toolType, result_count: out.results.length, content_source: source, locale });
+      setHistory((h) => [out.results.map((r) => r.title).join(" "), ...h].slice(0, 12));
+    }
+  }, [poolSize, toolType, locale, generate, writeUrl, trackToolUse, pageId]);
+  const run = useCallback(() => runWith(state, count, used, "button"), [runWith, state, count, used]);
+
+  const applyPreset = useCallback((id: string, source: string) => {
+    const p = presets?.find((x) => x.id === id);
+    if (!p) return;
+    const st = Object.fromEntries(filters.map((g) => [g.id, p.filters[g.id] ?? []]));
+    setState(st); setCount(p.count); setUsed([]);
+    runWith(st, p.count, [], `${source}_${id}`);
+  }, [presets, filters, runWith]);
+  usePreset("letters", (id) => applyPreset(id, "section"));
+
+  // Space or Enter draws again when focus is not in a field.
+  const keyRef = useRef<() => void>(() => {});
+  useEffect(() => { keyRef.current = () => runWith(state, count, used, "keyboard"); });
+  useEffect(() => {
+    if (!pageId) return;
+    const on = (e: KeyboardEvent) => {
+      if ((e.key === " " || e.key === "Enter") && !typingTarget(e.target) && !e.metaKey && !e.ctrlKey) { e.preventDefault(); keyRef.current(); }
+    };
+    window.addEventListener("keydown", on);
+    return () => window.removeEventListener("keydown", on);
+  }, [pageId]);
 
   const toggle = useCallback(
     (group: FilterGroup, value: string) => {
@@ -184,6 +216,7 @@ export default function GeneratorUI(props: GeneratorUIProps) {
     setFlash(what);
     setTimeout(() => setFlash(""), 1500);
     track(what === "copy" ? "copy_result" : "share_click", { tool_type: toolType, locale });
+    if (what === "share" && pageId) track(`${pageId}_share`, { tool_type: toolType, share_method: "link", locale });
   };
 
   // Keep a deterministic preview for SSR/no-JS readers: the first results of seed 1.
@@ -203,8 +236,15 @@ export default function GeneratorUI(props: GeneratorUIProps) {
   const shown = results.length ? results : [];
 
   return (
-    <section className="max-w-4xl mx-auto px-4 sm:px-6">
+    <section id="tool" className="max-w-4xl mx-auto px-4 sm:px-6 scroll-mt-20">
       <div className="glass-card p-5 sm:p-8">
+        {presets && presets.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4" role="group" aria-label="Quick picks">
+            {presets.map((p) => (
+              <button key={p.id} type="button" onClick={() => applyPreset(p.id, "chip")} className={chip(false)}>{p.label}</button>
+            ))}
+          </div>
+        )}
         {filters.map((group) => (
           <div key={group.id} className="mb-4">
             <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-2">{group.label}</p>
@@ -280,8 +320,8 @@ export default function GeneratorUI(props: GeneratorUIProps) {
           ) : layout === "tiles" ? (
             <ul className="flex flex-wrap justify-center gap-3">
               {shown.map((r) => (
-                <li key={r.key} className="w-24 h-28 sm:w-28 sm:h-32 rounded-2xl border border-white/10 bg-white/[0.03] flex flex-col items-center justify-center">
-                  <span className="text-5xl sm:text-6xl font-extrabold gradient-text" style={{ fontFamily: "var(--font-display)" }}>{r.title}</span>
+                <li key={r.key} className={`${shown.length === 1 ? "w-44 h-52 sm:w-52 sm:h-60" : "w-24 h-28 sm:w-28 sm:h-32"} rounded-2xl border border-white/10 bg-white/[0.03] flex flex-col items-center justify-center`}>
+                  <span className={`${shown.length === 1 ? "text-8xl sm:text-9xl" : "text-5xl sm:text-6xl"} font-extrabold gradient-text`} style={{ fontFamily: "var(--font-display)" }}>{r.title}</span>
                   {r.subtitle && <span className="text-[11px] text-[var(--text-muted)] mt-1">{r.subtitle}</span>}
                 </li>
               ))}
@@ -321,6 +361,9 @@ export default function GeneratorUI(props: GeneratorUIProps) {
             </ul>
           )}
         </div>
+
+        {pageId && <p className="text-xs text-center text-[var(--text-muted)] mt-3">Press Space or Enter to draw again.</p>}
+        {history.length > 1 && <p className="text-sm text-[var(--text-secondary)] mt-3 text-center"><span className="text-xs uppercase tracking-widest text-[var(--text-muted)]">History: </span>{history.slice(1, 9).join(" · ")}</p>}
 
         {shown.length > 0 && (
           <div className="flex flex-wrap items-center justify-center gap-3 mt-5">

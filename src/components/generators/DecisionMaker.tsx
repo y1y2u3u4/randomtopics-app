@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { copyText } from "@/lib/clipboard";
 import { track } from "@/lib/track";
+import { typingTarget, usePreset } from "./QuickSet";
 import { DAILY_DECISIONS, DEFAULT_PRESET, PRESETS, dailyIndex } from "@/data/decisionMaker";
 
 type Mode = "wheel" | "lots" | "yesno";
@@ -168,6 +169,7 @@ export default function DecisionMaker() {
       return next;
     });
     track("generate_success", { ...ev, decision_mode: d.mode, option_count: d.options.length, weighted, result_count: 1 });
+    track("decision_maker_use", { ...ev, decision_mode: d.mode, option_count: d.options.length, weighted, result_count: 1 });
   }
 
   function decide() {
@@ -202,6 +204,29 @@ export default function DecisionMaker() {
     }
   }
 
+  // QuickSet presets in the page copy: load the setup, then decide once it has rendered.
+  const [pending, setPending] = useState(0);
+  usePreset("decision", (id) => {
+    if (busy) return;
+    if (id === "yesno") { setMode("yesno"); setQuestion(""); resetRound(); }
+    else if (id === "two") { setMode("wheel"); loadList("Stay in or go out?", ["Stay in", "Go out"], "section_two"); }
+    else if (id === "weighted") { setMode("wheel"); setQuestion("What should we eat tonight?"); setOptions([{ label: "Pizza", weight: 3 }, { label: "Tacos", weight: 1 }, { label: "Salad", weight: 1 }]); resetRound(); }
+    else if (id === "lots") { setMode("lots"); loadList(DEFAULT_PRESET.question, DEFAULT_PRESET.options, "section_lots"); }
+    else return;
+    setPending((n) => n + 1);
+  });
+  const decideRef = useRef<() => void>(() => {});
+  useEffect(() => { decideRef.current = decide; });
+  useEffect(() => { if (pending) decideRef.current(); }, [pending]);
+  // Space or Enter decides when focus is not in a field.
+  useEffect(() => {
+    const on = (e: KeyboardEvent) => {
+      if ((e.key === " " || e.key === "Enter") && !typingTarget(e.target) && !e.metaKey && !e.ctrlKey) { e.preventDefault(); decideRef.current(); }
+    };
+    window.addEventListener("keydown", on);
+    return () => window.removeEventListener("keydown", on);
+  }, []);
+
   const shareUrl = () => {
     const p = new URLSearchParams({ q: question, o: options.map((o) => o.label).join("|"), m: mode });
     return `${window.location.origin}/decision-maker#${p.toString()}`;
@@ -210,12 +235,14 @@ export default function DecisionMaker() {
     const ok = await copyText(shareUrl());
     setStatus(ok ? "Link copied — friends open the same options and can spin for themselves." : "Copy blocked. Copy the address bar instead.");
     track(ok ? "share_result" : "copy_error", { ...ev, share_method: "link", decision_mode: mode });
+    if (ok) track("decision_maker_share", { ...ev, share_method: "link", decision_mode: mode });
   }
   async function copyResult() {
     if (!result) return;
     const ok = await copyText(`${result.question ? `${result.question} → ` : ""}${result.answer} (decided at randomtopics.app/decision-maker)`);
     setStatus(ok ? "Copied." : "Copy blocked. Select the answer and copy it manually.");
     track(ok ? "copy_result" : "copy_error", { ...ev, decision_mode: result.mode });
+    if (ok) track("decision_maker_share", { ...ev, share_method: "copy", decision_mode: result.mode });
   }
   async function shareCard() {
     if (!result) return;
@@ -226,6 +253,7 @@ export default function DecisionMaker() {
       if (navigator.canShare?.({ files: [file] })) {
         await navigator.share({ files: [file], text: `${result.question} → ${result.answer}` });
         track("share_result", { ...ev, share_method: "native_card", decision_mode: result.mode });
+        track("decision_maker_share", { ...ev, share_method: "native_card", decision_mode: result.mode });
         return;
       }
     } catch { /* share sheet dismissed: fall back to download */ }
@@ -234,6 +262,7 @@ export default function DecisionMaker() {
     setTimeout(() => URL.revokeObjectURL(a.href), 2000);
     setStatus("Card saved — post it or send it to the group chat.");
     track("share_result", { ...ev, share_method: "download_card", decision_mode: result.mode });
+    track("decision_maker_share", { ...ev, share_method: "download_card", decision_mode: result.mode });
   }
 
   const today = daily === null ? null : DAILY_DECISIONS[daily];
@@ -241,7 +270,7 @@ export default function DecisionMaker() {
     : mode === "wheel" ? "Spin the wheel" : mode === "lots" ? (pool.length ? "Draw a lot" : "Refill & draw") : "Flip yes or no";
 
   return (
-    <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-6" aria-label="Decision maker">
+    <section id="tool" className="max-w-4xl mx-auto px-4 sm:px-6 pb-6 scroll-mt-20" aria-label="Decision maker">
       <div ref={toolRef} className="glass-card p-4 sm:p-6 scroll-mt-24">
         <div role="tablist" aria-label="Decision mode" className="grid grid-cols-3 gap-2 mb-4">
           {MODES.map((m) => (
@@ -255,7 +284,7 @@ export default function DecisionMaker() {
 
         <label className="block text-xs uppercase tracking-widest text-[var(--text-muted)]" htmlFor="dm-question">Your question</label>
         <div className="mt-1 flex flex-col sm:flex-row gap-3">
-        <input id="dm-question" value={question} maxLength={120} onChange={(e) => setQuestion(e.target.value)}
+        <input id="dm-question" value={question} maxLength={120} onChange={(e) => setQuestion(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); decide(); } }}
           placeholder={mode === "yesno" ? "Should I text them back?" : "What should we eat tonight?"}
           className="min-w-0 flex-1 rounded-xl border border-[var(--neon-cyan)]/25 bg-[var(--bg-primary)] p-3 text-base" />
           <button type="button" onClick={decide} disabled={busy || !canDecide} className="btn-generate w-full sm:w-auto sm:min-w-52 shrink-0 disabled:opacity-50 disabled:cursor-not-allowed">{btnLabel}</button>
