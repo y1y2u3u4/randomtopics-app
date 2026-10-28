@@ -80,6 +80,11 @@ export default function TruthOrDarePage() {
         <HostPassEntry generator="truth-or-dare" />
         <TryNext path="/truth-or-dare" />
         <PartyGameLinks currentPath="/truth-or-dare" />
+        <p className="max-w-3xl mx-auto px-4 sm:px-6 pb-6 text-center text-sm text-[var(--text-muted)]">
+          Playing with a group? Open the <Link prefetch={false} href="/topics/truth-or-dare-questions" className="text-[var(--neon-cyan)] hover:underline">389 truth or dare questions with party mode</Link> or{" "}
+          <Link prefetch={false} href="/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">spin the wheel</Link> to pick who goes first.
+        </p>
+
 
         <PublicAdPlacement path="/truth-or-dare" />
 
