@@ -80,6 +80,8 @@
 - [Random Sentence Generator](https://randomtopics.app/random-sentence-generator): Random grammatical sentences, from everyday to funny.
 - [Random Noun Generator](https://randomtopics.app/random-noun-generator): Random nouns filtered by level, length and letter.
 - [Random NBA Player Generator](https://randomtopics.app/random-nba-player-generator): Random NBA players, current and all-time, filtered by active or retired, team, position and decade, with card locking and a daily random starting five.
+- [Magic 8 Ball](https://randomtopics.app/magic-8-ball): Shake a Magic 8 Ball online: the 20 classic answers, your own custom answers, a shareable result card and a daily question with a streak.
+- [Random Pokémon Generator](https://randomtopics.app/random-pokemon-generator): Random Pokémon from all 1025 species, filtered by generation 1-9, type and legendary status, with locking, single-card reroll, a type-balanced team of six and share links. Unofficial fan tool, no official artwork.
 - [Random Emoji Generator](https://randomtopics.app/random-emoji-generator): Random emoji from 8 categories, tap to copy.
 - [Spin the Wheel](https://randomtopics.app/spin-the-wheel)
 - [Viking Name Generator](https://randomtopics.app/viking-name-generator)

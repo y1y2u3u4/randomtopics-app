@@ -31,3 +31,12 @@ for (const name of ['next_card_click','next_result_click','next_locale_click']) 
   assert.deepEqual({...umami[0][1]},{slot:'result_next',from:'/charades',target_path:'/this-or-that',generations:3,page_path:'/'});
 }
 console.log('PASS: next_* events reach Umami with slot/from/target_path');
+
+// {page}_use / {page}_share for the two 2026-10-28 tool pages reach Umami; look-alikes do not.
+for (const name of ['magic_8_ball_use','magic_8_ball_share','random_pokemon_generator_use','random_pokemon_generator_share']) {
+  umami.length=0;track(name,{tool_type:'x',share_method:'image',locale:'en'});
+  assert.equal(umami.length,1);assert.equal(umami[0][0],name);
+  assert.deepEqual({...umami[0][1]},{tool_type:'x',share_method:'image',locale:'en',page_path:'/'});
+}
+umami.length=0;track('magic_8_ball_other',{});track('random_nba_player_generator_use',{});assert.equal(umami.length,0);
+console.log('PASS: magic_8_ball / random_pokemon_generator use+share events reach Umami');

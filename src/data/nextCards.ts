@@ -57,7 +57,7 @@ export const SCENES: { scene: Scene; members: string[]; picks: NextTool[] }[] = 
     members: [
       "/truth-or-dare", "/never-have-i-ever", "/most-likely-to", "/would-you-rather", "/this-or-that", "/charades", "/pictionary-word-generator",
       "/pictionary-words", "/pictionary-phrase-generator", "/two-truths-and-a-lie", "/hot-seat-questions", "/paranoia-questions", "/put-a-finger-down",
-      "/yo-mama-randomizer", "/topics/truth-or-dare-questions", "/topics/never-have-i-ever-questions", "/topics/most-likely-to-questions",
+      "/yo-mama-randomizer", "/magic-8-ball", "/topics/truth-or-dare-questions", "/topics/never-have-i-ever-questions", "/topics/most-likely-to-questions",
       "/topics/would-you-rather-questions", "/topics/this-or-that-questions",
     ],
     picks: [
@@ -108,6 +108,8 @@ export const NEXT_STEPS: Record<string, NextStep> = {
   "/speech": { next: t("/impromptu-speech-topics", "Practice impromptu topics next", "⏱️"), collection: t("/5-minute-speech-topics", "5-minute speech topics", "🕔") },
   "/writing": { next: t("/story-prompt-generator", "Story prompts next", "📖"), collection: t("/journal-prompts", "Journal prompts to keep going", "📓") },
   "/random-idea-generator": { next: t("/random-character-generator", "Make a character next", "🎭"), collection: t("/writing", "500+ writing prompts", "✍️") },
+  "/magic-8-ball": { next: t("/decision-maker", "Let it decide: Decision Maker", "🧭"), collection: t("/yes-or-no-wheel", "Spin the yes or no wheel", "🎡") },
+  "/random-pokemon-generator": { next: t("/random-team-generator", "Split into teams next", "👥"), collection: t("/random-nba-player-generator", "Random NBA players next", "🏀") },
   "/trivia-questions": { next: t("/charades", "Charades next", "🎭"), collection: t("/trivia-questions/halloween", "Halloween trivia", "🎃") },
 };
 
