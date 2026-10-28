@@ -124,6 +124,11 @@ export const EXTRA_CATEGORY_FAMILIES: NextTool[][] = [
   [t("/funny", "Funny topics", "🤪"), t("/funny-question-of-the-day", "Funny daily", "😄"), t("/topics/funny-conversation-topics", "Funny conversation", "😂"), t("/yo-mama-randomizer", "Yo Mama", "😂"), t("/debate/funny", "Funny debates", "🎤")],
 ];
 
+// Coin and wheel phrasing pages (2026-10-28).
+NEXT_STEPS["/toss-a-coin"] = { next: t("/dice-roller", "Roll a dice next", "🎲"), collection: t("/flip-a-coin", "Flip up to 10 coins at once", "🪙") };
+NEXT_STEPS["/heads-or-tails"] = { next: t("/yes-or-no-wheel", "Spin the yes or no wheel", "✅"), collection: t("/decision-maker", "Choose between 3 or more options", "🧭") };
+NEXT_STEPS["/picker-wheel"] = { next: t("/decision-maker", "Let it decide: Decision Maker", "🧭"), collection: t("/random-name-picker", "Draw several names at once", "🎩") };
+
 // ---------------------------------------------------------------- other languages
 export type LocaleCode = "es" | "pt" | "fr" | "tr";
 

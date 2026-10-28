@@ -423,6 +423,27 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     crossLinkOnly: true,
   },
   {
+    href: "/toss-a-coin",
+    emoji: "🪙",
+    label: { en: "Toss a Coin" },
+    detail: { en: "Call it, play best of 3 to 7, cricket-style toss" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/heads-or-tails",
+    emoji: "🪙",
+    label: { en: "Heads or Tails" },
+    detail: { en: "Coin flip with a series score and streaks" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/picker-wheel",
+    emoji: "🎡",
+    label: { en: "Picker Wheel" },
+    detail: { en: "Random picker for names and choices with saved lists" },
+    crossLinkOnly: true,
+  },
+  {
     href: "/dice-roller",
     emoji: "🎲",
     label: { en: "Dice Roller" },

@@ -74,6 +74,9 @@
 - [Fantasy Name Generator](https://randomtopics.app/fantasy-name-generator): Fantasy names for elves, dwarves, orcs, tieflings and more.
 - [Random Country Generator](https://randomtopics.app/random-country-generator): A random real country by continent and size, with flag and capital.
 - [Flip a Coin](https://randomtopics.app/flip-a-coin): Flip 1 to 10 coins with heads, tails and streak counts.
+- [Toss a Coin](https://randomtopics.app/toss-a-coin): Toss a coin online: call heads or tails, play best of 3, 5 or 7, and keep all-time stats. Fine for a cricket toss.
+- [Heads or Tails](https://randomtopics.app/heads-or-tails): Heads or tails coin flip with best-of-N series, streaks and shareable results.
+- [Picker Wheel](https://randomtopics.app/picker-wheel): A random picker wheel for names and choices, with saved lists kept in your browser.
 - [Dice Roller](https://randomtopics.app/dice-roller): Roll 1 to 10 dice from d4 to d100 with a modifier.
 - [Yes or No Wheel](https://randomtopics.app/yes-or-no-wheel): A spinning yes, no or maybe wheel for a quick answer.
 - [Random City Generator](https://randomtopics.app/random-city-generator): A random real city by continent or country.
