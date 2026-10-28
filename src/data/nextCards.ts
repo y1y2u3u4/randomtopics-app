@@ -129,6 +129,14 @@ NEXT_STEPS["/toss-a-coin"] = { next: t("/dice-roller", "Roll a dice next", "🎲
 NEXT_STEPS["/heads-or-tails"] = { next: t("/yes-or-no-wheel", "Spin the yes or no wheel", "✅"), collection: t("/decision-maker", "Choose between 3 or more options", "🧭") };
 NEXT_STEPS["/picker-wheel"] = { next: t("/decision-maker", "Let it decide: Decision Maker", "🧭"), collection: t("/random-name-picker", "Draw several names at once", "🎩") };
 
+// Small random tools (2026-10-28): link the six pages to each other and to the topic wheel.
+NEXT_STEPS["/random-letter-generator"] = { next: t("/spin-the-wheel", "Spin the wheel for a category", "🎡"), collection: t("/random-word-generator", "Random words next", "🔠") };
+NEXT_STEPS["/random-group-generator"] = { next: t("/random-team-generator", "Balance teams by skill", "👥"), collection: t("/spin-the-wheel", "Spin the wheel for a group topic", "🎡") };
+NEXT_STEPS["/random-team-generator"] = { next: t("/spin-the-wheel", "Spin the wheel for a team challenge", "🎡"), collection: t("/random-group-generator", "Groups with together/apart rules", "🧩") };
+NEXT_STEPS["/decision-maker"] = { next: t("/spin-the-wheel", "Spin the topic wheel next", "🎡"), collection: t("/yes-or-no-wheel", "Spin the yes or no wheel", "✅") };
+NEXT_STEPS["/number-randomizer"] = { next: t("/spin-the-wheel", "Spin the wheel instead", "🎡"), collection: t("/random-number-generator", "Random number generator 1–100", "🔢") };
+NEXT_STEPS["/random-number-generator"] = { next: t("/spin-the-wheel", "Spin the wheel instead", "🎡"), collection: t("/number-randomizer", "Pick a number: 1 or 2, 1–10", "🔢") };
+
 // ---------------------------------------------------------------- other languages
 export type LocaleCode = "es" | "pt" | "fr" | "tr";
 

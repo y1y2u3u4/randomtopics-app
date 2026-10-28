@@ -56,7 +56,9 @@
 ## Random generators
 
 - [Random Word Generator](https://randomtopics.app/random-word-generator)
-- [Random Team Generator](https://randomtopics.app/random-team-generator)
+- [Random Letter Generator](https://randomtopics.app/random-letter-generator): random letter A-Z, vowel or consonant, Scattergories letters; no repeats until the set is used up.
+- [Random Group Generator](https://randomtopics.app/random-group-generator): random pairs and groups for classes with keep-together/apart rules, roles and a board view.
+- [Random Team Generator](https://randomtopics.app/random-team-generator): split a pasted list into 2, 3 or 4 teams or pairs and groups of 3 or 4; balance by skill, lock players, copy a result link. Free, runs in the browser.
 - [Random Animal Generator](https://randomtopics.app/random-animal-generator)
 - [Random Food Generator](https://randomtopics.app/random-food-generator)
 - [Random Theme Generator](https://randomtopics.app/random-theme-generator): themes for parties, writing, art, photography, events, classrooms and game jams, filtered by use and mood.
@@ -67,9 +69,9 @@
 - [Fake Person Generator](https://randomtopics.app/fake-person-generator): random people with a personality, hobby and physical details consistent with country and birthday, for characters, NPCs and personas. No AI faces.
 - [Decision Maker](https://randomtopics.app/decision-maker): type your options and let a spinning wheel, a cup of drawing lots (no repeats) or a yes-or-no coin decide. Optional 2×/3× weights, a decision of the day, shareable result card and link. Free, no signup, runs in the browser.
 - [Random Name Picker](https://randomtopics.app/random-name-picker)
-- [Number Randomizer](https://randomtopics.app/number-randomizer)
+- [Number Randomizer](https://randomtopics.app/number-randomizer): pick a number 1 or 2, 1-3, 1-10, 1-100 or lottery numbers; no-repeat option, history and result link.
 - [Wheel of Names](https://randomtopics.app/wheel-of-names): Spin a wheel of names, up to 200 entries.
-- [Random Number Generator](https://randomtopics.app/random-number-generator): Random numbers in any range, with presets.
+- [Random Number Generator](https://randomtopics.app/random-number-generator): Random numbers in any range (1-10, 1-100, 0-9, d20, 1-1,000,000), with presets, no-repeat option, history and result link.
 - [Random Name Generator](https://randomtopics.app/random-name-generator): Random first and last names by gender and origin.
 - [Fantasy Name Generator](https://randomtopics.app/fantasy-name-generator): Fantasy names for elves, dwarves, orcs, tieflings and more.
 - [Random Country Generator](https://randomtopics.app/random-country-generator): A random real country by continent and size, with flag and capital.

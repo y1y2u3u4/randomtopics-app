@@ -54,8 +54,11 @@ const NEXT_EVENT = /^next_[a-z_]+$/;
 // 2026-10-28: per-page {page}_use / {page}_share events on phrasing and new tool pages (toss_a_coin_use, magic_8_ball_share ...).
 const PAGE_USE_SHARE_EVENT = /^(toss_a_coin|heads_or_tails|picker_wheel|magic_8_ball|random_pokemon_generator)_(use|share)$/;
 
+// 2026-10-28: small random tools (letters, numbers, groups/teams, decision maker).
+const SMALL_TOOL_EVENT = /^(random_letter_generator|random_group_generator|random_team_generator|decision_maker|number_randomizer|random_number_generator)_(use|share)$/;
+
 export function umamiDirectEvent(eventName: string): boolean {
-  return UMAMI_DIRECT_EVENTS.has(eventName) || PAGE_USE_SHARE_EVENT.test(eventName) || NEXT_EVENT.test(eventName) || SUB_EVENT.test(eventName) || SUB_USAGE_EVENTS.has(eventName);
+  return UMAMI_DIRECT_EVENTS.has(eventName) || SMALL_TOOL_EVENT.test(eventName) || PAGE_USE_SHARE_EVENT.test(eventName) || NEXT_EVENT.test(eventName) || SUB_EVENT.test(eventName) || SUB_USAGE_EVENTS.has(eventName);
 }
 
 /** generate_success count in this browser tab session (drives the Host mode entry). */

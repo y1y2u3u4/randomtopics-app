@@ -120,6 +120,12 @@ const checks = [
   { path: "/fake-identity-generator", index: true, canonical: "/fake-identity-generator", titleMax: 60, titleHas: "Fake Identity Generator", enOnlyHreflang: true, bodyHas: ["What we leave out, and why", "Frequently asked questions"] },
   { path: "/fake-person-generator", index: true, canonical: "/fake-person-generator", titleMax: 60, titleHas: "Fake Person Generator", enOnlyHreflang: true, bodyHas: ["What makes a fake person believable", "Frequently asked questions"] },
   { path: "/fake-name-generator", index: true, canonical: "/fake-name-generator", titleMax: 60, titleHas: "Fake Name Generator", enOnlyHreflang: true, bodyHas: ["Safe fake data, on purpose", "Frequently asked questions"] },
+  { path: "/random-letter-generator", index: true, canonical: "/random-letter-generator", enOnlyHreflang: true, bodyHas: ["Scattergories", "Frequently asked questions"] },
+  { path: "/random-group-generator", index: true, canonical: "/random-group-generator", enOnlyHreflang: true, bodyHas: ["Random pairs, groups of 3, 4 or 5", "Frequently Asked Questions"] },
+  { path: "/random-team-generator", index: true, canonical: "/random-team-generator", enOnlyHreflang: true, bodyHas: ["Random teams of 2, 3 or 4", "Frequently asked questions"] },
+  { path: "/decision-maker", index: true, canonical: "/decision-maker", enOnlyHreflang: true, bodyHas: ["Yes or no decision maker", "Frequently asked questions"] },
+  { path: "/number-randomizer", index: true, canonical: "/number-randomizer", titleHas: "Pick a Number 1 or 2", enOnlyHreflang: true, bodyHas: ["Pick a number 1 or 2", "Frequently asked questions"] },
+  { path: "/random-number-generator", index: true, canonical: "/random-number-generator", titleHas: "Random Number Generator 1", enOnlyHreflang: true, bodyHas: ["Random number 1–100", "Frequently asked questions"] },
 ];
 
 function fail(message) {

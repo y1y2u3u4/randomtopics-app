@@ -3,7 +3,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { copyText } from "@/lib/clipboard";
 import { track } from "@/lib/track";
-import { createRng, newSeed, parseNames, shuffle } from "@/lib/randomGenerators";
+import { createRng, fromBase64Url, newSeed, parseNames, shuffle, toBase64Url } from "@/lib/randomGenerators";
+import { typingTarget, usePreset } from "@/components/generators/QuickSet";
 import { GROUP_ROLES, groupCountFor, makeGroups, parsePairs, type GroupResult } from "@/lib/groupRules";
 import { makeTeamNames } from "@/lib/generators/teamNames";
 import PrintButton from "@/components/PrintButton";
@@ -50,6 +51,7 @@ export default function GroupGenerator() {
   const [listName, setListName] = useState("");
   const [big, setBig] = useState(false);
   const bigRoot = useRef<HTMLDivElement>(null);
+  const [history, setHistory] = useState<string[]>([]);
 
   const names = useMemo(() => [...new Set(parseNames(text))], [text]);
   const together = useMemo(() => parsePairs(togetherText, names), [togetherText, names]);
@@ -60,14 +62,31 @@ export default function GroupGenerator() {
 
   useEffect(() => {
     let live = true;
-    void Promise.resolve().then(() => live && setLists(loadLists()));
+    void Promise.resolve().then(() => {
+      if (!live) return;
+      setLists(loadLists());
+      // Shared result link: ?g=<base64url {n: names, g: [[index...]], m, v}>
+      try {
+        const raw = new URLSearchParams(window.location.search).get("g");
+        const d = raw ? JSON.parse(fromBase64Url(raw) ?? "null") : null;
+        if (d && Array.isArray(d.n) && Array.isArray(d.g)) {
+          const nm = d.n.slice(0, 300).map(String);
+          setText(nm.join("\n"));
+          setMode(d.m === "groups" ? "groups" : "size");
+          setValue(Math.max(1, Math.min(100, Number(d.v) || 4)));
+          setResult({ groups: d.g.map((g: number[]) => g.map((i) => nm[i]).filter(Boolean)), broken: [] } as unknown as GroupResult);
+        }
+      } catch { /* ignore malformed links */ }
+    });
     return () => { live = false; };
   }, []);
 
-  const generate = useCallback(() => {
-    if (names.length < 2) return;
+  const generate = useCallback((over?: { names?: string[]; mode?: "groups" | "size"; value?: number }, source = "button") => {
+    const nm = over?.names ?? names;
+    if (nm.length < 2) return;
+    const m = over?.mode ?? mode, v = over?.value ?? value;
     const rng = createRng(newSeed());
-    const next = makeGroups(names, count, { together, apart }, rng);
+    const next = makeGroups(nm, groupCountFor(nm.length, m, v), { together: over?.names ? [] : together, apart: over?.names ? [] : apart }, rng);
     setResult(next);
     setLabels(funNames ? makeTeamNames(next.groups.length, "en", rng) : []);
     const r: Record<string, string> = {};
@@ -75,8 +94,37 @@ export default function GroupGenerator() {
       shuffle(g, rng).forEach((n, i) => { if (i < GROUP_ROLES.length) r[n] = GROUP_ROLES[i]; });
     }
     setRoleOf(r);
-    track("generate_success", { tool_type: "random_group_generator", result_count: next.groups.length, requested_count: names.length, together_rules: together.length, apart_rules: apart.length, broken_rules: next.broken.length, roles, fun_names: funNames });
-  }, [names, count, together, apart, funNames, roles]);
+    track("generate_success", { tool_type: "random_group_generator", result_count: next.groups.length, requested_count: nm.length, together_rules: together.length, apart_rules: apart.length, broken_rules: next.broken.length, roles, fun_names: funNames });
+    track("random_group_generator_use", { tool_type: "random_group_generator", result_count: next.groups.length, requested_count: nm.length, content_source: source });
+    setHistory((h) => [next.groups.map((g, i) => `Group ${i + 1}: ${g.join(", ")}`).join("\n"), ...h].slice(0, 5));
+    try {
+      const idx = new Map(nm.map((n, i) => [n, i]));
+      const enc = toBase64Url(JSON.stringify({ n: nm, g: next.groups.map((g) => g.map((n) => idx.get(n) ?? -1)), m, v }));
+      window.history.replaceState(null, "", enc.length < 6000 ? `${window.location.pathname}?g=${enc}` : window.location.pathname);
+    } catch { /* optional */ }
+  }, [names, mode, value, together, apart, funNames, roles]);
+
+  const quick = useCallback((id: string, source: string) => {
+    const [kind, num] = id.split("-");
+    const m = kind === "groups" ? "groups" : "size", v = Number(num) || 4;
+    setMode(m); setValue(v);
+    const empty = names.length < 2;
+    if (empty) setText(SAMPLE);
+    generate({ mode: m, value: v, ...(empty ? { names: parseNames(SAMPLE) } : {}) }, `${source}_${id}`);
+    window.setTimeout(() => document.querySelector("[data-group-results]")?.scrollIntoView({ block: "nearest", behavior: "smooth" }), 80);
+  }, [names, generate]);
+  usePreset("groups", (id) => quick(id, "section"));
+  const keyRef = useRef<() => void>(() => {});
+  useEffect(() => { keyRef.current = () => generate(undefined, "keyboard"); });
+  useEffect(() => {
+    const on = (e: KeyboardEvent) => {
+      if (document.querySelector("[data-classroom-projector]")) return;
+      const combo = (e.ctrlKey || e.metaKey) && e.key === "Enter";
+      if (combo || ((e.key === " " || e.key === "Enter") && !typingTarget(e.target) && !e.metaKey && !e.ctrlKey)) { e.preventDefault(); keyRef.current(); }
+    };
+    window.addEventListener("keydown", on);
+    return () => window.removeEventListener("keydown", on);
+  }, []);
 
   const label = (i: number) => labels[i] || `Group ${i + 1}`;
   const groups = result?.groups ?? [];
@@ -86,6 +134,11 @@ export default function GroupGenerator() {
   const copy = async () => {
     if (await copyText(groups.map(lineFor).join("\n"))) flashFor("copied");
     track("copy_result", { tool_type: "random_group_generator", result_count: groups.length });
+    track("random_group_generator_share", { tool_type: "random_group_generator", share_method: "copy" });
+  };
+  const copyLink = async () => {
+    if (await copyText(window.location.href)) flashFor("link");
+    track("random_group_generator_share", { tool_type: "random_group_generator", share_method: "link" });
   };
 
   const openBig = useCallback(async () => {
@@ -106,7 +159,7 @@ export default function GroupGenerator() {
     const onFs = () => { if (!document.fullscreenElement) setBig(false); };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" && !document.fullscreenElement) closeBig();
-      else if (e.key === " " || e.key === "Enter") { e.preventDefault(); generate(); }
+      else if (e.key === " " || e.key === "Enter") { e.preventDefault(); generate(undefined, "keyboard"); }
     };
     document.addEventListener("fullscreenchange", onFs);
     window.addEventListener("keydown", onKey);
@@ -142,7 +195,7 @@ export default function GroupGenerator() {
   );
 
   return (
-    <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16">
+    <section id="tool" className="max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 scroll-mt-20">
       <div className="text-center mb-8">
         <h1 className="section-heading text-4xl sm:text-6xl font-extrabold mb-4" style={{ fontFamily: "var(--font-display)" }}>Random Group Generator</h1>
         <p className="text-[var(--text-muted)] max-w-2xl mx-auto">Paste your class list and get fair random groups in one click. Keep certain students together or apart, hand out group roles, then put the groups on the board or print them. Free, no sign-up, nothing uploaded.</p>
@@ -211,7 +264,7 @@ export default function GroupGenerator() {
         </div>
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-          <button type="button" onClick={generate} disabled={names.length < 2} className="btn-generate disabled:opacity-50" data-group-generate>{result ? "🔀 Shuffle again" : "🎲 Make groups"}</button>
+          <button type="button" onClick={() => generate()} disabled={names.length < 2} className="btn-generate disabled:opacity-50" data-group-generate>{result ? "🔀 Shuffle again" : "🎲 Make groups"}</button>
           {names.length < 2 && <span className="text-xs text-[var(--text-muted)]">Add at least two names.</span>}
         </div>
 
@@ -226,8 +279,15 @@ export default function GroupGenerator() {
             <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
               <button type="button" onClick={() => void openBig()} data-projector-open className="min-h-11 rounded-xl border border-[var(--neon-cyan)]/40 px-4 py-2 text-sm font-semibold text-[var(--neon-cyan)]">📺 Show on the board</button>
               <button type="button" onClick={() => void copy()} className="min-h-11 rounded-xl border border-white/15 px-4 py-2 text-sm text-[var(--text-primary)]">{flash === "copied" ? "Copied ✓" : "📋 Copy groups"}</button>
+              <button type="button" onClick={() => void copyLink()} className="min-h-11 rounded-xl border border-white/15 px-4 py-2 text-sm text-[var(--text-primary)]">{flash === "link" ? "Link copied ✓" : "🔗 Copy result link"}</button>
               <PrintButton heading="Our groups" items={groups.map(lineFor)} label="🖨️ Print groups" />
             </div>
+            {history.length > 1 && (
+              <details className="mt-3 text-sm text-[var(--text-secondary)] max-w-xl mx-auto">
+                <summary className="cursor-pointer text-center">Earlier shuffles ({history.length - 1})</summary>
+                {history.slice(1).map((h, i) => <pre key={i} className="mt-2 whitespace-pre-wrap rounded-lg border border-white/10 p-2 text-xs font-sans">{h}</pre>)}
+              </details>
+            )}
           </div>
         )}
       </div>
@@ -238,7 +298,7 @@ export default function GroupGenerator() {
           <header className="flex flex-wrap items-center justify-between gap-2 px-4 sm:px-10 pt-4 text-sm text-[#5b5b70]">
             <span className="font-semibold">👥 {groups.length} groups · {names.length} students</span>
             <div className="flex gap-2">
-              <button type="button" onClick={generate} className="rounded-lg border border-[#d9d4c8] px-3 py-1.5">🔀 Shuffle (Space)</button>
+              <button type="button" onClick={() => generate()} className="rounded-lg border border-[#d9d4c8] px-3 py-1.5">🔀 Shuffle (Space)</button>
               <button type="button" onClick={closeBig} className="rounded-lg border border-[#d9d4c8] px-3 py-1.5">Close ✕</button>
             </div>
           </header>

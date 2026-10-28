@@ -144,7 +144,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ path: "/classroom-packs", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-10-16" });
 
   // Classroom pages, batches 1–3 (2026-10-16).
-  for (const p of ["this-or-that/kids", "would-you-rather/kids", "topics/get-to-know-you-questions-for-students", "morning-meeting-questions", "riddles-for-kids", "classroom-timer", "random-group-generator"]) {
+  for (const p of ["this-or-that/kids", "would-you-rather/kids", "topics/get-to-know-you-questions-for-students", "morning-meeting-questions", "riddles-for-kids", "classroom-timer"]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-16" });
   }
 
@@ -178,7 +178,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Random generator pages (2026-10-10 inner-page batch).
   for (const p of [
-    "random-team-generator",
     "random-animal-generator",
     "last-name-generator",
     "dnd-name-generator",
@@ -194,7 +193,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "headcanon-generator",
     "put-a-finger-down",
     "random-food-generator",
-    "random-letter-generator",
     "random-word-generator",
     "japanese-name-generator",
     "random-color-generator",
@@ -210,8 +208,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "chicago-citation-generator",
     "vancouver-citation-generator",
     "random-name-picker",
-    "decision-maker",
-    "number-randomizer",
     "ai-metadata-remover",
     "western-baby-name-generator",
     "random-theme-generator",
@@ -222,7 +218,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Random generator matrix, batch 1 (2026-10-28).
   for (const p of [
     "wheel-of-names",
-    "random-number-generator",
     "random-name-generator",
     "fantasy-name-generator",
     "random-country-generator",
@@ -241,6 +236,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "random-pokemon-generator",
   ]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-28" });
+  }
+
+  // Small random tools upgrade: presets, history, share links (2026-10-28).
+  for (const p of ["random-letter-generator", "random-group-generator", "random-team-generator", "decision-maker", "number-randomizer", "random-number-generator"]) {
+    entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-28" });
   }
 
   // Speech timer collection (2026-10-27).

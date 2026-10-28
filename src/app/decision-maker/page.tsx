@@ -3,6 +3,7 @@ import Link from "next/link";
 import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/generators/GeneratorPageShell";
 import DecisionMaker from "@/components/generators/DecisionMaker";
 import FactTable from "@/components/FactTable";
+import QuickSet, { QuickRow } from "@/components/generators/QuickSet";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
@@ -30,6 +31,9 @@ const FAQ = [
   { question: "What is the difference between the wheel and drawing lots?", answer: "The wheel can land on the same option twice in a row. Draw lots works like pulling sticks from a cup: with “No repeats” on, a drawn option stays out until every option has been drawn — handy for taking turns or working through a list." },
   { question: "Is the decision really random?", answer: "Yes. Each decision uses your browser's random number generator. Nothing is pre-set, and nobody — including us — can steer the result." },
   { question: "Can I share my wheel or my result?", answer: "Yes. “Copy link to these options” makes a link that opens the same question and options for friends. “Share result card” makes an image of the answer for a group chat or story." },
+  { question: "How do I decide between two things?", answer: "Tap Between 2 options below the tool, or type your two options and press Decide. The wheel picks one with a 50/50 chance. Rename the options to your own, for example Pizza and Tacos, and spin again." },
+  { question: "I can't decide at all. What should I do?", answer: "Add every option you are considering, press Decide, and notice how you feel about the answer. Relief means go with it; disappointment shows what you really wanted. Use Draw lots if you need to work through the whole list in order." },
+  { question: "Can I use it for big decisions?", answer: "Use it as a nudge, not a verdict. For big, hard-to-reverse choices, list the options, weight the ones you lean toward, and treat the result as a tie-breaker after you have done the thinking." },
   { question: "Is it free, and are my options saved?", answer: "It is free with no account. Your options and your last six decisions are saved only in this browser so they are there next time; nothing is uploaded." },
 ];
 
@@ -42,7 +46,7 @@ export default function DecisionMakerPage() {
       heading={["Decision", "Maker"]}
       intro="Can't decide? Type your options and let the wheel, a cup of lots or a yes-or-no coin choose — weighted if you like, free and no signup."
       description={DESCRIPTION}
-      updated="2026-10-24"
+      updated="2026-10-28"
       faq={FAQ}
       hero={{ src: "/generators/hero/decide.webp", alt: "A spinning decision wheel, a cup of drawing lots and a tossed coin" }}
       heroHideOnShort
@@ -53,6 +57,7 @@ export default function DecisionMakerPage() {
         { href: "/random-team-generator", label: "Random team generator" },
         { href: "/number-randomizer", label: "Number randomizer" },
         { href: "/random-food-generator", label: "Random food generator" },
+        { href: "/random-group-generator", label: "Random group generator" },
       ]}
       afterTool={
         <FactTable
@@ -75,6 +80,29 @@ export default function DecisionMakerPage() {
             <li><strong>Pick a mode</strong> — Wheel for one pick from many, Draw lots to take turns without repeats, Yes or no for a single question.</li>
             <li><strong>Decide and share</strong> — copy the answer, save a result card for the group chat, or send a link so friends can spin the same options.</li>
           </ol>
+          <SectionTitle>Yes or no decision maker</SectionTitle>
+          <p>Stuck on one question? Tap the button, then press Decide: the coin says Yes or No with an equal 50% chance. Type your question first if you want it on the result card.</p>
+          <QuickRow>
+            <QuickSet tool="decision" id="yesno">Flip yes or no</QuickSet>
+          </QuickRow>
+          <SectionTitle>Decide between 2 options</SectionTitle>
+          <p>Two choices, one answer. This loads Stay in or Go out into the wheel and spins it; edit the labels to your own two options and spin again.</p>
+          <QuickRow>
+            <QuickSet tool="decision" id="two">Decide between 2</QuickSet>
+          </QuickRow>
+          <SectionTitle>Weighted decisions</SectionTitle>
+          <p>
+            When you lean one way but want chance to have a say, give the favourite more weight. In the example, Pizza has weight 3 and Tacos and Salad weight 1, so Pizza wins
+            3 times in 5 on average (60%), and Tacos and Salad 20% each. Tap ×1 beside any option to change its weight.
+          </p>
+          <QuickRow>
+            <QuickSet tool="decision" id="weighted">Try weighted dinner</QuickSet>
+          </QuickRow>
+          <SectionTitle>Draw lots, no repeats</SectionTitle>
+          <p>For taking turns or working through a list: each option is drawn once before any can come back.</p>
+          <QuickRow>
+            <QuickSet tool="decision" id="lots">Draw lots</QuickSet>
+          </QuickRow>
           <SectionTitle>When a random decision actually helps</SectionTitle>
           <p>
             Random choice is best for small decisions where every option is fine and the real cost is the time spent deciding: dinner, a
@@ -86,7 +114,7 @@ export default function DecisionMakerPage() {
           <p>
             Picking a person from a class list? The <Link prefetch={false} href="/random-name-picker" className={linkClass}>random name picker</Link> removes
             each winner and can put everyone in a random order. Need a topic to talk about instead of a choice? <Link prefetch={false} href="/spin-the-wheel" className={linkClass}>Spin the topic wheel</Link>.
-            Splitting a group? Use the <Link prefetch={false} href="/random-team-generator" className={linkClass}>random team generator</Link>, and for “what should I eat”
+            Can&apos;t pick a number? Try the <Link prefetch={false} href="/number-randomizer" className={linkClass}>number randomizer</Link> (pick a number 1 or 2). Splitting a group? Use the <Link prefetch={false} href="/random-team-generator" className={linkClass}>random team generator</Link>, and for “what should I eat”
             with real dishes, try the <Link prefetch={false} href="/random-food-generator" className={linkClass}>random food generator</Link>.
           </p>
         </>

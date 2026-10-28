@@ -40,3 +40,10 @@ for (const name of ['magic_8_ball_use','magic_8_ball_share','random_pokemon_gene
 }
 umami.length=0;track('magic_8_ball_other',{});track('random_nba_player_generator_use',{});assert.equal(umami.length,0);
 console.log('PASS: magic_8_ball / random_pokemon_generator use+share events reach Umami');
+
+// 2026-10-28: small random tools send {page}_use / {page}_share to Umami.
+for (const name of ['random_letter_generator_use','random_group_generator_share','random_team_generator_use','decision_maker_share','number_randomizer_use','random_number_generator_share']) {
+  umami.length=0;track(name,{tool_type:name});assert.equal(umami.length,1,name);
+}
+umami.length=0;track('decision_maker_other',{});assert.equal(umami.length,0);
+console.log('PASS: small random tool use+share events reach Umami');
