@@ -562,6 +562,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               );
             }
 
+            // Mid-article copy of the recommendation row: the end-of-page row sat below a
+            // long list and was never reached (topic pages: 0 clicks / 106 views, Oct 28).
+            if (sIdx === Math.floor(article.sections.length / 2) - 1) {
+              acc.elements.push(<TryNext key="mid-next" path={`/topics/${slug}`} placement="mid" tools={topicTryNext(slug)} />);
+            }
+
             return acc;
           },
           { elements: [], runningCount: 0 }

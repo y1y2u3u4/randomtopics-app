@@ -1,5 +1,8 @@
 import RelatedToolLink from "@/components/RelatedToolLink";
+import NextLink from "@/components/NextLink";
+import NextStepRow from "@/components/NextStepRow";
 import { keepPlaying, type RelatedTool } from "@/data/relatedTools";
+import { EXTRA_CATEGORY_FAMILIES, esNext, localeOfPath, sceneNext } from "@/data/nextCards";
 
 type TryNextTool = Pick<RelatedTool, "href" | "label" | "emoji">;
 
@@ -53,7 +56,7 @@ const SCENES: { match: RegExp; tools: TryNextTool[] }[] = [
 ];
 
 export function topicTryNext(slug: string): TryNextTool[] {
-  return SCENES.find((s) => s.match.test(slug))!.tools;
+  return sceneNext(`/topics/${slug}`) ?? SCENES.find((s) => s.match.test(slug))!.tools;
 }
 
 // "Switch category": the same tool for another audience or theme, each on its
@@ -101,6 +104,7 @@ const CATEGORY_FAMILIES: TryNextTool[][] = [
     { href: "/debate/motions", label: "Motions", emoji: "📜" },
   ],
   [
+    { href: "/speech", label: "Speech generator", emoji: "🎤" },
     { href: "/impromptu-speech-topics", label: "Impromptu", emoji: "⏱️" },
     { href: "/5-minute-speech-topics", label: "5-minute", emoji: "🕔" },
     { href: "/table-topics-generator", label: "Table Topics", emoji: "🗣️" },
@@ -128,8 +132,10 @@ const CATEGORY_FAMILIES: TryNextTool[][] = [
   ],
 ];
 
+
 export function categorySwitch(path: string): TryNextTool[] {
-  return CATEGORY_FAMILIES.find((family) => family.some((t) => t.href === path))?.filter((t) => t.href !== path) ?? [];
+  const family = [...CATEGORY_FAMILIES, ...EXTRA_CATEGORY_FAMILIES].find((f) => f.some((t) => t.href === path));
+  return family?.filter((t) => t.href !== path) ?? [];
 }
 
 // Compact row of related tools right under the result, so the next click is in
@@ -137,39 +143,54 @@ export function categorySwitch(path: string): TryNextTool[] {
 // differ from the "Keep playing" cards at the bottom of the page.
 const TRY_NEXT_TITLE = { en: "Try next", es: "Prueba también", pt: "Experimente também", fr: "À essayer ensuite", tr: "Sırada bunlar var" } as const;
 
-export default function TryNext({ path, tools: fixed, locale = "en" }: { path: string; tools?: TryNextTool[]; locale?: "en" | "es" | "pt" | "fr" | "tr" }) {
-  const all = fixed ? [] : keepPlaying(path, 6);
-  // Pages outside RELATED_TOOLS (topic lists, premium collections) fall back to
-  // the scene picks so every tool page shows a next step.
-  const picked = fixed ?? (all.length ? null : locale === "en" ? topicTryNext(path) : []);
+type Locale = "en" | "es" | "pt" | "fr" | "tr";
+
+/**
+ * placement "end" (default) sits under the tool/result; "mid" is a compact copy placed
+ * inside long articles, where the end-of-page row was never reached (topic pages: 0 clicks).
+ */
+export default function TryNext({ path, tools: fixed, locale: given, placement = "end" }: { path: string; tools?: TryNextTool[]; locale?: Locale; placement?: "end" | "mid" }) {
+  const locale: Locale = given ?? localeOfPath(path) ?? "en";
+  const all = fixed || locale !== "en" ? [] : keepPlaying(path, 6);
+  // Same-scene picks first (party -> party, classroom -> classroom); pages outside
+  // RELATED_TOOLS (topic lists, premium collections) fall back to scene picks, and
+  // other languages only ever link to their own language.
+  const scene = fixed || locale !== "en" ? null : sceneNext(path);
+  const picked = fixed ?? scene ?? (locale === "es" ? esNext(path) : locale !== "en" ? [] : all.length ? null : topicTryNext(path));
   const tools = picked ? picked.filter((t) => t.href !== path) : all.length >= 6 ? all.slice(3) : all.slice(0, 3);
   const switches = locale === "en" ? categorySwitch(path) : [];
   if (!tools.length && !switches.length) return null;
   const title = TRY_NEXT_TITLE[locale];
+  const mid = placement === "mid";
+  // One link component per surface: legacy related_tool_click for the English end rows
+  // (keeps the daily series continuous), next_* events everywhere new.
+  const link = (t: TryNextTool, slot: "try_next" | "switch_category") =>
+    locale !== "en" ? (
+      <NextLink key={t.href} event="next_locale_click" from={path} href={t.href} slot={`${mid ? "mid_" : ""}${slot}`} className="mode-chip">
+        <span aria-hidden="true">{t.emoji}</span> {t.label}
+      </NextLink>
+    ) : mid ? (
+      <NextLink key={t.href} event="next_card_click" from={path} href={t.href} slot={slot === "try_next" ? "mid_try_next" : "mid_switch_category"} className="mode-chip">
+        <span aria-hidden="true">{t.emoji}</span> {t.label}
+      </NextLink>
+    ) : (
+      <RelatedToolLink key={t.href} from={path} href={t.href} slot={slot} className="mode-chip">
+        <span aria-hidden="true">{t.emoji}</span> {t.label}
+      </RelatedToolLink>
+    );
   return (
-    <nav aria-label={title} className="max-w-3xl mx-auto px-4 sm:px-6 pt-4 pb-2 print:hidden">
+    <nav aria-label={mid ? `${title} (in this article)` : title} className={`max-w-3xl mx-auto px-4 sm:px-6 ${mid ? "pt-2 pb-8" : "pt-4 pb-2"} print:hidden`}>
+      {!mid && locale === "en" && <NextStepRow path={path} />}
       {switches.length > 0 && (
         <>
           <p className="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-2">Switch category</p>
-          <div className="flex flex-wrap gap-2 mb-3">
-            {switches.map((t) => (
-              <RelatedToolLink key={t.href} from={path} href={t.href} slot="switch_category" className="mode-chip">
-                <span aria-hidden="true">{t.emoji}</span> {t.label}
-              </RelatedToolLink>
-            ))}
-          </div>
+          <div className="flex flex-wrap gap-2 mb-3">{switches.map((t) => link(t, "switch_category"))}</div>
         </>
       )}
       {tools.length > 0 && (
         <>
           <p className="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-2">{title}</p>
-          <div className="flex flex-wrap gap-2">
-            {tools.map((t) => (
-              <RelatedToolLink key={t.href} from={path} href={t.href} slot="try_next" className="mode-chip">
-                <span aria-hidden="true">{t.emoji}</span> {t.label}
-              </RelatedToolLink>
-            ))}
-          </div>
+          <div className="flex flex-wrap gap-2">{tools.map((t) => link(t, "try_next"))}</div>
         </>
       )}
     </nav>

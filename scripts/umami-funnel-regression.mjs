@@ -22,3 +22,12 @@ gtag.length=0;umami.length=0;track('generate_start',{});assert.deepEqual(gtag,['
 window.location.search='?usage_qa=1';umami.length=0;track('generate_success',{});assert.equal(umami.length,0);console.log('PASS: QA traffic never reaches Umami');
 window.location.search='';storage.clear();delete window.umami;let tries=0;window.setTimeout=(fn)=>{tries++;if(tries===2)window.umami={track:(e)=>umami.push([e])};fn();};
 umami.length=0;track('copy_result',{});assert.deepEqual(umami,[['copy']]);console.log('PASS: waits for late Umami script');
+
+// next_* recommendation events reach Umami with slot / from / target_path (2026-10-28).
+window.umami={track:(e,p)=>umami.push([e,p])};
+for (const name of ['next_card_click','next_result_click','next_locale_click']) {
+  umami.length=0;track(name,{slot:'result_next',from:'/charades',target_path:'/this-or-that',generations:3,page_path:'/'});
+  assert.equal(umami.length,1);assert.equal(umami[0][0],name);
+  assert.deepEqual({...umami[0][1]},{slot:'result_next',from:'/charades',target_path:'/this-or-that',generations:3,page_path:'/'});
+}
+console.log('PASS: next_* events reach Umami with slot/from/target_path');

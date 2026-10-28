@@ -356,6 +356,10 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
                 </section>
               );
             }
+            // Mid-article copy of the recommendation row (end-of-page row was rarely reached).
+            if (sIdx === Math.floor(article.sections.length / 2) - 1) {
+              acc.elements.push(<TryNext key="mid-next" path={`/es/topics/${slug}`} placement="mid" locale="es" />);
+            }
             return acc;
           },
           { elements: [], runningCount: 0 }
