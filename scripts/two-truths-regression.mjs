@@ -52,7 +52,7 @@ function loadModule(relativePath, overrides, globals = {}) {
   );
   return target.exports;
 }
-const article = loadModule("../src/data/seoContent.ts", { "./twoTruthsIdeas": ideas }).SEO_ARTICLES.find((item) => item.slug === "two-truths-and-a-lie-ideas");
+const article = loadModule("../src/data/seoContent.ts", { "./twoTruthsIdeas": ideas, "./questionBanks/apply": { applyQuestionBanks() {} } }).SEO_ARTICLES.find((item) => item.slug === "two-truths-and-a-lie-ideas");
 assert.deepEqual(article.sections.flatMap((section) => section.items), all, "The printable list and builder must share the same 120 ideas");
 assert.equal(article.metaTitle, "120 Two Truths and a Lie Ideas — Good Examples for Work & Fun | RandomTopics", "Keep the established title stable this iteration");
 assert.equal(article.publishDate, "2026-07-06", "Do not rewrite publication history");

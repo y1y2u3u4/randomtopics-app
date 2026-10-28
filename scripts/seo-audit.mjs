@@ -106,6 +106,12 @@ const checks = [
   { path: "/toss-a-coin", index: true, canonical: "/toss-a-coin", titleMax: 70, titleHas: "Toss a Coin", enOnlyHreflang: true, bodyHas: ["In short", "Frequently asked questions"] },
   { path: "/heads-or-tails", index: true, canonical: "/heads-or-tails", titleMax: 70, titleHas: "Heads or Tails", enOnlyHreflang: true, bodyHas: ["In short", "Frequently asked questions"] },
   { path: "/picker-wheel", index: true, canonical: "/picker-wheel", titleMax: 70, titleHas: "Picker Wheel", enOnlyHreflang: true, bodyHas: ["In short", "Frequently asked questions"] },
+  { path: "/food-wheel", index: true, canonical: "/food-wheel", titleMax: 70, titleHas: "Food Wheel", enOnlyHreflang: true, bodyHas: ["In short", "Frequently asked questions"] },
+  { path: "/name-wheel", index: true, canonical: "/name-wheel", titleMax: 70, titleHas: "Name Wheel", enOnlyHreflang: true, bodyHas: ["In short", "Frequently asked questions"] },
+  { path: "/spin-the-wheel-custom", index: true, canonical: "/spin-the-wheel-custom", titleMax: 70, titleHas: "Spin the Wheel Custom", enOnlyHreflang: true, bodyHas: ["In short", "Frequently asked questions"] },
+  { path: "/random-wheel", index: true, canonical: "/random-wheel", titleMax: 70, titleHas: "Random Wheel", enOnlyHreflang: true, bodyHas: ["In short", "Frequently asked questions"] },
+  { path: "/classroom-name-picker-wheel", index: true, canonical: "/classroom-name-picker-wheel", titleMax: 70, titleHas: "Classroom Name Picker Wheel", enOnlyHreflang: true, bodyHas: ["In short", "Frequently asked questions"] },
+  { path: "/raffle-wheel", index: true, canonical: "/raffle-wheel", titleMax: 70, titleHas: "Raffle Wheel", enOnlyHreflang: true, bodyHas: ["In short", "Frequently asked questions"] },
   { path: "/random-theme-generator", index: true, canonical: "/random-theme-generator", titleMax: 70, titleHas: "Random Theme Generator", enOnlyHreflang: true, bodyHas: ["In short", "Frequently asked questions"] },
   { path: "/charades/kids", index: true, canonical: "/charades/kids", titleMax: 70, titleHas: "Charades Generator for Kids", enOnlyHreflang: true, bodyHas: ["Frequently asked questions"] },
   { path: "/1-minute-speech-topics", index: true, canonical: "/1-minute-speech-topics", titleMax: 65, titleHas: "1 Minute Speech Topics", enOnlyHreflang: true, bodyHas: ["Generate a One-Minute Speech Topic", "Built-in 1-Minute Speech Timer", "One-minute outline", '"@type":"WebApplication"', '"@type":"FAQPage"'] },
@@ -126,6 +132,8 @@ const checks = [
   { path: "/decision-maker", index: true, canonical: "/decision-maker", enOnlyHreflang: true, bodyHas: ["Yes or no decision maker", "Frequently asked questions"] },
   { path: "/number-randomizer", index: true, canonical: "/number-randomizer", titleHas: "Pick a Number 1 or 2", enOnlyHreflang: true, bodyHas: ["Pick a number 1 or 2", "Frequently asked questions"] },
   { path: "/random-number-generator", index: true, canonical: "/random-number-generator", titleHas: "Random Number Generator 1", enOnlyHreflang: true, bodyHas: ["Random number 1–100", "Frequently asked questions"] },
+  { path: "/topics/would-you-rather-questions", index: true, canonical: "/topics/would-you-rather-questions", titleMax: 75, titleHas: "Would You Rather Questions", hreflang: true, bodyHas: ["Funny Would You Rather Questions", "Would You Rather Questions for Kids", "Hard Would You Rather Questions", "Would You Rather Questions for Couples", "Would You Rather Questions for Work", "Random question"] },
+  { path: "/topics/truth-or-dare-questions", index: true, canonical: "/topics/truth-or-dare-questions", titleMax: 75, titleHas: "Truth or Dare Questions", hreflang: true, bodyHas: ["Truth or Dare Questions for Kids", "Truth or Dare Questions for Teens", "Truth or Dare Questions for Couples", "Funny Truth or Dare Questions", "Truth or Dare Questions Over Text", "Party Truth or Dare Questions"] },
 ];
 
 function fail(message) {

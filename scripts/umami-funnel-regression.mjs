@@ -47,3 +47,17 @@ for (const name of ['random_letter_generator_use','random_group_generator_share'
 }
 umami.length=0;track('decision_maker_other',{});assert.equal(umami.length,0);
 console.log('PASS: small random tool use+share events reach Umami');
+// Wheel family {page}_use / {page}_share reach Umami; look-alikes do not.
+for (const name of ['yes_or_no_wheel_use','yes_or_no_wheel_share','food_wheel_use','raffle_wheel_share','classroom_name_picker_wheel_use','spin_the_wheel_custom_use','name_wheel_share','random_wheel_use','spin_the_wheel_share']) {
+  umami.length=0;track(name,{tool_type:'x',share_method:'link',locale:'en'});
+  assert.equal(umami.length,1);assert.equal(umami[0][0],name);
+}
+umami.length=0;track('food_wheel_other',{});track('raffle_wheel_use_extra',{});assert.equal(umami.length,0);
+console.log('PASS: wheel family use+share events reach Umami');
+// 2026-10-28 question-bank list pages: {page}_use / {page}_share reach Umami.
+for (const name of ['would_you_rather_questions_use','would_you_rather_questions_share','truth_or_dare_questions_use','truth_or_dare_questions_share']) {
+  umami.length=0;track(name,{tool_type:'x',share_method:'copy_link',locale:'en'});
+  assert.equal(umami.length,1);assert.equal(umami[0][0],name);
+}
+umami.length=0;track('would_you_rather_questions_other',{});assert.equal(umami.length,0);
+console.log('PASS: would_you_rather_questions / truth_or_dare_questions use+share events reach Umami');

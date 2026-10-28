@@ -19,6 +19,9 @@ import TryNext, { topicTryNext } from "@/components/TryNext";
 import SpeechTimer from "@/components/SpeechTimer";
 import ArticleGeneratorEntry from "@/components/ArticleGeneratorEntry";
 import TwoTruthsRoundBuilder from "@/components/TwoTruthsRoundBuilder";
+import QuestionBankPlayer from "@/components/QuestionBankPlayerLazy";
+import QuestionBankSections from "@/components/QuestionBankSections";
+import { getQuestionBank } from "@/data/questionBanks/apply";
 import RankBoost, { faqForSchema, renderInline } from "@/components/RankBoost";
 import { ETHICAL_DILEMMA_BOOST, TOASTMASTERS_BOOST, TWO_TRUTHS_BOOST, type Boost } from "@/data/rankBoost";
 
@@ -28,18 +31,25 @@ const ARTICLE_BOOST: Record<string, Boost> = {
   "two-truths-and-a-lie-ideas": TWO_TRUTHS_BOOST,
 };
 
-function sectionId(heading: string) {
-  return heading
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
+import { sectionId } from "@/lib/sectionId";
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
 
 const ARTICLE_CTA: Record<string, { href: string; text: string; label: string; emoji: string }> = {
+  "would-you-rather-questions": {
+    href: "/spin-the-wheel",
+    text: "Not sure who answers first? Put the players on a wheel and spin.",
+    label: "Spin the Wheel",
+    emoji: "🎡",
+  },
+  "truth-or-dare-questions": {
+    href: "/spin-the-wheel",
+    text: "Not sure whose turn it is? Put the players on a wheel and spin.",
+    label: "Spin the Wheel",
+    emoji: "🎡",
+  },
   "two-truths-and-a-lie-ideas": {
     href: "/two-truths-and-a-lie",
     text: "Prefer to write from scratch? Draw a themed prompt, then create your own two truths and one lie.",
@@ -162,6 +172,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const dailyLabel = DAILY_PICK[article.slug];
   const dailyItem = dailyLabel ? articleItems[Math.floor(Date.now() / 86_400_000) % articleItems.length] : null;
   const isTwoTruths = article.slug === "two-truths-and-a-lie-ideas";
+  const bank = getQuestionBank(article.slug);
+  const bankInitial = bank && bank.kind === "wyr" ? bank.cats[0].entries[0] : undefined;
   const articleGeneratorSource = isTwoTruths ? "two_truths_ideas_article"
     : article.slug === "ethical-dilemma-questions" ? "ethical_dilemma_article"
       : article.slug === "toastmasters-table-topics" ? "toastmasters_article" : null;
@@ -197,7 +209,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         />
 
         {/* Hero */}
-        <div className={`text-center ${isTwoTruths || article.slug === "ethical-dilemma-questions" ? "pt-8 sm:pt-12 pb-8" : "pt-12 sm:pt-20 pb-8 sm:pb-12"} max-w-4xl mx-auto px-4 sm:px-6`}>
+        <div className={`text-center ${isTwoTruths || bank || article.slug === "ethical-dilemma-questions" ? "pt-8 sm:pt-12 pb-8" : "pt-12 sm:pt-20 pb-8 sm:pb-12"} max-w-4xl mx-auto px-4 sm:px-6`}>
           <h1
             className="section-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-[1.15] tracking-tight"
           >
@@ -293,6 +305,30 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 operatingSystem: "Any",
                 isAccessibleForFree: true,
                 featureList: ["Audience filters", "No-repeat statement ideas", "Edit three statements", "Choose and reveal your lie", "Copy without the answer", "Local saving", "Share", "Print 120 ideas"],
+              }),
+            }} />
+          </section>
+        ) : null}
+
+        {bank ? (
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-8" aria-label={bank.kind === "wyr" ? "Random would you rather questions" : "Truth or dare party mode"}>
+            <QuestionBankPlayer
+              kind={bank.kind}
+              cats={bank.cats.map((c) => ({ id: c.id, label: c.label }))}
+              initial={bankInitial ? { a: bankInitial.a, b: bankInitial.b } : undefined}
+            />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebApplication",
+                name: bank.kind === "wyr" ? "Would You Rather Question Picker" : "Truth or Dare Party Mode",
+                url: `https://randomtopics.app/topics/${article.slug}`,
+                applicationCategory: "GameApplication",
+                operatingSystem: "Any",
+                isAccessibleForFree: true,
+                featureList: bank.kind === "wyr"
+                  ? ["Category filter", "Random question", "Two-option vote", "One question per screen", "Share image", "Copy link", "Printable list"]
+                  : ["Category filter", "Players and turns", "Truth or dare choice", "Skip", "Full screen", "Share image", "Copy link", "Printable list"],
               }),
             }} />
           </section>
@@ -496,7 +532,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         )}
 
         {/* Content sections */}
-        {article.sections.reduce<{ elements: React.ReactNode[]; runningCount: number }>(
+        {bank ? (
+          <QuestionBankSections bank={bank} midSlot={<TryNext path={`/topics/${slug}`} placement="mid" tools={topicTryNext(slug)} />} />
+        ) : article.sections.reduce<{ elements: React.ReactNode[]; runningCount: number }>(
           (acc, section, sIdx) => {
             const startNum = acc.runningCount;
             acc.elements.push(
