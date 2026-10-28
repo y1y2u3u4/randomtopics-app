@@ -10,6 +10,7 @@ import { PT_SIBLINGS, ptCopy } from "@/data/ptPageCopy";
 import { FR_SIBLINGS, frCopy } from "@/data/frPageCopy";
 import { trCopy } from "@/data/trPageCopy";
 import { TR_PAGES as TR_HUBS } from "@/components/TurkishToolPage";
+import { ES_CORE, esNext, localeSceneOf } from "@/data/nextCards";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 
 // Data-driven standalone es/pt/fr/tr landing pages (2026-10-21 batch, extended
@@ -76,7 +77,8 @@ const HUBS: Record<Exclude<PageLocale, "es">, { href: string; label: string; det
 };
 
 // The most-used page of each language, shown as quick chips under the tool.
-const TRY_NEXT_CORE: Record<Exclude<PageLocale, "es">, { href: string; label: string; emoji: string }[]> = {
+const TRY_NEXT_CORE: Record<PageLocale, { href: string; label: string; emoji: string }[]> = {
+  es: ES_CORE,
   pt: [
     { href: "/pt/pergunta-do-dia", label: "Pergunta do dia", emoji: "📅" },
     { href: "/pt/roleta-de-temas", label: "Roleta de temas", emoji: "🎡" },
@@ -122,13 +124,27 @@ function siblingsFor(locale: Exclude<PageLocale, "es">, path: string) {
   return uniqueByHref([...HUBS[locale], ...near.map((p) => ({ href: p.path, ...p.sibling }))]);
 }
 
-function tryNextFor(locale: Exclude<PageLocale, "es">, path: string) {
+function tryNextFor(locale: PageLocale, path: string) {
+  if (locale === "es") return esNext(path);
   const list = PAGES[locale];
-  const tools = TRY_NEXT_CORE[locale].filter((t) => t.href !== path).slice(0, 3);
   const at = list.findIndex((p) => p.path === path);
+  const scene = at >= 0 ? localeSceneOf(list[at].enPath) : null;
+  const tools: { href: string; label: string; emoji: string }[] = [];
+  const add = (t: { href: string; label: string; emoji: string }) => {
+    if (t.href !== path && !tools.some((x) => x.href === t.href) && tools.length < 4) tools.push(t);
+  };
+  // Same scene first (party -> party, talk -> talk), in the page's own language,
+  // then the language's most-used pages, then the next pages in the list.
+  if (scene) {
+    for (let i = 1; i < list.length && tools.length < 2; i++) {
+      const p = list[(at + i) % list.length];
+      if (localeSceneOf(p.enPath) === scene) add({ href: p.path, label: p.sibling.label, emoji: p.sibling.emoji ?? "🎲" });
+    }
+  }
+  TRY_NEXT_CORE[locale].forEach(add);
   for (let i = 1; i < list.length && tools.length < 4; i++) {
-    const p = list[(at + i) % list.length];
-    if (!tools.some((t) => t.href === p.path)) tools.push({ href: p.path, label: p.sibling.label, emoji: p.sibling.emoji ?? "🎲" });
+    const p = list[(Math.max(at, 0) + i) % list.length];
+    add({ href: p.path, label: p.sibling.label, emoji: p.sibling.emoji ?? "🎲" });
   }
   return tools;
 }
@@ -188,7 +204,7 @@ export function LocaleConfigPage({ path }: { path: string }) {
       howTo={page.howTo}
       faq={page.faq}
       showLocaleSwitcher={locale === "es"}
-      tryNext={locale === "es" ? undefined : tryNextFor(locale, path)}
+      tryNext={tryNextFor(locale, path)}
     />
   );
 }

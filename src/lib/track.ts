@@ -47,8 +47,12 @@ const UMAMI_DIRECT_EVENTS = new Set([
 const SUB_EVENT = /^(teacher|bot|journal|couples|wheel)_(entry_view|entry_click|landing_view|trial_start|paywall_view|plan_select|checkout_start|purchase)$/;
 const SUB_USAGE_EVENTS = new Set(["teacher_present", "bot_message_sent", "journal_entry_saved", "couples_reveal", "wheel_list_saved"]);
 
+// 2026-10-28: recommendation-card events share the next_* prefix (next_card_click,
+// next_result_click, next_locale_click) with props slot, from, target_path.
+const NEXT_EVENT = /^next_[a-z_]+$/;
+
 export function umamiDirectEvent(eventName: string): boolean {
-  return UMAMI_DIRECT_EVENTS.has(eventName) || SUB_EVENT.test(eventName) || SUB_USAGE_EVENTS.has(eventName);
+  return UMAMI_DIRECT_EVENTS.has(eventName) || NEXT_EVENT.test(eventName) || SUB_EVENT.test(eventName) || SUB_USAGE_EVENTS.has(eventName);
 }
 
 /** generate_success count in this browser tab session (drives the Host mode entry). */
@@ -58,7 +62,7 @@ export function sessionGenerateCount(): number {
 
 function umamiProps(params: GtagParams): Record<string, string | number | boolean> {
   const out: Record<string, string | number | boolean> = {};
-  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path", "plan", "generator", "seconds", "product", "entry_page", "slot", "target_path"]) {
+  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path", "plan", "generator", "seconds", "product", "entry_page", "slot", "from", "target_path", "locale_from", "generations"]) {
     const value = params[key];
     if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") out[key] = value;
   }
