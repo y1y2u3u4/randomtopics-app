@@ -189,3 +189,44 @@ Dispatch `opportunity-hub/steward/dispatch/2026-10-27-randomtopics-200k.md` (goa
 7. **Locale batch 1** — PR #202, merged 16:25 UTC: 45 pages, 15 each in /pt, /fr, /tr (top EN pages by clicks, each with its own title/H1 in the target language), hreflang, sitemap, adPublicPaths regenerated (Auto ads only, no manual unit).
 8. **Generator matrix batch 1** — PR #203, merged 16:28 UTC: /wheel-of-names, /random-number-generator, /random-name-generator, /fantasy-name-generator, /random-country-generator, /flip-a-coin, /dice-roller, /yes-or-no-wheel, /random-city-generator, /random-sentence-generator, /random-noun-generator, /random-emoji-generator. Tool above the fold; sitemap, llms.txt, related tools. `src/lib/adsense.ts` unchanged.
    - #202 + #203: all 57 URLs 200 in production at 16:29 UTC; IndexNow 200 at 16:32 UTC; GSC queue updated.
+
+## Week 4: manual unit requested closer to the viewport (B1, 10/31)
+Dispatch `opportunity-hub/steward/dispatch/2026-11-01-november-push.md` §B1: page RPM $1.89 → ≥ $2.5 with no policy risk and no new ad slot.
+
+### Where the RPM went (AdSense, randomtopics.app, account time zone)
+| | 10/17–23 | 10/24–30 |
+|---|---|---|
+| Earnings | $38.39 | $38.17 |
+| Page views | 17,951 | 20,035 |
+| Page RPM | $2.14 | $1.91 |
+| 10/24–30 traffic at 10/17–23 country RPMs | — | $2.00 |
+
+- About **60% of the drop is country mix**: India 1,858 → 2,234 page views ($0.90 RPM), Türkiye 667 → 995 ($0.38, the new /tr pages), Brazil 233 → 343. The US is flat at 4.9k.
+- The rest is lower per-country RPM: US $4.65 → $4.19, UK $3.87 → $3.06, Canada $3.82 → $3.30.
+- Earnings per day are flat at about $5.45. Track earnings per day, not just RPM, while locale traffic grows.
+- **By format, 10/24–30:**
+
+  | Format | Earnings | Impression RPM | Viewable |
+  |---|---|---|---|
+  | Anchor | $18.33 | $1.18 | 86% |
+  | Vignette | $9.56 | $1.77 | 84% |
+  | Intent | $7.67 | — | — |
+  | In-page Auto | $1.30 | $0.23 | 16% |
+  | Side rail | $1.15 | — | — |
+  | Manual unit 8217822741 | $0.59 (1,665 impressions) | $0.35 | 29% |
+
+### Change
+- `ArticleAdvertisement` requests the manual unit only when it is within 100 px of the viewport; before, the margin was 300 px.
+- Why: the result unit sits just below the first screen, so at 300 px it loaded for visitors who never scrolled to it.
+- Low Active View viewability pulls the unit's bids down. Same slot, same placements, same 456 px reserved height (no CLS), no new unit, no first-screen ad, gates unchanged.
+- **Deploy time:** see the PR merge / live check below.
+- **Compare on 2026-11-07:**
+  - Viewability for slot 8217822741 (29% → goal ≥ 50%).
+  - Impression RPM ($0.35).
+  - Page RPM and earnings per day.
+  - Fewer manual impressions is expected and fine.
+
+### Not code (for the user / steward, account settings)
+- **Link AdSense to GA4** (property 544861118): `totalAdRevenue` by page is empty today, so there is no per-page RPM to aim layout work at.
+- **Optional test: turn off In-page Auto ads for 7 days.** They earned $1.30 at 16% viewable; they add clutter and pull Active View down.
+- Seasonal: Q4 bids usually rise through November and December.

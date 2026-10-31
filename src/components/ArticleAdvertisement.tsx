@@ -7,6 +7,9 @@ import { observeSpeechAdEntitlement } from "@/lib/speech/adEligibilityClient";
 
 // Where the unit sits: the original in-content spot, right below a tool's
 // result, or mid-way down a long page. Same reserved height everywhere (no CLS).
+// How close (px) a manual unit must be to the viewport before it is requested.
+const REQUEST_MARGIN = 100;
+
 export type AdPlacement = "content" | "result" | "mid";
 
 export default function ArticleAdvertisement({ path, slot, placement = "content" }: { path: string; slot: string; placement?: AdPlacement }) {
@@ -48,7 +51,9 @@ export default function ArticleAdvertisement({ path, slot, placement = "content"
         // visitor to scroll down to the separate manual article placement.
         void loadAdSense().then(start).catch(() => { /* Failed ads must not interrupt the article. */ });
       }
-      if (bounds.top <= window.innerHeight + 300 && bounds.bottom >= -300) prepareAd(element);
+      // Request only when the unit is about to be seen: at 300 px the result unit
+      // loaded for visitors who never scrolled to it (29% viewable, 10/24–30).
+      if (bounds.top <= window.innerHeight + REQUEST_MARGIN && bounds.bottom >= -REQUEST_MARGIN) prepareAd(element);
     };
     let frame: number | undefined;
     const entitlement = observeSpeechAdEntitlement({
@@ -71,7 +76,7 @@ export default function ArticleAdvertisement({ path, slot, placement = "content"
       },
     });
     const stopReady = observeAdRequestsReady(start);
-    const observer = new IntersectionObserver(start, { rootMargin: "300px 0px" });
+    const observer = new IntersectionObserver(start, { rootMargin: `${REQUEST_MARGIN}px 0px` });
     observer.observe(element);
     document.addEventListener("visibilitychange", start);
     return () => {
