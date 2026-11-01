@@ -78,5 +78,9 @@
   "/generators/hero/book.webp": {
     "width": 359,
     "height": 400
+  },
+  "/generators/hero/bingo.webp": {
+    "width": 374,
+    "height": 400
   }
 }

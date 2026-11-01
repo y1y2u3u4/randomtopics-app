@@ -232,6 +232,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "classroom-name-picker-wheel",
     "raffle-wheel",
     "dice-roller",
+    "bingo-card-generator",
     "yes-or-no-wheel",
     "random-city-generator",
     "random-sentence-generator",

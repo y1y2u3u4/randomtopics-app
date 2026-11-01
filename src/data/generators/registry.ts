@@ -472,6 +472,13 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     crossLinkOnly: true,
   },
   {
+    href: "/bingo-card-generator",
+    emoji: "🎱",
+    label: { en: "Bingo Card Generator" },
+    detail: { en: "Printable bingo card templates, Christmas to 1–75 numbers" },
+    crossLinkOnly: true,
+  },
+  {
     href: "/yes-or-no-wheel",
     emoji: "✅",
     label: { en: "Yes or No Wheel" },
