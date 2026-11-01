@@ -229,3 +229,6 @@ export function localeSceneOf(enPath: string): "party" | "talk" | "learn" | "fun
   if (/riddle|trivia|drawing|food|animal|word|facts|name|character|writing|funny$/.test(enPath)) return "fun";
   return "talk";
 }
+
+// Bingo card generator (2026-11-01).
+NEXT_STEPS["/bingo-card-generator"] = { next: t("/charades", "Party game next: charades", "🎭"), collection: t("/wheel-of-names", "Pick a prize winner with the wheel", "🎡") };

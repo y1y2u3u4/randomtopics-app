@@ -223,6 +223,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/classroom-name-picker-wheel",
   "/raffle-wheel",
   "/dice-roller",
+  "/bingo-card-generator",
   "/yes-or-no-wheel",
   "/random-city-generator",
   "/random-sentence-generator",

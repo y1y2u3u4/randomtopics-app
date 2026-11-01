@@ -89,6 +89,7 @@ const CARDS = [
   { id: "picker", slug: "raffle-wheel", title: "Raffle Wheel", line: "Draw giveaway winners, one prize per spin", chips: ["No repeat winners", "Extra tickets via weights", "Shareable entry list"], paper: ["Ticket 101", "Ticket 102", "✓ <b>Ticket 107</b>", "Ticket 104", "Ticket 109"], paperTitle: "Winner" },
   { id: "g1", slug: "dice-roller", title: "Dice Roller", line: "d4 to d100, with modifiers", chips: ["1 to 10 dice", "Modifier +/-", "Roll history"],
     paper: ["2d6+3 = <b>14</b>", "1d20 = 17", "3d8 = 13", "1d100 = 62"], paperTitle: "Rolls" },
+  { id: "bingo", slug: "bingo-card-generator", title: "Bingo Card Generator", line: "Printable templates, Christmas to 1–75", chips: ["🎄 Christmas bingo", "100 unique cards", "Print 1, 2 or 4 per page"] },
   { id: "g1", slug: "yes-or-no-wheel", title: "Yes or No Wheel", line: "Spin for yes, no or maybe", chips: ["Yes / No", "Yes / No / Maybe", "Running tally"],
     paper: ["Should I go? → <b>Yes</b>", "Order dessert? → Maybe", "Text them? → No"], paperTitle: "Answers" },
   { id: "g1", slug: "random-city-generator", title: "Random City Generator", line: "339 real cities in 176 countries", chips: ["Filter by continent", "Capitals only", "Pick by country"],
@@ -193,7 +194,7 @@ for (const card of CARDS) {
 
 // Hero banners: the illustration with its empty cream margin trimmed, at most
 // 960×400, WebP. Sizes go to heroImages.json so the <img> reserves its box.
-const HEROES = ["dnd", "viking", "japanese", "gnome", "charactername", "character", "decide", "marvel", "h3", "book"];
+const HEROES = ["bingo", "dnd", "viking", "japanese", "gnome", "charactername", "character", "decide", "marvel", "h3", "book"];
 const sizesPath = join(root, "src/data/generators/heroImages.json");
 const sizes = existsSync(sizesPath) ? JSON.parse(readFileSync(sizesPath, "utf8")) : {};
 for (const id of HEROES) {

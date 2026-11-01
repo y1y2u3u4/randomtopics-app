@@ -142,6 +142,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/classroom-name-picker-wheel", label: "Classroom Name Picker Wheel", emoji: "🏫", blurb: "Call on students fairly", groups: ["party", "classroom"] },
   { href: "/raffle-wheel", label: "Raffle Wheel", emoji: "🎟️", blurb: "Draw giveaway winners", groups: ["party", "classroom"] },
   { href: "/dice-roller", label: "Dice Roller", emoji: "🎲", blurb: "d4 to d100, with modifiers", groups: ["party"] },
+  { href: "/bingo-card-generator", label: "Bingo Card Generator", emoji: "🎱", blurb: "Printable cards, Christmas too", groups: ["party", "classroom"] },
   { href: "/yes-or-no-wheel", label: "Yes or No Wheel", emoji: "✅", blurb: "Spin for yes, no or maybe", groups: ["party"] },
   { href: "/random-city-generator", label: "Random City Generator", emoji: "🏙️", blurb: "A random real city", groups: ["classroom", "creative"] },
   { href: "/random-sentence-generator", label: "Random Sentence Generator", emoji: "💬", blurb: "Everyday, funny and story lines", groups: ["creative", "classroom"] },
