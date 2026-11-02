@@ -67,6 +67,10 @@ export default function FantasyNameGeneratorPage() {
         { href: "/viking-name-generator", label: "Viking name generator" },
         { href: "/character-name-generator", label: "Character name generator" },
         { href: "/random-name-generator", label: "Random name generator" },
+        { href: "/orc-name-generator", label: "Orc name generator" },
+        { href: "/wizard-name-generator", label: "Wizard name generator" },
+        { href: "/random-superpower-generator", label: "Random superpower generator" },
+        { href: "/xbox-username-generator", label: "Xbox username generator" },
       ]}
       content={
         <>
