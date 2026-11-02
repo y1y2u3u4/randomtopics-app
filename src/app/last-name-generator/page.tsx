@@ -89,6 +89,8 @@ export default function LastNameGeneratorPage() {
       faq={[...FAQ, ...faqForSchema(LASTNAME_BOOST.faq)]}
       related={[
         { href: "/japanese-name-generator", label: "Japanese name generator" },
+        { href: "/german-name-generator", label: "German name generator" },
+        { href: "/english-name-generator", label: "English name generator" },
         { href: "/western-baby-name-generator", label: "Western baby name generator" },
         { href: "/fake-name-generator", label: "Fake name generator" },
         { href: "/writing", label: "Writing prompt generator" },

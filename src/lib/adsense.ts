@@ -91,7 +91,7 @@ export const PUBLIC_STATE_PARAMS: ReadonlySet<string> = new Set([
   // GeneratorUI: count, result keys and every FilterGroup id (scripts/adsense-regression.mjs checks the ids).
   "n", "r", "case", "cat", "chars", "clan", "cuisine", "diet", "format", "gender", "genre", "length", "letter", "level",
   "meal", "mood", "numbers", "order", "origin", "pos", "race", "rank", "set", "ship", "size", "style", "theme", "type",
-  "use", "where", "category", "school", "tier", "vibe", "weakness",
+  "use", "where", "category", "school", "tier", "vibe", "weakness", "ancestry", "hold", "domain", "era",
   // Other generators: My 9 (i, t), colors (c, l, m), numbers (min, max, u), map (seed, shape),
   // ZIP (state), movie, fancy text (k), book/Marvel daily mode.
   "i", "t", "c", "l", "m", "min", "max", "u", "seed", "shape", "state", "movie", "k", "mode",
