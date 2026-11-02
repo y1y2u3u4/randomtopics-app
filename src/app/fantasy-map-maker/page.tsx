@@ -60,6 +60,7 @@ export default function FantasyMapMakerPage() {
         { href: "/viking-name-generator", label: "Viking name generator" },
         { href: "/country-name-generator", label: "Country name generator" },
         { href: "/random-character-generator", label: "Random character generator" },
+        { href: "/fantasy-world-generator", label: "Fantasy world generator" },
       ]}
       content={
         <>
