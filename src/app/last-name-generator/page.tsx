@@ -12,8 +12,8 @@ import GeneratorExamples from "@/components/generators/GeneratorExamples";
 import { lastNameGenerator } from "@/lib/generators/lastNames";
 
 const PATH = "/last-name-generator";
-const TITLE = "Last Name Generator — Random Surnames by Origin, with Meanings";
-const DESCRIPTION = `Free last name generator with ${LAST_NAMES.length}+ real surnames from ${Object.keys(ORIGIN_LABELS).length} cultures — English, Irish, Italian, Spanish, Japanese, Korean and more — each with its meaning and origin. For characters, games and family-tree curiosity.`;
+const TITLE = "Random Last Name Generator: Surnames with Meanings & Origin";
+const DESCRIPTION = `Free random last name and surname generator with ${LAST_NAMES.length}+ real surnames from ${Object.keys(ORIGIN_LABELS).length} cultures — English, Irish, Italian, Spanish, Japanese, Korean and more — each with its meaning and origin. For characters, games and family-tree curiosity.`;
 
 const SOCIAL = generatorSocial({ card: "last-name-generator", title: TITLE, description: DESCRIPTION, alt: "Last Name Generator — surnames by origin with meanings" });
 

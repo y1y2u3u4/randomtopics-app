@@ -12,8 +12,8 @@ import type { BoostSection } from "@/components/RankBoost";
 import { ANIMAL_BOOST } from "@/data/rankBoost";
 
 const PATH = "/random-animal-generator";
-const TITLE = `Random Animal Generator: ${ANIMALS.length} Animals With Pictures & Facts`;
-const DESCRIPTION = `Free random animal generator with ${ANIMALS.length}+ animals, each with an illustration and a fun fact. Filter by mammals, birds, ocean, farm or easy animals for kids — great for drawing prompts and guessing games.`;
+const TITLE = `Random Animal Generator: ${ANIMALS.length} Random Animals With Pictures`;
+const DESCRIPTION = `Need a random animal? Tap once and this free animal generator picks one of ${ANIMALS.length}+ animals, each with a picture and a fun fact. Filter by mammals, birds, ocean, farm or easy animals for kids — great for drawing prompts and guessing games.`;
 
 const SOCIAL = generatorSocial({ card: "random-animal-generator", title: TITLE, description: DESCRIPTION, alt: "Random Animal Generator — illustrated animals with fun facts" });
 

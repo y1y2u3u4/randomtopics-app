@@ -416,7 +416,7 @@ export const seoArticlesEsPart4: SeoArticle[] = [
   {
     slug: "public-speaking-topics-for-beginners",
     title: "45 temas para oratoria fáciles e interesantes",
-    metaTitle: "45 Temas para Oratoria Fáciles e Interesantes | RandomTopics",
+    metaTitle: "45 Temas de Oratoria Fáciles e Interesantes para Exponer",
     metaDescription:
       "Elige entre 45 temas para oratoria fáciles e interesantes: discursos cortos, presentaciones escolares, temas informativos, persuasivos y creativos.",
     heroTitle: "45 Temas para Oratoria Fáciles e Interesantes",
@@ -514,7 +514,7 @@ export const seoArticlesEsPart4: SeoArticle[] = [
   {
     slug: "conversation-topics-for-teens",
     title: "50 temas para adolescentes: conversación y debate",
-    metaTitle: "50 Temas para Adolescentes: Hablar y Debatir | RandomTopics",
+    metaTitle: "Temas para Hablar con Adolescentes: 50 Ideas y Debates",
     metaDescription:
       "50 temas para hablar con adolescentes y debatir entre jóvenes: redes sociales, identidad, amistad, escuela, futuro y preguntas divertidas para grupos.",
     heroTitle: "50 Temas para Adolescentes: Conversación y Debate",
@@ -613,9 +613,9 @@ export const seoArticlesEsPart4: SeoArticle[] = [
   {
     slug: "couples-game-night-questions",
     title: "60 preguntas para una noche de juegos en pareja",
-    metaTitle: "60 preguntas para una noche de juegos en pareja y una cita divertida | RandomTopics",
+    metaTitle: "Juego de Preguntas para Parejas: 60 Preguntas Divertidas",
     metaDescription:
-      "60 preguntas divertidas y reveladoras para una noche de juegos en pareja. Perfectas para citas, citas dobles y parejas que quieren reír, conectar y descubrir algo nuevo el uno del otro.",
+      "Juego de preguntas para parejas: 60 preguntas divertidas y reveladoras para una noche de juegos en pareja. Perfectas para citas, citas dobles y parejas que quieren reír, conectar y descubrir algo nuevo el uno del otro.",
     heroTitle: "60 preguntas para una noche de juegos en pareja",
     heroSubtitle: "Convierte la noche de cita en noche de juegos con preguntas divertidas, coquetas y sorprendentemente reveladoras.",
     intro:

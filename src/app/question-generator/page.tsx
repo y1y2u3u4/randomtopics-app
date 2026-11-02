@@ -14,9 +14,9 @@ import RankBoost, { faqForSchema } from "@/components/RankBoost";
 import { QUESTION_GENERATOR_BOOST } from "@/data/rankBoost";
 
 export const metadata: Metadata = withSocial({
-  title: { absolute: "Random Question Generator — 500+ Questions to Ask Anyone" },
+  title: { absolute: "Random Question Generator: 500+ Questions to Ask Friends" },
   description:
-    "Free random question generator: icebreakers, deep questions, funny prompts and discussion questions across 16 categories. Filter by depth, generate up to 10 at once — no signup.",
+    "Free random question generator with 500+ questions to ask friends or anyone: icebreakers, deep questions, funny prompts and discussion questions across 16 categories. Filter by depth, generate up to 10 at once — no signup.",
   keywords: [
     "random question generator",
     "question generator",

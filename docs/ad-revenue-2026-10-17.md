@@ -230,3 +230,63 @@ Dispatch `opportunity-hub/steward/dispatch/2026-11-01-november-push.md` §B1: pa
 - **Link AdSense to GA4** (property 544861118): `totalAdRevenue` by page is empty today, so there is no per-page RPM to aim layout work at.
 - **Optional test: turn off In-page Auto ads for 7 days.** They earned $1.30 at 16% viewable; they add clutter and pull Active View down.
 - Seasonal: Q4 bids usually rise through November and December.
+
+## 2026-11-02: coverage check and bfcache retirement fix
+
+Context: the November target is RandomTopics ad revenue of about $170, which needs an RPM of about $2.5. The steward asked why AdSense counts only about 35% of Umami page views.
+
+### Coverage (AdSense page views / Umami page views)
+- **Before PR #193 (10/27):** 0.37–0.39.
+- **After PR #193:**
+
+  | Date | Coverage |
+  |---|---|
+  | 10/28 | 0.53 |
+  | 10/29 | 0.49 |
+  | 10/30 | 0.54 |
+  | 10/31 | 0.54 |
+  | 11/01 | 0.57 |
+
+- The "35%" figure is already out of date.
+- **RPM:** $1.73–2.12. **Earnings:** about $5–6 a day.
+
+### Where the remaining gap is (Umami, last 7 days)
+29,227 page views in total.
+
+- **13.8% of page views are on paths without ads.** This is by design.
+  - `/speech` (2,927) and `/speech/persuasive`: paid product.
+  - Student and kids pages: kept ad-free.
+  - `/pt/*` (about 200): ad-free since PR #166/#168.
+  - `/saved-topics` and `/yo-mama-randomizer`.
+- **About 2.6% of page views ended with `?rt_ads=off`** (770 a week). This means a document that already had ads loaded and then retired.
+  - These are almost all non-EEA visitors (US 124, IN 124, TR 55, CO 28), mostly on Chrome (434) and iOS (154).
+  - So consent refusal is not the cause. The cause is the back/forward cache handler.
+  - `observeSpeechAdEntitlement` called `gate.invalidateIdentity()` on every `pageshow` with `persisted: true`. That retires a started document even when nothing changed.
+  - The visitor is then sent to a reload with no ads.
+- **The rest of the gap is not something we can fix:**
+  - ad blockers;
+  - EEA visitors who have not consented;
+  - Global Privacy Control (GPC);
+  - visitors who leave before the delayed loader starts (up to 4 seconds, or the first interaction).
+
+### Fix (this PR)
+- On a back/forward cache restore, the handler now calls `gate.suspend()` and schedules a refresh. Before, it called `gate.invalidateIdentity()`.
+- `suspend()` pauses ad requests while the check runs. The refresh still retires the document in three cases:
+  - the account changed while the page was frozen (the identity check in `readSpeechAdEntitlement`);
+  - the account became ad-free;
+  - the check fails.
+- `scripts/adsense-browser.mjs` now has three back/forward cache cases:
+  - same account: keeps the document;
+  - account switched: retires it;
+  - became paid: retires it.
+- That harness currently fails 37 of 75 cases on unmodified `main` too: the mock SDK never loads, which is an existing harness problem. So these new cases are not proven by it yet.
+- `npm run ads:test` (unit and lifecycle) passes.
+- **Compare on 2026-11-09:**
+  - `rt_ads=off` page views a week: 770 → goal < 150.
+  - Coverage: goal ≥ 0.60.
+
+### Options that need a decision (not done)
+- **Turn ads on for `/pt/*`.** Gains about 200 page views a week. It was made ad-free on purpose, so this needs the steward or user to decide.
+- **The two account items from 10/31 are still open:**
+  - link AdSense to GA4;
+  - the optional 7-day test with In-page Auto ads off.

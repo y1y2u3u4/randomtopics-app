@@ -2583,7 +2583,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
   {
     slug: "toastmasters-table-topics",
     title: "120 Table Topics Questions for Toastmasters (Funny, Work & Family)",
-    metaTitle: "120 Toastmasters Table Topics Questions + Random Timer",
+    metaTitle: "120 Table Topics Questions for Toastmasters + Random Timer",
     metaDescription:
       "Draw a random Toastmasters Table Topic, practice with a 1–5 minute timer, or copy and print all 120 funny, reflective, work and family questions.",
     heroTitle: "120 Table Topics Questions for Toastmasters",

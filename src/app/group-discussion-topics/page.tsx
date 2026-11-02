@@ -10,9 +10,9 @@ import RankBoost, { faqForSchema, renderInline } from "@/components/RankBoost";
 import { GROUP_DISCUSSION_BOOST } from "@/data/rankBoost";
 
 export const metadata: Metadata = withSocial({
-  title: { absolute: "100+ Group Discussion Topics for 2026 | Random Topics" },
+  title: { absolute: "GD Topics 2026: 100+ Current Group Discussion Topics" },
   description:
-    "100+ group discussion topics for 2026, including current affairs, situation-based GD questions, AI, business, education, abstract topics, placements, and MBA interviews.",
+    "Latest GD topics for 2026: 100+ current group discussion topics, including current affairs, situation-based GD questions, AI, business, education, abstract topics, placements, and MBA interviews.",
   keywords: [
     "group discussion topics",
     "gd topics",

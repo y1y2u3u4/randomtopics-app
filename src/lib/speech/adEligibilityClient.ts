@@ -138,8 +138,10 @@ export function observeSpeechAdEntitlement(options: {
     deferred = setTimeout(() => { deferred = undefined; if (active) void gate.refresh(); }, 0);
   }
   const focus = () => { if (document.visibilityState === "visible") schedule(); };
+  // A bfcache restore pauses and re-checks; the refresh still retires the
+  // document if the account changed or became ad-free while it was frozen.
   const restored = (event: PageTransitionEvent) => {
-    if (event.persisted) { gate.invalidateIdentity(); schedule(); }
+    if (event.persisted) { gate.suspend(); schedule(); }
   };
   window.addEventListener("focus", focus);
   window.addEventListener("pageshow", restored);
