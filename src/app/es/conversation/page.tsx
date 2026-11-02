@@ -13,9 +13,9 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { absolute: "Temas de Conversación: 300+ Temas para Hablar (Generador Random)" },
+  title: { absolute: "Temas de Conversación: 320 Temas para Hablar o por Chat" },
   description:
-    "¿No sabes de qué hablar? Prueba 12 preguntas con repreguntas o genera entre 320 temas en español. Copia, guarda y elige una colección para tu grupo. Gratis.",
+    "Temas de conversación para hablar en persona o por chat: prueba 12 preguntas con repreguntas o genera entre 320 temas en español. Copia, guarda y elige una colección para tu grupo. Gratis.",
   keywords: [
     "iniciadores de conversación",
     "temas de conversación",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/conversation"),
   },
   openGraph: {
-    title: "Temas de Conversación: 300+ Temas para Hablar (Generador Random)",
+    title: "Temas de Conversación: 320 Temas para Hablar o por Chat",
     description:
       "12 preguntas listas para conversar con repreguntas y un generador de 320 temas en español. Copia, guarda o comparte sin registro.",
     url: `${SITE_URL}/es/conversation`,

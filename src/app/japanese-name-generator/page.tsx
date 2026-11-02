@@ -10,8 +10,8 @@ import type { BoostSection } from "@/components/RankBoost";
 import { JAPANESE_BOOST } from "@/data/rankBoost";
 
 const PATH = "/japanese-name-generator";
-const TITLE = `Japanese Name Generator: ${JP_GIVEN.length} Real Names, Kanji & Meanings`;
-const DESCRIPTION = `Free Japanese name generator: ${JP_GIVEN.length}+ real given names and ${JP_FAMILY.length}+ surnames, each shown in kanji, hiragana and romaji with the meaning of the kanji. Filter by male, female or gender-neutral; Western or Japanese name order.`;
+const TITLE = `Japanese Name Generator with Meanings: ${JP_GIVEN.length} Names in Kanji`;
+const DESCRIPTION = `Free random Japanese name generator with meanings: ${JP_GIVEN.length}+ real given names and ${JP_FAMILY.length}+ surnames, each shown in kanji, hiragana and romaji with the meaning of the kanji. Filter by male, female or gender-neutral; Western or Japanese name order.`;
 
 const SOCIAL = generatorSocial({ card: "japanese-name-generator", title: TITLE, description: DESCRIPTION, alt: "Japanese Name Generator — cherry blossoms, torii gate and Mount Fuji" });
 

@@ -12,7 +12,7 @@ import type { BoostSection } from "@/components/RankBoost";
 import { CHARACTER_BOOST } from "@/data/rankBoost";
 
 const PATH = "/random-character-generator";
-const TITLE = "Random Character Generator — Name, Personality, Secret & More";
+const TITLE = "Random Character Generator: Free Traits, Backstory & Secrets";
 const DESCRIPTION =
   "Free random character generator for writers and role-players: each character gets a name, occupation, personality, distinctive look, motivation, secret, quirk and flaw. Fantasy, sci-fi, modern or historical. No signup.";
 

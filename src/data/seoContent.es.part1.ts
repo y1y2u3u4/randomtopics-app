@@ -5,7 +5,7 @@ export const seoArticlesEsPart1: SeoArticle[] = [
   {
     slug: "debate-topics-for-students",
     title: "Los 75 mejores temas de debate para estudiantes en 2026",
-    metaTitle: "Los 75 mejores temas de debate para estudiantes en 2026 | RandomTopics",
+    metaTitle: "Temas de Debate para Estudiantes: 75 Ideas Interesantes 2026",
     metaDescription:
       "Descubre 75 temas de debate atractivos para estudiantes sobre política, tecnología, educación, ética y mucho más. Ideales para debates en clase, concursos de oratoria y ejercicios de pensamiento crítico.",
     heroTitle: "Los 75 mejores temas de debate para estudiantes en 2026",
@@ -166,9 +166,9 @@ export const seoArticlesEsPart1: SeoArticle[] = [
   {
     slug: "conversation-starters-for-couples",
     title: "60 temas de conversación profundos para parejas",
-    metaTitle: "Temas para Hablar con tu Pareja: 60 Temas Profundos y Divertidos",
+    metaTitle: "Temas de Conversación con tu Pareja o Novia: 60 Ideas",
     metaDescription:
-      "60 temas para hablar con tu pareja, tu novio o tu novia: desde preguntas ligeras hasta temas profundos. Ideales para una cita, una cena o una noche en casa.",
+      "60 temas de conversación para hablar con tu pareja, tu novio o tu novia: desde preguntas ligeras y divertidas hasta temas profundos. Ideales para una cita, una cena o una noche en casa.",
     heroTitle: "60 temas de conversación profundos para parejas",
     heroSubtitle:
       "Temas para hablar con tu novio o tu novia: desde preguntas ligeras hasta conversaciones profundas que los acercan y mantienen viva la chispa.",
