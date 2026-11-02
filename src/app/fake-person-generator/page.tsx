@@ -84,6 +84,7 @@ export default function FakePersonGeneratorPage() {
         { href: "/random-character-generator", label: "Random character generator" },
         { href: "/character-name-generator", label: "Character name generator" },
         { href: "/story-prompt-generator", label: "Story prompt generator" },
+        { href: "/random-person-generator", label: "Random person generator (for writing)" },
       ]}
       content={
         <>

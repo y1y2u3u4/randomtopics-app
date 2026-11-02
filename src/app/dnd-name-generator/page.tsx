@@ -73,6 +73,7 @@ export default function DndNameGeneratorPage() {
         { href: "/character-name-generator", label: "Character name generator" },
         { href: "/random-character-generator", label: "Random character generator" },
         { href: "/writing", label: "Writing prompts" },
+        { href: "/point-buy-calculator-5e", label: "Point buy calculator 5e" },
       ]}
       content={
         <>
