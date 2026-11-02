@@ -232,3 +232,7 @@ export function localeSceneOf(enPath: string): "party" | "talk" | "learn" | "fun
 
 // Bingo card generator (2026-11-01).
 NEXT_STEPS["/bingo-card-generator"] = { next: t("/charades", "Party game next: charades", "🎭"), collection: t("/wheel-of-names", "Pick a prize winner with the wheel", "🎡") };
+NEXT_STEPS["/orc-name-generator"] = { next: t("/wizard-name-generator", "Name a rival: wizard names", "🪄"), collection: t("/fantasy-name-generator", "Names for every fantasy race", "🗡️") };
+NEXT_STEPS["/wizard-name-generator"] = { next: t("/random-superpower-generator", "Give them a power next", "⚡"), collection: t("/fantasy-name-generator", "Names for every fantasy race", "🗡️") };
+NEXT_STEPS["/random-superpower-generator"] = { next: t("/character-name-generator", "Name your hero next", "🦸"), collection: t("/fantasy-name-generator", "More fantasy name ideas", "🗡️") };
+NEXT_STEPS["/xbox-username-generator"] = { next: t("/username-generator", "Usernames for Discord, Twitch & more", "👤"), collection: t("/fantasy-name-generator", "Fantasy names for gamer tags", "🗡️") };

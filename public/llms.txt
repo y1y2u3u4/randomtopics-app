@@ -87,6 +87,10 @@
 - [Raffle Wheel](https://randomtopics.app/raffle-wheel): Pick giveaway and raffle winners with a spin; remove winners so nobody wins twice.
 - [Dice Roller](https://randomtopics.app/dice-roller): Roll 1 to 10 dice from d4 to d100 with a modifier.
 - [Bingo Card Generator](https://randomtopics.app/bingo-card-generator): Free printable bingo card templates (Christmas, holiday party, baby shower, 1–75 numbers, blank); shuffle up to 100 unique cards, print 1, 2 or 4 per page, with a built-in caller.
+- [Orc Name Generator](https://randomtopics.app/orc-name-generator): 756 orc names and 80 clan names with meanings; filter by war band, mountain, swamp or ash-waste clan and gender, or add a battle title.
+- [Wizard Name Generator](https://randomtopics.app/wizard-name-generator): 800 wizard, witch and sorcerer names with meanings plus epithets with one-line backstories, by school of magic (elemental, arcane, necromancer, druid, illusionist).
+- [Random Superpower Generator](https://randomtopics.app/random-superpower-generator): 100 superpowers in five categories, each with what it does, a street/city/world power level and an optional random weakness; 10 per click.
+- [Xbox Username Generator](https://randomtopics.app/xbox-username-generator): Gamertag ideas that fit Xbox rules (12 characters or fewer, letters, numbers, spaces) in sweaty, funny, OG and chill styles, with character count.
 - [Yes or No Wheel](https://randomtopics.app/yes-or-no-wheel): A spinning yes, no or maybe wheel for a quick answer.
 - [Random City Generator](https://randomtopics.app/random-city-generator): A random real city by continent or country.
 - [Random Sentence Generator](https://randomtopics.app/random-sentence-generator): Random grammatical sentences, from everyday to funny.

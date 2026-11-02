@@ -128,6 +128,30 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Names & houses by elf type" },
   },
   {
+    href: "/orc-name-generator",
+    emoji: "🪓",
+    label: { en: "Orc Name Generator" },
+    detail: { en: "Orc names & clans with meanings" },
+  },
+  {
+    href: "/wizard-name-generator",
+    emoji: "🪄",
+    label: { en: "Wizard Name Generator" },
+    detail: { en: "Names & epithets by school of magic" },
+  },
+  {
+    href: "/random-superpower-generator",
+    emoji: "⚡",
+    label: { en: "Random Superpower Generator" },
+    detail: { en: "Powers with levels & weaknesses" },
+  },
+  {
+    href: "/xbox-username-generator",
+    emoji: "🎮",
+    label: { en: "Xbox Username Generator" },
+    detail: { en: "Gamertags that fit the 12-character rule" },
+  },
+  {
     href: "/vampire-name-generator",
     emoji: "🦇",
     label: { en: "Vampire Name Generator" },
