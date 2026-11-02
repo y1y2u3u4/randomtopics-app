@@ -84,6 +84,7 @@ export default function JapaneseNameGeneratorPage() {
       updated="2026-10-11"
       faq={[...FAQ, ...faqForSchema(JAPANESE_BOOST.faq)]}
       related={[
+        { href: "/japanese-name-converter", label: "Japanese name converter (your name in katakana)" },
         { href: "/western-baby-name-generator", label: "Western baby name generator" },
         { href: "/last-name-generator", label: "Last name generator" },
         { href: "/fake-name-generator", label: "Fake name generator" },
@@ -111,7 +112,9 @@ export default function JapaneseNameGeneratorPage() {
             Writers and manga artists naming a cast, gamers creating characters, learners practising kanji readings, and anyone curious about
             what common Japanese names mean. For surnames from other cultures use the{" "}
             <Link prefetch={false} href="/last-name-generator" className={linkClass}>last name generator</Link>; for fantasy or sci-fi casts try the{" "}
-            <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link>.
+            <Link prefetch={false} href="/character-name-generator" className={linkClass}>character name generator</Link>. Want your own English name written in Japanese instead? The{" "}
+            <Link prefetch={false} href="/japanese-name-converter" className={linkClass}>Japanese name converter</Link> gives the katakana, romaji
+            and kanji spellings with meanings.
           </p>
           <RankBoost variant="inline" sections={[SAMPLE_SECTION, ...JAPANESE_BOOST.sections]} />
         </>

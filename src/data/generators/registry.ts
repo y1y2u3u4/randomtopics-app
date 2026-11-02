@@ -356,6 +356,12 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Kanji, kana, romaji & meaning" },
   },
   {
+    href: "/japanese-name-converter",
+    emoji: "🈁",
+    label: { en: "Japanese Name Converter" },
+    detail: { en: "Your name in katakana & kanji" },
+  },
+  {
     href: "/random-color-generator",
     emoji: "🎨",
     label: { en: "Random Color Generator" },

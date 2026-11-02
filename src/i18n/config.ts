@@ -205,6 +205,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/random-food-generator",
   "/random-letter-generator",
   "/japanese-name-generator",
+  "/japanese-name-converter",
   "/random-color-generator",
   "/fantasy-map-maker",
   "/my-9-albums",

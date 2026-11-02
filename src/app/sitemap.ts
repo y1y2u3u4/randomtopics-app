@@ -215,6 +215,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "random-food-generator",
     "random-word-generator",
     "japanese-name-generator",
+    "japanese-name-converter",
     "random-color-generator",
     "fantasy-map-maker",
     "my-9-albums",
