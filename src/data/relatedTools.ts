@@ -66,6 +66,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/character-name-generator", label: "Character Name Generator", emoji: "✒️", blurb: "Names for stories", groups: ["names", "creative"] },
   { href: "/viking-name-generator", label: "Viking Name Generator", emoji: "🛡️", blurb: "Old Norse names", groups: ["names"] },
   { href: "/japanese-name-generator", label: "Japanese Name Generator", emoji: "🎌", blurb: "Kanji, kana and meaning", groups: ["names"] },
+  { href: "/japanese-name-converter", label: "Japanese Name Converter", emoji: "🈁", blurb: "Your English name in katakana & kanji", groups: ["names"] },
   { href: "/gnome-name-generator", label: "Gnome Name Generator", emoji: "⚙️", blurb: "Names, nicknames, clans", groups: ["names"] },
   { href: "/warrior-cat-name-generator", label: "Warrior Cat Name Generator", emoji: "🐈", blurb: "Prefixes, suffixes, ranks", groups: ["names"] },
   { href: "/elf-name-generator", label: "Elf Name Generator", emoji: "🧝", blurb: "Names & houses by elf type", groups: ["names"] },

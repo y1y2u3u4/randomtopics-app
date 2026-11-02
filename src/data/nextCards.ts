@@ -237,6 +237,7 @@ NEXT_STEPS["/dragonborn-name-generator"] = { next: t("/god-name-generator", "Nam
 NEXT_STEPS["/dwarf-name-generator"] = { next: t("/elf-name-generator", "Name an elf rival next", "🧝"), collection: t("/dnd-name-generator", "Names for every D&D race", "🗡️") };
 NEXT_STEPS["/god-name-generator"] = { next: t("/fantasy-world-generator", "Build the world they rule", "🗺️"), collection: t("/fantasy-name-generator", "Names for every fantasy race", "🗡️") };
 NEXT_STEPS["/german-name-generator"] = { next: t("/english-name-generator", "Try English names next", "🇬🇧"), collection: t("/last-name-generator", "Surnames from more countries", "🌍") };
+NEXT_STEPS["/japanese-name-converter"] = { next: t("/japanese-name-generator", "Get a real Japanese name", "🎌"), collection: t("/last-name-generator", "Surnames from more countries", "🌍") };
 NEXT_STEPS["/english-name-generator"] = { next: t("/german-name-generator", "Try German names next", "🇩🇪"), collection: t("/last-name-generator", "Surnames from more countries", "🌍") };
 NEXT_STEPS["/orc-name-generator"] = { next: t("/wizard-name-generator", "Name a rival: wizard names", "🪄"), collection: t("/fantasy-name-generator", "Names for every fantasy race", "🗡️") };
 NEXT_STEPS["/wizard-name-generator"] = { next: t("/random-superpower-generator", "Give them a power next", "⚡"), collection: t("/fantasy-name-generator", "Names for every fantasy race", "🗡️") };
