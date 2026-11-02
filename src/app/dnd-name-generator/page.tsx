@@ -74,6 +74,8 @@ export default function DndNameGeneratorPage() {
         { href: "/random-character-generator", label: "Random character generator" },
         { href: "/writing", label: "Writing prompts" },
         { href: "/point-buy-calculator-5e", label: "Point buy calculator 5e" },
+        { href: "/dragonborn-name-generator", label: "Dragonborn name generator" },
+        { href: "/dwarf-name-generator", label: "Dwarf name generator" },
       ]}
       content={
         <>

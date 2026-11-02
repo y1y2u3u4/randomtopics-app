@@ -134,6 +134,36 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Orc names & clans with meanings" },
   },
   {
+    href: "/dragonborn-name-generator",
+    emoji: "🐉",
+    label: { en: "Dragonborn Name Generator" },
+    detail: { en: "5e names, clans & childhood names" },
+  },
+  {
+    href: "/dwarf-name-generator",
+    emoji: "⚒️",
+    label: { en: "Dwarf Name Generator" },
+    detail: { en: "Dwarf names & clans by hold" },
+  },
+  {
+    href: "/god-name-generator",
+    emoji: "✨",
+    label: { en: "God Name Generator" },
+    detail: { en: "Gods & goddesses for 12 domains" },
+  },
+  {
+    href: "/german-name-generator",
+    emoji: "🇩🇪",
+    label: { en: "German Name Generator" },
+    detail: { en: "Real German names by era" },
+  },
+  {
+    href: "/english-name-generator",
+    emoji: "🇬🇧",
+    label: { en: "English Name Generator" },
+    detail: { en: "Real English names by era" },
+  },
+  {
     href: "/wizard-name-generator",
     emoji: "🪄",
     label: { en: "Wizard Name Generator" },

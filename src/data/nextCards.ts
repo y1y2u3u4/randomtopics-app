@@ -232,6 +232,12 @@ export function localeSceneOf(enPath: string): "party" | "talk" | "learn" | "fun
 
 // Bingo card generator (2026-11-01).
 NEXT_STEPS["/bingo-card-generator"] = { next: t("/charades", "Party game next: charades", "🎭"), collection: t("/wheel-of-names", "Pick a prize winner with the wheel", "🎡") };
+// Fantasy + language name pages (2026-11-02).
+NEXT_STEPS["/dragonborn-name-generator"] = { next: t("/god-name-generator", "Name the god they serve", "✨"), collection: t("/dnd-name-generator", "Names for every D&D race", "🗡️") };
+NEXT_STEPS["/dwarf-name-generator"] = { next: t("/elf-name-generator", "Name an elf rival next", "🧝"), collection: t("/dnd-name-generator", "Names for every D&D race", "🗡️") };
+NEXT_STEPS["/god-name-generator"] = { next: t("/fantasy-world-generator", "Build the world they rule", "🗺️"), collection: t("/fantasy-name-generator", "Names for every fantasy race", "🗡️") };
+NEXT_STEPS["/german-name-generator"] = { next: t("/english-name-generator", "Try English names next", "🇬🇧"), collection: t("/last-name-generator", "Surnames from more countries", "🌍") };
+NEXT_STEPS["/english-name-generator"] = { next: t("/german-name-generator", "Try German names next", "🇩🇪"), collection: t("/last-name-generator", "Surnames from more countries", "🌍") };
 NEXT_STEPS["/orc-name-generator"] = { next: t("/wizard-name-generator", "Name a rival: wizard names", "🪄"), collection: t("/fantasy-name-generator", "Names for every fantasy race", "🗡️") };
 NEXT_STEPS["/wizard-name-generator"] = { next: t("/random-superpower-generator", "Give them a power next", "⚡"), collection: t("/fantasy-name-generator", "Names for every fantasy race", "🗡️") };
 NEXT_STEPS["/random-superpower-generator"] = { next: t("/character-name-generator", "Name your hero next", "🦸"), collection: t("/fantasy-name-generator", "More fantasy name ideas", "🗡️") };

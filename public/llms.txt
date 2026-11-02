@@ -88,6 +88,11 @@
 - [Dice Roller](https://randomtopics.app/dice-roller): Roll 1 to 10 dice from d4 to d100 with a modifier.
 - [Bingo Card Generator](https://randomtopics.app/bingo-card-generator): Free printable bingo card templates (Christmas, holiday party, baby shower, 1–75 numbers, blank); shuffle up to 100 unique cards, print 1, 2 or 4 per page, with a built-in caller.
 - [Orc Name Generator](https://randomtopics.app/orc-name-generator): 756 orc names and 80 clan names with meanings; filter by war band, mountain, swamp or ash-waste clan and gender, or add a battle title.
+- [Dragonborn Name Generator](https://randomtopics.app/dragonborn-name-generator): 570 D&D 5e dragonborn names, 36 clans and 20 childhood names with meanings; filter by chromatic, metallic or gem ancestry and gender; clan name first.
+- [Dwarf Name Generator](https://randomtopics.app/dwarf-name-generator): 680 dwarf names and 48 clans with meanings; mountain, hill, deep or frost dwarf, gender, and "son of / daughter of" naming.
+- [God Name Generator](https://randomtopics.app/god-name-generator): 703 original god, goddess and genderless deity names across 12 domains, each with a meaning, epithet and holy symbol; build a pantheon.
+- [German Name Generator](https://randomtopics.app/german-name-generator): 107 real German first names and 40 surnames with meanings; modern, classic 1930s–70s or old Germanic era; noble "von" names.
+- [English Name Generator](https://randomtopics.app/english-name-generator): 108 real English first names and 41 surnames with meanings; modern, Victorian or Old English (Anglo-Saxon) era; optional middle name.
 - [Wizard Name Generator](https://randomtopics.app/wizard-name-generator): 800 wizard, witch and sorcerer names with meanings plus epithets with one-line backstories, by school of magic (elemental, arcane, necromancer, druid, illusionist).
 - [Random Superpower Generator](https://randomtopics.app/random-superpower-generator): 100 superpowers in five categories, each with what it does, a street/city/world power level and an optional random weakness; 10 per click.
 - [Xbox Username Generator](https://randomtopics.app/xbox-username-generator): Gamertag ideas that fit Xbox rules (12 characters or fewer, letters, numbers, spaces) in sweaty, funny, OG and chill styles, with character count.

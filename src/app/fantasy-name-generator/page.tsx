@@ -68,6 +68,9 @@ export default function FantasyNameGeneratorPage() {
         { href: "/character-name-generator", label: "Character name generator" },
         { href: "/random-name-generator", label: "Random name generator" },
         { href: "/orc-name-generator", label: "Orc name generator" },
+        { href: "/dwarf-name-generator", label: "Dwarf name generator" },
+        { href: "/dragonborn-name-generator", label: "Dragonborn name generator" },
+        { href: "/god-name-generator", label: "God name generator" },
         { href: "/wizard-name-generator", label: "Wizard name generator" },
         { href: "/random-superpower-generator", label: "Random superpower generator" },
         { href: "/xbox-username-generator", label: "Xbox username generator" },
@@ -91,7 +94,8 @@ export default function FantasyNameGeneratorPage() {
           <SectionTitle>Go deeper</SectionTitle>
           <p>
             For a single race with longer lists use the <Link prefetch={false} href="/elf-name-generator" className={linkClass}>elf name generator</Link>,
-            the <Link prefetch={false} href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link> or the <Link prefetch={false} href="/viking-name-generator" className={linkClass}>Viking name generator</Link>.
+            the <Link prefetch={false} href="/dnd-name-generator" className={linkClass}>D&amp;D name generator</Link> the <Link prefetch={false} href="/viking-name-generator" className={linkClass}>Viking name generator</Link>,
+            the <Link prefetch={false} href="/dwarf-name-generator" className={linkClass}>dwarf name generator</Link> or the <Link prefetch={false} href="/dragonborn-name-generator" className={linkClass}>dragonborn name generator</Link>; for a pantheon, the <Link prefetch={false} href="/god-name-generator" className={linkClass}>god name generator</Link>.
             Building the world itself? The <Link prefetch={false} href="/fantasy-map-maker" className={linkClass}>fantasy map maker</Link> and the <Link prefetch={false} href="/city-name-generator" className={linkClass}>city name generator</Link> name your kingdoms and towns.
           </p>
         </>
