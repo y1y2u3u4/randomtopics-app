@@ -91,6 +91,8 @@ export const INDEXABLE_MODE_CATEGORY_PATHS = [
   "/speech/politics",
   "/debate/technology",
   "/conversation/philosophy",
+  // 2026-11-03: 320 impressions in 28 days while noindex (GSC October review).
+  "/speech/technology",
 ] as const;
 
 const INDEXABLE_MODE_CATEGORY_SET: ReadonlySet<string> = new Set(
@@ -213,6 +215,11 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/my-9-anime",
   "/my-9-movies",
   "/my-9-books",
+  "/my-9-songs",
+  "/my-9-artists",
+  "/my-9-shows",
+  "/my-9-manga",
+  "/my-9-characters",
   "/my-9-grid",
   "/apa-citation-generator",
   "/random-movie-generator",

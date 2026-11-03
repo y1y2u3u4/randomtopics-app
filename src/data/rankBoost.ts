@@ -351,6 +351,29 @@ export const ETHICAL_DILEMMA_BOOST: Boost = {
         { t: "p", x: "To turn a dilemma into a structured debate, assign two sides, give each three minutes to prepare, then swap and have each side argue the opposite. The [argument generator](/argument-generator) supplies claims to practise with, and the [debate topic generator](/debate) has motions with talking points for both sides. For a quick discussion with students, see [ethical dilemmas for students](/topics/ethical-dilemmas-for-students); for a work setting, use [workplace ethical dilemmas](/topics/workplace-ethical-dilemmas)." },
       ],
     },
+    {
+      h2: "New Dilemmas About AI and Technology (Added November 2026)",
+      id: "ai-technology-dilemmas",
+      blocks: [
+        { t: "p", x: "Classic dilemmas still work, but the questions people argue about most this year involve phones, data and AI. These ten are written for 2026 classrooms, team meetings and dinner tables. Each has a reasonable case on both sides." },
+        {
+          t: "ol",
+          items: [
+            "Your friend used an AI tool to write a heartfelt wedding speech and everyone cried. Do you tell them you could tell, or let the moment stand?",
+            "A self-driving car must choose between swerving into a barrier, risking its passenger, or hitting a jaywalker. Who should the car protect, and who gets to decide?",
+            "You find a coworker's private messages open on a shared screen, and they mention layoffs that include you. Do you read on?",
+            "An app offers you a free year of service if you share your location history with advertisers. Do you take the deal?",
+            "Your teenager's school can scan student essays for signs of self-harm, which has helped some students but also flags jokes. Should it?",
+            "You could clone your late grandparent's voice from old videos so your kids can hear bedtime stories in it. Would you?",
+            "Your manager asks you to quietly train an AI system on your own job. Do you help, refuse, or warn your team?",
+            "A viral video of a stranger behaving badly turns out to be edited. You already shared it. Is deleting it enough?",
+            "A dating app could match people by genetic compatibility. Is that helpful information or a line that should not be crossed?",
+            "You can see that a classmate's top grade came from an AI-written essay, and grades decide a scholarship you both want. Do you report it?",
+          ],
+        },
+        { t: "p", x: "Want a timed debate? Put each dilemma into the [debate generator](/debate) or the [argument generator](/argument-generator) to practice both sides. For lighter rounds, mix in [would you rather questions](/would-you-rather) or [philosophical questions](/philosophical-questions), and for a full game night add the [charades generator](/charades)." },
+      ],
+    },
   ],
   faq: [
     {
@@ -514,6 +537,24 @@ export const TWO_TRUTHS_BOOST: Boost = {
           ],
         },
         { t: "p", x: "For a full game with themed prompts and a round builder, open the [Two Truths and a Lie game](/two-truths-and-a-lie). More icebreakers: the [icebreaker generator](/icebreaker), [hot seat questions](/hot-seat-questions) and [21 questions](/21-questions)." },
+      ],
+    },
+    {
+      h2: "Two Truths and a Lie for Holiday and Year-End Parties",
+      id: "holiday-two-truths",
+      blocks: [
+        { t: "p", x: "November and December bring office parties, Friendsgiving and family reunions, the busiest season for this game. Use a seasonal theme so the statements are easy to invent on the spot." },
+        {
+          t: "table",
+          head: ["Occasion", "Statement 1", "Statement 2", "Statement 3", "The lie"],
+          rows: [
+            ["Friendsgiving", "I have never cooked a turkey.", "I once ate three slices of pie before dinner.", "My family puts marshmallows on everything.", "Statement 3"],
+            ["Office holiday party", "I won a gingerbread house contest at work.", "I have worn the same ugly sweater for six years.", "I once mailed a gift to the wrong coworker.", "Statement 1"],
+            ["Family reunion", "I was the tallest kid in my class until 7th grade.", "I once got lost at a theme park for two hours.", "I can still recite my childhood phone number.", "Statement 2"],
+            ["New Year's Eve", "I have never stayed up until midnight on New Year's.", "I kept a resolution for a full year once.", "I have celebrated New Year's in two time zones on the same night.", "Statement 1"],
+          ],
+        },
+        { t: "p", x: "Keep the party going with the [charades generator](/charades), [most likely to questions](/most-likely-to), a [hot seat round](/hot-seat-questions) or [icebreaker questions](/icebreaker). Hosting a big group? Split players with the [random team generator](/random-team-generator)." },
       ],
     },
   ],

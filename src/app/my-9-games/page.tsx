@@ -42,7 +42,7 @@ export default function MyNineGamesPage() {
       description={DESCRIPTION}
       updated="2026-10-12"
       faq={FAQ}
-      related={[{ href: "/my-9-albums", label: "My 9 Albums" }, { href: "/my-9-movies", label: "My 9 Movies" }, { href: "/my-9-anime", label: "My 9 Anime" }, { href: "/my-9-books", label: "My 9 Books" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }, { href: "/dnd-name-generator", label: "D&D name generator" }]}
+      related={[{ href: "/my-9-albums", label: "My 9 Albums" }, { href: "/my-9-movies", label: "My 9 Movies" }, { href: "/my-9-characters", label: "My 9 Characters" }, { href: "/my-9-anime", label: "My 9 Anime" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }]}
       inShort="Search any video game, tap nine covers into the 3×3 grid, reorder them, and download a 1080×1080 PNG or a story-size image. Box art comes from each game's Wikipedia article — Nintendo, PlayStation, Xbox, PC and retro — and you can upload your own picture for anything missing."
       afterTool={<NineGridExamples kind="games" path={PATH} examples={EXAMPLES.games} />}
       content={

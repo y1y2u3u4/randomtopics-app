@@ -19,9 +19,11 @@ import RankBoost, { faqForSchema } from "@/components/RankBoost";
 import type { BoostFaq, BoostSection } from "@/components/RankBoost";
 
 export const metadata: Metadata = withSocial({
-  title: { absolute: "Charades Generator: Random Charades Word Generator (528 Words)" },
+  // Old title/meta (rollback, 2026-11-03): "Charades Generator: Random Charades Word Generator (528 Words)" /
+  // "Need a random charades word? Tap once: 528 actable charades words for kids, parties and class, easy to hard, with a hide-the-word timer and printable cards. Free, no signup."
+  title: { absolute: "Charades Generator: Random Charades Words to Act Out + Timer (528, Free)" },
   description:
-    "Need a random charades word? Tap once: 528 actable charades words for kids, parties and class, easy to hard, with a hide-the-word timer and printable cards. Free, no signup.",
+    "Free charades generator: tap for a random charades word to act out. 528 words for kids, adults and parties, sorted by category and easy to hard, with a hide-the-word round timer and printable cards. No signup.",
   keywords: [
     "charades generator",
     "charades word generator",

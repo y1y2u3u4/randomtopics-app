@@ -42,7 +42,7 @@ export default function MyNineAnimePage() {
       description={DESCRIPTION}
       updated="2026-10-12"
       faq={FAQ}
-      related={[{ href: "/my-9-albums", label: "My 9 Albums" }, { href: "/my-9-games", label: "My 9 Games" }, { href: "/my-9-movies", label: "My 9 Movies" }, { href: "/my-9-books", label: "My 9 Books" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }, { href: "/japanese-name-generator", label: "Japanese name generator" }]}
+      related={[{ href: "/my-9-manga", label: "My 9 Manga" }, { href: "/my-9-characters", label: "My 9 Characters" }, { href: "/my-9-shows", label: "My 9 Shows" }, { href: "/my-9-movies", label: "My 9 Movies" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }]}
       inShort="Search any anime in English or romaji, tap nine posters into the 3×3 grid, reorder them, and download a 1080×1080 PNG or a story-size image. Posters come from AniList and load straight into your browser; nothing is stored."
       afterTool={<NineGridExamples kind="anime" path={PATH} examples={EXAMPLES.anime} />}
       content={

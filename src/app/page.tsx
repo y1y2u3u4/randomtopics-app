@@ -60,6 +60,12 @@ export default function Home() {
                 { emoji: "🏰", label: "Country Names", detail: "Fictional worldbuilding", href: "/country-name-generator" },
                 { emoji: "🗺️", label: "Random US State", detail: "50 states + capitals", href: "/random-state-generator" },
               ] },
+              { heading: "Party games", tools: [
+                { emoji: "🎭", label: "Charades Generator", detail: "528 words + round timer", href: "/charades" },
+                { emoji: "🤥", label: "Two Truths and a Lie", detail: "Ideas to bluff with", href: "/topics/two-truths-and-a-lie-ideas" },
+                { emoji: "👉", label: "Most Likely To", detail: "Group voting questions", href: "/most-likely-to" },
+                { emoji: "💿", label: "My 9 Maker", detail: "3×3 favorites grid", href: "/my-9-albums" },
+              ] },
               { heading: "More ideas", tools: [
                 { emoji: "🧠", label: "Learn Something", detail: "Subject + difficulty", href: "/random-learning-topic-generator" },
                 { emoji: "🎨", label: "Drawing Ideas", detail: "Subject + sketch tip", href: "/random-drawing-generator" },

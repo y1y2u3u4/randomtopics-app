@@ -96,6 +96,30 @@ export default function MostLikelyToPageEs() {
           </div>
         </section>
 
+        {/* Refreshed 2026-11-03 (GSC October review): rules and ready-made rounds by occasion. */}
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">
+          <h2 className="text-lg font-bold text-[var(--text-primary)] mb-3">Cómo jugar en 3 pasos</h2>
+          <ol className="list-decimal pl-5 space-y-1 text-sm text-[var(--text-secondary)]">
+            <li>Toca el botón y lee la pregunta en voz alta: «¿Quién es más probable que…?».</li>
+            <li>Cuenta hasta tres y todos señalan a la vez a la persona que eligen.</li>
+            <li>Quien recibe más votos explica por qué (o cuenta la anécdota) y pasa el turno.</li>
+          </ol>
+          <p className="mt-3 text-sm text-[var(--text-muted)]">Variantes: por puntos (cada voto suma uno y gana quien tenga menos al final), por eliminación (quien llega a 5 votos sale) o por equipos para grupos de más de 10. Para clases y familias, quédate con las preguntas chistosas.</p>
+          <h2 className="text-lg font-bold text-[var(--text-primary)] mt-8 mb-3">Rondas listas por ocasión</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+            {[
+              { label: "Cena navideña o en familia", items: ["…se quede dormido en el sofá después de comer?", "…regale algo que compró a última hora?", "…cuente la misma anécdota de cada año?"] },
+              { label: "Fiesta de fin de año con amigos", items: ["…haga una promesa de Año Nuevo y la rompa en enero?", "…sea el último en irse de la fiesta?", "…baile aunque no suene música?"] },
+              { label: "Oficina o clase", items: ["…responda un correo a medianoche?", "…traiga snacks para todos?", "…llegue justo a tiempo a una reunión importante?"] },
+            ].map((round) => (
+              <div key={round.label} className="glass-card p-4">
+                <p className="font-bold text-[var(--text-primary)]">{round.label}</p>
+                <ul className="mt-2 space-y-1 text-[var(--text-secondary)]">{round.items.map((q) => <li key={q}>¿Quién es más probable que {q.slice(1)}</li>)}</ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
             <h2 className="section-heading text-2xl sm:text-3xl mb-6 text-[var(--text-primary)]">

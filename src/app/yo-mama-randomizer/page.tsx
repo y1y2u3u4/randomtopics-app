@@ -11,8 +11,10 @@ import TryNext from "@/components/TryNext";
 
 const path = "/yo-mama-randomizer";
 // Old title (rollback, 2026-10-26): "Yo Mama Randomizer: 72 Clean Yo Mama Jokes + Joke Remixer"
-const title = `Yo Mama Randomizer & Generator: ${YO_MAMA_JOKES.length} Clean Yo Mama Jokes + Joke Remixer`;
-const description = `Free yo mama joke generator: one click for a clean yo mama joke, or remix original setups and absurd endings. ${YO_MAMA_JOKES.length} written jokes, six themes, easy copying, no sign-up and no repeats within your round.`;
+// Old title/meta (rollback, 2026-11-03): `Yo Mama Randomizer & Generator: ${n} Clean Yo Mama Jokes + Joke Remixer` /
+// `Free yo mama joke generator: one click for a clean yo mama joke, or remix original setups and absurd endings. ${n} written jokes, six themes, easy copying, no sign-up and no repeats within your round.`
+const title = `Yo Mama Randomizer: Free Yo Mama Joke Generator (${YO_MAMA_JOKES.length} Clean Jokes + Remix)`;
+const description = `Spin the yo mama randomizer for a random clean yo mama joke, or remix a setup with an absurd ending. ${YO_MAMA_JOKES.length} jokes, six themes, ${YO_MAMA_SETUPS.length * YO_MAMA_ENDINGS.length} remix pairs, one-tap copy, no repeats in a round. Free text tool, no sign-up.`;
 const combinations = YO_MAMA_SETUPS.length * YO_MAMA_ENDINGS.length;
 export const metadata: Metadata = {
   title: { absolute: title }, description,

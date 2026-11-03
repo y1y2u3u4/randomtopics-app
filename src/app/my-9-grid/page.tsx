@@ -39,7 +39,7 @@ export default function MyNineGridPage() {
       description={DESCRIPTION}
       updated="2026-10-12"
       faq={FAQ}
-      related={[{ href: "/my-9-albums", label: "My 9 Albums" }, { href: "/my-9-games", label: "My 9 Games" }, { href: "/my-9-movies", label: "My 9 Movies" }, { href: "/my-9-anime", label: "My 9 Anime" }, { href: "/my-9-books", label: "My 9 Books" }, { href: "/random-food-generator", label: "Random food generator" }]}
+      related={[{ href: "/my-9-albums", label: "My 9 Albums" }, { href: "/my-9-games", label: "My 9 Games" }, { href: "/my-9-movies", label: "My 9 Movies" }, { href: "/my-9-anime", label: "My 9 Anime" }, { href: "/my-9-books", label: "My 9 Books" }, { href: "/my-9-shows", label: "My 9 Shows" }, { href: "/my-9-characters", label: "My 9 Characters" }, { href: "/random-food-generator", label: "Random food generator" }]}
       inShort="A free 3x3 maker (also called a 3x3 grid maker or 3x3 generator): choose up to nine pictures from your device, reorder them by tapping two squares, give the grid a title and download a 1080×1080 PNG or a story-size image. Everything happens in your browser — your pictures are never uploaded."
       content={
         <>
