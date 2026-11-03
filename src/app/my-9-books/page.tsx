@@ -42,7 +42,7 @@ export default function MyNineBooksPage() {
       description={DESCRIPTION}
       updated="2026-10-12"
       faq={FAQ}
-      related={[{ href: "/my-9-albums", label: "My 9 Albums" }, { href: "/my-9-games", label: "My 9 Games" }, { href: "/my-9-movies", label: "My 9 Movies" }, { href: "/my-9-anime", label: "My 9 Anime" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }, { href: "/random-word-generator", label: "Random word generator" }]}
+      related={[{ href: "/my-9-manga", label: "My 9 Manga" }, { href: "/my-9-movies", label: "My 9 Movies" }, { href: "/my-9-shows", label: "My 9 Shows" }, { href: "/my-9-albums", label: "My 9 Albums" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }]}
       inShort="Search any book or author, tap nine covers into the 3×3 grid, reorder them, and download a 1080×1080 PNG or a story-size image. Covers come from each book's Wikipedia article; upload a photo of your own copy for anything missing."
       afterTool={<NineGridExamples kind="books" path={PATH} examples={EXAMPLES.books} />}
       content={

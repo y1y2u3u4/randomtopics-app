@@ -42,7 +42,7 @@ export default function MyNineAlbumsPage() {
       description={DESCRIPTION}
       updated="2026-10-12"
       faq={FAQ}
-      related={[{ href: "/my-9-games", label: "My 9 Games" }, { href: "/my-9-movies", label: "My 9 Movies" }, { href: "/my-9-anime", label: "My 9 Anime" }, { href: "/my-9-books", label: "My 9 Books" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }, { href: "/random-word-generator", label: "Random word generator" }]}
+      related={[{ href: "/my-9-songs", label: "My 9 Songs" }, { href: "/my-9-artists", label: "My 9 Artists" }, { href: "/my-9-games", label: "My 9 Games" }, { href: "/my-9-movies", label: "My 9 Movies" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }]}
       inShort="Search any album, tap nine covers into the 3×3 grid, reorder them by tapping two squares, then download a 1080×1080 PNG (or a 1080×1920 story). It is free, needs no account, adds no watermark, and the covers load straight from Deezer's and Apple's music catalogs into your browser."
       afterTool={<NineGridExamples kind="albums" path={PATH} examples={EXAMPLES.albums} />}
       content={

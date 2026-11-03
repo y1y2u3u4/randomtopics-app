@@ -42,7 +42,7 @@ export default function MyNineMoviesPage() {
       description={DESCRIPTION}
       updated="2026-10-12"
       faq={FAQ}
-      related={[{ href: "/my-9-albums", label: "My 9 Albums" }, { href: "/my-9-games", label: "My 9 Games" }, { href: "/my-9-anime", label: "My 9 Anime" }, { href: "/my-9-books", label: "My 9 Books" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }, { href: "/random-character-generator", label: "Random character generator" }]}
+      related={[{ href: "/my-9-shows", label: "My 9 Shows" }, { href: "/my-9-albums", label: "My 9 Albums" }, { href: "/my-9-books", label: "My 9 Books" }, { href: "/my-9-anime", label: "My 9 Anime" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }]}
       inShort="Search any film, tap nine posters into the 3×3 grid, reorder them, and download a 1080×1080 PNG or a story-size image. Posters come from each film's Wikipedia article and load in your browser; upload your own picture for anything missing."
       afterTool={<NineGridExamples kind="movies" path={PATH} examples={EXAMPLES.movies} />}
       content={

@@ -1,8 +1,9 @@
-// "My 9" grid maker: search adapters for album, game and anime covers, the
-// share-link format and the PNG layout. Covers are hotlinked from the source
-// (iTunes, Wikipedia, AniList) and only drawn in the visitor's browser.
+// "My 9" grid maker: search adapters for album, song, game, show, artist, anime,
+// manga and character covers, the share-link format and the PNG layout. Covers
+// are hotlinked from the source (Deezer, iTunes, Wikipedia, TVmaze, AniList) and only
+// drawn in the visitor's browser.
 
-export type GridKind = "albums" | "games" | "movies" | "anime" | "books" | "any";
+export type GridKind = "albums" | "songs" | "artists" | "games" | "movies" | "shows" | "anime" | "manga" | "characters" | "books" | "any";
 
 export interface GridItem {
   /** Source id, used in share links. Uploaded images have no id. */
@@ -34,14 +35,24 @@ export const KINDS: Record<GridKind, KindConfig> = {
   movies: { noun: "movie", defaultTitle: "My 9 Movies", placeholder: "Search a movie…", aspect: 4 / 3, toolType: "my_9_movies", source: { label: "Wikipedia", href: "https://en.wikipedia.org/" } },
   anime: { noun: "anime", defaultTitle: "My 9 Anime", placeholder: "Search an anime…", aspect: 4 / 3, toolType: "my_9_anime", source: { label: "AniList", href: "https://anilist.co/" } },
   books: { noun: "book", defaultTitle: "My 9 Books", placeholder: "Search a book or author…", aspect: 4 / 3, toolType: "my_9_books", source: { label: "Wikipedia", href: "https://en.wikipedia.org/" } },
+  songs: { noun: "song", defaultTitle: "My 9 Songs", placeholder: "Search a song or artist…", aspect: 1, toolType: "my_9_songs", source: { label: "iTunes", href: "https://music.apple.com/" } },
+  artists: { noun: "artist", defaultTitle: "My 9 Artists", placeholder: "Search a singer, band or rapper…", aspect: 1, toolType: "my_9_artists", source: { label: "Wikipedia", href: "https://en.wikipedia.org/" } },
+  shows: { noun: "show", defaultTitle: "My 9 Shows", placeholder: "Search a TV show or series…", aspect: 4 / 3, toolType: "my_9_shows", source: { label: "TVmaze", href: "https://www.tvmaze.com/" } },
+  manga: { noun: "manga", defaultTitle: "My 9 Manga", placeholder: "Search a manga or manhwa…", aspect: 4 / 3, toolType: "my_9_manga", source: { label: "AniList", href: "https://anilist.co/" } },
+  characters: { noun: "character", defaultTitle: "My 9 Characters", placeholder: "Search an anime, manga or game character…", aspect: 4 / 3, toolType: "my_9_characters", source: { label: "AniList", href: "https://anilist.co/" } },
   any: { noun: "picture", defaultTitle: "My 9", placeholder: "", aspect: 1, toolType: "my_9_grid" },
 };
 
 type Fetch = typeof fetch;
 
 interface ItunesAlbum { collectionId: number; collectionName: string; artistName: string; artworkUrl100?: string; wrapperType?: string; collectionType?: string }
+interface ItunesSong { trackId: number; trackName: string; artistName: string; artworkUrl100?: string; wrapperType?: string; kind?: string }
 interface WikiPage { pageid: number; title: string; index?: number; description?: string; thumbnail?: { source: string } }
+// AniList format codes that read badly as-is; anime codes (TV, MOVIE, OVA) stay.
+const ANILIST_FORMAT: Record<string, string> = { MANGA: "Manga", ONE_SHOT: "One-shot", NOVEL: "Light novel", TV_SHORT: "TV short", MUSIC: "Music video" };
 interface AniMedia { id: number; title: { english: string | null; romaji: string | null }; coverImage: { extraLarge?: string | null; large?: string | null }; startDate?: { year: number | null }; format?: string | null }
+interface TvmazeShow { id: number; name: string; premiered?: string | null; network?: { name?: string } | null; webChannel?: { name?: string } | null; image?: { medium?: string; original?: string } | null }
+interface AniCharacter { id: number; name: { full: string | null }; image: { large?: string | null; medium?: string | null }; media?: { nodes: { title: { english: string | null; romaji: string | null } }[] } }
 
 export interface DeezerAlbum { id: number; title: string; artist?: { name?: string }; cover_xl?: string; cover_big?: string; cover_medium?: string; record_type?: string }
 
@@ -74,6 +85,30 @@ function fromItunes(results: ItunesAlbum[]): GridItem[] {
     }));
 }
 
+function fromItunesSongs(results: ItunesSong[]): GridItem[] {
+  return results
+    .filter((r) => r.trackId && r.artworkUrl100 && (r.wrapperType ?? "track") === "track" && (r.kind ?? "song") === "song")
+    .map((r) => ({
+      id: String(r.trackId),
+      title: r.trackName.replace(/\s*[([](feat\.|with |remaster)[^)\]]*[)\]]\s*$/i, "") || r.trackName,
+      subtitle: r.artistName,
+      image: itunesArt(r.artworkUrl100 as string, 600),
+      thumb: itunesArt(r.artworkUrl100 as string, 200),
+    }));
+}
+
+function fromTvmaze(shows: TvmazeShow[]): GridItem[] {
+  return shows
+    .filter((s) => s && s.id && s.image?.original)
+    .map((s) => ({
+      id: String(s.id),
+      title: s.name,
+      subtitle: [s.premiered?.slice(0, 4), s.network?.name ?? s.webChannel?.name].filter(Boolean).join(" · ") || undefined,
+      image: s.image!.original as string,
+      thumb: s.image!.medium,
+    }));
+}
+
 function fromWiki(pages: Record<string, WikiPage> | undefined): GridItem[] {
   return Object.values(pages ?? {})
     .filter((p) => p.thumbnail?.source)
@@ -88,21 +123,32 @@ function fromAniList(media: AniMedia[]): GridItem[] {
     .map((m) => ({
       id: String(m.id),
       title: m.title.english || m.title.romaji || "Untitled",
-      subtitle: [m.startDate?.year, m.format?.replace(/_/g, " ")].filter(Boolean).join(" · ") || undefined,
+      subtitle: [m.startDate?.year, m.format && (ANILIST_FORMAT[m.format] ?? m.format.replace(/_/g, " "))].filter(Boolean).join(" · ") || undefined,
       image: (m.coverImage.extraLarge || m.coverImage.large) as string,
       thumb: m.coverImage.large ?? undefined,
     }));
 }
 
+function fromAniCharacters(chars: AniCharacter[]): GridItem[] {
+  return chars
+    .filter((c) => c.image.large && !/\/default\.jpg$/.test(c.image.large))
+    .map((c) => {
+      const t = c.media?.nodes?.[0]?.title;
+      return { id: String(c.id), title: c.name.full || "Unknown", subtitle: (t && (t.english || t.romaji)) || undefined, image: c.image.large as string, thumb: c.image.medium ?? undefined };
+    });
+}
+
 const WIKI_API = "https://en.wikipedia.org/w/api.php";
 /** Wikipedia infobox that marks an article as the right kind of work. */
-const WIKI_INFOBOX: Partial<Record<GridKind, string>> = { games: "Infobox video game", movies: "Infobox film", books: "Infobox book" };
+const WIKI_INFOBOX: Partial<Record<GridKind, string>> = { games: "Infobox video game", movies: "Infobox film", books: "Infobox book", artists: "Infobox musical artist" };
+const ANILIST_TYPE: Partial<Record<GridKind, "ANIME" | "MANGA">> = { anime: "ANIME", manga: "MANGA" };
 const wikiParams = (extra: Record<string, string>) =>
   new URLSearchParams({ action: "query", format: "json", origin: "*", prop: "pageimages|description", piprop: "thumbnail", pithumbsize: "480", pilicense: "any", ...extra });
 
 const ANILIST_FIELDS = "id title { english romaji } coverImage { extraLarge large } startDate { year } format";
+const ANILIST_CHARACTER_FIELDS = "id name { full } image { large medium } media(perPage: 1, sort: POPULARITY_DESC) { nodes { title { english romaji } } }";
 
-async function anilist(query: string, variables: Record<string, unknown>, f: Fetch): Promise<AniMedia[]> {
+async function anilistPage(query: string, variables: Record<string, unknown>, f: Fetch) {
   const res = await f("https://graphql.anilist.co", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -110,8 +156,10 @@ async function anilist(query: string, variables: Record<string, unknown>, f: Fet
   });
   if (!res.ok) throw new Error(`AniList ${res.status}`);
   const json = await res.json();
-  return json?.data?.Page?.media ?? [];
+  return json?.data?.Page ?? {};
 }
+const anilist = async (query: string, variables: Record<string, unknown>, f: Fetch): Promise<AniMedia[]> => (await anilistPage(query, variables, f)).media ?? [];
+const anilistCharacters = async (query: string, variables: Record<string, unknown>, f: Fetch): Promise<AniCharacter[]> => (await anilistPage(query, variables, f)).characters ?? [];
 
 export async function searchItems(kind: GridKind, q: string, f: Fetch = fetch): Promise<GridItem[]> {
   const term = q.trim();
@@ -130,6 +178,23 @@ export async function searchItems(kind: GridKind, q: string, f: Fetch = fetch): 
     if (!res.ok) throw new Error(`iTunes ${res.status}`);
     return fromItunes((await res.json()).results ?? []);
   }
+  if (kind === "songs") {
+    const res = await f(`https://itunes.apple.com/search?${new URLSearchParams({ term, entity: "song", media: "music", limit: "24" })}`);
+    if (!res.ok) throw new Error(`iTunes ${res.status}`);
+    return fromItunesSongs((await res.json()).results ?? []);
+  }
+  if (kind === "shows") {
+    // Wikipedia has no poster for many big series (non-free title cards), so TV uses TVmaze.
+    const res = await f(`https://api.tvmaze.com/search/shows?${new URLSearchParams({ q: term })}`);
+    if (!res.ok) throw new Error(`TVmaze ${res.status}`);
+    return fromTvmaze(((await res.json()) as { show: TvmazeShow }[]).map((r) => r.show));
+  }
+  if (kind === "characters") {
+    return fromAniCharacters(await anilistCharacters(
+      `query ($q: String) { Page(perPage: 24) { characters(search: $q, sort: [SEARCH_MATCH, FAVOURITES_DESC]) { ${ANILIST_CHARACTER_FIELDS} } } }`,
+      { q: term }, f,
+    ));
+  }
   const infobox = WIKI_INFOBOX[kind];
   if (infobox) {
     const res = await f(`${WIKI_API}?${wikiParams({ generator: "search", gsrsearch: `${term} hastemplate:"${infobox}"`, gsrlimit: "24" })}`);
@@ -137,8 +202,8 @@ export async function searchItems(kind: GridKind, q: string, f: Fetch = fetch): 
     return fromWiki((await res.json())?.query?.pages);
   }
   return fromAniList(await anilist(
-    `query ($q: String) { Page(perPage: 24) { media(search: $q, type: ANIME, sort: SEARCH_MATCH, isAdult: false) { ${ANILIST_FIELDS} } } }`,
-    { q: term }, f,
+    `query ($q: String, $type: MediaType) { Page(perPage: 24) { media(search: $q, type: $type, sort: SEARCH_MATCH, isAdult: false) { ${ANILIST_FIELDS} } } }`,
+    { q: term, type: ANILIST_TYPE[kind] ?? "ANIME" }, f,
   ));
 }
 
@@ -156,13 +221,25 @@ export async function lookupItems(kind: GridKind, ids: string[], f: Fetch = fetc
       itunes.length ? f(`https://itunes.apple.com/lookup?${new URLSearchParams({ id: itunes.join(","), entity: "album" })}`).then((r) => (r.ok ? r.json() : { results: [] })).then((j) => fromItunes(j.results ?? [])).catch(() => []) : [],
     ]);
     items = [...a, ...b];
+  } else if (kind === "songs") {
+    const res = await f(`https://itunes.apple.com/lookup?${new URLSearchParams({ id: wanted.join(","), entity: "song" })}`);
+    items = res.ok ? fromItunesSongs((await res.json()).results ?? []) : [];
+  } else if (kind === "shows") {
+    // TVmaze has no batch lookup; nine small cached requests.
+    const shows = await Promise.all(wanted.map((id) => f(`https://api.tvmaze.com/shows/${id}`).then((r) => (r.ok ? r.json() : null)).catch(() => null)));
+    items = fromTvmaze(shows.filter(Boolean));
+  } else if (kind === "characters") {
+    items = fromAniCharacters(await anilistCharacters(
+      `query ($ids: [Int]) { Page(perPage: 9) { characters(id_in: $ids) { ${ANILIST_CHARACTER_FIELDS} } } }`,
+      { ids: wanted.map(Number) }, f,
+    ));
   } else if (WIKI_INFOBOX[kind]) {
     const res = await f(`${WIKI_API}?${wikiParams({ pageids: wanted.join("|") })}`);
     items = res.ok ? fromWiki((await res.json())?.query?.pages) : [];
   } else {
     items = fromAniList(await anilist(
-      `query ($ids: [Int]) { Page(perPage: 9) { media(id_in: $ids, type: ANIME) { ${ANILIST_FIELDS} } } }`,
-      { ids: wanted.map(Number) }, f,
+      `query ($ids: [Int], $type: MediaType) { Page(perPage: 9) { media(id_in: $ids, type: $type) { ${ANILIST_FIELDS} } } }`,
+      { ids: wanted.map(Number), type: ANILIST_TYPE[kind] ?? "ANIME" }, f,
     ));
   }
   for (const item of items) if (item.id) out.set(item.id, item);

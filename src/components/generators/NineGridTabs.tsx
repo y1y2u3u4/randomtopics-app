@@ -4,9 +4,14 @@ import type { GridKind } from "@/lib/generators/nineGrid";
 // One template per kind; the tabs move between the sibling pages.
 export const NINE_GRID_PAGES: { kind: GridKind; href: string; label: string }[] = [
   { kind: "albums", href: "/my-9-albums", label: "💿 Albums" },
+  { kind: "songs", href: "/my-9-songs", label: "🎵 Songs" },
+  { kind: "artists", href: "/my-9-artists", label: "🎤 Artists" },
   { kind: "games", href: "/my-9-games", label: "🎮 Games" },
   { kind: "movies", href: "/my-9-movies", label: "🎬 Movies" },
+  { kind: "shows", href: "/my-9-shows", label: "📺 Shows" },
   { kind: "anime", href: "/my-9-anime", label: "🌸 Anime" },
+  { kind: "manga", href: "/my-9-manga", label: "📖 Manga" },
+  { kind: "characters", href: "/my-9-characters", label: "⭐ Characters" },
   { kind: "books", href: "/my-9-books", label: "📚 Books" },
   { kind: "any", href: "/my-9-grid", label: "🔳 Any pictures" },
 ];

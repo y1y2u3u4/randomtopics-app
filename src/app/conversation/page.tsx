@@ -60,6 +60,7 @@ const CONVERSATION_COLLECTIONS = [
   { title: "Questions to Ask Friends", detail: "Fresh questions for closer conversations", href: "/topics/random-questions-to-ask-friends" },
   { title: "Random Question Generator", detail: "Draw one question when the conversation needs a fresh direction", href: "/question-generator" },
   { title: "Hot Seat Questions", detail: "Take turns answering while the group gets to know one person", href: "/hot-seat-questions" },
+  { title: "Philosophical Conversation Topics", detail: "Deep talk on meaning, truth and what makes a good life", href: "/conversation/philosophy" },
   { title: "Two Truths and a Lie Ideas", detail: "Turn introductions into a guessing game with examples", href: "/topics/two-truths-and-a-lie-ideas" },
   { title: "First-Date Conversation Topics", detail: "Low-pressure ways to keep a date flowing", href: "/topics/first-date-conversation-topics" },
 ] as const;

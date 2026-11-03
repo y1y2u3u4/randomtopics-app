@@ -46,6 +46,11 @@ const CARDS = [
   { id: "my9", slug: "my-9-movies", title: "My 9 Movies", line: "Your 3×3 favorite movies grid — free", chips: ["Search any film", "Tap 9 posters", "Square or story PNG"], mosaic: true },
   { id: "my9", slug: "my-9-books", title: "My 9 Books", line: "Your 3×3 favorite books grid — free", chips: ["Search any book", "Tap 9 covers", "Square or story PNG"], mosaic: true },
   { id: "my9", slug: "my-9-anime", title: "My 9 Anime", line: "Your 3×3 favorite anime grid — free", chips: ["Series & films", "Tap 9 posters", "Download PNG"], mosaic: true },
+  { id: "my9", slug: "my-9-songs", title: "My 9 Songs", line: "Your 3×3 favorite songs grid — free", chips: ["Search any track", "Tap 9 songs", "Square or story PNG"], mosaic: true },
+  { id: "my9", slug: "my-9-artists", title: "My 9 Artists", line: "Your 3×3 favorite artists grid — free", chips: ["Singers, bands, rappers", "Tap 9 photos", "Download PNG"], mosaic: true },
+  { id: "my9", slug: "my-9-shows", title: "My 9 Shows", line: "Your 3×3 favorite TV shows grid — free", chips: ["Search any series", "Tap 9 posters", "Square or story PNG"], mosaic: true },
+  { id: "my9", slug: "my-9-manga", title: "My 9 Manga", line: "Your 3×3 favorite manga grid — free", chips: ["Manga & manhwa", "Tap 9 covers", "Download PNG"], mosaic: true },
+  { id: "my9", slug: "my-9-characters", title: "My 9 Characters", line: "Your 3×3 favorite characters grid — free", chips: ["Anime & manga characters", "Tap 9 pictures", "Download PNG"], mosaic: true },
   { id: "my9", slug: "my-9-grid", title: "My 9 Grid Maker", line: "Any 9 pictures in one 3×3 image", chips: ["Movies, books, foods…", "Stays in your browser", "No watermark"], mosaic: true },
   // Citation generators: a code-drawn reference-list card (real example entries).
   { id: "cite", slug: "apa-citation-generator", title: "APA Citation Generator", line: "APA 7 references & a full reference page", chips: ["Paste many DOIs at once", "(Desmond, 2012, p. 95)", "Download for Word"],

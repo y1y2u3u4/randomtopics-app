@@ -18,9 +18,11 @@ import RankBoost, { faqForSchema } from "@/components/RankBoost";
 import { WRITING_BOOST } from "@/data/rankBoost";
 
 export const metadata: Metadata = {
-  title: { absolute: "Writing Prompts Generator: Give Me a Topic to Write About (500+)" },
+  // Old title/meta (rollback, 2026-11-03): "Writing Prompts Generator: Give Me a Topic to Write About (500+)" /
+  // "Need a topic to write about? Tap once for a random writing prompt — 500+ ideas for stories, essays, journaling and blogs, from light to deep. Free, unlimited, no signup."
+  title: { absolute: "Writing Prompts Generator: 500+ Random Writing Prompts, Free & Unlimited" },
   description:
-    "Need a topic to write about? Tap once for a random writing prompt — 500+ ideas for stories, essays, journaling and blogs, from light to deep. Free, unlimited, no signup.",
+    "Free writing prompt generator: tap once for a random writing prompt or topic to write about. 500+ ideas for stories, essays, journaling and blogs, light to deep, with filters. Unlimited, no signup.",
   keywords: [
     "random topics to write about",
     "random topic generator to write about",
@@ -41,7 +43,7 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/writing"),
   },
   openGraph: {
-    title: "Writing Prompts Generator: Give Me a Topic to Write About (500+)",
+    title: "Writing Prompts Generator: 500+ Random Writing Prompts, Free & Unlimited",
     description:
       "Need a topic to write about? Tap once for a random writing prompt for stories, essays, journaling and blogs.",
     url: `${SITE_URL}/writing`,
@@ -131,6 +133,8 @@ export default function WritingPage() {
                 { title: "Essay Topic Generator", detail: "Academic, persuasive, and personal essay angles", href: "/essay-topic-generator" },
                 { title: "Journal Prompt Generator", detail: "Reflection prompts with a guided writing flow", href: "/journal-prompts" },
                 { title: "Writing Prompts for Kids", detail: "Age-appropriate story starters for younger writers", href: "/topics/writing-prompts-for-kids" },
+                { title: "Philosophy Writing Prompts", detail: "Big questions on meaning, ethics and free will", href: "/writing/philosophy" },
+                { title: "Psychology Writing Prompts", detail: "Habits, memory, emotions and why people act", href: "/writing/psychology" },
               ].map((item) => (
                 <Link prefetch={false} key={item.href} href={item.href} className="rounded-xl border border-white/10 p-4 hover:border-[var(--neon-cyan)]/30 hover:bg-[rgba(0,229,255,0.04)] transition-colors">
                   <span className="block text-sm font-semibold text-[var(--text-primary)]">{item.title}</span>

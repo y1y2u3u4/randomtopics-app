@@ -134,3 +134,19 @@
 
 - [Would You Rather Questions](https://randomtopics.app/topics/would-you-rather-questions): 398 clean would you rather questions in 8 categories (funny, kids, hard, couples, adults, teens, work, deep), with a random picker, a one-question-per-screen vote (votes stay in your browser, not global stats) and a printable list.
 - [Truth or Dare Questions](https://randomtopics.app/topics/truth-or-dare-questions): 389 clean truths and dares for kids, teens, friends, couples, funny rounds, over text and parties, with a party mode (players, turns, skip) and a printable list.
+
+## My 9 templates (updated 2026-11-03)
+
+Free 3×3 "My 9" grid makers: search, tap nine pictures, download a 1080×1080 PNG or a 1080×1920 story image. No signup, no watermark; share links keep the picks.
+
+- [My 9 Albums](https://randomtopics.app/my-9-albums): album covers from the iTunes catalog.
+- [My 9 Songs](https://randomtopics.app/my-9-songs): single tracks with song-title captions, cover art from iTunes.
+- [My 9 Artists](https://randomtopics.app/my-9-artists): singers, bands and rappers, photos from Wikipedia.
+- [My 9 Games](https://randomtopics.app/my-9-games): video game covers.
+- [My 9 Movies](https://randomtopics.app/my-9-movies): film posters.
+- [My 9 Shows](https://randomtopics.app/my-9-shows): TV series posters from TVmaze.
+- [My 9 Anime](https://randomtopics.app/my-9-anime): anime posters from AniList.
+- [My 9 Manga](https://randomtopics.app/my-9-manga): manga, manhwa and manhua covers from AniList.
+- [My 9 Characters](https://randomtopics.app/my-9-characters): anime and manga characters from AniList; upload pictures for others.
+- [My 9 Books](https://randomtopics.app/my-9-books): book covers.
+- [My 9 Grid](https://randomtopics.app/my-9-grid): any nine pictures of your own, processed in the browser.
