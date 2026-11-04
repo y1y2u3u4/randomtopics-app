@@ -86,7 +86,7 @@
 - [Classroom Name Picker Wheel](https://randomtopics.app/classroom-name-picker-wheel): Call on students at random, one turn each, with the roll kept in your browser.
 - [Raffle Wheel](https://randomtopics.app/raffle-wheel): Pick giveaway and raffle winners with a spin; remove winners so nobody wins twice.
 - [Dice Roller](https://randomtopics.app/dice-roller): Roll 1 to 10 dice from d4 to d100 with a modifier.
-- [Bingo Card Generator](https://randomtopics.app/bingo-card-generator): Free printable bingo card templates (Christmas, holiday party, baby shower, 1–75 numbers, blank); shuffle up to 100 unique cards, print 1, 2 or 4 per page, with a built-in caller.
+- [Bingo Card Generator](https://randomtopics.app/bingo-card-generator): Free bingo card generator and bingo maker: your own words, 1–75 numbers or templates (Christmas, party, shower, classroom), up to 500 unique numbered cards to print or save as PDF; auto-caller with voice, winner check by card number, and a players' link for virtual bingo on phones. No sign-up.
 - [Orc Name Generator](https://randomtopics.app/orc-name-generator): 756 orc names and 80 clan names with meanings; filter by war band, mountain, swamp or ash-waste clan and gender, or add a battle title.
 - [Dragonborn Name Generator](https://randomtopics.app/dragonborn-name-generator): 570 D&D 5e dragonborn names, 36 clans and 20 childhood names with meanings; filter by chromatic, metallic or gem ancestry and gender; clan name first.
 - [Dwarf Name Generator](https://randomtopics.app/dwarf-name-generator): 680 dwarf names and 48 clans with meanings; mountain, hill, deep or frost dwarf, gender, and "son of / daughter of" naming.

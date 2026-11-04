@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CompareTable, { no, yes } from "@/components/generators/CompareTable";
 import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/generators/GeneratorPageShell";
 import BingoCardGenerator from "@/components/generators/BingoCardGenerator";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
@@ -7,20 +8,34 @@ import { generatorSocial } from "@/lib/generatorSocial";
 import { BINGO_THEMES } from "@/data/bingoThemes";
 
 const PATH = "/bingo-card-generator";
-const TITLE = "Bingo Card Generator — Free Printable Bingo Card Templates (Christmas Too)";
+// 2026-11-04: was "Bingo Card Generator — Free Printable Bingo Card Templates (Christmas Too)" (live 11/01; retitled for "bingo maker" before a baseline formed).
+const TITLE = "Bingo Card Generator — Free Bingo Maker, Printable Cards & Caller";
 const DESCRIPTION =
-  "Free bingo card generator: pick a printable bingo card template (Christmas, holiday party, baby shower, 1–75 numbers or blank), shuffle up to 100 unique cards and print 1, 2 or 4 per page. No sign-up, no watermark.";
+  "Free bingo card generator and bingo maker: use your own words or 1–75 numbers or a template (Christmas, party, shower, classroom), make up to 500 unique cards, print or save a PDF, then call with an auto-caller and check winners. No sign-up.";
 
 const SOCIAL = generatorSocial({ card: "bingo-card-generator", title: TITLE, description: DESCRIPTION, alt: "Bingo Card Generator — a Christmas bingo card with daubers and bingo balls" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ["bingo card template", "bingo card generator", "printable bingo cards", "christmas bingo cards", "free bingo card maker", "blank bingo card", "custom bingo cards", "bingo cards 1-75"],
+  keywords: ["bingo card generator", "bingo maker", "bingo card maker", "printable bingo cards", "custom bingo cards", "bingo card template", "christmas bingo cards", "bingo caller", "virtual bingo", "bingo cards 1-75"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
+
+const COMPARE: [string, React.ReactNode, React.ReactNode][] = [
+  ["Your own words, 3×3 / 4×4 / 5×5, free space", yes, yes],
+  ["1–75 number cards with B-I-N-G-O columns", yes, yes],
+  ["Unique cards per batch", "Up to 500, numbered", "Yes; large batches often need an account"],
+  ["Print 1, 2 or 4 per page / save PDF", yes, yes],
+  ["Ready-made templates (Christmas, showers, classroom, meetings)", `${BINGO_THEMES.length} templates`, "Large libraries"],
+  ["Caller with auto-call timer and voice", yes, "Some"],
+  ["Check a winner by card number", yes, "Some"],
+  ["Players join on phones with one link", "Yes, no sign-up", "Yes, usually with an account"],
+  ["Pictures in squares", no, "Some"],
+  ["No account, no watermark", yes, "Some"],
+];
 
 const FAQ = [
   {
@@ -37,7 +52,7 @@ const FAQ = [
   },
   {
     question: "How many cards can I print at once?",
-    answer: "Up to 100 cards per batch, 1, 2 or 4 to a page. Each card is numbered (Card #1, #2…) so you can check a winner, and you can add a caller's checklist page that lists every word or number to tick off.",
+    answer: "Up to 500 cards per batch, 1, 2 or 4 to a page. Each card is numbered (Card #1, #2…) and carries a game code, and you can add a caller's checklist page that lists every word or number to tick off.",
   },
   {
     question: "Can I make 1–75 number bingo cards?",
@@ -49,7 +64,15 @@ const FAQ = [
   },
   {
     question: "Can I play bingo online instead of printing?",
-    answer: "Yes. Tap squares on the preview card to mark them — the card announces BINGO when you complete a row, column or diagonal. Use the bingo caller underneath to draw calls one at a time and share your screen on a video call.",
+    answer: "Yes. Press Copy players' link in the caller and send it to the group: everyone who opens it gets their own random card to tap on their phone, with no app or sign-up. Call from this page (or share your screen on Zoom or Teams) and the card announces BINGO when a row, column or diagonal is complete.",
+  },
+  {
+    question: "Is there a bingo caller that calls numbers automatically?",
+    answer: "Yes. Press Auto-call and pick every 5, 8, 12 or 20 seconds; calls are drawn at random with no repeats and read aloud by your browser's voice. A board shows every number or word already called, and Undo takes back a mistaken call.",
+  },
+  {
+    question: "How do I check if a bingo card is a winner?",
+    answer: "Type the card number into Check a winner. The tool marks every square on that card that has been called and says whether it has a full row, column or diagonal, or a blackout. Your batch is saved in this browser, so the check still works if you reload the page.",
   },
 ];
 
@@ -61,17 +84,17 @@ export default function BingoCardGeneratorPage() {
       path={PATH}
       name="Bingo Card Generator"
       heading={["Bingo Card", "Generator"]}
-      intro="Printable bingo card templates — Christmas, parties, showers, numbers or blank. Shuffle unique cards and print."
+      intro="Make custom bingo cards from your own words or 1–75 numbers, print or save a PDF, then run the game with an auto-caller and phone cards."
       description={DESCRIPTION}
-      updated="2026-11-01"
+      updated="2026-11-04"
       faq={FAQ}
       hero={{ src: "/generators/hero/bingo.webp", alt: "Christmas bingo card with red and green daubers, bingo balls and holly", className: "mx-auto mb-5 h-24 sm:h-36 w-auto rounded-2xl" }}
       heroHideOnShort
       inShort={
         <>
-          A free bingo card generator with {BINGO_THEMES.length} ready-made templates (Christmas, Christmas movie, holiday party, winter, baby shower, meeting and more), 1–75 number cards and a blank
-          template. Choose 3×3, 4×4 or 5×5, shuffle up to 100 unique numbered cards and print 1, 2 or 4 per page or save a PDF — no sign-up and no watermark. A built-in caller draws words or
-          numbers with no repeats.
+          A free bingo card generator and bingo maker: paste your own words or use 1–75 numbers or one of {BINGO_THEMES.length} templates (Christmas, holiday party, baby shower, classroom, meeting
+          and more), choose 3×3, 4×4 or 5×5 and make up to 500 unique numbered cards to print 1, 2 or 4 per page or save as a PDF. To run the game, the caller draws with no repeats (by hand or
+          automatically, read aloud), checks any card number for a winner, and gives you one link so players can play on their phones. No sign-up and no watermark.
         </>
       }
       related={[
@@ -91,6 +114,16 @@ export default function BingoCardGeneratorPage() {
             <li><strong>Set the number of cards</strong> — one per player, plus a couple of spares — and press Shuffle.</li>
             <li><strong>Print or save as PDF</strong> — 1 card per page for big squares, 2 for parties, 4 to save paper. Add the caller&apos;s checklist so the host can tick off each call.</li>
           </ol>
+
+          <SectionTitle>Run the game: caller, winner check and phone cards</SectionTitle>
+          <ul className="list-disc pl-5 space-y-1">
+            <li><strong>Auto-call</strong> draws a word or number every 5–20 seconds and reads it aloud; the board lights up everything already called.</li>
+            <li><strong>Check a winner</strong>: type the card number someone holds up and see the called squares marked on their card, with the winning line highlighted.</li>
+            <li><strong>Virtual bingo</strong>: copy the players&apos; link and paste it into the group chat or meeting. Each person gets a different card on their phone, so a remote team or a family call can play without printing.</li>
+          </ul>
+
+          <SectionTitle>Compared with other bingo makers</SectionTitle>
+          <CompareTable rows={COMPARE} them="Top bingo card makers" note="Compared with the top results for “bingo card generator” and “bingo maker” (myfreebingocards, Bingo Baker) in November 2026." />
 
           <SectionTitle>Christmas bingo card template</SectionTitle>
           <p>
