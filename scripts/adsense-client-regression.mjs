@@ -51,6 +51,15 @@ await test('Third-party ad scripts wait until the page has loaded (LCP)',async f
  [...(f.windowListeners.get('load')||[])].forEach(callback=>callback());
  assert.equal(f.scripts.length,2,'CMP and SDK start after load + idle');
 });
+await test('Settle wait started at mount runs alongside the account check',async f=>{
+ f.document.readyState='loading';
+ f.runtime.pageSettled();
+ f.document.readyState='complete';
+ [...(f.windowListeners.get('load')||[])].forEach(callback=>callback());
+ assert.equal(f.scripts.length,0,'Mount alone requests nothing');
+ f.boot();
+ assert.equal(f.scripts.length,2,'Already settled: CMP and SDK start as soon as the page qualifies');
+});
 await test('A first interaction starts ads before load completes',async f=>{
  f.document.readyState='loading';
  f.boot();

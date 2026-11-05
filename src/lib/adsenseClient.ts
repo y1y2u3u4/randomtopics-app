@@ -135,6 +135,19 @@ export function afterPageSettles(task: () => void, maxWaitMs = 4000) {
   else window.addEventListener("load", onLoad, { once: true });
 }
 
+// One settle wait per document, started when an ad surface mounts so it runs
+// alongside the account check instead of after it (2026-11-05: the two waits
+// in series pushed the first ad request on /pt to ~8 s).
+let settled: boolean | undefined;
+const afterSettle: (() => void)[] = [];
+export function pageSettled(task?: () => void) {
+  if (settled) { task?.(); return; }
+  if (task) afterSettle.push(task);
+  if (settled === false) return;
+  settled = false;
+  afterPageSettles(() => { settled = true; afterSettle.splice(0).forEach((run) => run()); });
+}
+
 export function loadAdSense() {
   if (retired) return Promise.reject(new Error("Advertising retired"));
   if (loading) return loading;
@@ -208,7 +221,8 @@ export function loadAdSense() {
     // Fetch the CMP and AdSense only once the page has rendered: started any
     // earlier, ~400 KB of third-party script lands in the LCP critical path
     // (PSI mobile LCP 6–7 s vs ~3 s when it started later). See afterPageSettles.
-    afterPageSettles(() => {
+    pageSettled(() => {
+      if (retired) return;
       if (!document.querySelector('iframe[name="googlefcPresent"]')) {
         const marker = document.createElement("iframe");
         marker.name = "googlefcPresent";

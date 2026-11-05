@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ADSENSE_CLIENT, adPersonalizationAllowed, adRequestAllowed } from "@/lib/adsense";
-import { loadAdSense, setAdEligibility, prepareAd, observeAdRequestsReady, showAdPrivacyChoices, retireAdDocument } from "@/lib/adsenseClient";
+import { loadAdSense, pageSettled, setAdEligibility, prepareAd, observeAdRequestsReady, showAdPrivacyChoices, retireAdDocument } from "@/lib/adsenseClient";
 import { observeSpeechAdEntitlement } from "@/lib/speech/adEligibilityClient";
 
 // Where the unit sits: the original in-content spot, right below a tool's
@@ -33,6 +33,7 @@ export default function ArticleAdvertisement({ path, slot, placement = "content"
       setExcluded(true);
       return;
     }
+    pageSettled();
     const messaging: NonNullable<Window["googlefc"]> = window.googlefc ??= {};
     const callbacks: NonNullable<NonNullable<Window["googlefc"]>["callbackQueue"]> = messaging.callbackQueue ??= [];
     callbacks.push({ CONSENT_API_READY: () => {
