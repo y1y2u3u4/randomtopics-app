@@ -13,8 +13,10 @@ const out = resolve(root, "src/data/adPublicPaths.json");
 // Matched against the path with any /es prefix removed. Keep this list short
 // and explicit; a page not in the sitemap never gets ads (fail closed).
 export const AD_FREE = [
-  // Paid practice, accounts and checkout.
-  /^\/speech(\/|$)/, /^\/account(\/|$)/, /^\/saved-topics(\/|$)/,
+  // Accounts and checkout. /speech (paid practice) carries Auto ads since
+  // 2026-11-05 (owner: 「/speech 可以放」); paid and ad-free subscribers stay
+  // ad-free through the entitlement gate, and /speech/account stays off.
+  /^\/speech\/(account|practice)(\/|$)/, /^\/account(\/|$)/, /^\/saved-topics(\/|$)/,
   // Children and classrooms: no ads on child-directed pages.
   /(^|\/|-)kids(\/|-|$)/, /students?(\/|$)/, /middle-school/, /presentation-ideas-for-school/,
   /^\/morning-meeting-questions$/, /^\/riddles-for-kids$/, /^\/classroom/, /^\/random-group-generator$/,
@@ -46,7 +48,7 @@ if (process.argv.includes("--write")) {
   console.log(`ad public paths: wrote ${allowed.length} of ${paths.length} sitemap paths`);
 } else {
   assert.equal(readFileSync(out, "utf8"), json, "src/data/adPublicPaths.json is stale: run node scripts/ad-public-paths.mjs --write");
-  for (const p of ["/speech", "/es/speech/politics", "/this-or-that/kids", "/es/would-you-rather/kids", "/riddles-for-kids", "/morning-meeting-questions",
+  for (const p of ["/speech/account", "/this-or-that/kids", "/es/would-you-rather/kids", "/riddles-for-kids", "/morning-meeting-questions",
     "/classroom-timer", "/classroom-packs", "/random-group-generator", "/question-of-the-day-for-students", "/topics/get-to-know-you-questions-for-students",
     "/topics/writing-prompts-for-kids", "/debate/middle-school", "/es/debate/students", "/privacy", "/es/terms", "/yo-mama-randomizer",
     "/pt/charadas-para-criancas"]) {
@@ -55,7 +57,8 @@ if (process.argv.includes("--write")) {
   for (const p of ["/", "/es", "/random-food-generator", "/my-9-albums", "/charades", "/would-you-rather", "/topics/speech-topics-for-college-students",
     "/debate/high-school", "/categories/philosophy", "/es/most-likely-to", "/trivia-questions",
     "/es/hot-seat-questions", "/es/question-of-the-day", "/es/random-subject-generator",
-    "/pt", "/pt/temas-para-conversar", "/pt/temas-para-debate", "/pt/roleta-de-temas", "/pt/pergunta-do-dia"]) {
+    "/pt", "/pt/temas-para-conversar", "/pt/temas-para-debate", "/pt/roleta-de-temas", "/pt/pergunta-do-dia",
+    "/speech", "/es/speech", "/speech/persuasive", "/speech/informative", "/speech/politics"]) {
     assert.ok(allowed.includes(p), `ads allowed: ${p}`);
   }
   console.log(`PASS: ad public paths in sync (${allowed.length} of ${paths.length} sitemap paths allowed)`);

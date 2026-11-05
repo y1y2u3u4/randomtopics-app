@@ -13,11 +13,12 @@ for(const path of ads.ADSENSE_PUBLIC_PATHS) check(ads.adRequestAllowed({...base,
 for(const path of ['/band-name-generator','/argument-generator','/categories/business','/5-minute-speech-topics'])check(ads.adRequestAllowed({...base,path})&&!ads.adInlinePageAllowed(path),'Auto ads only (no manual unit) on public page '+path);
 for(const path of ads.ADSENSE_PUBLIC_PATHS) check(ads.adInlinePageAllowed(path),'Manual unit stays on reviewed route '+path);
 for(const path of ['/this-or-that/kids','/riddles-for-kids','/classroom-timer','/question-of-the-day-for-students','/random-group-generator','/privacy','/yo-mama-randomizer']) check(!ads.adRequestAllowed({...base,path}),'Ad-free page '+path);
-for(const path of ['/speech','/speech/practice','/speech/account','/speech/checkout','/es/speech','/api/speech/checkout','/saved-topics','/share/private','/embed','/internal/analytics','/topics/unreviewed']) check(!ads.adRequestAllowed({...base,path}),'Exclude '+path);
+for(const path of ['/speech/practice','/speech/account','/speech/checkout','/api/speech/checkout','/saved-topics','/share/private','/embed','/internal/analytics','/topics/unreviewed']) check(!ads.adRequestAllowed({...base,path}),'Exclude '+path);
 for(const override of [{host:'localhost'},{host:'randomtopics-preview.vercel.app'},{host:'randomtopics.app.evil.test'},{search:'?usage_qa=1'},{search:'?token=synthetic'},{search:'?utm_source=chatgpt.com&rt_ads=off'},{search:'?utm_source=x&token=synthetic'},{search:'?utm_id=1'},{search:'?'},{qa:true},{globalPrivacyControl:true}])check(!ads.adRequestAllowed({...base,...override}),'Fail closed '+JSON.stringify(override));
-check(ads.adDocumentBoundary('/','/speech')&&ads.adDocumentBoundary('/speech','/'),'New documents entering/leaving public ads');
+for(const path of ['/speech','/es/speech','/speech/persuasive'])check(ads.adRequestAllowed({...base,path})&&!ads.adInlinePageAllowed(path),'Auto ads only on speech page '+path);
+check(ads.adDocumentBoundary('/','/speech/practice')&&ads.adDocumentBoundary('/speech','/speech/account'),'New documents entering/leaving public ads');
 check(ads.adDocumentBoundary('/','/es'),'Public-to-public does not refresh SPA ads');
-check(!ads.adDocumentBoundary('/speech','/speech/account')&&!ads.adDocumentBoundary('/','/'),'Unrelated/same-route behavior preserved');
+check(!ads.adDocumentBoundary('/speech/practice','/speech/account')&&!ads.adDocumentBoundary('/','/'),'Unrelated/same-route behavior preserved');
 check(ads.adRetirementUrl('https://randomtopics.app/es#practice')==='https://randomtopics.app/es?rt_ads=off#practice','Retirement preserves path and anchor');
 check(ads.adRetirementUrl('https://randomtopics.app/?topic=sample&rt_ads=on#demo')==='https://randomtopics.app/?topic=sample&rt_ads=off#demo','Retirement preserves existing query and overwrites deny marker');
 check(!ads.adRequestAllowed({...base,search:new URL(ads.adRetirementUrl('https://randomtopics.app/')).search}),'Retired document cannot request another ad');
