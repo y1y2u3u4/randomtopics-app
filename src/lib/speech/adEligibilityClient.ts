@@ -29,6 +29,14 @@ function cachedEntitlement(user: string) {
     return { version: "speech-ad-v1", audience: "verified_session", adFree: value.adFree } as const;
   } catch { return null; }
 }
+// Last answer for this user at any age; only used when the server cannot answer.
+function lastKnownAdFree(user: string | null | undefined) {
+  if (!user) return undefined;
+  try {
+    const value = JSON.parse(sessionStorage.getItem(CACHE_KEY) ?? "null");
+    return value?.user === user && typeof value.adFree === "boolean" ? value.adFree as boolean : undefined;
+  } catch { return undefined; }
+}
 function storeEntitlement(user: string, adFree: boolean) {
   try { if (typeof sessionStorage !== "undefined") sessionStorage.setItem(CACHE_KEY, JSON.stringify({ user, adFree, at: Date.now() })); }
   catch { /* Storage blocked: the next check asks the server again. */ }
@@ -116,7 +124,7 @@ export function observeSpeechAdEntitlement(options: {
   let active = true, identity: string | null | undefined;
   let subscription: { unsubscribe(): void } | undefined;
   let deferred: ReturnType<typeof setTimeout> | undefined;
-  let auth: Auth | undefined;
+  let auth: Auth | undefined, known: { user: string | null | undefined; adFree: boolean } | undefined;
   const gate = createSpeechAdGate({
     query: async signal => {
       // 2026-11-05: most visitors never signed in. Waiting for /api/speech/config
@@ -128,27 +136,44 @@ export function observeSpeechAdEntitlement(options: {
         identity = null;
         return { version: "speech-ad-v1", audience: "signed_out", adFree: false } as const;
       }
-      const currentAuth: Auth = auth ?? await (options.auth ? options.auth() : speechClient().then(client => client.auth));
-      auth = currentAuth;
-      if (!active || signal.aborted) throw new Error("entitlement_unavailable");
-      if (!subscription) {
-        subscription = currentAuth.onAuthStateChange((event, session) => {
-          const next = session?.user.id ?? null;
-          if (identity !== undefined && identity !== next) gate.invalidateIdentity();
-          else if (event !== "INITIAL_SESSION") gate.suspend();
-          identity = next;
-          if (event !== "INITIAL_SESSION") schedule();
-        }).data.subscription;
+      try {
+        const result = await signedInEntitlement(signal);
+        known = { user: identity, adFree: result.adFree };
+        return result;
+      } catch (error) {
+        // 2026-11-05: a failed or challenged account check (Vercel bot
+        // mitigation answered 403) hid every unit and retired documents that
+        // were already showing ads. Only a known ad-free subscriber stays
+        // ad-free; everyone else is treated as an ordinary visitor. Identity
+        // changes and cancelled checks keep their own handling.
+        if (!active || signal.aborted || (error instanceof Error && error.message === "identity_changed")) throw error;
+        return ((known && known.user === identity ? known.adFree : undefined) ?? lastKnownAdFree(identity))
+          ? { version: "speech-ad-v1", audience: "verified_session", adFree: true } as const
+          : { version: "speech-ad-v1", audience: "signed_out", adFree: false } as const;
       }
-      return readSpeechAdEntitlement(currentAuth, signal, current => {
-        if (identity !== undefined && identity !== current) { gate.invalidateIdentity(); schedule(); return false; }
-        identity = current;
-        return true;
-      });
     },
     changed: options.changed,
     retire: options.retire,
   });
+  async function signedInEntitlement(signal: AbortSignal) {
+    const currentAuth: Auth = auth ?? await (options.auth ? options.auth() : speechClient().then(client => client.auth));
+    auth = currentAuth;
+    if (!active || signal.aborted) throw new Error("entitlement_unavailable");
+    if (!subscription) {
+      subscription = currentAuth.onAuthStateChange((event, session) => {
+        const next = session?.user.id ?? null;
+        if (identity !== undefined && identity !== next) gate.invalidateIdentity();
+        else if (event !== "INITIAL_SESSION") gate.suspend();
+        identity = next;
+        if (event !== "INITIAL_SESSION") schedule();
+      }).data.subscription;
+    }
+    return readSpeechAdEntitlement(currentAuth, signal, current => {
+      if (identity !== undefined && identity !== current) { gate.invalidateIdentity(); schedule(); return false; }
+      identity = current;
+      return true;
+    });
+  }
   // Supabase callbacks must not synchronously re-enter auth methods.
   function schedule() {
     if (!active) return;

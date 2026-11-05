@@ -183,4 +183,27 @@ try{
   check(clientCalls===1,'Blocked storage falls back to Supabase');o3.dispose();
  }finally{Object.assign(globalThis,saved);}
 }
+// Failed account check (2026-11-05, Vercel challenge answered 403): an ordinary
+// signed-in visitor keeps ads instead of losing every unit; a subscriber this
+// document already saw as ad-free stays ad-free.
+{
+ const listeners={};const target={addEventListener:(n,f)=>{(listeners[n]??=[]).push(f)},removeEventListener:(n,f)=>{listeners[n]=(listeners[n]||[]).filter(x=>x!==f)}};
+ const saved={window:globalThis.window,document:globalThis.document,fetch:globalThis.fetch};
+ globalThis.window=target;globalThis.document={...target,visibilityState:'visible'};
+ const session={user:{id:'u1'},access_token:'t'};
+ const auth={getSession:async()=>({data:{session},error:null}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})};
+ const {observeSpeechAdEntitlement}=load('src/lib/speech/adEligibilityClient.ts',{'./client':{speechClient:async()=>({auth})}});
+ const flush=()=>new Promise(r=>setTimeout(r,5));const refocus=async()=>{for(const f of listeners.focus||[])f();await flush();await flush()};
+ try{
+  globalThis.fetch=async()=>new Response(null,{status:403});let retired=0;const states=[];
+  const o=observeSpeechAdEntitlement({auth:async()=>auth,changed:s=>states.push(s),retire(){retired++}});await flush();await flush();
+  check(states.at(-1)==='free'&&o.gate.begin(),'Challenged account check: signed-in visitor still gets ads');
+  await refocus();check(o.gate.state==='free'&&retired===0,'A failing poll does not retire a document already showing ads');o.dispose();
+  globalThis.fetch=async()=>Response.json({version:'speech-ad-v1',audience:'verified_session',adFree:true});
+  const p=observeSpeechAdEntitlement({auth:async()=>auth,changed(){},retire(){}});await flush();await flush();
+  check(p.gate.state==='paid','Verified subscriber is ad-free');
+  globalThis.fetch=async()=>new Response(null,{status:403});await refocus();
+  check(p.gate.state==='paid'&&!p.gate.begin(),'Known subscriber stays ad-free when a later check fails');p.dispose();
+ }finally{Object.assign(globalThis,saved);}
+}
 console.log(`PASS ${checks} paid entitlement, route, identity, bounded retry, timeout and lifecycle assertions; no external calls.`);
