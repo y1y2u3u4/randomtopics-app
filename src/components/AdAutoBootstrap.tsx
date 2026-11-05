@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { adPageAllowed, adRequestAllowed } from "@/lib/adsense";
-import { loadAdSense, setAdEligibility, showAdPrivacyChoices, retireAdDocument } from "@/lib/adsenseClient";
+import { loadAdSense, pageSettled, setAdEligibility, showAdPrivacyChoices, retireAdDocument } from "@/lib/adsenseClient";
 import { observeSpeechAdEntitlement } from "@/lib/speech/adEligibilityClient";
 
 // Auto ads (anchor, vignette, Auto in-page) on public pages that have no manual
@@ -24,6 +24,7 @@ export default function AdAutoBootstrap() {
         search: location.search, qa, globalPrivacyControl: navigator.globalPrivacyControl === true });
     };
     if (!allowed()) return;
+    pageSettled();
     const messaging: NonNullable<Window["googlefc"]> = window.googlefc ??= {};
     const callbacks: NonNullable<NonNullable<Window["googlefc"]>["callbackQueue"]> = messaging.callbackQueue ??= [];
     callbacks.push({ CONSENT_API_READY: () => {
