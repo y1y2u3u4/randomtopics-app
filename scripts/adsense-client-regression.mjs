@@ -120,7 +120,7 @@ for(const failure of ['error','timeout'])await test(`SDK ${failure} is terminal 
 });
 for(const blocked of ['query','QA','GPC','hidden','private path','preview host'])await test(`Late SDK checks current ${blocked} before resuming`,async f=>{
  const loading=f.boot();
- if(blocked==='query')f.location.search='?rt_ads=off';else if(blocked==='QA')f.storage.set('rt_usage_qa','1');else if(blocked==='GPC')f.navigator.globalPrivacyControl=true;else if(blocked==='hidden')f.document.hidden=true;else if(blocked==='private path')f.location.pathname='/speech';else f.location.hostname='preview.example.test';
+ if(blocked==='query')f.location.search='?rt_ads=off';else if(blocked==='QA')f.storage.set('rt_usage_qa','1');else if(blocked==='GPC')f.navigator.globalPrivacyControl=true;else if(blocked==='hidden')f.document.hidden=true;else if(blocked==='private path')f.location.pathname='/speech/practice';else f.location.hostname='preview.example.test';
  f.sdk().onload();f.runtime.setAdEligibility(true);await Promise.resolve();assert.equal(f.pause(),1);assert.equal(f.stats.resumes,0);f.runtime.prepareAd(f.slot);assert.equal(f.stats.pushes,0);
  void loading;
 });

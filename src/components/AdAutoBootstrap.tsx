@@ -25,6 +25,15 @@ export default function AdAutoBootstrap() {
     };
     if (!allowed()) return;
     pageSettled();
+    // Speech practice (Auto ads since 2026-11-05): no full-screen vignette on
+    // links out of a practice round. Anchor and in-page placements only.
+    let vignetteGuard: MutationObserver | undefined;
+    if (/^(\/es)?\/speech(\/|$)/.test(path)) {
+      const mark = () => document.querySelectorAll("a:not([data-google-vignette])").forEach(link => link.setAttribute("data-google-vignette", "false"));
+      mark();
+      vignetteGuard = new MutationObserver(mark);
+      vignetteGuard.observe(document.body, { childList: true, subtree: true });
+    }
     const messaging: NonNullable<Window["googlefc"]> = window.googlefc ??= {};
     const callbacks: NonNullable<NonNullable<Window["googlefc"]>["callbackQueue"]> = messaging.callbackQueue ??= [];
     callbacks.push({ CONSENT_API_READY: () => {
@@ -56,6 +65,7 @@ export default function AdAutoBootstrap() {
     document.addEventListener("visibilitychange", start);
     return () => {
       active = false;
+      vignetteGuard?.disconnect();
       if (frame !== undefined) cancelAnimationFrame(frame);
       document.removeEventListener("visibilitychange", start);
       entitlement.dispose();
