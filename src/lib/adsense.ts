@@ -117,7 +117,7 @@ export function adRequestAllowed(options: {
 // classroom-directed paths always stay non-personalized with restricted data
 // processing, even if one is ever added to the ad page lists.
 const CHILD_DIRECTED = [/(^|\/|-)kids(\/|-|$)/, /students?(\/|$)/, /middle-school/, /presentation-ideas-for-school/,
-  /^(\/es)?\/(classroom|morning-meeting-questions|riddles-for-kids|random-group-generator)/];
+  /^(\/es)?\/(classroom|morning-meeting-questions|riddles-for-kids|random-group-generator)/, /^\/pt\/.*criancas/];
 export function adPersonalizationAllowed(path: string) {
   return !CHILD_DIRECTED.some((pattern) => pattern.test(path));
 }

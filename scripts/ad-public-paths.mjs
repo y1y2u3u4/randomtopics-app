@@ -20,8 +20,9 @@ export const AD_FREE = [
   /^\/morning-meeting-questions$/, /^\/riddles-for-kids$/, /^\/classroom/, /^\/random-group-generator$/,
   // Legal, about and internal pages.
   /^\/(privacy|terms|contact|about|press|stats|how-we-curate|facts)$/,
-  // Portuguese (pt-BR) pages launched ad-free (PR #166).
-  /^\/pt(\/|$)/,
+  // Portuguese (pt-BR): launched ad-free (PR #166), Auto ads since 2026-11-05
+  // except child-directed pages ("crianças" = kids).
+  /^\/pt\/.*criancas/,
   // Subscription product landing pages (2026-10-24): they sell the plan; Teacher is used in class.
   /^\/(teacher-warm-ups|slack-icebreaker-bot|discord-qotd-bot|writing-journal|couples-daily-question|pregunta-diaria-pareja)$/,
   // Insult humour: kept off to stay clear of ad content policy.
@@ -48,12 +49,13 @@ if (process.argv.includes("--write")) {
   for (const p of ["/speech", "/es/speech/politics", "/this-or-that/kids", "/es/would-you-rather/kids", "/riddles-for-kids", "/morning-meeting-questions",
     "/classroom-timer", "/classroom-packs", "/random-group-generator", "/question-of-the-day-for-students", "/topics/get-to-know-you-questions-for-students",
     "/topics/writing-prompts-for-kids", "/debate/middle-school", "/es/debate/students", "/privacy", "/es/terms", "/yo-mama-randomizer",
-    "/pt/temas-para-conversar", "/pt/temas-para-debate", "/pt/temas-para-apresentacao", "/pt/pergunta-do-dia", "/pt/gerador-de-materias-aleatorias"]) {
+    "/pt/charadas-para-criancas"]) {
     assert.ok(adFree(p) && !allowed.includes(p), `ad-free: ${p}`);
   }
   for (const p of ["/", "/es", "/random-food-generator", "/my-9-albums", "/charades", "/would-you-rather", "/topics/speech-topics-for-college-students",
     "/debate/high-school", "/categories/philosophy", "/es/most-likely-to", "/trivia-questions",
-    "/es/hot-seat-questions", "/es/question-of-the-day", "/es/random-subject-generator"]) {
+    "/es/hot-seat-questions", "/es/question-of-the-day", "/es/random-subject-generator",
+    "/pt", "/pt/temas-para-conversar", "/pt/temas-para-debate", "/pt/roleta-de-temas", "/pt/pergunta-do-dia"]) {
     assert.ok(allowed.includes(p), `ads allowed: ${p}`);
   }
   console.log(`PASS: ad public paths in sync (${allowed.length} of ${paths.length} sitemap paths allowed)`);

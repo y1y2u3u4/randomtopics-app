@@ -34,6 +34,15 @@ function storeEntitlement(user: string, adFree: boolean) {
   catch { /* Storage blocked: the next check asks the server again. */ }
 }
 
+// supabase-js default storage key: sb-<project ref>-auth-token (+ -user, -code-verifier).
+const SESSION_KEY = /^sb-.+-auth-token/;
+function storedSession() {
+  try {
+    for (let i = 0; i < localStorage.length; i++) if (SESSION_KEY.test(localStorage.key(i) ?? "")) return true;
+    return false;
+  } catch { return true; /* Storage blocked: ask Supabase as before. */ }
+}
+
 export async function readSpeechAdEntitlement(auth: Pick<Auth, "getSession">, signal: AbortSignal,
   acceptIdentity?: (identity: string | null) => boolean) {
   let identity: string | null | undefined;
@@ -110,6 +119,15 @@ export function observeSpeechAdEntitlement(options: {
   let auth: Auth | undefined;
   const gate = createSpeechAdGate({
     query: async signal => {
+      // 2026-11-05: most visitors never signed in. Waiting for /api/speech/config
+      // and the Supabase client before every page's first ad request lost the
+      // visitors who leave within a few seconds (AdSense counted ~53% of Umami
+      // page views). With no stored session the answer is the fixed signed-out
+      // one; a sign-in in another tab arrives as a storage event (see below).
+      if (!options.auth && !subscription && !storedSession()) {
+        identity = null;
+        return { version: "speech-ad-v1", audience: "signed_out", adFree: false } as const;
+      }
       const currentAuth: Auth = auth ?? await (options.auth ? options.auth() : speechClient().then(client => client.auth));
       auth = currentAuth;
       if (!active || signal.aborted) throw new Error("entitlement_unavailable");
@@ -138,6 +156,14 @@ export function observeSpeechAdEntitlement(options: {
     deferred = setTimeout(() => { deferred = undefined; if (active) void gate.refresh(); }, 0);
   }
   const focus = () => { if (document.visibilityState === "visible") schedule(); };
+  // Without a Supabase subscription (local signed-out answer), a session
+  // written by another tab is the only identity change this document can see.
+  const storage = (event: StorageEvent) => {
+    if (subscription || !event.key || !SESSION_KEY.test(event.key) || !event.newValue) return;
+    gate.invalidateIdentity();
+    schedule();
+  };
+  window.addEventListener("storage", storage);
   // A bfcache restore pauses and re-checks; the refresh still retires the
   // document if the account changed or became ad-free while it was frozen.
   const restored = (event: PageTransitionEvent) => {
@@ -157,6 +183,7 @@ export function observeSpeechAdEntitlement(options: {
       if (deferred !== undefined) clearTimeout(deferred);
       clearInterval(poll); subscription?.unsubscribe();
       window.removeEventListener("focus", focus);
+      window.removeEventListener("storage", storage);
       window.removeEventListener("pageshow", restored);
       document.removeEventListener("visibilitychange", focus);
       gate.dispose();

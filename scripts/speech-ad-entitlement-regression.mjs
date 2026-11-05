@@ -157,4 +157,30 @@ try{
  check(gateDeadlineFires===1,'Original parent deadline aborts an unfinished second request');
  bounded.dispose();check(retirements===1,'Exhausted renewal retirement remains idempotent');
 }finally{globalThis.fetch=originalFetch;globalThis.setTimeout=originalSetTimeout;}
+// Signed-out fast path (2026-11-05): no stored Supabase session answers "free"
+// locally, without /api/speech/config or the Supabase client; a session that
+// appears (another tab's sign-in, or storage already holding one) asks Supabase.
+{
+ const store=new Map(),listeners={};let clientCalls=0;
+ const target={addEventListener:(n,f)=>{(listeners[n]??=[]).push(f)},removeEventListener:(n,f)=>{listeners[n]=(listeners[n]||[]).filter(x=>x!==f)}};
+ const saved={window:globalThis.window,document:globalThis.document,localStorage:globalThis.localStorage};
+ globalThis.window=target;globalThis.document={...target,visibilityState:'visible'};
+ globalThis.localStorage={get length(){return store.size},key:i=>[...store.keys()][i]??null};
+ const fake={auth:{getSession:async()=>({data:{session:null},error:null}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})}};
+ const {observeSpeechAdEntitlement}=load('src/lib/speech/adEligibilityClient.ts',{'./client':{speechClient:async()=>{clientCalls++;return fake}}});
+ const flush=()=>new Promise(r=>setTimeout(r,5));
+ try{
+  store.set('rt_unrelated','1');const states=[];
+  const o=observeSpeechAdEntitlement({changed:s=>states.push(s),retire(){}});await flush();await flush();
+  check(states.at(-1)==='free'&&clientCalls===0,'No stored session: free without config fetch or Supabase client');
+  store.set('sb-fixture-auth-token','{}');for(const f of listeners.storage||[])f({key:'sb-fixture-auth-token',newValue:'{}'});await flush();await flush();
+  check(clientCalls===1&&states.at(-1)==='free','A session written by another tab re-checks through Supabase');
+  o.dispose();check(!(listeners.storage||[]).length,'Dispose removes the storage listener');
+  clientCalls=0;const o2=observeSpeechAdEntitlement({changed(){},retire(){}});await flush();await flush();
+  check(clientCalls===1,'A stored session always asks Supabase');o2.dispose();
+  globalThis.localStorage={get length(){throw Error('blocked')}};clientCalls=0;
+  const o3=observeSpeechAdEntitlement({changed(){},retire(){}});await flush();await flush();
+  check(clientCalls===1,'Blocked storage falls back to Supabase');o3.dispose();
+ }finally{Object.assign(globalThis,saved);}
+}
 console.log(`PASS ${checks} paid entitlement, route, identity, bounded retry, timeout and lifecycle assertions; no external calls.`);

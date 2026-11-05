@@ -63,10 +63,10 @@ export default function AdAutoBootstrap() {
 
   // Where consent applies (EEA/UK), keep a way to reopen the choices message.
   if (!choicesReady) return null;
-  const spanish = path === "/es" || path.startsWith("/es/");
+  const locale = path.match(/^\/(es|pt)(\/|$)/)?.[1];
   return <div className="relative z-[1] pb-6 text-center text-xs print:hidden">
     <button type="button" className="min-h-11 px-3 underline underline-offset-4 text-[var(--text-muted)]" onClick={showAdPrivacyChoices}>
-      {spanish ? "Opciones de privacidad publicitaria" : "Advertising privacy choices"}
+      {locale === "es" ? "Opciones de privacidad publicitaria" : locale === "pt" ? "Opções de privacidade de anúncios" : "Advertising privacy choices"}
     </button>
   </div>;
 }

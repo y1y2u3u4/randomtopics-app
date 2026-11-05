@@ -220,7 +220,8 @@ export function loadAdSense() {
       cmpScript.async = true;
       cmpScript.dataset.rtCmp = "published-google-message";
       cmpScript.src = `https://fundingchoicesmessages.google.com/i/${ADSENSE_CLIENT.slice(3)}?ers=2`;
-      if (location.pathname === "/es" || location.pathname.startsWith("/es/")) cmpScript.src += "&hl=es";
+      const locale = location.pathname.match(/^\/(es|pt)(\/|$)/)?.[1];
+      if (locale) cmpScript.src += `&hl=${locale}`;
       document.head.appendChild(cmpScript);
       const script = document.createElement("script");
       script.async = true;
