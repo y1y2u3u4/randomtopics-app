@@ -11,12 +11,16 @@ import {
   PORTUGUESE_ALTERNATES,
   TURKISH_ALTERNATES,
   FRENCH_ALTERNATES,
+  GERMAN_ALTERNATES,
+  JAPANESE_ALTERNATES,
   hreflangAlternates,
 } from "@/i18n/config";
 import { ES_PAGES } from "@/data/localePages/es";
+import { ES_BATCH2 } from "@/data/localePages/es.batch2";
 
 // Spanish pages first published 2026-10-21 (their EN originals are older).
 const ES_BATCH_1021: ReadonlySet<string> = new Set(ES_PAGES.map((p) => p.path));
+const ES_BATCH_1106: ReadonlySet<string> = new Set(ES_BATCH2.map((p) => p.path));
 
 // Bilingual sitemap: every route is emitted for both English (root) and Spanish
 // (/es), and each entry carries hreflang alternates (en / es / x-default) so
@@ -335,7 +339,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     result.push({
       url: esUrl,
       ...(customSpanishPath
-        ? { lastModified: ES_BATCH_1021.has(customSpanishPath) ? "2026-10-21" : e.esLastModified ?? e.lastModified ?? "2026-08-31" }
+        ? { lastModified: ES_BATCH_1106.has(customSpanishPath) ? "2026-11-06" : ES_BATCH_1021.has(customSpanishPath) ? "2026-10-21" : e.esLastModified ?? e.lastModified ?? "2026-08-31" }
         : e.esLastModified || e.lastModified
           ? { lastModified: e.esLastModified ?? e.lastModified }
           : {}),
@@ -378,13 +382,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // Standalone Turkish, Portuguese and French pages. None is a site locale;
+  // Standalone Turkish, Portuguese, French, German and Japanese pages. None is a site locale;
   // each is the counterpart of an EN page and carries the same full alternate
   // set (en / es where it exists / pt / tr / fr / x-default) as that page.
   const standalone: [Record<string, string>, string, number][] = [
     [TURKISH_ALTERNATES, "2026-10-27", 0.8],
     [PORTUGUESE_ALTERNATES, "2026-10-21", 0.8],
     [FRENCH_ALTERNATES, "2026-10-27", 0.8],
+    [GERMAN_ALTERNATES, "2026-11-06", 0.8],
+    [JAPANESE_ALTERNATES, "2026-11-06", 0.8],
   ];
   for (const [map, lastModified, priority] of standalone) {
     for (const [enPath, localPath] of Object.entries(map)) {

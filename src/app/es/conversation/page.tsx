@@ -13,12 +13,16 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { absolute: "Temas de Conversación: 320 Temas para Hablar o por Chat" },
+  title: { absolute: "Temas de Conversación: 320 Temas para Hablar en Persona o por Chat (2026)" },
   description:
-    "Temas de conversación para hablar en persona o por chat: prueba 12 preguntas con repreguntas o genera entre 320 temas en español. Copia, guarda y elige una colección para tu grupo. Gratis.",
+    "Temas de conversación para hablar con amigos, con una chica o un chico, en una primera cita o por WhatsApp: 320 ideas en español y 12 preguntas con repreguntas. Gratis y sin registro.",
   keywords: [
     "iniciadores de conversación",
     "temas de conversación",
+    "temas de conversación para hablar con una chica",
+    "temas de conversación para conocer a alguien",
+    "temas de conversación para whatsapp",
+    "temas de conversación para romper el hielo",
     "generador de temas de conversación",
     "iniciadores de conversación al azar",
     "de qué hablar",
@@ -31,7 +35,7 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/conversation"),
   },
   openGraph: {
-    title: "Temas de Conversación: 320 Temas para Hablar o por Chat",
+    title: "Temas de Conversación: 320 Temas para Hablar en Persona o por Chat (2026)",
     description:
       "12 preguntas listas para conversar con repreguntas y un generador de 320 temas en español. Copia, guarda o comparte sin registro.",
     url: `${SITE_URL}/es/conversation`,
@@ -94,8 +98,8 @@ export default function ConversationPageEs() {
         <TopicGenerator
           initialMode="conversation"
           locale="es"
-          title="Generador de Temas de Conversación"
-          subtitle="¿No sabes de qué hablar? Elige entre 320 temas en español o empieza con una pregunta lista para usar. Copia el tema y sigue la conversación con una repregunta."
+          title="Temas de Conversación para Cualquier Situación"
+          subtitle="Temas de conversación para amigos, para conocer a alguien, para una primera cita o por WhatsApp: elige entre 320 en español o empieza con una pregunta lista. Copia el tema y sigue con una repregunta."
           heroLinks={
             <nav aria-label="Empieza a conversar" className="mt-5 flex flex-wrap justify-center gap-3 text-sm">
               <a href="#preguntas-para-conversar" className="inline-flex min-h-11 items-center rounded-xl border border-white/10 px-4 text-[var(--neon-cyan)] hover:underline">Ver 12 preguntas y repreguntas</a>

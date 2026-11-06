@@ -2,7 +2,7 @@ import NextLink from "@/components/NextLink";
 import { RELATED_TOOLS } from "@/data/relatedTools";
 
 type Card = { href: string; label: string; emoji: string };
-const TITLE = { en: "Play next", es: "Sigue jugando", pt: "Jogue a seguir", fr: "À jouer ensuite", tr: "Sıradaki oyun" } as const;
+const TITLE = { en: "Play next", es: "Sigue jugando", pt: "Jogue a seguir", fr: "À jouer ensuite", tr: "Sıradaki oyun", de: "Weiterspielen", ja: "次に遊ぶ" } as const;
 const BLURB = new Map(RELATED_TOOLS.map((t) => [t.href, t.blurb]));
 
 // Three large "Play next" cards directly under a tool's result. Static server HTML

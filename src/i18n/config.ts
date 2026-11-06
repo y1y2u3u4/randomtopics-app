@@ -70,6 +70,12 @@ export const CUSTOM_SPANISH_ALTERNATES: Readonly<Record<string, string>> = {
   "/journal-prompts": "/es/preguntas-para-diario",
   "/facts": "/es/datos-curiosos",
   "/paranoia-questions": "/es/preguntas-de-paranoia",
+  // 2026-11-06 batch 2 (src/data/localePages/es.batch2.ts)
+  "/pictionary-word-generator": "/es/palabras-para-pictionary",
+  "/21-questions": "/es/21-preguntas-para-conocer-a-alguien",
+  "/story-prompt-generator": "/es/ideas-para-escribir-historias",
+  "/put-a-finger-down": "/es/baja-un-dedo-preguntas",
+  "/group-discussion-topics": "/es/temas-para-debatir-en-grupo",
 };
 
 export function spanishCounterpartPath(englishPath: string): string | null {
@@ -450,12 +456,42 @@ export const FRENCH_ALTERNATES: Readonly<Record<string, string>> = {
   "/most-likely-to": "/fr/qui-est-le-plus-susceptible-de",
 };
 
+/**
+ * Standalone German pages (2026-11-06 pilot). German is not a site locale; only
+ * EN pages with a real de counterpart list a de alternate.
+ */
+export const GERMAN_ALTERNATES: Readonly<Record<string, string>> = {
+  "/": "/de",
+  "/truth-or-dare": "/de/wahrheit-oder-pflicht-fragen",
+  "/would-you-rather": "/de/wuerdest-du-eher-fragen",
+  "/this-or-that": "/de/dies-oder-das-fragen",
+  "/conversation": "/de/gespraechsthemen",
+  "/most-likely-to": "/de/wer-wuerde-am-ehesten-fragen",
+  "/charades": "/de/scharade-begriffe",
+  "/question-of-the-day": "/de/frage-des-tages",
+  "/debate": "/de/diskussionsthemen",
+  "/philosophical-questions": "/de/philosophische-fragen",
+  "/never-have-i-ever": "/de/ich-hab-noch-nie-fragen",
+};
+
+/**
+ * Standalone Japanese pages (2026-11-06 pilot). 究極の二択 maps to the Would You
+ * Rather page, ジェスチャーゲーム to Charades.
+ */
+export const JAPANESE_ALTERNATES: Readonly<Record<string, string>> = {
+  "/": "/ja",
+  "/would-you-rather": "/ja/kyukyoku-no-nitaku",
+  "/charades": "/ja/gesture-game-odai",
+};
+
 function withStandaloneLocales(path: string, languages: Record<string, string>): Record<string, string> {
   const { "x-default": xDefault, ...rest } = languages;
   const out: Record<string, string> = { ...rest };
   if (PORTUGUESE_ALTERNATES[path]) out.pt = `${SITE_URL}${PORTUGUESE_ALTERNATES[path]}`;
   if (TURKISH_ALTERNATES[path]) out.tr = `${SITE_URL}${TURKISH_ALTERNATES[path]}`;
   if (FRENCH_ALTERNATES[path]) out.fr = `${SITE_URL}${FRENCH_ALTERNATES[path]}`;
+  if (GERMAN_ALTERNATES[path]) out.de = `${SITE_URL}${GERMAN_ALTERNATES[path]}`;
+  if (JAPANESE_ALTERNATES[path]) out.ja = `${SITE_URL}${JAPANESE_ALTERNATES[path]}`;
   out["x-default"] = xDefault;
   return out;
 }

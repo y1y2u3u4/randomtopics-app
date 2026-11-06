@@ -147,11 +147,11 @@ NEXT_STEPS["/number-randomizer"] = { next: t("/spin-the-wheel", "Spin the wheel 
 NEXT_STEPS["/random-number-generator"] = { next: t("/spin-the-wheel", "Spin the wheel instead", "🎡"), collection: t("/number-randomizer", "Pick a number: 1 or 2, 1–10", "🔢") };
 
 // ---------------------------------------------------------------- other languages
-export type LocaleCode = "es" | "pt" | "fr" | "tr";
+export type LocaleCode = "es" | "pt" | "fr" | "tr" | "de" | "ja";
 
 export function localeOfPath(path: string): LocaleCode | null {
   const seg = path.split("/")[1];
-  return seg === "es" || seg === "pt" || seg === "fr" || seg === "tr" ? seg : null;
+  return seg === "es" || seg === "pt" || seg === "fr" || seg === "tr" || seg === "de" || seg === "ja" ? seg : null;
 }
 
 // Spanish pages by scene (all real routes under /es); same-language picks only.

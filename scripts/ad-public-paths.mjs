@@ -25,6 +25,8 @@ export const AD_FREE = [
   // Portuguese (pt-BR): launched ad-free (PR #166), Auto ads since 2026-11-05
   // except child-directed pages ("crianças" = kids).
   /^\/pt\/.*criancas/,
+  // German and Japanese (2026-11-06 pilot): Auto ads like the other locales, except child-directed slugs.
+  /^\/de\/.*kinder/, /^\/ja\/.*(kodomo|kids|shogakusei)/,
   // Subscription product landing pages (2026-10-24): they sell the plan; Teacher is used in class.
   /^\/(teacher-warm-ups|slack-icebreaker-bot|discord-qotd-bot|writing-journal|couples-daily-question|pregunta-diaria-pareja)$/,
   // Insult humour: kept off to stay clear of ad content policy.
@@ -57,6 +59,7 @@ if (process.argv.includes("--write")) {
   for (const p of ["/", "/es", "/random-food-generator", "/my-9-albums", "/charades", "/would-you-rather", "/topics/speech-topics-for-college-students",
     "/debate/high-school", "/categories/philosophy", "/es/most-likely-to", "/trivia-questions",
     "/es/hot-seat-questions", "/es/question-of-the-day", "/es/random-subject-generator",
+    "/de", "/de/wahrheit-oder-pflicht-fragen", "/ja", "/ja/kyukyoku-no-nitaku", "/es/palabras-para-pictionary",
     "/pt", "/pt/temas-para-conversar", "/pt/temas-para-debate", "/pt/roleta-de-temas", "/pt/pergunta-do-dia",
     "/speech", "/es/speech", "/speech/persuasive", "/speech/informative", "/speech/politics"]) {
     assert.ok(allowed.includes(p), `ads allowed: ${p}`);

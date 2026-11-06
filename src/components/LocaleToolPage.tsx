@@ -83,7 +83,7 @@ export default function LocaleToolPage({ path, title, lead, groups, mode, button
         </section>
 
         {tryNext && tryNext.length > 0 && (
-          <TryNext path={path} tools={tryNext} locale={copy.lang.slice(0, 2) as "pt" | "fr" | "tr" | "es"} />
+          <TryNext path={path} tools={tryNext} locale={copy.lang.slice(0, 2) as "pt" | "fr" | "tr" | "es" | "de" | "ja"} />
         )}
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-8">

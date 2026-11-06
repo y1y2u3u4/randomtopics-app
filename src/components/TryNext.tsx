@@ -142,9 +142,9 @@ export function categorySwitch(path: string): TryNextTool[] {
 // Compact row of related tools right under the result, so the next click is in
 // view when a visitor finishes. Static server HTML (no layout shift); picks
 // differ from the "Keep playing" cards at the bottom of the page.
-const TRY_NEXT_TITLE = { en: "Try next", es: "Prueba también", pt: "Experimente também", fr: "À essayer ensuite", tr: "Sırada bunlar var" } as const;
+const TRY_NEXT_TITLE = { en: "Try next", es: "Prueba también", pt: "Experimente também", fr: "À essayer ensuite", tr: "Sırada bunlar var", de: "Als Nächstes probieren", ja: "次はこちらもどうぞ" } as const;
 
-type Locale = "en" | "es" | "pt" | "fr" | "tr";
+type Locale = "en" | "es" | "pt" | "fr" | "tr" | "de" | "ja";
 
 /**
  * placement "end" (default) sits under the tool/result; "mid" is a compact copy placed
