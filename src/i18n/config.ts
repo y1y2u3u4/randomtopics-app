@@ -130,6 +130,8 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/random-idea-generator",
   "/topic-of-the-day",
   "/philosophical-questions",
+  "/hypothetical-questions",
+  "/conversation-starters",
   "/moral-dilemma-examples",
   "/facts",
   "/random-object-generator",

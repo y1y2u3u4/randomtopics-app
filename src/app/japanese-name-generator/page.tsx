@@ -10,8 +10,9 @@ import type { BoostSection } from "@/components/RankBoost";
 import { JAPANESE_BOOST } from "@/data/rankBoost";
 
 const PATH = "/japanese-name-generator";
-const TITLE = `Japanese Name Generator with Meanings: ${JP_GIVEN.length} Names in Kanji`;
-const DESCRIPTION = `Free random Japanese name generator with meanings: ${JP_GIVEN.length}+ real given names and ${JP_FAMILY.length}+ surnames, each shown in kanji, hiragana and romaji with the meaning of the kanji. Filter by male, female or gender-neutral; Western or Japanese name order.`;
+// Old title (rollback, 2026-11-06): `Japanese Name Generator with Meanings: ${JP_GIVEN.length} Names in Kanji`
+const TITLE = `Japanese Name Generator: ${JP_GIVEN.length} Boy & Girl Names + Surnames in Kanji, with Meanings`;
+const DESCRIPTION = `Get a random Japanese name in one click: ${JP_GIVEN.length}+ real boy, girl and gender-neutral first names plus ${JP_FAMILY.length}+ Japanese last names, each in kanji, hiragana and romaji with the meaning. Free, no sign-up, Western or Japanese name order.`;
 
 const SOCIAL = generatorSocial({ card: "japanese-name-generator", title: TITLE, description: DESCRIPTION, alt: "Japanese Name Generator — cherry blossoms, torii gate and Mount Fuji" });
 
@@ -78,7 +79,7 @@ export default function JapaneseNameGeneratorPage() {
       path={PATH}
       name="Japanese Name Generator"
       heading={["Japanese Name", "Generator"]}
-      intro={`Real Japanese first and last names in kanji, hiragana and romaji — with what the kanji mean. ${JP_GIVEN.length}+ given names, ${JP_FAMILY.length}+ surnames.`}
+      intro={`Random Japanese names in one click: ${JP_GIVEN.length}+ real boy, girl and neutral first names and ${JP_FAMILY.length}+ last names, in kanji, hiragana and romaji — with what the kanji mean. Free, no sign-up.`}
       description={DESCRIPTION}
       hero={{ src: "/generators/hero/japanese.webp", alt: "Cherry blossom branches, a red torii gate by a lake and Mount Fuji" }}
       updated="2026-10-11"

@@ -10,7 +10,9 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { hreflangAlternates } from "@/i18n/config";
 import { HOT_SEAT_QUESTIONS } from "@/data/hotSeat";
+import PublicAdPlacement from "@/components/PublicAdPlacement";
 import KeepPlaying from "@/components/KeepPlaying";
+import NextListLink from "@/components/NextListLink";
 import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = withSocial({
@@ -146,11 +148,13 @@ export default function HotSeatPage() {
             </div>
           </div>
         </section>
+        <PublicAdPlacement path="/hot-seat-questions" placement="list" />
         <QuestionBank
           heading="All 75 Hot Seat Questions"
           intro="The complete interview deck, roughly ordered from warm-up to deep &mdash; pick your intensity or run it top to bottom."
           questions={HOT_SEAT_QUESTIONS}
         />
+        <NextListLink path="/hot-seat-questions" />
         <KeepPlaying path="/hot-seat-questions" />
       </main>
       <Footer />

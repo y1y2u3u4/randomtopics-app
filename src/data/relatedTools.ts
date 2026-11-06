@@ -47,6 +47,8 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/group-discussion-topics", label: "Group Discussion Topics", emoji: "🧑‍🤝‍🧑", blurb: "GD topics with both sides", groups: ["classroom", "speaking"] },
   { href: "/topic-of-the-day", label: "Topic of the Day", emoji: "📅", blurb: "One discussion topic daily", groups: ["classroom", "speaking"] },
   { href: "/philosophical-questions", label: "Philosophical Questions", emoji: "🤔", blurb: "Deep questions by theme", groups: ["classroom", "speaking"] },
+  { href: "/hypothetical-questions", label: "Hypothetical Questions", emoji: "💭", blurb: "What would you do if... scenarios", groups: ["party", "classroom"] },
+  { href: "/conversation-starters", label: "Conversation Starters", emoji: "🗣️", blurb: "Easy, fun, deep and date convo starters", groups: ["party", "speaking"] },
   { href: "/moral-dilemma-examples", label: "Moral Dilemma Examples", emoji: "⚖️", blurb: "Famous dilemmas explained", groups: ["classroom", "speaking"] },
   { href: "/writing", label: "Writing Prompt Generator", emoji: "✍️", blurb: "500+ prompts to write about", groups: ["creative", "classroom"] },
   { href: "/story-prompt-generator", label: "Story Prompt Generator", emoji: "📖", blurb: "Story ideas by genre and age", groups: ["creative", "classroom"] },

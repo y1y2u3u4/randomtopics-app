@@ -10,9 +10,10 @@ import RankBoost, { faqForSchema, renderInline } from "@/components/RankBoost";
 import { GROUP_DISCUSSION_BOOST } from "@/data/rankBoost";
 
 export const metadata: Metadata = withSocial({
-  title: { absolute: "GD Topics 2026: 100+ Current Group Discussion Topics" },
+  // Old title (rollback, 2026-11-06): "GD Topics 2026: 100+ Current Group Discussion Topics"
+  title: { absolute: "GD Topics 2026: 110+ Current Group Discussion Topics for Placements & MBA" },
   description:
-    "Latest GD topics for 2026: 100+ current group discussion topics, including current affairs, situation-based GD questions, AI, business, education, abstract topics, placements, and MBA interviews.",
+    "110+ group discussion topics (GD topics) for 2026, ready to copy: current affairs, situation-based, abstract, AI, business and education topics for campus placements, MBA admissions, classrooms and clubs. Free, with prep tips.",
   keywords: [
     "group discussion topics",
     "gd topics",
@@ -264,11 +265,11 @@ export default function GroupDiscussionTopicsPage() {
             className="text-3xl sm:text-5xl font-bold mb-4 text-[var(--text-primary)]"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            100+ Group Discussion <span className="gradient-text">Topics</span>
+            110+ Group Discussion <span className="gradient-text">Topics</span>
           </h1>
           <p className="text-[var(--text-muted)] text-base sm:text-lg max-w-2xl mx-auto">
-            GD topics for placement rounds, MBA admissions, classrooms and clubs — organized by theme,
-            current for 2026, with prep guidance from panel scoring criteria.
+            Common GD topics for placement rounds, MBA admissions, classrooms and clubs — the full list is below,
+            organized by theme (current affairs, situation-based, abstract and more), current for 2026, with prep tips on how panels score a GD. Free, no sign-up.
           </p>
           <p className="text-xs text-[var(--text-muted)] mt-3">Updated August 15, 2026</p>
           <div className="flex flex-wrap justify-center gap-3 mt-6">

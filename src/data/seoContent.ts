@@ -1,5 +1,6 @@
 import { TWO_TRUTHS_IDEA_GROUPS } from "./twoTruthsIdeas";
 import { applyQuestionBanks } from "./questionBanks/apply";
+import { THIS_OR_THAT_CATEGORIES } from "./thisOrThatCategories";
 
 export interface SeoArticle {
   slug: string;
@@ -4135,7 +4136,7 @@ export const SEO_ARTICLES: SeoArticle[] = [
   heroSubtitle:
     "Quick-fire either/or choices for icebreakers, road trips, couples, and classrooms — easy to start, surprisingly hard to answer.",
   intro:
-    "This or That is the fastest icebreaker there is: two options, no wrong answers, instant conversation. It works as a warm-up game, a road-trip time-killer, a classroom activity, or a way to learn how your partner really thinks. The magic is a good list — a mix of easy favorites and impossible dilemmas. Here are 180 this-or-that questions sorted by group and difficulty. Fire them off rapid-style, or use our generator to keep them coming.",
+    "This or That is the fastest icebreaker there is: two options, no wrong answers, instant conversation. It works as a warm-up game, a road-trip time-killer, a classroom activity, or a way to learn how your partner really thinks. The magic is a good list — a mix of easy favorites and impossible dilemmas. Here are ${TOT_TOTAL} this-or-that questions sorted by group and difficulty. Fire them off rapid-style, or use our generator to keep them coming.",
   publishDate: "2026-07-05",
   lastModified: "2026-07-05",
   sections: [
@@ -4959,3 +4960,29 @@ export const SEO_ARTICLES: SeoArticle[] = [
 
 // 2026-10-28: 300+ question banks for the two list pages (see questionBanks/).
 applyQuestionBanks(SEO_ARTICLES);
+
+// 2026-11-06: the "180" in the this-or-that article was a promise the page did not keep
+// (63 listed). Fold in the 144 categorised questions from /this-or-that so the full list is
+// on the page, and state the real total. Duplicates (same text) are dropped.
+{
+  const a = SEO_ARTICLES.find((x) => x.slug === "this-or-that-questions");
+  if (a) {
+    const seen = new Set(a.sections.flatMap((sec) => sec.items.map((q) => q.toLowerCase())));
+    const extra = THIS_OR_THAT_CATEGORIES.map((c) => ({
+      heading: `This or That: ${c.title}`,
+      description: `${c.questions.length} either/or questions about ${c.title.toLowerCase()}.`,
+      items: c.questions.filter((q) => !seen.has(q.toLowerCase())),
+    })).filter((sec) => sec.items.length > 0);
+    a.sections = [...a.sections, ...extra];
+    const total = a.sections.reduce((n, sec) => n + sec.items.length, 0);
+    a.title = `${total} This or That Questions (Funny, Hard, For Kids & Couples)`;
+    a.metaTitle = `${total} This or That Questions: Funny, Hard, Kids & Couples (2026) | RandomTopics`;
+    a.heroTitle = `${total} This or That Questions for Any Group`;
+    a.metaDescription = `${total} this or that questions in ${a.sections.length} categories: funny, hard, for couples, kids, food, travel, school and work. Read the full list, tap a random question, or print it. Free, no signup.`;
+    a.intro = a.intro.replace("${TOT_TOTAL}", String(total));
+    a.lastModified = "2026-11-06";
+    a.faq = a.faq.map((f) => f.question.startsWith("How many This or That")
+      ? { ...f, answer: `This page lists ${total} this or that questions across ${a.sections.length} categories: fun, hard, couples, kids, funny, food, travel, school, work, tech, hobbies and home. Use the random generator for an endless stream that does not repeat.` }
+      : f);
+  }
+}

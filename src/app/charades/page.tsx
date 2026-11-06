@@ -21,9 +21,11 @@ import type { BoostFaq, BoostSection } from "@/components/RankBoost";
 export const metadata: Metadata = withSocial({
   // Old title/meta (rollback, 2026-11-03): "Charades Generator: Random Charades Word Generator (528 Words)" /
   // "Need a random charades word? Tap once: 528 actable charades words for kids, parties and class, easy to hard, with a hide-the-word timer and printable cards. Free, no signup."
-  title: { absolute: "Charades Generator: Random Charades Words to Act Out + Timer (528, Free)" },
+  // Old title/meta (rollback, 2026-11-06): "Charades Generator: Random Charades Words to Act Out + Timer (528, Free)" /
+  // "Free charades generator: tap for a random charades word to act out. 528 words for kids, adults and parties, sorted by category and easy to hard, with a hide-the-word round timer and printable cards. No signup."
+  title: { absolute: "Charades Generator: 528 Random Charades Words to Act Out + Timer (Free)" },
   description:
-    "Free charades generator: tap for a random charades word to act out. 528 words for kids, adults and parties, sorted by category and easy to hard, with a hide-the-word round timer and printable cards. No signup.",
+    "Free charade generator: one tap gives a random charades word to act out. 528 charades ideas for kids, adults and parties, easy to hard, with a hide-the-word timer and printable cards. No sign-up, works on any phone.",
   keywords: [
     "charades generator",
     "charades word generator",
@@ -269,7 +271,7 @@ export default function CharadesPage() {
             Charades <span className="gradient-text">Generator</span>
           </h1>
           <p className="text-[var(--text-muted)] max-w-xl mx-auto">
-            {CHARADES_WORDS.length} charades words across {CHARADES_CATEGORIES.length} categories. Tap for a random charades word, let the actor read it, then start the timer and hide the answer. Easy to hard, kids to adults. Free, with no signup.
+            Free charades generator: {CHARADES_WORDS.length} charades words and ideas across {CHARADES_CATEGORIES.length} categories. Tap for a random charades word, let the actor read it, then start the timer and hide the answer. Easy to hard, kids to adults. No signup.
           </p>
         </section>
 

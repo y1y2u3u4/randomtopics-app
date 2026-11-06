@@ -6,7 +6,8 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/random-color-generator";
-const TITLE = "Random Color Generator — HEX, RGB & HSL Palettes, Lock & Copy";
+// Old title (rollback, 2026-11-06): "Random Color Generator — HEX, RGB & HSL Palettes, Lock & Copy"
+const TITLE = "Random Color Generator: Random Colors & Palettes with HEX, RGB & HSL Codes (Free)";
 const DESCRIPTION =
   "Free random color generator: get up to 10 random colors at once in HEX, RGB and HSL, lock the ones you like, and build analogous, complementary, triadic, monochrome or pastel palettes. One-click copy, CSS export and share links.";
 

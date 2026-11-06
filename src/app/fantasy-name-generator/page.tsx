@@ -6,7 +6,8 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/fantasy-name-generator";
-const TITLE = "Fantasy Name Generator — Elf, Dwarf, Orc, Dragonborn & More";
+// Old title (rollback, 2026-11-06): "Fantasy Name Generator — Elf, Dwarf, Orc, Dragonborn & More"
+const TITLE = "Fantasy Name Generator: 1,000+ Elf, Dwarf, Orc & Dragonborn Names with Meanings";
 const DESCRIPTION =
   "Free fantasy name generator with over 1,000 first names and matching surnames for elves, dwarves, halflings, gnomes, orcs, tieflings, dragonborn, humans and Norse heroes. Filter by race and gender and see each name's meaning.";
 

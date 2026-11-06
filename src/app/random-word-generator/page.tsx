@@ -7,8 +7,9 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/random-word-generator";
-const TITLE = "Random Word Generator — Nouns, Verbs & Adjectives by Difficulty";
-const DESCRIPTION = `Free random word generator with ${WORDS.en.length}+ hand-picked English words. Filter by noun, verb or adjective, difficulty, length and first letter, or get only drawable words for Pictionary and charades. Generate up to 50 at once, no repeats, one-click copy.`;
+// Old title (rollback, 2026-11-06): "Random Word Generator — Nouns, Verbs & Adjectives by Difficulty"
+const TITLE = `Random Word Generator: Words at Random, ${WORDS.en.length}+ Nouns, Verbs & Adjectives`;
+const DESCRIPTION = `Get words at random in one click: ${WORDS.en.length}+ hand-picked English words. Filter by noun, verb or adjective, difficulty, length and first letter, or get only drawable words for Pictionary and charades. Up to 50 random words at once, no repeats, one-click copy. Free, no sign-up.`;
 
 const SOCIAL = generatorSocial({ card: "random-word-generator", title: TITLE, description: DESCRIPTION, alt: "Random Word Generator — dictionary with word cards" });
 
@@ -20,6 +21,10 @@ export const metadata: Metadata = {
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
+
+// Deterministic sample so the page shows a real list of words in its HTML.
+const SAMPLE_STEP = Math.max(1, Math.floor(WORDS.en.length / 120));
+const SAMPLE_WORDS = WORDS.en.filter((_, i) => i % SAMPLE_STEP === 0).slice(0, 120);
 
 const FAQ = [
   {
@@ -55,7 +60,7 @@ export default function RandomWordGeneratorPage() {
       path={PATH}
       name="Random Word Generator"
       heading={["Random Word", "Generator"]}
-      intro={`${WORDS.en.length}+ hand-picked English words. Filter by part of speech, difficulty, length or first letter — or only words you can draw or act out.`}
+      intro={`Words at random, one click: ${WORDS.en.length}+ hand-picked English words, up to 50 at a time. Filter by part of speech, difficulty, length or first letter — or only words you can draw or act out. Free, no sign-up.`}
       description={DESCRIPTION}
       updated="2026-10-10"
       faq={FAQ}
@@ -76,6 +81,12 @@ export default function RandomWordGeneratorPage() {
             part of speech, difficulty and whether it can be drawn or acted out — so the word you get fits the game, lesson or story you
             have in mind.
           </p>
+          <SectionTitle>How to get words at random</SectionTitle>
+          <ol className="list-decimal pl-5 space-y-1">
+            <li>Choose how many random words you want (1 to 50) and any filters, or leave them all off for a fully random mix.</li>
+            <li>Press <strong>Generate</strong>. Words are drawn at random and do not repeat until you have seen every match.</li>
+            <li>Copy the list, share the link, or press Generate again for a fresh set.</li>
+          </ol>
           <SectionTitle>Filters</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
             <li><strong>Part of speech</strong> — nouns, verbs, adjectives, adverbs, or any mix.</li>
@@ -91,6 +102,11 @@ export default function RandomWordGeneratorPage() {
             <li><strong>Vocabulary warm-ups</strong> — hard adjectives or verbs: define it, use it in a sentence, find a synonym.</li>
             <li><strong>Word games</strong> — Taboo-style clue giving, 20 Questions, or spelling bees with long words.</li>
           </ul>
+          <SectionTitle>{`A list of ${SAMPLE_WORDS.length} random words`}</SectionTitle>
+          <p>
+            Need words right now without pressing anything? Here are {SAMPLE_WORDS.length} words from the list, picked evenly across the
+            whole collection: {SAMPLE_WORDS.map((w) => w.w).join(", ")}.
+          </p>
         </>
       }
     >

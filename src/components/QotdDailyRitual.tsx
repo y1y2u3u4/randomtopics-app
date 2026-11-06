@@ -1,7 +1,8 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { qotdChoices } from "@/data/qotdAnswers";
-import { localDayKey, previousDayKey } from "@/lib/qotd/vote";
+import { localDayKey } from "@/lib/qotd/vote";
+import { recordCheckIn, untilTomorrow, type Streak } from "@/lib/qotd/streak";
 import { track } from "@/lib/track";
 
 // Daily ritual under today's question: answer (anonymous vote), see how
@@ -9,7 +10,6 @@ import { track } from "@/lib/track";
 // next question. Everything personal stays in this browser.
 const ANSWERS_KEY = "rt-qotd-answers", STREAK_KEY = "rt-qotd-streak", VOTER_KEY = "rt-qotd-voter";
 type Answer = { q: number; choice: number };
-type Streak = { last: string; count: number; best: number };
 
 function read<T>(key: string): T | null {
   try { return JSON.parse(localStorage.getItem(key) || "null") as T | null; } catch { return null; }
@@ -26,18 +26,6 @@ function voterId() {
   }
   return id;
 }
-/** Streak as it stands today: a missed day shows 0 until the next answer. */
-function currentStreak(streak: Streak | null, today: string): Streak {
-  if (!streak || typeof streak.count !== "number") return { last: "", count: 0, best: 0 };
-  const alive = streak.last === today || streak.last === previousDayKey(today);
-  return { last: streak.last, count: alive ? streak.count : 0, best: streak.best || streak.count };
-}
-function untilMidnight(now: Date) {
-  const next = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-  const s = Math.max(0, Math.floor((next.getTime() - now.getTime()) / 1000));
-  return [Math.floor(s / 3600), Math.floor((s % 3600) / 60), s % 60].map((n) => String(n).padStart(2, "0")).join(":");
-}
-
 function wrap(ctx: CanvasRenderingContext2D, text: string, width: number) {
   const lines: string[] = [];
   let line = "";
@@ -109,11 +97,14 @@ export default function QotdDailyRitual({ questionIndex, question, dateLabel, so
       setDay(key);
       const saved = read<Record<string, Answer>>(ANSWERS_KEY)?.[key];
       setMine(saved && saved.q === questionIndex ? saved.choice : null);
-      setStreak(currentStreak(read<Streak>(STREAK_KEY), key));
+      // Opening today's question counts as a check-in; answering the same day does not count twice.
+      const next = recordCheckIn(read<Streak>(STREAK_KEY), key);
+      write(STREAK_KEY, next);
+      setStreak(next);
     };
-    const tick = () => { if (!document.hidden) setCountdown(untilMidnight(new Date())); };
+    const tick = () => { if (!document.hidden) setCountdown(untilTomorrow(new Date())); };
     const first = window.setTimeout(() => { sync(); tick(); }, 0);
-    const timer = window.setInterval(tick, 1000);
+    const timer = window.setInterval(tick, 20_000);
     document.addEventListener("visibilitychange", tick);
     return () => { window.clearTimeout(first); window.clearInterval(timer); document.removeEventListener("visibilitychange", tick); };
   }, [questionIndex]);
@@ -138,13 +129,9 @@ export default function QotdDailyRitual({ questionIndex, question, dateLabel, so
     const first = !answers[key];
     answers[key] = { q: questionIndex, choice };
     write(ANSWERS_KEY, Object.fromEntries(Object.entries(answers).sort().slice(-14)));
-    if (first) {
-      const before = currentStreak(read<Streak>(STREAK_KEY), key);
-      const count = before.last === key ? before.count : before.count + 1;
-      const next = { last: key, count, best: Math.max(before.best, count) };
-      write(STREAK_KEY, next); setStreak(next);
-    }
-    track("qotd_answer", { tool_type: "question_of_the_day", content_source: source, answer_choice: choice, first_today: first, streak_days: first ? streak.count + 1 : streak.count, locale: "en" });
+    const checkedIn = recordCheckIn(read<Streak>(STREAK_KEY) ?? streak, key);
+    write(STREAK_KEY, checkedIn); setStreak(checkedIn);
+    track("qotd_answer", { tool_type: "question_of_the_day", content_source: source, answer_choice: choice, first_today: first, streak_days: checkedIn.count, locale: "en" });
     try {
       const res = await fetch("/api/qotd/vote", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ day: key, q: questionIndex, choice, voter: voterId() }) });
       if (!res.ok) throw new Error(String(res.status));
@@ -182,7 +169,7 @@ export default function QotdDailyRitual({ questionIndex, question, dateLabel, so
   return <div ref={rootRef} className="mt-5 rounded-2xl border border-[var(--neon-cyan)]/20 p-4 sm:p-5" data-qotd-ritual>
     <div className="flex flex-wrap items-center justify-between gap-2">
       <h3 className="text-sm font-bold">{mine === null ? "Your answer today" : "How everyone answered today"}</h3>
-      <p className="text-xs text-[var(--text-secondary)] min-h-5" data-qotd-streak>{streak.count > 0 ? `🔥 ${streak.count}-day streak${streak.best > streak.count ? ` · best ${streak.best}` : ""}` : day ? "Answer today to start a streak" : ""}</p>
+      <p className="text-xs text-[var(--text-secondary)] min-h-5" data-qotd-streak>{streak.count > 1 ? `🔥 ${streak.count}-day streak${streak.best > streak.count ? ` · best ${streak.best}` : ""}` : streak.count === 1 ? "🔥 Day 1: come back tomorrow for day 2" : ""}</p>
     </div>
     <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2" role="group" aria-label="Answer choices">
       {choices.map((label, i) => {
@@ -202,7 +189,7 @@ export default function QotdDailyRitual({ questionIndex, question, dateLabel, so
     </div>}
     <p className="mt-2 text-xs text-[var(--neon-cyan)]" role="status">{status}</p>
     <p className="mt-3 border-t border-white/10 pt-3 text-xs text-[var(--text-secondary)]">
-      ⏳ Tomorrow&apos;s question unlocks at midnight{countdown ? <> in <span className="font-mono font-semibold text-[var(--text-primary)]" data-qotd-countdown>{countdown}</span></> : null}. Come back to keep your streak.
+      ⏳ Tomorrow&apos;s question unlocks in <span className="inline-block min-w-[3.2em] font-mono font-semibold text-[var(--text-primary)]" data-qotd-countdown>{countdown || "--:--"}</span> (HH:MM, at midnight). Come back to keep your streak.
     </p>
     <p className="mt-1 text-[11px] text-[var(--text-muted)]">Answers are anonymous and counted once per browser. Your streak and answer stay on this device.</p>
   </div>;
