@@ -31,7 +31,7 @@ const FAQ = [
   { question: "What size is the image?", answer: "1080×1080 pixels by default — the square size Instagram, X and Threads show best. Tick Story size for a 1080×1920 image for Instagram or TikTok stories. There is no watermark." },
   { question: "Can I share the grid as a link?", answer: "Copy link keeps your nine picks in the page address, so anyone who opens it sees the same grid and can download it too. Pictures you upload stay on your device and are not part of the link." },
   { question: "Is this a 9 games that define me template too?", answer: "Yes. “9 games that define me”, “9 games that shaped me”, “top 9 games” and “my 9 games” are the same 3×3 template — type your own title above the grid (for example “9 games that shaped me”) and it is printed on the image." },
-  { question: "Does the My 9 Games template work on a phone?", answer: "Yes. The search box, the 3×3 grid and the buttons fit on one phone screen; tap Share image to send the picture straight to Instagram, X, Threads or TikTok, or Download PNG to save it." },
+  { question: "Does the My 9 Games template work on a phone?", answer: "Yes. Everything runs in your phone browser: search a game, tap its cover into the 3×3 grid, then tap Share image to send the picture straight to Instagram, X, Threads or TikTok, or Download PNG to save it. Nothing to install and no signup." },
   { question: "My 9 Games or My 9 grid — which should I use?", answer: "Use this My 9 Games template when your picks are video games: it searches games and adds the box art for you. Use the My 9 grid maker when you want to fill the squares with your own photos or screenshots — anything at all." },
 ];
 
