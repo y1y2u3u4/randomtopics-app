@@ -18,7 +18,7 @@ export const NINE_GRID_PAGES: { kind: GridKind; href: string; label: string }[] 
 
 export default function NineGridTabs({ current }: { current: GridKind }) {
   return (
-    <nav aria-label="My 9 templates" className="max-w-5xl mx-auto px-4 sm:px-6 mb-4">
+    <nav aria-label="My 9 templates" className="max-w-5xl mx-auto px-4 sm:px-6 mb-3 sm:mb-4">
       <ul className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center">
         {NINE_GRID_PAGES.map((p) => (
           <li key={p.kind} className="shrink-0">

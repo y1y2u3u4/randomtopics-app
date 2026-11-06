@@ -213,9 +213,10 @@ export default function NineGridMaker({ kind }: { kind: GridKind }) {
 
   return (
     <section className="max-w-5xl mx-auto px-4 sm:px-6">
-      <div className="glass-card p-5 sm:p-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-        <div>
-          <div className="grid grid-cols-2 gap-3 mb-4">
+      <div className="glass-card p-4 sm:p-8 flex flex-col gap-4 lg:grid lg:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        {/* Phone: the columns dissolve (contents) and `order` puts search + grid on the first screen; desktop keeps two columns. */}
+        <div className="contents lg:block">
+          <div className="order-4 grid grid-cols-2 gap-3 lg:mb-4">
             <label className="text-xs uppercase tracking-widest text-[var(--text-muted)] col-span-2 sm:col-span-1">Title
               <input value={title} maxLength={60} onChange={(e) => { setTitle(e.target.value); writeUrl(slots, e.target.value); }} className={`${field} mt-1 normal-case tracking-normal text-sm`} />
             </label>
@@ -224,7 +225,8 @@ export default function NineGridMaker({ kind }: { kind: GridKind }) {
             </label>
           </div>
 
-          <ul className="grid grid-cols-3 gap-2 max-w-[20rem] sm:max-w-none mx-auto" aria-label={`Your ${cfg.defaultTitle} grid`} data-nine-grid>
+          <div className="order-2">
+          <ul className={`grid grid-cols-3 gap-2 ${cfg.aspect === 1 ? "max-w-[20rem]" : "max-w-[16.5rem]"} sm:max-w-none mx-auto`} aria-label={`Your ${cfg.defaultTitle} grid`} data-nine-grid>
             {slots.map((slot, i) => (
               <li key={i} className="relative">
                 <button type="button" onClick={() => tapSlot(i)} aria-pressed={selected === i}
@@ -247,45 +249,48 @@ export default function NineGridMaker({ kind }: { kind: GridKind }) {
             ))}
           </ul>
           <p className="text-xs text-[var(--text-muted)] mt-2">{filled}/9 · tap a square, then another to swap (or drag) · × removes · picking a square first puts the next {cfg.noun} there.</p>
+          </div>
 
-          <div className="flex flex-wrap items-center gap-4 mt-4 text-sm text-[var(--text-secondary)]">
+          <div className="order-5 flex flex-wrap items-center gap-4 lg:mt-4 text-sm text-[var(--text-secondary)]">
             <label className="flex items-center gap-2"><input type="checkbox" checked={captions} onChange={(e) => setCaptions(e.target.checked)} /> Show titles</label>
             <label className="flex items-center gap-2"><input type="checkbox" checked={light} onChange={(e) => setLight(e.target.checked)} /> Light background</label>
             <label className="flex items-center gap-2"><input type="checkbox" checked={story} onChange={(e) => setStory(e.target.checked)} /> Story size (1080×1920)</label>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 mt-5">
+          <div className="order-3">
+          <div className="flex flex-wrap items-center gap-3 lg:mt-5">
             <button type="button" className="btn-generate" disabled={busy} onClick={() => exportPng("download")}><span aria-hidden="true">⬇️</span> {busy ? "Making image…" : "Download PNG"}</button>
             <button type="button" className={ghost} disabled={busy} onClick={() => exportPng("share")}>Share image</button>
             {kind !== "any" && <button type="button" className={ghost} onClick={copyLink}>Copy link</button>}
             <button type="button" className={ghost} onClick={() => { commit(empty()); setSelected(null); }}>Clear</button>
           </div>
           <p className="text-sm text-[var(--neon-cyan)] mt-3 min-h-5" aria-live="polite">{note}</p>
+          </div>
         </div>
 
-        <div>
+        <div className="contents lg:block">
           {kind !== "any" && (
-            <>
+            <div className="order-1">
               <label htmlFor="nine-grid-search" className="text-xs uppercase tracking-widest text-[var(--text-muted)]">Search</label>
               <input id="nine-grid-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={cfg.placeholder} autoComplete="off" className={`${field} mt-1`} />
               <p className="text-xs text-[var(--neon-cyan)] mt-2 min-h-4" aria-live="polite">{added}</p>
-              <div className="mt-2 min-h-24" aria-live="polite">
+              <div className="mt-2 sm:min-h-24" aria-live="polite">
                 {status === "loading" && <p className="text-sm text-[var(--text-muted)]">Searching…</p>}
                 {status === "empty" && <p className="text-sm text-[var(--text-muted)]">No covers found — try another spelling, or upload your own picture below.</p>}
                 {status === "error" && <p className="text-sm text-[var(--text-muted)]">Search is unavailable right now — you can still upload your own pictures below.</p>}
                 {status === "idle" && !results.length && <p className="text-sm text-[var(--text-muted)]">Type at least 2 letters, then tap a cover to add it to the next empty square.</p>}
                 {results.length > 0 && (
-                  <ul className="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-[30rem] overflow-y-auto pr-1">
+                  <ul className="flex gap-2 overflow-x-auto pb-1 sm:grid sm:grid-cols-4 sm:max-h-[30rem] sm:overflow-y-auto sm:overflow-x-visible sm:pb-0 pr-1">
                     {results.map((item) => {
                       const used = slots.some((s) => s?.id === item.id);
                       return (
-                        <li key={item.id}>
+                        <li key={item.id} className="w-16 shrink-0 sm:w-auto">
                           <button type="button" onClick={() => add(item)} disabled={used} title={[item.title, item.subtitle].filter(Boolean).join(" — ")}
                             className="w-full text-left disabled:opacity-40 group">
                             {/* eslint-disable-next-line @next/next/no-img-element -- remote cover thumbnail */}
                             <img src={item.thumb ?? item.image} alt="" crossOrigin="anonymous" loading="lazy" className={`${aspectClass} w-full object-cover rounded-md border border-white/10 group-hover:border-[var(--neon-cyan)]`} />
-                            <span className="block text-xs text-[var(--text-primary)] mt-1 line-clamp-2">{item.title}</span>
-                            {item.subtitle && <span className="block text-[11px] text-[var(--text-muted)] truncate">{item.subtitle}</span>}
+                            <span className="block text-xs text-[var(--text-primary)] mt-1 truncate sm:whitespace-normal sm:line-clamp-2">{item.title}</span>
+                            {item.subtitle && <span className="hidden sm:block text-[11px] text-[var(--text-muted)] truncate">{item.subtitle}</span>}
                           </button>
                         </li>
                       );
@@ -293,14 +298,14 @@ export default function NineGridMaker({ kind }: { kind: GridKind }) {
                   </ul>
                 )}
               </div>
-            </>
+            </div>
           )}
-          <div className={kind !== "any" ? "mt-5 pt-5 border-t border-white/10" : ""}>
+          <div className={kind !== "any" ? "order-6 lg:mt-5 pt-5 border-t border-white/10" : "order-1"}>
             <p className="text-sm text-[var(--text-secondary)] mb-2">{kind === "any" ? "Add up to 9 pictures from your device — they stay in your browser." : `Can't find one? Upload your own picture — it stays in your browser.`}</p>
             <input ref={fileRef} type="file" accept="image/*" multiple onChange={(e) => upload(e.target.files)} className="text-sm text-[var(--text-secondary)] file:mr-3 file:px-4 file:py-2 file:rounded-xl file:border-0 file:bg-white/10 file:text-[var(--text-primary)]" />
           </div>
           {cfg.source && (
-            <p className="text-[11px] text-[var(--text-muted)] mt-4">Covers load from <a href={cfg.source.href} className="underline" rel="noopener nofollow" target="_blank">{cfg.source.label}</a> straight into your browser; we don&apos;t store them. Artwork belongs to its owners.</p>
+            <p className="order-7 text-[11px] text-[var(--text-muted)] lg:mt-4">Covers load from <a href={cfg.source.href} className="underline" rel="noopener nofollow" target="_blank">{cfg.source.label}</a> straight into your browser; we don&apos;t store them. Artwork belongs to its owners.</p>
           )}
         </div>
       </div>

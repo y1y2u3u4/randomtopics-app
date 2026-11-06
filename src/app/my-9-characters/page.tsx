@@ -35,6 +35,7 @@ export default function MyNineCharactersPage() {
   return (
     <GeneratorPageShell
       locale="en"
+      compactHeroOnMobile
       path={PATH}
       name="My 9 Characters"
       heading={["My 9", "Characters"]}

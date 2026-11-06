@@ -32,6 +32,7 @@ export default function MyNineGridPage() {
   return (
     <GeneratorPageShell
       locale="en"
+      compactHeroOnMobile
       path={PATH}
       name="My 9 Grid Maker"
       heading={["My 9", "Grid Maker"]}

@@ -35,6 +35,7 @@ export default function MyNineAnimePage() {
   return (
     <GeneratorPageShell
       locale="en"
+      compactHeroOnMobile
       path={PATH}
       name="My 9 Anime"
       heading={["My 9", "Anime"]}
