@@ -289,7 +289,7 @@ export default function NineGridMaker({ kind }: { kind: GridKind }) {
                             className="w-full text-left disabled:opacity-40 group">
                             {/* eslint-disable-next-line @next/next/no-img-element -- remote cover thumbnail */}
                             <img src={item.thumb ?? item.image} alt="" crossOrigin="anonymous" loading="lazy" className={`${aspectClass} w-full object-cover rounded-md border border-white/10 group-hover:border-[var(--neon-cyan)]`} />
-                            <span className="block text-xs text-[var(--text-primary)] mt-1 line-clamp-1 sm:line-clamp-2">{item.title}</span>
+                            <span className="block text-xs text-[var(--text-primary)] mt-1 truncate sm:whitespace-normal sm:line-clamp-2">{item.title}</span>
                             {item.subtitle && <span className="hidden sm:block text-[11px] text-[var(--text-muted)] truncate">{item.subtitle}</span>}
                           </button>
                         </li>
