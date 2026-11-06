@@ -28,8 +28,10 @@ export const revalidate = 3600;
 export function generateMetadata(): Metadata {
   const day = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
   return withSocial({
-    title: { absolute: `Question of the Day for ${day} + 120 QOTD Ideas` },
-    description: `Today's question of the day (${day}) is ready to copy for your class, team or group chat. 120 QOTD ideas in 5 categories, new every midnight. Free.`,
+    // Old title/meta (rollback, 2026-11-06): `Question of the Day for ${day} + 120 QOTD Ideas` /
+    // `Today's question of the day (${day}) is ready to copy for your class, team or group chat. 120 QOTD ideas in 5 categories, new every midnight. Free.`
+    title: { absolute: `Today's Question of the Day (${day}) + 120 QOTD Ideas` },
+    description: `Today's question of the day for ${day}, ready to copy for your class, team or group chat. Plus 120 fun QOTD ideas in 5 categories (classroom, work, kids, deep, funny). A new question every midnight. Free, no signup.`,
     keywords: [
       "question of the day",
       "question of the day ideas",

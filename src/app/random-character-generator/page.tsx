@@ -12,9 +12,10 @@ import type { BoostSection } from "@/components/RankBoost";
 import { CHARACTER_BOOST } from "@/data/rankBoost";
 
 const PATH = "/random-character-generator";
-const TITLE = "Random Character Generator: Free Traits, Backstory & Secrets";
+// Old title (rollback, 2026-11-06): "Random Character Generator: Free Traits, Backstory & Secrets"
+const TITLE = "Random Character Generator: Create a Random Character in One Click (Free)";
 const DESCRIPTION =
-  "Free random character generator for writers and role-players: each character gets a name, occupation, personality, distinctive look, motivation, secret, quirk and flaw. Fantasy, sci-fi, modern or historical. No signup.";
+  "Make a random character in one click: every character gets a name, occupation, personality, look, motivation, secret, quirk and flaw — ready for stories, D&D and RPGs. Fantasy, sci-fi, modern or historical. Free, no sign-up.";
 
 const SOCIAL = generatorSocial({ card: "random-character-generator", title: TITLE, description: DESCRIPTION, alt: "Random Character Generator — character cards and dice" });
 
@@ -89,7 +90,7 @@ export default function RandomCharacterGeneratorPage() {
       path={PATH}
       name="Random Character Generator"
       heading={["Random Character", "Generator"]}
-      intro="A complete character in one click: name, occupation, personality, looks, motivation, secret, quirk and flaw. Pick a genre or leave it open."
+      intro="Get a random character in one click: name, occupation, personality, looks, motivation, secret, quirk and flaw. Pick a genre or leave it open. Free, no sign-up."
       description={DESCRIPTION}
       hero={{ src: "/generators/hero/character.webp", alt: "Character cards with a sword, rocket, magnifying glass and crown, next to a pair of dice" }}
       updated="2026-10-10"

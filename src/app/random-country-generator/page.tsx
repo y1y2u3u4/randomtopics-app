@@ -4,11 +4,13 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import RandomCountryGenerator from "@/components/generators/RandomCountryGenerator";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
+import { COUNTRIES, CONTINENTS } from "@/data/geo/countries";
 
 const PATH = "/random-country-generator";
-const TITLE = "Random Country Generator — Pick a Country with Flag & Capital";
+// Old title (rollback, 2026-11-06): "Random Country Generator — Pick a Country with Flag & Capital"
+const TITLE = "Random Country Generator: Pick a Random Country from All 195 (Flag & Capital)";
 const DESCRIPTION =
-  "Spin up a random country from all 195 in the world, with its flag, capital, continent and population band. Filter by continent or size, draw several at once, and no country repeats until you have seen them all.";
+  "Get a random country in one click from all 195 countries of the world, with its flag, capital, continent and population band. Filter by continent or size, draw up to 20 at once, no repeats. Full country list below. Free, no sign-up.";
 
 const SOCIAL = generatorSocial({ card: "random-country-generator", title: TITLE, description: DESCRIPTION, alt: "Random Country Generator — world flags" });
 
@@ -58,7 +60,7 @@ export default function RandomCountryGeneratorPage() {
       path={PATH}
       name="Random Country Generator"
       heading={["Random Country", "Generator"]}
-      intro="Pick a random country from all 195, with its flag, capital and continent. Filter by continent or population and draw several at once."
+      intro="Get a random country from all 195 in one click, with its flag, capital and continent. Filter by continent or population and draw several at once. Free, no sign-up."
       description={DESCRIPTION}
       updated="2026-10-28"
       faq={FAQ}
@@ -93,6 +95,17 @@ export default function RandomCountryGeneratorPage() {
             To pick a town instead, try the <Link prefetch={false} href="/random-city-generator" className={linkClass}>random city generator</Link>, or stay within the United States with the
             {" "}<Link prefetch={false} href="/random-state-generator" className={linkClass}>random state generator</Link>.
           </p>
+          <SectionTitle>{`All ${COUNTRIES.length} countries in the generator, by continent`}</SectionTitle>
+          <p>Every country the generator can pick, with its capital. Handy as an answer key for quizzes or to see what is in the pool.</p>
+          {CONTINENTS.map((continent) => {
+            const list = COUNTRIES.filter((c) => c.continent === continent).sort((a, b) => a.name.localeCompare(b.name, "en"));
+            return (
+              <div key={continent}>
+                <h3 className="text-base font-semibold text-[var(--text-primary)] pt-2">{continent} ({list.length})</h3>
+                <p>{list.map((c) => `${c.name} (${c.capital})`).join(", ")}.</p>
+              </div>
+            );
+          })}
           <p>Facts such as capitals and populations change over time; treat the bands as approximate and check an official source for anything you publish.</p>
         </>
       }
