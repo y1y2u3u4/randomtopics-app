@@ -13,6 +13,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { WOULD_YOU_RATHER } from "@/data/partyQuestions";
 import KeepPlaying from "@/components/KeepPlaying";
+import NextListLink from "@/components/NextListLink";
 import HostPassEntry from "@/components/host/HostPassEntry";
 import TryNext from "@/components/TryNext";
 
@@ -87,8 +88,6 @@ export default function WouldYouRatherPage() {
           <Link prefetch={false} href="/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">spin the wheel</Link> to pick who goes first.
         </p>
 
-        <PublicAdPlacement path="/would-you-rather" placement="result" />
-
         {/* SEO Content */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
@@ -162,12 +161,13 @@ export default function WouldYouRatherPage() {
             </div>
           </div>
         </section>
-        <PublicAdPlacement path="/would-you-rather" placement="mid" />
+        <PublicAdPlacement path="/would-you-rather" placement="list" />
         <QuestionBank
           heading="All 60 Would You Rather Questions"
           intro="The full curated deck, numbered for easy reference. Mix of everyday dilemmas and impossible hypotheticals, all clean and party-safe."
           questions={WOULD_YOU_RATHER}
         />
+        <NextListLink path="/would-you-rather" />
         <KeepPlaying path="/would-you-rather" />
       </main>
       <Footer />

@@ -1,6 +1,7 @@
 import RelatedToolLink from "@/components/RelatedToolLink";
 import NextLink from "@/components/NextLink";
 import NextStepRow from "@/components/NextStepRow";
+import PlayNextCards from "@/components/PlayNextCards";
 import { keepPlaying, type RelatedTool } from "@/data/relatedTools";
 import { EXTRA_CATEGORY_FAMILIES, esNext, localeOfPath, sceneNext } from "@/data/nextCards";
 
@@ -157,11 +158,15 @@ export default function TryNext({ path, tools: fixed, locale: given, placement =
   // other languages only ever link to their own language.
   const scene = fixed || locale !== "en" ? null : sceneNext(path);
   const picked = fixed ?? scene ?? (locale === "es" ? esNext(path) : locale !== "en" ? [] : all.length ? null : topicTryNext(path));
-  const tools = picked ? picked.filter((t) => t.href !== path) : all.length >= 6 ? all.slice(3) : all.slice(0, 3);
+  const allTools = picked ? picked.filter((t) => t.href !== path) : all.length >= 6 ? all.slice(3) : all.slice(0, 3);
   const switches = locale === "en" ? categorySwitch(path) : [];
-  if (!tools.length && !switches.length) return null;
-  const title = TRY_NEXT_TITLE[locale];
   const mid = placement === "mid";
+  // End row (right under the result): the first three picks become large "Play next" cards;
+  // any further picks stay as chips. The compact mid-article copy keeps chips only.
+  const cards = mid ? [] : allTools.slice(0, 3);
+  const tools = mid ? allTools : allTools.slice(3);
+  if (!tools.length && !switches.length && !cards.length) return null;
+  const title = TRY_NEXT_TITLE[locale];
   // One link component per surface: legacy related_tool_click for the English end rows
   // (keeps the daily series continuous), next_* events everywhere new.
   const link = (t: TryNextTool, slot: "try_next" | "switch_category") =>
@@ -181,6 +186,7 @@ export default function TryNext({ path, tools: fixed, locale: given, placement =
   return (
     <nav aria-label={mid ? `${title} (in this article)` : title} className={`max-w-3xl mx-auto px-4 sm:px-6 ${mid ? "pt-2 pb-8" : "pt-4 pb-2"} print:hidden`}>
       {!mid && locale === "en" && <NextStepRow path={path} />}
+      {cards.length > 0 && <PlayNextCards path={path} cards={cards} locale={locale} />}
       {switches.length > 0 && (
         <>
           <p className="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-2">Switch category</p>

@@ -49,7 +49,7 @@ const SUB_USAGE_EVENTS = new Set(["teacher_present", "bot_message_sent", "journa
 
 // 2026-10-28: recommendation-card events share the next_* prefix (next_card_click,
 // next_result_click, next_locale_click) with props slot, from, target_path.
-const NEXT_EVENT = /^next_[a-z_]+$/;
+const NEXT_EVENT = /^(next_[a-z_]+|keep_playing_click)$/;
 
 // 2026-10-28: per-page {page}_use / {page}_share events on phrasing and new tool pages (toss_a_coin_use, magic_8_ball_share ...).
 const PAGE_USE_SHARE_EVENT = /^(toss_a_coin|heads_or_tails|picker_wheel|magic_8_ball|random_pokemon_generator|would_you_rather_questions|truth_or_dare_questions)_(use|share)$/;

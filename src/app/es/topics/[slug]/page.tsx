@@ -1,4 +1,6 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
+import NextListLink from "@/components/NextListLink";
+import { listAdAfter } from "@/lib/listAdPlacement";
 import { PracticeSelectedTopic } from "@/components/TopicHandoff";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -124,6 +126,9 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
   const faqItems = extras ? [...article.faq, ...extras.faq] : article.faq;
   const articleItems = article.sections.flatMap((section) => section.items);
   const isControversial = article.slug === "controversial-topics-to-discuss";
+  // Mid-list ad: not on pages whose list items carry their own buttons (practice / category entries) or expandable cards.
+  const listAdIndex = isControversial || article.slug === "public-speaking-topics-for-beginners" || article.slug === "most-likely-to-questions"
+    ? -1 : listAdAfter(article.sections.map((section) => section.items.length));
   const discussionByPrompt = new Map(ES_CONTROVERSIAL_SUPPORT.map((item) => [item.prompt, item]));
   const printableItems = isControversial ? articleItems.map((prompt) => `${prompt}\n${discussionByPrompt.get(prompt)?.items.join("\n") ?? ""}`) : articleItems;
 
@@ -356,6 +361,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
                 </section>
               );
             }
+            if (sIdx === listAdIndex) acc.elements.push(<PublicAdPlacement key="list-ad" path={`/es/topics/${slug}`} placement="list" />);
             // Mid-article copy of the recommendation row (end-of-page row was rarely reached).
             if (sIdx === Math.floor(article.sections.length / 2) - 1) {
               acc.elements.push(<TryNext key="mid-next" path={`/es/topics/${slug}`} placement="mid" locale="es" />);
@@ -366,11 +372,10 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
         ).elements}
 
         {extras && <EsExtraBlocks blocks={extras.blocks} />}
-        {extras && <TryNext path={`/es/topics/${slug}`} tools={extras.tryNext} locale="es" />}
+        <NextListLink path={`/es/topics/${slug}`} />
+        <TryNext path={`/es/topics/${slug}`} tools={extras?.tryNext} locale="es" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 empty:hidden"><SubEntryFor path={`/es/topics/${slug}`} after="view" /></section>
-
-        <PublicAdPlacement path={`/es/topics/${slug}`} />
 
         {article.slug === "conversation-starters-for-couples" && (
           <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
@@ -410,6 +415,9 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
             />
           </section>
         )}
+
+        {/* End-of-page unit sits below the FAQ text, away from the Play next cards. */}
+        <PublicAdPlacement path={`/es/topics/${slug}`} />
 
         {articleToPages[article.slug] && (
           <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">

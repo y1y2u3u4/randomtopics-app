@@ -10,7 +10,7 @@ import { observeSpeechAdEntitlement } from "@/lib/speech/adEligibilityClient";
 // How close (px) a manual unit must be to the viewport before it is requested.
 const REQUEST_MARGIN = 100;
 
-export type AdPlacement = "content" | "result" | "mid";
+export type AdPlacement = "content" | "result" | "mid" | "list";
 
 export default function ArticleAdvertisement({ path, slot, placement = "content" }: { path: string; slot: string; placement?: AdPlacement }) {
   const spanish = path === "/es" || path.startsWith("/es/");

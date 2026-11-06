@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { sessionGenerateCount, track } from "@/lib/track";
 
-export type NextEvent = "next_card_click" | "next_result_click" | "next_locale_click";
+export type NextEvent = "next_card_click" | "next_result_click" | "next_locale_click" | "keep_playing_click";
 
 // Internal link that reports which recommendation card sent the visit. One event
 // family (next_*) with the same props everywhere: slot, from, target_path.

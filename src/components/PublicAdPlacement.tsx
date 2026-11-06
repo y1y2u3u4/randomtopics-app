@@ -6,5 +6,6 @@ import { adConfiguration, adInlinePageAllowed } from "@/lib/adsense";
 export default function PublicAdPlacement({ path, placement = "content" }: { path: string; placement?: AdPlacement }) {
   const config = adInlinePageAllowed(path) ? adConfiguration(process.env.NEXT_PUBLIC_ADSENSE_ROLLOUT,
     process.env.NEXT_PUBLIC_ADSENSE_ARTICLE_SLOT) : null;
+  // "list" (mid-list unit on long list pages) gets its air from CSS: margin-top 64px like "result".
   return config ? <ArticleAdvertisement path={path} slot={config.slot} placement={placement} /> : null;
 }

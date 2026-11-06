@@ -14,6 +14,7 @@ import { QOTD_QUESTIONS, QOTD_CATEGORIES, qotdIndexForDate } from "@/data/questi
 import QotdListActions from "@/components/QotdListActions";
 import KeepPlaying from "@/components/KeepPlaying";
 import TryNext from "@/components/TryNext";
+import QotdReturnPanel from "@/components/QotdReturnPanel";
 import { QOTD_OCCASIONS } from "@/data/qotdOccasions";
 import FactSheet from "@/components/FactSheet";
 import HostPassEntry from "@/components/host/HostPassEntry";
@@ -119,6 +120,7 @@ export default function QuestionOfTheDayPage() {
           </DirectAnswer>
         </div>
         <TryNext path="/question-of-the-day" />
+        <QotdReturnPanel />
         <ClassroomPackCard pack="question-of-the-day" page="/question-of-the-day" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">
