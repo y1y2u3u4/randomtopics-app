@@ -162,9 +162,9 @@ export const seoArticlesEsPart2: SeoArticle[] = [
   {
     slug: "controversial-topics-to-discuss",
     title: "55 temas controversiales y polémicos para debatir",
-    metaTitle: "Temas Polémicos y Controversiales para Debatir: 55 Ideas",
+    metaTitle: "Temas Polémicos y Controversiales para Debatir: 55 Ideas (2026)",
     metaDescription:
-      "55 temas controversiales y polémicos para debatir hoy, organizados por tecnología, ética, política y sociedad. Ideas actuales con dos posturas posibles.",
+      "55 temas polémicos y controversiales para debatir en clase, en grupo o con amigos: tecnología, ética y sociedad. Cada tema con dos posturas y puntos de apoyo.",
     heroTitle: "55 Temas Controversiales y Polémicos para Debatir",
     heroSubtitle:
       "Preguntas actuales que cuestionan suposiciones, encienden debates respetuosos y exigen argumentos en lugar de respuestas rápidas.",

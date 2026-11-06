@@ -166,9 +166,9 @@ export const seoArticlesEsPart1: SeoArticle[] = [
   {
     slug: "conversation-starters-for-couples",
     title: "60 temas de conversación profundos para parejas",
-    metaTitle: "Temas de Conversación con tu Pareja o Novia: 60 Ideas",
+    metaTitle: "Temas de Conversación con tu Pareja, Novia o Novio: 60 Ideas (2026)",
     metaDescription:
-      "60 temas de conversación para hablar con tu pareja, tu novio o tu novia: desde preguntas ligeras y divertidas hasta temas profundos. Ideales para una cita, una cena o una noche en casa.",
+      "60 temas de conversación para hablar con tu pareja, tu novio o tu novia, por WhatsApp o en persona: preguntas divertidas, románticas y profundas para una cita, una cena o una noche en casa.",
     heroTitle: "60 temas de conversación profundos para parejas",
     heroSubtitle:
       "Temas para hablar con tu novio o tu novia: desde preguntas ligeras hasta conversaciones profundas que los acercan y mantienen viva la chispa.",

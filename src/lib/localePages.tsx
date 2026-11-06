@@ -5,10 +5,15 @@ import { PT_PAGES } from "@/data/localePages/pt";
 import { PT_BATCH1 } from "@/data/localePages/pt.batch1";
 import { FR_BATCH1 } from "@/data/localePages/fr.batch1";
 import { TR_BATCH1 } from "@/data/localePages/tr.batch1";
+import { DE_BATCH1 } from "@/data/localePages/de.batch1";
+import { JA_BATCH1 } from "@/data/localePages/ja.batch1";
+import { ES_BATCH2 } from "@/data/localePages/es.batch2";
 import type { LocalePageConfig } from "@/data/localePages/types";
 import { PT_SIBLINGS, ptCopy } from "@/data/ptPageCopy";
 import { FR_SIBLINGS, frCopy } from "@/data/frPageCopy";
 import { trCopy } from "@/data/trPageCopy";
+import { DE_SIBLINGS, deCopy } from "@/data/dePageCopy";
+import { JA_SIBLINGS, jaCopy } from "@/data/jaPageCopy";
 import { TR_PAGES as TR_HUBS } from "@/components/TurkishToolPage";
 import { ES_CORE, esNext, localeSceneOf } from "@/data/nextCards";
 import { hreflangAlternates, SITE_URL } from "@/i18n/config";
@@ -54,26 +59,31 @@ const ES_EXISTING_SIBLINGS = [
   { href: "/es/generador-de-palabras-aleatorias", label: "Palabras aleatorias", detail: "Sustantivos, verbos y adjetivos" },
 ];
 
-const ES_SIBLINGS = [...ES_PAGES.map((p) => ({ href: p.path, ...p.sibling })), ...ES_EXISTING_SIBLINGS];
+const ES_ALL_PAGES = [...ES_PAGES, ...ES_BATCH2];
+const ES_SIBLINGS = [...ES_ALL_PAGES.map((p) => ({ href: p.path, ...p.sibling })), ...ES_EXISTING_SIBLINGS];
 
 function uniqueByHref<T extends { href: string }>(items: T[]): T[] {
   const seen = new Set<string>();
   return items.filter((i) => (seen.has(i.href) ? false : (seen.add(i.href), true)));
 }
 
-export type PageLocale = "es" | "pt" | "fr" | "tr";
+export type PageLocale = "es" | "pt" | "fr" | "tr" | "de" | "ja";
 
 const PAGES: Record<PageLocale, LocalePageConfig[]> = {
-  es: ES_PAGES,
+  es: ES_ALL_PAGES,
   pt: [...PT_PAGES, ...PT_BATCH1],
   fr: FR_BATCH1,
   tr: TR_BATCH1,
+  de: DE_BATCH1,
+  ja: JA_BATCH1,
 };
 
 const HUBS: Record<Exclude<PageLocale, "es">, { href: string; label: string; detail: string }[]> = {
   pt: PT_SIBLINGS,
   fr: FR_SIBLINGS,
   tr: TR_HUBS,
+  de: DE_SIBLINGS,
+  ja: JA_SIBLINGS,
 };
 
 // The most-used page of each language, shown as quick chips under the tool.
@@ -97,11 +107,22 @@ const TRY_NEXT_CORE: Record<PageLocale, { href: string; label: string; emoji: st
     { href: "/tr/hangisini-tercih-edersin", label: "Hangisini Tercih Edersin?", emoji: "🤔" },
     { href: "/tr/sohbet-konulari", label: "Sohbet Konuları", emoji: "💬" },
   ],
+  de: [
+    { href: "/de/frage-des-tages", label: "Frage des Tages", emoji: "📅" },
+    { href: "/de/wahrheit-oder-pflicht-fragen", label: "Wahrheit oder Pflicht", emoji: "🎲" },
+    { href: "/de/wuerdest-du-eher-fragen", label: "Würdest du eher …?", emoji: "🤔" },
+    { href: "/de/gespraechsthemen", label: "Gesprächsthemen", emoji: "💬" },
+  ],
+  ja: [
+    { href: "/ja/kyukyoku-no-nitaku", label: "究極の二択", emoji: "🤔" },
+    { href: "/ja/gesture-game-odai", label: "ジェスチャーゲームのお題", emoji: "🎭" },
+    { href: "/ja", label: "ランダムお題", emoji: "🎲" },
+  ],
 };
 
 export function localeOfPath(path: string): PageLocale {
   const seg = path.split("/")[1];
-  if (seg === "pt" || seg === "fr" || seg === "tr" || seg === "es") return seg;
+  if (seg === "pt" || seg === "fr" || seg === "tr" || seg === "es" || seg === "de" || seg === "ja") return seg;
   throw new Error(`Not a page locale path: ${path}`);
 }
 
@@ -175,7 +196,7 @@ export function localePageMetadata(path: string): Metadata {
       description,
       url: `${SITE_URL}${path}`,
       siteName: "Random Topics",
-      locale: { es: "es_ES", pt: "pt_BR", fr: "fr_FR", tr: "tr_TR" }[locale],
+      locale: { es: "es_ES", pt: "pt_BR", fr: "fr_FR", tr: "tr_TR", de: "de_DE", ja: "ja_JP" }[locale],
       ...(isEs ? { images: ["/es/opengraph-image"] } : {}),
       type: "website",
     },
@@ -189,6 +210,8 @@ export function LocaleConfigPage({ path }: { path: string }) {
     locale === "es" ? esCopy(page.englishLabel, page.buttonLabel)
     : locale === "pt" ? ptCopy(page.englishLabel, page.buttonLabel)
     : locale === "fr" ? frCopy(page.englishLabel, page.buttonLabel)
+    : locale === "de" ? deCopy(page.englishLabel, page.buttonLabel)
+    : locale === "ja" ? jaCopy(page.englishLabel, page.buttonLabel)
     : trCopy(page.englishLabel, page.buttonLabel);
   return (
     <LocaleToolPage
@@ -209,8 +232,8 @@ export function LocaleConfigPage({ path }: { path: string }) {
   );
 }
 
-/** Slugs served by the /pt, /fr and /tr [slug] routes (batch 1, 2026-10-28). */
+/** Slugs served by the /pt, /fr, /tr, /de and /ja [slug] routes (batch 1). */
 export function batch1Slugs(locale: Exclude<PageLocale, "es">): string[] {
-  const list = { pt: PT_BATCH1, fr: FR_BATCH1, tr: TR_BATCH1 }[locale];
+  const list = { pt: PT_BATCH1, fr: FR_BATCH1, tr: TR_BATCH1, de: DE_BATCH1, ja: JA_BATCH1 }[locale];
   return list.map((p) => p.path.split("/")[2]);
 }

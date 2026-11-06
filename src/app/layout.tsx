@@ -100,7 +100,7 @@ export default function RootLayout({
             making every route dynamic. Set it before hydration; /es also sends
             Content-Language: es and inherits lang="es" from its nested layout. */}
         <Script id="document-language" strategy="beforeInteractive">
-          {`var s = location.pathname.split('/')[1]; document.documentElement.lang = s === 'es' || s === 'tr' || s === 'pt' || s === 'fr' ? s : 'en';`}
+          {`var s = location.pathname.split('/')[1]; document.documentElement.lang = s === 'es' || s === 'tr' || s === 'pt' || s === 'fr' || s === 'de' || s === 'ja' ? s : 'en';`}
         </Script>
         <Script id="gtag-init" strategy="beforeInteractive">
           {`

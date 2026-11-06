@@ -940,6 +940,81 @@ export const ES_CONVERSATION_GUIDE: ConversationGuide = {
         "¿Hablas con tu novia o con tu novio? Tienes una lista aparte de [temas para hablar con tu pareja](/es/topics/conversation-starters-for-couples), con apartados para WhatsApp, temas profundos y preguntas por nivel.",
     },
     {
+      id: "temas-de-conversacion-para",
+      heading: "Temas de conversación para cada ocasión",
+      intro:
+        "Una lista distinta según con quién hablas: elige tu caso, copia la pregunta y úsala tal cual. Todas son preguntas abiertas que invitan a contar una historia.",
+      groups: [
+        {
+          title: "Temas de conversación para conocer a alguien",
+          items: [
+            "¿A qué te dedicas y qué es lo que más te gusta de tu trabajo o tus estudios?",
+            "¿De dónde eres y qué extrañas cuando estás lejos?",
+            "¿Qué haces un sábado cualquiera cuando no tienes planes?",
+            "¿Cuál fue el último lugar al que viajaste y qué te llevó de ahí?",
+            "¿Qué serie, libro o canción te tiene enganchado ahora mismo?",
+            "¿Qué comida podrías comer toda la semana sin cansarte?",
+            "¿Tienes algún hobby que poca gente conozca?",
+            "¿Qué te gustaría aprender este año?",
+          ],
+        },
+        {
+          title: "Temas de conversación para hablar con una chica o con un chico",
+          items: [
+            "¿Cuál es el mejor plan que has hecho últimamente?",
+            "¿Prefieres un día de playa, de montaña o de ciudad?",
+            "¿Qué película podrías ver mil veces sin aburrirte?",
+            "¿Cuál es tu antojo de comida favorito a las doce de la noche?",
+            "¿Qué lugar del mundo te gustaría conocer primero?",
+            "¿Eres de madrugar o de trasnochar?",
+            "¿Cuál es la anécdota más divertida que te ha pasado de viaje?",
+            "¿Qué canción pondrías si fueras el DJ de la fiesta?",
+          ],
+        },
+        {
+          title: "Temas de conversación para una primera cita",
+          items: [
+            "¿Cómo sería para ti un domingo perfecto?",
+            "¿Qué es lo más espontáneo que has hecho?",
+            "¿Qué te hace reír sin poder parar?",
+            "¿Qué plan te encantaría hacer pero nunca has tenido con quién?",
+            "¿Qué cosa pequeña te alegra el día de inmediato?",
+            "¿Qué crees que te define mejor: tus planes o tus ganas de improvisar?",
+            "¿Cuál ha sido el mejor consejo que te han dado sobre la vida?",
+            "¿Qué te sorprende más de la gente cuando la conoces?",
+          ],
+        },
+        {
+          title: "Temas de conversación para romper el hielo en grupo",
+          items: [
+            "¿Cuál es la historia detrás de tu nombre?",
+            "Si pudieras tener cualquier trabajo por un día, ¿cuál elegirías?",
+            "¿Cuál es tu mejor truco para empezar bien el día?",
+            "¿Qué app no podrías borrar de tu celular?",
+            "¿Qué prefieres: cocinar para todos o ser el invitado?",
+            "¿Cuál es tu mejor recuerdo de un cumpleaños?",
+            "¿Qué tema podrías dar una charla de cinco minutos sin preparación?",
+            "¿Qué canción te devuelve de inmediato a la adolescencia?",
+          ],
+        },
+        {
+          title: "Temas de conversación para videollamadas y llamadas largas",
+          items: [
+            "Muéstrame algo que tengas cerca y que tenga una historia.",
+            "¿Qué es lo mejor que has comido esta semana?",
+            "¿Qué plan hacemos cuando por fin podamos vernos?",
+            "¿Qué sueño de cuando eras pequeño sigue pendiente?",
+            "Cuéntame algo que hayas aprendido este mes.",
+            "¿Qué película me recomiendas para ver juntos a distancia?",
+            "¿Cuál fue tu mejor decisión de este año?",
+            "¿Qué lugar de tu ciudad le enseñarías a alguien que viene de visita?",
+          ],
+        },
+      ],
+      outro:
+        "¿Buscas más ideas para temas de conversación divertidos o para una cita? Mira los [temas de conversación divertidos](/es/topics/funny-conversation-topics) y los [temas de conversación para una primera cita](/es/topics/first-date-conversation-topics).",
+    },
+    {
       id: "como-elegir-un-tema-de-conversacion",
       heading: "Cómo elegir un tema de conversación y mantenerlo vivo",
       ordered: true,
@@ -984,6 +1059,16 @@ export const ES_CONVERSATION_GUIDE: ConversationGuide = {
       question: "¿Cuáles son buenos temas de conversación para empezar con alguien que no conozco?",
       answer:
         "Parte del contexto: el lugar, el evento o algo que ven en común. Después pregunta por trabajo o estudios, viajes recientes, comida, series o planes del fin de semana. Evita temas muy personales o delicados hasta que haya confianza.",
+    },
+    {
+      question: "¿De qué puedo hablar con una chica o con un chico que acabo de conocer?",
+      answer:
+        "De cosas ligeras que dan pie a historias: planes de fin de semana, viajes, comida, música, series y hobbies. Hazle una pregunta abierta, escucha la respuesta y comparte algo tuyo antes de pasar al siguiente tema.",
+    },
+    {
+      question: "¿Qué temas de conversación funcionan en una primera cita?",
+      answer:
+        "Los que muestran personalidad sin ser un interrogatorio: el domingo perfecto, el último viaje, lo que te hace reír o un plan pendiente. Deja para más adelante los temas muy personales, el dinero o las exparejas.",
     },
     {
       question: "¿Qué temas puedo hablar por chat con una persona?",
