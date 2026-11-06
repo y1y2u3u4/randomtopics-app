@@ -184,6 +184,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/random-marvel-character-generator",
   "/book-idea-generator",
   "/minimax-h3-prompt-generator",
+  "/ai-prompt-generator",
   "/gnome-name-generator",
   "/warrior-cat-name-generator",
   "/elf-name-generator",

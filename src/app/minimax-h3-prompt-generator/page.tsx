@@ -38,7 +38,7 @@ const FAQ = [
   },
   {
     question: "Does it work for Hailuo 02 or other video models?",
-    answer: "The prompts are plain English with camera, beats and sound, so they also work in Hailuo 02, Kling, Veo, Sora-style models and most text-to-video tools. Remove the reference and sound lines if a model doesn't support them.",
+    answer: "The prompts are plain English with camera, beats and sound, so they also work in Hailuo 02, Kling, Veo, Sora-style models and most text-to-video tools. Remove the reference and sound lines if a model doesn't support them. For general Veo, Sora, Kling or Runway prompts — or image and ChatGPT prompts — use the AI prompt generator.",
   },
   {
     question: "How long can a MiniMax H3 clip be?",
@@ -71,6 +71,7 @@ export default function MinimaxH3PromptGeneratorPage() {
         </p>
       }
       related={[
+        { href: "/ai-prompt-generator", label: "AI prompt generator (image, video & ChatGPT)" },
         { href: "/random-idea-generator", label: "Random idea generator" },
         { href: "/story-prompt-generator", label: "Story prompt generator" },
         { href: "/random-character-generator", label: "Random character generator" },
