@@ -76,6 +76,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "random-idea-generator",
     "topic-of-the-day",
     "philosophical-questions",
+    "hypothetical-questions",
+    "conversation-starters",
     "moral-dilemma-examples",
     "random-object-generator",
     "random-state-generator",

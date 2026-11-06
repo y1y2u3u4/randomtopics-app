@@ -20,9 +20,11 @@ import { WRITING_BOOST } from "@/data/rankBoost";
 export const metadata: Metadata = {
   // Old title/meta (rollback, 2026-11-03): "Writing Prompts Generator: Give Me a Topic to Write About (500+)" /
   // "Need a topic to write about? Tap once for a random writing prompt — 500+ ideas for stories, essays, journaling and blogs, from light to deep. Free, unlimited, no signup."
-  title: { absolute: "Writing Prompts Generator: 500+ Random Writing Prompts, Free & Unlimited" },
+  // Old title/meta (rollback, 2026-11-06): "Writing Prompts Generator: 500+ Random Writing Prompts, Free & Unlimited" /
+  // "Free writing prompt generator: tap once for a random writing prompt or topic to write about. 500+ ideas for stories, essays, journaling and blogs, light to deep, with filters. Unlimited, no signup."
+  title: { absolute: "Writing Prompts Generator: 500+ Random Writing Prompts (Free, 2026)" },
   description:
-    "Free writing prompt generator: tap once for a random writing prompt or topic to write about. 500+ ideas for stories, essays, journaling and blogs, light to deep, with filters. Unlimited, no signup.",
+    "Get a random writing prompt in one tap: 500+ writing prompts and topics to write about for stories, essays, journaling and blogs, light to deep, each with talking points. Free, unlimited, no sign-up.",
   keywords: [
     "random topics to write about",
     "random topic generator to write about",

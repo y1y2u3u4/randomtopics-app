@@ -13,8 +13,10 @@ const path = "/yo-mama-randomizer";
 // Old title (rollback, 2026-10-26): "Yo Mama Randomizer: 72 Clean Yo Mama Jokes + Joke Remixer"
 // Old title/meta (rollback, 2026-11-03): `Yo Mama Randomizer & Generator: ${n} Clean Yo Mama Jokes + Joke Remixer` /
 // `Free yo mama joke generator: one click for a clean yo mama joke, or remix original setups and absurd endings. ${n} written jokes, six themes, easy copying, no sign-up and no repeats within your round.`
-const title = `Yo Mama Randomizer: Free Yo Mama Joke Generator (${YO_MAMA_JOKES.length} Clean Jokes + Remix)`;
-const description = `Spin the yo mama randomizer for a random clean yo mama joke, or remix a setup with an absurd ending. ${YO_MAMA_JOKES.length} jokes, six themes, ${YO_MAMA_SETUPS.length * YO_MAMA_ENDINGS.length} remix pairs, one-tap copy, no repeats in a round. Free text tool, no sign-up.`;
+// Old title/meta (rollback, 2026-11-06): `Yo Mama Randomizer: Free Yo Mama Joke Generator (${YO_MAMA_JOKES.length} Clean Jokes + Remix)` /
+// `Spin the yo mama randomizer for a random clean yo mama joke, or remix a setup with an absurd ending. ${YO_MAMA_JOKES.length} jokes, six themes, ${YO_MAMA_SETUPS.length * YO_MAMA_ENDINGS.length} remix pairs, one-tap copy, no repeats in a round. Free text tool, no sign-up.`
+const title = `Yo Mama Randomizer: Yo Mama Joke Generator, ${YO_MAMA_JOKES.length} Clean Jokes + Remix (Free)`;
+const description = `Tap the yo mama randomizer for a random clean yo mama joke, or remix a setup with an absurd ending. All ${YO_MAMA_JOKES.length} jokes are listed on the page, with ${YO_MAMA_SETUPS.length * YO_MAMA_ENDINGS.length} remix pairs, one-tap copy and no repeats in a round. Free, no sign-up.`;
 const combinations = YO_MAMA_SETUPS.length * YO_MAMA_ENDINGS.length;
 export const metadata: Metadata = {
   title: { absolute: title }, description,
@@ -39,7 +41,7 @@ export default function Page() {
       <header className="py-5 sm:py-7 text-center">
         <p className="text-xs font-bold uppercase tracking-wider text-[var(--neon-pink)]">Original text jokes · Free · No sign-up</p>
         <h1 className="mt-2 text-3xl sm:text-4xl font-extrabold" style={{ fontFamily: "var(--font-display)" }}>Yo Mama Randomizer</h1>
-        <p className="mt-3 text-base text-[var(--text-secondary)]">Pick a clean one-liner, or mix a silly setup with an even sillier ending.</p>
+        <p className="mt-3 text-base text-[var(--text-secondary)]">Get a random yo mama joke in one tap: a clean one-liner, or a silly setup mixed with an even sillier ending.</p>
         <a href="#joke-collection" className="mt-2 inline-flex min-h-11 items-center text-xs text-[var(--neon-cyan)] underline underline-offset-4">Browse all {YO_MAMA_JOKES.length} clean jokes and the remix parts ↓</a>
       </header>
       <YoMamaRandomizer />

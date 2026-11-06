@@ -12,8 +12,9 @@ import GeneratorExamples from "@/components/generators/GeneratorExamples";
 import { lastNameGenerator } from "@/lib/generators/lastNames";
 
 const PATH = "/last-name-generator";
-const TITLE = "Random Last Name Generator: Surnames with Meanings & Origin";
-const DESCRIPTION = `Free random last name and surname generator with ${LAST_NAMES.length}+ real surnames from ${Object.keys(ORIGIN_LABELS).length} cultures — English, Irish, Italian, Spanish, Japanese, Korean and more — each with its meaning and origin. For characters, games and family-tree curiosity.`;
+// Old title (rollback, 2026-11-06): "Random Last Name Generator: Surnames with Meanings & Origin"
+const TITLE = `Random Last Name Generator: ${LAST_NAMES.length} Surnames with Meanings & Origin`;
+const DESCRIPTION = `Get random last names in one click: ${LAST_NAMES.length}+ real surnames from ${Object.keys(ORIGIN_LABELS).length} cultures — English, Irish, Italian, Spanish, Japanese, Korean and more — each with its meaning and origin. Free surname generator for characters, games and stories; no sign-up.`;
 
 const SOCIAL = generatorSocial({ card: "last-name-generator", title: TITLE, description: DESCRIPTION, alt: "Last Name Generator — surnames by origin with meanings" });
 
@@ -83,7 +84,7 @@ export default function LastNameGeneratorPage() {
       path={PATH}
       name="Last Name Generator"
       heading={["Last Name", "Generator"]}
-      intro={`${LAST_NAMES.length}+ real surnames from ${Object.keys(ORIGIN_LABELS).length} cultures, each with its meaning and origin. Filter by country, generate up to 20 at a time.`}
+      intro={`Random last names, instantly: ${LAST_NAMES.length}+ real surnames from ${Object.keys(ORIGIN_LABELS).length} cultures, each with its meaning and origin. Filter by country, generate up to 20 at a time. Free, no sign-up.`}
       description={DESCRIPTION}
       updated="2026-10-10"
       faq={[...FAQ, ...faqForSchema(LASTNAME_BOOST.faq)]}

@@ -12,8 +12,9 @@ import type { BoostSection } from "@/components/RankBoost";
 import { ANIMAL_BOOST } from "@/data/rankBoost";
 
 const PATH = "/random-animal-generator";
-const TITLE = `Random Animal Generator: ${ANIMALS.length} Random Animals With Pictures`;
-const DESCRIPTION = `Need a random animal? Tap once and this free animal generator picks one of ${ANIMALS.length}+ animals, each with a picture and a fun fact. Filter by mammals, birds, ocean, farm or easy animals for kids — great for drawing prompts and guessing games.`;
+// Old title (rollback, 2026-11-06): `Random Animal Generator: ${ANIMALS.length} Random Animals With Pictures`
+const TITLE = `Random Animal Generator: Get a Random Animal From ${ANIMALS.length} (Free, With Pictures)`;
+const DESCRIPTION = `Give me a random animal: one tap picks from ${ANIMALS.length}+ real animals, each with a picture and a fun fact. Name a random animal for a drawing prompt, quiz or game — filter by mammals, birds, ocean, farm or easy kids animals. Free, no sign-up, no repeats.`;
 
 const SOCIAL = generatorSocial({ card: "random-animal-generator", title: TITLE, description: DESCRIPTION, alt: "Random Animal Generator — illustrated animals with fun facts" });
 
@@ -89,7 +90,7 @@ export default function RandomAnimalGeneratorPage() {
       path={PATH}
       name="Random Animal Generator"
       heading={["Random Animal", "Generator"]}
-      intro={`${ANIMALS.length}+ real animals with a picture and a fun fact. Filter by type or habitat, generate one or a dozen, no repeats.`}
+      intro={`Give me a random animal: tap Generate for one of ${ANIMALS.length}+ real animals, each with a picture and a fun fact. Filter by type or habitat, get one or a dozen, no repeats. Free, no sign-up.`}
       description={DESCRIPTION}
       updated="2026-10-10"
       faq={[...FAQ, ...faqForSchema(ANIMAL_BOOST.faq)]}
