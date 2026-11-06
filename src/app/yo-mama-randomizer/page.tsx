@@ -15,7 +15,7 @@ const path = "/yo-mama-randomizer";
 // `Free yo mama joke generator: one click for a clean yo mama joke, or remix original setups and absurd endings. ${n} written jokes, six themes, easy copying, no sign-up and no repeats within your round.`
 // Old title/meta (rollback, 2026-11-06): `Yo Mama Randomizer: Free Yo Mama Joke Generator (${YO_MAMA_JOKES.length} Clean Jokes + Remix)` /
 // `Spin the yo mama randomizer for a random clean yo mama joke, or remix a setup with an absurd ending. ${YO_MAMA_JOKES.length} jokes, six themes, ${YO_MAMA_SETUPS.length * YO_MAMA_ENDINGS.length} remix pairs, one-tap copy, no repeats in a round. Free text tool, no sign-up.`
-const title = `Yo Mama Randomizer: Random Yo Mama Jokes, ${YO_MAMA_JOKES.length} Clean Ones + Remix (Free)`;
+const title = `Yo Mama Randomizer: Yo Mama Joke Generator, ${YO_MAMA_JOKES.length} Clean Jokes + Remix (Free)`;
 const description = `Tap the yo mama randomizer for a random clean yo mama joke, or remix a setup with an absurd ending. All ${YO_MAMA_JOKES.length} jokes are listed on the page, with ${YO_MAMA_SETUPS.length * YO_MAMA_ENDINGS.length} remix pairs, one-tap copy and no repeats in a round. Free, no sign-up.`;
 const combinations = YO_MAMA_SETUPS.length * YO_MAMA_ENDINGS.length;
 export const metadata: Metadata = {

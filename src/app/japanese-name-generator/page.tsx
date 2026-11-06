@@ -11,7 +11,7 @@ import { JAPANESE_BOOST } from "@/data/rankBoost";
 
 const PATH = "/japanese-name-generator";
 // Old title (rollback, 2026-11-06): `Japanese Name Generator with Meanings: ${JP_GIVEN.length} Names in Kanji`
-const TITLE = `Japanese Name Generator: ${JP_GIVEN.length} Real Boy & Girl Names + Surnames, with Meanings`;
+const TITLE = `Japanese Name Generator: ${JP_GIVEN.length} Boy & Girl Names + Surnames in Kanji, with Meanings`;
 const DESCRIPTION = `Get a random Japanese name in one click: ${JP_GIVEN.length}+ real boy, girl and gender-neutral first names plus ${JP_FAMILY.length}+ Japanese last names, each in kanji, hiragana and romaji with the meaning. Free, no sign-up, Western or Japanese name order.`;
 
 const SOCIAL = generatorSocial({ card: "japanese-name-generator", title: TITLE, description: DESCRIPTION, alt: "Japanese Name Generator — cherry blossoms, torii gate and Mount Fuji" });
