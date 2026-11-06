@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const FAQ = [
   { question: "How does the 3×3 grid maker work?", answer: "Choose up to nine pictures from your phone or computer. They fill the squares in order; tap two squares to swap them, then press Download PNG." },
   { question: "Are my pictures uploaded?", answer: "No. The grid is drawn in your browser and the pictures never leave your device." },
-  { question: "Is there a template for albums, games, movies, anime or books?", answer: "Yes — use the tabs above the tool to search covers instead of uploading them." },
+  { question: "Is there a template for albums, games, movies, anime or books?", answer: "Yes — use the tabs above the tool to search covers instead of uploading them. For video games, the My 9 Games template finds the box art for you; this page is for grids of your own pictures." },
   { question: "What size is the image?", answer: "1080×1080 pixels by default — the square size Instagram, X and Threads show best. Tick Story size for a 1080×1920 image for Instagram or TikTok stories. There is no watermark." },
 ];
 
@@ -44,7 +44,7 @@ export default function MyNineGridPage() {
       content={
         <>
           <SectionTitle>Any topic, nine pictures</SectionTitle>
-          <p dangerouslySetInnerHTML={{ __html: "The My 9 trend works for anything: K-pop groups, characters, foods, cities, TV shows. Add your nine pictures, give the grid a title like “My 9 Comfort Foods”, and download it." }} />
+          <p dangerouslySetInnerHTML={{ __html: "The My 9 trend works for anything: K-pop groups, characters, foods, cities, TV shows. Add your nine pictures, give the grid a title like “My 9 Comfort Foods”, and download it. Ranking video games? The <a href=\"/my-9-games\" class=\"text-[var(--neon-cyan)] hover:underline\">My 9 Games template</a> searches games and adds the box art for you." }} />
           <SectionTitle>Tips</SectionTitle>
           <p dangerouslySetInnerHTML={{ __html: "Square pictures look best. Turn on Show titles to print each file name under its picture — rename files before adding them if you want neat captions." }} />
         </>
