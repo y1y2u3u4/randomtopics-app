@@ -1,4 +1,6 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
+import NextListLink from "@/components/NextListLink";
+import { listAdAfter } from "@/lib/listAdPlacement";
 import EthicsDiscussionCards from "@/components/EthicsDiscussionCards";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -179,6 +181,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       : article.slug === "toastmasters-table-topics" ? "toastmasters_article" : null;
   const currentRouting = articleToPages[article.slug];
   const explicitRelated = new Set(article.relatedLinks.map((link) => link.href));
+  const listAdIndex = listAdAfter(article.sections.map((section) => section.items.length));
   const contextualCollections = SEO_ARTICLES
     .filter((candidate) => candidate.slug !== article.slug)
     .filter((candidate) => !explicitRelated.has(`/topics/${candidate.slug}`))
@@ -533,7 +536,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         {/* Content sections */}
         {bank ? (
-          <QuestionBankSections bank={bank} midSlot={<TryNext path={`/topics/${slug}`} placement="mid" tools={topicTryNext(slug)} />} />
+          <QuestionBankSections bank={bank} midSlot={<TryNext path={`/topics/${slug}`} placement="mid" tools={topicTryNext(slug)} />} adSlot={<PublicAdPlacement path={`/topics/${slug}`} placement="list" />} />
         ) : article.sections.reduce<{ elements: React.ReactNode[]; runningCount: number }>(
           (acc, section, sIdx) => {
             const startNum = acc.runningCount;
@@ -600,6 +603,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               );
             }
 
+            // One manual unit after the middle of a long list (never beside the mid CTA or end buttons).
+            if (sIdx === listAdIndex) acc.elements.push(<PublicAdPlacement key="list-ad" path={`/topics/${slug}`} placement="list" />);
+
             // Mid-article copy of the recommendation row: the end-of-page row sat below a
             // long list and was never reached (topic pages: 0 clicks / 106 views, Oct 28).
             if (sIdx === Math.floor(article.sections.length / 2) - 1) {
@@ -641,9 +647,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         )}
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 empty:hidden"><SubEntryFor path={`/topics/${slug}`} after="view" /></section>
+        <NextListLink path={`/topics/${slug}`} />
         <TryNext path={`/topics/${slug}`} tools={topicTryNext(slug)} />
-
-        <PublicAdPlacement path={`/topics/${slug}`} />
 
         {boost && <RankBoost sections={boost.sections} />}
 
@@ -689,6 +694,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             />
           </section>
         )}
+
+        {/* End-of-page unit sits below the FAQ text, away from the Play next cards. */}
+        <PublicAdPlacement path={`/topics/${slug}`} />
 
         {/* Explore Generators */}
         {articleToPages[article.slug] && (

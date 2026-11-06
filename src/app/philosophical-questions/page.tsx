@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqSchema from "@/components/FaqSchema";
 import FactSheet from "@/components/FactSheet";
 import KeepPlaying from "@/components/KeepPlaying";
+import NextListLink from "@/components/NextListLink";
 import TryNext from "@/components/TryNext";
 import DeckGenerator from "@/components/DeckGenerator";
 import PublicAdPlacement from "@/components/PublicAdPlacement";
@@ -56,7 +57,6 @@ export default function PhilosophicalQuestionsPage() {
       </header>
       <DeckGenerator storageKey="rt-philosophical-v1" items={PHILOSOPHY_ITEMS} groups={PHILOSOPHY_GROUPS} noun="Philosophical question" toolType="philosophical_question" saveCategory="philosophy" printHeading="Philosophical questions" dailyLabel="Question of the day" dailySalt={59} />
       <TryNext path={path} />
-      <PublicAdPlacement path={path} placement="result" />
       <section className="glass-card p-5 sm:p-8 mt-8">
         <h2 className="text-2xl font-bold">What makes a question philosophical</h2>
         <p className="mt-3 text-[var(--text-muted)]">A philosophical question is one that facts alone cannot answer, because it asks about meaning, value, knowledge or reality. &ldquo;Do we have free will?&rdquo; is philosophical; &ldquo;How old is the universe?&rdquo; is scientific. This page has {PHILOSOPHY_ITEMS.length} such questions in {PHILOSOPHY_GROUPS.length} themes, plus nine famous ones explained with who first asked them.</p>
@@ -93,7 +93,7 @@ export default function PhilosophicalQuestionsPage() {
           </details>;
         })}</div>
       </section>
-      <div className="mt-8"><PublicAdPlacement path={path} placement="mid" /></div>
+      <div className="mt-8"><PublicAdPlacement path={path} placement="list" /></div>
       <section className="glass-card p-5 sm:p-8 mt-8">
         <h2 className="text-2xl font-bold">Philosophical question FAQ</h2>
         {faqs.map(f => <div key={f.question} className="mt-5"><h3 className="font-bold">{f.question}</h3><p className="mt-2 text-[var(--text-muted)]">{f.answer}</p></div>)}
@@ -105,6 +105,7 @@ export default function PhilosophicalQuestionsPage() {
     </div>
     <FaqSchema items={faqs} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "WebApplication", name: "Philosophical Question Generator", url: `${SITE_URL}${path}`, description, applicationCategory: "EducationalApplication", operatingSystem: "Any", isAccessibleForFree: true, dateModified: UPDATED, offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } }) }} />
+    <NextListLink path={path} />
     <KeepPlaying path={path} />
   </main><Footer /></>;
 }

@@ -12,6 +12,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 import { TRUTH_OR_DARE } from "@/data/partyGames";
 import KeepPlaying from "@/components/KeepPlaying";
+import NextListLink from "@/components/NextListLink";
 import HostPassEntry from "@/components/host/HostPassEntry";
 import TryNext from "@/components/TryNext";
 
@@ -86,8 +87,6 @@ export default function TruthOrDarePage() {
         </p>
 
 
-        <PublicAdPlacement path="/truth-or-dare" />
-
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
             <h2 className="section-heading text-2xl sm:text-3xl mb-6 text-[var(--text-primary)]">
@@ -142,12 +141,14 @@ export default function TruthOrDarePage() {
             </div>
           </div>
         </section>
+        <PublicAdPlacement path="/truth-or-dare" placement="list" />
         <QuestionBank
           heading="All 38 Truth Prompts and Dares"
           intro="The full deck &mdash; every truth and dare in rotation, all clean enough for family game night."
           questions={TRUTH_OR_DARE}
         />
 
+        <NextListLink path="/truth-or-dare" />
         <KeepPlaying path="/truth-or-dare" />
       </main>
       <Footer />

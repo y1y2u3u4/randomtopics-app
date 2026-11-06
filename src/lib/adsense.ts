@@ -63,9 +63,23 @@ export const ADSENSE_RESULT_PATHS = [
 // child-directed, classroom, paid-practice, account and legal pages out.
 const AUTO_AD_PATHS: ReadonlySet<string> = new Set(AD_PUBLIC_PATHS);
 
-/** Pages that render the manual in-content unit (reviewed + result lists). */
+// Long list pages (2026-11-06): every /topics/* and /es/topics/* question list, plus these
+// question-list tools, get ONE manual unit placed after the second screen of list content
+// (placement "list"), never next to the tool or its buttons. Same slot and gate as above.
+export const ADSENSE_LIST_PATHS = [
+  "/philosophical-questions", "/hot-seat-questions", "/would-you-rather", "/this-or-that", "/truth-or-dare",
+] as const;
+const LIST_TOPIC_PATH = /^(\/es)?\/topics\/[a-z0-9-]+$/;
+
+/** Long list pages that may carry the mid-list unit. Fails closed: Auto-ads path, never child-directed or ad-free. */
+export function adListPageAllowed(path: string) {
+  return AUTO_AD_PATHS.has(path) && adPersonalizationAllowed(path) &&
+    (LIST_TOPIC_PATH.test(path) || ADSENSE_LIST_PATHS.some(allowed => allowed === path));
+}
+
+/** Pages that render the manual in-content unit (reviewed + result lists + long list pages). */
 export function adInlinePageAllowed(path: string) {
-  return ADSENSE_PUBLIC_PATHS.some(allowed => allowed === path) || ADSENSE_RESULT_PATHS.some(allowed => allowed === path);
+  return ADSENSE_PUBLIC_PATHS.some(allowed => allowed === path) || ADSENSE_RESULT_PATHS.some(allowed => allowed === path) || adListPageAllowed(path);
 }
 
 /** Pages whose document may load the AdSense runtime at all. */

@@ -14,6 +14,7 @@ import { withSocial } from "@/lib/metadata/social";
 import { hreflangAlternates } from "@/i18n/config";
 import { THIS_OR_THAT } from "@/data/partyGames";
 import KeepPlaying from "@/components/KeepPlaying";
+import NextListLink from "@/components/NextListLink";
 import HostPassEntry from "@/components/host/HostPassEntry";
 import TryNext from "@/components/TryNext";
 import { THIS_OR_THAT_CATEGORIES } from "@/data/thisOrThatCategories";
@@ -79,8 +80,6 @@ export default function ThisOrThatPage() {
         <HostPassEntry generator="this-or-that" />
         <TryNext path="/this-or-that" />
         <PartyGameLinks currentPath="/this-or-that" />
-
-        <PublicAdPlacement path="/this-or-that" />
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
@@ -169,12 +168,14 @@ export default function ThisOrThatPage() {
             </p>
           </div>
         </section>
+        <PublicAdPlacement path="/this-or-that" placement="list" />
         <QuestionBank
           heading="All 38 This or That Questions"
           intro="The complete deck of quick either/or prompts &mdash; scan it, steal from it, or copy the whole list for your next session."
           questions={THIS_OR_THAT}
         />
 
+        <NextListLink path="/this-or-that" />
         <KeepPlaying path="/this-or-that" />
       </main>
       <Footer />
