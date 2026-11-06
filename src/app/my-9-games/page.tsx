@@ -39,6 +39,7 @@ export default function MyNineGamesPage() {
   return (
     <GeneratorPageShell
       locale="en"
+      compactHeroOnMobile
       path={PATH}
       name="My 9 Games"
       heading={["My 9 Games", "Template"]}

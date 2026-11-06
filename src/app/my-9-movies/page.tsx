@@ -35,6 +35,7 @@ export default function MyNineMoviesPage() {
   return (
     <GeneratorPageShell
       locale="en"
+      compactHeroOnMobile
       path={PATH}
       name="My 9 Movies"
       heading={["My 9", "Movies"]}
