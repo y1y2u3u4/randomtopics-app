@@ -163,6 +163,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ path: "/random-marvel-character-generator", changeFrequency: "weekly", priority: 0.88, lastModified: "2026-10-27" });
   entries.push({ path: "/book-idea-generator", changeFrequency: "weekly", priority: 0.88, lastModified: "2026-10-27" });
   entries.push({ path: "/minimax-h3-prompt-generator", changeFrequency: "weekly", priority: 0.86, lastModified: "2026-10-27" });
+  entries.push({ path: "/ai-prompt-generator", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-11-07" });
 
   // Random ZIP code generator (2026-10-19).
   entries.push({ path: "/random-zip-code-generator", changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-19" });

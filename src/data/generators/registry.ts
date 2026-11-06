@@ -104,6 +104,12 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Title, logline, conflict & twist" },
   },
   {
+    href: "/ai-prompt-generator",
+    emoji: "🪄",
+    label: { en: "AI Prompt Generator" },
+    detail: { en: "Image, video & ChatGPT prompts" },
+  },
+  {
     href: "/minimax-h3-prompt-generator",
     emoji: "🎬",
     label: { en: "MiniMax H3 Prompt Generator" },

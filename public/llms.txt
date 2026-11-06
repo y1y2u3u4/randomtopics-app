@@ -135,6 +135,11 @@
 - [D&D Name Generator](https://randomtopics.app/dnd-name-generator)
 - [AI Metadata Remover](https://randomtopics.app/ai-metadata-remover): removes EXIF, GPS, C2PA and AI prompt metadata in the browser; it does not remove pixel watermarks or platform labels.
 
+## AI prompt tools (added 2026-11-07)
+- [AI Prompt Generator](https://randomtopics.app/ai-prompt-generator): free, unlimited, no-signup prompt builder for AI images (ChatGPT / GPT Image, Midjourney with --ar/--no, Stable Diffusion / Flux with a negative prompt, Gemini), video (Veo / Sora with sound, Kling / Runway / Pika) and ChatGPT writing (role, task, audience, tone, format, length). Options combine, one-tap copy; built in the browser from fixed phrases, no AI call.
+- [MiniMax H3 Prompt Generator](https://randomtopics.app/minimax-h3-prompt-generator): Hailuo 3 video prompts with camera, timed action beats, dialogue, sound and references.
+- [Story Prompt Generator](https://randomtopics.app/story-prompt-generator): story ideas to write yourself, by genre, age group and length.
+
 ## Daily tools with an optional plan (added 2026-10-24)
 
 - [Daily Warm-Ups for Students](https://randomtopics.app/teacher-warm-ups): a new bell-ringer every school day for grades K–5, 6–8 or 9–12, no repeats in a school year; today's warm-up, fullscreen and Google Classroom copy are free; week planner $3/month.
