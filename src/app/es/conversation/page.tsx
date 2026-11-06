@@ -13,7 +13,7 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { absolute: "Temas de Conversación: 320 Ideas para Hablar con Cualquiera (2026)" },
+  title: { absolute: "Temas de Conversación: 320 Temas para Hablar en Persona o por Chat (2026)" },
   description:
     "Temas de conversación para hablar con amigos, con una chica o un chico, en una primera cita o por WhatsApp: 320 ideas en español y 12 preguntas con repreguntas. Gratis y sin registro.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/conversation"),
   },
   openGraph: {
-    title: "Temas de Conversación: 320 Ideas para Hablar con Cualquiera (2026)",
+    title: "Temas de Conversación: 320 Temas para Hablar en Persona o por Chat (2026)",
     description:
       "12 preguntas listas para conversar con repreguntas y un generador de 320 temas en español. Copia, guarda o comparte sin registro.",
     url: `${SITE_URL}/es/conversation`,
