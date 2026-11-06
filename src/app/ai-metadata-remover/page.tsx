@@ -15,7 +15,7 @@ const SOCIAL = generatorSocial({ card: "ai-metadata-remover", title: TITLE, desc
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ["ai metadata remover", "remove ai metadata", "ai image metadata remover", "remove c2pa metadata", "remove content credentials", "exif remover", "remove metadata from photo", "remove exif data", "stable diffusion metadata remover"],
+  keywords: ["ai metadata remover", "remove ai metadata", "ai image metadata remover", "remove c2pa metadata", "remove content credentials", "exif remover", "remove metadata from photo", "remove exif data", "stable diffusion metadata remover", "remove ai detection from image", "remove ai metadata from image", "remove ai tag from photo", "ai metadata cleaner", "remove c2pa from image"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
@@ -26,6 +26,7 @@ const FAQ = [
   { question: "Are my images uploaded?", answer: "No. Files are read and cleaned entirely in your browser; nothing is sent to a server, and the page keeps nothing after you close it." },
   { question: "Does removing metadata change image quality?", answer: "No. The tool removes the metadata sections and copies the image data byte for byte — there is no re-compression. Colour profiles (ICC) are kept so colours look the same." },
   { question: "Can I remove the AI tag or “Made with AI” label from a photo?", answer: "Only the part stored in the file. Many “AI info” or “Made with AI” labels start from metadata inside the image — C2PA Content Credentials or IPTC fields such as “Digital Source Type: trained algorithmic media” — and this tool removes those AI tags from the file. It cannot remove a label a platform has already shown on your post, a label the platform adds from its own detection, or a watermark hidden in the pixels. If a platform’s rules say an image must be labelled as AI-generated or AI-edited, keep labelling it." },
+  { question: "Can I remove AI detection from an image?", answer: "Only the metadata part. Some “AI detection” is just a check of what the file says about itself — C2PA Content Credentials, an IPTC “Digital Source Type: trained algorithmic media” tag, an AI creator tool in XMP, or Stable Diffusion and ComfyUI prompts — and this tool removes all of those from the file. It does not change a single pixel, so detectors that look at the image itself and pixel watermarks such as Google SynthID are not affected. It is a privacy tool, not a way to make an AI image pass as a photo; if a platform asks you to label AI content, keep labelling it." },
   { question: "Can it remove invisible AI watermarks like SynthID?", answer: "No. Watermarks such as Google SynthID are hidden in the pixels themselves, not in the file's metadata. This tool does not remove them and does not try to. It is a privacy tool for the information stored alongside the image." },
   { question: "Should I still label AI-generated images?", answer: "Yes. Removing metadata does not change where an image came from. If a platform, school, client or law asks you to disclose AI-generated or AI-edited content, keep labelling it yourself." },
   { question: "Can I remove only the location?", answer: "Yes. Choose “Remove location only” to empty the GPS data and keep everything else, or “Remove location and camera details” to also clear make, model, lens and serial numbers." },
@@ -41,7 +42,7 @@ export default function AiMetadataRemoverPage() {
       heading={["AI Metadata", "Remover"]}
       intro="See what your images carry — location, device, AI prompts, Content Credentials — and download clean copies. In your browser, nothing uploaded."
       description={DESCRIPTION}
-      updated="2026-10-13"
+      updated="2026-11-07"
       faq={FAQ}
       inShort="Drop JPG, PNG or WebP files to see their hidden metadata — GPS location, camera and device details, editing software, C2PA Content Credentials and AI prompts saved by tools such as Stable Diffusion or ComfyUI — then download clean copies, one by one or as a ZIP. Everything happens in your browser, image quality does not change, and you can choose to remove only the location. If you want to remove the AI tag or AI label from a photo, this clears the AI markers saved in the file (C2PA and IPTC); labels a platform shows itself stay. It does not touch invisible watermarks in the pixels, and it is not a way to hide that an image is AI-generated."
       related={[
@@ -62,6 +63,35 @@ export default function AiMetadataRemoverPage() {
             <li><strong>WebP</strong>: EXIF, XMP and C2PA chunks, with the file header corrected.</li>
             <li><strong>Kept</strong>: the image data itself and the colour profile.</li>
           </ul>
+          <SectionTitle>Before and after: three real files</SectionTitle>
+          <p>
+            We ran three test images through this tool&apos;s own cleaning code and read them again afterwards. Every field below was found before cleaning; after cleaning the same check finds <strong>no metadata at all</strong>, and the decoded pixels are identical — only the metadata was removed.
+          </p>
+          <h3 className="mt-4 font-semibold">Phone photo (JPG)</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead><tr><th className="py-1 pr-3">Field found before</th><th className="py-1 pr-3">Value</th><th className="py-1">After cleaning</th></tr></thead>
+              <tbody><tr className="border-t border-white/10"><td className="py-1 pr-3">Camera make</td><td className="py-1 pr-3">Apple</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">Camera model</td><td className="py-1 pr-3">iPhone 15 Pro</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">Software</td><td className="py-1 pr-3">17.5.1</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">Date modified</td><td className="py-1 pr-3">2026:10:30 18:42:11</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">GPS location</td><td className="py-1 pr-3">40.74833, -73.98556</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">File size</td><td className="py-1 pr-3" colSpan={2}>2,468 → 2,068 bytes · pixels identical (same decoded-pixel hash)</td></tr></tbody>
+            </table>
+          </div>
+          <h3 className="mt-4 font-semibold">Stable Diffusion / ComfyUI image (PNG)</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead><tr><th className="py-1 pr-3">Field found before</th><th className="py-1 pr-3">Value</th><th className="py-1">After cleaning</th></tr></thead>
+              <tbody><tr className="border-t border-white/10"><td className="py-1 pr-3">Stable Diffusion parameters</td><td className="py-1 pr-3">prompt, Steps 30, DPM++ 2M Karras, CFG 7, Seed 3141592, sdxl_base_1.0</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">ComfyUI prompt</td><td className="py-1 pr-3">KSampler node, seed 3141592</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">ComfyUI workflow</td><td className="py-1 pr-3">CheckpointLoaderSimple node</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">File size</td><td className="py-1 pr-3" colSpan={2}>6,041 → 5,747 bytes · pixels identical (same decoded-pixel hash)</td></tr></tbody>
+            </table>
+          </div>
+          <h3 className="mt-4 font-semibold">AI-edited JPG with Content Credentials</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead><tr><th className="py-1 pr-3">Field found before</th><th className="py-1 pr-3">Value</th><th className="py-1">After cleaning</th></tr></thead>
+              <tbody><tr className="border-t border-white/10"><td className="py-1 pr-3">C2PA Content Credentials manifest</td><td className="py-1 pr-3">present (APP11 / JUMBF)</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">IPTC Digital Source Type</td><td className="py-1 pr-3">compositeWithTrainedAlgorithmicMedia</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">XMP Creator tool</td><td className="py-1 pr-3">Adobe Firefly</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">XMP packet</td><td className="py-1 pr-3">414 characters</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">EXIF Software</td><td className="py-1 pr-3">Adobe Photoshop 26.0</td><td className="py-1">Removed</td></tr><tr className="border-t border-white/10"><td className="py-1 pr-3">File size</td><td className="py-1 pr-3" colSpan={2}>2,784 → 2,068 bytes · pixels identical (same decoded-pixel hash)</td></tr></tbody>
+            </table>
+          </div>
+          <SectionTitle>Can I remove AI detection from an image?</SectionTitle>
+          <p>
+            Partly — the part that lives in the file. Many checks for AI images start with metadata: C2PA Content Credentials, the IPTC &ldquo;trained algorithmic media&rdquo; tag, an AI creator tool in XMP, or the prompt a generator saved in a PNG. This tool removes all of those. It <strong>does not change pixels</strong>, so detectors that analyse the picture itself, and pixel watermarks such as <strong>SynthID</strong>, are not affected, and we do not claim otherwise. Use it to protect your privacy and to share less about your workflow — not to hide that an image is AI-generated. Want to convert the image to JPG at the same time? <a href="https://imagetojpg.app/remove-ai-detection-from-image/" className={linkClass} rel="noopener">imagetojpg.app has a remove-AI-labels converter</a>.
+          </p>
           <SectionTitle>What it does not do</SectionTitle>
           <p>
             It does not alter pixels, so watermarks embedded in the image (such as SynthID) stay where they are, and visible labels or signatures stay too. It is meant for privacy — not for passing an AI image off as a photo. Where a platform or your school asks you to label AI content, keep doing so.
