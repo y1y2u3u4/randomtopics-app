@@ -23,7 +23,7 @@ export const metadata: Metadata = withSocial({
   // "Need a random charades word? Tap once: 528 actable charades words for kids, parties and class, easy to hard, with a hide-the-word timer and printable cards. Free, no signup."
   // Old title/meta (rollback, 2026-11-06): "Charades Generator: Random Charades Words to Act Out + Timer (528, Free)" /
   // "Free charades generator: tap for a random charades word to act out. 528 words for kids, adults and parties, sorted by category and easy to hard, with a hide-the-word round timer and printable cards. No signup."
-  title: { absolute: "Charades Generator: 528 Random Charades Words & Ideas to Act Out (Free)" },
+  title: { absolute: "Charades Generator: 528 Random Charades Words to Act Out + Timer (Free)" },
   description:
     "Free charade generator: one tap gives a random charades word to act out. 528 charades ideas for kids, adults and parties, easy to hard, with a hide-the-word timer and printable cards. No sign-up, works on any phone.",
   keywords: [

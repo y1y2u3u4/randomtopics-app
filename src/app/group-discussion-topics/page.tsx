@@ -11,7 +11,7 @@ import { GROUP_DISCUSSION_BOOST } from "@/data/rankBoost";
 
 export const metadata: Metadata = withSocial({
   // Old title (rollback, 2026-11-06): "GD Topics 2026: 100+ Current Group Discussion Topics"
-  title: { absolute: "Group Discussion Topics 2026: 110+ GD Topics for Placements, MBA & College" },
+  title: { absolute: "GD Topics 2026: 110+ Current Group Discussion Topics for Placements & MBA" },
   description:
     "110+ group discussion topics (GD topics) for 2026, ready to copy: current affairs, situation-based, abstract, AI, business and education topics for campus placements, MBA admissions, classrooms and clubs. Free, with prep tips.",
   keywords: [
