@@ -79,7 +79,7 @@ export default function LocaleToolPage({ path, title, lead, mainPage, groups, mo
           {mainPage && (
             <p className="mt-2 text-sm text-[var(--text-secondary)]">
               {mainPage.prefix}{" "}
-              <Link href={mainPage.href} className="text-[var(--neon-cyan)] underline underline-offset-2">{mainPage.label}</Link>
+              <Link prefetch={false} href={mainPage.href} className="text-[var(--neon-cyan)] underline underline-offset-2">{mainPage.label}</Link>
             </p>
           )}
           <p className="mt-2 text-xs text-[var(--text-muted)]">{copy.meta.replace("{n}", String(total))}</p>
