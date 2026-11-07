@@ -415,6 +415,12 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     crossLinkOnly: true,
   },
   {
+    href: "/mixtape-for-you",
+    emoji: "📼",
+    label: { en: "Mixtape for You" },
+    detail: { en: "Cassette playlist for a friend, share link" },
+  },
+  {
     href: "/my-9-songs",
     emoji: "🎵",
     label: { en: "My 9 Songs" },

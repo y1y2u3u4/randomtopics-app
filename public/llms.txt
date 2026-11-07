@@ -154,6 +154,10 @@
 - [Would You Rather Questions](https://randomtopics.app/topics/would-you-rather-questions): 398 clean would you rather questions in 8 categories (funny, kids, hard, couples, adults, teens, work, deep), with a random picker, a one-question-per-screen vote (votes stay in your browser, not global stats) and a printable list.
 - [Truth or Dare Questions](https://randomtopics.app/topics/truth-or-dare-questions): 389 clean truths and dares for kids, teens, friends, couples, funny rounds, over text and parties, with a party mode (players, turns, skip) and a printable list.
 
+## Mixtape maker (added 2026-11-07)
+
+- [Mixtape for You](https://randomtopics.app/mixtape-for-you): free, unofficial mixtape maker — pick a cassette, add 6–12 songs (optional Spotify/YouTube links) and a note, then send a share link (the playlist is encoded in the link after #, nothing stored, no signup) or download a 1080×1350 PNG. The recipient sees the cassette, Side A/B tracklist and play links. Not affiliated with any other mixtape app.
+
 ## My 9 templates (updated 2026-11-03)
 
 Free 3×3 "My 9" grid makers: search, tap nine pictures, download a 1080×1080 PNG or a 1080×1920 story image. No signup, no watermark; share links keep the picks.
