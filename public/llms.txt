@@ -172,4 +172,5 @@ Free 3×3 "My 9" grid makers: search, tap nine pictures, download a 1080×1080 P
 - [My 9 Manga](https://randomtopics.app/my-9-manga): manga, manhwa and manhua covers from AniList.
 - [My 9 Characters](https://randomtopics.app/my-9-characters): anime and manga characters from AniList; upload pictures for others.
 - [My 9 Books](https://randomtopics.app/my-9-books): book covers.
+- [4 Characters I Like](https://randomtopics.app/4-characters-i-like): 2×2 template (added 2026-11-07) — four favorite characters with where they are from and a one-line reason each; search AniList characters, upload a picture or use a generated icon card; 1080×1350 PNG and a share link that stores the card in the URL. No signup.
 - [My 9 Grid](https://randomtopics.app/my-9-grid): any nine pictures of your own, processed in the browser.

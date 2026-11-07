@@ -415,6 +415,13 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     crossLinkOnly: true,
   },
   {
+    href: "/4-characters-i-like",
+    emoji: "🃏",
+    label: { en: "4 Characters I Like" },
+    detail: { en: "2×2 card of favorite characters" },
+    crossLinkOnly: true,
+  },
+  {
     href: "/mixtape-for-you",
     emoji: "📼",
     label: { en: "Mixtape for You" },
