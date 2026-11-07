@@ -123,6 +123,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/my-9-movies", label: "My 9 Movies", emoji: "🎬", blurb: "3×3 favorite movies", groups: ["my9"] },
   { href: "/my-9-anime", label: "My 9 Anime", emoji: "🌸", blurb: "3×3 favorite anime", groups: ["my9"] },
   { href: "/my-9-books", label: "My 9 Books", emoji: "📚", blurb: "3×3 favorite books", groups: ["my9"] },
+  { href: "/mixtape-for-you", label: "Mixtape for You", emoji: "📼", blurb: "Make a cassette playlist for a friend", groups: ["my9", "creative"] },
   { href: "/my-9-songs", label: "My 9 Songs", emoji: "🎵", blurb: "3×3 favorite songs", groups: ["my9"] },
   { href: "/my-9-artists", label: "My 9 Artists", emoji: "🎤", blurb: "3×3 favorite artists", groups: ["my9"] },
   { href: "/my-9-shows", label: "My 9 Shows", emoji: "📺", blurb: "3×3 favorite TV shows", groups: ["my9"] },
