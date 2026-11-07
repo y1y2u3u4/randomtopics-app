@@ -86,7 +86,7 @@ function Tile({ cell, index, selected, onClick }: { cell: Cell; index: number; s
       </div>
       <span className="mt-1 block truncate text-sm font-bold text-[var(--text-primary)]">{cell.name || <span className="text-[var(--text-muted)] font-normal">Tap to add</span>}</span>
       {cell.from && <span className="block truncate text-[11px] text-[var(--neon-cyan)]">{cell.from}</span>}
-      {cell.line && <span className="block text-[11px] italic leading-snug text-[var(--text-secondary)] line-clamp-2">{cell.line}</span>}
+      {cell.line && <span className="block text-[11px] italic leading-snug text-[var(--text-secondary)] line-clamp-1 sm:line-clamp-2">{cell.line}</span>}
     </>
   );
   if (!onClick) return <div className="min-w-0 text-center">{inner}</div>;
@@ -235,7 +235,7 @@ export default function FourCharactersMaker() {
     <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-6">
       <div className="glass-card p-3 sm:p-7 space-y-3">
         <input aria-label="Card title" className={`${field} text-center font-bold`} value={card.title} maxLength={LIMITS.title} onChange={(e) => setCard((c) => ({ ...c, title: e.target.value }))} />
-        <div className="mx-auto grid max-w-[19rem] sm:max-w-md grid-cols-2 gap-1.5 sm:gap-3" data-four-grid>
+        <div className="mx-auto grid max-w-[13rem] sm:max-w-md grid-cols-2 gap-x-2 gap-y-1 sm:gap-3" data-four-grid>
           {card.cells.map((x, i) => <Tile key={i} cell={x} index={i} selected={sel === i} onClick={() => setSel(i)} />)}
         </div>
         <div className="flex flex-wrap items-center justify-center gap-2">
