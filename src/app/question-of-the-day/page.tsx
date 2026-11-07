@@ -148,6 +148,13 @@ export default function QuestionOfTheDayPage() {
               <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">100 audience-safe funny prompts, daily rotation, filters, and printable five-day plans.</p>
             </Link>
           </div>
+          <p className="mt-4 text-center text-sm text-[var(--text-muted)]">
+            Seasonal sets:{" "}
+            <Link prefetch={false} href="/question-of-the-day/november" className="text-[var(--neon-cyan)] hover:underline">November question of the day</Link>,{" "}
+            <Link prefetch={false} href="/question-of-the-day/thanksgiving" className="text-[var(--neon-cyan)] hover:underline">Thanksgiving</Link>,{" "}
+            <Link prefetch={false} href="/question-of-the-day/december" className="text-[var(--neon-cyan)] hover:underline">December</Link> and{" "}
+            <Link prefetch={false} href="/question-of-the-day/christmas" className="text-[var(--neon-cyan)] hover:underline">Christmas</Link>.
+          </p>
         </section>
 
         <PublicAdPlacement path="/question-of-the-day" />

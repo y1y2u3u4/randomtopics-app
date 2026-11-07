@@ -91,9 +91,11 @@ export const PURPOSE_GENERATORS = {
       { question: "What is a random learning topic generator?", answer: "It is a tool that chooses a focused subject for you to explore and pairs it with a concrete starting question. The randomness removes the decision step while the filters keep the result useful." },
       { question: "How long should I spend learning each topic?", answer: "A beginner topic works well as a 10–20 minute curiosity session. Intermediate and advanced topics are better for 30–60 minutes or several sessions. Stop by writing a short summary from memory." },
       { question: "Can students use these as study topics?", answer: "Yes. Students can filter by subject and difficulty, then use the angle as a mini research task, presentation warm-up, or independent-learning prompt." },
+      { question: "What are some random topics to learn or research?", answer: "Generate a few above: each result is a focused subject with a starting question, such as how coral reefs support ocean life or why cities first developed around rivers. For a school paper or project, use the Research Topic Generator instead, which adds a formal research question and a scope note by field and difficulty." },
       { question: "Are the generated topics fact-checked answers?", answer: "The topics are editor-written prompts, not completed answers. Verify what you learn with reliable primary or educational sources and compare more than one source for disputed claims." },
     ],
     relatedLinks: [
+      { emoji: "🔎", label: "Random Research Topics", href: "/research-topic-generator" },
       { emoji: "🧪", label: "Random Subject Generator", href: "/random-subject-generator" },
       { emoji: "🔬", label: "Science Topics", href: "/categories/science" },
       { emoji: "📚", label: "Education Topics", href: "/categories/education" },
@@ -302,6 +304,7 @@ export const PURPOSE_GENERATORS = {
       { question: "What are good research topics for students?", answer: "Good student research topics are narrow enough to finish and use evidence you can actually reach: a local survey, observation, public data or a library database. Beginner topics above, such as retrieval practice versus rereading or noise and sleep in city apartments, can be done in a few weeks; Advanced ones suit a thesis or capstone." },
       { question: "How do I narrow a broad research topic?", answer: "Pick one population, one place, one time period and one or two variables. 'Social media and teenagers' becomes 'How does phone use in the hour before bed relate to sleep quality for 15-year-olds at one school over two weeks?' The scope note under each topic shows one way to do this." },
       { question: "How do I turn a topic into a research question?", answer: "Name the relationship you want to test or explain, then make sure it can be answered with evidence rather than opinion. Start with how, why, to what extent or what is the relationship between, and avoid yes/no questions unless you will measure the size of the effect." },
+      { question: "Where can I get random topics to research?", answer: "Press Generate above for a random research topic with a ready research question and a scope note, or filter by field and difficulty first. If you just want something interesting to read about tonight rather than a paper topic, the Random Learning Topic Generator picks a subject to learn with a starting angle, and the Random Historical Event Generator gives an event, year and region to dig into." },
       { question: "Does this generator provide sources?", answer: "No. It generates editor-written research questions and scope notes. Use your library databases, primary records, scholarly search tools, and your instructor's source requirements to build the evidence base." },
     ],
     relatedLinks: [
@@ -311,6 +314,7 @@ export const PURPOSE_GENERATORS = {
       { emoji: "🧠", label: "Learning Topic Generator", href: "/random-learning-topic-generator" },
       { emoji: "🧪", label: "Random Subject Generator", href: "/random-subject-generator" },
       { emoji: "🎓", label: "College Essay Topics", href: "/topics/random-essay-topics-for-college" },
+      { emoji: "📜", label: "Random Historical Event Generator", href: "/random-historical-event-generator" },
     ],
     library: { category: "education", modes: ["writing"] },
   },

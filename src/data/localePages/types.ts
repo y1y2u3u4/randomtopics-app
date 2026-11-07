@@ -23,4 +23,6 @@ export type LocalePageConfig = {
   groups: LocaleTopicGroup[];
   howTo: string[];
   faq: { question: string; answer: string }[];
+  /** Near-synonym pages: link back to the main page right under the lead. */
+  mainPage?: { label: string; href: string; prefix: string };
 };

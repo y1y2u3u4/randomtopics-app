@@ -38,7 +38,7 @@ const FAQ = [
   },
   {
     question: "Can I generate just first names or just last names?",
-    answer: "Yes. Under 'Show', choose First name only or Last name only. The surname meaning still appears on the full-name results.",
+    answer: "Yes. Under 'Show', choose First name only or Last name only. The surname meaning still appears on the full-name results. For surnames only, with origin filters and meanings, the dedicated Random Last Name Generator is faster.",
   },
   {
     question: "Why are some Chinese, Japanese or Korean names written family name first?",
@@ -64,7 +64,7 @@ export default function RandomNameGeneratorPage() {
       inShort="Press Generate for random first and last names that fit together, such as Niamh Kelly or Mateo Herrera. Narrow them by gender and by country of origin, show only first or last names, and copy the whole list or a link that reproduces it. Each surname comes with its meaning."
       related={[
         { href: "/fake-name-generator", label: "Fake name generator" },
-        { href: "/last-name-generator", label: "Last name generator" },
+        { href: "/last-name-generator", label: "Random last name (surname) generator" },
         { href: "/character-name-generator", label: "Character name generator" },
         { href: "/fantasy-name-generator", label: "Fantasy name generator" },
         { href: "/random-name-picker", label: "Random name picker" },

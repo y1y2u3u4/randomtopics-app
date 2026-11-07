@@ -25,6 +25,7 @@ export const metadata: Metadata = {
 
 const FAQ = [
   { question: "How do I make my 9 movies grid?", answer: "Search a movie, tap its poster to drop it into the next empty square, and fill all nine. Then press Download PNG, or Share image on a phone." },
+  { question: "Does it use real movie posters?", answer: "Yes. Each square uses the poster shown on the film's Wikipedia article, which is usually the original theatrical poster, so the grid looks like real posters rather than stills or AI images. If a poster is missing or you prefer another version, upload your own picture for that square." },
   { question: "Which movies can I find?", answer: "Any film with a Wikipedia article — new releases, classics, animation and international cinema. Add the year (\"Dune 2021\") if a title has several films." },
   { question: "Can I rearrange the movies?", answer: "Tap one square and then another to swap them, or drag on a computer. Tap a square first to put the next movie exactly there." },
   { question: "What size is the image?", answer: "1080×1080 pixels by default — the square size Instagram, X and Threads show best. Tick Story size for a 1080×1920 image for Instagram or TikTok stories. There is no watermark." },

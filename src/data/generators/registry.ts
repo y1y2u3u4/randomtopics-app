@@ -426,7 +426,37 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     emoji: "📼",
     label: { en: "Mixtape for You" },
     detail: { en: "Cassette playlist for a friend, share link" },
+  },  {
+    href: "/random-concept-generator",
+    emoji: "💡",
+    label: { en: "Random Concept" },
+    detail: { en: "Art, story, game and invention concepts" },
   },
+  {
+    href: "/random-historical-event-generator",
+    emoji: "🏛️",
+    label: { en: "Random Historical Event" },
+    detail: { en: "Real events with date, region and why it matters" },
+  },
+  {
+    href: "/business-name-generator",
+    emoji: "🏷️",
+    label: { en: "Business Names" },
+    detail: { en: "Brandable names by industry and style" },
+  },
+  {
+    href: "/bracket-maker",
+    emoji: "🏆",
+    label: { en: "Bracket Maker" },
+    detail: { en: "Tournament bracket for 2–64 entries" },
+  },
+  {
+    href: "/secret-santa-generator",
+    emoji: "🎅",
+    label: { en: "Secret Santa Generator" },
+    detail: { en: "Name draw with exclusions and private links" },
+  },
+
   {
     href: "/my-9-songs",
     emoji: "🎵",

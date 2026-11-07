@@ -190,7 +190,12 @@ export function localePageMetadata(path: string): Metadata {
   return {
     title: { absolute: title },
     description,
-    alternates: { canonical: path, languages: hreflangAlternates(page.enPath) },
+    // Only pages that are the registered counterpart of enPath carry the hreflang set;
+    // extra near-synonym pages (e.g. /tr/unprompted) keep a self canonical only.
+    alternates: {
+      canonical: path,
+      ...(Object.values(hreflangAlternates(page.enPath)).some((u) => u.endsWith(path)) ? { languages: hreflangAlternates(page.enPath) } : {}),
+    },
     openGraph: {
       title,
       description,
@@ -221,6 +226,7 @@ export function LocaleConfigPage({ path }: { path: string }) {
       englishHref={page.enPath}
       title={page.title}
       lead={fill(page.lead, page)}
+      mainPage={page.mainPage}
       buttonLabel={page.buttonLabel}
       copy={copy}
       siblings={locale === "es" ? ES_SIBLINGS : siblingsFor(locale, path)}

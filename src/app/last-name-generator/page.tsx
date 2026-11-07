@@ -89,6 +89,7 @@ export default function LastNameGeneratorPage() {
       updated="2026-10-10"
       faq={[...FAQ, ...faqForSchema(LASTNAME_BOOST.faq)]}
       related={[
+        { href: "/random-name-generator", label: "Random full name generator (first + last)" },
         { href: "/japanese-name-generator", label: "Japanese name generator" },
         { href: "/german-name-generator", label: "German name generator" },
         { href: "/english-name-generator", label: "English name generator" },

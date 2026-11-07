@@ -192,6 +192,11 @@ export default function SpeechPage() {
                   href: "/topics/toastmasters-table-topics",
                 },
                 {
+                  title: "One-Minute Speech",
+                  detail: "Short topics with a 60-second timer for quick drills, class warm-ups and interviews.",
+                  href: "/1-minute-speech-topics",
+                },
+                {
                   title: "Five-Minute Speech",
                   detail: "Choose a developed topic with a five-part outline and a five-minute timer.",
                   href: "/5-minute-speech-topics",
@@ -316,6 +321,7 @@ export default function SpeechPage() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
+              { title: "1-Minute Speech Topics + 60-Second Timer", href: "/1-minute-speech-topics" },
               { title: "80 Five-Minute Speech Topics + Timer", href: "/5-minute-speech-topics" },
               { title: "100+ Persuasive Speech Topics", href: "/speech/persuasive" },
               { title: "100+ Informative Speech Topics", href: "/speech/informative" },
