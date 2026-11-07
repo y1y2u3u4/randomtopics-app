@@ -51,13 +51,15 @@ export default function Home() {
               { heading: "Writing & speaking", tools: [
                 { emoji: "✍️", label: "Writing Topic Generator", detail: "Essay, journal, fiction", href: "/writing-topic-generator" },
                 { emoji: "🎤", label: "Speech Practice", detail: "Topics + a practice timer", href: "/speech" },
-                { emoji: "🔎", label: "Research It", detail: "Question + scope note", href: "/research-topic-generator" },
+                { emoji: "🔎", label: "Random Research Topics", detail: "Topics to research + a question", href: "/research-topic-generator" },
                 { emoji: "📊", label: "Present It", detail: "Audience + slide angle", href: "/presentation-topic-generator" },
+                { emoji: "⏱️", label: "1-Minute Speech Topics", detail: "Quick topics + 60s timer", href: "/1-minute-speech-topics" },
               ] },
               { heading: "Names & places", tools: [
                 { emoji: "🎸", label: "Band Names", detail: "Music style + your seed word", href: "/band-name-generator" },
                 { emoji: "🐉", label: "Dragon Names", detail: "Fantasy names + story titles", href: "/dragon-name-generator" },
                 { emoji: "🏰", label: "Country Names", detail: "Fictional worldbuilding", href: "/country-name-generator" },
+                { emoji: "🏪", label: "Business Names", detail: "By industry + style", href: "/business-name-generator" },
                 { emoji: "🗺️", label: "Random US State", detail: "50 states + capitals", href: "/random-state-generator" },
               ] },
               { heading: "Party games", tools: [
@@ -65,9 +67,13 @@ export default function Home() {
                 { emoji: "🤥", label: "Two Truths and a Lie", detail: "Ideas to bluff with", href: "/topics/two-truths-and-a-lie-ideas" },
                 { emoji: "👉", label: "Most Likely To", detail: "Group voting questions", href: "/most-likely-to" },
                 { emoji: "💿", label: "My 9 Maker", detail: "3×3 favorites grid", href: "/my-9-albums" },
+                { emoji: "🏆", label: "Bracket Maker", detail: "Tournament brackets, 4–64", href: "/bracket-maker" },
+                { emoji: "🎁", label: "Secret Santa Generator", detail: "Private links, exclusions", href: "/secret-santa-generator" },
               ] },
               { heading: "More ideas", tools: [
-                { emoji: "🧠", label: "Learn Something", detail: "Subject + difficulty", href: "/random-learning-topic-generator" },
+                { emoji: "🧠", label: "Random Topics to Learn", detail: "Subject + difficulty", href: "/random-learning-topic-generator" },
+                { emoji: "💡", label: "Random Concept", detail: "Story, art, game, product ideas", href: "/random-concept-generator" },
+                { emoji: "📜", label: "Random Historical Event", detail: "Year, region + why it matters", href: "/random-historical-event-generator" },
                 { emoji: "🎨", label: "Drawing Ideas", detail: "Subject + sketch tip", href: "/random-drawing-generator" },
                 { emoji: "📦", label: "Random Objects", detail: "Everyday physical things", href: "/random-object-generator" },
                 { emoji: "😄", label: "Yo Mama Randomizer", detail: "Clean text jokes + remixes", href: "/yo-mama-randomizer" },

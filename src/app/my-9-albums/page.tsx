@@ -29,6 +29,7 @@ const FAQ = [
   { question: "What size is the image?", answer: "1080×1080 pixels by default — the square size Instagram, X and Threads show best. Tick Story size for a 1080×1920 image for Instagram or TikTok stories. There is no watermark." },
   { question: "Where do the covers come from?", answer: "Album art comes from Deezer's and Apple's public music catalogs and loads straight into your browser. We don't upload or store your grid. If an album is missing, upload your own picture for that square." },
   { question: "Can I share the grid as a link?", answer: "Copy link keeps your nine picks in the page address, so anyone who opens it sees the same grid and can download it too. Pictures you upload stay on your device and are not part of the link." },
+  { question: "Is there a my9albums alternative with no watermark?", answer: "This page is one: it is free, needs no account and adds no watermark. It searches two album catalogs (Deezer and Apple), lets you upload a cover for anything missing, exports a square or story-size PNG and saves your grid in a share link. The same template also works for movies, games, anime, books, songs and shows." },
 ];
 
 export default function MyNineAlbumsPage() {

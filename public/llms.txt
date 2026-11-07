@@ -159,6 +159,16 @@
 
 - [Mixtape for You](https://randomtopics.app/mixtape-for-you): free, unofficial mixtape maker — pick a cassette, add 6–12 songs (optional Spotify/YouTube links) and a note, then send a share link (the playlist is encoded in the link after #, nothing stored, no signup) or download a 1080×1350 PNG. The recipient sees the cassette, Side A/B tracklist and play links. Not affiliated with any other mixtape app.
 
+## Pages added 2026-11-08
+
+- [Random Concept Generator](https://randomtopics.app/random-concept-generator): hand-written concepts for drawing, story writing, game design (game jam themes), inventions and abstract ideas, each with a "try this" prompt; filter by type, 10 per click. Free, no sign-up.
+- [Random Historical Event Generator](https://randomtopics.app/random-historical-event-generator): well-known historical events from ancient times to today, each with its date, region and why it matters; filter by era or region. For history topics, quizzes and research.
+- [Business Name Generator](https://randomtopics.app/business-name-generator): brandable business name ideas by industry (café, tech, fitness, beauty, cleaning, Etsy shop…) and style (modern, classic, playful, luxury, nature), each with a domain idea. Check trademark and domain availability yourself before using a name.
+- [Bracket Maker](https://randomtopics.app/bracket-maker): single-elimination tournament bracket for 2–64 entries with random seeding and automatic byes; click to advance winners, print or share the live bracket link. No sign-up.
+- [Secret Santa Generator](https://randomtopics.app/secret-santa-generator): enter names, block couples from drawing each other, set budget and date, then send each person a private reveal link. The draw runs in the browser; no emails collected, no sign-up.
+- Seasonal question of the day: [November](https://randomtopics.app/question-of-the-day/november), [December](https://randomtopics.app/question-of-the-day/december), [Thanksgiving](https://randomtopics.app/question-of-the-day/thanksgiving), [Christmas](https://randomtopics.app/question-of-the-day/christmas) — 40 questions each for kids, classrooms, teens and work, with a daily pick and follow-ups.
+- [Unprompted konuşma pratiği (Türkçe)](https://randomtopics.app/tr/unprompted): random Turkish and English speaking prompts with a timer for unprompted/impromptu speaking practice. Not affiliated with any other app or site.
+
 ## My 9 templates (updated 2026-11-03)
 
 Free 3×3 "My 9" grid makers: search, tap nine pictures, download a 1080×1080 PNG or a 1080×1920 story image. No signup, no watermark; share links keep the picks.

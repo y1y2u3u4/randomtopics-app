@@ -33,6 +33,7 @@ type Props = {
   path: string;
   title: string;
   lead: string;
+  mainPage?: { label: string; href: string; prefix: string };
   groups: LocaleTopicGroup[];
   mode?: "card" | "wheel" | "timer";
   buttonLabel?: string;
@@ -49,7 +50,7 @@ type Props = {
   tryNext?: { href: string; label: string; emoji: string }[];
 };
 
-export default function LocaleToolPage({ path, title, lead, groups, mode, buttonLabel, howTo, faq, copy, siblings, englishHref = "/", extra, showLocaleSwitcher = false, tryNext }: Props) {
+export default function LocaleToolPage({ path, title, lead, mainPage, groups, mode, buttonLabel, howTo, faq, copy, siblings, englishHref = "/", extra, showLocaleSwitcher = false, tryNext }: Props) {
   const total = groups.reduce((n, g) => n + g.topics.length, 0);
   return (
     <>
@@ -75,6 +76,12 @@ export default function LocaleToolPage({ path, title, lead, groups, mode, button
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-10 pb-6 text-center">
           <h1 className="section-heading text-3xl sm:text-4xl text-[var(--text-primary)]">{title}</h1>
           <p className="mt-4 text-[var(--text-secondary)] leading-relaxed">{lead}</p>
+          {mainPage && (
+            <p className="mt-2 text-sm text-[var(--text-secondary)]">
+              {mainPage.prefix}{" "}
+              <Link prefetch={false} href={mainPage.href} className="text-[var(--neon-cyan)] underline underline-offset-2">{mainPage.label}</Link>
+            </p>
+          )}
           <p className="mt-2 text-xs text-[var(--text-muted)]">{copy.meta.replace("{n}", String(total))}</p>
         </section>
 

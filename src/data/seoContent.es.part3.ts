@@ -422,7 +422,7 @@ export const seoArticlesEsPart3: SeoArticle[] = [
         href: "/es/topics/icebreaker-questions-for-work",
       },
       { label: "Preguntas para unir al equipo", href: "/es/topics/team-building-questions" },
-      { label: "Explorar rompehielos", href: "/es/icebreaker" },
+      { label: "Generador de preguntas para romper el hielo", href: "/es/icebreaker" },
     ],
   },
 

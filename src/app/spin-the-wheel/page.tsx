@@ -156,7 +156,7 @@ export default function SpinTheWheelPage() {
                 Need a Wheel for One Job?
               </h3>
               <ul className="space-y-2 list-disc pl-5">
-                <li><strong>Speeches:</strong> the <Link prefetch={false} href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> adds 1-, 3- and 5-minute topics with a practice timer.</li>
+                <li><strong>Speeches:</strong> the <Link prefetch={false} href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> adds 1-, 3- and 5-minute topics with a practice timer, and the <Link prefetch={false} href="/1-minute-speech-topics" className="text-[var(--neon-cyan)] hover:underline">1-minute speech topics</Link> page has a 60-second timer for quick drills.</li>
                 <li><strong>Debates:</strong> the <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link> deals a motion with points for both sides.</li>
                 <li><strong>Small talk:</strong> the <Link prefetch={false} href="/conversation" className="text-[var(--neon-cyan)] hover:underline">random conversation generator</Link> gives topics to talk about with follow-up questions.</li>
                 <li><strong>Writing:</strong> the <Link prefetch={false} href="/writing" className="text-[var(--neon-cyan)] hover:underline">writing prompts generator</Link> draws story, journal and essay prompts.</li>

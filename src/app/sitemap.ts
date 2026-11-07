@@ -166,6 +166,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ path: "/ai-prompt-generator", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-11-07" });
   entries.push({ path: "/4-characters-i-like", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-11-07" });
   entries.push({ path: "/mixtape-for-you", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-11-07" });
+  // GSC gap pages + seasonal QOTD + Turkish unprompted (2026-11-08).
+  entries.push({ path: "/random-concept-generator", changeFrequency: "weekly", priority: 0.86, lastModified: "2026-11-08" });
+  entries.push({ path: "/random-historical-event-generator", changeFrequency: "weekly", priority: 0.86, lastModified: "2026-11-08" });
+  entries.push({ path: "/business-name-generator", changeFrequency: "weekly", priority: 0.86, lastModified: "2026-11-08" });
+  entries.push({ path: "/bracket-maker", changeFrequency: "weekly", priority: 0.86, lastModified: "2026-11-08" });
+  entries.push({ path: "/secret-santa-generator", changeFrequency: "weekly", priority: 0.88, lastModified: "2026-11-08" });
+  entries.push({ path: "/question-of-the-day/november", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-11-08" });
+  entries.push({ path: "/question-of-the-day/december", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-11-08" });
+  entries.push({ path: "/question-of-the-day/thanksgiving", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-11-08" });
+  entries.push({ path: "/question-of-the-day/christmas", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-11-08" });
 
   // Random ZIP code generator (2026-10-19).
   entries.push({ path: "/random-zip-code-generator", changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-19" });
@@ -386,6 +396,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       alternates: { languages: { es: url, "x-default": url } },
     });
+  }
+
+  // Turkish-only page with no EN counterpart (2026-11-08): self-referencing tr alternate only.
+  {
+    const url = abs("/tr/unprompted");
+    result.push({ url, lastModified: "2026-11-08", changeFrequency: "weekly", priority: 0.8, alternates: { languages: { tr: url, "x-default": url } } });
   }
 
   // Standalone Turkish, Portuguese, French, German and Japanese pages. None is a site locale;

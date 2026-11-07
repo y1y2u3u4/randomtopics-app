@@ -781,4 +781,131 @@ export const TR_C: LocalePageConfig[] = [
       },
     ],
   },
+  {
+    // 2026-11-08: GSC showed 66 "unprompted" queries from Turkey (unprompted türkçe site,
+    // unprompted topic generator, unprompted speaking practice; 1,931 impressions / 28 days)
+    // landing on / and /tr. Main page for impromptu topics stays /tr/dogaclama-konusma-konulari.
+    path: "/tr/unprompted",
+    enPath: "/impromptu-speech-topics",
+    englishLabel: "Impromptu Speech Topics",
+    metaTitle: "Unprompted Konuşma Pratiği: {n} Türkçe ve İngilizce Konu",
+    description:
+      "Unprompted konuşma pratiği: {n} hazırlıksız konu, Türkçe ve İngilizce, 1 dakikalık zamanlayıcıyla. Konu çek, süreyi başlat, düşünmeden konuş. Ücretsiz, kayıt yok.",
+    title: "Unprompted konuşma pratiği (Türkçe + İngilizce)",
+    lead: "Unprompted, yani hazırlıksız konuşma: rastgele bir konu çekersin ve hiç hazırlanmadan 1 dakika konuşursun. {n} konunun yarısı Türkçe, yarısı İngilizce; İngilizce konuşma pratiği yapanlar için ideal.",
+    mainPage: { prefix: "Ana sayfa:", label: "Doğaçlama konuşma konuları", href: "/tr/dogaclama-konusma-konulari" },
+    buttonLabel: "Konu çek",
+    mode: "timer",
+    sibling: { label: "Unprompted pratik", detail: "Türkçe + İngilizce hazırlıksız konular", emoji: "🎙️" },
+    groups: [
+      {
+        id: "gunluk",
+        label: "Günlük hayat (TR)",
+        topics: [
+          "Sabah rutinini bir dakikada anlat",
+          "En sevdiğin semt ve nedeni",
+          "Hafta sonu ideal bir gün nasıl geçer?",
+          "Telefonsuz bir gün geçirsen ne olurdu?",
+          "En son öğrendiğin yeni şey",
+          "Seni en çok sinirlendiren küçük şey",
+          "Bir arkadaşına önereceğin dizi",
+          "Çocukken en sevdiğin oyun",
+          "Evde en çok vakit geçirdiğin köşe",
+          "Bugün seni gülümseten bir şey",
+        ],
+      },
+      {
+        id: "fikir",
+        label: "Fikir ve tartışma (TR)",
+        topics: [
+          "Uzaktan çalışmak mı ofiste çalışmak mı?",
+          "Sosyal medya bizi daha mı yalnız yapıyor?",
+          "Herkes bir yabancı dil öğrenmeli mi?",
+          "Ödevler kaldırılmalı mı?",
+          "Para mutluluğu satın alabilir mi?",
+          "Yapay zekâ öğretmenlerin yerini alabilir mi?",
+          "Şehirde mi yaşamak daha iyi, köyde mi?",
+          "Başarısızlık neden önemlidir?",
+          "Kitap mı daha iyi, filmi mi?",
+          "Gençler neden yurt dışına gitmek istiyor?",
+        ],
+      },
+      {
+        id: "english-daily",
+        label: "English: everyday",
+        topics: [
+          "Describe your hometown to a tourist",
+          "Talk about your favourite food and how to make it",
+          "What did you do last weekend?",
+          "Describe your best friend",
+          "Your dream job and why",
+          "A place you would like to visit",
+          "The best gift you have ever received",
+          "Your favourite season and what you do in it",
+          "A typical day at school or work",
+          "A hobby you would like to start",
+        ],
+      },
+      {
+        id: "english-opinion",
+        label: "English: opinion",
+        topics: [
+          "Should students wear school uniforms?",
+          "Is it better to live alone or with friends?",
+          "Are video games good or bad for children?",
+          "Should everyone learn to cook?",
+          "Is online learning as good as classroom learning?",
+          "Would you rather be famous or rich?",
+          "Is travelling the best way to learn?",
+          "Should phones be banned in classrooms?",
+          "What makes a good teacher?",
+          "Is it important to have a five-year plan?",
+        ],
+      },
+      {
+        id: "english-fun",
+        label: "English: fun & random",
+        topics: [
+          "If you could have any superpower for one day",
+          "Explain a cat's job to an alien",
+          "Sell me an umbrella in a desert",
+          "The worst advice you have ever heard",
+          "If animals could talk, which would be the rudest?",
+          "Invent a new holiday and explain it",
+          "Describe your room as if it were a museum",
+          "What would you do with an extra hour every day?",
+          "Convince me that Monday is the best day",
+          "A day in the life of a pigeon",
+        ],
+      },
+    ],
+    howTo: [
+      "Konu çek butonuna bas. Konuyu okuduktan sonra düşünmeden zamanlayıcıyı başlat ve 1 dakika konuş — unprompted pratiğin amacı hazırlanmamak.",
+      "İngilizce pratik için 'English' kategorilerini seç. Takılırsan durma; basit kelimelerle devam et ya da bir örnek ver.",
+      "Telefonla kendini kaydet ve dinle: 'ııı' sayısını, duraklamaları ve tekrar eden kelimeleri not al. Ertesi gün aynı konuyu tekrar dene.",
+      "Arkadaşınla oynayın: biri konu çeksin, diğeri konuşsun; sonra rolleri değiştirin.",
+    ],
+    faq: [
+      {
+        question: "Unprompted konuşma pratiği nedir?",
+        answer:
+          "Unprompted, İngilizcede 'hazırlıksız, kimse sormadan' demek. Konuşma pratiğinde rastgele bir konu alıp hiç hazırlanmadan kısa bir süre konuşmayı anlatır. Bu sayfa konu çeker ve 1 dakikalık zamanlayıcıyı başlatır.",
+      },
+      {
+        question: "Türkçe unprompted site var mı?",
+        answer:
+          "Bu sayfa Türkçe arayüzlü bir unprompted konuşma aracıdır: konuların yarısı Türkçe, yarısı İngilizce. Ücretsizdir ve kayıt gerektirmez. Başka bir uygulama ya da siteyle bağlantılı değildir.",
+      },
+      {
+        question: "İngilizce konuşma pratiği için nasıl kullanırım?",
+        answer:
+          "'English: everyday' ile başla, rahatladıkça 'English: opinion' konularına geç. Her konuda 1 dakika boyunca durmadan konuşmayı hedefle; kendini kaydedip dinlemek akıcılığı en hızlı geliştiren yöntemdir.",
+      },
+      {
+        question: "Unprompted topic generator ile doğaçlama konuşma konuları aynı mı?",
+        answer:
+          "Benzer. Doğaçlama konuşma konuları sayfasında daha fazla Türkçe konu ve kategori var; bu sayfa İngilizce pratik konularını da ekler. Daha uzun konuşmalar için 1 dakikalık konuşma konuları sayfasına da bakabilirsin.",
+      },
+    ],
+  },
 ];

@@ -92,6 +92,13 @@ export default function RandomThemeGeneratorPage() {
             <li><strong>Classroom themes</strong> — week or unit themes that tie several subjects together.</li>
             <li><strong>Game jam themes</strong> — short, open prompts that can be read in several ways.</li>
           </ul>
+          <SectionTitle>Game jam theme generator</SectionTitle>
+          <p>
+            Choose <strong>Game jam</strong> under use and roll a few themes. Jam themes here are two to four words, such as Only One Button or
+            Shrinking World, so a team can read them as a mechanic, a setting or a story. For a 48-hour jam, roll five, give everyone one vote and
+            keep the runner-up as a twist. Pair it with the <Link prefetch={false} href="/random-concept-generator" className={linkClass}>random concept generator</Link> for
+            a game premise, or run a <Link prefetch={false} href="/bracket-maker" className={linkClass}>bracket</Link> to let the group pick the final theme.
+          </p>
           <SectionTitle>Tips for using a random theme</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">
             <li>Give yourself a rule: you must use the first theme you roll, or you may re-roll once.</li>

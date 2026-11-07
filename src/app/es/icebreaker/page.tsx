@@ -7,10 +7,13 @@ import { hreflangAlternates, SITE_URL } from "@/i18n/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { absolute: "Generador de Preguntas Rompehielos al Azar | Team Building y para Conocerse | Random Topics" },
+  // 2026-11-08: "preguntas para romper el hielo" (229 impr., pos 28) landed on the virtual-meetings page.
+  // Old title (rollback): "Generador de Preguntas Rompehielos al Azar | Team Building y para Conocerse | Random Topics"
+  title: { absolute: "Preguntas para Romper el Hielo: Generador de Rompehielos al Azar | Random Topics" },
   description:
-    "Genera preguntas rompehielos al azar para reuniones, team building, aulas y eventos virtuales. Más de 300 preguntas para conocerse que hacen hablar, reír y conectar a cualquier grupo al instante.",
+    "Preguntas para romper el hielo al azar para reuniones, team building, aulas y eventos virtuales. Más de 300 preguntas rompehielos para conocerse que hacen hablar y conectar a cualquier grupo.",
   keywords: [
+    "preguntas para romper el hielo",
     "preguntas rompehielos",
     "generador de rompehielos",
     "preguntas rompehielos para el trabajo",
@@ -25,7 +28,7 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/icebreaker"),
   },
   openGraph: {
-    title: "Generador de Preguntas Rompehielos al Azar | Team Building y para Conocerse",
+    title: "Preguntas para Romper el Hielo: Generador de Rompehielos al Azar",
     description:
       "Genera preguntas rompehielos al azar para reuniones, team building, aulas y eventos virtuales. Más de 300 preguntas para conocerse que hacen hablar, reír y conectar a cualquier grupo al instante.",
     url: `${SITE_URL}/es/icebreaker`,
@@ -50,8 +53,8 @@ export default function IcebreakerPageEs() {
         <TopicGenerator
           initialMode="icebreaker"
           locale="es"
-          title="Generador de Preguntas Rompehielos"
-          subtitle="Preguntas rompehielos divertidas para hacer que cualquier grupo hable, ría y conecte."
+          title="Preguntas para Romper el Hielo"
+          subtitle="Generador de preguntas rompehielos al azar: más de 300 preguntas para romper el hielo en el trabajo, en clase o con amigos."
         />
 
         {/* SEO Content */}
