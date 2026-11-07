@@ -169,7 +169,8 @@ export default function PressPage() {
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
               Add a random topic generator directly to your website or blog.
-              Just paste the iframe code below.
+              Just paste the iframe code below. For a daily question or a spin wheel, use the{" "}
+              <Link prefetch={false} href="/question-of-the-day-widget" className="text-[var(--neon-cyan)] hover:underline">question of the day widget builder</Link>.
             </p>
             <div className="flex justify-center">
               <div

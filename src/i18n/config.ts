@@ -242,6 +242,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/random-name-picker",
   "/decision-maker",
   "/teacher-warm-ups",
+  "/question-of-the-day-widget",
   "/slack-icebreaker-bot",
   "/discord-qotd-bot",
   "/writing-journal",
@@ -399,6 +400,12 @@ export const PORTUGUESE_ALTERNATES: Readonly<Record<string, string>> = {
   "/most-likely-to": "/pt/quem-e-mais-provavel",
   "/5-minute-speech-topics": "/pt/temas-para-discurso-de-5-minutos",
   "/random-character-generator": "/pt/gerador-de-personagens-aleatorios",
+  // 2026-11-07 gap batch (src/data/localePages/batch1/pt-c.ts)
+  "/never-have-i-ever": "/pt/eu-nunca",
+  "/truth-or-dare": "/pt/verdade-ou-desafio",
+  "/two-truths-and-a-lie": "/pt/duas-verdades-e-uma-mentira",
+  "/topics/conversation-starters-for-couples": "/pt/perguntas-para-casais",
+  "/21-questions": "/pt/perguntas-para-conhecer-alguem",
 };
 
 /**
@@ -428,6 +435,12 @@ export const TURKISH_ALTERNATES: Readonly<Record<string, string>> = {
   "/japanese-name-generator": "/tr/japon-isim-uretici",
   "/topics/toastmasters-table-topics": "/tr/hitabet-konulari",
   "/random-food-generator": "/tr/bugun-ne-yesem",
+  // 2026-11-07 gap batch (src/data/localePages/batch1/tr-c.ts)
+  "/most-likely-to": "/tr/en-cok-kim",
+  "/never-have-i-ever": "/tr/ben-daha-once-hic",
+  "/truth-or-dare": "/tr/dogruluk-mu-cesaret-mi",
+  "/two-truths-and-a-lie": "/tr/iki-dogru-bir-yalan",
+  "/topics/conversation-starters-for-couples": "/tr/sevgiliye-sorulacak-sorular",
 };
 
 /**

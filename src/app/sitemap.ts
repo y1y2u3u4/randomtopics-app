@@ -285,6 +285,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-28" });
   }
 
+  // Embeddable QOTD + wheel widgets for teachers (2026-11-07).
+  entries.push({ path: "/question-of-the-day-widget", changeFrequency: "monthly", priority: 0.8, lastModified: "2026-11-07" });
+
   // Speech timer collection (2026-10-27).
   entries.push({ path: "/1-minute-speech-topics", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-27" });
 

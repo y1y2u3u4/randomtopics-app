@@ -124,6 +124,11 @@ export default function QuestionOfTheDayPage() {
         <TryNext path="/question-of-the-day" />
         <QotdReturnPanel />
         <ClassroomPackCard pack="question-of-the-day" page="/question-of-the-day" />
+        <p className="max-w-3xl mx-auto px-4 sm:px-6 pt-4 text-sm text-[var(--text-secondary)]">
+          Want today&apos;s question on your class site?{" "}
+          <Link prefetch={false} href="/question-of-the-day-widget" className="text-[var(--neon-cyan)] hover:underline">Embed the free question of the day widget</Link>{" "}
+          in Google Sites, Canvas or Notion — it updates itself every day.
+        </p>
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
