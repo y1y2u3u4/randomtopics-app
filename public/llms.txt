@@ -142,6 +142,7 @@
 
 ## Daily tools with an optional plan (added 2026-10-24)
 
+- [Question of the Day Widget](https://randomtopics.app/question-of-the-day-widget): free embeddable question of the day and spin-the-wheel widgets (one iframe) for Google Sites, Canvas, Notion and class blogs; new question every day, no signup.
 - [Daily Warm-Ups for Students](https://randomtopics.app/teacher-warm-ups): a new bell-ringer every school day for grades K–5, 6–8 or 9–12, no repeats in a school year; today's warm-up, fullscreen and Google Classroom copy are free; week planner $3/month.
 - [Slack Icebreaker Bot](https://randomtopics.app/slack-icebreaker-bot): posts a daily icebreaker question to a Slack, Discord or Teams channel through an incoming webhook; free for 7 days, then $7/month per workspace.
 - [Discord Question of the Day Bot](https://randomtopics.app/discord-qotd-bot): a question of the day posted to your Discord channel by webhook, no bot invite or permissions; free for 7 days, then $7/month.

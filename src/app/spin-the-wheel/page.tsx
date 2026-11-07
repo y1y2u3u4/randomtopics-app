@@ -149,6 +149,22 @@ export default function SpinTheWheelPage() {
                 </li>
               </ul>
 
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-3"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Need a Wheel for One Job?
+              </h3>
+              <ul className="space-y-2 list-disc pl-5">
+                <li><strong>Speeches:</strong> the <Link prefetch={false} href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> adds 1-, 3- and 5-minute topics with a practice timer.</li>
+                <li><strong>Debates:</strong> the <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link> deals a motion with points for both sides.</li>
+                <li><strong>Small talk:</strong> the <Link prefetch={false} href="/conversation" className="text-[var(--neon-cyan)] hover:underline">random conversation generator</Link> gives topics to talk about with follow-up questions.</li>
+                <li><strong>Writing:</strong> the <Link prefetch={false} href="/writing" className="text-[var(--neon-cyan)] hover:underline">writing prompts generator</Link> draws story, journal and essay prompts.</li>
+                <li><strong>Names &amp; animals:</strong> spin a <Link prefetch={false} href="/japanese-name-generator" className="text-[var(--neon-cyan)] hover:underline">Japanese name with kanji and meaning</Link> or a <Link prefetch={false} href="/random-animal-generator" className="text-[var(--neon-cyan)] hover:underline">random animal with a picture</Link>.</li>
+                <li><strong>Just for laughs:</strong> the <Link prefetch={false} href="/yo-mama-randomizer" className="text-[var(--neon-cyan)] hover:underline">yo mama randomizer</Link> and the <Link prefetch={false} href="/my-9-albums" className="text-[var(--neon-cyan)] hover:underline">My 9 Albums grid maker</Link>.</li>
+                <li><strong>On your own site:</strong> put a <Link prefetch={false} href="/question-of-the-day-widget" className="text-[var(--neon-cyan)] hover:underline">free question of the day widget and spin wheel</Link> on Google Sites, Notion or Canvas.</li>
+              </ul>
+
               <p>
                 Prefer a fixed deck? Try{" "}
                 <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">
