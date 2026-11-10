@@ -43,7 +43,7 @@ export default function MyNineCharactersPage() {
       description={DESCRIPTION}
       updated="2026-11-03"
       faq={FAQ}
-      related={[{ href: "/my-9-anime", label: "My 9 Anime" }, { href: "/my-9-manga", label: "My 9 Manga" }, { href: "/my-9-games", label: "My 9 Games" }, { href: "/my-9-shows", label: "My 9 Shows" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }, { href: "/4-characters-i-like", label: "4 Characters I Like (2×2 with reasons)" }]}
+      related={[{ href: "/my-9-anime", label: "My 9 Anime" }, { href: "/my-9-manga", label: "My 9 Manga" }, { href: "/my-9-games", label: "My 9 Games" }, { href: "/my-9-shows", label: "My 9 Shows" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }, { href: "/4-characters-i-like", label: "4 Characters I Like (2×2 with reasons)" }, { href: "/ship-tier-list", label: "Ship Tier List Maker" }]}
       inShort="Search any anime or manga character, tap nine pictures into the 3×3 grid, reorder them, and download a 1080×1080 PNG or a story-size image. Character art and series names come from AniList; upload a picture for characters from games, cartoons or films."
       afterTool={<NineGridExamples kind="characters" path={PATH} examples={EXAMPLES.characters} />}
       content={

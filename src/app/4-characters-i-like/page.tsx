@@ -70,6 +70,7 @@ export default function FourCharactersPage() {
         { href: "/my-9-anime", label: "My 9 Anime" },
         { href: "/my-9-games", label: "My 9 Games" },
         { href: "/my-9-shows", label: "My 9 Shows" },
+        { href: "/ship-dynamic-template", label: "Ship Dynamic Template" },
       ]}
       inShort={
         <>

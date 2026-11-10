@@ -422,6 +422,20 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     crossLinkOnly: true,
   },
   {
+    href: "/ship-dynamic-template",
+    emoji: "💞",
+    label: { en: "Ship Dynamic Template" },
+    detail: { en: "My (least) favorite ship dynamic stick figures" },
+    crossLinkOnly: true,
+  },
+  {
+    href: "/ship-tier-list",
+    emoji: "🏆",
+    label: { en: "Ship Tier List Maker" },
+    detail: { en: "Rank ships and moe types S–F" },
+    crossLinkOnly: true,
+  },
+  {
     href: "/mixtape-for-you",
     emoji: "📼",
     label: { en: "Mixtape for You" },

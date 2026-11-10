@@ -55,6 +55,8 @@ export const ADSENSE_RESULT_PATHS = [
   "/ai-prompt-generator",
   "/mixtape-for-you",
   "/4-characters-i-like",
+  "/ship-dynamic-template",
+  "/ship-tier-list",
   "/fantasy-map-maker",
   "/story-prompt-generator",
   // 2026-10-24: new page that lives on ads (no paywall), see docs/decision-maker-2026-10-24.md.
