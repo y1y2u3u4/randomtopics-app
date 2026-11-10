@@ -196,6 +196,8 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/question-of-the-day/thanksgiving",
   "/question-of-the-day/christmas",
   "/4-characters-i-like",
+  "/ship-dynamic-template",
+  "/ship-tier-list",
   "/gnome-name-generator",
   "/warrior-cat-name-generator",
   "/elf-name-generator",

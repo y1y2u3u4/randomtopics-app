@@ -159,6 +159,11 @@
 
 - [Mixtape for You](https://randomtopics.app/mixtape-for-you): free, unofficial mixtape maker — pick a cassette, add 6–12 songs (optional Spotify/YouTube links) and a note, then send a share link (the playlist is encoded in the link after #, nothing stored, no signup) or download a 1080×1350 PNG. The recipient sees the cassette, Side A/B tracklist and play links. Not affiliated with any other mixtape app.
 
+## Pages added 2026-11-10
+
+- [Ship Dynamic Template](https://randomtopics.app/ship-dynamic-template): "my favorite / least favorite ship dynamic" stick-figure meme maker — 12 dynamics (grumpy × sunshine, enemies to lovers, tall × short, golden retriever × black cat…), two names per panel, optional face pictures kept on-device, 1/2/4 panels, 1080px PNG and a text share link. No signup.
+- [Ship Tier List Maker](https://randomtopics.app/ship-tier-list): drag ships (A × B), characters, moe archetypes or pictures into S–F rows, tap-to-place on phones, templates for ship dynamics / romance tropes / moe types, PNG download and a share link storing the tiers. No signup.
+
 ## Pages added 2026-11-08
 
 - [Random Concept Generator](https://randomtopics.app/random-concept-generator): hand-written concepts for drawing, story writing, game design (game jam themes), inventions and abstract ideas, each with a "try this" prompt; filter by type, 10 per click. Free, no sign-up.

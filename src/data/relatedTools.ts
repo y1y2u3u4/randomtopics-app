@@ -124,6 +124,8 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/my-9-anime", label: "My 9 Anime", emoji: "🌸", blurb: "3×3 favorite anime", groups: ["my9"] },
   { href: "/my-9-books", label: "My 9 Books", emoji: "📚", blurb: "3×3 favorite books", groups: ["my9"] },
   { href: "/4-characters-i-like", label: "4 Characters I Like", emoji: "🃏", blurb: "2×2 favorite characters card", groups: ["my9", "creative"] },
+  { href: "/ship-dynamic-template", label: "Ship Dynamic Template", emoji: "💞", blurb: "My (least) favorite ship dynamic maker", groups: ["my9", "creative"] },
+  { href: "/ship-tier-list", label: "Ship Tier List", emoji: "🏆", blurb: "Rank ships & moe types S–F", groups: ["my9", "creative"] },
   { href: "/mixtape-for-you", label: "Mixtape for You", emoji: "📼", blurb: "Make a cassette playlist for a friend", groups: ["my9", "creative"] },
   { href: "/random-concept-generator", label: "Random Concept Generator", emoji: "💡", blurb: "Art, story and game concepts on demand", groups: ["creative"] },
   { href: "/random-historical-event-generator", label: "Random Historical Event", emoji: "🏛️", blurb: "Real events with a date and a question", groups: ["classroom", "speaking"] },

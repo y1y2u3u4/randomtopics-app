@@ -165,6 +165,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ path: "/minimax-h3-prompt-generator", changeFrequency: "weekly", priority: 0.86, lastModified: "2026-10-27" });
   entries.push({ path: "/ai-prompt-generator", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-11-07" });
   entries.push({ path: "/4-characters-i-like", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-11-07" });
+  entries.push({ path: "/ship-dynamic-template", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-11-10" });
+  entries.push({ path: "/ship-tier-list", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-11-10" });
   entries.push({ path: "/mixtape-for-you", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-11-07" });
   // GSC gap pages + seasonal QOTD + Turkish unprompted (2026-11-08).
   entries.push({ path: "/random-concept-generator", changeFrequency: "weekly", priority: 0.86, lastModified: "2026-11-08" });
