@@ -192,6 +192,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-19" });
   }
 
+  // Holiday this-or-that and would-you-rather decks (2026-11-13). English only.
+  for (const p of ["this-or-that/thanksgiving", "would-you-rather/thanksgiving", "this-or-that/christmas", "would-you-rather/christmas"]) {
+    entries.push({ path: `/${p}`, changeFrequency: "weekly", priority: 0.86, lastModified: "2026-11-13" });
+  }
+
   // Text style tools + username/city generators (2026-10-22).
   for (const p of ["fancy-text-generator", "cursed-text-generator", "glitch-text-generator", "weird-text-generator", "creepy-text-generator", "scary-text-generator", "strikethrough-text-generator", "subscript-generator", "username-generator", "city-name-generator"]) {
     entries.push({ path: `/${p}`, changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-22" });

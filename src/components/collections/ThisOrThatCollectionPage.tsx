@@ -36,6 +36,18 @@ export default function ThisOrThatCollectionPage({ c }: { c: ThisOrThatCollectio
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-10">
           <div className="glass-card p-6 sm:p-8">
             <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{c.lead}</p>
+            {c.related && c.related.length > 0 && (
+              <p className="text-sm text-[var(--text-secondary)] mt-3">
+                Keep going:{" "}
+                {c.related.map((link, i) => (
+                  <span key={link.href}>
+                    {i > 0 && ", "}
+                    <Link prefetch={false} href={link.href} className="text-[var(--neon-cyan)] hover:underline">{link.label}</Link>
+                  </span>
+                ))}
+                .
+              </p>
+            )}
             <p className="text-sm text-[var(--text-secondary)] mt-3">
               More versions:{" "}
               <Link prefetch={false} href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">all this or that questions</Link>

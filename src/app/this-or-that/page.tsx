@@ -107,8 +107,10 @@ export default function ThisOrThatPage() {
                 More versions:{" "}
                 <Link prefetch={false} href="/this-or-that/couples" className="text-[var(--neon-cyan)] hover:underline">this or that questions for couples</Link>,{" "}
                 <Link prefetch={false} href="/this-or-that/hard" className="text-[var(--neon-cyan)] hover:underline">hard this or that questions</Link>,{" "}
-                <Link prefetch={false} href="/this-or-that/work" className="text-[var(--neon-cyan)] hover:underline">this or that questions for work</Link> and{" "}
-                <Link prefetch={false} href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link>.
+                <Link prefetch={false} href="/this-or-that/work" className="text-[var(--neon-cyan)] hover:underline">this or that questions for work</Link>,{" "}
+                <Link prefetch={false} href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">this or that for kids</Link>,{" "}
+                <Link prefetch={false} href="/this-or-that/thanksgiving" className="text-[var(--neon-cyan)] hover:underline">Thanksgiving this or that</Link> and{" "}
+                <Link prefetch={false} href="/this-or-that/christmas" className="text-[var(--neon-cyan)] hover:underline">Christmas this or that</Link>.
               </p>
 
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>
@@ -164,7 +166,7 @@ export default function ThisOrThatPage() {
               ))}
             </div>
             <p className="text-sm text-[var(--text-secondary)] mt-6">
-              Want a themed deck instead? Try <Link prefetch={false} href="/this-or-that/couples" className="text-[var(--neon-cyan)] hover:underline">couples</Link>, <Link prefetch={false} href="/this-or-that/hard" className="text-[var(--neon-cyan)] hover:underline">hard</Link>, <Link prefetch={false} href="/this-or-that/work" className="text-[var(--neon-cyan)] hover:underline">work</Link> or <Link prefetch={false} href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">kids</Link> This or That, or the bigger hypotheticals in <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>.
+              Want a themed deck instead? Try <Link prefetch={false} href="/this-or-that/couples" className="text-[var(--neon-cyan)] hover:underline">couples</Link>, <Link prefetch={false} href="/this-or-that/hard" className="text-[var(--neon-cyan)] hover:underline">hard</Link>, <Link prefetch={false} href="/this-or-that/work" className="text-[var(--neon-cyan)] hover:underline">work</Link>, <Link prefetch={false} href="/this-or-that/kids" className="text-[var(--neon-cyan)] hover:underline">kids</Link>, <Link prefetch={false} href="/this-or-that/thanksgiving" className="text-[var(--neon-cyan)] hover:underline">Thanksgiving</Link> or <Link prefetch={false} href="/this-or-that/christmas" className="text-[var(--neon-cyan)] hover:underline">Christmas</Link> This or That, or the bigger hypotheticals in <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>.
             </p>
           </div>
         </section>

@@ -86,6 +86,8 @@ export default function WouldYouRatherPage() {
         <p className="max-w-3xl mx-auto px-4 sm:px-6 pb-6 text-center text-sm text-[var(--text-muted)]">
           Want a full list with a vote screen? Browse the <Link prefetch={false} href="/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">398 would you rather questions by category</Link> or{" "}
           <Link prefetch={false} href="/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">spin the wheel</Link> to pick who goes first.
+          For the holidays, play <Link prefetch={false} href="/would-you-rather/thanksgiving" className="text-[var(--neon-cyan)] hover:underline">Thanksgiving would you rather</Link> or{" "}
+          <Link prefetch={false} href="/would-you-rather/christmas" className="text-[var(--neon-cyan)] hover:underline">Christmas would you rather</Link>.
         </p>
 
         {/* SEO Content */}
