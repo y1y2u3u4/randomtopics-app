@@ -623,9 +623,10 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
   },
   {
     href: "/random-name-generator",
+    esHref: "/es/generador-de-nombres-aleatorios",
     emoji: "🧑",
-    label: { en: "Random Name Generator" },
-    detail: { en: "Random first and last names by gender and origin" },
+    label: { en: "Random Name Generator", es: "Nombres aleatorios" },
+    detail: { en: "Random first and last names by gender and origin", es: "Nombre y apellido por género y origen" },
     crossLinkOnly: true,
   },
   {

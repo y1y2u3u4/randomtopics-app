@@ -91,6 +91,8 @@ export default function NeverHaveIEverPageEs() {
                 persona equivocada, reírse por compromiso de un chiste, aplaudir cuando aterriza el avión.
               </p>
               <p>
+                Si quieren coqueteo sin explícitos, está el{" "}
+                <Link prefetch={false} href="/es/topics/yo-nunca-nunca-picante" className="text-[var(--neon-cyan)] hover:underline">yo nunca picante</Link>.
                 Si el grupo es de amigos y quieren frases sin alcohol, está la lista de{" "}
                 <Link prefetch={false} href="/es/topics/yo-nunca-nunca-amigos" className="text-[var(--neon-cyan)] hover:underline">yo nunca para amigos</Link>.
                 El generador reparte una propuesta por clic sin repetir hasta usar las más de 60, así que

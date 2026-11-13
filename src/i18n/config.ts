@@ -80,6 +80,7 @@ export const CUSTOM_SPANISH_ALTERNATES: Readonly<Record<string, string>> = {
   "/yes-or-no-wheel": "/es/ruleta-si-o-no",
   "/random-letter-generator": "/es/ruleta-de-letras",
   "/random-number-generator": "/es/ruleta-de-numeros",
+  "/random-name-generator": "/es/generador-de-nombres-aleatorios",
 };
 
 export function spanishCounterpartPath(englishPath: string): string | null {
@@ -261,7 +262,6 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/discord-qotd-bot",
   "/writing-journal",
   "/number-randomizer",
-  "/random-name-generator",
   "/fantasy-name-generator",
   "/random-country-generator",
   "/flip-a-coin",
@@ -321,6 +321,15 @@ export const ES_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/topics/preguntas-para-mi-novio",
   "/topics/temas-de-conversacion-con-mi-novia",
   "/topics/yo-nunca-nunca-amigos",
+  "/topics/preguntas-para-conocer-a-alguien",
+  "/topics/verdad-o-reto-parejas",
+  "/topics/que-prefieres-preguntas-dificiles",
+  "/topics/temas-de-conversacion-para-whatsapp",
+  "/topics/yo-nunca-nunca-picante",
+  "/topics/preguntas-rompehielos-divertidas",
+  "/topics/juegos-para-whatsapp",
+  "/ruleta-de-preguntas",
+  "/ruleta-de-retos",
 ]);
 
 export function isEsOnly(rootPath: string): boolean {

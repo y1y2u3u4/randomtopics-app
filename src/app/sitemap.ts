@@ -414,6 +414,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/es/topics/preguntas-para-mi-novio",
     "/es/topics/temas-de-conversacion-con-mi-novia",
     "/es/topics/yo-nunca-nunca-amigos",
+    "/es/topics/preguntas-para-conocer-a-alguien",
+    "/es/topics/verdad-o-reto-parejas",
+    "/es/topics/que-prefieres-preguntas-dificiles",
+    "/es/topics/temas-de-conversacion-para-whatsapp",
+    "/es/topics/yo-nunca-nunca-picante",
+    "/es/topics/preguntas-rompehielos-divertidas",
+    "/es/topics/juegos-para-whatsapp",
+    "/es/ruleta-de-preguntas",
+    "/es/ruleta-de-retos",
   ]) {
     const url = abs(path);
     result.push({
