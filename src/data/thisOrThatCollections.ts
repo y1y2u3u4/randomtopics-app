@@ -4,7 +4,7 @@ import type { QotdCategory } from "@/data/questionOfTheDay";
 
 export interface ChoiceGroup { title: string; questions: string[] }
 export interface ThisOrThatCollection {
-  slug: "couples" | "hard" | "work";
+  slug: "couples" | "hard" | "work" | "thanksgiving" | "christmas";
   path: string;
   h1: string;
   title: string;
@@ -16,6 +16,8 @@ export interface ThisOrThatCollection {
   groups: ChoiceGroup[];
   howTo: { name: string; text: string }[];
   faq: { question: string; answer: string }[];
+  /** Extra crawlable links that are not other this-or-that decks. */
+  related?: { href: string; label: string }[];
 }
 
 export const THIS_OR_THAT_COLLECTIONS: ThisOrThatCollection[] = [
@@ -293,6 +295,201 @@ export const THIS_OR_THAT_COLLECTIONS: ThisOrThatCollection[] = [
       { question: "How do you use this or that as an icebreaker at work?", answer: "Ask one question at the start of a meeting and have everyone answer in a word or two, out loud or in chat. On video calls, use reactions: thumbs up for the first choice, heart for the second." },
       { question: "How many questions should I ask in a meeting?", answer: "One or two for a regular meeting, five to ten for a team-building session or onboarding. Quick picks keep the energy up; stop while people still want more." },
       { question: "Do you have other icebreakers for work?", answer: "Yes. Try the question of the day for work for a longer daily question, or the would you rather generator for something more playful." },
+    ],
+  },
+  {
+    slug: "thanksgiving",
+    path: "/this-or-that/thanksgiving",
+    h1: "Thanksgiving This or That Questions",
+    title: "Thanksgiving This or That: 48 Questions for the Table",
+    description: "48 Thanksgiving this or that questions for dinner, class and the car: food, family, leftovers and traditions. A random generator plus the full list, free and clean.",
+    keywords: ["thanksgiving this or that", "thanksgiving this or that questions", "this or that thanksgiving", "thanksgiving would you rather", "thanksgiving dinner questions"],
+    lead: "Two options, one snap answer, no speeches required. These Thanksgiving picks work at the table, in a classroom the week of the holiday, and in the car on the way to dinner. Every question is about the day itself — food, guests, leftovers and traditions — and none of them ask anyone to share money, politics or private family details.",
+    emoji: "🦃",
+    qotdCategory: "funny",
+    related: [
+      { href: "/would-you-rather/thanksgiving", label: "Thanksgiving would you rather" },
+      { href: "/question-of-the-day/thanksgiving", label: "Thanksgiving question of the day" },
+      { href: "/this-or-that/christmas", label: "Christmas this or that" },
+    ],
+    groups: [
+      {
+        title: "The table",
+        questions: [
+          "Turkey or ham?",
+          "Mashed potatoes or sweet potato casserole?",
+          "Stuffing baked in a dish or stuffing with the roast?",
+          "Cranberry sauce from a can or homemade cranberry sauce?",
+          "Gravy on everything or gravy on the side?",
+          "Pumpkin pie or pecan pie?",
+          "Apple pie or cherry pie?",
+          "Whipped cream or ice cream on your slice?",
+          "Dinner at noon or dinner at sunset?",
+          "Warm rolls from the oven or leftover rolls the next morning?",
+          "Green bean casserole or roasted vegetables?",
+          "Cornbread or soft dinner rolls?",
+        ],
+      },
+      {
+        title: "How the day goes",
+        questions: [
+          "Parade on TV or football on TV?",
+          "Watch the game or play a game outside?",
+          "A nap after dinner or a walk after dinner?",
+          "Cook all morning or arrive with one dish?",
+          "Assigned seats or sit wherever there is a chair?",
+          "A fancy tablecloth or sturdy paper plates?",
+          "A kids' table or everyone at one table?",
+          "Photos before anyone eats or photos after the meal?",
+          "One short toast or no speeches at all?",
+          "Board games after dinner or a movie after dinner?",
+          "Early to bed or stay up talking?",
+          "Plans for the day after or a completely empty Friday?",
+        ],
+      },
+      {
+        title: "Guests and hosting",
+        questions: [
+          "Host at your place or go to someone else's?",
+          "A big crowd or just your household?",
+          "Friendsgiving or a family dinner?",
+          "A potluck or one person cooks?",
+          "Name tags for a big group or trust that people will introduce themselves?",
+          "Pets in the room or pets in a quiet room?",
+          "Travel to the dinner or stay in the city where you live?",
+          "Invite a neighbor or keep the guest list small?",
+          "Matching sweaters or whatever is comfortable?",
+          "Say what you are thankful for out loud or write it on a card?",
+          "Retell an old family story or start a new one?",
+          "A group chat to plan or one person in charge?",
+        ],
+      },
+      {
+        title: "Traditions and leftovers",
+        questions: [
+          "The same menu every year or one new dish?",
+          "Paper hand turkeys or a simple store-bought centerpiece?",
+          "The same movie every year or a new one?",
+          "Help out in the morning or rest in the morning?",
+          "A leftover sandwich or a reheated plate?",
+          "Friday leftovers or a Friday restaurant?",
+          "Leave the table set all weekend or clear it the same night?",
+          "Handwritten thank-you notes or one group text?",
+          "A recipe card passed down or a new cookbook?",
+          "A gratitude jar or a spoken round of thanks?",
+          "A cold-weather walk or a blanket on the couch?",
+          "Save the wishbone or let the kids pull it right away?",
+        ],
+      },
+    ],
+    howTo: [
+      { name: "Pass the plate", text: "Read one question while people are filling plates. Point left for the first choice and right for the second. The person in the minority explains their pick in one sentence." },
+      { name: "Car ride", text: "The passenger reads, everyone answers in seat order, and the driver breaks ties. Ten questions fill the last stretch of a drive." },
+      { name: "Classroom warm-up", text: "Project one question, send students to two sides of the room, and ask one volunteer from each side for a because. Stop after three questions so the lesson still starts." },
+    ],
+    faq: [
+      { question: "Are these Thanksgiving this or that questions good for dinner?", answer: "Yes. They are short food, hosting and tradition picks, so they work between courses without turning the table into a speech. Skip any question that would leave someone out, such as travel, if a guest could not come." },
+      { question: "Can a classroom use these the week of Thanksgiving?", answer: "Yes. The food and tradition questions are school-safe and do not ask about family income, religion or who is coming to dinner. Use two or three as a warm-up, then go back to the lesson." },
+      { question: "How is this different from would you rather?", answer: "This or that is a fast everyday pick, like pie or cake. Would you rather adds a situation, like cooking the whole meal or washing every dish. Use this page for speed and the Thanksgiving would you rather page when you want a longer answer." },
+      { question: "Are the questions clean for mixed company?", answer: "Yes. There is no alcohol, romance or embarrassing-secret content. They are written for families, classrooms, coworkers and friends at the same table." },
+    ],
+  },
+  {
+    slug: "christmas",
+    path: "/this-or-that/christmas",
+    h1: "Christmas This or That Questions",
+    title: "Christmas This or That: 48 Holiday Questions",
+    description: "48 Christmas this or that questions for family, class and parties: gifts, trees, movies, cookies and traditions. Random generator plus the full clean list, free.",
+    keywords: ["christmas this or that", "christmas this or that questions", "this or that christmas", "holiday this or that", "christmas would you rather"],
+    lead: "A two-choice question is the easiest way to start a Christmas conversation. These 48 picks cover gifts, decorations, food, movies and traditions, and they stay clear of budgets, beliefs and anything you would not ask in front of kids or coworkers.",
+    emoji: "🎄",
+    qotdCategory: "funny",
+    related: [
+      { href: "/would-you-rather/christmas", label: "Christmas would you rather" },
+      { href: "/question-of-the-day/christmas", label: "Christmas question of the day" },
+      { href: "/trivia-questions/christmas", label: "Christmas trivia" },
+      { href: "/charades/christmas", label: "Christmas charades" },
+    ],
+    groups: [
+      {
+        title: "Gifts",
+        questions: [
+          "Give a gift or receive a gift?",
+          "A handmade gift or a store-bought gift?",
+          "One big gift or several small gifts?",
+          "Open gifts on Christmas Eve or on Christmas morning?",
+          "Stockings first or presents under the tree first?",
+          "A surprise or a shared wish list?",
+          "Paper and bows or a gift bag?",
+          "An experience or a thing you can hold?",
+          "Secret Santa or a gift for everyone?",
+          "Pass a mismatched gift on thoughtfully or donate it?",
+          "Open one small thing during December or save everything for the day?",
+          "A handwritten card or no card at all?",
+        ],
+      },
+      {
+        title: "Tree, lights and music",
+        questions: [
+          "A real tree or an artificial tree?",
+          "White lights or multicolor lights?",
+          "Tinsel or no tinsel?",
+          "Classic carols or current holiday songs?",
+          "Decorate on December 1 or wait until mid-December?",
+          "A big lawn display or a single wreath?",
+          "An advent calendar with chocolate or one with tiny toys?",
+          "Candles on the table or string lights only?",
+          "Ornaments that match or ornaments with a story?",
+          "A star on top or an angel on top?",
+          "Lights in the windows or only on the tree?",
+          "Take decorations down on New Year's Day or leave them up through the weekend?",
+        ],
+      },
+      {
+        title: "Food and movies",
+        questions: [
+          "Cookies or pie?",
+          "Hot cocoa or apple cider?",
+          "Ham or a roast for dinner?",
+          "A breakfast casserole or pancakes on Christmas morning?",
+          "A classic holiday movie or a new release?",
+          "Watch a movie together or play a game together?",
+          "A gingerbread house or a tray of sugar cookies?",
+          "Candy canes or chocolate?",
+          "Dinner at home or dinner out?",
+          "Leftover cookies for breakfast or a real breakfast?",
+          "A snowball fight or sledding?",
+          "Ice skating or a night in?",
+        ],
+      },
+      {
+        title: "Traditions",
+        questions: [
+          "Visit family or have family visit you?",
+          "Holiday pajamas or your usual pajamas?",
+          "An early celebration or a slow late morning?",
+          "Read a story aloud or tell one from memory?",
+          "Drive around to see lights or stay in and look at your own?",
+          "Make New Year plans now or decide later?",
+          "Volunteer together or donate toys?",
+          "A photo in matching sweaters or candid photos only?",
+          "Keep one tradition exactly the same or invent a new one?",
+          "A countdown calendar or a paper chain?",
+          "A letter to next year's self or a short resolution list?",
+          "A board-game tournament or a living-room talent show?",
+        ],
+      },
+    ],
+    howTo: [
+      { name: "While you wrap", text: "Ask one question per gift. The wrapper answers, then the person holding the tape answers. You finish the pile and a conversation at the same time." },
+      { name: "Party round", text: "Read a question, count to three, and everyone points. The smaller side gets thirty seconds to recruit one person." },
+      { name: "Classroom countdown", text: "Use one question a day in December as a thirty-second warm-up. Students answer with a thumb left or right, then one volunteer says why." },
+    ],
+    faq: [
+      { question: "Are these Christmas this or that questions okay for kids?", answer: "Yes. They are about gifts, food, decorations and games, with no scares, romance or dares. For a grades K–6 deck year-round, use this or that for kids." },
+      { question: "What if someone in the group does not celebrate Christmas?", answer: "Use the December question of the day instead. These questions assume a Christmas setting. The food, movie and game picks can still work at a winter party if you skip the tree and gift ones." },
+      { question: "How many questions should I use at a party?", answer: "Five to ten. Quick picks stay funny when they stay short. Stop while people still want another one, then switch to Christmas trivia or charades." },
+      { question: "Do you have longer Christmas dilemmas?", answer: "Yes. Christmas would you rather has 48 either-or situations, and the Christmas question of the day has 40 prompts you can run one per morning." },
     ],
   },
 ];

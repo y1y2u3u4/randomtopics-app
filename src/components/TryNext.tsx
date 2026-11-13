@@ -83,12 +83,16 @@ const CATEGORY_FAMILIES: TryNextTool[][] = [
     { href: "/this-or-that/couples", label: "For couples", emoji: "💞" },
     { href: "/this-or-that/work", label: "For work", emoji: "💼" },
     { href: "/this-or-that/hard", label: "Hard", emoji: "🧠" },
+    { href: "/this-or-that/thanksgiving", label: "Thanksgiving", emoji: "🦃" },
+    { href: "/this-or-that/christmas", label: "Christmas", emoji: "🎄" },
     { href: "/topics/this-or-that-questions", label: "Question list", emoji: "📋" },
     { href: "/would-you-rather", label: "Would You Rather", emoji: "🤔" },
   ],
   [
     { href: "/would-you-rather", label: "Would You Rather", emoji: "🤔" },
     { href: "/would-you-rather/kids", label: "For kids", emoji: "🧒" },
+    { href: "/would-you-rather/thanksgiving", label: "Thanksgiving", emoji: "🦃" },
+    { href: "/would-you-rather/christmas", label: "Christmas", emoji: "🎄" },
     { href: "/topics/would-you-rather-questions", label: "Question list", emoji: "📋" },
   ],
   [

@@ -418,6 +418,17 @@ export const CHRISTMAS_QOTD_CONFIG = config({
   ],
 });
 
+THANKSGIVING_QOTD_CONFIG.relatedLinks = [
+  ...THANKSGIVING_QOTD_CONFIG.relatedLinks,
+  { label: "Thanksgiving would you rather", href: "/would-you-rather/thanksgiving", description: "48 feast, family and travel dilemmas for the table." },
+  { label: "Thanksgiving this or that", href: "/this-or-that/thanksgiving", description: "48 quick holiday picks for dinner, class and the car." },
+];
+CHRISTMAS_QOTD_CONFIG.relatedLinks = [
+  ...CHRISTMAS_QOTD_CONFIG.relatedLinks,
+  { label: "Christmas would you rather", href: "/would-you-rather/christmas", description: "48 gift, tree and movie dilemmas for December." },
+  { label: "Christmas this or that", href: "/this-or-that/christmas", description: "48 quick Christmas picks for family, class and parties." },
+];
+
 export const SEASONAL_QOTD_CONFIGS = [NOVEMBER_QOTD_CONFIG, DECEMBER_QOTD_CONFIG, THANKSGIVING_QOTD_CONFIG, CHRISTMAS_QOTD_CONFIG];
 
 for (const c of SEASONAL_QOTD_CONFIGS) validatePremiumCollection(c, 40);
