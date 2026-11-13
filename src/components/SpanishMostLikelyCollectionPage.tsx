@@ -22,6 +22,11 @@ function sectionId(heading: string) {
 export default function SpanishMostLikelyCollectionPage({ config }: { config: SpanishMostLikelyConfig }) {
   const pageUrl = `${SITE_URL}/es/topics/${config.slug}`;
   const questions = config.sections.flatMap((section) => section.items);
+  const cta = config.cta ?? {
+    prompt: "¿Prefieres sacar una pregunta nueva con cada clic?",
+    href: "/es/most-likely-to",
+    label: "Abrir el generador de Quién es más probable",
+  };
 
   return (
     <>
@@ -105,9 +110,9 @@ export default function SpanishMostLikelyCollectionPage({ config }: { config: Sp
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10 text-center">
           <div className="glass-card p-6 sm:p-8 border-[var(--neon-cyan)]/20 bg-gradient-to-r from-[rgba(0,229,255,0.04)] to-[rgba(255,45,120,0.04)]">
-            <p className="text-sm text-[var(--text-secondary)] mb-4">¿Prefieres sacar una pregunta nueva con cada clic?</p>
-            <Link prefetch={false} href="/es/most-likely-to" className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
-              <span aria-hidden="true">👉</span> Abrir el generador de Quién es más probable
+            <p className="text-sm text-[var(--text-secondary)] mb-4">{cta.prompt}</p>
+            <Link prefetch={false} href={cta.href} className="btn-generate inline-flex items-center gap-2 text-sm px-6 py-3">
+              <span aria-hidden="true">👉</span> {cta.label}
             </Link>
           </div>
         </section>

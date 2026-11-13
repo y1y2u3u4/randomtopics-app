@@ -80,6 +80,8 @@ export default function TruthOrDarePageEs() {
                 para una pregunta reveladora o reto para un desafío inofensivo, y deja que el juego siga solo.
               </p>
               <p>
+                Para una ronda solo de amigos, abre las{" "}
+                <Link prefetch={false} href="/es/topics/verdad-o-reto-amigos" className="text-[var(--neon-cyan)] hover:underline">45 verdades y retos para amigos</Link>.
                 ¿Más munición para la fiesta? Prueba{" "}
                 <Link prefetch={false} href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Qué Prefieres</Link>,{" "}
                 <Link prefetch={false} href="/es/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Yo Nunca</Link>,{" "}

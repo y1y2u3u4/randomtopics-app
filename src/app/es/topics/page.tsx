@@ -46,6 +46,29 @@ export default function TopicsIndexPageEs() {
             ))}
           </div>
         </section>
+
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
+          <h2 className="text-xl font-bold text-[var(--text-primary)] mb-4" style={{ fontFamily: "var(--font-display)" }}>Listas para jugar en español</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { href: "/es/topics/preguntas-incomodas", title: "Preguntas incómodas", detail: "45 preguntas limpias para amigos con confianza" },
+              { href: "/es/topics/que-prefieres-pareja", title: "¿Qué prefieres? para parejas", detail: "45 dilemas de casa, planes y cariño" },
+              { href: "/es/topics/verdad-o-reto-amigos", title: "Verdad o reto para amigos", detail: "45 verdades y retos sin contacto ni trampas" },
+              { href: "/es/topics/preguntas-para-mi-novio", title: "Preguntas para mi novio", detail: "45 preguntas para conocerlo, no para examinarlo" },
+              { href: "/es/topics/temas-de-conversacion-con-mi-novia", title: "Temas con mi novia", detail: "45 temas para hablar los dos" },
+              { href: "/es/topics/yo-nunca-nunca-amigos", title: "Yo nunca para amigos", detail: "45 frases de hábitos, viajes y amistad" },
+              { href: "/es/ruleta-de-nombres", title: "Ruleta de nombres", detail: "Gira y elige un ganador de tu lista" },
+              { href: "/es/ruleta-si-o-no", title: "Ruleta sí o no", detail: "Sí, no o tal vez, con la misma probabilidad" },
+              { href: "/es/ruleta-de-letras", title: "Ruleta de letras", detail: "Abecedario con Ñ para Basta o Stop" },
+              { href: "/es/ruleta-de-numeros", title: "Ruleta de números", detail: "Del 1 al 20, o el rango que escribas" },
+            ].map((item) => (
+              <Link prefetch={false} key={item.href} href={item.href} className="glass-card p-6 transition-all duration-300 hover:translate-y-[-3px] group hover:border-[var(--neon-cyan)]/40">
+                <h3 className="text-base font-bold mb-2 group-hover:text-[var(--neon-cyan)] transition-colors leading-snug" style={{ fontFamily: "var(--font-display)" }}>{item.title}</h3>
+                <p className="text-xs text-[var(--text-muted)] leading-relaxed">{item.detail}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
       </main>
       <Footer locale="es" />
     </>

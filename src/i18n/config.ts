@@ -76,6 +76,10 @@ export const CUSTOM_SPANISH_ALTERNATES: Readonly<Record<string, string>> = {
   "/story-prompt-generator": "/es/ideas-para-escribir-historias",
   "/put-a-finger-down": "/es/baja-un-dedo-preguntas",
   "/group-discussion-topics": "/es/temas-para-debatir-en-grupo",
+  "/wheel-of-names": "/es/ruleta-de-nombres",
+  "/yes-or-no-wheel": "/es/ruleta-si-o-no",
+  "/random-letter-generator": "/es/ruleta-de-letras",
+  "/random-number-generator": "/es/ruleta-de-numeros",
 };
 
 export function spanishCounterpartPath(englishPath: string): string | null {
@@ -227,7 +231,6 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/headcanon-generator",
   "/put-a-finger-down",
   "/random-food-generator",
-  "/random-letter-generator",
   "/japanese-name-generator",
   "/japanese-name-converter",
   "/random-color-generator",
@@ -258,8 +261,6 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/discord-qotd-bot",
   "/writing-journal",
   "/number-randomizer",
-  "/wheel-of-names",
-  "/random-number-generator",
   "/random-name-generator",
   "/fantasy-name-generator",
   "/random-country-generator",
@@ -275,7 +276,6 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/raffle-wheel",
   "/dice-roller",
   "/bingo-card-generator",
-  "/yes-or-no-wheel",
   "/random-city-generator",
   "/random-sentence-generator",
   "/random-noun-generator",
@@ -315,6 +315,12 @@ export const ES_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/topics/quien-es-mas-probable-preguntas-incomodas",
   "/topics/quien-es-mas-probable-amigas",
   "/topics/quien-es-mas-probable-preguntas-chistosas",
+  "/topics/preguntas-incomodas",
+  "/topics/que-prefieres-pareja",
+  "/topics/verdad-o-reto-amigos",
+  "/topics/preguntas-para-mi-novio",
+  "/topics/temas-de-conversacion-con-mi-novia",
+  "/topics/yo-nunca-nunca-amigos",
 ]);
 
 export function isEsOnly(rootPath: string): boolean {

@@ -351,9 +351,10 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
   },
   {
     href: "/random-letter-generator",
+    esHref: "/es/ruleta-de-letras",
     emoji: "🔤",
-    label: { en: "Random Letter Generator" },
-    detail: { en: "A–Z with no repeats" },
+    label: { en: "Random Letter Generator", es: "Ruleta de letras" },
+    detail: { en: "A–Z with no repeats", es: "Gira y cae en una letra" },
   },
   {
     href: "/japanese-name-generator",
@@ -606,16 +607,18 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
   },
   {
     href: "/wheel-of-names",
+    esHref: "/es/ruleta-de-nombres",
     emoji: "🎡",
-    label: { en: "Wheel of Names" },
-    detail: { en: "Spin a wheel of names, up to 200 entries" },
+    label: { en: "Wheel of Names", es: "Ruleta de nombres" },
+    detail: { en: "Spin a wheel of names, up to 200 entries", es: "Gira una ruleta con hasta 200 nombres" },
     crossLinkOnly: true,
   },
   {
     href: "/random-number-generator",
+    esHref: "/es/ruleta-de-numeros",
     emoji: "🔢",
-    label: { en: "Random Number Generator" },
-    detail: { en: "Random numbers in any range, with presets" },
+    label: { en: "Random Number Generator", es: "Ruleta de números" },
+    detail: { en: "Random numbers in any range, with presets", es: "Gira y cae en un número" },
     crossLinkOnly: true,
   },
   {
@@ -704,9 +707,10 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
   },
   {
     href: "/yes-or-no-wheel",
+    esHref: "/es/ruleta-si-o-no",
     emoji: "✅",
-    label: { en: "Yes or No Wheel" },
-    detail: { en: "A spinning yes, no or maybe wheel for a quick answer" },
+    label: { en: "Yes or No Wheel", es: "Ruleta sí o no" },
+    detail: { en: "A spinning yes, no or maybe wheel for a quick answer", es: "Sí, no o tal vez, con el mismo chance" },
     crossLinkOnly: true,
   },
   {
