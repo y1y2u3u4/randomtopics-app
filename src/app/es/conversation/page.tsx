@@ -189,7 +189,9 @@ export default function ConversationPageEs() {
                 infancia o qué haría con un día libre inesperado. Evita al principio los temas demasiado
                 personales o polémicos: céntrate en asuntos que revelen personalidad y valores sin que parezca un
                 interrogatorio. ¿Buscas más ideas específicas para citas? Echa un vistazo a nuestra guía de{" "}
-                <Link prefetch={false} href="/es/topics/conversation-starters-for-couples" className="text-[var(--neon-cyan)] hover:underline">iniciadores de conversación para parejas</Link>.
+                <Link prefetch={false} href="/es/topics/conversation-starters-for-couples" className="text-[var(--neon-cyan)] hover:underline">iniciadores de conversación para parejas</Link>,{" "}
+                las <Link prefetch={false} href="/es/topics/preguntas-para-mi-novio" className="text-[var(--neon-cyan)] hover:underline">preguntas para mi novio</Link> o los{" "}
+                <Link prefetch={false} href="/es/topics/temas-de-conversacion-con-mi-novia" className="text-[var(--neon-cyan)] hover:underline">temas de conversación con mi novia</Link>.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--neon-pink)] pt-2">En el Trabajo</h4>
@@ -205,7 +207,9 @@ export default function ConversationPageEs() {
                 Incluso los amigos más cercanos pueden caer en rutinas de conversación. Rompe el patrón con
                 preguntas hipotéticas («Si pudieras vivir en cualquier época, ¿cuál elegirías?»), propuestas
                 nostálgicas o preguntas profundas sobre metas de vida. Para ideas frescas,
-                explora <Link prefetch={false} href="/es/topics/random-questions-to-ask-friends" className="text-[var(--neon-cyan)] hover:underline">preguntas al azar para hacer a los amigos</Link>.
+                explora <Link prefetch={false} href="/es/topics/random-questions-to-ask-friends" className="text-[var(--neon-cyan)] hover:underline">preguntas al azar para hacer a los amigos</Link>,{" "}
+                las <Link prefetch={false} href="/es/topics/preguntas-incomodas" className="text-[var(--neon-cyan)] hover:underline">preguntas incómodas</Link> o{" "}
+                <Link prefetch={false} href="/es/topics/yo-nunca-nunca-amigos" className="text-[var(--neon-cyan)] hover:underline">yo nunca para amigos</Link>.
               </p>
 
               <h4 className="text-base font-semibold text-[var(--neon-pink)] pt-2">Con la Familia</h4>

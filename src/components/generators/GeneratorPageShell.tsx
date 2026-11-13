@@ -40,8 +40,8 @@ interface Props {
 }
 
 const UI = {
-  en: { home: "Home", generators: "Random generators", more: "More random generators", faq: "Frequently asked questions", updated: "Updated", related: "Related tools" },
-  es: { home: "Inicio", generators: "Generadores aleatorios", more: "Más generadores aleatorios", faq: "Preguntas frecuentes", updated: "Actualizado", related: "Herramientas relacionadas" },
+  en: { home: "Home", generators: "Random generators", more: "More random generators", faq: "Frequently asked questions", updated: "Updated", related: "Related tools", short: "In short" },
+  es: { home: "Inicio", generators: "Generadores aleatorios", more: "Más generadores aleatorios", faq: "Preguntas frecuentes", updated: "Actualizado", related: "Herramientas relacionadas", short: "En resumen" },
 };
 
 export default function GeneratorPageShell(props: Props) {
@@ -97,7 +97,7 @@ export default function GeneratorPageShell(props: Props) {
             <div className="space-y-4 text-[var(--text-secondary)] text-sm leading-relaxed generator-copy">
               {inShort && (
                 <div className="rounded-xl border border-[var(--neon-cyan)]/30 bg-[rgba(0,229,255,0.05)] p-4">
-                  <p className="text-xs uppercase tracking-widest text-[var(--neon-cyan)] mb-1">In short</p>
+                  <p className="text-xs uppercase tracking-widest text-[var(--neon-cyan)] mb-1">{ui.short}</p>
                   <p className="text-[var(--text-primary)]">{inShort}</p>
                 </div>
               )}

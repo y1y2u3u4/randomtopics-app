@@ -95,6 +95,8 @@ export default function WouldYouRatherPageEs() {
                 el mazo.
               </p>
               <p>
+                Para una cita o un domingo en pareja, usa las{" "}
+                <Link prefetch={false} href="/es/topics/que-prefieres-pareja" className="text-[var(--neon-cyan)] hover:underline">preguntas de qué prefieres para parejas</Link>.
                 ¿Prefieres una lista imprimible? Consulta nuestra colección de{" "}
                 <Link prefetch={false} href="/es/topics/would-you-rather-questions" className="text-[var(--neon-cyan)] hover:underline">80 preguntas de ¿qué prefieres?</Link>.
                 Para más munición para fiestas, prueba{" "}

@@ -399,6 +399,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: { es: url, "x-default": url } },
     });
   }
+  // Spanish search-intent lists with no unpaired English URL (2026-11-13).
+  // Existing English lists already have their own /es/topics mirrors, so these
+  // stay self-referencing instead of inventing a second hreflang pair.
+  for (const path of [
+    "/es/topics/preguntas-incomodas",
+    "/es/topics/que-prefieres-pareja",
+    "/es/topics/verdad-o-reto-amigos",
+    "/es/topics/preguntas-para-mi-novio",
+    "/es/topics/temas-de-conversacion-con-mi-novia",
+    "/es/topics/yo-nunca-nunca-amigos",
+  ]) {
+    const url = abs(path);
+    result.push({
+      url,
+      lastModified: "2026-11-13",
+      changeFrequency: "monthly",
+      priority: 0.84,
+      alternates: { languages: { es: url, "x-default": url } },
+    });
+  }
 
   // Turkish-only page with no EN counterpart (2026-11-08): self-referencing tr alternate only.
   {

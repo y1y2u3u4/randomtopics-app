@@ -11,6 +11,8 @@ export interface SpanishMostLikelyConfig {
   /** Publication line under the hero; the first three pages keep the original August dates. */
   dateLine?: string;
   datePublished?: string;
+  /** Replaces the default Quién es más probable call to action. */
+  cta?: { prompt: string; href: string; label: string };
 }
 
 export const SPANISH_MOST_LIKELY_CLUSTERS = {
