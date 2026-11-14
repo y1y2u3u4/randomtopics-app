@@ -95,6 +95,8 @@ export default function WouldYouRatherPageEs() {
                 el mazo.
               </p>
               <p>
+                Para dilemas sin respuesta fácil, abre las{" "}
+                <Link prefetch={false} href="/es/topics/que-prefieres-preguntas-dificiles" className="text-[var(--neon-cyan)] hover:underline">preguntas difíciles de qué prefieres</Link>.
                 Para una cita o un domingo en pareja, usa las{" "}
                 <Link prefetch={false} href="/es/topics/que-prefieres-pareja" className="text-[var(--neon-cyan)] hover:underline">preguntas de qué prefieres para parejas</Link>.
                 ¿Prefieres una lista imprimible? Consulta nuestra colección de{" "}
