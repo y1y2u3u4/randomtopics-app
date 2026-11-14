@@ -41,6 +41,8 @@ const UMAMI_DIRECT_EVENTS = new Set([
   "host_plan_select", "host_checkout_start", "host_purchase", "host_session_start", "timer_set", "no_repeat_reset",
   // 2026-10-27: related-tool strips, for the daily pages-per-visit report.
   "related_tool_click",
+  // 2026-11-14: Adsterra Native experiment, per-country load count.
+  "adsterra_native_load",
 ]);
 
 // Subscription products (2026-10-24): {product}_{step}, same names in GA4 and Umami.
@@ -74,7 +76,7 @@ export function sessionGenerateCount(): number {
 
 function umamiProps(params: GtagParams): Record<string, string | number | boolean> {
   const out: Record<string, string | number | boolean> = {};
-  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path", "plan", "generator", "seconds", "product", "entry_page", "slot", "from", "target_path", "locale_from", "generations"]) {
+  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path", "plan", "generator", "seconds", "product", "entry_page", "slot", "from", "target_path", "locale_from", "generations", "country"]) {
     const value = params[key];
     if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") out[key] = value;
   }
