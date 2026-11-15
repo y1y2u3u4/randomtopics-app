@@ -110,6 +110,7 @@ export const NEXT_STEPS: Record<string, NextStep> = {
   "/random-idea-generator": { next: t("/random-character-generator", "Make a character next", "🎭"), collection: t("/writing", "500+ writing prompts", "✍️") },
   "/magic-8-ball": { next: t("/decision-maker", "Let it decide: Decision Maker", "🧭"), collection: t("/yes-or-no-wheel", "Spin the yes or no wheel", "🎡") },
   "/random-pokemon-generator": { next: t("/random-team-generator", "Split into teams next", "👥"), collection: t("/random-nba-player-generator", "Random NBA players next", "🏀") },
+  "/tarkov-random-weapon-generator": { next: t("/random-team-generator", "Split your squad into teams", "👥"), collection: t("/random-pokemon-generator", "Random Pokémon next", "⚡") },
   "/trivia-questions": { next: t("/charades", "Charades next", "🎭"), collection: t("/trivia-questions/halloween", "Halloween trivia", "🎃") },
 };
 

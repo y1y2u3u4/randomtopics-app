@@ -109,6 +109,7 @@ const CARDS = [
   { id: "pick", slug: "random-name-picker", title: "Random Name Picker", line: "Draw names from a hat — no repeats", chips: ["Paste a class list", "Pick 1 or 10", "Random order"],
     paper: ["Ava", "Ben", "<b>✓ Chloe</b>", "Diego", "Emma", "Finn"], paperTitle: "Picked" },
   { id: "marvel", slug: "random-marvel-character-generator", title: "Random Marvel Character Generator", line: "Heroes, villains, a wheel & a daily guess", chips: ["Spider-Man · Hero · 1962", "Doctor Doom · Villain · 1962", "Deadpool · Anti-hero · 1991"] },
+  { id: "tarkov", slug: "tarkov-random-weapon-generator", title: "Tarkov Random Weapon Generator", line: "178 weapons, ammo, maps & raid challenges", chips: ["M4A1 · 5.56x45mm M855A1", "Mosin Sniper · Woods", "Hip-fire only"] },
   { id: "book", slug: "book-idea-generator", title: "Book Idea Generator", line: "Title, logline, conflict & twist", chips: ["Fantasy · The Hollow Crown", "Mystery · Blackwater Manor", "Sci-fi · The Quiet Signal"] },
   { id: "h3", slug: "minimax-h3-prompt-generator", title: "MiniMax H3 Prompt Generator", line: "Hailuo 3 video prompts, shot by shot", chips: ["Camera: slow dolly-in", "0–3s · 3–7s · 7–10s beats", "Dialogue + SFX + music"] },
   { id: "decide", slug: "decision-maker", title: "Decision Maker", line: "Wheel, draw lots or yes / no — you pick the options", chips: ["🎡 Pizza · Tacos · Sushi", "🥢 No-repeat lots", "🪙 Yes or no"] },

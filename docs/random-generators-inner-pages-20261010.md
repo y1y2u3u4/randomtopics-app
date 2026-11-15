@@ -155,3 +155,43 @@ Similarweb TopSites 美国 28 天点击（`tier-all-2026-10-13.json`）；月量
 
 ### CL.8 上线顺序
 第 1 批：this-or-that/kids、would-you-rather/kids、get-to-know-you-questions-for-students；第 2 批：morning-meeting-questions、riddles-for-kids、journal-prompts 改标题；第 3 批：classroom-timer。
+
+## 追加需求：Tarkov 随机武器生成器内页（2026-11-15）
+**状态**：已拍板（自动）。**目标**：用站内已有的随机生成器外壳（GeneratorPageShell、锁定/重抽、每日挑战、分享链接）接住「tarkov random weapon generator」的游戏玩家需求，不开新站。
+
+### TK.1 为什么做（数据）
+| 词 / 信号 | 数据 | 来源（日期） |
+|---|---|---|
+| perchance.org/tarkov-rg（tarkov random weapon generator 页） | 本周 1,840 次点击 | Similarweb 2026-11-15、Semrush 2026-11-15 |
+| 同义：tarkov randomizer / tarkov gun randomizer / random tarkov loadout | 首页结果都是小站、单页工具，无大平台 | Google 实搜 2026-11-15 |
+
+### TK.2 页面清单
+| URL | 内容 | 主词 |
+|---|---|---|
+| /tarkov-random-weapon-generator | 随机武器 + 可选弹药、配件规则、地图、挑战规则、副武器、近战；按类别筛选；单槽锁定/重抽；精确分享链接；每日 raid 挑战 | tarkov random weapon generator |
+
+站内没有旧的 Tarkov / 武器页，不存在近义抢流量；仍在 lede 下放「Main page:」回链首页（全部生成器），并链到同类游戏随机器 /random-pokemon-generator。title 和 H1 用「Tarkov Random Weapon Generator — Loadout, Ammo, Map & Rules」，与站内其他生成器句式不同。
+
+### TK.3 竞品对标（Google 前 3，2026-11-15，截图在 docs/benchmarks/tarkov-random-weapon-generator/）
+| 竞品 | 首屏 | 图片 | 工具 | 不足 |
+|---|---|---|---|---|
+| perchance.org/tarkov-rg | 直接出结果 | 无武器图，静态背景 | 武器 + 具体零件名 + 弹药，纯文字 | 无筛选、无分享、无地图/挑战 |
+| tarkov-roulette.com | 落地页 SOLO/SQUAD 按钮，工具不在首屏 | 轮盘动画 | 武器/头/身/地图开关 | 要点进 /play，无精确分享 |
+| escapethemeta.com（Tarkov Gun Randomizer） | 「Loading assets…」 | — | 依赖在线 API | 实测「Failed to load data」打不开 |
+
+**超过竞品的点**：①数据打包在页面里，API 挂了也能用（第 3 名当天就挂）；②每把枪有游戏渲染图；③11 个类别筛选 + 预设；④弹药按口径匹配并显示伤害/穿甲，可选低穿/高穿档；⑤13 张地图含 Terminal、Icebreaker；⑥20 条挑战规则；⑦单槽锁定/重抽；⑧分享链接还原同一套装备；⑨每日 raid 挑战；⑩工具在首屏。
+**诚实说明的差距**：perchance 给具体零件名，我们给通用「配件规则」（任何同类枪都装得上），页面 FAQ 写明原因。
+
+### TK.4 数据与素材
+- 武器 178 把（枪 154、近战 24）：EFT Wiki「Weapons」页 2026-10-08 版本；弹药 189 种 / 30 个口径：「Ballistics」页 2026-10-26 版本；地图 13 张：「Map of Tarkov」页 2026-10-06 版本；均于 2026-11-15 抓取。排除 Blicky、火箭筒、固定/投掷武器。脚本在 `scripts/tarkov-data/`，产物 `src/data/tarkovWeapons.ts`（不要手改）。
+- 武器图：Wiki 缩略图镜像到 `public/tarkov/weapons/*.webp`（320px，约 700KB），© Battlestate Games，仅用于识别。
+- 主视觉 / OG：已登录 chatgpt.com 网页版出图（工作台上的步枪、红点、消音器、弹药、骰子、地图，无文字无 logo）→ `public/tarkov/hero.webp`、`public/og/tarkov-random-weapon-generator.jpg`。
+
+### TK.5 合规
+页面和工具下方写「Unofficial fan tool, not affiliated with or endorsed by Battlestate Games」，商标与图片版权声明；不用官方 logo。
+
+### TK.6 验收（编号 TK）
+- TK1 页面 200、进 sitemap / llms.txt / registry / adPublicPaths / seo-audit；IndexNow 推送新页和首页。
+- TK2 首屏可见 Roll 按钮和结果卡；3 组固定种子的真实示例服务端渲染。
+- TK3 弹药口径永远匹配武器；分享链接往返还原同一套装备；每日挑战同一 UTC 日相同（`scripts/tarkov-regression.mjs`）。
+- TK4 写明数据日期与 Wiki 版本；不改价格、支付、登录。
