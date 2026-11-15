@@ -80,7 +80,7 @@ export function sessionGenerateCount(): number {
 
 function umamiProps(params: GtagParams): Record<string, string | number | boolean> {
   const out: Record<string, string | number | boolean> = {};
-  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path", "plan", "generator", "seconds", "product", "entry_page", "slot", "from", "target_path", "locale_from", "generations", "country", "reason"]) {
+  for (const key of ["tool_type", "locale", "share_method", "content_source", "reason", "page_path", "plan", "generator", "seconds", "product", "entry_page", "slot", "from", "target_path", "locale_from", "generations", "country"]) {
     const value = params[key];
     if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") out[key] = value;
   }
