@@ -83,14 +83,19 @@ export async function POST(request: Request) {
       goalTarget = next.target;
       purpose = purposeFromUsage(source.usage);
     }
-    const reservation = await db.rpc("reserve_speech_attempt_v7", {
+    const reserveArgs = {
       p_id: body.id,
       p_user: user.id,
       p_topic: body.topic,
       p_previous: body.previousId,
       p_duration: duration,
       p_network: networkHash(request),
-    });
+    };
+    // v8 lets subscribers and pack holders skip the free daily caps. Fall back to
+    // v7 only while the v8 migration is not yet applied (PostgREST PGRST202).
+    let reservation = await db.rpc("reserve_speech_attempt_v8", reserveArgs);
+    if (reservation.error && (reservation.error.code === "PGRST202" || reservation.error.message.includes("reserve_speech_attempt_v8")))
+      reservation = await db.rpc("reserve_speech_attempt_v7", reserveArgs);
     if (reservation.error) {
       if (reservation.error.message.includes("quota_exceeded"))
         throw new SpeechError(
@@ -100,7 +105,7 @@ export async function POST(request: Request) {
       if (reservation.error.message.includes("daily_limit"))
         throw new SpeechError(
           429,
-          "Today's practice limit has been reached. Please try again tomorrow.",
+          "Free practice is full for today. A practice plan or pack keeps you going now, or come back tomorrow for free rounds.",
         );
       throw new SpeechError(
         409,

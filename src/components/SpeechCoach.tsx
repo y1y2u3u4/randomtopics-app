@@ -69,7 +69,7 @@ export default function SpeechCoach({
   const [id, setId] = useState("");
   const [reviewFirst, setReviewFirst] = useState(false);
   const [correcting, setCorrecting] = useState(false);
-  const [quotaHit, setQuotaHit] = useState(false);
+  const [quotaHit, setQuotaHit] = useState<false | "quota" | "daily">(false);
   const recorder = useRef<MediaRecorder | null>(null);
   const stream = useRef<MediaStream | null>(null);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -357,7 +357,7 @@ export default function SpeechCoach({
         });
       } catch (e) {
         emit("speech_transcribe_error", { error_code: speechErrorCode(e), elapsed_ms: Math.round(performance.now() - requestedAt) });
-        if (e instanceof PracticeRequestError && e.status === 402) { emit("speech_quota_hit"); setQuotaHit(true); }
+        if (e instanceof PracticeRequestError && (e.status === 402 || e.status === 429)) { emit("speech_quota_hit", { reason: e.status === 429 ? "daily_limit" : "quota" }); setQuotaHit(e.status === 429 ? "daily" : "quota"); }
         if (mounted.current) {
           if (e instanceof PracticeRequestError && e.retryWithNewId) setId(crypto.randomUUID());
           setError(e instanceof Error ? e.message : "Could not process your recording.");
@@ -441,7 +441,7 @@ export default function SpeechCoach({
         });
       } catch (e) {
         emit("speech_transcribe_error", { error_code: speechErrorCode(e), elapsed_ms: Math.round(performance.now() - requestedAt) });
-        if (e instanceof PracticeRequestError && e.status === 402) { emit("speech_quota_hit"); setQuotaHit(true); }
+        if (e instanceof PracticeRequestError && (e.status === 402 || e.status === 429)) { emit("speech_quota_hit", { reason: e.status === 429 ? "daily_limit" : "quota" }); setQuotaHit(e.status === 429 ? "daily" : "quota"); }
         if (mounted.current) {
           setError(e instanceof Error ? e.message : "Could not send your answer.");
           setStage("ready");
@@ -563,7 +563,7 @@ export default function SpeechCoach({
             <p>{error}</p>
             {quotaHit ? <SpeechPlanLink surface="quota" purpose={purpose} visible={visible} attempt={previous ? 2 : 1} contentSource={contentSource} href="/speech/account#speech-plan"
               onClick={() => rememberCheckoutIntent(speechQaSession(), contentSource, previous?.id ?? null, purpose)}
-              className={`${primary} mt-3 inline-block`}>View allowance and practice plan</SpeechPlanLink> : !typing && <button type="button" className={`${button} mt-3`} onClick={() => uploadInput.current?.click()}>
+              className={`${primary} mt-3 inline-block`}>{quotaHit === "daily" ? "Keep practicing with a plan" : "View allowance and practice plan"}</SpeechPlanLink> : !typing && <button type="button" className={`${button} mt-3`} onClick={() => uploadInput.current?.click()}>
               Choose an audio file
             </button>}
           </div>}
@@ -701,11 +701,11 @@ export default function SpeechCoach({
       )}
       {stage === "recorded" && (
         <div className="space-y-3 rounded-xl border border-[var(--neon-cyan)]/30 p-4">
-          <p className="font-semibold">{quotaHit ? "Your included attempts are used. Your recording is still here." : "Your recording is ready. Get one clear next step."}</p>
+          <p className="font-semibold">{quotaHit === "daily" ? "Free practice is full for today. Your recording is still here." : quotaHit ? "Your included attempts are used. Your recording is still here." : "Your recording is ready. Get one clear next step."}</p>
           <div className="flex flex-wrap gap-2">
             {quotaHit ? <SpeechPlanLink surface="quota" purpose={purpose} visible={visible} attempt={previous ? 2 : 1} contentSource={contentSource} href="/speech/account#speech-plan"
               onClick={() => rememberCheckoutIntent(speechQaSession(), contentSource, previous?.id ?? null, purpose)}
-              className={`${primary} w-full text-center sm:w-auto`}>View allowance and practice plan</SpeechPlanLink> :
+              className={`${primary} w-full text-center sm:w-auto`}>{quotaHit === "daily" ? "Keep practicing with a plan" : "View allowance and practice plan"}</SpeechPlanLink> :
               <button ref={feedbackButton} type="button" className={`${primary} w-full sm:w-auto`} onClick={transcribe}>Get my feedback</button>}
             <button type="button" className={button} onClick={reset}>Record again</button>
           </div>
