@@ -749,6 +749,13 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     crossLinkOnly: true,
   },
   {
+    href: "/tarkov-random-weapon-generator",
+    emoji: "🎯",
+    label: { en: "Tarkov Random Weapon Generator" },
+    detail: { en: "Random EFT weapon, ammo, map and raid rules, with lock and share link" },
+    crossLinkOnly: true,
+  },
+  {
     href: "/magic-8-ball",
     emoji: "🎱",
     label: { en: "Magic 8 Ball" },

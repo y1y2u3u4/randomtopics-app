@@ -291,6 +291,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "random-noun-generator",
     "random-emoji-generator",
     "random-nba-player-generator",
+    "tarkov-random-weapon-generator",
     "magic-8-ball",
     "random-pokemon-generator",
   ]) {
