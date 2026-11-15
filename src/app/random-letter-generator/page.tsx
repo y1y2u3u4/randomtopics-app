@@ -7,7 +7,7 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/random-letter-generator";
-const TITLE = "Random Letter Generator — Pick a Letter A–Z, No Repeats";
+const TITLE = "Pick a Letter From A to Z — Random Letter Generator (No Repeats)";
 const DESCRIPTION =
   "Free random letter generator: pick one or several random letters from A to Z, uppercase or lowercase, vowels only, consonants only, or without hard letters like Q, X and Z. No repeats until every letter is drawn.";
 
@@ -68,7 +68,7 @@ export default function RandomLetterGeneratorPage() {
       path={PATH}
       name="Random Letter Generator"
       heading={["Random Letter", "Generator"]}
-      intro="Pick a random letter from A to Z — or several, with no repeats. Uppercase or lowercase, vowels, consonants or no hard letters."
+      intro="Press the button to pick a letter from A to Z at random — every letter has the same 1-in-26 chance. Draw several with no repeats, or limit it to vowels, consonants or no hard letters."
       description={DESCRIPTION}
       updated="2026-10-28"
       faq={FAQ}

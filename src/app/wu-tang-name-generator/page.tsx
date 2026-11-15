@@ -8,8 +8,8 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/wu-tang-name-generator";
-const TITLE = "Wu-Tang Name Generator — What's Your Wu-Tang Name?";
-const DESCRIPTION = "Free Wu-Tang name generator: type your name to get your own Wu name — same name, same result — or roll a random one. Download a share card.";
+const TITLE = "Wu-Tang Name Generator (Wutang Clan Name) — Get Your Wu Name";
+const DESCRIPTION = "Free Wu-Tang (Wutang Clan) name generator: type your name to get your own Wu name — same name, same result — or roll a random one. Download a share card.";
 
 const SOCIAL = generatorSocial({ card: "wu-tang-name-generator", title: TITLE, description: DESCRIPTION, alt: "Wu-Tang Name Generator — a bold black and gold name card" });
 

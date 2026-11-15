@@ -8,7 +8,7 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/wingding-translator";
-const TITLE = "Wingding Translator — English to Wingdings & Back, Copy-Paste Symbols + Chart";
+const TITLE = "Wingdings Translator — English to Wingdings & Back (Copy and Paste)";
 const DESCRIPTION =
   "Free Wingdings translator: type English and get Wingdings symbols you can copy and paste anywhere, or paste symbols to decode them back to text. Swap direction, see each letter under its symbol, and use the full A–Z, a–z and 0–9 chart.";
 
@@ -69,8 +69,8 @@ export default function WingdingTranslatorPage() {
       locale="en"
       path={PATH}
       name="Wingding Translator"
-      heading={["Wingding", "Translator"]}
-      intro="This wingding translator turns English into Wingdings symbols you can copy anywhere, and decodes pasted Wingdings back into plain text. Free, instant and no sign-up."
+      heading={["Wingdings", "Translator"]}
+      intro="Type English below to get Wingdings symbols you can copy and paste anywhere, or paste Wingdings to read them as plain text. Works in both directions, free, instant and no sign-up."
       description={DESCRIPTION}
       updated="2026-11-02"
       faq={FAQ}

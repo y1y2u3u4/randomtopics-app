@@ -152,8 +152,10 @@ export default function QuestionOfTheDayPage() {
             Seasonal sets:{" "}
             <Link prefetch={false} href="/question-of-the-day/november" className="text-[var(--neon-cyan)] hover:underline">November question of the day</Link>,{" "}
             <Link prefetch={false} href="/question-of-the-day/thanksgiving" className="text-[var(--neon-cyan)] hover:underline">Thanksgiving</Link>,{" "}
-            <Link prefetch={false} href="/question-of-the-day/december" className="text-[var(--neon-cyan)] hover:underline">December</Link> and{" "}
-            <Link prefetch={false} href="/question-of-the-day/christmas" className="text-[var(--neon-cyan)] hover:underline">Christmas</Link>.
+            <Link prefetch={false} href="/question-of-the-day/december" className="text-[var(--neon-cyan)] hover:underline">December</Link>,{" "}
+            <Link prefetch={false} href="/question-of-the-day/christmas" className="text-[var(--neon-cyan)] hover:underline">Christmas</Link>,{" "}
+            <Link prefetch={false} href="/question-of-the-day/new-year" className="text-[var(--neon-cyan)] hover:underline">New Year</Link> and{" "}
+            <Link prefetch={false} href="/question-of-the-day/january" className="text-[var(--neon-cyan)] hover:underline">January</Link>.
           </p>
         </section>
 

@@ -168,7 +168,7 @@ export const seoArticlesEsPart5: SeoArticle[] = [
   {
     slug: "never-have-i-ever-questions",
     title: "200 preguntas de Yo Nunca Nunca (limpias, divertidas y para adultos)",
-    metaTitle: "200 preguntas de Yo Nunca Nunca — limpias, divertidas y para adultos | RandomTopics",
+    metaTitle: "Yo Nunca Nunca: 200 preguntas limpias, divertidas y para adultos | RandomTopics",
     metaDescription:
       "200 preguntas de Yo Nunca Nunca para adolescentes, amigos, parejas y trabajo: limpias, divertidas y reveladoras. Lista gratis y generador aleatorio. Sin registro ni anuncios.",
     heroTitle: "200 preguntas de Yo Nunca Nunca",

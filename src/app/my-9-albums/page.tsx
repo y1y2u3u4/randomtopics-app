@@ -8,7 +8,7 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/my-9-albums";
-const TITLE = "My9Albums Template — Free 3×3 Album Grid, No Watermark";
+const TITLE = "My 9 Albums Template (My9Albums) — Make Your 3×3 Album Grid Free";
 const DESCRIPTION =
   "Free My 9 Albums template: search any album, pick the 9 albums that made you and download a 1080×1080 3×3 album grid (or a story-size poster). Real album art, reorder by tapping, no signup, no watermark.";
 
@@ -40,7 +40,7 @@ export default function MyNineAlbumsPage() {
       path={PATH}
       name="My 9 Albums"
       heading={["My 9", "Albums"]}
-      intro="Pick the 9 albums that made you, then download a square or story-size grid. Real album art, no signup, no watermark."
+      intro="My 9 Albums is the trend where you share the 9 albums that made you as a 3×3 grid. Search any album below, fill the 9 squares, then download a square or story-size image — real album art, no signup, no watermark."
       description={DESCRIPTION}
       updated="2026-10-12"
       faq={FAQ}

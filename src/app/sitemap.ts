@@ -178,6 +178,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ path: "/question-of-the-day/december", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-11-08" });
   entries.push({ path: "/question-of-the-day/thanksgiving", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-11-08" });
   entries.push({ path: "/question-of-the-day/christmas", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-11-08" });
+  entries.push({ path: "/question-of-the-day/new-year", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-11-15" });
+  entries.push({ path: "/question-of-the-day/january", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-11-15" });
 
   // Random ZIP code generator (2026-10-19).
   entries.push({ path: "/random-zip-code-generator", changeFrequency: "monthly", priority: 0.88, lastModified: "2026-10-19" });
