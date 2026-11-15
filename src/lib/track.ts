@@ -29,6 +29,10 @@ const CANONICAL_EVENTS: Record<string, string> = {
   share_result: "share",
   share_click: "share",
   qotd_share_card: "share",
+  // 2026-11-15 /speech paywall funnel (portfolio names, also sent to Umami).
+  speech_quota_hit: "speech_limit",
+  speech_quota_plan_view: "paywall_view",
+  speech_checkout_request: "begin_checkout",
 };
 
 export function canonicalEventName(eventName: string): string | undefined {
@@ -76,7 +80,7 @@ export function sessionGenerateCount(): number {
 
 function umamiProps(params: GtagParams): Record<string, string | number | boolean> {
   const out: Record<string, string | number | boolean> = {};
-  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path", "plan", "generator", "seconds", "product", "entry_page", "slot", "from", "target_path", "locale_from", "generations", "country"]) {
+  for (const key of ["tool_type", "locale", "share_method", "content_source", "page_path", "plan", "generator", "seconds", "product", "entry_page", "slot", "from", "target_path", "locale_from", "generations", "country", "reason"]) {
     const value = params[key];
     if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") out[key] = value;
   }

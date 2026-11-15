@@ -24,6 +24,7 @@ await db.exec('create schema auth; create table auth.users(id uuid primary key);
 await db.exec(readFileSync('supabase/migrations/20260919_speech.sql','utf8'));
 await db.exec(readFileSync('supabase/migrations/20261001003000_speech_return_trial.sql','utf8'));
 await db.exec(readFileSync('supabase/migrations/20261014090000_speech_packs_classroom.sql','utf8'));
+await db.exec(readFileSync('supabase/migrations/20261115120000_speech_paid_skip_daily_caps.sql','utf8'));
 const newUser=async()=>{const id=randomUUID();await db.query('insert into auth.users values($1)',[id]);return id;};
 const reserve=async(user,id=randomUUID(),prev=null,topic='A useful habit')=>{
  await db.query('select reserve_speech_attempt_v7($1,$2,$3,$4,20,$5)',[id,user,topic,prev,`network-${user}`]);return id;
@@ -76,7 +77,22 @@ assert.equal((await speechAllowance(adapter,buyer)).remaining,0);
 const subscriber=await newUser();await db.query("insert into speech_accounts(user_id,subscription_active,period_start,period_end) values($1,true,now()-interval '1 day',now()+interval '1 day')",[subscriber]);
 await db.query("select grant_speech_pack('cs_test_pack_2',$1,20,20,699,false)",[subscriber]);
 assert.equal((await speechAllowance(adapter,subscriber)).included,40,'subscription allowance unchanged by packs');
-for(const fn of ['reserve_speech_attempt_v7(uuid,uuid,text,uuid,integer,text)','grant_speech_pack(text,uuid,integer,integer,integer,boolean)']){
+// v8 (2026-11-15): free daily caps (shared network 30/24h, site budget 200/day) no longer block paid users.
+const reserve8=(user,network)=>db.query('select reserve_speech_attempt_v8($1,$2,$3,null,20,$4)',[randomUUID(),user,'Cap check',network]);
+const crowd=await newUser();
+for(let i=0;i<30;i++) await db.query("insert into speech_attempts(id,user_id,topic,duration,network_hash,status) values($1,$2,'Crowd',20,'shared-net','complete')",[randomUUID(),crowd]);
+const freeOnNet=await newUser();
+await assert.rejects(()=>reserve8(freeOnNet,'shared-net'),/daily_limit/,'free user still capped on a busy network');
+const subOnNet=await newUser();await db.query("insert into speech_accounts(user_id,subscription_active,period_start,period_end) values($1,true,now()-interval '1 day',now()+interval '1 day')",[subOnNet]);
+await reserve8(subOnNet,'shared-net');
+const packOnNet=await newUser();await db.query("select grant_speech_pack('cs_test_pack_cap',$1,5,5,299,false)",[packOnNet]);
+await reserve8(packOnNet,'shared-net');
+await db.query("insert into speech_budget(day,calls) values(current_date,200) on conflict (day) do update set calls=200");
+const freeFresh=await newUser();await assert.rejects(()=>reserve8(freeFresh,'fresh-net'),/daily_limit/,'free user capped by site budget');
+await reserve8(subOnNet,'fresh-net');await reserve8(packOnNet,'fresh-net');
+assert.ok((await db.query('select calls from speech_budget where day=current_date')).rows[0].calls>=202,'paid rounds still counted in the budget');
+await assert.rejects(()=>db.query('select reserve_speech_attempt_v7($1,$2,$3,null,20,$4)',[randomUUID(),subOnNet,'Cap check','fresh-net']),/daily_limit/,'v7 unchanged');
+for(const fn of ['reserve_speech_attempt_v7(uuid,uuid,text,uuid,integer,text)','reserve_speech_attempt_v8(uuid,uuid,text,uuid,integer,text)','grant_speech_pack(text,uuid,integer,integer,integer,boolean)']){
   const p=await db.query(`select has_function_privilege('anon','${fn}','execute') as anon,has_function_privilege('authenticated','${fn}','execute') as auth,has_function_privilege('service_role','${fn}','execute') as service`);
   assert.deepEqual(p.rows[0],{anon:false,auth:false,service:true},fn);
 }
