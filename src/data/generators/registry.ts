@@ -756,6 +756,13 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     crossLinkOnly: true,
   },
   {
+    href: "/scenario-generator",
+    emoji: "🎬",
+    label: { en: "Random Scenario Generator" },
+    detail: { en: "OC, roleplay and writing scenarios by genre, tone and cast, daily scenario" },
+    crossLinkOnly: true,
+  },
+  {
     href: "/magic-8-ball",
     emoji: "🎱",
     label: { en: "Magic 8 Ball" },
