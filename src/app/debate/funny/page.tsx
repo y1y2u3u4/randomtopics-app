@@ -16,6 +16,11 @@ export const metadata: Metadata = withSocial({
 
 const FAQ_ITEMS = [
   {
+    question: "What are good funny debate topics for adults?",
+    answer:
+      "Pick everyday arguments adults already have: whether splitting the bill evenly is fair, whether working from bed counts as working from home, whether reclining your seat on a short flight is fine, or whether voicemail is rude now. Keep the stakes low, give each side a minute, then vote.",
+  },
+  {
     question: "What are funny debate topics?",
     answer:
       "Funny debate topics are low-stakes questions people argue about passionately precisely because they don't matter: Is a hot dog a sandwich? Is cereal soup? Would you rather fight one horse-sized duck or a hundred duck-sized horses? They produce real argumentation skills with zero real-world tension.",
@@ -97,6 +102,32 @@ export default function FunnyDebatePage() {
                 <li><strong>Petty hills:</strong> toilet paper over or under, should ketchup live in the fridge — everyone already has a lifelong position to defend.</li>
                 <li><strong>Devil&apos;s advocate roulette:</strong> generate a topic, then flip a coin for your side. Defending the position you find ridiculous is elite persuasion training.</li>
               </ul>
+
+              <h3
+                className="text-lg font-semibold text-[var(--text-primary)] pt-3"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Funny Debate Topics for Adults
+              </h3>
+              <p>
+                Adults want topics with a bit more bite than cereal-is-soup, but still nothing anyone will lose a friend over. These
+                work for work socials, dinner parties and game nights:
+              </p>
+              <ul className="space-y-2 list-disc pl-5">
+                <li>Replying-all should require a permission slip.</li>
+                <li>Working from bed counts as working from home.</li>
+                <li>Splitting the bill evenly is fairer than paying for what you ordered.</li>
+                <li>Leaving a voicemail is a hostile act.</li>
+                <li>A wedding with a cash bar is still a good wedding.</li>
+                <li>Adults should be allowed a nap break at work.</li>
+                <li>It is fine to recline your seat on a short flight.</li>
+                <li>Group chats should have a mute-everyone button after 10 p.m.</li>
+              </ul>
+              <p>
+                Give each side a minute, then let the room vote. For sharper adult topics, switch the{" "}
+                <Link prefetch={false} href="/debate" className="text-[var(--neon-cyan)] hover:underline">debate topic generator</Link> to
+                another category.
+              </p>
 
               <h3
                 className="text-lg font-semibold text-[var(--text-primary)] pt-3"

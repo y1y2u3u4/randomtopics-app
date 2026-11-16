@@ -8,6 +8,8 @@ import { generatorSocial } from "@/lib/generatorSocial";
 import RankBoost, { faqForSchema } from "@/components/RankBoost";
 import type { BoostSection } from "@/components/RankBoost";
 import { JAPANESE_BOOST } from "@/data/rankBoost";
+import AnswerFirst from "@/components/AnswerFirst";
+import { spreadPick } from "@/data/popularGenerators";
 
 const PATH = "/japanese-name-generator";
 // Old title (rollback, 2026-11-06): `Japanese Name Generator with Meanings: ${JP_GIVEN.length} Names in Kanji`
@@ -25,7 +27,21 @@ export const metadata: Metadata = {
   twitter: SOCIAL.twitter,
 };
 
+const PICK_GIVEN = spreadPick(JP_GIVEN, 5, 2);
+const PICK_FAMILY = spreadPick(JP_FAMILY, 5, 7);
+const GIRL = JP_GIVEN.filter((g) => g.gender === "female");
+const BOY = JP_GIVEN.filter((g) => g.gender === "male");
+const PICK_NAMES = PICK_GIVEN.map((g, i) => `${g.romaji} ${PICK_FAMILY[i].romaji} (${g.kanji} = ${g.meaning})`);
+
 const FAQ = [
+  {
+    question: "Can you give me a random Japanese girl or boy name?",
+    answer: `Yes. Set Gender to Female or Male and press Generate. For example, ${GIRL[5].romaji} (${GIRL[5].kanji}) means ${GIRL[5].meaning}, and ${BOY[5].romaji} (${BOY[5].kanji}) means ${BOY[5].meaning}. Each name comes with its kanji, hiragana and meaning.`,
+  },
+  {
+    question: "Can I get a random Japanese surname?",
+    answer: `Yes. Every result includes a family name from a list of ${JP_FAMILY.length}+ real Japanese surnames, such as ${JP_FAMILY[2].romaji} (${JP_FAMILY[2].meaning}) and ${JP_FAMILY[4].romaji} (${JP_FAMILY[4].meaning}). For surnames from other countries, use the last name generator.`,
+  },
   {
     question: "Are these real Japanese names?",
     answer: `Yes. All ${JP_GIVEN.length}+ given names and ${JP_FAMILY.length}+ family names are names used in Japan — from today's most popular baby names like Haruto, Yui and Himari to classic names like Hiroshi and Keiko, and surnames from Sato and Suzuki to Kurosawa. Each is shown with one common kanji spelling and its hiragana reading.`,
@@ -72,6 +88,24 @@ const SAMPLE_SECTION: BoostSection = {
   ],
 };
 
+const ANSWER = (
+  <AnswerFirst
+    path={PATH}
+    question="Give me a random Japanese name"
+    answer={`Here are five random Japanese names: ${PICK_NAMES.join("; ")}. Press Generate above for more. Every name comes from ${JP_GIVEN.length}+ real first names and ${JP_FAMILY.length}+ surnames, written in kanji, hiragana and romaji with the meaning.`}
+    table={{
+      caption: "Which filter to use",
+      head: ["You want", "Use", "Example"],
+      rows: [
+        ["A girl's name", "Gender: Female", `${GIRL[3].romaji} (${GIRL[3].kanji}) — ${GIRL[3].meaning}`],
+        ["A boy's name", "Gender: Male", `${BOY[3].romaji} (${BOY[3].kanji}) — ${BOY[3].meaning}`],
+        ["A surname only", "Read the family name in each result", `${JP_FAMILY[1].romaji} (${JP_FAMILY[1].kanji}) — ${JP_FAMILY[1].meaning}`],
+        ["Japan-style order", "Name order: Family + given", `${JP_FAMILY[0].romaji} ${BOY[0].romaji}`],
+      ],
+    }}
+  />
+);
+
 export default function JapaneseNameGeneratorPage() {
   return (
     <GeneratorPageShell
@@ -84,6 +118,7 @@ export default function JapaneseNameGeneratorPage() {
       hero={{ src: "/generators/hero/japanese.webp", alt: "Cherry blossom branches, a red torii gate by a lake and Mount Fuji" }}
       updated="2026-10-11"
       faq={[...FAQ, ...faqForSchema(JAPANESE_BOOST.faq)]}
+      afterTool={ANSWER}
       related={[
         { href: "/japanese-name-converter", label: "Japanese name converter (your name in katakana)" },
         { href: "/western-baby-name-generator", label: "Western baby name generator" },

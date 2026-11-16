@@ -5,7 +5,7 @@ export const seoArticlesEsPart2: SeoArticle[] = [
   {
     slug: "would-you-rather-questions",
     title: "80 mejores preguntas de ¿Qué prefieres? para cualquier grupo",
-    metaTitle: "80 mejores preguntas de ¿Qué prefieres? para cualquier grupo | RandomTopics",
+    metaTitle: "¿Qué prefieres? 80 preguntas divertidas para cualquier grupo | RandomTopics",
     metaDescription:
       "Descubre 80 preguntas de ¿Qué prefieres? divertidas, ingeniosas e hilarantes, perfectas para fiestas, viajes por carretera, citas y eventos de equipo. Desde las más absurdas hasta las más profundas, hay algo para todos.",
     heroTitle: "80 mejores preguntas de ¿Qué prefieres? para cualquier grupo",

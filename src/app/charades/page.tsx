@@ -3,7 +3,8 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import CharadesGenerator from "@/components/CharadesGenerator";
 import PublicAdPlacement from "@/components/PublicAdPlacement";
-import DirectAnswer from "@/components/DirectAnswer";
+import AnswerFirst from "@/components/AnswerFirst";
+import { spreadPick } from "@/data/popularGenerators";
 import FaqSchema from "@/components/FaqSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -41,7 +42,17 @@ export const metadata: Metadata = withSocial({
   alternates: { canonical: "/charades", languages: hreflangAlternates("/charades") },
 });
 
+const PICK_WORDS = [1, 2, 3].flatMap((d) => spreadPick(CHARADES_WORDS.filter((w) => w.d === d), 2, d * 5)).map((w) => w.w);
+const DIFFICULTY_ROWS = ([[1, "Easy", "Kids, first rounds"], [2, "Medium", "Mixed groups, family night"], [3, "Hard", "Adults, party finals"]] as const).map(([d, label, forWho]) => {
+  const words = CHARADES_WORDS.filter((w) => w.d === d);
+  return [label, String(words.length), spreadPick(words, 3, 1).map((w) => w.w).join(", "), forWho];
+});
+
 const FAQ_ITEMS = [
+  {
+    question: "Can you give me a word for charades?",
+    answer: `Sure: try ${PICK_WORDS.slice(0, 3).join(", ")}. Tap the generator above for a new random charades word each turn, with a timer and a button that hides the word from the guessers.`,
+  },
   {
     question: "How do you play charades?",
     answer:
@@ -279,9 +290,12 @@ export default function CharadesPage() {
         <HostPassEntry generator="charades" />
 
         <div className="pt-6">
-          <DirectAnswer question="What is a charades generator?">
-            {`A charades generator picks a random word for the actor, so nobody has to think one up. This one draws from ${CHARADES_WORDS.length} charades words in ${CHARADES_CATEGORIES.length} categories, each labeled easy, medium or hard, with a built-in timer and a button to hide the answer. It works on any phone, is free and needs no signup.`}
-          </DirectAnswer>
+          <AnswerFirst
+            path="/charades"
+            question="Give me a random word for charades"
+            answer={`Here are six random charades words: ${PICK_WORDS.join(", ")}. Tap the generator above for a new one each turn. It draws from ${CHARADES_WORDS.length} words in ${CHARADES_CATEGORIES.length} categories, each labeled easy, medium or hard, with a timer and a button that hides the word.`}
+            table={{ caption: "Charades words by difficulty", head: ["Level", "Words", "Examples", "Good for"], rows: DIFFICULTY_ROWS }}
+          />
         </div>
         <TryNext path="/charades" />
 

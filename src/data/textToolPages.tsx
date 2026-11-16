@@ -116,9 +116,15 @@ export const TEXT_TOOL_PAGES: Record<Variant, TextToolPageData> = {
           Many sites only offer a fixed amount of chaos. Here the slider shows you exactly how far to go before the text stops being
           readable, which is usually the point you want for a username or a post title.
         </p>
+        <p>
+          <strong>Looking for a Zalgo generator?</strong> This is one: &quot;cursed text&quot; and &quot;Zalgo text&quot; are two names for the
+          same effect. Type your words, set the strength to 8–10 for classic Zalgo (marks towering above and below every letter) and tap a
+          style to copy. Use Rising for marks only on top, Dripping for marks only underneath.
+        </p>
       </>
     ),
     faq: [
+      { question: "Is this a Zalgo text generator?", answer: "Yes. Cursed text and Zalgo text are the same thing: letters with stacked combining marks. Set the strength slider to 8–10 for full Zalgo, or 2–4 for a lighter, still readable look, then tap any style to copy it." },
       { question: "What is Zalgo text?", answer: "Zalgo is the internet name for text covered in stacked combining marks. It comes from a 2004 web comic meme about an eldritch being called Zalgo, and the look stuck as the standard “cursed” style." },
       { question: "How do I make the text less messy?", answer: "Move the strength slider down. At 1–3 each letter gets only a few marks, so it still reads clearly but looks wrong." },
       { question: "Why does Discord or X cut my cursed text short?", answer: "Each combining mark is its own character. A 10-letter word at strength 10 can be 150+ characters, so it hits the limit quickly. Lower the strength or use a shorter phrase." },

@@ -10,6 +10,8 @@ import type { BoostSection } from "@/components/RankBoost";
 import { LASTNAME_BOOST } from "@/data/rankBoost";
 import GeneratorExamples from "@/components/generators/GeneratorExamples";
 import { lastNameGenerator } from "@/lib/generators/lastNames";
+import AnswerFirst from "@/components/AnswerFirst";
+import { spreadPick } from "@/data/popularGenerators";
 
 const PATH = "/last-name-generator";
 // Old title (rollback, 2026-11-06): "Random Last Name Generator: Surnames with Meanings & Origin"
@@ -34,7 +36,14 @@ const EXAMPLES = [
   { label: "Japanese", results: lastNameGenerator("en").generate({ origin: ["japanese"] }, 4, [], 73).results },
 ];
 
+const PICK_LAST = spreadPick(LAST_NAMES, 5, 4);
+const byOrigin = (o: string) => LAST_NAMES.find((n) => n.origin === o);
+
 const FAQ = [
+  {
+    question: "Can you give me a random surname?",
+    answer: `Yes. Press Generate for one, or switch to 5, 10 or 20 at a time; names do not repeat until the list runs out. For example: ${PICK_LAST[1].name} or ${PICK_LAST[3].name}. Use the origin filter if you need a surname from one country.`,
+  },
   {
     question: "How does the last name generator work?",
     answer: `Choose one or more origins (or leave it on All) and press Generate. You get real surnames drawn at random from a list of ${LAST_NAMES.length}+, each with where it comes from and what it originally meant. Names do not repeat until you have seen every name that matches your filters.`,
@@ -77,6 +86,22 @@ const ORIGIN_SECTION: BoostSection = {
   ],
 };
 
+const ANSWER = (
+  <AnswerFirst
+    path={PATH}
+    question="Give me a random last name"
+    answer={`Here are five random last names: ${PICK_LAST.map((n) => `${n.name} (${ORIGIN_LABELS[n.origin]?.en ?? n.origin}, "${n.meaning.en}")`).join(", ")}. Press Generate above for more. All ${LAST_NAMES.length}+ are real surnames from ${Object.keys(ORIGIN_LABELS).length} cultures, each with its origin and meaning.`}
+    table={{
+      caption: "Example surnames by origin",
+      head: ["Origin", "Example surname", "Meaning"],
+      rows: ["english", "irish", "italian", "spanish", "german", "chinese"]
+        .map((o) => byOrigin(o))
+        .filter((n): n is NonNullable<typeof n> => Boolean(n))
+        .map((n) => [ORIGIN_LABELS[n.origin]?.en ?? n.origin, n.name, n.meaning.en]),
+    }}
+  />
+);
+
 export default function LastNameGeneratorPage() {
   return (
     <GeneratorPageShell
@@ -88,6 +113,7 @@ export default function LastNameGeneratorPage() {
       description={DESCRIPTION}
       updated="2026-10-10"
       faq={[...FAQ, ...faqForSchema(LASTNAME_BOOST.faq)]}
+      afterTool={ANSWER}
       related={[
         { href: "/random-name-generator", label: "Random full name generator (first + last)" },
         { href: "/japanese-name-generator", label: "Japanese name generator" },
