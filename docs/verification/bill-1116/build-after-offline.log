@@ -1,0 +1,30 @@
+▲ Next.js 16.1.6 (webpack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.5min
+  Running TypeScript ...
+  Collecting page data using 9 workers ...
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+⚠ Using edge runtime on a page currently disables static generation for that page
+  Generating static pages using 9 workers (0/711) ...
+Error occurred prerendering page "/es/opengraph-image". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: getaddrinfo ENOTFOUND cdn.jsdelivr.net
+      at ignore-listed frames {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'cdn.jsdelivr.net'
+  }
+}
+Export encountered an error on /es/opengraph-image/route: /es/opengraph-image, exiting the build.
+⨯ Next.js build worker exited with code: 1 and signal: null

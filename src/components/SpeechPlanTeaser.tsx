@@ -15,10 +15,11 @@ export default function SpeechPlanTeaser({ attempt, contentSource, visible, comp
   const card = useRef<HTMLElement>(null);
   const seen = useRef(new Set<string>());
   useEffect(() => {
+    if (!visible) return;
     let active = true;
     speechBillingAvailable().then(value => { if (active) setAvailable(value); }).catch(() => {});
     return () => { active = false; };
-  }, []);
+  }, [visible]);
   useEffect(() => {
     const surface = `${compact ? "hint" : "card"}:${attempt}`;
     if (!available || !visible || !card.current || seen.current.has(surface)) return;
@@ -32,7 +33,7 @@ export default function SpeechPlanTeaser({ attempt, contentSource, visible, comp
       }
     });
   }, [available, visible, contentSource, attempt, compact, purpose]);
-  if (!available) return null;
+  if (!visible || !available) return null;
   if (compact) return <section ref={card} aria-label="More speech practice"><p className="text-sm text-[var(--text-muted)]">Your first two attempts are free (spoken or typed), including retries. Need more? 5 AI feedback rounds for $2.99 — one-time, no subscription.</p></section>;
   return <><section ref={card} aria-label="Keep practicing" className="space-y-3 rounded-xl border border-[var(--neon-cyan)]/30 bg-[var(--neon-cyan)]/5 p-5">
     {purpose && purpose !== "unspecified" && <p className="text-xs text-[var(--text-muted)]">Your purpose: {purposeLabels[purpose]}</p>}

@@ -26,7 +26,8 @@
     "umami:test": "node scripts/umami-funnel-regression.mjs",
     "i18n:test": "node scripts/locale-pages-regression.mjs",
     "host:test": "node scripts/host-pass-regression.mjs && node scripts/host-webhook-regression.mjs",
-    "subs:test": "node scripts/subs-regression.mjs && node scripts/subs-bot-regression.mjs && node scripts/subs-journal-regression.mjs && node scripts/subs-couples-regression.mjs"
+    "subs:test": "node scripts/subs-regression.mjs && node scripts/subs-bot-regression.mjs && node scripts/subs-journal-regression.mjs && node scripts/subs-couples-regression.mjs",
+    "cost:test": "node scripts/bill-cost-regression.mjs && node scripts/vercel-ignore-build-test.mjs && node scripts/link-prefetch-regression.mjs && node scripts/speech-blocked-pay-button-test.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.116.0",

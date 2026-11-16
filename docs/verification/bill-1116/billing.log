@@ -1,0 +1,32 @@
+
+> randomtopics@0.1.0 billing:test
+> node scripts/speech-billing-regression.mjs && node scripts/speech-purchase-regression.mjs && node scripts/speech-checkout-recovery-regression.mjs && node scripts/speech-session-recovery-regression.mjs && node scripts/speech-claim-regression.mjs && node scripts/speech-pack-regression.mjs && node scripts/classroom-pack-regression.mjs && node scripts/host-pass-regression.mjs && node scripts/host-webhook-regression.mjs
+
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+PASS: dedicated credentials, restricted keys, mode and product isolation, verified owners, duplicate checkout, portal configuration, signed webhook replay, cancellation and event ordering.
+PASS: payment truth rejects unpaid/wrong-mode/wrong-price/zero-value/foreign-owner sessions; opaque receipt and paginated first/repeat checkout cohorts.
+PASS: intent expires, rejects malformed/future values, works without storage and never persists credentials or authorizes payments.
+PASS: validated practice navigation survives email return; malformed references and stale unrelated context are excluded.
+PASS: deferred auth refresh, notification coalescing, identity invalidation, cross-tab signout recovery, foreground return and cleanup.
+PASS: closed practice purpose persists through email recovery without leaking to a different practice.
+PASS: same-owner reconnect, missing/expired session recovery, foreign-owner rejection, no silent guest replacement, and fresh-visitor behavior.
+PASS: shared configuration timeout, rejection eviction, clean retry, cached success.
+PASS: guest purchase claim moves plan, Stripe owner and history; never from real accounts, unverified users, other emails, paying accounts or canceled plans; idempotent; query-safe.
+PASS: pack verification (paid, owner, product, price, currency, quantity, mode), single grant per session, reconciliation, line items.
+PASS 1074 classroom pack content, export, purchase verification, grant, download and presenter assertions; no network.
+host-pass regression: 57 checks passed
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+ok - forged signature is rejected before any read
+ok - missing signature is rejected
+ok - live event on a test endpoint is rejected
+ok - active subscription extends access to the period end
+ok - deleted subscription ends access now
+ok - tampered price does not extend access
+ok - snapshot claiming Host but live object is another product is ignored
+ok - subscription owned by another account is not granted
+ok - other event types are acknowledged without reads
+ok - database failure asks Stripe to retry
+ok - replayed event reaches the idempotent RPC (no double grant in code)
+PASS: 11 host webhook checks

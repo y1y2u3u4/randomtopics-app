@@ -1,0 +1,12 @@
+
+> randomtopics@0.1.0 ads:test
+> node scripts/ad-public-paths.mjs && node scripts/link-prefetch-regression.mjs && node scripts/adsense-regression.mjs && node scripts/keep-playing-regression.mjs && node scripts/us-ad-signal-regression.mjs && node scripts/adsense-client-regression.mjs && node scripts/speech-ad-entitlement-regression.mjs && node scripts/adsterra-regression.mjs
+
+PASS: ad public paths in sync (466 of 515 sitemap paths allowed)
+PASS: 643 TSX files, every Link opts out of prefetch.
+PASS: 293 advertising configuration, privacy and route assertions (no network).
+PASS: 142 keep-playing, list-ad placement and daily-return assertions (no network).
+PASS 167 US interface, GPP segment, opt-out and EU/non-EU policy assertions; no network.
+PASS: 20 advertising runtime lifecycle cases (in-memory DOM, no network).
+PASS 141 paid entitlement, route, identity, bounded retry, timeout and lifecycle assertions; no external calls.
+adsterra regression ok (96 checks)

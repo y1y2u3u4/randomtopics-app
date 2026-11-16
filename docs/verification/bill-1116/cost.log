@@ -1,0 +1,8 @@
+
+> randomtopics@0.1.0 cost:test
+> node scripts/bill-cost-regression.mjs && node scripts/vercel-ignore-build-test.mjs && node scripts/link-prefetch-regression.mjs && node scripts/speech-blocked-pay-button-test.mjs
+
+PASS: asset headers, ISR floor, ignore wiring, geo deduplication, lazy speech configuration
+PASS: 10 build-ignore history, branch, diff and fail-open cases
+PASS: 643 TSX files, every Link opts out of prefetch.
+PASS: when blocked by quota or daily limit, the pay action appears

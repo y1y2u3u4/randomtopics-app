@@ -1,0 +1,12 @@
+{
+  "before": {
+    "partial_html_count": 104,
+    "homepage_internal_links": 271,
+    "homepage_unique_static_urls": 23
+  },
+  "after": {
+    "partial_html_count": 104,
+    "homepage_internal_links": 271,
+    "homepage_unique_static_urls": 23
+  }
+}
