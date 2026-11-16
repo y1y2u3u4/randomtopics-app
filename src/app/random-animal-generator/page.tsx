@@ -10,6 +10,8 @@ import { animalGenerator } from "@/lib/generators/animals";
 import RankBoost, { faqForSchema } from "@/components/RankBoost";
 import type { BoostSection } from "@/components/RankBoost";
 import { ANIMAL_BOOST } from "@/data/rankBoost";
+import AnswerFirst from "@/components/AnswerFirst";
+import { spreadPick } from "@/data/popularGenerators";
 
 const PATH = "/random-animal-generator";
 // Old title (rollback, 2026-11-06): `Random Animal Generator: ${ANIMALS.length} Random Animals With Pictures`
@@ -34,7 +36,15 @@ const EXAMPLES = [
   { label: "Birds", results: animalGenerator("en").generate({ type: ["bird"] }, 4, [], 83).results },
 ];
 
+const PICK_ANIMALS = spreadPick(ANIMALS, 5, 11);
+const CLASS_COUNT = (c: string) => ANIMALS.filter((a) => a.class === c).length;
+const firstOf = (c: string) => ANIMALS.find((a) => a.class === c)?.en ?? "";
+
 const FAQ = [
+  {
+    question: "Can you give me two or three random animals at once?",
+    answer: `Yes. The generator shows 3 animals by default, and you can switch to 1, 6, 9 or 12; no animal repeats until the list runs out. For example: ${PICK_ANIMALS[1].en}, ${PICK_ANIMALS[3].en} and ${PICK_ANIMALS[4].en}. It is a quick way to start a mash-up drawing or a "which animal would win" debate.`,
+  },
   {
     question: "How does the random animal generator work?",
     answer: `Press Generate and the tool picks animals at random from a hand-checked list of ${ANIMALS.length}+ real animals. Each result shows the animal's name, what kind of animal it is, where it lives and one fun fact. Animals never repeat until you have seen every animal that matches your filters.`,
@@ -83,6 +93,19 @@ const BROWSE_SECTION: BoostSection = {
   ],
 };
 
+const ANSWER = (
+    <AnswerFirst
+      path={PATH}
+      question="Give me a random animal"
+      answer={`Here are five random animals: ${PICK_ANIMALS.map((a) => a.en).join(", ")}. Tap Generate above for one at a time, with a picture and a fun fact. The list has ${ANIMALS.length}+ real animals, and you can limit it to mammals, birds, sea animals or kid-friendly picks.`}
+      table={{
+        caption: "Animals in the generator by type",
+        head: ["Type", "Animals", "Example"],
+        rows: ["mammal", "bird", "fish", "reptile", "amphibian", "invertebrate"].map((c) => [c[0].toUpperCase() + c.slice(1) + "s", String(CLASS_COUNT(c)), firstOf(c)]),
+      }}
+    />
+);
+
 export default function RandomAnimalGeneratorPage() {
   return (
     <GeneratorPageShell
@@ -94,6 +117,7 @@ export default function RandomAnimalGeneratorPage() {
       description={DESCRIPTION}
       updated="2026-10-10"
       faq={[...FAQ, ...faqForSchema(ANIMAL_BOOST.faq)]}
+      afterTool={ANSWER}
       related={[
         { href: "/charades", label: "Charades generator" },
         { href: "/question-of-the-day-for-students", label: "Question of the day for students" },

@@ -4,6 +4,7 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import IncorrectQuoteGenerator from "@/components/generators/IncorrectQuoteGenerator";
 import GeneratorExamples from "@/components/generators/GeneratorExamples";
 import { QUOTES, quoteGenerator } from "@/lib/generators/incorrectQuotes";
+import AnswerFirst from "@/components/AnswerFirst";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
@@ -29,6 +30,7 @@ const EXAMPLES = [
 ];
 
 const FAQ = [
+  { question: "Is there a free incorrect quotes generator with no sign-up?", answer: `Yes, this one. Type your character names and press Generate as often as you like. Nothing is saved to an account, and all ${QUOTES.length} templates are available without logging in.` },
   { question: "What are incorrect quotes?", answer: "Incorrect quotes are short, funny dialogues that fandoms write for their favourite characters, usually with the names swapped in. The characters say things they would never say in canon, and that is the joke." },
   { question: "How do I use my own character names?", answer: "Type one to six names separated by commas, for example Maya, Theo, Priya. The generator puts them into the dialogue in order. If you type fewer names than the dialogue needs, the rest are filled with neutral placeholder names." },
   { question: "How many incorrect quotes are there?", answer: `There are ${QUOTES.length} original templates: one-character monologues, two-person exchanges and group scenes for three to six characters, each tagged chaotic, wholesome or sarcastic.` },
@@ -36,6 +38,22 @@ const FAQ = [
   { question: "Can I get the same quote again?", answer: "Results are deterministic for a given seed inside the page, and New quotes never repeats a template until the whole pool for your settings has been shown. Use Copy to keep the ones you like." },
   { question: "Is it safe for all ages?", answer: "Yes. The jokes are clean: no slurs, no sexual content and no real people. Sarcastic does not mean cruel." },
 ];
+
+const ANSWER = (
+  <AnswerFirst
+    path={PATH}
+    question="What is an incorrect quote generator?"
+    answer={`An incorrect quote generator puts your own characters into short, funny made-up dialogues that fans share as "incorrect quotes". Type 1 to 6 names above, pick a mood and get a scene where each line is spoken by the right person. There are ${QUOTES.length} original templates, all clean.`}
+    table={{
+      caption: "Templates by cast size and mood",
+      head: ["Cast", "Templates", "Moods"],
+      rows: [1, 2, 3, 4, 5, 6].map((n) => {
+        const t = QUOTES.filter((q) => q.n === n);
+        return [n === 1 ? "1 character" : `${n} characters`, String(t.length), Array.from(new Set(t.map((q) => q.mood))).join(", ")];
+      }),
+    }}
+  />
+);
 
 export default function IncorrectQuoteGeneratorPage() {
   return (
@@ -48,6 +66,7 @@ export default function IncorrectQuoteGeneratorPage() {
       description={DESCRIPTION}
       updated="2026-10-22"
       faq={FAQ}
+      afterTool={ANSWER}
       related={[
         { href: "/headcanon-generator", label: "Headcanon generator" },
         { href: "/random-character-generator", label: "Random character generator" },

@@ -4,6 +4,7 @@ import GeneratorPageShell, { SectionTitle, linkClass } from "@/components/genera
 import WingdingTranslator from "@/components/generators/WingdingTranslator";
 import GeneratorExamples from "@/components/generators/GeneratorExamples";
 import { toWingdings } from "@/lib/generators/wingdings";
+import AnswerFirst from "@/components/AnswerFirst";
 import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
@@ -31,6 +32,10 @@ const EXAMPLES = [
 ];
 
 const FAQ = [
+  {
+    question: "How do you say I love you in Wingdings?",
+    answer: `"I love you" in Wingdings is ${toWingdings("I love you")}. Copy it from here, or type any other message in the translator above to get its symbols.`,
+  },
   {
     question: "How do I translate English to Wingdings?",
     answer:
@@ -63,6 +68,19 @@ const FAQ = [
   },
 ];
 
+const ANSWER = (
+  <AnswerFirst
+    path={PATH}
+    question="How do I translate English to Wingdings?"
+    answer={`Type your text in the box above and the Wingdings version appears instantly, ready to copy and paste. "Hello" becomes ${toWingdings("Hello")} and "I love you" becomes ${toWingdings("I love you")}. Paste Wingdings symbols into the same box to translate them back to English.`}
+    table={{
+      caption: "Letters and their Wingdings symbols",
+      head: ["English", "Wingdings", "English", "Wingdings"],
+      rows: [["A", "a"], ["B", "b"], ["C", "c"], ["Y", "y"]].map(([u, l]) => [u, toWingdings(u), l, toWingdings(l)]),
+    }}
+  />
+);
+
 export default function WingdingTranslatorPage() {
   return (
     <GeneratorPageShell
@@ -74,6 +92,7 @@ export default function WingdingTranslatorPage() {
       description={DESCRIPTION}
       updated="2026-11-02"
       faq={FAQ}
+      afterTool={ANSWER}
       inShort={
         <>
           A Wingdings translator converts letters into the pictures the Wingdings font shows for them (A becomes ✌, e becomes ♏) and back

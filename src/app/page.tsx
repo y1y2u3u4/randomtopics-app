@@ -9,6 +9,7 @@ import LazyPracticeDemo from "@/components/LazyPracticeDemo";
 import HomeQotdEntry from "@/components/HomeQotdEntry";
 import TryNext, { HOME_TRY_NEXT } from "@/components/TryNext";
 import Link from "next/link";
+import { POPULAR_GENERATORS } from "@/data/popularGenerators";
 import { MODES, CATEGORIES } from "@/data/types";
 import { pickFeaturedTopics } from "@/lib/editorial";
 
@@ -128,6 +129,27 @@ export default function Home() {
               { emoji: "✨", label: "Question of the Day", detail: "A fresh daily prompt", href: "/question-of-the-day" },
               { emoji: "⚖️", label: "Moral Dilemmas", detail: "65+ ethical questions", href: "/topics/ethical-dilemma-questions" },
             ].map((tool) => (
+              <Link prefetch={false}
+                key={tool.href}
+                href={tool.href}
+                className="glass-card p-4 hover:border-[var(--neon-cyan)]/30 transition-all group"
+              >
+                <span className="text-2xl" aria-hidden="true">{tool.emoji}</span>
+                <p className="text-sm font-bold text-[var(--text-primary)] mt-2 group-hover:text-[var(--neon-cyan)]">
+                  {tool.label}
+                </p>
+                <p className="text-xs text-[var(--text-muted)] mt-1">{tool.detail}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-10" aria-labelledby="popular-generators">
+          <h2 id="popular-generators" className="text-sm font-bold text-[var(--text-primary)] mb-3">
+            Popular generators
+          </h2>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+            {POPULAR_GENERATORS.map((tool) => (
               <Link prefetch={false}
                 key={tool.href}
                 href={tool.href}
