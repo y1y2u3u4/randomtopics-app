@@ -27,6 +27,10 @@ eq(lib.adsterraNativeConfig(src, id), { src, id });
 for (const [s, i] of [[undefined, id], [src, undefined], ["", id], [src, ""], ["  ", id], [src, "  "], [undefined, undefined],
   ["http://pl1.x.com/k/invoke.js", id], ["https://pl1.x.com/k/other.js", id], [src, "abc"], [src, "container-<x>"], ["javascript:alert(1)", id]])
   eq(lib.adsterraNativeConfig(s, i), null);
+// Adsterra's current "Get code" output has no /invoke.js suffix (randomtopics unit 32301291, 2026-11-16): must be accepted.
+const bare = "https://bauval.org/21/e4fcd4adc4ddb7fd627f4e44bc5f884c";
+eq(lib.adsterraNativeConfig(bare, "container-e4fcd4adc4ddb7fd627f4e44bc5f884c"), { src: bare, id: "container-e4fcd4adc4ddb7fd627f4e44bc5f884c" });
+for (const s of ["http://bauval.org/21/e4fc", "https://bauval.org/", "https://bauval.org/21/k/other.js", "https://bauval.org/21/k?x=1"]) eq(lib.adsterraNativeConfig(s, id), null);
 eq(lib.adsterraNativeFromEnv(), null); // env unset in test run
 process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_SRC = src;
 eq(lib.adsterraNativeFromEnv(), null); // only one of two
