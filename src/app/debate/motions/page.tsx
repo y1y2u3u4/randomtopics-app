@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/metadata/social";
 
 export const metadata: Metadata = withSocial({
-  title: "100+ Debate Motions — This House Would… (BP & Parliamentary Format)",
+  title: "Debate Motions: 100+ Examples for BP & Parliamentary (This House Would…)",
   description:
     "100+ ready-to-run debate motions in This House Would format, organized by theme — politics, technology, ethics, education, economics, environment and more. Free motions bank for BP, parliamentary and club debate.",
   keywords: [

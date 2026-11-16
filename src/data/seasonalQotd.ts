@@ -58,6 +58,8 @@ const seasonalLinks = (exclude: string) =>
     { label: "December question of the day", href: "/question-of-the-day/december", description: "Winter, year-in-review and kindness prompts for the last month." },
     { label: "Thanksgiving question of the day", href: "/question-of-the-day/thanksgiving", description: "Table questions for dinner, class and team potlucks." },
     { label: "Christmas question of the day", href: "/question-of-the-day/christmas", description: "Traditions, gifts and winter-fun questions for December." },
+    { label: "New Year question of the day", href: "/question-of-the-day/new-year", description: "Year-in-review, resolution and New Year's Eve questions." },
+    { label: "January question of the day", href: "/question-of-the-day/january", description: "Fresh-start, winter and goal questions for the new year." },
     { label: "Question of the day for students", href: "/question-of-the-day-for-students", description: "180 grade-aware prompts for the whole school year." },
     { label: "Question of the day for work", href: "/question-of-the-day-for-work", description: "120 professional prompts for Slack, Teams and stand-ups." },
   ].filter((link) => link.href !== exclude).slice(0, 4);
@@ -288,6 +290,111 @@ const CHRISTMAS_QUESTIONS = build("xmas", {
   ],
 });
 
+// 2026-11-15: New Year and January sets. The sitemap had Thanksgiving and
+// Christmas pages but nothing for New Year, and the Thanksgiving page reached
+// 1.9k impressions within a week of launch. Same audience/time codes as above.
+const NEW_YEAR_QUESTIONS = build("ny", {
+  "Year in Review": [
+    "K | s | What was the most fun day you had this year? | What made it so good?",
+    "C | s | What is one new thing you learned this year? | Who or what taught you?",
+    "A | m | What is one small moment from this year you want to remember? | Why that one?",
+    "W | m | What is one win from this year that nobody noticed? | What did it take?",
+    "A | l | How are you different now than you were in January? | What changed you most?",
+    "C | m | If this year were a book, what would its title be? | What would the cover show?",
+    "W | s | What is one tool or habit that made your work easier this year? | Would you recommend it?",
+    "K | s | What was the best thing you ate this year? | Would you eat it again tomorrow?",
+    "A | m | What was the best piece of advice you got this year? | Did you follow it?",
+    "W | l | What is one thing our team did this year that you are proud of? | What made it work?",
+  ],
+  "Resolutions & Goals": [
+    "K | s | What is one thing you want to get better at next year? | How will you practice?",
+    "C | m | If you could learn any new skill next year, what would it be? | What is the first step?",
+    "A | m | What is one habit you want to keep and one you want to drop? | Which is harder?",
+    "W | m | What is one thing you want to learn at work next year? | Who could help you?",
+    "A | s | Do you make New Year's resolutions, or skip them? | Why?",
+    "C | s | What is a goal you could finish by the end of January? | How will you know you did it?",
+    "A | l | What would make next year feel like a good year? | What is one thing you can control?",
+    "W | s | If you could change one thing about how we work next year, what would it be? | What would it fix?",
+    "K | m | What is one kind thing you want to do more of next year? | Who would it help?",
+    "A | m | Is there a word or theme you want to choose for next year? | Why that word?",
+  ],
+  "New Year's Eve": [
+    "K | s | Would you rather stay up until midnight or wake up early on New Year's Day? | Why?",
+    "A | s | What is your perfect way to spend New Year's Eve? | Who would be there?",
+    "C | s | If you could celebrate New Year in any city in the world, which one? | What would you see there?",
+    "A | m | What is the best New Year's Eve you remember? | What made it stand out?",
+    "K | s | What sound should everyone make at midnight instead of cheering? | Can you show us?",
+    "W | s | What snack belongs at every New Year's party? | Sweet or salty?",
+    "A | s | Fireworks, a countdown on TV or asleep by ten? | Has it always been that way?",
+    "C | m | Different countries welcome the New Year in different ways. Which tradition would you try? | Why?",
+    "A | m | What song should play at the stroke of midnight? | Why that song?",
+    "K | s | If you could stay up as late as you want on New Year's Eve, what would you do? | Would you make it to midnight?",
+  ],
+  "Fun & Silly": [
+    "K | s | If the New Year were an animal, what animal would it be? | What would it do first?",
+    "C | s | What should be the official snack of next year? | Why?",
+    "A | s | What trend from this year should stay in this year? | Be honest.",
+    "W | s | What emoji sums up your year? | Explain it in one sentence.",
+    "K | m | If you could invent a new holiday for next year, what would it celebrate? | How would people celebrate?",
+    "A | m | Write next year's headline in five words or fewer. | Is it good news?",
+    "C | s | Would you rather time-travel one year back or one year forward? | What would you check first?",
+    "W | s | What is your most realistic resolution ever? | Did you keep it?",
+    "K | s | If you could give the New Year one rule, what would it be? | Who would enforce it?",
+    "A | s | Which month of the year would you skip if you could? | What would you do with the extra time?",
+  ],
+});
+
+const JANUARY_QUESTIONS = build("jan", {
+  "Fresh Start": [
+    "K | s | What is one thing you are excited about this month? | Why?",
+    "C | s | If you could start one new class club this January, what would it be? | Who would join?",
+    "A | m | What does a fresh start look like for you? | Is it a big change or a small one?",
+    "W | s | What is one thing you want to set up well this month? | What will it save you later?",
+    "A | s | Clean desk or creative mess to start the year? | Which works better for you?",
+    "K | m | If you could redecorate your room for the new year, what would you add? | What colour would it be?",
+    "C | m | What is one thing you want to do differently this term? | How can the class help?",
+    "W | m | What is one meeting, task or habit you would cut this January? | What would you do with the time?",
+    "A | l | What is something you are ready to let go of this year? | What will you make room for?",
+    "K | s | What is the first fun thing you want to do this year? | When will you do it?",
+  ],
+  "Winter Fun": [
+    "K | s | Hot chocolate or warm apple cider? | What topping would you add?",
+    "C | s | If it snowed enough for a snow day tomorrow, what would you do? | Inside or outside?",
+    "A | s | What is your favourite cozy winter activity? | Do you do it alone or with others?",
+    "K | m | If you could design a new winter sport, how would it work? | What would the prize be?",
+    "W | s | What gets you through a dark January morning? | Coffee, music or something else?",
+    "A | s | Winter beach trip or snowy cabin? | Why?",
+    "C | s | What is the best thing about winter? | And the worst?",
+    "K | s | Would you rather be a penguin or a polar bear for a day? | What would you do?",
+    "A | m | What is a winter food you could eat every week? | Do you make it yourself?",
+    "W | s | What is your go-to cold-weather lunch? | Would you recommend it to the team?",
+  ],
+  "Goals & Habits": [
+    "K | s | What is one thing you want to read, watch or try this month? | Why that one?",
+    "C | m | What habit would make school easier this term? | How could you start tomorrow?",
+    "A | m | What is a small habit that has made a big difference for you? | How did it start?",
+    "W | m | What is one goal for this quarter you can explain in one sentence? | What is the first step?",
+    "A | s | Do you track your goals, or keep them in your head? | Does it work?",
+    "K | m | If you could earn a badge for any skill this month, what would it be? | What would you have to do?",
+    "W | s | What is one thing you want to stop doing at work this year? | What will replace it?",
+    "C | s | What is one goal the whole class could work on together? | How would we know we did it?",
+    "A | l | What is a goal you gave up on that you might try again? | What would you do differently?",
+    "W | m | Who on the team could you learn something from this year? | What would you ask them?",
+  ],
+  "Fun & Silly": [
+    "K | s | If January had a mascot, what would it be? | What would it wear?",
+    "C | s | Which month is the best month, and why is it not January? | Convince us.",
+    "A | s | What is the funniest resolution you have heard? | Did the person keep it?",
+    "W | s | If our team had a theme song for this year, what would it be? | Why?",
+    "K | m | If you could add a 13th month to the year, what would you call it? | What would happen in it?",
+    "A | s | What would you name this January if months had nicknames? | Why?",
+    "C | s | Would you rather have a whole week of snow days or a whole week of field trips? | Where would you go?",
+    "W | s | What is your official January mood in one word? | Explain.",
+    "K | s | If snowflakes had flavours, what flavour would you want? | Would you catch them on your tongue?",
+    "A | m | If you could swap January with any other month, which one would you pick? | What would change?",
+  ],
+});
+
 function config(input: {
   slug: string;
   title: string;
@@ -301,6 +408,7 @@ function config(input: {
   season: string;
   toolTitle: string;
   faq: { question: string; answer: string }[];
+  published?: string;
 }): PremiumCollectionConfig {
   const path = `/question-of-the-day/${input.slug}`;
   return {
@@ -312,8 +420,8 @@ function config(input: {
     metaDescription: input.metaDescription,
     subtitle: input.subtitle,
     intro: input.intro,
-    published: "2026-11-08",
-    updated: "2026-11-08",
+    published: input.published ?? "2026-11-08",
+    updated: input.published ?? "2026-11-08",
     source: `qotd_${input.slug}`,
     promptNoun: "question",
     itemCountLabel: `${input.season} questions`,
@@ -418,6 +526,48 @@ export const CHRISTMAS_QOTD_CONFIG = config({
   ],
 });
 
+export const NEW_YEAR_QOTD_CONFIG = config({
+  slug: "new-year",
+  title: "New Year Question of the Day",
+  metaTitle: "New Year Question of the Day — 40 NYE & Resolution Questions",
+  metaDescription: "40 New Year questions of the day for class, family and work: year-in-review, resolutions, New Year's Eve and funny questions, sorted for kids and adults. Free, printable, no sign-up.",
+  eyebrow: "Questions to close one year and open the next",
+  subtitle: "Year-in-review, resolution, New Year's Eve and silly questions for the last days of December and the first week of January — for classrooms, families and teams.",
+  intro: "A good New Year question looks back for a moment, looks ahead for a moment, and leaves room to laugh. These 40 original questions cover the year in review, resolutions and goals, New Year's Eve plans and fun what-ifs, each tagged for kids, classrooms, teens and adults or work. Use today's question as a warm-up, or print the list for a New Year's Eve party.",
+  categories: ["Year in Review", "Resolutions & Goals", "New Year's Eve", "Fun & Silly"],
+  items: NEW_YEAR_QUESTIONS,
+  season: "New Year",
+  toolTitle: "Today's New Year Question",
+  published: "2026-11-15",
+  faq: [
+    { question: "What is a good New Year question to ask?", answer: "Pair one look-back question (what is one small moment from this year you want to remember?) with one look-ahead question (what would make next year feel like a good year?). Keep most answers to a minute so everyone gets a turn." },
+    { question: "Are there New Year questions for kids and classrooms?", answer: "Yes. Filter by Kids or Classroom for school-safe questions, such as what you want to get better at next year or which city you would celebrate New Year in. They avoid private family or money details." },
+    { question: "Can I use these questions at a New Year's Eve party?", answer: "Yes. The New Year's Eve and Fun & Silly themes are written for parties: perfect-midnight songs, snack debates and five-word headlines for next year. Print the list or pick one at random." },
+    { question: "Can teams use these for the first meeting of the year?", answer: "Yes. Filter by Work for team-safe questions about wins nobody noticed, tools that helped and one thing to change next year. The planner builds a five-day set without repeats." },
+  ],
+});
+
+export const JANUARY_QOTD_CONFIG = config({
+  slug: "january",
+  title: "January Question of the Day",
+  metaTitle: "January Question of the Day — 40 Fresh-Start QOTD Ideas",
+  metaDescription: "A new January question of the day every morning: 40 fresh-start, winter, goals and funny questions for kids, classrooms and work. Free, printable, no sign-up.",
+  eyebrow: "A question for every January morning",
+  subtitle: "Fresh-start, winter-fun, goals and silly questions for the first month of the year — sorted for kids, classrooms and teams.",
+  intro: "January questions work best when they are light: a new term, dark mornings and fresh goals are enough to think about. These 40 original questions mix fresh-start prompts, cozy winter questions, small goal and habit questions and a few silly ones, each tagged by audience and answer time so you can match the room.",
+  categories: ["Fresh Start", "Winter Fun", "Goals & Habits", "Fun & Silly"],
+  items: JANUARY_QUESTIONS,
+  season: "January",
+  toolTitle: "Today's January Question",
+  published: "2026-11-15",
+  faq: [
+    { question: "What is a good question of the day for January?", answer: "Mix fresh-start questions (what is one thing you want to set up well this month?), cozy winter prompts and one small goal question per week. Avoid making every morning about resolutions." },
+    { question: "Are the January questions good for the first week back at school?", answer: "Yes. Filter by Classroom or Kids for short, school-safe prompts about the new term, snow days and class goals." },
+    { question: "Can teams use these in Slack or Teams?", answer: "Yes. Filter by Work, copy the question in one click, and paste it into your team channel. The planner builds a Monday-to-Friday set without repeats." },
+    { question: "Is there a version for New Year's Eve?", answer: "Yes — the New Year question of the day page has 40 year-in-review, resolution and New Year's Eve questions." },
+  ],
+});
+
 THANKSGIVING_QOTD_CONFIG.relatedLinks = [
   ...THANKSGIVING_QOTD_CONFIG.relatedLinks,
   { label: "Thanksgiving would you rather", href: "/would-you-rather/thanksgiving", description: "48 feast, family and travel dilemmas for the table." },
@@ -425,10 +575,11 @@ THANKSGIVING_QOTD_CONFIG.relatedLinks = [
 ];
 CHRISTMAS_QOTD_CONFIG.relatedLinks = [
   ...CHRISTMAS_QOTD_CONFIG.relatedLinks,
+  { label: "New Year question of the day", href: "/question-of-the-day/new-year", description: "Year-in-review, resolution and New Year's Eve questions." },
   { label: "Christmas would you rather", href: "/would-you-rather/christmas", description: "48 gift, tree and movie dilemmas for December." },
   { label: "Christmas this or that", href: "/this-or-that/christmas", description: "48 quick Christmas picks for family, class and parties." },
 ];
 
-export const SEASONAL_QOTD_CONFIGS = [NOVEMBER_QOTD_CONFIG, DECEMBER_QOTD_CONFIG, THANKSGIVING_QOTD_CONFIG, CHRISTMAS_QOTD_CONFIG];
+export const SEASONAL_QOTD_CONFIGS = [NOVEMBER_QOTD_CONFIG, DECEMBER_QOTD_CONFIG, THANKSGIVING_QOTD_CONFIG, CHRISTMAS_QOTD_CONFIG, NEW_YEAR_QOTD_CONFIG, JANUARY_QOTD_CONFIG];
 
 for (const c of SEASONAL_QOTD_CONFIGS) validatePremiumCollection(c, 40);

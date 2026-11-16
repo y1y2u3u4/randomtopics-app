@@ -199,6 +199,8 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/question-of-the-day/december",
   "/question-of-the-day/thanksgiving",
   "/question-of-the-day/christmas",
+  "/question-of-the-day/new-year",
+  "/question-of-the-day/january",
   "/4-characters-i-like",
   "/ship-dynamic-template",
   "/ship-tier-list",

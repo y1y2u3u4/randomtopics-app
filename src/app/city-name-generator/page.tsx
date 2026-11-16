@@ -8,7 +8,7 @@ import { generatorSocial } from "@/lib/generatorSocial";
 import GeneratorExamples from "@/components/generators/GeneratorExamples";
 
 const PATH = "/city-name-generator";
-const TITLE = "City Name Generator — Fantasy, Sci-Fi & Real-Style Town Names";
+const TITLE = "City Name Generator: Random Fantasy, Sci-Fi & Real City Names";
 const DESCRIPTION = `Free city name generator: fantasy, dark fantasy, sci-fi and real-world style (English, Spanish, German, Nordic, Italian) city and town names. Pick a size from village to capital — every name comes with a population and a one-line story hook.`;
 
 const SOCIAL = generatorSocial({ card: "dnd-name-generator", title: TITLE, description: DESCRIPTION, alt: "City Name Generator — fantasy, sci-fi and real-style town names" });
@@ -82,7 +82,7 @@ export default function CityNameGeneratorPage() {
       path={PATH}
       name="City Name Generator"
       heading={["City Name", "Generator"]}
-      intro="Fantasy, sci-fi and real-world style city and town names — each with a size, a population and a story hook."
+      intro="Click once for a random city name — fantasy, sci-fi or real-world style — with its size, population and a one-line story hook you can drop into a map, novel or D&D campaign."
       description={DESCRIPTION}
       updated="2026-10-22"
       faq={FAQ}
