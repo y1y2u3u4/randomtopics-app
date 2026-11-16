@@ -52,17 +52,25 @@ function filters(categories: string[]): PremiumCollectionConfig["filters"] {
 
 const parentLink = { label: "Today's question of the day", href: "/question-of-the-day" };
 
-const seasonalLinks = (exclude: string) =>
-  [
-    { label: "November question of the day", href: "/question-of-the-day/november", description: "Thirty days of cozy, grateful and funny fall questions." },
-    { label: "December question of the day", href: "/question-of-the-day/december", description: "Winter, year-in-review and kindness prompts for the last month." },
-    { label: "Thanksgiving question of the day", href: "/question-of-the-day/thanksgiving", description: "Table questions for dinner, class and team potlucks." },
-    { label: "Christmas question of the day", href: "/question-of-the-day/christmas", description: "Traditions, gifts and winter-fun questions for December." },
-    { label: "New Year question of the day", href: "/question-of-the-day/new-year", description: "Year-in-review, resolution and New Year's Eve questions." },
-    { label: "January question of the day", href: "/question-of-the-day/january", description: "Fresh-start, winter and goal questions for the new year." },
-    { label: "Question of the day for students", href: "/question-of-the-day-for-students", description: "180 grade-aware prompts for the whole school year." },
-    { label: "Question of the day for work", href: "/question-of-the-day-for-work", description: "120 professional prompts for Slack, Teams and stand-ups." },
-  ].filter((link) => link.href !== exclude).slice(0, 4);
+const SEASONAL_LINKS = [
+  { label: "November question of the day", href: "/question-of-the-day/november", description: "Thirty days of cozy, grateful and funny fall questions." },
+  { label: "December question of the day", href: "/question-of-the-day/december", description: "Winter, year-in-review and kindness prompts for the last month." },
+  { label: "Thanksgiving question of the day", href: "/question-of-the-day/thanksgiving", description: "Table questions for dinner, class and team potlucks." },
+  { label: "Christmas question of the day", href: "/question-of-the-day/christmas", description: "Traditions, gifts and winter-fun questions for December." },
+  { label: "New Year question of the day", href: "/question-of-the-day/new-year", description: "Year-in-review, resolution and New Year's Eve questions." },
+  { label: "January question of the day", href: "/question-of-the-day/january", description: "Fresh-start, winter and goal questions for the new year." },
+  { label: "Question of the day for students", href: "/question-of-the-day-for-students", description: "180 grade-aware prompts for the whole school year." },
+  { label: "Question of the day for work", href: "/question-of-the-day-for-work", description: "120 professional prompts for Slack, Teams and stand-ups." },
+];
+
+/** The next four links after `exclude`, wrapping around, so every entry in the list is linked from four siblings. */
+export const seasonalLinks = (exclude: string) => {
+  const i = SEASONAL_LINKS.findIndex((link) => link.href === exclude);
+  const start = i < 0 ? 0 : i + 1;
+  return Array.from({ length: SEASONAL_LINKS.length }, (_, k) => SEASONAL_LINKS[(start + k) % SEASONAL_LINKS.length])
+    .filter((link) => link.href !== exclude)
+    .slice(0, 4);
+};
 
 const guide = (season: string): PremiumCollectionConfig["guide"] => ({
   title: `How to run a ${season} question of the day`,

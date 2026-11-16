@@ -7,6 +7,8 @@ on:
       - 'src/i18n/**'
       - 'next.config.ts'
       - 'scripts/seo-routing-regression.mjs'
+      - 'scripts/inlinks-regression.mjs'
+      - 'src/components/**'
       - 'scripts/lib/load-typescript.mjs'
       - 'package*.json'
       - '.github/workflows/seo-routing-regression.yml'
@@ -18,6 +20,8 @@ on:
       - 'src/i18n/**'
       - 'next.config.ts'
       - 'scripts/seo-routing-regression.mjs'
+      - 'scripts/inlinks-regression.mjs'
+      - 'src/components/**'
       - 'scripts/lib/load-typescript.mjs'
       - 'package*.json'
       - '.github/workflows/seo-routing-regression.yml'
@@ -40,6 +44,7 @@ jobs:
       - run: npx eslint 'src/app/es/categories/[category]/page.tsx' scripts/seo-routing-regression.mjs
       - run: npx tsc --noEmit
       - run: npm run build
+      - run: node scripts/inlinks-regression.mjs
       - name: Verify HTTP routes and permanent redirects on the built app
         run: |
           npm run start -- --hostname 127.0.0.1 > /tmp/seo-routing-next.log 2>&1 &
