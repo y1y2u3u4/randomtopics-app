@@ -101,7 +101,7 @@ const ANSWER = (
       table={{
         caption: "Animals in the generator by type",
         head: ["Type", "Animals", "Example"],
-        rows: ["mammal", "bird", "fish", "reptile", "amphibian", "invertebrate"].map((c) => [c[0].toUpperCase() + c.slice(1) + "s", String(CLASS_COUNT(c)), firstOf(c)]),
+        rows: ([["mammal", "Mammals"], ["bird", "Birds"], ["fish", "Fish"], ["reptile", "Reptiles"], ["amphibian", "Amphibians"], ["invertebrate", "Invertebrates"]] as const).map(([c, label]) => [label, String(CLASS_COUNT(c)), firstOf(c)]),
       }}
     />
 );
