@@ -1,8 +1,19 @@
 import Link from "next/link";
 import { MODES, CATEGORIES } from "@/data/types";
 import { generatorsFor } from "@/data/generators/registry";
+import { allLocaleSiblings } from "@/lib/localePages";
 import { Locale, localeBase, localizePath, defaultLocale } from "@/i18n/config";
 import { getDict, MODE_LABELS, CATEGORY_LABELS } from "@/i18n/dictionaries";
+
+/** Language home pages linked from the English footer so every locale hub has sitewide inlinks (checked by scripts/inlinks-regression.mjs). */
+const LOCALE_HOMES: { href: string; lang: string; label: string }[] = [
+  { href: "/es", lang: "es", label: "Español" },
+  { href: "/pt", lang: "pt", label: "Português" },
+  { href: "/de", lang: "de", label: "Deutsch" },
+  { href: "/fr", lang: "fr", label: "Français" },
+  { href: "/tr", lang: "tr", label: "Türkçe" },
+  { href: "/ja", lang: "ja", label: "日本語" },
+];
 
 export default function Footer({ locale = defaultLocale }: { locale?: Locale }) {
   const base = localeBase(locale);
@@ -49,6 +60,8 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
           { href: "/debate/questions", label: "💬 Debate Question Generator" },
           { href: "/debate/motions", label: "🏛️ Debate Motions" },
           { href: "/pro-and-con-debate-topics", label: "↔️ Pro & Con Debate Topics" },
+          { href: "/writing-journal", label: "📔 Writing Journal" },
+          { href: "/discord-qotd-bot", label: "🤖 Discord QOTD Bot" },
         ]
       : []),
     ...(locale === "es"
@@ -56,6 +69,9 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
           { href: "/es/generador-de-temas-para-exponer", label: "📊 Temas para Exponer" },
           { href: "/es/generador-de-temas-para-investigar", label: "🔎 Temas para Investigar" },
           { href: "/es/generador-de-temas-para-estudiar", label: "🧠 Temas para Estudiar" },
+          { href: "/es/charades", label: "🎭 Charadas" },
+          { href: "/es/hot-seat-questions", label: "🔥 Preguntas Silla Caliente" },
+          { href: "/es/random-subject-generator", label: "🧪 Generador de Temas Aleatorios" },
         ]
       : []),
   ];
@@ -135,11 +151,23 @@ export default function Footer({ locale = defaultLocale }: { locale?: Locale }) 
               <li><Link prefetch={false} href={localizePath("/terms", locale)} className={linkClass}>{t.footer.terms}</Link></li>
               <li><Link prefetch={false} href={localizePath("/press", locale)} className={linkClass}>{t.footer.press}</Link></li>
               <li><Link prefetch={false} href={localizePath("/contact", locale)} className={linkClass}>{t.footer.contact}</Link></li>
+              <li><Link prefetch={false} href={localizePath("/stats", locale)} className={linkClass}>{locale === "es" ? "Estadísticas" : "Site stats"}</Link></li>
               <li><Link prefetch={false} href={localizePath("/categories", locale)} className={linkClass}>{t.footer.allCategories}</Link></li>
               <li><Link prefetch={false} href={localizePath("/topics", locale)} className={linkClass}>{t.footer.topicCollections}</Link></li>
             </ul>
           </div>
         </div>
+        {locale === "en" && (
+          <p className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-[var(--text-muted)]">
+            <span aria-hidden>🌐</span>
+            {LOCALE_HOMES.map((l) => (
+              <Link key={l.href} prefetch={false} href={l.href} hrefLang={l.lang} className={linkClass}>{l.label}</Link>
+            ))}
+            {allLocaleSiblings("ja").filter((l) => l.href !== "/ja").map((l) => (
+              <Link key={l.href} prefetch={false} href={l.href} hrefLang="ja" className={linkClass}>{l.label}</Link>
+            ))}
+          </p>
+        )}
         <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="text-xl">🎲</span>

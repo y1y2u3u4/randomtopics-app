@@ -1,3 +1,4 @@
+import { IMPROMPTU_COLLECTIONS } from "@/data/impromptuCollections";
 import { SelectedTopicPractice } from "@/components/TopicHandoff";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -332,6 +333,7 @@ export default function SpeechPage() {
               { title: "60 Public Speaking Topics for Beginners", href: "/topics/public-speaking-topics-for-beginners" },
               { title: "75 Presentation Topics for School", href: "/topics/presentation-ideas-for-school" },
               { title: "Presentation Topic Generator", href: "/presentation-topic-generator" },
+              ...IMPROMPTU_COLLECTIONS.map((c) => ({ title: c.h1, href: c.path })),
             ].map((item) => (
               <Link prefetch={false}
                 key={item.href}

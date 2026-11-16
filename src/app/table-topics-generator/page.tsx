@@ -1,3 +1,4 @@
+import { IMPROMPTU_COLLECTIONS } from "@/data/impromptuCollections";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -132,7 +133,9 @@ export default function TableTopicsPage() {
               <p>
                 Looking for longer-form practice? Our <Link prefetch={false} href="/speech" className="text-[var(--neon-cyan)] hover:underline">speech topic generator</Link> covers
                 prepared speech ideas, and the <Link prefetch={false} href="/impromptu-speech-topics" className="text-[var(--neon-cyan)] hover:underline">impromptu speech topics</Link> page
-                targets classroom and forensics formats.
+                targets classroom and forensics formats. Practising with a group? Try {IMPROMPTU_COLLECTIONS.map((c, i) => (
+                  <span key={c.slug}>{i ? ", " : ""}<Link prefetch={false} href={c.path} className="text-[var(--neon-cyan)] hover:underline">{c.h1.toLowerCase()}</Link></span>
+                ))}.
               </p>
 
               <h3

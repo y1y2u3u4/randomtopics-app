@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "seo:audit": "node scripts/seo-audit.mjs",
+    "links:test": "node scripts/inlinks-regression.mjs",
     "handoff:test": "node scripts/topic-handoff-regression.mjs",
     "growth:test": "node scripts/growth-regression.mjs && node scripts/popular-generators-regression.mjs",
     "topics:test": "node scripts/topic-generator-regression.mjs",
