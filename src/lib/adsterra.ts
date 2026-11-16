@@ -31,11 +31,12 @@ export function adsterraCountryAllowed(country: string | null | undefined, exclu
 
 export type AdsterraNative = { src: string; id: string };
 
-/** Both env values present and well-formed (https script URL, container-<key> id); otherwise null = feature off. */
+/** Both env values present and well-formed (https Adsterra script URL, container-<key> id); otherwise null = feature off. */
 export function adsterraNativeConfig(src: string | undefined, id: string | undefined): AdsterraNative | null {
   const s = (src ?? "").trim(), i = (id ?? "").trim();
   if (!s || !i) return null;
-  if (!/^https:\/\/[a-z0-9.-]+\/[A-Za-z0-9_\-/]+\/invoke\.js$/i.test(s)) return null;
+  // Adsterra script URL: https://<host>/<path>/<key>, with or without the legacy /invoke.js suffix; nothing else.
+  if (!/^https:\/\/[a-z0-9.-]+\/(?:[A-Za-z0-9_-]+\/)*[A-Za-z0-9_-]+(?:\/invoke\.js)?$/i.test(s)) return null;
   if (!/^container-[A-Za-z0-9_-]+$/.test(i)) return null;
   return { src: s, id: i };
 }
