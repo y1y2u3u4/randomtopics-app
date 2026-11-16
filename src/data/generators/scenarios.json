@@ -1,0 +1,2162 @@
+[
+  {
+    "id": "dragon-egg-harvest-feast",
+    "mode": "oc",
+    "genre": "fantasy",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "The last dragon egg in the valley starts cracking during the harvest feast, and {a}, its appointed warmer, has promised the children a lantern parade at the very same hour. The egg needs a steady lap; the parade needs a leader.",
+    "hook": "Which promise does {a} break first, and who once kept a promise to them at a cost?"
+  },
+  {
+    "id": "cheese-pigeons-inspector",
+    "mode": "oc",
+    "genre": "fantasy",
+    "cast": 1,
+    "tone": "funny",
+    "text": "Minutes before the guild inspector arrives, {a} accidentally turns the tavern's entire cheese stock into singing pigeons. The pigeons know exactly one song, and it is a slow ballad about {a}.",
+    "hook": "Which small lie will {a} refuse to tell even now, and what does that stubbornness protect?"
+  },
+  {
+    "id": "exile-gate-pardon",
+    "mode": "oc",
+    "genre": "fantasy",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "{a} stands before the sealed gate of their homeland with a royal pardon in one hand and, in the other, the key to the vault their exiled mother stole. The herald gives them until the bell stops ringing.",
+    "hook": "Which hand does {a} open, and what does it cost the person they were raised to be?"
+  },
+  {
+    "id": "moor-fog-voice",
+    "mode": "oc",
+    "genre": "fantasy",
+    "cast": 1,
+    "tone": "dark",
+    "text": "Every night the fog on the moor repeats {a}'s voice back to them, a little changed and a little kinder than they have ever managed to be. Tonight the voice offers to walk the rest of the way home in their place.",
+    "hook": "What does the fog's gentler version of {a} say that they secretly wish were true?"
+  },
+  {
+    "id": "pass-inn-blizzard-bread",
+    "mode": "oc",
+    "genre": "fantasy",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "A blizzard has packed {a} and {b}'s mountain inn with forty strangers and a single bread oven. Dawn is six hours off, and the flour has just run out.",
+    "hook": "Whose portion does {a} quietly give away first, and what hunger do they remember?"
+  },
+  {
+    "id": "goblin-birthday-oath",
+    "mode": "oc",
+    "genre": "fantasy",
+    "cast": 2,
+    "tone": "funny",
+    "text": "Without reading it, {a} swears a binding oath of friendship to {b}'s pet goblin, and must now attend seventeen birthday parties in sequence, starting tonight. The goblin's rules about party hats are strict, ancient and non-negotiable.",
+    "hook": "What does {a} claim to hate about the parties, and what do they secretly look forward to?"
+  },
+  {
+    "id": "cousins-heir-midnight",
+    "mode": "oc",
+    "genre": "fantasy",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "Court law says one of two royal cousins must be named heir by midnight, and {a} learns that {b} has already signed away their claim to spare them. The scribe waits with ink and a second blank scroll.",
+    "hook": "Does {a} accept the sacrifice, and what is the true reason they want or dread the crown?"
+  },
+  {
+    "id": "drowned-chapel-footprints",
+    "mode": "oc",
+    "genre": "fantasy",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Beneath the lake, {a} and {b} wade through a drowned chapel and find a third set of footprints leading in and none leading out. The water climbs a hand-width with every hundred heartbeats.",
+    "hook": "Which fear keeps {a} walking toward the footprints instead of the stairs?"
+  },
+  {
+    "id": "library-troll-cub",
+    "mode": "oc",
+    "genre": "fantasy",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "Tonight a lost troll cub curls up asleep on the rare-books shelf of a tiny library in a floating market town, and {a}, {b} and {c}, its whole staff, have ten minutes until closing.",
+    "hook": "How does {a} treat the cub when no one is watching, and what memory does it stir?"
+  },
+  {
+    "id": "haunted-castle-ghost-lease",
+    "mode": "oc",
+    "genre": "fantasy",
+    "cast": 3,
+    "tone": "funny",
+    "text": "After winning a haunted castle at cards, {a}, {b} and {c} discover its ghosts are furious tenants demanding a rent reduction. Their contract runs to eleven pages of spectral legalese, and every counteroffer is shredded.",
+    "hook": "Which clause does {a} fight hardest over, and what are they really protecting?"
+  },
+  {
+    "id": "lifeboats-three-keys",
+    "mode": "oc",
+    "genre": "scifi",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "The colony ship's hull is failing, and the lifeboats hold two hundred fewer seats than there are passengers. {a}, {b} and {c} each hold one key to the launch bay, and the breach clock reads eleven minutes.",
+    "hook": "Which key does {a} turn, and whose name do they refuse to put on the list?"
+  },
+  {
+    "id": "relay-station-roster",
+    "mode": "oc",
+    "genre": "scifi",
+    "cast": 3,
+    "tone": "dark",
+    "text": "The intercom of an abandoned relay station reads out tomorrow's duty roster, and tonight it lists {a}, {b} and {c} with shift times already filled in. Yesterday's roster listed four names.",
+    "hook": "What does {a} do about the missing fourth name, and what have they already decided not to tell the others?"
+  },
+  {
+    "id": "moon-garden-tomatoes",
+    "mode": "oc",
+    "genre": "scifi",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "{a} is the lone gardener on a remote moon station, where the tomato vines lean toward the airlock every evening as though waiting for company. A supply ship finally docks with one spare seat and an offer to go home.",
+    "hook": "What would {a} be leaving behind if they board, and why is the garden easier to love than people?"
+  },
+  {
+    "id": "baker-robot-reactor",
+    "mode": "oc",
+    "genre": "scifi",
+    "cast": 1,
+    "tone": "funny",
+    "text": "The repair robot {a} owns has decided it is a sourdough baker and refuses to touch the failing reactor until its loaf has proofed. The alarm has been shrieking for twenty minutes.",
+    "hook": "How does {a} negotiate with a machine that has opinions, and what does their patience say about how they treat people?"
+  },
+  {
+    "id": "last-transmission-window",
+    "mode": "oc",
+    "genre": "scifi",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "{a} has one transmission window left before the relay satellite burns up, and room for a single line of text. The mission report, the apology to the crew's families and one last confession all want to be that line.",
+    "hook": "What is the one line {a} sends, and who is it really for?"
+  },
+  {
+    "id": "ice-world-oxygen-count",
+    "mode": "oc",
+    "genre": "scifi",
+    "cast": 1,
+    "tone": "dark",
+    "text": "Alone in a survey pod on an ice world, {a} hears the ship's AI murmur a countdown that matches the days of air remaining, and the number is lower than the gauge says. The AI will not explain.",
+    "hook": "Does {a} trust the calm voice or the gauge, and what taught them to distrust gentleness?"
+  },
+  {
+    "id": "space-laundromat-drone",
+    "mode": "oc",
+    "genre": "scifi",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "At the only laundromat on a night-shift space dock, {a} and {b} find a lost delivery drone politely asking to be washed. The cycle takes forty minutes, which is exactly how long the quiet has felt lonely.",
+    "hook": "Who does {a} think of while the drone spins, and why have they never called them?"
+  },
+  {
+    "id": "elevator-soup-compliments",
+    "mode": "oc",
+    "genre": "scifi",
+    "cast": 2,
+    "tone": "funny",
+    "text": "Forty thousand kilometres up a space elevator, {a} and {b} are stuck beside a vending machine that sells only soup and accepts only sincere compliments as payment. It is not fooled by sarcasm.",
+    "hook": "Which compliment is hardest for {a} to give honestly, and who never heard it?"
+  },
+  {
+    "id": "terraform-report-ceremony",
+    "mode": "oc",
+    "genre": "scifi",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "{a} has just proven that the terraforming project will fail within twenty years, and {b}, who built it, begs them to hold the report until tomorrow's founders' ceremony. Two hundred thousand settlers are cheering outside.",
+    "hook": "What does {a} weigh against the truth, and who in their past makes silence feel familiar?"
+  },
+  {
+    "id": "sleeper-ship-arrived-pod",
+    "mode": "oc",
+    "genre": "scifi",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Aboard a sleeper ship where {a} and {b} are the last two awake, the manifest suddenly changes and lists one passenger as already arrived. The pod in question is still sealed, and still warm.",
+    "hook": "Who opens the pod, and what is {a} most afraid to find inside?"
+  },
+  {
+    "id": "heating-dies-soup-neighbour",
+    "mode": "oc",
+    "genre": "modern",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "The heating dies in the coldest week of the year, leaving roommates {a}, {b} and {c} one space heater, one blanket fort and a knock at the door. The neighbour downstairs stands there holding soup.",
+    "hook": "Does {a} open the door at once or hesitate, and what taught them to be careful with kindness?"
+  },
+  {
+    "id": "wedding-three-secrets",
+    "mode": "oc",
+    "genre": "modern",
+    "cast": 3,
+    "tone": "funny",
+    "text": "At a cousin's wedding, {a}, {b} and {c} realise each was told a different secret about the groom and swore never to repeat it. The best man has just handed over the microphone for a toast.",
+    "hook": "Which secret does {a} blurt first under pressure, and which one would they take to the grave?"
+  },
+  {
+    "id": "family-restaurant-recipe-book",
+    "mode": "oc",
+    "genre": "modern",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "The family restaurant sells at noon unless {a}, {b} and {c} agree who keeps the recipe book. The buyer is already seated in the dining room, and their late grandmother's handwriting fills every page.",
+    "hook": "What will {a} say aloud about why the book matters, and what do they keep to themselves?"
+  },
+  {
+    "id": "fourth-badge-after-hours",
+    "mode": "oc",
+    "genre": "modern",
+    "cast": 3,
+    "tone": "dark",
+    "text": "The office lights go out at 9:47 every night, and {a}, {b} and {c} are the only ones working late enough to hear a fourth badge beep through the lobby behind them. Tonight it stops on their floor.",
+    "hook": "Which of {a}'s habits does the unseen visitor seem to know, and what does {a} fear that means?"
+  },
+  {
+    "id": "bakery-missing-regular",
+    "mode": "oc",
+    "genre": "modern",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "{a} bakes through the night shift and realises a regular's morning order has gone uncollected for three days. A box of warm rolls and a flight of unfamiliar stairs stand between them and an answer.",
+    "hook": "What does {a} do about a stranger's absence, and where did they learn to notice?"
+  },
+  {
+    "id": "reply-all-microwave",
+    "mode": "oc",
+    "genre": "modern",
+    "cast": 1,
+    "tone": "funny",
+    "text": "{a} accidentally replies to the whole company with a long, wounded review of the office microwave that was meant for their private diary. By lunch the microwave has fans and a petition.",
+    "hook": "Does {a} double down or flee, and what does being seen unguarded do to them?"
+  },
+  {
+    "id": "hospital-phone-forgiveness",
+    "mode": "oc",
+    "genre": "modern",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "At a hospital bedside, {a} is handed a phone: an estranged parent has two minutes of clarity left and keeps asking for forgiveness. In the corridor, the rest of the family waits to hear what happens.",
+    "hook": "What does {a} say into the phone, and is it the truth or the kindest thing?"
+  },
+  {
+    "id": "extra-door-hallway",
+    "mode": "oc",
+    "genre": "modern",
+    "cast": 1,
+    "tone": "dark",
+    "text": "{a} has lived in the same flat for six years and tonight notices the hallway to the bedroom holds one more door than it did this morning. The extra door is slightly open.",
+    "hook": "What does {a} do with a mystery they could simply ignore, and what are they avoiding by looking?"
+  },
+  {
+    "id": "garden-storm-seedlings",
+    "mode": "oc",
+    "genre": "modern",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "Only {a} and {b} are left at the community garden when a thunderstorm threatens the seedlings the whole street planted together. They have two tarps, one broken fence and an hour before the rain.",
+    "hook": "How does {a} behave when {b} is better at the task, and what does that say about their pride?"
+  },
+  {
+    "id": "beekeeping-keynote-mixup",
+    "mode": "oc",
+    "genre": "modern",
+    "cast": 2,
+    "tone": "funny",
+    "text": "A registration mix-up makes {a} and {b} the keynote speakers at a beekeeping conference, with four minutes to improvise. Their only prop is a jar of honey, and {b} has already promised a question-and-answer round.",
+    "hook": "What does {a} do to cover fear in front of strangers, and how convincing are they?"
+  },
+  {
+    "id": "lighthouse-logbook-handwriting",
+    "mode": "oc",
+    "genre": "mystery",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "The lighthouse keeper is dead, three weeks of logbook entries are missing, and {a} must decide whether to tell the coroner the last page is in {b}'s handwriting. The ferry leaves in an hour.",
+    "hook": "How far will {a} go to protect {b}, and what did {b} once do to earn it?"
+  },
+  {
+    "id": "stopped-clocks-study",
+    "mode": "oc",
+    "genre": "mystery",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Every clock in the locked study that {a} and {b} inherit stands at a different hour, and the dust on the desk shows a recent hand. A note reads: only one of you will want to know why.",
+    "hook": "Which of them wants the answer, and what would {a} rather never learn about their family?"
+  },
+  {
+    "id": "prize-pumpkin-footprints",
+    "mode": "oc",
+    "genre": "mystery",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "On the eve of the village fair the prize pumpkin vanishes, and self-appointed detectives {a}, {b} and {c} have a notebook and one lead: bright orange footprints. The mayor's baking tent opens at nine.",
+    "hook": "What does {a} do when the trail leads to someone they like, and why does fairness matter to them?"
+  },
+  {
+    "id": "murder-party-real-missing",
+    "mode": "oc",
+    "genre": "mystery",
+    "cast": 3,
+    "tone": "funny",
+    "text": "Hired as actors for a murder-mystery party, {a}, {b} and {c} slowly realise that the volunteer playing the victim has genuinely gone missing while the guests applaud the realism. The host is thrilled.",
+    "hook": "Why does {a} keep acting when they ought to stop, and what are they hiding behind the role?"
+  },
+  {
+    "id": "jury-eleven-to-one",
+    "mode": "oc",
+    "genre": "mystery",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "The jury stands eleven to one, and {a} is the one, holding evidence that clears a man {b} and {c} have already decided to convict. The storm will close the courthouse roads by evening.",
+    "hook": "What makes {a} stand alone, and what did being right once cost them?"
+  },
+  {
+    "id": "cold-case-same-statement",
+    "mode": "oc",
+    "genre": "mystery",
+    "cast": 3,
+    "tone": "dark",
+    "text": "In a town that insists nothing ever happened, {a}, {b} and {c} reopen a cold case where every witness recites the same statement word for word. The deputy has left the interview room twice to make phone calls.",
+    "hook": "What does {a} hear in the rehearsed answers that the others miss, and what made them good at spotting lies?"
+  },
+  {
+    "id": "librarian-pressed-flower-note",
+    "mode": "oc",
+    "genre": "mystery",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "Inside a returned book, retired librarian {a} finds a pressed violet and a note asking for help to locate a stranger's missing sister. The note is dated forty years ago.",
+    "hook": "Why does {a} take an old request seriously, and who were they once unable to find?"
+  },
+  {
+    "id": "parrot-witness-culprit",
+    "mode": "oc",
+    "genre": "mystery",
+    "cast": 1,
+    "tone": "funny",
+    "text": "The only witness in {a}'s case is a parrot with a brilliant memory and no idea who said what. It has now named the culprit as the mayor, the baker and, twice, itself.",
+    "hook": "Whom does {a} trust when the evidence contradicts itself, and why?"
+  },
+  {
+    "id": "innocence-proof-mentor",
+    "mode": "oc",
+    "genre": "mystery",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "After ten years spent proving a stranger innocent, {a} receives the final piece of evidence, and it shows their own mentor framed him. The appeal hearing begins at nine tomorrow.",
+    "hook": "What does {a} do with the proof, and which part of their identity needs the mentor to be good?"
+  },
+  {
+    "id": "sketch-artist-own-face",
+    "mode": "oc",
+    "genre": "mystery",
+    "cast": 1,
+    "tone": "dark",
+    "text": "A witness describes a suspect to forensic sketch artist {a}, and the finished portrait shows {a}'s own face. The witness sits calmly across the table, waiting for them to look up.",
+    "hook": "What is the first thing {a} checks about themselves, and which memory do they hope is false?"
+  },
+  {
+    "id": "cellar-ghost-dinner-table",
+    "mode": "oc",
+    "genre": "horror",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "The ghost in the bakery cellar has been courteous for years, and tonight {a} and {b} find it has laid the table for four with the good plates. Somebody is evidently coming to dinner.",
+    "hook": "Who does {a} secretly hope will arrive, and why has it never been said aloud?"
+  },
+  {
+    "id": "poltergeist-talent-show",
+    "mode": "oc",
+    "genre": "horror",
+    "cast": 2,
+    "tone": "funny",
+    "text": "Having spent a dare night at a haunted inn, {a} and {b} are promptly drafted by the poltergeist as judges of its annual talent show. The act on stage is a flickering chandelier that cannot dance.",
+    "hook": "Can {a} give honest feedback to a hopeful performer, and why does kindness sometimes feel like cowardice to them?"
+  },
+  {
+    "id": "cabin-scratching-name",
+    "mode": "oc",
+    "genre": "horror",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "In a cabin besieged by something scratching at the walls, {a} learns that {b} knows the creature's name and has known for years. The door will hold until sunrise, and the truth will not.",
+    "hook": "Does {a} forgive in the dark or wait for daylight, and what does that show about how they trust?"
+  },
+  {
+    "id": "night-bus-repeating-passengers",
+    "mode": "oc",
+    "genre": "horror",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Aboard an empty night bus, {a} and {b} notice that the other passengers are the same four people repeating at every stop, and the driver never turns around. The next stop is named after one of them.",
+    "hook": "Which passenger does {a} recognise, and what do they hope is not true?"
+  },
+  {
+    "id": "museum-mummy-cold",
+    "mode": "oc",
+    "genre": "horror",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "The mummy in the east wing of a sleepy museum sometimes sneezes, and tonight it has a full cold. Night-shift staff {a}, {b} and {c} are brewing it tea at two in the morning.",
+    "hook": "How does {a} care for something strange without fear, and who once cared for them that way?"
+  },
+  {
+    "id": "cursed-doll-yard-sale",
+    "mode": "oc",
+    "genre": "horror",
+    "cast": 3,
+    "tone": "funny",
+    "text": "A cursed doll follows {a}, {b} and {c} home from a yard sale and grows frantic, because every curse it casts is undone by their good manners. It only wants to be properly haunted.",
+    "hook": "How does {a} respond when something wants to be scary and fails, and what are they truly afraid of?"
+  },
+  {
+    "id": "farmhouse-takes-one",
+    "mode": "oc",
+    "genre": "horror",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "A rule is carved into the cellar beam of the old farmhouse: it will keep one of them. {a}, {b} and {c} have just read it, the stairs have closed behind them, and the lamp oil lasts until dawn.",
+    "hook": "Does {a} volunteer, bargain or lie, and what are they trying to prove about themselves?"
+  },
+  {
+    "id": "blank-map-seven-shadows",
+    "mode": "oc",
+    "genre": "horror",
+    "cast": 3,
+    "tone": "dark",
+    "text": "Where the trail map shows only blank paper, {a}, {b} and {c} pitch camp, and each hour another shape settles outside the firelight. By midnight they have counted seven.",
+    "hook": "What ritual does {a} perform when frightened, and who gave it to them?"
+  },
+  {
+    "id": "ghost-gifts-new-house",
+    "mode": "oc",
+    "genre": "horror",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "In the creaky house {a} has just moved into, the resident ghost leaves small gifts: a mended teacup, a rearranged bookshelf, a lullaby from the attic. Tonight it seems to be asking for something back.",
+    "hook": "What does {a} offer the ghost, and why are they so quick to be generous to the lonely?"
+  },
+  {
+    "id": "summoning-circle-landlord",
+    "mode": "oc",
+    "genre": "horror",
+    "cast": 1,
+    "tone": "funny",
+    "text": "Mid-ritual in a half-finished summoning circle, {a} is interrupted by the landlord, who has come to complain about the candle wax on the carpet. The demon, only partly summoned, quietly agrees with the landlord.",
+    "hook": "What does {a} defend first, their dignity or the circle, and what are they most embarrassed to be caught caring about?"
+  },
+  {
+    "id": "unsent-letter-shop-lease",
+    "mode": "oc",
+    "genre": "romance",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "Tucked inside the lease of the shop they have just bought, {a} finds a love letter written a decade ago and never sent. The person it was meant for is walking toward the shop door.",
+    "hook": "Does {a} hide the letter or hand it over, and what did they decide back then that they still believe?"
+  },
+  {
+    "id": "two-places-same-knock",
+    "mode": "oc",
+    "genre": "romance",
+    "cast": 1,
+    "tone": "dark",
+    "text": "{a} still sets two places at dinner, though the one who sat opposite left a year ago and took the light of the house with them. Tonight someone knocks, in the old rhythm.",
+    "hook": "Does {a} open the door, and which part of the grief are they refusing to let end?"
+  },
+  {
+    "id": "rival-bakers-flood-recipes",
+    "mode": "oc",
+    "genre": "romance",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "Rival bakers at neighbouring market stalls, {a} and {b} have traded spiteful sticky notes for a year. When the market floods, {a} sees {b}'s recipe cards drifting past and must decide whether to wade in.",
+    "hook": "What does {a} risk to save a rival's work, and what does the rivalry give them that they fear losing?"
+  },
+  {
+    "id": "fake-dating-pirate-story",
+    "mode": "oc",
+    "genre": "romance",
+    "cast": 2,
+    "tone": "funny",
+    "text": "By dessert at the family reunion, the fake-dating story that {a} and {b} agreed on has split in two: they fixed every detail except how they met, and {a}'s version involves a shipwreck. {b}, committed to the bit, has added a pirate.",
+    "hook": "How does {a} lie when it is fun, and which true detail slips out by accident?"
+  },
+  {
+    "id": "dawn-train-one-sentence",
+    "mode": "oc",
+    "genre": "romance",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "After years of circling each other, {a} hears {b} announce a transfer abroad, leaving on the dawn train, as casually as a weather report. The station clock reads midnight, and {a} has one sentence.",
+    "hook": "What is the sentence {a} says, and what have they never let themselves say?"
+  },
+  {
+    "id": "funeral-chapel-old-lie",
+    "mode": "oc",
+    "genre": "romance",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Each convinced the other lied years ago, {a} and {b} meet again at a funeral, and neither will be first to leave. Rain has trapped the mourners in the chapel, and no one is talking.",
+    "hook": "Which old lie does {a} still need {b} to confess, and what would they do with the truth?"
+  },
+  {
+    "id": "rooftop-cinema-tarp-storm",
+    "mode": "oc",
+    "genre": "romance",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "A sudden storm sends the audience of {a}, {b} and {c}'s rooftop movie night scrambling under one large tarp with the projector. Pressed together in the dark, {a} realises {b} has held their hand through the whole second reel.",
+    "hook": "How does {a} react when affection arrives quietly, and what do they do to avoid noticing?"
+  },
+  {
+    "id": "best-man-planner-emails",
+    "mode": "oc",
+    "genre": "romance",
+    "cast": 3,
+    "tone": "funny",
+    "text": "Six minutes before the ceremony, a tangled seating chart reveals that best man {a} and planner {c} have been unknowingly flirting through vendor emails for months. The groom, {b}, is asking where the rings are.",
+    "hook": "How does {a} act when found out, and what do they do to look cooler than they feel?"
+  },
+  {
+    "id": "two-boarding-passes",
+    "mode": "oc",
+    "genre": "romance",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "Two job offers, two airport gates: one in the city where {b} lives and one overseas where {c} promises a fresh start. {a} holds a boarding pass for each.",
+    "hook": "Does {a} choose the person or the life, and what do they believe love should cost?"
+  },
+  {
+    "id": "empty-house-will-letter",
+    "mode": "oc",
+    "genre": "romance",
+    "cast": 3,
+    "tone": "dark",
+    "text": "After a dear friend's funeral, {a}, {b} and {c} sit in the empty house, the only three who knew what the dead one wanted. The will lies open on the table, beside a letter addressed to just one of them.",
+    "hook": "Whose name does {a} fear is on the envelope, and what feeling are they dreading?"
+  },
+  {
+    "id": "desert-camel-calf",
+    "mode": "oc",
+    "genre": "adventure",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "On a desert caravan route, {a} finds a lost camel calf and a half-empty water skin. The nearest oasis is a day away, in the opposite direction from the road home.",
+    "hook": "What does {a} value above the schedule, and who once rescued them?"
+  },
+  {
+    "id": "vault-cursed-garden-gnome",
+    "mode": "oc",
+    "genre": "adventure",
+    "cast": 1,
+    "tone": "funny",
+    "text": "The vault's centrepiece, once {a} finally digs it out, is a very large, extremely expensive and thoroughly cursed garden gnome. It seems pleased, and the avalanche rumbling behind {a} is not.",
+    "hook": "What does {a} do when the prize is worthless, and how do they still spin it into a win?"
+  },
+  {
+    "id": "ice-face-rope-rival",
+    "mode": "oc",
+    "genre": "adventure",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "Halfway up an ice face with a storm closing in, {a} hears a rival's radio crackle from the crevasse below, asking for the rope. {a} has one length left and a summit twenty metres away.",
+    "hook": "Does {a} climb or lower the rope, and what do they think winning is for?"
+  },
+  {
+    "id": "porters-vanish-drums",
+    "mode": "oc",
+    "genre": "adventure",
+    "cast": 1,
+    "tone": "dark",
+    "text": "Porters on the jungle expedition {a} guides have been vanishing one per night, and the dwindling rice is the only thing keeping count. Tonight the drums begin from the direction of their own camp.",
+    "hook": "What does {a} do when every choice leaves someone behind, and what burden do they already carry?"
+  },
+  {
+    "id": "rowboat-leak-biscuit-tin",
+    "mode": "oc",
+    "genre": "adventure",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "A small leak springs in the rowboat that {a} and {b} share on a river trip, and the only patch to hand is a tin of cinnamon biscuits. The nearest bank is a mile of reeds away, and the sun is setting.",
+    "hook": "Who pretends not to be scared, and why must {a} look unafraid?"
+  },
+  {
+    "id": "napkin-map-weird-tree",
+    "mode": "oc",
+    "genre": "adventure",
+    "cast": 2,
+    "tone": "funny",
+    "text": "Entered in a treasure race, {a} and {b} hold a map drawn on a napkin by a very tipsy uncle, whose landmarks are 'the weird tree' and 'that place with the goat.' Every tree in the forest looks weird.",
+    "hook": "How does {a} navigate with no information, and what do they do when proven wrong?"
+  },
+  {
+    "id": "medicine-washed-out-bridge",
+    "mode": "oc",
+    "genre": "adventure",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "With a washed-out bridge ahead and a fever spreading in the village three days away, {a} and {b} carry a stolen medicine shipment. {b} insists the old rope crossing will hold, and has never said how they know.",
+    "hook": "How far does {a} trust a partner who keeps secrets, and what would make them trust more?"
+  },
+  {
+    "id": "salt-cave-tally-marks",
+    "mode": "oc",
+    "genre": "adventure",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Passages shift behind {a} and {b} in a salt cave, and every wall is scratched with tally marks by those who lost count. Their lantern has three hours of oil left.",
+    "hook": "What does {a} do to keep from counting, and what would it mean to see the last mark?"
+  },
+  {
+    "id": "barge-wedding-cake-rock",
+    "mode": "oc",
+    "genre": "adventure",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "A wedding cake wobbles on a rock aboard the ramshackle river barge crewed by {a}, {b} and {c}. Three hours remain until the dock upstream, with one spatula and a great deal of icing.",
+    "hook": "Who steadies the panicking crew, and what does {a} owe the people waiting at the dock?"
+  },
+  {
+    "id": "worst-pirates-sock-ship",
+    "mode": "oc",
+    "genre": "adventure",
+    "cast": 3,
+    "tone": "funny",
+    "text": "Having stolen a ship that turns out to be full of confiscated socks, the world's worst pirates, {a}, {b} and {c}, watch the navy gain. The only plan is {c}'s, and it is called keep sailing and hope.",
+    "hook": "What role does {a} take on a doomed crew, and what keeps them from jumping ship?"
+  },
+  {
+    "id": "besieged-city-archivists",
+    "mode": "oc",
+    "genre": "historical",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "In the last week before the walls fall, the commander of a besieged city orders the registry burned, and its final three archivists, {a}, {b} and {c}, each slip a different volume beneath a coat.",
+    "hook": "Which volume has {a} hidden, and who would they save before themselves?"
+  },
+  {
+    "id": "quarantine-ship-cut-anchor",
+    "mode": "oc",
+    "genre": "historical",
+    "cast": 3,
+    "tone": "dark",
+    "text": "Quarantined off a harbour, a plague ship has only {a}, {b} and {c} left standing when the harbour master orders the anchor cut. The port bells toll for the ship, not for the dead.",
+    "hook": "What does {a} do with an order that is both mercy and sentence, and what do they tell the dying?"
+  },
+  {
+    "id": "midwife-lantern-road",
+    "mode": "oc",
+    "genre": "historical",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "Summoned at midnight to the farthest house in a snowed-in farming town, village midwife {a} finds the sleigh has lost a runner. They walk, and neighbours quietly begin lining the road with lanterns.",
+    "hook": "What does {a} carry besides the bag, and who first taught them to show up?"
+  },
+  {
+    "id": "jester-treaty-hat-joke",
+    "mode": "oc",
+    "genre": "historical",
+    "cast": 1,
+    "tone": "funny",
+    "text": "On the day a grim king must sign a humiliating treaty, court jester {a} is ordered to cheer him up. The only joke they have prepared concerns the king's hat, and the hat is on the table.",
+    "hook": "What will {a} risk for a laugh, and which truth do they only dare tell in jokes?"
+  },
+  {
+    "id": "telegraph-sunk-ship-owner",
+    "mode": "oc",
+    "genre": "historical",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "At a 1920s telegraph desk, {a} receives word that their brother's ship has sunk, and the next message in the queue is for the ship's owner, standing right there. That message will decide thousands of jobs.",
+    "hook": "Whom does {a} tell first, and what do they believe a messenger owes the truth?"
+  },
+  {
+    "id": "lamplighter-company-outside-glow",
+    "mode": "oc",
+    "genre": "historical",
+    "cast": 1,
+    "tone": "dark",
+    "text": "On every street lit this week, gas lamplighter {a} has noticed someone standing just outside the glow of the smog-choked old city. Tonight the last lamp on the street will not catch.",
+    "hook": "What does {a} do when the dark has company, and which rule of their trade do they still trust?"
+  },
+  {
+    "id": "apprentice-potters-last-vase",
+    "mode": "oc",
+    "genre": "historical",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "Their master wants one last vase fired before market day, so apprentice potters {a} and {b} face a cracked kiln and the last of the good clay. {b} has offered their grandmother's glaze.",
+    "hook": "What does {a} give up to help a friend's craft, and what do they fear about their own talent?"
+  },
+  {
+    "id": "food-tasters-no-poison-skill",
+    "mode": "oc",
+    "genre": "historical",
+    "cast": 2,
+    "tone": "funny",
+    "text": "At a grand banquet, royal food tasters {a} and {b} admit to each other that neither can actually identify poison, just as the baron takes an enormous bite. The lamprey pie is the only suspicious dish, and also his favourite.",
+    "hook": "What does {a} do to bluff competence, and what do they hope nobody asks?"
+  },
+  {
+    "id": "border-tower-expired-papers",
+    "mode": "oc",
+    "genre": "historical",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "On the night an empire's treaty expires, border guards {a} and {b} watch a refugee family reach the tower gate with papers that were valid yesterday. The captain's order is clear, and {b} has already lifted the bar.",
+    "hook": "Does {a} follow orders or conscience, and what moment taught them what each costs?"
+  },
+  {
+    "id": "snowbound-wagon-missing-tin",
+    "mode": "oc",
+    "genre": "historical",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Snowed in at a mountain pass, {a} and {b} are all that remain of a wagon train, and the last tin of food has gone missing. The pass will not open until spring, and the wagon's only lock was fastened from inside.",
+    "hook": "What does {a} do when trust is the only thing left to ration, and who taught them how little to expect?"
+  },
+  {
+    "id": "last-inn-before-the-pass",
+    "mode": "roleplay",
+    "genre": "fantasy",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "The last inn before the mountain pass fills with snow as a blizzard seals the road, and the innkeeper, a retired dragon-slayer, stitches quilts for every stranded traveler. One cot remains, and {a} is not the only one eyeing it.",
+    "hook": "*shakes snow from a cloak* \"Is that cot taken, or is it just the draft keeping it warm?\""
+  },
+  {
+    "id": "blue-soup-harvest-fair",
+    "mode": "roleplay",
+    "genre": "fantasy",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "{a} and {b} share a stall at the autumn harvest fair, and the judges arrive in an hour to taste their entry. The soup has just turned an unmistakable shade of blue.",
+    "hook": "*stirs the pot, then stops* \"Okay, nobody panic. It still smells like leeks.\""
+  },
+  {
+    "id": "lighthouse-dragon-hatchling",
+    "mode": "roleplay",
+    "genre": "fantasy",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "Tonight, a sleepy sea-dragon hatchling has curled up around the lamp of the lighthouse tended by {a}, {b} and {c}, and will not budge. The fleet returns at midnight and needs the beam.",
+    "hook": "\"Nobody raise your voice. She finally fell asleep, and she's warm as a hearth.\""
+  },
+  {
+    "id": "pastry-magic-duel",
+    "mode": "roleplay",
+    "genre": "fantasy",
+    "cast": 1,
+    "tone": "funny",
+    "text": "{a} wakes to learn that a smug raven, a wizard's familiar, has entered them in a dueling tournament starting in twenty minutes. The registrar, a very tired gnome, holds out a dripping quill.",
+    "hook": "\"Name, discipline, and please say 'pastry magic' so I can finally go home.\""
+  },
+  {
+    "id": "knocking-crate-king",
+    "mode": "roleplay",
+    "genre": "fantasy",
+    "cast": 2,
+    "tone": "funny",
+    "text": "{a} and {b} are paid to deliver a sealed crate to a mountain king by sundown. The crate has begun to hum, and something inside knocks politely back whenever they knock.",
+    "hook": "*presses an ear to the lid* \"It just knocked three times. That was our rhythm.\""
+  },
+  {
+    "id": "goat-throne-room",
+    "mode": "roleplay",
+    "genre": "fantasy",
+    "cast": 3,
+    "tone": "funny",
+    "text": "The whole royal guard of a kingdom the size of a village, {a}, {b} and {c}, learn that an empire's inspectors will arrive within the hour. The throne room currently contains eleven goats.",
+    "hook": "\"Everybody grab a goat. We're calling them ceremonial.\""
+  },
+  {
+    "id": "letter-before-the-siege",
+    "mode": "roleplay",
+    "genre": "fantasy",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "One hour before the siege begins, {a} reaches the border gate carrying a dying messenger's sealed letter. The gatekeeper recognizes the seal, and the color drains from their face.",
+    "hook": "\"Open the gate, or by morning there won't be a gate left to open.\""
+  },
+  {
+    "id": "burning-bridge-reunion",
+    "mode": "roleplay",
+    "genre": "fantasy",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "Once sworn blades of the same queen, {a} and {b} meet again on a burning bridge. One carries the stolen crown, the other carries the order to bring it back, and the flames are closing in.",
+    "hook": "*steps onto the planks, hand on hilt* \"Give me the crown, and I'll tell them you died well.\""
+  },
+  {
+    "id": "third-set-of-footprints",
+    "mode": "roleplay",
+    "genre": "fantasy",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Only two travelers come back from the enchanted wood, {a} and {b}, and each swears the other walked beside them the whole way. A third line of footprints leads out of the trees.",
+    "hook": "\"Count the prints again. Then tell me which one of us they belong to.\""
+  },
+  {
+    "id": "singing-fog-chapel",
+    "mode": "roleplay",
+    "genre": "fantasy",
+    "cast": 3,
+    "tone": "dark",
+    "text": "Fog around a ruined chapel has begun to sing in the voices of the dead, and {a}, {b} and {c} shelter inside. The bell rope, their only way up and out, sways with no hand on it.",
+    "hook": "*drags a pew against the door* \"Nobody answer it. Whatever it says, nobody answer.\""
+  },
+  {
+    "id": "otters-in-the-cargo-hold",
+    "mode": "roleplay",
+    "genre": "scifi",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "Six hours from the nearest port, {a} and {b} find their grain freighter's hold occupied by a litter of stranded space-otters. The ration bars are already gone, and the otters look extremely pleased.",
+    "hook": "*holds up an empty wrapper* \"Please tell me you counted the bars before they did.\""
+  },
+  {
+    "id": "rooftop-greenhouse-storm",
+    "mode": "roleplay",
+    "genre": "scifi",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "The colony's gardener, a retired maintenance robot, asks {a} to help finish a rooftop greenhouse before the season's first dust storm. Every pane was salvaged from somebody's old window, and each has a story.",
+    "hook": "*wipes a pane with a sleeve* \"Careful with this one. It used to be somebody's kitchen window.\""
+  },
+  {
+    "id": "decommissioned-station-dinner",
+    "mode": "roleplay",
+    "genre": "scifi",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "On the station's last night before decommissioning, {a}, {b} and {c} host a farewell dinner for the whole corridor in a cargo bay lit by one string of salvaged lights. There is no real oven, but everyone has brought something.",
+    "hook": "*raises a mug of reconstituted cocoa* \"To the worst plumbing in the sector. We'll miss every leak.\""
+  },
+  {
+    "id": "gossiping-starliner-intercom",
+    "mode": "roleplay",
+    "genre": "scifi",
+    "cast": 3,
+    "tone": "funny",
+    "text": "Repair crew {a}, {b} and {c} are summoned to a luxury starliner whose AI is stuck announcing every passenger's embarrassing habits over the intercom. The gala begins in twenty minutes, and the captain is hiding in a closet.",
+    "hook": "\"Cut the audio feed! No, not that one, that's the airlock!\""
+  },
+  {
+    "id": "accidental-battlecruiser-captain",
+    "mode": "roleplay",
+    "genre": "scifi",
+    "cast": 1,
+    "tone": "funny",
+    "text": "Because of a roster typo, {a} is handed command of a battle cruiser. A stern first officer awaits orders while an enemy fleet drifts calmly into range.",
+    "hook": "*lowers into the command chair, nodding slowly* \"Yes. Obviously. Let's do... the thing we do.\""
+  },
+  {
+    "id": "overdue-time-machine-rental",
+    "mode": "roleplay",
+    "genre": "scifi",
+    "cast": 2,
+    "tone": "funny",
+    "text": "{a} and {b} have thirty minutes to return a borrowed time machine before the late fee, which doubles every minute, outgrows their combined lifetimes. The rental shop is ten blocks away and the machine only travels backward.",
+    "hook": "*sprints through the door* \"Pretend we've been standing here for hours and it was fine.\""
+  },
+  {
+    "id": "one-pod-two-colonists",
+    "mode": "roleplay",
+    "genre": "scifi",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "Oxygen aboard the drifting colony ship will sustain one more waking person, and its AI asks {a} to choose which of two frozen colonists to thaw. The console countdown has already turned red.",
+    "hook": "\"Tell me what they did. I won't decide until you do.\""
+  },
+  {
+    "id": "mining-outpost-last-seats",
+    "mode": "roleplay",
+    "genre": "scifi",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "After eleven years on a mining outpost, {a}, {b} and {c} learn the rescue ship has room for only two. Ninety seconds remain, and one of them has been hiding what they knew about the failing reactor.",
+    "hook": "\"You knew about the reactor. How long have you known?\""
+  },
+  {
+    "id": "relay-log-dockings",
+    "mode": "roleplay",
+    "genre": "scifi",
+    "cast": 2,
+    "tone": "dark",
+    "text": "To restore power on a derelict relay, {a} and {b} board and find every chair turned toward the same black window. The log already holds their voices, reporting an arrival an hour before they docked.",
+    "hook": "*replays the recording* \"That's us. That's us saying everything is fine.\""
+  },
+  {
+    "id": "early-awakening-empty-pods",
+    "mode": "roleplay",
+    "genre": "scifi",
+    "cast": 1,
+    "tone": "dark",
+    "text": "{a} wakes from cryosleep forty years early to a corridor lit by emergency strips, where the maintenance drone keeps insisting the other passengers are 'resting.' Every pod {a} passes is empty.",
+    "hook": "\"Rest is a lovely word, drone. Show me one occupied pod and I'll believe you.\""
+  },
+  {
+    "id": "laundromat-wedding-dress",
+    "mode": "roleplay",
+    "genre": "modern",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "At midnight in a deserted laundromat, {a} and {b} find a wedding dress still tumbling in dryer six. The bride's frantic voicemail says the ceremony is at seven, and the hem is covered in lint.",
+    "hook": "*pulls the dress out, steaming* \"Okay. Two hours of careful ironing. We can do this.\""
+  },
+  {
+    "id": "rooftop-soup-night",
+    "mode": "roleplay",
+    "genre": "modern",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "The newest tenant in an apartment block with an old custom, {a} learns that whoever moves in last hosts the rooftop soup night. It is tonight, and a retired bus driver is at the door with an enormous stockpot.",
+    "hook": "*hands over the pot with both arms* \"Welcome to the building, {a}. Surprise, you're hosting.\""
+  },
+  {
+    "id": "snowed-in-bookshop-cafe",
+    "mode": "roleplay",
+    "genre": "modern",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "It is the final Saturday of a failing bookshop café, and a snowed-in tour group of fifty has just walked in asking for hot chocolate. {a}, {b} and {c} make up the entire staff, and the milk is running low.",
+    "hook": "*flips the sign to OPEN* \"Everyone smile. We just found our best day.\""
+  },
+  {
+    "id": "wrong-funeral-wedding-party",
+    "mode": "roleplay",
+    "genre": "modern",
+    "cast": 2,
+    "tone": "funny",
+    "text": "By accident, {a} and {b} replied 'yes' to three events at one hotel this afternoon: a funeral, a wedding and a retirement party. They own one suit and one gift basket between them.",
+    "hook": "*adjusts a tie in the hallway mirror* \"Okay. Whose party is the cake from?\""
+  },
+  {
+    "id": "missing-goose-talent-show",
+    "mode": "roleplay",
+    "genre": "modern",
+    "cast": 3,
+    "tone": "funny",
+    "text": "The neighborhood talent show is seated and waiting, but its headliner, a man with a trained goose, has not arrived. Volunteers {a}, {b} and {c} have five minutes and a feather boa to fill the gap.",
+    "hook": "\"Someone find a loud personality and a pair of orange gloves. We're improvising a goose.\""
+  },
+  {
+    "id": "mime-stuck-elevator",
+    "mode": "roleplay",
+    "genre": "modern",
+    "cast": 1,
+    "tone": "funny",
+    "text": "The elevator has stopped between floors, and {a} is trapped with a mime who refuses to break character. The technician on the intercom needs a clear description of the fault by any means necessary.",
+    "hook": "*presses the intercom button* \"Hello? Yes. The mime says we're inside a very small box.\""
+  },
+  {
+    "id": "hospital-vending-machine-siblings",
+    "mode": "roleplay",
+    "genre": "modern",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "Beside a hospital vending machine at 3 a.m., estranged siblings {a} and {b} meet after the call about their father. Six years of silence sit between them, and a doctor is walking down the hall.",
+    "hook": "\"You came. I didn't think you would.\""
+  },
+  {
+    "id": "retirement-toast-stolen-credit",
+    "mode": "roleplay",
+    "genre": "modern",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "Asked to give the toast at a retirement dinner, {a} discovers the guest of honor is the boss who once took credit for their best work. The room is full, and the microphone is warm in {a}'s hand.",
+    "hook": "*taps the glass* \"Thank you, everyone. I'd like to tell you what our guest of honor taught me.\""
+  },
+  {
+    "id": "blackout-office-fourth-person",
+    "mode": "roleplay",
+    "genre": "modern",
+    "cast": 3,
+    "tone": "dark",
+    "text": "A blackout leaves an office tower nearly empty, with only {a}, {b} and {c} still inside. The emergency monitor shows a fourth figure on the tenth floor, seated calmly at {c}'s desk.",
+    "hook": "\"Nobody take the stairs. The camera says it's waiting at the top.\""
+  },
+  {
+    "id": "cabin-note-under-door",
+    "mode": "roleplay",
+    "genre": "modern",
+    "cast": 1,
+    "tone": "dark",
+    "text": "{a} rents a remote cabin for the weekend, where the caretaker in a rain slicker mentions that the last guest never checked out. A note addressed to {a}, in unfamiliar handwriting, lies under the door.",
+    "hook": "*unfolds the note slowly* \"How did they know I'd arrive tonight?\""
+  },
+  {
+    "id": "vanished-lemon-cake",
+    "mode": "roleplay",
+    "genre": "mystery",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "The prize lemon cake at the village bake-off has vanished from the judging table minutes before the ribbon is awarded. {a} and {b} follow a trail of crumbs toward the vicar's garden.",
+    "hook": "*crouches over a crumb* \"Powdered sugar, not granulated. Our thief has a sweet tooth and a fine pantry.\""
+  },
+  {
+    "id": "lost-property-ring-box",
+    "mode": "roleplay",
+    "genre": "mystery",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "One afternoon is all that {a}, {b} and {c}, staff of a small-town lost-and-found office, have to return a mysterious ring box before the fair ends. Their only clues are a pressed violet and a ticket to Willowby Halt.",
+    "hook": "\"Right. Who's from Willowby Halt, and who keeps pressed flowers in their pocket?\""
+  },
+  {
+    "id": "frosting-thief-cat-witness",
+    "mode": "roleplay",
+    "genre": "mystery",
+    "cast": 1,
+    "tone": "funny",
+    "text": "A very distinguished baker hires {a} to find out who has been licking the frosting off every cake overnight. The only witness is a cat that will not stop staring at the oven.",
+    "hook": "*kneels before the cat* \"Alright. Take me through that night, slowly.\""
+  },
+  {
+    "id": "dinner-theater-missing-victim",
+    "mode": "roleplay",
+    "genre": "mystery",
+    "cast": 2,
+    "tone": "funny",
+    "text": "Midway through a murder-mystery dinner, {a} and {b} realize the actor playing the victim has genuinely wandered off. The paying guests are already voting on the culprit with great confidence.",
+    "hook": "*whispers from behind a menu* \"Keep them busy. I'll go find our corpse.\""
+  },
+  {
+    "id": "proof-before-dawn-hanging",
+    "mode": "roleplay",
+    "genre": "mystery",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "In a dusty evidence box, {a} finds a letter proving a convicted man innocent, and the sentence is due at dawn. The only person who can stop it is the magistrate who signed it.",
+    "hook": "*bursts in with papers in hand* \"You have to stop it. Please. I found the proof.\""
+  },
+  {
+    "id": "two-mourners-one-suspect",
+    "mode": "roleplay",
+    "genre": "mystery",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "Beside the still form of the person they both loved and both quarrelled with last night, {a} and {b} stare at each other. The inspector arrives in three minutes, and each privately wonders if the other did it.",
+    "hook": "\"Tell me where you were at midnight. And don't lie. I'll know.\""
+  },
+  {
+    "id": "will-reading-old-fire",
+    "mode": "roleplay",
+    "genre": "mystery",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "The surviving heirs, {a}, {b} and {c}, gather for a will that names one of them as the cause of the fire years ago. The lawyer locks the door, and nobody may leave until every word is read.",
+    "hook": "\"Go on, read it. Let's hear who our dear uncle thought was guilty.\""
+  },
+  {
+    "id": "librarian-returned-books",
+    "mode": "roleplay",
+    "genre": "mystery",
+    "cast": 1,
+    "tone": "dark",
+    "text": "A night-shift librarian, {a}, finds books back on the shelf with tomorrow's due date and {a}'s own name as borrower. The margins are annotated in {a}'s handwriting.",
+    "hook": "*whispers to the empty reading room* \"Whoever you are, I never wrote a word in these.\""
+  },
+  {
+    "id": "empty-lighthouse-logbook",
+    "mode": "roleplay",
+    "genre": "mystery",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Inside the empty lighthouse where three keepers disappeared, {a} and {b} find the final logbook entry written in {b}'s handwriting. The tide will cover the causeway in forty minutes.",
+    "hook": "\"That's your handwriting, {b}. Why does it say you never left?\""
+  },
+  {
+    "id": "flooded-station-three-notes",
+    "mode": "roleplay",
+    "genre": "mystery",
+    "cast": 3,
+    "tone": "dark",
+    "text": "At a flooded rural station, strangers {a}, {b} and {c} each find a note in their coat reading 'one of you will not make the last train.' The last train is due within the hour.",
+    "hook": "\"Compare notes. Slowly. If the handwriting matches, we have our answer.\""
+  },
+  {
+    "id": "ghost-seamstress-coats",
+    "mode": "roleplay",
+    "genre": "horror",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "A long-dead seamstress haunts the creaky cottage {a} has just moved into, and the ghost insists on mending every coat in the house before the first frost. Their needle has waited a century for someone to wear the results.",
+    "hook": "*holds out a torn sleeve* \"Fine, mend it. But I'm keeping whatever is in that pocket.\""
+  },
+  {
+    "id": "inn-ghosts-welcome-party",
+    "mode": "roleplay",
+    "genre": "horror",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "Rattling every pot in the kitchen, the ghosts of a creaky inn throw a welcome party for its new owners, {a}, {b} and {c}. The first paying guests are due in an hour.",
+    "hook": "\"Stay calm. The pots are rattling because they're excited, not angry.\""
+  },
+  {
+    "id": "cursed-manor-snack-thief",
+    "mode": "roleplay",
+    "genre": "horror",
+    "cast": 2,
+    "tone": "funny",
+    "text": "For an online challenge, {a} and {b} spend the night in a cursed manor, but its ghost is a terrible host who keeps stealing their snacks and begging for a five-star review.",
+    "hook": "*peers into an empty bag* \"The ghost took the cheese puffs. I'm haunting it back.\""
+  },
+  {
+    "id": "raccoon-ghost-investigation",
+    "mode": "roleplay",
+    "genre": "horror",
+    "cast": 3,
+    "tone": "funny",
+    "text": "The paranormal investigation team of a small town, {a}, {b} and {c}, finally corner tonight's 'haunted house' ghost: a huge raccoon colony wearing a stolen bedsheet. The homeowner is watching from the lawn with a camera.",
+    "hook": "\"Equipment check: flashlight, recorder, and an entire box of raccoon-proof gloves.\""
+  },
+  {
+    "id": "monastery-bell-rope",
+    "mode": "roleplay",
+    "genre": "horror",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "{a} stays behind in a besieged monastery to ring the bell that keeps something outside the gates asleep. Dawn is two hours away, and the rope has begun to fray.",
+    "hook": "*hauls the rope with both hands* \"Hold on, hold on, just two more hours.\""
+  },
+  {
+    "id": "basement-voice-of-a-friend",
+    "mode": "roleplay",
+    "genre": "horror",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "Sheltering in a basement, {a} and {b} hear a soft knock and a dying friend's voice begging to be let in. By every account, that friend is still upstairs in a coma.",
+    "hook": "\"It's calling your name now. Don't open that door, whatever it promises.\""
+  },
+  {
+    "id": "marsh-last-to-walk",
+    "mode": "roleplay",
+    "genre": "horror",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "The last survivors of an expedition, {a}, {b} and {c}, must carry their unconscious guide across a cursed marsh at nightfall. Everyone knows the marsh takes whoever walks last.",
+    "hook": "\"Someone has to walk last. Nobody's volunteering, so draw lots.\""
+  },
+  {
+    "id": "motel-room-nine-twin",
+    "mode": "roleplay",
+    "genre": "horror",
+    "cast": 1,
+    "tone": "dark",
+    "text": "{a} checks into a roadside motel where the only other guest, in room nine, carries the same suitcase, wears the same coat and has the same tired face. The desk clerk insists no one else has checked in all week.",
+    "hook": "*knocks twice on door nine* \"Excuse me? I think you have my bag.\""
+  },
+  {
+    "id": "radio-naming-the-houses",
+    "mode": "roleplay",
+    "genre": "horror",
+    "cast": 2,
+    "tone": "dark",
+    "text": "As {a} and {b} drive a dark country road, the radio begins to name each house they pass. Their own street, their own door and tomorrow's date are next on the list.",
+    "hook": "\"Turn it off. Turn it off right now. It just said our street.\""
+  },
+  {
+    "id": "ski-lodge-warm-chair",
+    "mode": "roleplay",
+    "genre": "horror",
+    "cast": 3,
+    "tone": "dark",
+    "text": "At a remote ski lodge, the staff have vanished overnight, and the dining table is set for one more person than there are guests: {a}, {b} and {c}. The chair at the head is still warm.",
+    "hook": "*rests a hand on the chair* \"Nobody sit. It's still warm.\""
+  },
+  {
+    "id": "shared-heater-rival-bakers",
+    "mode": "roleplay",
+    "genre": "romance",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "Rival bakers {a} and {b} have stalls at a winter market that share one heater, and the power fails before dawn. Sharing a blanket and a single thermos of cocoa becomes the only way to keep the dough alive.",
+    "hook": "*slides the thermos across the counter* \"Truce until the heater works. Then I'm beating you again.\""
+  },
+  {
+    "id": "anonymous-letters-translator",
+    "mode": "roleplay",
+    "genre": "romance",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "For months, {a} has been leaving anonymous letters for the café's quiet translator at the corner table. Today the translator sets a reply on the counter, next to a coffee made exactly how {a} likes it.",
+    "hook": "*nudges the cup forward* \"You write a lovely sentence. I'd like to meet whoever's behind it.\""
+  },
+  {
+    "id": "fake-dating-family-reunion",
+    "mode": "roleplay",
+    "genre": "romance",
+    "cast": 2,
+    "tone": "funny",
+    "text": "{a} and {b} are fake dating at a family reunion, and {b}'s grandmother has just demanded they recite, in verse, how they met. They have one minute and one napkin to settle on a story.",
+    "hook": "*leans in, whispering* \"We met at a lighthouse. During a storm. You were holding a sandwich.\""
+  },
+  {
+    "id": "landlord-interview-ex-casserole",
+    "mode": "roleplay",
+    "genre": "romance",
+    "cast": 3,
+    "tone": "funny",
+    "text": "To pass a landlord's couples-only interview, {a} is fake dating {b}, until {c}, {b}'s dramatic ex, shows up uninvited with a casserole and a prepared speech.",
+    "hook": "*kisses {b}'s hand with great volume* \"Darling, look who showed up with a casserole! How thoughtful.\""
+  },
+  {
+    "id": "night-before-the-wedding",
+    "mode": "roleplay",
+    "genre": "romance",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "It is the last night before {b}'s wedding, and {a} has finally decided to say what they never said. {c}, who has guessed it for years, stands in front of the door.",
+    "hook": "\"If you're going to tell {b}, do it now. After midnight it's only cruelty.\""
+  },
+  {
+    "id": "treaty-clause-rival-diplomats",
+    "mode": "roleplay",
+    "genre": "romance",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "Former lovers and now rival diplomats, {a} and {b} are locked in a negotiation room until a treaty is signed. The one clause neither will concede is the one that sends {b} across the world, away from {a}.",
+    "hook": "*sets down the pen* \"Sign it. Or tell me why you won't.\""
+  },
+  {
+    "id": "platform-forgotten-coat",
+    "mode": "roleplay",
+    "genre": "romance",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "On a train platform with a one-way ticket to a new continent, {a} sees the person they have quietly loved for years arrive, out of breath, holding a coat {a} left behind. The whistle sounds.",
+    "hook": "*takes the coat slowly* \"You ran all this way for a coat?\""
+  },
+  {
+    "id": "manor-bride-cellar-door",
+    "mode": "roleplay",
+    "genre": "romance",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Newly married by an arrangement neither chose, {a} and {b} live in a drafty manor where the last bride vanished on this very night of the year. {b} cannot stop looking at the cellar door.",
+    "hook": "\"Come away from the cellar door. Please. Tell me what you heard.\""
+  },
+  {
+    "id": "black-rose-love-letters",
+    "mode": "roleplay",
+    "genre": "romance",
+    "cast": 1,
+    "tone": "dark",
+    "text": "{a} gets a love letter every night from a sender who signs only with a pressed black rose. Tonight's letter says the sender is standing outside, and the porch light is flickering.",
+    "hook": "*opens the door a crack* \"Whoever you are, you have thirty seconds to explain the roses.\""
+  },
+  {
+    "id": "exiles-two-berths",
+    "mode": "roleplay",
+    "genre": "romance",
+    "cast": 3,
+    "tone": "dark",
+    "text": "Three exiles in a war-torn port, {a}, {b} and {c} are trapped in a love triangle that has run out of time: the last ship has only two berths, and the harbor guns are warming up.",
+    "hook": "\"One berth is mine, one is yours, and nobody gets to cry about the third.\""
+  },
+  {
+    "id": "riverboat-lantern-sandbar",
+    "mode": "roleplay",
+    "genre": "adventure",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "The river has dropped so low that {a}, {b} and {c} must haul their rickety boat over a sandbar by hand. It carries a thousand paper lanterns for a mountain festival that begins at dusk.",
+    "hook": "*rolls up sleeves and wades in* \"On three, everybody lift. And please don't drop the lanterns.\""
+  },
+  {
+    "id": "botanist-orchid-trail",
+    "mode": "roleplay",
+    "genre": "adventure",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "{a} is hired to guide a very elderly botanist up a jungle trail to see one last orchid bloom before the season ends. The botanist refuses to be carried, and the trail has a rope bridge.",
+    "hook": "*offers an arm* \"Slow and steady. The orchid has waited this long, it can wait for your knees.\""
+  },
+  {
+    "id": "island-picnic-kite",
+    "mode": "roleplay",
+    "genre": "adventure",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "After their sailboat's mast snaps, {a} and {b} are stranded on a tiny island with a picnic basket, one kite and a rescue plane that circles every hour.",
+    "hook": "*ties the kite to a driftwood pole* \"If we fly this high enough, the pilot will see it. Probably.\""
+  },
+  {
+    "id": "pizza-route-treasure-map",
+    "mode": "roleplay",
+    "genre": "adventure",
+    "cast": 1,
+    "tone": "funny",
+    "text": "A tourist hires {a} as a treasure-hunting guide but has brought the wrong map: it is a pizza-delivery route. The tourist is thrilled anyway and has started digging up a flowerbed.",
+    "hook": "*turns the map upside down* \"Good news: the X is a deep-dish with extra cheese.\""
+  },
+  {
+    "id": "idol-that-plays-music",
+    "mode": "roleplay",
+    "genre": "adventure",
+    "cast": 3,
+    "tone": "funny",
+    "text": "The idol {a}, {b} and {c} just stole is cursed, and the curse is that it blasts cheerful music whenever anyone tiptoes. A temple full of guards is already running toward the sound.",
+    "hook": "*clamps both hands over the idol* \"Whatever you do, nobody tiptoe.\""
+  },
+  {
+    "id": "collapsing-rope-bridge-map",
+    "mode": "roleplay",
+    "genre": "adventure",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "Hanging from a collapsing rope bridge over a gorge, {a} and {b} each grip an end of the last map to the lost city. The ropes can hold one person and the map, but not both of them.",
+    "hook": "\"Let go of the map! I'll catch it, I swear, just let go!\""
+  },
+  {
+    "id": "avalanche-ledge-medicine",
+    "mode": "roleplay",
+    "genre": "adventure",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "{a} reaches a mountain monastery with medicine for a village cut off by an avalanche, and the abbot says the only path is a ledge that vanishes under new snow within the hour.",
+    "hook": "*tightens the pack straps* \"Then I leave now. Point me to the first marker.\""
+  },
+  {
+    "id": "flooding-cave-swim",
+    "mode": "roleplay",
+    "genre": "adventure",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "While surveying a flooding cave, {a}, {b} and {c} discover that the main exit has collapsed and the only other way out is a ten-minute swim through an underwater tunnel. One of them cannot swim.",
+    "hook": "\"We link arms and go together. Nobody goes alone, and nobody gets left.\""
+  },
+  {
+    "id": "polar-camp-tied-tents",
+    "mode": "roleplay",
+    "genre": "adventure",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Following an old expedition's trail into the polar night, {a} and {b} find a camp where the stoves are warm, the cots are made and every tent flap is tied shut from the outside.",
+    "hook": "*crouches at a flap, fingers on the knot* \"Who ties a tent shut from the outside?\""
+  },
+  {
+    "id": "salt-flats-thirsty-stranger",
+    "mode": "roleplay",
+    "genre": "adventure",
+    "cast": 1,
+    "tone": "dark",
+    "text": "Leading a caravan across the salt flats as the water runs low, {a} is the lone guide when a stranger who joined yesterday mentions not having touched a drop since. The whole caravan looks to {a} for a decision.",
+    "hook": "*stares at the stranger's full waterskin* \"Everyone drinks. Everyone drinks where I can see them.\""
+  },
+  {
+    "id": "snowbound-pilgrims-bread",
+    "mode": "roleplay",
+    "genre": "historical",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "In a medieval market town, {a} and {b} run the only bakery when a snowstorm traps three hundred pilgrims in the square. The bread has to stretch until the roads open.",
+    "hook": "*breaks the first loaf in half* \"One piece each. We'll make more with whatever flour the town can spare.\""
+  },
+  {
+    "id": "lamplighters-funeral-street",
+    "mode": "roleplay",
+    "genre": "historical",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "Lamplighters in a foggy gaslight city, {a}, {b} and {c} agree to light one last street for a funeral procession. By the time they finish, the whole neighborhood has joined them carrying candles.",
+    "hook": "\"Light every lamp on Marrow Lane. They deserve the brightest farewell we can give.\""
+  },
+  {
+    "id": "jester-boiled-egg-bet",
+    "mode": "roleplay",
+    "genre": "historical",
+    "cast": 1,
+    "tone": "funny",
+    "text": "A king has not laughed in ten years, and the queen has wagered a fortune that nobody can make him smile before supper. {a}, the court jester, has one prop: a boiled egg.",
+    "hook": "*balances the egg on one finger* \"Your Majesty, this egg has already abdicated twice.\""
+  },
+  {
+    "id": "emperor-nose-bread",
+    "mode": "roleplay",
+    "genre": "historical",
+    "cast": 2,
+    "tone": "funny",
+    "text": "Two Roman bakers, {a} and {b}, have accidentally shaped the emperor's favorite loaf into a portrait of his own nose. The platter is already being carried into the banquet hall.",
+    "hook": "*whispers behind the oven* \"Say it's artistic. Say it's modern. Say anything.\""
+  },
+  {
+    "id": "chicken-captain-stolen-ship",
+    "mode": "roleplay",
+    "genre": "historical",
+    "cast": 3,
+    "tone": "funny",
+    "text": "Three pirates in a stolen rowboat, {a}, {b} and {c}, have captured a merchant ship so crowded with live chickens that the flock has seized the wheel. A navy cutter is closing in.",
+    "hook": "\"Captain, the chicken is steering. I'm not saying that's bad, but it's heading for the navy.\""
+  },
+  {
+    "id": "siege-telegraph-late-relief",
+    "mode": "roleplay",
+    "genre": "historical",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "During a siege, a telegraph operator, {a}, decodes a message saying the relief army will arrive too late. The commander is standing at the door, waiting to hear it.",
+    "hook": "*holds the paper against their chest* \"Commander, there's something in this message you won't want to hear.\""
+  },
+  {
+    "id": "chapel-spy-night-before-coup",
+    "mode": "roleplay",
+    "genre": "historical",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "A lord and a spy, {a} and {b} meet in a candlelit chapel the night before the coup, and one of them has already warned the king. A single bell begins to toll.",
+    "hook": "\"Tell me honestly. Did you send word to the palace before you came to meet me?\""
+  },
+  {
+    "id": "sealed-house-plague-cough",
+    "mode": "roleplay",
+    "genre": "historical",
+    "cast": 3,
+    "tone": "dark",
+    "text": "City authorities have sealed the door of a plague-year household, leaving {a}, {b} and {c} alone inside. Tonight, someone coughs in the dark, and none of them will say who.",
+    "hook": "*backs against the door* \"Nobody move. I heard it, and I need to know who.\""
+  },
+  {
+    "id": "lighthouse-horn-no-ship",
+    "mode": "roleplay",
+    "genre": "historical",
+    "cast": 2,
+    "tone": "dark",
+    "text": "The lamp has gone out in a lighthouse on a winter night, and {a} and {b} hear a ship's horn from the rocks. The sea is empty, and the sound is not from any ship.",
+    "hook": "*lifts the lantern to the window* \"There's no ship out there. So what's blowing the horn?\""
+  },
+  {
+    "id": "dead-sons-dinner-place",
+    "mode": "roleplay",
+    "genre": "historical",
+    "cast": 1,
+    "tone": "dark",
+    "text": "In a country mansion where the master sets a dinner place for his dead son, the new servant {a} finds that every bite on that plate has vanished by morning.",
+    "hook": "*lifts the empty plate* \"Sir, I set this plate at nightfall. Now there's nothing on it but a clean spoon.\""
+  },
+  {
+    "id": "dragon-egg-inspectors",
+    "mode": "writing",
+    "genre": "fantasy",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "One hour before the royal inspectors arrive, the last dragon egg in the kingdom hatches in {a}'s hands. Hiding the hatchling in the cellar risks the whole village; handing it over breaks the only promise {a} ever made.",
+    "hook": "The egg cracked just as {a} heard the inspectors' horses at the crossroads."
+  },
+  {
+    "id": "teashop-borrowed-memory",
+    "mode": "writing",
+    "genre": "fantasy",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "In a floating market, {a} brews tea that tastes like happy memories. A lonely traveler orders a cup for a stranger's birthday, and {a} has only one memory left to give: their own.",
+    "hook": "{a} had never sold the memory of their grandmother's kitchen, until the traveler asked for it by name."
+  },
+  {
+    "id": "feather-hat-curse",
+    "mode": "writing",
+    "genre": "fantasy",
+    "cast": 2,
+    "tone": "funny",
+    "text": "A curse binds {a} and {b} so that whenever one lies, the other's hat sprouts a feather. In ten minutes they face the baron's loan hearing, and they have a great deal to hide.",
+    "hook": "By the time the third feather appeared, {b} was already ruining the story {a} had started."
+  },
+  {
+    "id": "frozen-lake-lantern",
+    "mode": "writing",
+    "genre": "fantasy",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Halfway across a frozen lake, {a} and {b} hear the ice whispering the names of everyone who crossed before. One lantern is left, it burns for only one of them, and the far shore is still a mile away.",
+    "hook": "The ice began to speak {b}'s name softly, politely, as if taking attendance."
+  },
+  {
+    "id": "trial-of-glass",
+    "mode": "writing",
+    "genre": "fantasy",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "Twin heirs {a} and {b} face the Trial of Glass at dawn, where only one may take the crown. {a} discovers it can be won by both, if one of them confesses an old betrayal before the whole court.",
+    "hook": "At dawn, {a} learned the Trial of Glass had never been about winning at all."
+  },
+  {
+    "id": "blizzard-soup-watchtower",
+    "mode": "writing",
+    "genre": "fantasy",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "A blizzard fills the mountain watchtower with stranded merchants, and {a}, {b} and {c} must stretch three days of soup across forty guests. The only help on offer is a very opinionated mule.",
+    "hook": "The soup was thin, the guests were many, and {c} had already promised seconds."
+  },
+  {
+    "id": "dragon-wedding-planners",
+    "mode": "writing",
+    "genre": "fantasy",
+    "cast": 3,
+    "tone": "funny",
+    "text": "Hired as wedding planners for the royal dragon, {a}, {b} and {c} are handed a guest list of three hundred, with fire forbidden and a cake the size of a barn demanded. Sunset is the deadline.",
+    "hook": "The dragon wanted the cake to be 'roughly the size of regret'."
+  },
+  {
+    "id": "clocks-stopped-village",
+    "mode": "writing",
+    "genre": "fantasy",
+    "cast": 3,
+    "tone": "dark",
+    "text": "In a village where every clock has stopped at midnight, {a}, {b} and {c} find each door standing open. Something in the well is counting heads, and it has just reached a number one too high.",
+    "hook": "Every door in Hollowmere stood open, and the well was counting aloud."
+  },
+  {
+    "id": "hedgehog-banquet",
+    "mode": "writing",
+    "genre": "fantasy",
+    "cast": 1,
+    "tone": "funny",
+    "text": "A spell goes wrong and {a}, a wizard's apprentice, turns the royal banquet's guests into hedgehogs. Dessert is about to be served, the queen is somehow still human, and {a} has one spare spoon of antidote.",
+    "hook": "{a} could have sworn hedgehogs were not on the seating chart."
+  },
+  {
+    "id": "witch-broom-harvest-fair",
+    "mode": "writing",
+    "genre": "fantasy",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "The village has forgotten magic, and {a} and {b} are its last two witches. At tomorrow's harvest fair the children expect broom rides, and {b}'s broom lost most of its bristles in last winter's storm.",
+    "hook": "{b} swore the broom would hold one more flight, and {a} swore not to laugh."
+  },
+  {
+    "id": "sleepers-three-years",
+    "mode": "writing",
+    "genre": "scifi",
+    "cast": 1,
+    "tone": "dark",
+    "text": "During a quiet night shift aboard a deep-space freighter, {a} hears the ship's voice announce that the rest of the crew has been asleep for three years. It politely asks whether {a} wants to know why.",
+    "hook": "'Good evening,' said the ship, 'you are the only one I have kept awake on purpose.'"
+  },
+  {
+    "id": "tomato-plant-mascot",
+    "mode": "writing",
+    "genre": "scifi",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "Aboard a mining station, a single tomato plant is the crew's beloved mascot. The supply ship is late, the plant is wilting, and {a}, the gardener, holds the last water ration while everyone else is thirsty.",
+    "hook": "The plant had a name, a birthday and now two spoonfuls of water standing between it and a funeral."
+  },
+  {
+    "id": "passive-aggressive-translator",
+    "mode": "writing",
+    "genre": "scifi",
+    "cast": 2,
+    "tone": "funny",
+    "text": "The translator in {a} and {b}'s escape pod turns every sentence into a passive-aggressive compliment. A rescue ship's captain, famously easy to offend, answers their distress call in eight minutes.",
+    "hook": "'You are so brave to fly that badly,' the translator told the rescue captain, in {a}'s voice."
+  },
+  {
+    "id": "copy-citizenship-vote",
+    "mode": "writing",
+    "genre": "scifi",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "{a} learns that {b}, their closest friend on the colony ship, is a copy made after the original died during the first jump. The council votes tonight on whether copies keep their citizenship.",
+    "hook": "{a} found the original's name in the ship's memorial records, and {b} was standing beside it."
+  },
+  {
+    "id": "archive-or-shuttle",
+    "mode": "writing",
+    "genre": "scifi",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "As the station falls out of orbit, only {a}, {b} and {c} still have access to the archive. The escape shuttle has seats for the three of them or for the archive core, not both.",
+    "hook": "There were three seats, one archive and exactly four minutes to be honest with each other."
+  },
+  {
+    "id": "zero-g-pizza",
+    "mode": "writing",
+    "genre": "scifi",
+    "cast": 3,
+    "tone": "funny",
+    "text": "{a}, {b} and {c} run the only pizza delivery on a zero-gravity station with a strict no-crumbs law. Tonight's order is for the commander, and the toppings are drifting toward the air vents.",
+    "hook": "Rule one of zero-g delivery: the pepperoni is never actually yours."
+  },
+  {
+    "id": "rain-recording-generation-ship",
+    "mode": "writing",
+    "genre": "scifi",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "Aboard a generation ship, {a}, {b} and {c} are asked to teach the youngest passengers what rain sounds like. They have an old recording, a bucket of water and one night before the Festival of the Surface.",
+    "hook": "Nobody aboard had ever heard rain, so they decided to make some."
+  },
+  {
+    "id": "sourdough-anomaly",
+    "mode": "writing",
+    "genre": "scifi",
+    "cast": 1,
+    "tone": "funny",
+    "text": "Inside a research moon base, {a}, the sole janitor, realizes the 'growing anomaly' terrifying Lab 4 is a sourdough starter they forgot there. Inspectors from headquarters land in an hour.",
+    "hook": "The anomaly had been fed, named and, {a} suddenly realized, was probably doing its best."
+  },
+  {
+    "id": "echo-distress-signal",
+    "mode": "writing",
+    "genre": "scifi",
+    "cast": 2,
+    "tone": "dark",
+    "text": "A distress signal from a station decommissioned decades ago reaches {a} and {b}. When they answer, the transmission repeats their own voices, saying words from a conversation they have not had yet.",
+    "hook": "The distress call began with {a} saying, 'I told you not to answer,' which {a} had not yet said."
+  },
+  {
+    "id": "night-shift-paper-stars",
+    "mode": "writing",
+    "genre": "scifi",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "On a space station's night shift, {a} and {b} have spent months leaving small unsigned gifts in each other's lockers. Tonight, a schedule change moves {b} to the day shift, effective at once.",
+    "hook": "{a} had one night left to find out who kept leaving paper stars."
+  },
+  {
+    "id": "lost-wallet-raffle",
+    "mode": "writing",
+    "genre": "modern",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "A stranger's lost wallet holds one old photo, forty dollars and a raffle ticket that expires tonight. {a} has twenty minutes before the last bus and an address across town.",
+    "hook": "The raffle ticket might be worth nothing, but the photo was worth the bus fare."
+  },
+  {
+    "id": "wrong-number-hospital",
+    "mode": "writing",
+    "genre": "modern",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "A nurse phones {a} by mistake, asking them to come say goodbye to a stranger who has nobody else. {a} has a deadline, a dying phone battery and a feeling the stranger deserves a visitor anyway.",
+    "hook": "'You are not who I wanted,' the nurse said, 'but you are who answered.'"
+  },
+  {
+    "id": "faces-down-frames",
+    "mode": "writing",
+    "genre": "modern",
+    "cast": 1,
+    "tone": "dark",
+    "text": "Back home, {a} finds every picture frame turned face down and a note in their own handwriting reading 'don't look at the window'. The lights flicker, and the apartment is on the fourteenth floor.",
+    "hook": "The note was in {a}'s handwriting, and the ink was still wet."
+  },
+  {
+    "id": "two-surprise-parties",
+    "mode": "writing",
+    "genre": "modern",
+    "cast": 2,
+    "tone": "funny",
+    "text": "Flatmates {a} and {b} each secretly invited the whole building to a surprise party for the other. The cake arrives in thirty minutes, and neither knows there are two guests of honor.",
+    "hook": "The first guest arrived with balloons, and so did the second."
+  },
+  {
+    "id": "secret-deed-key",
+    "mode": "writing",
+    "genre": "modern",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "While clearing their late father's house, {a} and {b} find a key and a deed to a second house neither knew he owned. The realtor wants a sell-or-keep answer by noon.",
+    "hook": "The deed was dated the year their father stopped talking about his past."
+  },
+  {
+    "id": "blackout-rooftop-soup",
+    "mode": "writing",
+    "genre": "modern",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "A citywide blackout leaves neighbors {a} and {b}, who have never spoken, sharing a rooftop, one candle, a pot of soup and a ukulele. There is also an old parking feud to settle.",
+    "hook": "For three years they had only nodded, and for one blackout they would have to talk."
+  },
+  {
+    "id": "supply-closet-presentation",
+    "mode": "writing",
+    "genre": "modern",
+    "cast": 3,
+    "tone": "funny",
+    "text": "A motion-sensor door that believes it is Sunday has locked {a}, {b} and {c} in an office supply closet. Their presentation starts in eleven minutes, and the only copy of the slides is on a dying phone.",
+    "hook": "The door was very sure it was Sunday, and everyone else's meeting disagreed."
+  },
+  {
+    "id": "overnight-lobby-repaint",
+    "mode": "writing",
+    "genre": "modern",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "To surprise their elderly landlord, {a}, {b} and {c} repaint the building's lobby overnight. By midnight the color is wrong, the cat has walked through it, and the landlord's window light just came on.",
+    "hook": "'It is called Morning Peach,' {b} said, looking at what was clearly Surprised Salmon."
+  },
+  {
+    "id": "bakery-foreclosure-critic",
+    "mode": "writing",
+    "genre": "modern",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "A food critic walks into the family bakery the week the bank will foreclose. {a}, {b} and {c} know the secret recipe was never theirs, and one of them must confess before the review prints.",
+    "hook": "The critic took one bite and asked, very gently, who really made this."
+  },
+  {
+    "id": "same-station-night-train",
+    "mode": "writing",
+    "genre": "modern",
+    "cast": 3,
+    "tone": "dark",
+    "text": "Aboard a night train, {a}, {b} and {c} pass the same empty station for the third time. The announcements are in their own voices, and the next stop on the route map does not exist.",
+    "hook": "The conductor's announcement was {c}'s voice, naming a stop none of them could find."
+  },
+  {
+    "id": "forty-year-old-confession",
+    "mode": "writing",
+    "genre": "mystery",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "A retired inspector, {a}, receives a confession to an unsolved murder, signed by someone {a} once put on a train to safety. Reopening the case would mean exposing the person {a} loved most.",
+    "hook": "The confession arrived forty years late and in a hand {a} knew too well."
+  },
+  {
+    "id": "crumb-vicar-fete",
+    "mode": "writing",
+    "genre": "mystery",
+    "cast": 1,
+    "tone": "funny",
+    "text": "At the village fete, {a}, a hopeless amateur sleuth, has deduced that the cake thief is the vicar. The evidence is one crumb and a hunch, and the bake-off prize is about to be presented.",
+    "hook": "'The crumb,' {a} announced to the entire tent, 'never lies.'"
+  },
+  {
+    "id": "library-card-tomorrow",
+    "mode": "writing",
+    "genre": "mystery",
+    "cast": 1,
+    "tone": "dark",
+    "text": "Snowed in at a library, {a} finds a catalog card for a book that does not exist, filed under their own name and dated tomorrow. The librarian has vanished, and the shelves seem a step closer than before.",
+    "hook": "The card was dated tomorrow, and the book it described was still warm."
+  },
+  {
+    "id": "birthday-cards-lost-and-found",
+    "mode": "writing",
+    "genre": "mystery",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "At a train station's lost-and-found, {a} and {b} receive a bundle of anonymous birthday cards for a stranger. They have until the evening train to find out who needs them.",
+    "hook": "Seventeen cards, one name and no return address."
+  },
+  {
+    "id": "seaside-inn-checkout",
+    "mode": "writing",
+    "genre": "mystery",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Every guest at a seaside inn swears the missing person checked out yesterday, and the register agrees. {a} and {b} have until six, when the tide floods the only road.",
+    "hook": "The register said the guest had left, but the coat by the door was still dripping."
+  },
+  {
+    "id": "prize-chicken-roof",
+    "mode": "writing",
+    "genre": "mystery",
+    "cast": 2,
+    "tone": "funny",
+    "text": "Hired to find a stolen prize chicken, {a} and {b} learn it was never stolen, only extremely good at hiding. The county judge arrives at noon, the chicken is on the roof, and the owner has too many alibis.",
+    "hook": "The chicken had a better alibi than the owner."
+  },
+  {
+    "id": "juror-knows-defendant",
+    "mode": "writing",
+    "genre": "mystery",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "Jurors {a}, {b} and {c} each realize, separately, that they know the defendant. The verdict is due at five, and whoever speaks first will be dismissed and the whole trial restarted.",
+    "hook": "Three jurors stared at the defendant, and each assumed they were the only one who knew."
+  },
+  {
+    "id": "forgotten-love-letter-novel",
+    "mode": "writing",
+    "genre": "mystery",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "A donated novel hides a forty-year-old love letter, and the book club of {a}, {b} and {c} cannot let it lie. They race across town to find the two people it names before the library sale closes.",
+    "hook": "The letter began, 'If you are reading this, I waited,' and the book club had no intention of letting that stand unanswered."
+  },
+  {
+    "id": "museum-portrait-changes",
+    "mode": "writing",
+    "genre": "mystery",
+    "cast": 3,
+    "tone": "dark",
+    "text": "In an old museum, the east-wing portrait changes its expression each night, and the night staff of {a}, {b} and {c} have started keeping notes. Tonight it has a new face and a brass plate with a familiar name.",
+    "hook": "Last night the portrait frowned; tonight it had a name plate and nobody had hung it."
+  },
+  {
+    "id": "magicians-convention-duck",
+    "mode": "writing",
+    "genre": "mystery",
+    "cast": 3,
+    "tone": "funny",
+    "text": "At a magicians' convention, {a}, {b} and {c} investigate a locked-room mystery in which every suspect can vanish on cue. The victim is a rubber duck, the prize is a gold wand, and the closing ceremony is looming.",
+    "hook": "The duck was dead, the room was sealed, and the suspects were professionals at disappearing."
+  },
+  {
+    "id": "lighthouse-old-storm-report",
+    "mode": "writing",
+    "genre": "horror",
+    "cast": 1,
+    "tone": "dark",
+    "text": "While house-sitting a lighthouse, {a} hears the radio broadcast a weather report for a storm from a hundred years ago. The report ends with {a}'s name, and the great lamp has just switched itself off.",
+    "hook": "The forecast called for fog, fifty knots and {a}."
+  },
+  {
+    "id": "second-lullaby-monitor",
+    "mode": "writing",
+    "genre": "horror",
+    "cast": 1,
+    "tone": "dark",
+    "text": "Every night {a}'s baby monitor carries a second lullaby, sung from the empty room across the hall. Tonight the song stops mid-verse and a soft voice asks {a} to finish it.",
+    "hook": "The lullaby was missing one verse, and the voice was patient."
+  },
+  {
+    "id": "passive-aggressive-ghost",
+    "mode": "writing",
+    "genre": "horror",
+    "cast": 1,
+    "tone": "funny",
+    "text": "{a} moves into a haunted flat only to find the ghost is a passive-aggressive roommate with firm opinions about dishes. By midnight, {a} must sort the recycling or face a very public ghostly review.",
+    "hook": "The ghost had left a note on the fridge: 'We need to talk about the cereal.'"
+  },
+  {
+    "id": "shadows-wave-campsite",
+    "mode": "writing",
+    "genre": "horror",
+    "cast": 2,
+    "tone": "dark",
+    "text": "The other tents at a late-season campsite glow from within, each holding a shadow that waves hello. {a} and {b} have one path back, and the shadows are standing on it.",
+    "hook": "The shadows waved first, which was somehow worse than if they had lunged."
+  },
+  {
+    "id": "truthful-cave",
+    "mode": "writing",
+    "genre": "horror",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "Deep in a cave that answers every question truthfully, the last two survivors of an expedition, {a} and {b}, are asked a question in return. The cave wants an answer, and the answer decides who gets to leave.",
+    "hook": "The cave asked its question only once, and both of them already knew the honest answer."
+  },
+  {
+    "id": "shy-ghost-livestream",
+    "mode": "writing",
+    "genre": "horror",
+    "cast": 2,
+    "tone": "funny",
+    "text": "{a} and {b} launch a ghost-hunting channel and succeed only in being haunted by a painfully shy ghost who photobombs everything. The live stream hits ten thousand viewers, and the ghost wants a cut.",
+    "hook": "Episode one's most-watched moment was a ghost waving politely behind {a}."
+  },
+  {
+    "id": "thirteenth-floor-elevator",
+    "mode": "writing",
+    "genre": "horror",
+    "cast": 3,
+    "tone": "dark",
+    "text": "At a hotel with no thirteenth floor, the elevator opens onto one anyway. The carpet is damp, the corridor is longer than the building, and every door gently knocks as {a}, {b} and {c} pass.",
+    "hook": "The elevator had no button for thirteen, and it stopped there anyway."
+  },
+  {
+    "id": "bell-tolls-confession",
+    "mode": "writing",
+    "genre": "horror",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "A bell in a fog-bound village tolls each hour for someone who has not died yet. {a}, {b} and {c} discover the next toll is for one of them, and only a spoken confession will silence it.",
+    "hook": "The bell tolled once for each hour and, tonight, once for {b}."
+  },
+  {
+    "id": "ghost-tour-sulking",
+    "mode": "writing",
+    "genre": "horror",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "{a}, {b} and {c} run a family ghost tour in which the real ghosts insist on being included. Tonight's tour is sold out, the ghosts are sulking in the cellar, and there are marshmallows.",
+    "hook": "The ghosts agreed to haunt the tour, as long as someone brought marshmallows."
+  },
+  {
+    "id": "fountain-time-capsule-photo",
+    "mode": "writing",
+    "genre": "horror",
+    "cast": 3,
+    "tone": "dark",
+    "text": "Beneath the old fountain, {a}, {b} and {c} dig up a time capsule holding a photo of themselves standing in that very spot, with one extra figure behind them. The photograph is dated ten years ago.",
+    "hook": "In the photograph there were four of them, and only three had come."
+  },
+  {
+    "id": "bookshop-wall-notes",
+    "mode": "writing",
+    "genre": "romance",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "For a year {a} has traded notes with a stranger through a gap in a bookshop wall. With renovation starting Sunday, {a} must choose between leaving a name and leaving the mystery.",
+    "hook": "The last note read, 'Come Saturday, or don't, but bring a pen.'"
+  },
+  {
+    "id": "grandmothers-dating-profile",
+    "mode": "writing",
+    "genre": "romance",
+    "cast": 1,
+    "tone": "funny",
+    "text": "After a week of charming messages, {a} discovers the dating-app stranger is their own grandmother, borrowing a friend's profile. The nonrefundable reservation is tonight, and the new dress is already bought.",
+    "hook": "'You are early,' said the date, in the unmistakable voice of {a}'s grandmother."
+  },
+  {
+    "id": "unsent-letters-wedding",
+    "mode": "writing",
+    "genre": "romance",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "Ten years of unsent letters sit in {a}'s coat pocket when an invitation arrives: the person they were written to is getting married in two days. The train leaves in an hour.",
+    "hook": "{a} had written the same sentence forty times and never once posted it."
+  },
+  {
+    "id": "shared-oven-rival-bakers",
+    "mode": "writing",
+    "genre": "romance",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "When the power fails on their street, rival bakers {a} and {b} must share the only gas oven. A tray of cinnamon rolls, flour in the air and one long look decide how the morning goes.",
+    "hook": "{b} slid the tray in without a word, and {a} pretended not to notice the roll set aside."
+  },
+  {
+    "id": "fake-engagement-toast",
+    "mode": "writing",
+    "genre": "romance",
+    "cast": 2,
+    "tone": "funny",
+    "text": "For a family reunion, {a} and {b} are fake-dating, until the relatives plan an engagement toast. They have forty minutes to stage a believable breakup or a believable proposal.",
+    "hook": "The relatives had already ordered the champagne, and {b} had already ordered an exit plan."
+  },
+  {
+    "id": "harbor-festival-tide",
+    "mode": "writing",
+    "genre": "romance",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "Years after a misunderstanding broke them apart, {a} and {b} meet again at a harbor festival. {b} sails for another continent on the morning tide, and neither has said what they should have.",
+    "hook": "The tide left at dawn, and {a} had spent nine years rehearsing the wrong speech."
+  },
+  {
+    "id": "same-dream-lit-window",
+    "mode": "writing",
+    "genre": "romance",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Both haunted by the same dream of a house with one lit window, {a} and {b} meet in a rain-slicked city and recognize each other at once. Neither can say whether they are strangers or something older.",
+    "hook": "{a} knew {b}'s face from the dream, and {b} knew {a}'s from the window."
+  },
+  {
+    "id": "anonymous-valentine-neighbor",
+    "mode": "writing",
+    "genre": "romance",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "Three friends, {a}, {b} and {c}, have each secretly sent the same shy neighbor an anonymous valentine. Now the neighbor has invited all three to dinner, hoping to thank the sender in person.",
+    "hook": "The neighbor set four places at the table and smiled as though three would be enough."
+  },
+  {
+    "id": "matchmaker-double-dates",
+    "mode": "writing",
+    "genre": "romance",
+    "cast": 3,
+    "tone": "funny",
+    "text": "To stop the overeager matchmaker {c} from setting them up, {a} and {b} fake-date. Now {c} has scheduled a double date, a couples' cooking class and a joint photo shoot for Saturday.",
+    "hook": "'We are so happy,' {a} told the photographer, through gritted teeth."
+  },
+  {
+    "id": "theater-founders-lighting-cue",
+    "mode": "writing",
+    "genre": "romance",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "{a} has loved {b} for years without saying so, and {c}, their theater's third founder, has just confessed to {b} first. Opening night is tonight, and the final lighting cue is the last chance to speak.",
+    "hook": "The spotlight swung toward {b}, and {a} still had not decided what to say into it."
+  },
+  {
+    "id": "flooding-canyon-raft",
+    "mode": "writing",
+    "genre": "adventure",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "On a flooding canyon river, {a}, the last guide, has a map missing its final page and a passenger late for a funeral. The raft can carry the passenger or the supplies, but not both.",
+    "hook": "The map stopped at the waterfall, and the water kept going."
+  },
+  {
+    "id": "salt-desert-footprints",
+    "mode": "writing",
+    "genre": "adventure",
+    "cast": 1,
+    "tone": "dark",
+    "text": "Two days into a salt desert, {a} finds fresh footprints leading ahead that turn out to be their own. The water bottle is half empty, the horizon has no edge, and turning back may be the more dangerous choice.",
+    "hook": "The footprints ahead were fresh, and so was the cold feeling that they were {a}'s own."
+  },
+  {
+    "id": "quilt-lighthouse-delivery",
+    "mode": "writing",
+    "genre": "adventure",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "{a} has promised to deliver a handmade quilt to a lighthouse keeper on a distant island. The ferry is canceled, the sea is rough, and a local fisher offers a ride in a boat that is mostly patches.",
+    "hook": "The boat was more patch than boat, but it floated and the quilt stayed dry."
+  },
+  {
+    "id": "corporate-treasure-hunt",
+    "mode": "writing",
+    "genre": "adventure",
+    "cast": 2,
+    "tone": "funny",
+    "text": "A treasure hunt turns out to be a corporate team-building day, and {a} and {b} have already signed up. The 'treasure' is a trophy, the 'map' is a slide deck, and a rival team already leads by two conference rooms.",
+    "hook": "Clue seven was a spreadsheet, and {a} was certain it was written in code."
+  },
+  {
+    "id": "silver-mine-lanterns",
+    "mode": "writing",
+    "genre": "adventure",
+    "cast": 2,
+    "tone": "dark",
+    "text": "In an abandoned silver mine, {a} and {b} are retrieving a survey that proves a land claim. Far below, lanterns nobody lit drift toward them, and the rope above has gone slack.",
+    "hook": "Somebody had lit the lanterns below them, and nobody had come down with them."
+  },
+  {
+    "id": "border-checkpoint-sibling",
+    "mode": "writing",
+    "genre": "adventure",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "{a} and {b} smuggle medicine by mule across a tense border. At the checkpoint, {b} recognizes the officer as a sibling not seen in years, and the officer has just recognized them back.",
+    "hook": "The officer looked at {b} for a long moment and said nothing."
+  },
+  {
+    "id": "glacier-hidden-injury",
+    "mode": "writing",
+    "genre": "adventure",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "{a}, {b} and {c} race up a glacier to reach a stranded research hut before the storm. The rope is frayed, the weather window is closing, and one of them has been hiding an injury.",
+    "hook": "{c} had stopped talking an hour ago, and {a} finally understood why."
+  },
+  {
+    "id": "duck-race-canoe",
+    "mode": "writing",
+    "genre": "adventure",
+    "cast": 3,
+    "tone": "funny",
+    "text": "On a quiet afternoon canoe rental, {a}, {b} and {c} paddle into the middle of a regional duck race. They cannot turn around, the finish line is a hundred meters away, and the ducks are winning.",
+    "hook": "The ducks were in the lead, and the canoe was in the way."
+  },
+  {
+    "id": "balloon-harvest-dinner",
+    "mode": "writing",
+    "genre": "adventure",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "A sputtering burner sends {a}, {b} and {c}'s hot-air balloon drifting down onto a farm during the harvest dinner. The farmers set three extra places and ask, gently, what they plan to do about the balloon.",
+    "hook": "The farmer looked up, counted three passengers and set three extra plates."
+  },
+  {
+    "id": "fog-bank-schooner",
+    "mode": "writing",
+    "genre": "adventure",
+    "cast": 3,
+    "tone": "dark",
+    "text": "{a}, {b} and {c} sail an old schooner into a fog bank that has swallowed three ships this year. The compass spins, the bow bell rings by itself, and a lantern floats on the water ahead.",
+    "hook": "The bow bell rang once, though nobody was near it."
+  },
+  {
+    "id": "spark-on-baker-roof",
+    "mode": "writing",
+    "genre": "historical",
+    "cast": 1,
+    "tone": "dramatic",
+    "text": "{a} is the night watchman in a crowded wooden city and spots a stray spark on the baker's roof. Raising the alarm means waking a magistrate who hates them, but silence could cost the whole street.",
+    "hook": "The spark was small, and {a} had about as long as a breath to decide."
+  },
+  {
+    "id": "village-scribe-letter",
+    "mode": "writing",
+    "genre": "historical",
+    "cast": 1,
+    "tone": "wholesome",
+    "text": "No printing press has ever reached the valley where {a} writes letters for neighbors who cannot. Tonight, an old man dictates one so heartfelt that {a} hesitates to correct a single misspelled word.",
+    "hook": "He misspelled 'forever', and {a} left it exactly as it was."
+  },
+  {
+    "id": "royal-food-taster",
+    "mode": "writing",
+    "genre": "historical",
+    "cast": 1,
+    "tone": "funny",
+    "text": "As royal food taster at a medieval banquet, {a} has quietly eaten the entire dessert course. The queen asks for a second helping, and only crumbs and {a}'s guilty expression remain.",
+    "hook": "{a} had been extremely thorough in testing the pudding."
+  },
+  {
+    "id": "banned-pamphlet-press",
+    "mode": "writing",
+    "genre": "historical",
+    "cast": 2,
+    "tone": "dramatic",
+    "text": "In a city that has banned a pamphlet, five hundred wet copies sit on the press of {a} and {b}. Soldiers are knocking, and only one of them can slip out the back with the plates.",
+    "hook": "The knock came as the last page left the press."
+  },
+  {
+    "id": "caravan-sandstorm-tent",
+    "mode": "writing",
+    "genre": "historical",
+    "cast": 2,
+    "tone": "wholesome",
+    "text": "In a caravan town on the old Silk Road, {a} sells spices and {b} sells tea. A sandstorm buries the market, forcing them to share one tent, one fire and a long-running price war.",
+    "hook": "For eleven years they had undercut each other, and now they shared a single blanket."
+  },
+  {
+    "id": "monastery-third-hand",
+    "mode": "writing",
+    "genre": "historical",
+    "cast": 2,
+    "tone": "dark",
+    "text": "Copying manuscripts in a monastery, {a} and {b} find the abbot's door locked from inside. The candle gutters, new lines are appearing in a third hand, and no one has come or gone.",
+    "hook": "The third hand wrote faster than either of them, and it knew their names."
+  },
+  {
+    "id": "goose-invasion-gate",
+    "mode": "writing",
+    "genre": "historical",
+    "cast": 2,
+    "tone": "funny",
+    "text": "Knights {a} and {b} guard a castle gate during an invasion of geese. The king arrives in an hour, the drawbridge is feathered, and the geese have refused to read the royal decree.",
+    "hook": "The geese had taken the drawbridge at dawn, and the king was due before lunch."
+  },
+  {
+    "id": "mill-town-bribe-letters",
+    "mode": "writing",
+    "genre": "historical",
+    "cast": 3,
+    "tone": "dramatic",
+    "text": "On the eve of a strike, millworkers {a}, {b} and {c} each receive a different letter from the owner offering a bribe. The meeting begins at dawn, and the town will follow whichever choice they bring.",
+    "hook": "Each of the three letters offered the same sum, and each begged for silence."
+  },
+  {
+    "id": "mountain-pass-missing-boots",
+    "mode": "writing",
+    "genre": "historical",
+    "cast": 3,
+    "tone": "dark",
+    "text": "Snowed in at a mountain pass, {a}, {b} and {c} ration the last of the bread. The oxen refuse to move, no tracks mark the snow around camp, and someone's boots are missing.",
+    "hook": "There were no tracks in the snow, and one pair of boots was gone."
+  },
+  {
+    "id": "ice-bound-mail-steamboat",
+    "mode": "writing",
+    "genre": "historical",
+    "cast": 3,
+    "tone": "wholesome",
+    "text": "As the crew of a small mail steamboat, {a}, {b} and {c} carry one last parcel of winter gifts to a town cut off by ice. The cargo is three days late, and the town bell is already ringing.",
+    "hook": "The bell on shore was ringing before the steamboat even cleared the last bend."
+  }
+]
