@@ -16,8 +16,10 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 const path = "/philosophical-questions";
 const UPDATED = "2026-10-18";
 // Old title (rollback, 2026-11-06): `${PHILOSOPHY_ITEMS.length} Philosophical Questions to Make You Think`
-const title = `${PHILOSOPHY_ITEMS.length} Philosophical Questions to Make You Think (Deep, Fun & Easy)`;
-const description = `${PHILOSOPHY_ITEMS.length} philosophical questions to ask and discuss, by theme (life, mind, ethics, free will, reality, love), easy ones for kids and beginners, a random picker, and famous questions explained from Socrates to Nozick. Free, no sign-up.`;
+// Rolled back 2026-11-16 (GSC 10/20–11/02 vs 11/07–11/15: CTR 1.45% → 1.06%, position 9.2 → 8.5).
+// Replaced title (2026-11-06): `${PHILOSOPHY_ITEMS.length} Philosophical Questions to Make You Think (Deep, Fun & Easy)`
+const title = `${PHILOSOPHY_ITEMS.length} Philosophical Questions to Make You Think`;
+const description = `${PHILOSOPHY_ITEMS.length} philosophical questions by theme (life, mind, ethics, free will, reality, love), easy ones for kids, a random picker and famous questions explained.`;
 export const metadata: Metadata = {
   title: { absolute: title }, description,
   alternates: { canonical: path, languages: hreflangAlternates(path) },

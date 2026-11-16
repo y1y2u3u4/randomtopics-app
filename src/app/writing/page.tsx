@@ -22,9 +22,11 @@ export const metadata: Metadata = {
   // "Need a topic to write about? Tap once for a random writing prompt — 500+ ideas for stories, essays, journaling and blogs, from light to deep. Free, unlimited, no signup."
   // Old title/meta (rollback, 2026-11-06): "Writing Prompts Generator: 500+ Random Writing Prompts, Free & Unlimited" /
   // "Free writing prompt generator: tap once for a random writing prompt or topic to write about. 500+ ideas for stories, essays, journaling and blogs, light to deep, with filters. Unlimited, no signup."
-  title: { absolute: "Writing Prompts Generator: 500+ Random Writing Prompts (Free, 2026)" },
+  // Rolled back 2026-11-16 (GSC 10/20–11/02 vs 11/07–11/15: CTR 1.80% → 0.45% at the same position 4.6 → 3.8).
+  // Replaced title (2026-11-06): "Writing Prompts Generator: 500+ Random Writing Prompts (Free, 2026)"
+  title: { absolute: "Writing Prompts Generator: Give Me a Topic to Write About (500+)" },
   description:
-    "Get a random writing prompt in one tap: 500+ writing prompts and topics to write about for stories, essays, journaling and blogs, light to deep, each with talking points. Free, unlimited, no sign-up.",
+    "Need a topic to write about? Tap once for a random writing prompt — 500+ ideas for stories, essays, journaling and blogs, from light to deep. Free, unlimited, no signup.",
   keywords: [
     "random topics to write about",
     "random topic generator to write about",
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
     languages: hreflangAlternates("/writing"),
   },
   openGraph: {
-    title: "Writing Prompts Generator: 500+ Random Writing Prompts, Free & Unlimited",
+    title: "Writing Prompts Generator: Give Me a Topic to Write About (500+)",
     description:
       "Need a topic to write about? Tap once for a random writing prompt for stories, essays, journaling and blogs.",
     url: `${SITE_URL}/writing`,
