@@ -7,9 +7,8 @@ const files = [];
 (function walk(dir) { for (const name of readdirSync(dir)) { const p = join(dir, name); statSync(p).isDirectory() ? walk(p) : /\.tsx$/.test(p) && files.push(p); } })("src");
 const missing = [];
 for (const file of files) {
-  if (file.endsWith("PartyFlowLink.tsx")) continue;
-  const source = readFileSync(file, "utf8");
-  for (const match of source.matchAll(/<Link\s(?!prefetch=\{false\})/g)) missing.push(`${file}:${source.slice(0, match.index).split("\n").length}`);
+  const source = readFileSync(file, "utf8").replace(/\{\/\*[\s\S]*?\*\/\}/g, "");
+  for (const match of source.matchAll(/<Link\b[^>]*>/g)) if (!match[0].includes("prefetch={false}")) missing.push(`${file}:${source.slice(0, match.index).split("\n").length}`);
 }
 if (missing.length) { console.error("Link without prefetch={false}:\n" + missing.join("\n")); process.exit(1); }
 console.log(`PASS: ${files.length} TSX files, every Link opts out of prefetch.`);

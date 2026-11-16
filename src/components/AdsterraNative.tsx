@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { adPageAllowed, adRequestAllowed } from "@/lib/adsense";
 import { ADSTERRA_NONE, adsterraCookie, adsterraNativeFromEnv } from "@/lib/adsterra";
 import { observeSpeechAdEntitlement } from "@/lib/speech/adEligibilityClient";
+import { adslotConfiguration } from "@/lib/adslotClient";
 import { track } from "@/lib/track";
 
 // Adsterra Native experiment (src/lib/adsterra.ts). Renders no markup of its own: it inserts one container just above the
@@ -64,8 +65,7 @@ export default function AdsterraNative() {
       if (country === ADSTERRA_NONE) return;
       if (!country) {
         try {
-          const r = await fetch("/api/adslot/", { credentials: "same-origin" });
-          const s: { src?: string; id?: string; country?: string } = r.ok ? await r.json() : {};
+          const s = await adslotConfiguration();
           if (!s.src || !s.id || !s.country) return;
           country = s.country;
         } catch { return; }

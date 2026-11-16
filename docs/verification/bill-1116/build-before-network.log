@@ -1,0 +1,39 @@
+
+> randomtopics@0.1.0 build
+> next build
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/shiliu/project/randomtopics-app/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/shiliu/project/randomtopics-app/.claude/worktrees/bill-1116/package-lock.json
+
+▲ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+Turbopack build encountered 2 warnings:
+[next]/internal/font/google/outfit_46d08b63.module.css
+Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap
+
+
+[next]/internal/font/google/plus_jakarta_sans_df8da7a2.module.css
+Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap
+
+
+
+> Build error occurred
+Error: Turbopack build failed with 2 errors:
+[next]/internal/font/google/outfit_46d08b63.module.css
+next/font: error:
+Failed to fetch `Outfit` from Google Fonts.
+
+
+[next]/internal/font/google/plus_jakarta_sans_df8da7a2.module.css
+next/font: error:
+Failed to fetch `Plus Jakarta Sans` from Google Fonts.
+
+
+    at ignore-listed frames

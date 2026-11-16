@@ -13,5 +13,6 @@
       "path": "/api/cron/speech-health",
       "schedule": "5 * * * *"
     }
-  ]
+  ],
+  "ignoreCommand": "bash scripts/vercel-ignore-build.sh"
 }

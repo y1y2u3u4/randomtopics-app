@@ -4,7 +4,7 @@ import type { ComponentProps } from "react";
 import { track } from "@/lib/track";
 
 export default function PartyFlowLink(props: ComponentProps<typeof Link>) {
-  return <Link {...props} onClick={(event) => {
+  return <Link {...props} prefetch={false} onClick={(event) => {
     props.onClick?.(event);
     if (event.defaultPrevented) return;
     if (!["/es/most-likely-to", "/es/topics/most-likely-to-questions"].includes(window.location.pathname)) return;

@@ -4,6 +4,10 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/:path*\\.(webmanifest|png|jpg|jpeg|webp|gif|svg|ico|woff|woff2|ttf|otf)",
+        headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" }],
+      },
+      {
         source: "/speech/:path*",
         headers: [{ key: "Referrer-Policy", value: "no-referrer" }],
       },

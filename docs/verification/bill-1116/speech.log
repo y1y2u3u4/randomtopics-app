@@ -1,0 +1,28 @@
+
+> randomtopics@0.1.0 speech:test
+> node scripts/speech-coach-regression.mjs && node scripts/speech-measurement-regression.mjs && node scripts/speech-entry-regression.mjs && node scripts/speech-diagnostics-regression.mjs && node scripts/speech-feedback-regression.mjs && node scripts/speech-v5-regression.mjs && node scripts/speech-exposure-regression.mjs && node scripts/speech-length-regression.mjs && node scripts/speech-transcription-regression.mjs && node scripts/speech-comparison-regression.mjs && node scripts/speech-round-regression.mjs && node scripts/speech-task-regression.mjs && node scripts/speech-health-regression.mjs
+
+<claude-code-hint v="1" type="plugin" value="stripe@claude-plugins-official" />
+PASS: grounded quotes, honest comparison, bounded requests, private errors, malformed audio, owner-scoped history, live billing gate and webhook signatures.
+PASS: complete event coverage distinguishes received, window zero and unavailable; QA stays separate; all funnel events are registered.
+PASS: exposure cohort measures ordered clicks without requiring page arrival, full acquisition is retained, and priced-plan cohorts exclude older feedback.
+PASS: ordered funnel headers, production/event-name filters, private event allowlist, replay failure isolation, preview exclusion and early-event queue.
+PASS: production QA namespace persists across navigation, explicit exit, private-field exclusion and natural funnel isolation.
+PASS: history recovery starts before completion, counts failures separately, returns saved results without a second request, never fabricates views, and omits private content.
+PASS: purpose cohorts use QA-safe event names, closed labels and actual payment confirmation.
+(node:77301) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS: initial sliver, continuous one-second exposure, scroll interruption, hidden tab, lost focus, disabled control, deduplication and cleanup.
+PASS: saved-feedback visibility requires one continuous foreground second and cleans up observers.
+PASS: model failure classification, feedback validation/storage recovery, private data exclusion and logging failure isolation.
+PASS: first-attempt comparison, bounded format/evidence recovery, shared deadline and usage accounting, one claim, retryable exhaustion, grounded comparison, refusal and privacy guards.
+PASS: v5 coaching priorities, focused evidence, explicit correction/idempotency/recovery, ownership/claim limits and QA-separated aggregates.
+PASS: expanded ordered funnel, GA event limits, source persistence before/after transcription, old-client separation, private-source rejection and QA-separated outcome aggregates.
+PASS: selected-topic source persistence and QA-separated stored cost accounting.
+PASS: bounded source excerpt selection, source separation, targeted length recovery, request limits, exact evidence checks, and private diagnostic isolation.
+PASS: bounded transcription format recovery, shared deadline, diagnostics, usage, single reservation, retryable exhaustion, insufficient speech, refusal and privacy.
+PASS: comparison evidence is conditional in the model contract, missing-target and insufficient-evidence semantics, strict source validation, one claim and bounded recovery.
+PASS: evidence-based next goals, honest new-topic assessment, owned source validation, quota/no-extra-call guards and server-controlled goal continuity.
+PASS: optional purpose validates before any charge, transfers from owned context, and never fabricates an unmet goal.
+PASS: saved-content card; actual PostgreSQL migrations, completed-pair eligibility, 24-hour gate, one extra attempt, idempotency, failed-attempt release, deletion resistance, foreign/pending source rejection, old-cohort exclusion, paid cap, API/SQL parity and RPC permissions; v7 packs: extra rounds, single grant per session, failed-attempt refund, subscriptions unchanged, waitlist constraints.
+speech health regression: 6 checks passed
