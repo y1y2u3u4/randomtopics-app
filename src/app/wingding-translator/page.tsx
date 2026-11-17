@@ -9,9 +9,8 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/wingding-translator";
-const TITLE = "Wingdings Translator — English to Wingdings & Back (Copy and Paste)";
-const DESCRIPTION =
-  "Free Wingdings translator: type English and get Wingdings symbols you can copy and paste anywhere, or paste symbols to decode them back to text. Swap direction, see each letter under its symbol, and use the full A–Z, a–z and 0–9 chart.";
+const TITLE = "Wingdings Translator – Free English ↔ Wingdings";
+const DESCRIPTION = "Translate English to Wingdings or decode symbols back to text instantly. Copy and paste results, swap direction, or browse the full alphabet chart. Free.";
 
 const SOCIAL = generatorSocial({ card: "fantasy-name-generator", title: TITLE, description: DESCRIPTION, alt: "Wingding translator — English to Wingdings symbols and back" });
 

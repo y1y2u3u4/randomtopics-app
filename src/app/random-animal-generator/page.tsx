@@ -14,9 +14,8 @@ import AnswerFirst from "@/components/AnswerFirst";
 import { spreadPick } from "@/data/popularGenerators";
 
 const PATH = "/random-animal-generator";
-// Old title (rollback, 2026-11-06): `Random Animal Generator: ${ANIMALS.length} Random Animals With Pictures`
-const TITLE = `Random Animal Generator: Get a Random Animal From ${ANIMALS.length} (Free, With Pictures)`;
-const DESCRIPTION = `Give me a random animal: one tap picks from ${ANIMALS.length}+ real animals, each with a picture and a fun fact. Name a random animal for a drawing prompt, quiz or game — filter by mammals, birds, ocean, farm or easy kids animals. Free, no sign-up, no repeats.`;
+const TITLE = "Random Animal Generator – Free Pictures & Facts";
+const DESCRIPTION = "Get random animals with pictures and fun facts instantly. Filter by habitat or animal type, pick up to 12 at once, and avoid repeats. Free, no signup.";
 
 const SOCIAL = generatorSocial({ card: "random-animal-generator", title: TITLE, description: DESCRIPTION, alt: "Random Animal Generator — illustrated animals with fun facts" });
 

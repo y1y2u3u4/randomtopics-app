@@ -27,12 +27,10 @@ export const revalidate = 3600;
 // above) so the result shows it is current. Old title for rollback:
 // "Question of the Day: Today's QOTD + 120 Question Ideas" (see docs/ctr-titles-2026-10-21.md).
 export function generateMetadata(): Metadata {
-  const day = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+  const day = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
   return withSocial({
-    // Old title/meta (rollback, 2026-11-06): `Question of the Day for ${day} + 120 QOTD Ideas` /
-    // `Today's question of the day (${day}) is ready to copy for your class, team or group chat. 120 QOTD ideas in 5 categories, new every midnight. Free.`
-    title: { absolute: `Today's Question of the Day (${day}) + 120 QOTD Ideas` },
-    description: `Today's question of the day for ${day}, ready to copy for your class, team or group chat. Plus 120 fun QOTD ideas in 5 categories (classroom, work, kids, deep, funny). A new question every midnight. Free, no signup.`,
+    title: { absolute: `Question of the Day – Today's QOTD (${day})` },
+    description: `Copy today's free QOTD for your class, team or group chat. Explore 120 question ideas in 5 categories and browse the daily archive. No signup.`,
     keywords: [
       "question of the day",
       "question of the day ideas",
@@ -79,7 +77,7 @@ export default function QuestionOfTheDayPage() {
   // Server-side (UTC) pick so the question is part of the crawlable HTML; the
   // client component re-checks against the visitor's local date after mount.
   const now = new Date();
-  const initialIdx = qotdIndexForDate(now);
+  const initialIdx = qotdIndexForDate(new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
   const initialDateLabel = now.toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
@@ -122,6 +120,7 @@ export default function QuestionOfTheDayPage() {
           </DirectAnswer>
         </div>
         <TryNext path="/question-of-the-day" />
+        <p className="max-w-3xl mx-auto px-4 py-4"><Link prefetch={false} href="/question-of-the-day/archive" className="text-[var(--neon-cyan)] hover:underline">Browse the daily QOTD archive</Link></p>
         <QotdReturnPanel />
         <ClassroomPackCard pack="question-of-the-day" page="/question-of-the-day" />
         <p className="max-w-3xl mx-auto px-4 sm:px-6 pt-4 text-sm text-[var(--text-secondary)]">
