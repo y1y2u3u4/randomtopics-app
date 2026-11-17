@@ -6,9 +6,8 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/random-name-generator";
-const TITLE = "Random Name Generator — First & Last Names by Gender and Origin";
-const DESCRIPTION =
-  "Free random name generator: get realistic first and last names from 24 countries and regions, filter by gender and origin, and see what each surname means. Generate up to 20 names at once for characters, tests and games.";
+const TITLE = "Random Name Generator – Free First & Last Names";
+const DESCRIPTION = "Generate up to 20 first and last names from 24 countries and regions. Filter by gender and origin and see surname meanings. Free, instant, no signup.";
 
 const SOCIAL = generatorSocial({ card: "random-name-generator", title: TITLE, description: DESCRIPTION, alt: "Random Name Generator — name cards from many countries" });
 

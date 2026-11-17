@@ -14,9 +14,8 @@ import AnswerFirst from "@/components/AnswerFirst";
 import { spreadPick } from "@/data/popularGenerators";
 
 const PATH = "/last-name-generator";
-// Old title (rollback, 2026-11-06): "Random Last Name Generator: Surnames with Meanings & Origin"
-const TITLE = `Random Last Name Generator: ${LAST_NAMES.length} Surnames with Meanings & Origin`;
-const DESCRIPTION = `Get random last names in one click: ${LAST_NAMES.length}+ real surnames from ${Object.keys(ORIGIN_LABELS).length} cultures — English, Irish, Italian, Spanish, Japanese, Korean and more — each with its meaning and origin. Free surname generator for characters, games and stories; no sign-up.`;
+const TITLE = "Last Name Generator – Free Surnames with Meanings";
+const DESCRIPTION = "Get random surnames with meanings and origins. Filter by culture and generate up to 20 last names for characters, stories or games. Free, no signup.";
 
 const SOCIAL = generatorSocial({ card: "last-name-generator", title: TITLE, description: DESCRIPTION, alt: "Last Name Generator — surnames by origin with meanings" });
 

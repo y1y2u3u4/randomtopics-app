@@ -7,9 +7,8 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/random-letter-generator";
-const TITLE = "Pick a Letter From A to Z — Random Letter Generator (No Repeats)";
-const DESCRIPTION =
-  "Free random letter generator: pick one or several random letters from A to Z, uppercase or lowercase, vowels only, consonants only, or without hard letters like Q, X and Z. No repeats until every letter is drawn.";
+const TITLE = "Random Letter Generator – Free A–Z Picker";
+const DESCRIPTION = "Pick random letters from A to Z instantly. Choose vowels, consonants, uppercase or lowercase, and draw without repeats. Free for games and classrooms.";
 
 const SOCIAL = generatorSocial({ card: "random-letter-generator", title: TITLE, description: DESCRIPTION, alt: "Random Letter Generator — colorful alphabet blocks" });
 

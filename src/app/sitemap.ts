@@ -38,6 +38,7 @@ type Entry = {
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: Entry[] = [
     { path: "/", changeFrequency: "daily", priority: 1 },
+    { path: "/question-of-the-day/archive", changeFrequency: "daily", priority: 0.7 },
     { path: "/topics", changeFrequency: "weekly", priority: 0.8 },
     { path: "/categories", changeFrequency: "weekly", priority: 0.8 },
     { path: "/funny", changeFrequency: "weekly", priority: 0.8 },
