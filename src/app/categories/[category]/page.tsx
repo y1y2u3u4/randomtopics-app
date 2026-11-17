@@ -12,6 +12,7 @@ import { categoryToArticles } from "@/data/internalLinks";
 import { pickCategoryTopics } from "@/lib/editorial";
 import { topics } from "@/data/topics";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
@@ -41,7 +42,8 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { category } = await params;
   const cat = CATEGORIES.find((c) => c.id === category);
-  const label = cat?.label ?? "Topics";
+  if (!cat) notFound();
+  const label = cat.label;
   const seoContent = categorySeoContent[category as keyof typeof categorySeoContent];
 
   return (
@@ -62,7 +64,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <TopicGenerator
           initialCategory={category as Category}
           title={`${label} Topic Generator`}
-          subtitle={cat?.description ?? "Explore interesting topics in this category."}
+          subtitle={cat.description}
         />
 
         {seoContent && (
