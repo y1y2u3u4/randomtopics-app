@@ -195,6 +195,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/business-name-generator",
   "/bracket-maker",
   "/secret-santa-generator",
+  "/question-of-the-day/archive",
   "/question-of-the-day/november",
   "/question-of-the-day/december",
   "/question-of-the-day/thanksgiving",
