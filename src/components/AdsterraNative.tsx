@@ -2,84 +2,106 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { adPageAllowed, adRequestAllowed } from "@/lib/adsense";
+import { retireAdDocument } from "@/lib/adsenseClient";
 import { ADSTERRA_NONE, adsterraCookie, adsterraNativeFromEnv } from "@/lib/adsterra";
+import { NATIVE_PLACEMENT, adsterraInsertionPoint } from "@/lib/adsterraPlacement";
 import { observeSpeechAdEntitlement } from "@/lib/speech/adEligibilityClient";
 import { adslotConfiguration } from "@/lib/adslotClient";
 import { track } from "@/lib/track";
 
-// Adsterra Native experiment (src/lib/adsterra.ts). Renders no markup of its own: it inserts one container just above the
-// page's <footer> (bottom of the content, never the first screen) after the server says this visitor's country is allowed.
-// Same gates as the AdSense units: public ad page, host, no query, QA flag, GPC, paid/ad-free entitlement; never in an iframe.
-// The script is injected fresh on every route (Next keeps the layout mounted, so a one-time injection only served page 1).
-const RESERVED_HEIGHT = 300;
+// Ad-eligible route transitions use a fresh document (AdDocumentBoundary).
+let nativeRequested = false;
 
 export default function AdsterraNative() {
   const path = usePathname() ?? "/";
   useEffect(() => {
     const config = adsterraNativeFromEnv();
-    if (!config || !adPageAllowed(path)) return;
-    let active = true, host: HTMLDivElement | undefined, observer: IntersectionObserver | undefined, loaded = false;
+    if (!config || nativeRequested || !adPageAllowed(path)) return;
+
+    let active = true;
     const allowed = () => {
       let qa = true;
       try { qa = sessionStorage.getItem("rt_usage_qa") === "1" || sessionStorage.getItem("rt_speech_qa") === "1"; }
       catch { return false; }
-      try { if (window.self !== window.top) return false; } catch { return false; }
-      return active && location.pathname === path && adRequestAllowed({ path, host: location.hostname,
-        search: location.search, qa, globalPrivacyControl: navigator.globalPrivacyControl === true });
+      return active && window.self === window.top && location.pathname === path &&
+        adRequestAllowed({ path, host: location.hostname, search: location.search,
+          qa, globalPrivacyControl: navigator.globalPrivacyControl === true });
     };
-    if (!allowed()) return;
-    const remove = () => { observer?.disconnect(); host?.remove(); host = undefined; };
+    const main = document.querySelector("main");
+    if (!main || !allowed()) return;
+
+    let host: HTMLDivElement | undefined;
+    let visibility: IntersectionObserver | undefined;
+    let placement: MutationObserver | undefined;
+    const remove = () => {
+      visibility?.disconnect();
+      placement?.disconnect();
+      host?.remove();
+      host = undefined;
+    };
     const mount = (country: string) => {
-      if (!active || host || !allowed()) return;
-      const footer = document.querySelector("footer");
-      const anchor = footer?.parentElement;
-      if (!footer || !anchor) return;
+      if (!allowed() || !entitlement.gate.mayRequest() || nativeRequested || host ||
+        document.querySelector(`[data-ad-placement="${NATIVE_PLACEMENT}"]`)) return;
+      const before = adsterraInsertionPoint(main);
+      if (before === undefined) return;
+
       host = document.createElement("div");
       host.className = "rt-adst print:hidden";
       host.setAttribute("aria-label", "Advertisement");
-      host.setAttribute("data-ad-placement", "adsterra-native-foot");
-      host.style.cssText = `min-height:${RESERVED_HEIGHT}px;margin:24px auto;max-width:720px;padding:0 16px;text-align:center`;
+      host.setAttribute("data-ad-placement", NATIVE_PLACEMENT);
+      host.style.cssText = "min-height:300px;margin:24px auto;max-width:720px;padding:0 16px;text-align:center";
       const label = document.createElement("p");
       label.textContent = "Advertisement";
       label.style.cssText = "font-size:12px;margin:0 0 8px;color:var(--text-muted)";
       const box = document.createElement("div");
       box.id = config.id;
       host.append(label, box);
-      anchor.insertBefore(host, footer);
-      // Request only when the block is about to be seen.
-      observer = new IntersectionObserver((entries) => {
-        if (loaded || !entries.some((e) => e.isIntersecting) || document.hidden || !allowed()) return;
-        loaded = true;
-        observer?.disconnect();
-        const s = document.createElement("script");
-        s.async = true;
-        s.src = config.src;
-        s.setAttribute("data-cfasync", "false");
-        box.appendChild(s);
+      main.insertBefore(host, before);
+
+      const positionStillSafe = () => host?.parentElement === main && adsterraInsertionPoint(main) === host.nextElementSibling;
+      placement = new MutationObserver(records => {
+        if (records.some(record => !host?.contains(record.target)) && !positionStillSafe()) remove();
+      });
+      placement.observe(main, { childList: true, subtree: true, attributes: true,
+        attributeFilter: ["class", "data-ad-slot", "data-ad-placement", "hidden", "aria-hidden"] });
+
+      visibility = new IntersectionObserver(entries => {
+        if (!entries.some(entry => entry.isIntersecting) || document.hidden || !allowed() || nativeRequested) return;
+        if (!positionStillSafe()) { remove(); return; }
+        if (!entitlement.gate.begin()) return;
+        nativeRequested = true;
+        visibility?.disconnect();
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = config.src;
+        script.setAttribute("data-cfasync", "false");
+        box.appendChild(script);
         track("adsterra_native_load", { country, page_path: path });
       }, { rootMargin: "300px 0px" });
-      observer.observe(host);
+      visibility.observe(host);
     };
     const start = async () => {
       let country = adsterraCookie(document.cookie);
       if (country === ADSTERRA_NONE) return;
       if (!country) {
         try {
-          const s = await adslotConfiguration();
-          if (!s.src || !s.id || !s.country) return;
-          country = s.country;
+          const slot = await adslotConfiguration();
+          if (slot.src !== config.src || slot.id !== config.id || !slot.country) return;
+          country = slot.country;
         } catch { return; }
       }
       mount(country);
     };
-    // Paid or ad-free visitors never see it; an entitlement change mid-visit removes it.
     const entitlement = observeSpeechAdEntitlement({
-      changed: (state) => {
+      changed: state => {
         if (!active) return;
         if (state === "free") void start();
-        else if (!loaded) remove();
+        else if (!nativeRequested) remove();
       },
-      retire: () => { active = false; remove(); },
+      retire: () => {
+        remove();
+        if (active && location.pathname === path) retireAdDocument();
+      },
     });
     return () => { active = false; entitlement.dispose(); remove(); };
   }, [path]);

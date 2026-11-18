@@ -15,6 +15,7 @@ export function load(file, overrides = {}, cache = new Map()) {
       module: ts.ModuleKind.CommonJS,
       target: ts.ScriptTarget.ES2022,
       esModuleInterop: true,
+      jsx: ts.JsxEmit.ReactJSX,
     },
   }).outputText;
   new Function("require", "module", "exports", code)(
@@ -26,7 +27,7 @@ export function load(file, overrides = {}, cache = new Map()) {
           ? resolve(root, "src", id.slice(2))
           : resolve(dirname(file), id);
         if (path.endsWith(".json")) return JSON.parse(readFileSync(path, "utf8"));
-        if (!existsSync(path)) path += ".ts";
+        if (!existsSync(path)) path += existsSync(path + ".ts") ? ".ts" : ".tsx";
         return load(path, overrides, cache);
       }
       return require(id);

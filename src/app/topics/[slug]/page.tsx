@@ -654,7 +654,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         {/* FAQ Section with Schema */}
         {faqAll.length > 0 && (
-          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+          <section data-adsterra-before-faq="" className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
             <div className="glass-card p-8 sm:p-10">
               <h2
                 className="text-xl sm:text-2xl font-bold mb-6 text-[var(--text-primary)]"

@@ -1,7 +1,7 @@
 /**
  * Adsterra Native experiment (2026-11-14, ad dispatch item 3): ONE Native unit at the bottom of ad-eligible pages,
- * only for visitors outside the Tier-1 countries. Off by default: until NEXT_PUBLIC_ADSTERRA_NATIVE_SRC and
- * NEXT_PUBLIC_ADSTERRA_NATIVE_ID are both set nothing renders and nothing loads. AdSense placements are untouched.
+ * only for visitors outside the Tier-1 countries. It requires NEXT_PUBLIC_ADSTERRA_NATIVE_ON=1 and both
+ * NEXT_PUBLIC_ADSTERRA_NATIVE_SRC and NEXT_PUBLIC_ADSTERRA_NATIVE_ID.
  * The country decision is server-side (Vercel geo header, /api/adslot/); the static HTML never contains Adsterra code.
  */
 export const ADSTERRA_COOKIE = "rt_adst";
@@ -43,6 +43,7 @@ export function adsterraNativeConfig(src: string | undefined, id: string | undef
 
 /** Same fixed env reads on server and client (NEXT_PUBLIC values are inlined at build time). */
 export function adsterraNativeFromEnv(): AdsterraNative | null {
+  if (process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_ON !== "1") return null;
   return adsterraNativeConfig(process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_SRC, process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_ID);
 }
 
