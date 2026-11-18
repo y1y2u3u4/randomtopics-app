@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { QOTD_QUESTIONS, qotdIndexForDate } from "@/data/questionOfTheDay";
+import { seasonalLinks } from "@/data/seasonalQotd";
 
 export const revalidate = 3600;
 export const metadata: Metadata = {
@@ -29,6 +30,10 @@ export default function QotdArchivePage() {
         <p>{question}</p>
         <Link prefetch={false} href={`#${date}`} className="text-sm text-[var(--neon-cyan)] hover:underline">Link to this date</Link>
       </li>)}</ol>
+      <h2 className="text-xl font-bold mt-10 mb-3">More daily question lists</h2>
+      <ul className="space-y-2">{seasonalLinks("/question-of-the-day/archive").map((link) => <li key={link.href}>
+        <Link prefetch={false} href={link.href} className="text-[var(--neon-cyan)] hover:underline">{link.label}</Link> — {link.description}
+      </li>)}</ul>
     </main>
     <Footer />
   </>;
