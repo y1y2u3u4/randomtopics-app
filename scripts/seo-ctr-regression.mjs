@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
 const read = (path) => readFileSync(path, 'utf8');
-const slugs = ['random-animal-generator', 'japanese-name-generator', 'last-name-generator', 'random-name-generator', 'random-letter-generator', 'wingding-translator'];
+const slugs = ['random-animal-generator', 'japanese-name-generator', 'last-name-generator', 'random-name-generator', 'random-letter-generator', 'wingding-translator', 'my-9-games'];
 const entries = slugs.map((slug) => {
   const source = read(`src/app/${slug}/page.tsx`);
   const value = (name) => {
@@ -15,6 +15,12 @@ const entries = slugs.map((slug) => {
   assert.match(source, /intro=/);
   return { path: `/${slug}`, title: value('TITLE'), description: value('DESCRIPTION') };
 });
+const my9 = read('src/app/my-9-games/page.tsx');
+const shapedMe = '9 Games That Shaped Me';
+assert.ok(entries.find((entry) => entry.path === '/my-9-games').title.includes(shapedMe), 'my-9-games: title must include the shaped-me phrase');
+assert.ok(my9.includes(`heading={["My 9 Games Template:", "${shapedMe}"]}`), 'my-9-games: H1 must include the shaped-me phrase');
+assert.ok(my9.includes(`<SectionTitle>${shapedMe}</SectionTitle>`), 'my-9-games: H2 must be the shaped-me phrase');
+assert.ok(my9.includes(`question: "How do I make a ${shapedMe} grid?"`), 'my-9-games: FAQ must answer the shaped-me phrase');
 const spanish = read('src/data/seoContent.es.part1.ts').split('slug: "conversation-starters-for-couples"')[1].split('sections:')[0];
 entries.push({ path: '/es/topics/conversation-starters-for-couples', title: spanish.match(/metaTitle: "([^"]+)"/)[1], description: spanish.match(/metaDescription:\s*"([^"]+)"/)[1] });
 const qotd = read('src/app/question-of-the-day/page.tsx');
@@ -56,4 +62,4 @@ assert.throws(() => validate([{ title: 'ok', description: 'x'.repeat(156) }]));
 assert.throws(() => validate([{ title: 'Same', description: 'ok' }, { title: 'same', description: 'ok' }]));
 for (const entry of entries) console.log(`PASS ${entry.path}: title=${entry.title.length}/60 description=${entry.description.length}/155`);
 console.log('PASS negative fixtures: long title, long description, duplicate title rejected');
-console.log('PASS 9 scoped pages: unique titles; QOTD date lengths 2024–2032; archive links and sitemap');
+console.log('PASS 10 scoped pages; my-9-games shaped-me title/H1/H2/FAQ: unique titles; QOTD date lengths 2024–2032; archive links and sitemap');
