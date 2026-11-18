@@ -71,7 +71,7 @@ export default function SpinTheWheelPageEs() {
         <RosterWheel locale="es" />
 
         {/* SEO Content */}
-        <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+        <section data-adsterra-before-faq="" className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="glass-card p-8 sm:p-10">
             <h2 className="section-heading text-2xl sm:text-3xl mb-6 text-[var(--text-primary)]">
               Una Ruleta que Genera Temas Aleatorios Completos

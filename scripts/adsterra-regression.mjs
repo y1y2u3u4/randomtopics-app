@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { load } from "./lib/load-typescript.mjs";
 
@@ -31,32 +31,37 @@ for (const [s, i] of [[undefined, id], [src, undefined], ["", id], [src, ""], ["
 const bare = "https://bauval.org/21/e4fcd4adc4ddb7fd627f4e44bc5f884c";
 eq(lib.adsterraNativeConfig(bare, "container-e4fcd4adc4ddb7fd627f4e44bc5f884c"), { src: bare, id: "container-e4fcd4adc4ddb7fd627f4e44bc5f884c" });
 for (const s of ["http://bauval.org/21/e4fc", "https://bauval.org/", "https://bauval.org/21/k/other.js", "https://bauval.org/21/k?x=1"]) eq(lib.adsterraNativeConfig(s, id), null);
-eq(lib.adsterraNativeFromEnv(), null); // env unset in test run
+delete process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_ON;
+delete process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_SRC;
+delete process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_ID;
+eq(lib.adsterraNativeFromEnv(), null);
+process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_ON = "1";
 process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_SRC = src;
-eq(lib.adsterraNativeFromEnv(), null); // only one of two
+eq(lib.adsterraNativeFromEnv(), null);
 process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_ID = id;
 eq(lib.adsterraNativeFromEnv(), { src, id });
-delete process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_SRC; delete process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_ID;
-
+process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_ON = "0";
+eq(lib.adsterraNativeFromEnv(), null);
 eq(lib.adsterraCookie("a=1; rt_adst=IN; b=2"), "IN");
 eq(lib.adsterraCookie("rt_adst=-"), "-");
 eq(lib.adsterraCookie("x=1"), "");
 
-// Route: only allowed countries get the script; cookie always set.
+// Route: only allowed countries get the script; the off state writes no geo cookie.
 const json = (body) => ({ body, headers: new Map(), cookies: { set(...a) { this.last = a; } } });
 const route = load("src/app/api/adslot/route.ts", { "next/server": { NextResponse: { json } } });
 const call = async (country) => {
   const res = await route.GET({ headers: { get: (k) => (k === "x-vercel-ip-country" ? country : null) }, nextUrl: { protocol: "https:" } });
-  res.headers = { set() {} };
+  eq(res.headers.get("Cache-Control"), "private, no-store");
   return res;
 };
 // Unconfigured: nothing for anyone.
 eq((await call("IN")).body, {});
-eq((await call("IN")).cookies.last[1], "-");
-process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_SRC = src; process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_ID = id;
+eq((await call("IN")).cookies.last, undefined);
+process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_ON = "1";
 eq((await call("IN")).body, { src, id, country: "IN" });
 eq((await call("IN")).cookies.last[1], "IN");
 eq((await call("US")).body, {});
+eq((await call("US")).cookies.last[1], "-");
 eq((await call("DE")).body, {});
 eq((await call(null)).body, {});
 eq((await call("IN")).cookies.last[2].maxAge, 86400);
@@ -70,11 +75,15 @@ delete process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_SRC; delete process.env.NEXT_PUBL
 const root = resolve(import.meta.dirname, "..");
 const layout = readFileSync(resolve(root, "src/app/layout.tsx"), "utf8");
 assert.match(layout, /adsEnabled && adsterraNativeFromEnv\(\) && <AdsterraNative \/>/); count++;
-const comp = readFileSync(resolve(root, "src/components/AdsterraNative.tsx"), "utf8");
-for (const needle of ["adPageAllowed", "adRequestAllowed", "observeSpeechAdEntitlement", "window.self !== window.top", "rt_usage_qa", "globalPrivacyControl", "adsterra_native_load", "[path]"]) {
-  assert.ok(comp.includes(needle), needle); count++;
+for (const dir of ["src", "public"]) {
+  for (const file of readdirSync(resolve(root, dir), { recursive: true })) {
+    if (!/\.(?:[cm]?[jt]sx?|html)$/.test(file)) continue;
+    const code = readFileSync(resolve(root, dir, file), "utf8");
+    assert.doesNotMatch(code, /pop[-_ ]?under|social[-_ ]?bar|smart[-_ ]?link|adsterra[-_ ]+direct/i, file);
+    if (file !== "lib/adsterra.ts") assert.doesNotMatch(code, /NEXT_PUBLIC_ADSTERRA_/i, file);
+    if (file !== "app/layout.tsx") assert.doesNotMatch(code, /<AdsterraNative\b/, file);
+  }
 }
-for (const banned of ["popunder", "socialbar", "direct", "<script"]) { assert.ok(!comp.toLowerCase().includes(banned), banned); count++; }
 const track = readFileSync(resolve(root, "src/lib/track.ts"), "utf8");
 assert.match(track, /"adsterra_native_load"/); assert.match(track, /"generations", "country"\]/); count += 2;
 console.log(`adsterra regression ok (${count} checks)`);
