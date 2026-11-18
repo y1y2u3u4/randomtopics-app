@@ -61,6 +61,7 @@ const SEASONAL_LINKS = [
   { label: "January question of the day", href: "/question-of-the-day/january", description: "Fresh-start, winter and goal questions for the new year." },
   { label: "Question of the day for students", href: "/question-of-the-day-for-students", description: "180 grade-aware prompts for the whole school year." },
   { label: "Question of the day for work", href: "/question-of-the-day-for-work", description: "120 professional prompts for Slack, Teams and stand-ups." },
+  { label: "Question of the day archive", href: "/question-of-the-day/archive", description: "The last 30 daily questions, one per day, ready to reuse." },
 ];
 
 /** The next four links after `exclude`, wrapping around, so every entry in the list is linked from four siblings. */
