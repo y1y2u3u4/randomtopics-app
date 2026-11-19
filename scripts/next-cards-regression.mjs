@@ -72,7 +72,11 @@ console.log("PASS locale cards: Spanish scenes and scene classification");
 // Source-level wiring.
 const src = (f) => readFileSync(resolve(root, f), "utf8");
 const track = src("src/lib/track.ts");
-assert.match(track, /NEXT_EVENT\s*=\s*\/\^next_/, "next_* events must reach Umami");
+// Behavioural, not a source regex: #231 rewrote NEXT_EVENT to also cover keep_playing_click and the
+// old /\^next_/ text match went red on main (2026-11-19) while the wiring still worked.
+const { umamiDirectEvent } = load("src/lib/track.ts");
+for (const ev of ["next_card_click", "next_locale_click", "next_result_click", "keep_playing_click"]) assert.equal(umamiDirectEvent(ev), true, `${ev} must reach Umami`);
+for (const ev of ["next", "nextcard_click", "next_Card_click", "keep_playing_view", "page_view"]) assert.equal(umamiDirectEvent(ev), false, `${ev} must not be sent to Umami`);
 assert.ok(track.includes('"from"') && track.includes('"target_path"') && track.includes('"slot"'), "umami props: slot, from, target_path");
 const tn = src("src/components/TryNext.tsx");
 for (const ev of ["next_locale_click", "next_card_click"]) assert.ok(tn.includes(ev), `TryNext sends ${ev}`);
