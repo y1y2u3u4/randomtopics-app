@@ -384,7 +384,7 @@ export default async function ArticlePageEs({ params }: ArticlePageProps) {
         )}
 
         {faqItems.length > 0 && (
-          <section data-adsterra-before-faq="" className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
             <div className="glass-card p-8 sm:p-10">
               <h2 className="text-xl sm:text-2xl font-bold mb-6 text-[var(--text-primary)]" style={{ fontFamily: "var(--font-display)" }}>
                 Preguntas Frecuentes

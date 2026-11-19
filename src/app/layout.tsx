@@ -3,8 +3,6 @@ import Script from "next/script";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import AdDocumentBoundary from "@/components/AdDocumentBoundary";
 import AdAutoBootstrap from "@/components/AdAutoBootstrap";
-import AdsterraNative from "@/components/AdsterraNative";
-import { adsterraNativeFromEnv } from "@/lib/adsterra";
 import { adConfiguration } from "@/lib/adsense";
 import { initialHistoryGuardScript } from "@/lib/initialHistoryGuard";
 import AnalyticsPageView from "@/components/AnalyticsPageView";
@@ -210,7 +208,6 @@ export default function RootLayout({
           {children}
         </div>
         {adsEnabled && <AdAutoBootstrap />}
-        {adsEnabled && adsterraNativeFromEnv() && <AdsterraNative />}
         </AdDocumentBoundary>
       </body>
     </html>

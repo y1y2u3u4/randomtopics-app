@@ -536,7 +536,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         {/* Content sections */}
         {bank ? (
-          <QuestionBankSections bank={bank} midSlot={<TryNext path={`/topics/${slug}`} placement="mid" tools={topicTryNext(slug)} />} adSlot={<PublicAdPlacement path={`/topics/${slug}`} placement="list" />} />
+          <QuestionBankSections bank={bank} midSlot={<TryNext path={`/topics/${slug}`} placement="mid" tools={topicTryNext(slug)} />} listAd={<PublicAdPlacement path={`/topics/${slug}`} placement="list" />} />
         ) : article.sections.reduce<{ elements: React.ReactNode[]; runningCount: number }>(
           (acc, section, sIdx) => {
             const startNum = acc.runningCount;
@@ -654,7 +654,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         {/* FAQ Section with Schema */}
         {faqAll.length > 0 && (
-          <section data-adsterra-before-faq="" className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
+          <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-10">
             <div className="glass-card p-8 sm:p-10">
               <h2
                 className="text-xl sm:text-2xl font-bold mb-6 text-[var(--text-primary)]"

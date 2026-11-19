@@ -22,7 +22,7 @@ function Card({ heading, description, children }: { heading: string; description
   );
 }
 
-export default function QuestionBankSections({ bank, midSlot, adSlot }: { bank: BankView; midSlot?: React.ReactNode; adSlot?: React.ReactNode }) {
+export default function QuestionBankSections({ bank, midSlot, listAd }: { bank: BankView; midSlot?: React.ReactNode; listAd?: React.ReactNode }) {
   // Running question numbers are computed up front (render stays pure).
   const sizes: number[] = [];
   for (const c of bank.cats) {
@@ -33,7 +33,7 @@ export default function QuestionBankSections({ bank, midSlot, adSlot }: { bank: 
   const starts = sizes.map((_, i) => sizes.slice(0, i).reduce((a, b) => a + b, 0));
   const half = Math.floor(bank.cats.length / 2);
   // One manual ad unit after the middle of the list (see listAdPlacement.ts for the spacing rule).
-  const adAfter = adSlot ? listAdAfter(bank.cats.map((c) => bank.kind === "wyr" ? (c as WyrCat).entries.length : (c as TodCat).truths.length + (c as TodCat).dares.length)) : -1;
+  const adAfter = listAd ? listAdAfter(bank.cats.map((c) => bank.kind === "wyr" ? (c as WyrCat).entries.length : (c as TodCat).truths.length + (c as TodCat).dares.length)) : -1;
   return (
     <>
       {bank.cats.map((c, idx) => {
@@ -64,7 +64,7 @@ export default function QuestionBankSections({ bank, midSlot, adSlot }: { bank: 
           <div key={c.id}>
             <Card heading={c.heading} description={c.description}>{body}</Card>
             {idx === half - 1 ? midSlot : null}
-            {idx === adAfter ? adSlot : null}
+            {idx === adAfter ? listAd : null}
           </div>
         );
       })}
