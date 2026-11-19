@@ -419,7 +419,7 @@ export const seoArticlesEsPart2: SeoArticle[] = [
   {
     slug: "team-building-questions",
     title: "50 preguntas de team building para mejorar las conexiones en el trabajo",
-    metaTitle: "50 preguntas de team building para mejorar las conexiones en el trabajo | RandomTopics",
+    metaTitle: "50 preguntas de team building para conectar en el trabajo | RandomTopics",
     metaDescription:
       "Fortalece los vínculos del equipo con 50 preguntas de team building bien pensadas. Desde rompehielos divertidos hasta preguntas de reflexión profunda, genera confianza y colaboración en tu lugar de trabajo.",
     heroTitle: "50 preguntas de team building para mejorar las conexiones en el trabajo",

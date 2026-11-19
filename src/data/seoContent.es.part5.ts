@@ -667,7 +667,7 @@ export const seoArticlesEsPart5: SeoArticle[] = [
   {
     slug: "two-truths-and-a-lie-ideas",
     title: "120 ideas de Dos verdades y una mentira (buenos ejemplos para trabajo y diversión)",
-    metaTitle: "120 ideas de Dos verdades y una mentira — ejemplos para trabajo y diversión | RandomTopics",
+    metaTitle: "120 ideas de Dos verdades y una mentira para trabajo y diversión | RandomTopics",
     metaDescription:
       "120 ideas y ejemplos de Dos verdades y una mentira para rompehielos de trabajo, estudiantes y fiestas, más consejos para una mentira que nadie detecte. Lista gratis y generador. Sin registro.",
     heroTitle: "120 ideas de Dos verdades y una mentira",
