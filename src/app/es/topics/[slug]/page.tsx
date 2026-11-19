@@ -1,4 +1,5 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
+import { seoTitle } from "@/lib/seoTitle";
 import NextListLink from "@/components/NextListLink";
 import { listAdAfter } from "@/lib/listAdPlacement";
 import { PracticeSelectedTopic } from "@/components/TopicHandoff";
@@ -93,14 +94,14 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   if (!article) return {};
 
   return {
-    title: { absolute: article.metaTitle },
+    title: { absolute: seoTitle(article.metaTitle) },
     description: article.metaDescription,
     alternates: {
       canonical: `/es/topics/${article.slug}`,
       languages: hreflangAlternates(`/topics/${article.slug}`),
     },
     openGraph: {
-      title: article.metaTitle,
+      title: seoTitle(article.metaTitle),
       description: article.metaDescription,
       url: `${SITE_URL}/es/topics/${article.slug}`,
       siteName: "Random Topics",

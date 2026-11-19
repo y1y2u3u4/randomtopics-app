@@ -1,4 +1,5 @@
 import PublicAdPlacement from "@/components/PublicAdPlacement";
+import { seoTitle } from "@/lib/seoTitle";
 import NextListLink from "@/components/NextListLink";
 import { listAdAfter } from "@/lib/listAdPlacement";
 import EthicsDiscussionCards from "@/components/EthicsDiscussionCards";
@@ -134,14 +135,14 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     // of the layout's "%s | Random Topic Generator" template — otherwise every
     // article title double-brands ("… | RandomTopics | Random Topic Generator")
     // and Google truncates or rewrites the redundant tail.
-    title: { absolute: article.metaTitle },
+    title: { absolute: seoTitle(article.metaTitle) },
     description: article.metaDescription,
     alternates: {
       canonical: `/topics/${article.slug}`,
       languages: hreflangAlternates(`/topics/${article.slug}`),
     },
     openGraph: {
-      title: article.metaTitle,
+      title: seoTitle(article.metaTitle),
       description: article.metaDescription,
       url: `https://randomtopics.app/topics/${article.slug}`,
       siteName: "Random Topics",
@@ -151,7 +152,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     },
     twitter: {
       card: "summary_large_image",
-      title: article.metaTitle,
+      title: seoTitle(article.metaTitle),
       description: article.metaDescription,
     },
   };

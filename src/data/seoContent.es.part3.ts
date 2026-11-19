@@ -6,7 +6,7 @@ export const seoArticlesEsPart3: SeoArticle[] = [
     slug: "random-questions-to-ask-friends",
     title: "70 preguntas al azar para hacer a tus amigos y tener conversaciones divertidas",
     metaTitle:
-      "70 preguntas al azar para hacer a tus amigos y tener conversaciones divertidas | RandomTopics",
+      "70 preguntas al azar para hacer a tus amigos | RandomTopics",
     metaDescription:
       "Mantén viva la conversación con 70 preguntas al azar para hacer a tus amigos. Desde disparates hipotéticos hasta preguntas profundas de madrugada, nunca te quedarás sin temas de que hablar.",
     heroTitle: "70 preguntas al azar para hacer a tus amigos y tener conversaciones divertidas",
@@ -291,7 +291,7 @@ export const seoArticlesEsPart3: SeoArticle[] = [
     title:
       "55 mejores preguntas para romper el hielo en reuniones virtuales y equipos remotos",
     metaTitle:
-      "55 mejores preguntas para romper el hielo en reuniones virtuales y equipos remotos | RandomTopics",
+      "55 preguntas para romper el hielo en reuniones virtuales | RandomTopics",
     metaDescription:
       "Descubre 55 preguntas probadas para romper el hielo en reuniones virtuales, videollamadas y equipos remotos. Preguntas rápidas, divertidas y participativas que funcionan incluso a través de la pantalla.",
     heroTitle:
@@ -432,7 +432,7 @@ export const seoArticlesEsPart3: SeoArticle[] = [
     title:
       "60 temas de ensayo al azar para estudiantes universitarios de todas las asignaturas",
     metaTitle:
-      "60 temas de ensayo al azar para estudiantes universitarios de todas las asignaturas | RandomTopics",
+      "60 temas de ensayo al azar para universitarios | RandomTopics",
     metaDescription:
       "Encuentra 60 temas de ensayo convincentes para estudiantes universitarios, desde argumentativos y analíticos hasta narrativa personal y trabajos de investigación. Supera el bloqueo del escritor con estas ideas listas para usar.",
     heroTitle: "60 temas de ensayo al azar para estudiantes universitarios",
@@ -732,7 +732,7 @@ export const seoArticlesEsPart3: SeoArticle[] = [
     slug: "get-to-know-you-questions-for-adults",
     title: "65 preguntas para conocerse entre adultos que van más allá de la charla trivial",
     metaTitle:
-      "65 preguntas para conocerse entre adultos que van más allá de la charla trivial | RandomTopics",
+      "65 preguntas para conocerse entre adultos, más allá de lo trivial | RandomTopics",
     metaDescription:
       "Olvídate de la charla trivial con 65 preguntas significativas para conocerse entre adultos. Perfectas para cenas, nuevas amistades, eventos de networking y conversaciones más profundas.",
     heroTitle: "65 preguntas para conocerse entre adultos",
@@ -884,7 +884,7 @@ export const seoArticlesEsPart3: SeoArticle[] = [
     slug: "deep-questions-to-ask-your-partner",
     title: "60 preguntas profundas para hacerle a tu pareja y lograr una conexión significativa",
     metaTitle:
-      "60 preguntas profundas para hacerle a tu pareja y lograr una conexión significativa | RandomTopics",
+      "60 preguntas profundas para hacerle a tu pareja | RandomTopics",
     metaDescription:
       "Fortalece tu relación con 60 preguntas profundas para hacerle a tu pareja. Explorad vuestro pasado, sueños, valores y emociones para lograr mayor intimidad y comprensión.",
     heroTitle: "60 preguntas profundas para hacerle a tu pareja",
