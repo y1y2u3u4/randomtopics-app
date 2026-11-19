@@ -8,22 +8,23 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/decision-maker";
-const TITLE = "Decision Maker — Random Decision Wheel, Draw Lots & Yes or No";
+const TITLE = "Decision Maker & Decider Machine — Wheel, Lots, Yes or No";
 const DESCRIPTION =
-  "Free random decision maker: type your options and let a spinning wheel, a cup of drawing lots or a yes-or-no coin decide for you. Weight the options you prefer, get a decision of the day and share the result card. No signup.";
+  "Free decider machine and random decision maker: type your options, then spin a wheel, draw lots or flip yes or no. Weight favourites. No signup.";
 
 const SOCIAL = generatorSocial({ card: "decision-maker", title: TITLE, description: DESCRIPTION, alt: "Decision maker — a decision wheel, a cup of drawing lots and a yes-or-no coin" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ["decision maker", "random decision maker", "decision maker wheel", "yes or no decision maker", "help me decide", "make a decision for me", "decision wheel", "draw lots"],
+  keywords: ["decision maker", "decider machine", "random decider", "random decision maker", "decision maker wheel", "yes or no decision maker", "help me decide", "make a decision for me", "decision wheel", "draw lots"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
 
 const FAQ = [
+  { question: "What is a decider machine?", answer: "A decider machine is a tool that makes a choice for you: you give it the options and it picks one at random, so nobody has to argue or overthink it. This page is a free online decider machine with three ways to pick — a spinning wheel, a cup of drawing lots and a yes-or-no coin." },
   { question: "How does the random decision maker work?", answer: "Type a question, add two or more options (or pick a starter list), choose a mode and press the button. The wheel spins and stops on one option, Draw lots pulls one stick from the cup, and Yes or no flips a coin. Every option has an equal chance unless you give it extra weight." },
   { question: "Can you make a decision for me?", answer: "Yes. If you are stuck between choices — what to eat, which movie, who does the dishes — add them and let the wheel or the lots pick. For a single question such as “Should I go out tonight?”, use the Yes or no mode." },
   { question: "Is there a yes or no decision maker?", answer: "Yes — switch to the Yes or no tab, type your question and flip. Yes and No each have a 50% chance; tick “Add Maybe” to make it a three-way coin with a third each." },
@@ -46,7 +47,7 @@ export default function DecisionMakerPage() {
       heading={["Decision", "Maker"]}
       intro="Can't decide? Type your options and let the wheel, a cup of lots or a yes-or-no coin choose — weighted if you like, free and no signup."
       description={DESCRIPTION}
-      updated="2026-10-28"
+      updated="2026-11-19"
       faq={FAQ}
       hero={{ src: "/generators/hero/decide.webp", alt: "A spinning decision wheel, a cup of drawing lots and a tossed coin" }}
       heroHideOnShort
@@ -80,6 +81,15 @@ export default function DecisionMakerPage() {
             <li><strong>Pick a mode</strong> — Wheel for one pick from many, Draw lots to take turns without repeats, Yes or no for a single question.</li>
             <li><strong>Decide and share</strong> — copy the answer, save a result card for the group chat, or send a link so friends can spin the same options.</li>
           </ol>
+          <SectionTitle>Decider Machine</SectionTitle>
+          <p>
+            Looking for a decider machine? This is one: put in the choices, press Decide, and the machine picks — no bias, no second
+            opinions. Use the wheel when there are three or more options, draw lots when everyone needs a turn, and the coin when it is a
+            straight yes or no. Each pick is made fresh by your browser, so the result is random every time.
+          </p>
+          <QuickRow>
+            <QuickSet tool="decision" id="weighted">Run the decider machine</QuickSet>
+          </QuickRow>
           <SectionTitle>Yes or no decision maker</SectionTitle>
           <p>Stuck on one question? Tap the button, then press Decide: the coin says Yes or No with an equal 50% chance. Type your question first if you want it on the result card.</p>
           <QuickRow>
