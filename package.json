@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seo:ctr:test": "node scripts/seo-ctr-regression.mjs",
+    "seo:ctr:test": "node scripts/seo-ctr-regression.mjs && node scripts/title-length-regression.mjs",
     "seo:audit": "node scripts/seo-audit.mjs",
     "links:test": "node scripts/inlinks-regression.mjs",
     "handoff:test": "node scripts/topic-handoff-regression.mjs",
