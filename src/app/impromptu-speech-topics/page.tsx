@@ -14,7 +14,7 @@ import KeepPlaying from "@/components/KeepPlaying";
 import TryNext from "@/components/TryNext";
 
 export const metadata: Metadata = withSocial({
-  title: { absolute: "Impromptu Speech Topics: 120 Ideas by Category, With Tips & Timer | Random Topics" },
+  title: { absolute: "Impromptu Speech Topics: 120 Ideas, Tips & Timer | Random Topics" },
   description:
     "120 impromptu speech topics you can talk about with no research — personal stories, everyday opinions, hypotheticals, one-word prompts, proverbs, funny topics, student and interview questions — plus a 30-second prep method and practice timer.",
   keywords: [
