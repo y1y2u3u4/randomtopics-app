@@ -46,7 +46,7 @@ for(const test of cases){
   }catch(e){if(!closing&&!/Target.*closed|Request context disposed/.test(e.message))errors.push({phase:'route',message:e.message})}
  });
  const page=await context.newPage();page.on('pageerror',e=>errors.push({phase:'page',message:e.message}));
- const snap=async label=>({label,docs,held,...await page.evaluate(()=>({url:location.pathname,info:window.__probeInfo,h1:document.querySelector('h1')?.textContent,ready:document.readyState,adScripts:document.querySelectorAll('script[data-rt-adsense]').length,adSlots:document.querySelectorAll('[data-ad-placement]').length,sdk:typeof window.adsbygoogle,replayActive:Boolean(window.__rtReplayActive),canonical:document.querySelector('link[rel=canonical]')?.getAttribute('href')}))});
+ const snap=async label=>({label,docs,held,...await page.evaluate(()=>({url:location.pathname,info:window.__probeInfo,h1:document.querySelector('h1')?.textContent,ready:document.readyState,adScripts:document.querySelectorAll('script[data-rt-adsense]').length,adPlacements:document.querySelectorAll('[data-ad-placement]').length,sdk:typeof window.adsbygoogle,replayActive:Boolean(window.__rtReplayActive),canonical:document.querySelector('link[rel=canonical]')?.getAttribute('href')}))});
  const trace=[];let failure;
  try{
   await page.goto(origin+(test.start||'/'),{waitUntil:'networkidle'});trace.push(await snap('start-ready'));
