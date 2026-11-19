@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
 const read = (path) => readFileSync(path, 'utf8');
-const slugs = ['random-animal-generator', 'japanese-name-generator', 'last-name-generator', 'random-name-generator', 'random-letter-generator', 'wingding-translator', 'my-9-games'];
+const slugs = ['random-animal-generator', 'japanese-name-generator', 'last-name-generator', 'random-name-generator', 'random-letter-generator', 'wingding-translator', 'my-9-games', 'decision-maker'];
 const entries = slugs.map((slug) => {
   const source = read(`src/app/${slug}/page.tsx`);
   const value = (name) => {
@@ -21,6 +21,12 @@ assert.ok(entries.find((entry) => entry.path === '/my-9-games').title.includes(s
 assert.ok(my9.includes(`heading={["My 9 Games Template:", "${shapedMe}"]}`), 'my-9-games: H1 must include the shaped-me phrase');
 assert.ok(my9.includes(`<SectionTitle>${shapedMe}</SectionTitle>`), 'my-9-games: H2 must be the shaped-me phrase');
 assert.ok(my9.includes(`question: "How do I make a ${shapedMe} grid?"`), 'my-9-games: FAQ must answer the shaped-me phrase');
+const decision = read('src/app/decision-maker/page.tsx');
+const decider = 'Decider Machine';
+assert.ok(entries.find((entry) => entry.path === '/decision-maker').title.includes(decider), 'decision-maker: title must include Decider Machine (GSC query 2026-11-19)');
+assert.ok(decision.includes(`<SectionTitle>${decider}</SectionTitle>`), 'decision-maker: needs a Decider Machine H2');
+assert.ok(decision.includes('question: "What is a decider machine?"'), 'decision-maker: FAQ must answer decider machine');
+assert.ok(!/src\/app\/decider-machine/.test(read('src/app/sitemap.ts')), 'decider machine stays on /decision-maker (same SERP), no separate page');
 const spanish = read('src/data/seoContent.es.part1.ts').split('slug: "conversation-starters-for-couples"')[1].split('sections:')[0];
 entries.push({ path: '/es/topics/conversation-starters-for-couples', title: spanish.match(/metaTitle: "([^"]+)"/)[1], description: spanish.match(/metaDescription:\s*"([^"]+)"/)[1] });
 const qotd = read('src/app/question-of-the-day/page.tsx');
