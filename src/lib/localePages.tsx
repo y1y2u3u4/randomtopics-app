@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import LocaleToolPage, { type LocalePageCopy } from "@/components/LocaleToolPage";
 import { ES_PAGES } from "@/data/localePages/es";
 import { PT_PAGES } from "@/data/localePages/pt";
@@ -172,7 +173,7 @@ function tryNextFor(locale: PageLocale, path: string) {
 
 export function getLocalePage(path: string): LocalePageConfig {
   const page = Object.values(PAGES).flat().find((p) => p.path === path);
-  if (!page) throw new Error(`No locale page config for ${path}`);
+  if (!page) notFound();
   return page;
 }
 
