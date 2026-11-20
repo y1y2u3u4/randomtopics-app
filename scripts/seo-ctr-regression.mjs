@@ -21,6 +21,9 @@ assert.ok(entries.find((entry) => entry.path === '/my-9-games').title.includes(s
 assert.ok(my9.includes(`heading={["My 9 Games Template:", "${shapedMe}"]}`), 'my-9-games: H1 must include the shaped-me phrase');
 assert.ok(my9.includes(`<SectionTitle>${shapedMe}</SectionTitle>`), 'my-9-games: H2 must be the shaped-me phrase');
 assert.ok(my9.includes(`question: "How do I make a ${shapedMe} grid?"`), 'my-9-games: FAQ must answer the shaped-me phrase');
+for (const phrase of ['9 Games That Shaped Who I Am', 'top 9 games maker', 'How to make your My 9 Games grid', 'my nine games', 'href: "/my-9-books"']) {
+  assert.ok(my9.includes(phrase), `my-9-games: must keep GSC phrasing "${phrase}" (GSC 2026-10-24..11-19)`);
+}
 const decision = read('src/app/decision-maker/page.tsx');
 const decider = 'Decider Machine';
 assert.ok(entries.find((entry) => entry.path === '/decision-maker').title.includes(decider), 'decision-maker: title must include Decider Machine (GSC query 2026-11-19)');
