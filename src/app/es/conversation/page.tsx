@@ -206,8 +206,9 @@ export default function ConversationPageEs() {
               <p>
                 Incluso los amigos más cercanos pueden caer en rutinas de conversación. Rompe el patrón con
                 preguntas hipotéticas («Si pudieras vivir en cualquier época, ¿cuál elegirías?»), propuestas
-                nostálgicas o preguntas profundas sobre metas de vida. Para ideas frescas,
-                explora <Link prefetch={false} href="/es/topics/random-questions-to-ask-friends" className="text-[var(--neon-cyan)] hover:underline">preguntas al azar para hacer a los amigos</Link>,{" "}
+                nostálgicas o preguntas profundas sobre metas de vida. Para el chat, copia un mensaje de los <Link prefetch={false} href="/es/topics/temas-de-conversacion-para-whatsapp" className="text-[var(--neon-cyan)] hover:underline">temas de conversación para WhatsApp</Link> o un <Link prefetch={false} href="/es/topics/juegos-para-whatsapp" className="text-[var(--neon-cyan)] hover:underline">juego para WhatsApp</Link>.
+                Para conocer a alguien con más calma, están las <Link prefetch={false} href="/es/topics/preguntas-para-conocer-a-alguien" className="text-[var(--neon-cyan)] hover:underline">preguntas para conocer a alguien</Link>.
+                Explora también las <Link prefetch={false} href="/es/topics/random-questions-to-ask-friends" className="text-[var(--neon-cyan)] hover:underline">preguntas al azar para hacer a los amigos</Link>,{" "}
                 las <Link prefetch={false} href="/es/topics/preguntas-incomodas" className="text-[var(--neon-cyan)] hover:underline">preguntas incómodas</Link> o{" "}
                 <Link prefetch={false} href="/es/topics/yo-nunca-nunca-amigos" className="text-[var(--neon-cyan)] hover:underline">yo nunca para amigos</Link>.
               </p>

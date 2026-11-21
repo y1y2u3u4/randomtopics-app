@@ -120,7 +120,8 @@ export default function IcebreakerPageEs() {
                 En fiestas o encuentros sociales, los rompehielos deben ser divertidos y sorprendentes. Las
                 preguntas hipotéticas, los dilemas del tipo «¿qué prefieres?» y las preguntas de preferencias
                 peculiares funcionan de maravilla. El objetivo es la risa y la curiosidad, no la reflexión
-                profunda. Para opciones orientadas al equipo, explora
+                profunda. Para una lista fija de fiesta, usa las <Link prefetch={false} href="/es/topics/preguntas-rompehielos-divertidas" className="text-[var(--neon-cyan)] hover:underline">preguntas rompehielos divertidas</Link>.
+                Para opciones orientadas al equipo, explora
                 nuestra colección de <Link prefetch={false} href="/es/topics/team-building-questions" className="text-[var(--neon-cyan)] hover:underline">preguntas de team building</Link>.
               </p>
 
