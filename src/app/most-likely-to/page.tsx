@@ -91,7 +91,8 @@ export default function MostLikelyToPage() {
                 <Link prefetch={false} href="/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">Would You Rather</Link>,{" "}
                 <Link prefetch={false} href="/truth-or-dare" className="text-[var(--neon-cyan)] hover:underline">Truth or Dare</Link>,{" "}
                 <Link prefetch={false} href="/this-or-that" className="text-[var(--neon-cyan)] hover:underline">This or That</Link>, and{" "}
-                <Link prefetch={false} href="/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Two Truths and a Lie</Link>.
+                <Link prefetch={false} href="/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Two Truths and a Lie</Link>. Whoever gets the most votes can earn a{" "}
+                <Link prefetch={false} href="/roast-me-in-one-sentence" className="text-[var(--neon-cyan)] hover:underline">one-sentence roast</Link>.
               </p>
 
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>

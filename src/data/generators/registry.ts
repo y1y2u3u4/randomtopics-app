@@ -756,6 +756,13 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     crossLinkOnly: true,
   },
   {
+    href: "/roast-me-in-one-sentence",
+    emoji: "🔥",
+    label: { en: "Roast Me in One Sentence" },
+    detail: { en: "One-line roasts by habit, mild to savage, share card" },
+    crossLinkOnly: true,
+  },
+  {
     href: "/scenario-generator",
     emoji: "🎬",
     label: { en: "Random Scenario Generator" },
