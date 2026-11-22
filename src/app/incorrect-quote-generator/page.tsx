@@ -71,6 +71,7 @@ export default function IncorrectQuoteGeneratorPage() {
         { href: "/headcanon-generator", label: "Headcanon generator" },
         { href: "/random-character-generator", label: "Random character generator" },
         { href: "/character-name-generator", label: "Character name generator" },
+        { href: "/roast-me-in-one-sentence", label: "Roast me in one sentence" },
       ]}
       content={
         <>

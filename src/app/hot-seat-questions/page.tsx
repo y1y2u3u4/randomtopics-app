@@ -110,7 +110,8 @@ export default function HotSeatPage() {
                 <Link prefetch={false} href="/never-have-i-ever" className="text-[var(--neon-cyan)] hover:underline">Never Have I Ever</Link>,{" "}
                 <Link prefetch={false} href="/most-likely-to" className="text-[var(--neon-cyan)] hover:underline">Most Likely To</Link>,{" "}
                 <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">Charades</Link>,{" "}
-                <Link prefetch={false} href="/paranoia-questions" className="text-[var(--neon-cyan)] hover:underline">Paranoia</Link>, and{" "}
+                <Link prefetch={false} href="/paranoia-questions" className="text-[var(--neon-cyan)] hover:underline">Paranoia</Link>,{" "}
+                <Link prefetch={false} href="/roast-me-in-one-sentence" className="text-[var(--neon-cyan)] hover:underline">Roast Me in One Sentence</Link>, and{" "}
                 <Link prefetch={false} href="/two-truths-and-a-lie" className="text-[var(--neon-cyan)] hover:underline">Two Truths and a Lie</Link>.
                 Quieter group? Start with{" "}
                 <Link prefetch={false} href="/topics/questions-to-ask-at-a-party" className="text-[var(--neon-cyan)] hover:underline">questions to ask at a party</Link>.
