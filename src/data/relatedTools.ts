@@ -7,7 +7,7 @@ export type ToolGroup = "party" | "classroom" | "speaking" | "names" | "creative
 export interface RelatedTool { href: string; label: string; emoji: string; blurb: string; groups: ToolGroup[] }
 
 export const RELATED_TOOLS: RelatedTool[] = [
-  { href: "/charades", label: "Charades Generator", emoji: "🎭", blurb: "528 words with a round timer", groups: ["party", "classroom"] },
+  { href: "/charades", label: "Charades Generator", emoji: "🎭", blurb: "600+ words with a round timer", groups: ["party", "classroom"] },
   { href: "/pictionary-word-generator", label: "Pictionary Word Generator", emoji: "✏️", blurb: "Easy to hard, timer + teams", groups: ["party", "classroom"] },
   { href: "/trivia-questions", label: "Trivia Questions", emoji: "❓", blurb: "800+ Q&As with host mode", groups: ["party", "classroom"] },
   { href: "/this-or-that", label: "This or That", emoji: "⚖️", blurb: "Quick two-choice questions", groups: ["party", "classroom"] },

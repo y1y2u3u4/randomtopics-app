@@ -155,7 +155,7 @@ export default function CharadesPageEs() {
                 <Link prefetch={false} href="/es/spin-the-wheel" className="text-[var(--neon-cyan)] hover:underline">ruleta</Link> para decidir quién actúa primero y{" "}
                 <Link prefetch={false} href="/es/this-or-that" className="text-[var(--neon-cyan)] hover:underline">Esto o Aquello</Link> para terminar. ¿Preferís dibujar? Usa el{" "}
                 <Link prefetch={false} href="/es/generador-de-palabras-aleatorias" className="text-[var(--neon-cyan)] hover:underline">generador de palabras aleatorias</Link>.
-                ¿Jugáis en inglés? Prueba el <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades generator</Link> con 528 palabras.
+                ¿Jugáis en inglés? Prueba el <Link prefetch={false} href="/charades" className="text-[var(--neon-cyan)] hover:underline">charades generator</Link> con más de 600 palabras.
               </p>
               <h3 className="text-lg font-semibold text-[var(--text-primary)] pt-3" style={{ fontFamily: "var(--font-display)" }}>Preguntas frecuentes</h3>
               {FAQ_ITEMS.map((item) => (
