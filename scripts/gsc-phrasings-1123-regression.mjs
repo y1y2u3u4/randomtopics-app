@@ -27,3 +27,36 @@ assert.ok(title.length <= 60 && title.includes('Decider Machine') && title.start
 // Homepage (where "interesting topics to research" used to land) links to the research page.
 assert.ok(read('src/app/page.tsx').includes('Looking for interesting topics to research'), 'homepage must link research generator');
 console.log('gsc phrasings 11-23 ok:', cases.length);
+
+// 0–1000 button: the QuickSet id on the page resolves to the preset, and the real engine
+// (drawNumbers + createRng, as NumberRandomizer.generate uses) stays in 0..1000 and reaches both ends.
+import { load } from './lib/load-typescript.mjs';
+const { drawNumbers } = load('src/lib/generators/picker.ts');
+const { createRng } = load('src/lib/randomGenerators.ts');
+const preset = nr.match(/\{ id: "0-1000", label: "[^"]+", min: (-?\d+), max: (\d+) \}/);
+assert.ok(read('src/app/random-number-generator/page.tsx').includes('<QuickSet tool="numbers" id="0-1000">'), 'page button must target preset 0-1000');
+const [lo, hi] = [Number(preset[1]), Number(preset[2])];
+assert.deepEqual([lo, hi], [0, 1000]);
+const seen = new Set();
+for (let seed = 1; seed <= 400; seed++) {
+  const { numbers, error } = drawNumbers(lo, hi, 25, true, createRng(seed));
+  assert.equal(error, undefined);
+  assert.equal(new Set(numbers).size, 25, 'no repeats in a batch');
+  for (const x of numbers) { assert.ok(Number.isInteger(x) && x >= 0 && x <= 1000, `out of range: ${x}`); seen.add(x); }
+}
+assert.ok(seen.has(0) && seen.has(1000), '0 and 1000 must both be reachable');
+{ const all = drawNumbers(0, 1000, 1000, true, createRng(7)).numbers; assert.equal(new Set(all).size, 1000); assert.ok(all.every((x) => x >= 0 && x <= 1000)); }
+console.log('0-1000 preset ok: 10,000 draws in range, both ends reached');
+
+// seo-audit hreflang: only <link rel="alternate"> counts (footer <a hrefLang> is navigation),
+// and every declared alternate is fetched and must return 200.
+const audit = read('scripts/seo-audit.mjs');
+const fnSrc = (name) => audit.match(new RegExp(`function ${name}\\([\\s\\S]*?\\n\\}`))[0];
+const alternateLinks = new Function(`${fnSrc('attr')}\n${fnSrc('alternateLinks')}\nreturn alternateLinks;`)();
+const sample = '<link rel="alternate" hrefLang="en" href="https://randomtopics.app/x"/><link rel="alternate" hrefLang="x-default" href="https://randomtopics.app/x"/><a hrefLang="es" href="/es">Español</a>';
+assert.deepEqual(alternateLinks(sample).map((a) => a.lang), ['en', 'x-default'], 'footer <a hrefLang> must not count as an alternate');
+assert.deepEqual(alternateLinks(sample + '<link rel="alternate" hrefLang="es" href="https://randomtopics.app/es/x"/>').map((a) => a.lang), ['en', 'x-default', 'es']);
+assert.match(audit, /await checkAlternateTargets\(\);/);
+assert.match(audit, /hreflang alternate \$\{href\} returned \$\{response\.status\}/);
+assert.ok(!/test\(html\)[^\n]*hreflang/i.test(audit) && !/hreflang=\["'\]es\["'\]\/i\.test\(html\)/.test(audit), 'no whole-page hreflang regex');
+console.log('seo-audit hreflang checks ok');
