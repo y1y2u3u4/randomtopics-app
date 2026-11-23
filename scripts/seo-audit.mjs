@@ -129,20 +129,20 @@ const checks = [
   { path: "/mixtape-for-you", index: true, canonical: "/mixtape-for-you", titleMax: 60, titleHas: "Mixtape for You", enOnlyHreflang: true, bodyHas: ["Copy share link", "make a mixtape for someone", "unofficial", "Frequently asked questions"] },
   { path: "/minimax-h3-prompt-generator", index: true, canonical: "/minimax-h3-prompt-generator", titleMax: 60, titleHas: "MiniMax H3 Prompt Generator", enOnlyHreflang: true, bodyHas: ["not affiliated with MiniMax", "Frequently asked questions"] },
   { path: "/random-zip-code-generator", index: true, canonical: "/random-zip-code-generator", titleMax: 60, titleHas: "Random ZIP Code Generator", enOnlyHreflang: true, bodyHas: ["ZIP codes by state", "Frequently asked questions"] },
-  { path: "/pictionary-word-generator", index: true, canonical: "/pictionary-word-generator", titleMax: 60, titleHas: "Pictionary Word Generator", enOnlyHreflang: true, bodyHas: ["data-pictionary-generate", "Frequently asked questions", 'href="/charades"'] },
+  { path: "/pictionary-word-generator", index: true, canonical: "/pictionary-word-generator", titleMax: 60, titleHas: "Pictionary Word Generator", hreflang: true, bodyHas: ["data-pictionary-generate", "Frequently asked questions", 'href="/charades"'] },
   { path: "/pictionary-phrase-generator", index: true, canonical: "/pictionary-phrase-generator", titleMax: 60, titleHas: "Pictionary Phrase Generator", enOnlyHreflang: true, bodyHas: ["Example phrases", "Frequently asked questions"] },
   { path: "/pictionary-words", index: true, canonical: "/pictionary-words", titleMax: 60, titleHas: "Pictionary Words", enOnlyHreflang: true, bodyHas: ["Animals Pictionary words", "data-pictionary-list", "Frequently asked questions"] },
   { path: "/random-date-generator", index: true, canonical: "/random-date-generator", titleMax: 60, titleHas: "Random Date Generator", enOnlyHreflang: true, bodyHas: ["data-date-generate", "Date formats explained", "Frequently asked questions"] },
-  { path: "/21-questions", index: true, canonical: "/21-questions", titleMax: 60, titleHas: "21 Questions", enOnlyHreflang: true, bodyHas: ["data-q21-counter", "21 questions for couples", "Frequently asked questions"] },
+  { path: "/21-questions", index: true, canonical: "/21-questions", titleMax: 60, titleHas: "21 Questions", hreflang: true, bodyHas: ["data-q21-counter", "21 questions for couples", "Frequently asked questions"] },
   { path: "/fake-identity-generator", index: true, canonical: "/fake-identity-generator", titleMax: 60, titleHas: "Fake Identity Generator", enOnlyHreflang: true, bodyHas: ["What we leave out, and why", "Frequently asked questions"] },
   { path: "/fake-person-generator", index: true, canonical: "/fake-person-generator", titleMax: 60, titleHas: "Fake Person Generator", enOnlyHreflang: true, bodyHas: ["What makes a fake person believable", "Frequently asked questions"] },
   { path: "/fake-name-generator", index: true, canonical: "/fake-name-generator", titleMax: 60, titleHas: "Fake Name Generator", enOnlyHreflang: true, bodyHas: ["Safe fake data, on purpose", "Frequently asked questions"] },
-  { path: "/random-letter-generator", index: true, canonical: "/random-letter-generator", enOnlyHreflang: true, bodyHas: ["Scattergories", "Frequently asked questions"] },
+  { path: "/random-letter-generator", index: true, canonical: "/random-letter-generator", hreflang: true, bodyHas: ["Scattergories", "Frequently asked questions"] },
   { path: "/random-group-generator", index: true, canonical: "/random-group-generator", enOnlyHreflang: true, bodyHas: ["Random pairs, groups of 3, 4 or 5", "Frequently Asked Questions"] },
-  { path: "/random-team-generator", index: true, canonical: "/random-team-generator", enOnlyHreflang: true, bodyHas: ["Random teams of 2, 3 or 4", "Frequently asked questions"] },
+  { path: "/random-team-generator", index: true, canonical: "/random-team-generator", hreflang: true, bodyHas: ["Random teams of 2, 3 or 4", "Frequently asked questions"] },
   { path: "/decision-maker", index: true, canonical: "/decision-maker", enOnlyHreflang: true, bodyHas: ["Yes or no decision maker", "Frequently asked questions"] },
   { path: "/number-randomizer", index: true, canonical: "/number-randomizer", titleHas: "Pick a Number 1 or 2", enOnlyHreflang: true, bodyHas: ["Pick a number 1 or 2", "Frequently asked questions"] },
-  { path: "/random-number-generator", index: true, canonical: "/random-number-generator", titleHas: "Random Number Generator 1", enOnlyHreflang: true, bodyHas: ["Random number 1–100", "Frequently asked questions"] },
+  { path: "/random-number-generator", index: true, canonical: "/random-number-generator", titleHas: "Random Number Generator 1", hreflang: true, bodyHas: ["Random number 1–100", "Frequently asked questions"] },
   { path: "/topics/would-you-rather-questions", index: true, canonical: "/topics/would-you-rather-questions", titleMax: 75, titleHas: "Would You Rather Questions", hreflang: true, bodyHas: ["Funny Would You Rather Questions", "Would You Rather Questions for Kids", "Hard Would You Rather Questions", "Would You Rather Questions for Couples", "Would You Rather Questions for Work", "Random question"] },
   { path: "/topics/truth-or-dare-questions", index: true, canonical: "/topics/truth-or-dare-questions", titleMax: 75, titleHas: "Truth or Dare Questions", hreflang: true, bodyHas: ["Truth or Dare Questions for Kids", "Truth or Dare Questions for Teens", "Truth or Dare Questions for Couples", "Funny Truth or Dare Questions", "Truth or Dare Questions Over Text", "Party Truth or Dare Questions"] },
 ];
@@ -187,6 +187,15 @@ function tagWith(html, tagName, attribute, value) {
   const tags = html.match(new RegExp(`<${tagName}\\b[^>]*>`, "gi")) || [];
   return tags.find((tag) => new RegExp(`${attribute}=["']${value}["']`, "i").test(tag));
 }
+
+// Only <link rel="alternate" hreflang> counts as a declared alternate. Footer locale links
+// (<a hrefLang="es" href="/es">) are navigation, not alternates (false failure after #256).
+function alternateLinks(html) {
+  return (html.match(/<link\b[^>]*>/gi) || [])
+    .filter((tag) => /rel=["']alternate["']/i.test(tag) && /hreflang=/i.test(tag))
+    .map((tag) => ({ lang: attr(tag, "hreflang").toLowerCase(), href: attr(tag, "href") }));
+}
+const declaredAlternates = new Map();
 
 function attr(tag, name) {
   return tag?.match(new RegExp(`${name}=["']([^"']+)["']`, "i"))?.[1];
@@ -255,6 +264,9 @@ async function checkPage(check) {
   if (response.status !== 200) fail(`${check.path}: expected 200, received ${response.status}`);
 
   const html = await response.text();
+  const alternates = alternateLinks(html);
+  const langs = new Set(alternates.map((a) => a.lang));
+  for (const a of alternates) if (a.href && !declaredAlternates.has(a.href)) declaredAlternates.set(a.href, check.path);
   const title = decodeHtml(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim());
   const canonicalTag = tagWith(html, "link", "rel", "canonical");
   const canonical = attr(canonicalTag, "href");
@@ -283,7 +295,7 @@ async function checkPage(check) {
     if (!/\blang=["']es["']/i.test(html)) fail(`${check.path}: missing server-rendered lang=es boundary`);
   }
   if (check.hreflang) {
-    if (!/hreflang=["']en["']/i.test(html) || !/hreflang=["']es["']/i.test(html)) {
+    if (!langs.has("en") || !langs.has("es")) {
       fail(`${check.path}: missing reciprocal en/es hreflang links`);
     }
   }
@@ -291,14 +303,14 @@ async function checkPage(check) {
     if (response.headers.get("content-language") !== "pt") fail(`${check.path}: missing Content-Language: pt`);
     if (!/\blang=["']pt["']/i.test(html)) fail(`${check.path}: missing server-rendered lang=pt boundary`);
   }
-  if (check.ptHreflang && !/hreflang=["']pt["']/i.test(html)) {
+  if (check.ptHreflang && !langs.has("pt")) {
     fail(`${check.path}: missing reciprocal pt hreflang link`);
   }
   if (check.enOnlyHreflang) {
-    if (!/hreflang=["']en["']/i.test(html) || !/hreflang=["']x-default["']/i.test(html)) {
+    if (!langs.has("en") || !langs.has("x-default")) {
       fail(`${check.path}: missing en/x-default hreflang links`);
     }
-    if (/hreflang=["']es["']/i.test(html)) {
+    if (langs.has("es")) {
       fail(`${check.path}: advertises a nonexistent Spanish alternate`);
     }
   }
@@ -483,9 +495,24 @@ async function checkIndexNowCount(sitemapUrls) {
   }
 }
 
+// Every hreflang alternate declared by an audited page must resolve with 200 (no 404, no redirect).
+async function checkAlternateTargets() {
+  for (const [href, from] of declaredAlternates) {
+    const url = new URL(href, `${baseUrl}/`);
+    const path = url.pathname.replace(/\/$/, "") || "/";
+    if (buildDir) {
+      try { await readFile(buildArtifactPath(path), "utf8"); } catch { fail(`${from}: hreflang alternate ${href} has no built page`); }
+      continue;
+    }
+    const response = await fetch(`${baseUrl}${path}${url.search}`, { redirect: "manual" });
+    if (response.status !== 200) fail(`${from}: hreflang alternate ${href} returned ${response.status}`);
+  }
+}
+
 try {
   const results = [];
   for (const check of checks) results.push(await checkPage(check));
+  await checkAlternateTargets();
   await checkRedirect();
   const sitemapUrls = await checkSitemap();
   await checkRobots();
