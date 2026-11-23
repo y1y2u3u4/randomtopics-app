@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     "random movie generator", "random movie picker", "what movie should i watch", "movie roulette",
     "random film generator", "pick a movie for me", "movie night ideas", "random netflix movie generator",
     "random family movie generator", "random horror movie generator",
+    "random movie before 2010", "random old movie generator", "random classic movie generator",
   ],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
@@ -38,7 +39,13 @@ const EXAMPLES = [
   { label: "Family movie night", results: pickMovies(f({ familyOnly: true, genres: ["family", "animation"] }), 3, 4101).map(movieToResult) },
   { label: "Acclaimed thrillers under 100 min", results: pickMovies(f({ genres: ["thriller"], minBand: "acclaimed", runtimes: ["short"] }), 3, 4102).map(movieToResult) },
   { label: "1980s sci-fi & action", results: pickMovies(f({ genres: ["sci-fi", "action"], decades: [1980] }), 3, 4103).map(movieToResult) },
+  { label: "Any genre, before 2010", results: pickMovies(f({ decades: [1950, 1960, 1970, 1980, 1990, 2000] }), 3, 4104).map(movieToResult) },
 ];
+
+// "Random movie before 2010" (GSC 2026-11-21): every decade chip before the 2010s.
+const BEFORE_2010 = DECADES.filter((d) => d < 2010);
+const BEFORE_2010_COUNT = MOVIES.filter((m) => m.year < 2010).length;
+const BEFORE_2010_PICKS = pickMovies(f({ decades: [...BEFORE_2010] }), 6, 4110);
 
 const ORIGINAL_EXAMPLES = PLATFORM_IDS.map((p) => ({
   platform: PLATFORMS[p],
@@ -49,6 +56,10 @@ const FAQ = [
   {
     question: "How does the random movie generator work?",
     answer: `It picks one film at random from a hand-checked list of ${COUNT} well-known movies from 1950 to 2025 that match your filters for genre, decade, critic reception, runtime and audience. Each pick shows the year, runtime, director, an original spoiler-free premise and three similar movies. Press Pick another and you won't see the same film again until you've been through every match.`,
+  },
+  {
+    question: "Can I get a random movie from before 2010?",
+    answer: `Yes. Under Decade, tap ${BEFORE_2010.map(decadeLabel).join(", ")} and leave 2010s and 2020s off. That limits the draw to the ${BEFORE_2010_COUNT} films in the list released from 1950 to 2009. Add a genre or Acclaimed only to narrow it further.`,
   },
   {
     question: "Can I filter by Netflix, Prime Video or Disney+?",
@@ -85,7 +96,7 @@ export default function RandomMovieGeneratorPage() {
       heading={["Random Movie", "Generator"]}
       intro={`What movie should you watch? Spin the movie roulette: ${COUNT} hand-picked films from the 1950s to today, filtered by genre, decade, reception and runtime.`}
       description={DESCRIPTION}
-      updated="2026-10-14"
+      updated="2026-11-23"
       faq={FAQ}
       related={[
         { href: "/my-9-movies", label: "My 9 movies grid" },
@@ -116,6 +127,18 @@ export default function RandomMovieGeneratorPage() {
             <li><strong>Runtime</strong>: under 100 minutes, 100–130, or over 130 for when you have all evening.</li>
             <li><strong>Family-friendly only</strong>: {STATS.kidSafe} films that work for most kids.</li>
           </ul>
+          <SectionTitle>Random movie before 2010</SectionTitle>
+          <p>
+            Want an older film, from before streaming originals took over? Under <strong>Decade</strong>, tap{" "}
+            {BEFORE_2010.map(decadeLabel).join(", ")} and leave the 2010s and 2020s off. The generator then draws only from the{" "}
+            {BEFORE_2010_COUNT} films released between 1950 and 2009, from black-and-white classics to the DVD era. Six random picks from before 2010:
+          </p>
+          <ul className="list-disc pl-5 space-y-1">
+            {BEFORE_2010_PICKS.map((m) => (
+              <li key={m.slug}><strong>{m.title}</strong> ({m.year}) · {GENRES[m.genres[0]].label} · dir. {m.director}</li>
+            ))}
+          </ul>
+          <p>Only want one decade, such as the 1990s or 2000s? Tap just that chip. Choose several decades and the pick can come from any of them.</p>
           <SectionTitle>Streaming originals, without false promises</SectionTitle>
           <p>
             Most &quot;random Netflix movie&quot; tools guess, and their lists go stale within weeks. We filter by something that doesn&apos;t

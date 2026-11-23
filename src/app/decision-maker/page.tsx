@@ -8,16 +8,16 @@ import { SITE_URL, hreflangAlternates } from "@/i18n/config";
 import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/decision-maker";
-const TITLE = "Decision Maker & Decider Machine — Wheel, Lots, Yes or No";
+const TITLE = "Decision Maker, Choice Maker & Decider Machine — Free Wheel";
 const DESCRIPTION =
-  "Free decider machine and random decision maker: type your options, then spin a wheel, draw lots or flip yes or no. Weight favourites. No signup.";
+  "Free choice maker and decider machine: type your options, then spin a wheel, draw lots or flip yes or no. Weight favourites. No signup.";
 
 const SOCIAL = generatorSocial({ card: "decision-maker", title: TITLE, description: DESCRIPTION, alt: "Decision maker — a decision wheel, a cup of drawing lots and a yes-or-no coin" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ["decision maker", "decider machine", "random decider", "random decision maker", "decision maker wheel", "yes or no decision maker", "help me decide", "make a decision for me", "decision wheel", "draw lots"],
+  keywords: ["decision maker", "choice maker", "random choice maker", "choice maker wheel", "decider machine", "random decider", "random decision maker", "decision maker wheel", "yes or no decision maker", "help me decide", "make a decision for me", "decision wheel", "draw lots"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
@@ -25,6 +25,7 @@ export const metadata: Metadata = {
 
 const FAQ = [
   { question: "What is a decider machine?", answer: "A decider machine is a tool that makes a choice for you: you give it the options and it picks one at random, so nobody has to argue or overthink it. This page is a free online decider machine with three ways to pick — a spinning wheel, a cup of drawing lots and a yes-or-no coin." },
+  { question: "Is this a choice maker?", answer: "Yes. A choice maker and a decision maker are the same tool: list your choices, press Decide and one is chosen at random. Use the wheel to pick one of several choices, Draw lots to go through every choice once, or Yes or no when there is only one question. You can make a favourite choice twice or three times as likely." },
   { question: "How does the random decision maker work?", answer: "Type a question, add two or more options (or pick a starter list), choose a mode and press the button. The wheel spins and stops on one option, Draw lots pulls one stick from the cup, and Yes or no flips a coin. Every option has an equal chance unless you give it extra weight." },
   { question: "Can you make a decision for me?", answer: "Yes. If you are stuck between choices — what to eat, which movie, who does the dishes — add them and let the wheel or the lots pick. For a single question such as “Should I go out tonight?”, use the Yes or no mode." },
   { question: "Is there a yes or no decision maker?", answer: "Yes — switch to the Yes or no tab, type your question and flip. Yes and No each have a 50% chance; tick “Add Maybe” to make it a three-way coin with a third each." },
@@ -47,7 +48,7 @@ export default function DecisionMakerPage() {
       heading={["Decision", "Maker"]}
       intro="Can't decide? Type your options and let the wheel, a cup of lots or a yes-or-no coin choose — weighted if you like, free and no signup."
       description={DESCRIPTION}
-      updated="2026-11-19"
+      updated="2026-11-23"
       faq={FAQ}
       hero={{ src: "/generators/hero/decide.webp", alt: "A spinning decision wheel, a cup of drawing lots and a tossed coin" }}
       heroHideOnShort
@@ -89,6 +90,16 @@ export default function DecisionMakerPage() {
           </p>
           <QuickRow>
             <QuickSet tool="decision" id="weighted">Run the decider machine</QuickSet>
+          </QuickRow>
+          <SectionTitle>Choice Maker</SectionTitle>
+          <p>
+            Need a random choice maker? Type each choice on its own line or paste them separated by commas, then press Decide. The wheel
+            gives every choice an equal slice, so a list of four means a 25% chance each, and the ×2 and ×3 buttons let you tip the odds
+            toward a favourite. Two choices? Use the <strong>Decide between 2</strong> button below. Choosing a person rather than a thing? The{" "}
+            <Link prefetch={false} href="/random-name-picker" className={linkClass}>random name picker</Link> removes each winner as you go.
+          </p>
+          <QuickRow>
+            <QuickSet tool="decision" id="two">Make a choice between 2</QuickSet>
           </QuickRow>
           <SectionTitle>Yes or no decision maker</SectionTitle>
           <p>Stuck on one question? Tap the button, then press Decide: the coin says Yes or No with an equal 50% chance. Type your question first if you want it on the result card.</p>

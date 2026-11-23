@@ -16,7 +16,7 @@ const SOCIAL = generatorSocial({ card: "random-number-generator", title: TITLE, 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ["random number generator", "random number", "number generator", "random number between", "random number 1-100", "random number picker", "rng"],
+  keywords: ["random number generator", "random number", "number generator", "random number between", "random number 1-100", "random number 0 to 1000", "random number between 0 and 1000", "random number 1-1000", "random number picker", "rng"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
@@ -32,6 +32,11 @@ const FAQ = [
     question: "Can I get random numbers with no repeats?",
     answer:
       "Yes. 'No repeats' is on by default, so every number in a batch is different, like drawing numbered tickets from a hat. Turn it off if you want each number drawn independently, as with dice or a lottery machine that returns balls.",
+  },
+  {
+    question: "How do I get a random number from 0 to 1000?",
+    answer:
+      "Tap Random 0–1000 in the section below, or type 0 in From and 1000 in To and press Generate. That range holds 1,001 whole numbers, so each one, including 0 and 1000, has a 1-in-1,001 chance. Use Random 1–1000 instead if zero should not be possible.",
   },
   {
     question: "Is this a true random number generator?",
@@ -75,7 +80,7 @@ export default function RandomNumberGeneratorPage() {
       heading={["Random Number", "Generator"]}
       intro="Choose a range, say how many numbers you need and press Generate. Allow repeats or draw each number only once."
       description={DESCRIPTION}
-      updated="2026-10-28"
+      updated="2026-11-23"
       faq={FAQ}
       inShort="Enter a minimum and maximum, choose how many numbers you want and press Generate. With No repeats on, each number appears once; turn it off for dice-style rolls. Presets cover 1–10, 1–100, 0–9, a coin flip and a million-number range, and results can be sorted, copied and shared as a link."
       related={[
@@ -114,6 +119,17 @@ export default function RandomNumberGeneratorPage() {
             <QuickSet tool="numbers" id="0-9">Digit 0–9</QuickSet>
             <QuickSet tool="numbers" id="1-2">Coin 1–2</QuickSet>
             <QuickSet tool="numbers" id="d20">Roll a d20</QuickSet>
+          </QuickRow>
+          <SectionTitle>Random number 0 to 1000</SectionTitle>
+          <p>
+            Need a random number between 0 and 1000? Both ends count: the range holds 1,001 whole numbers, and 0 and 1000 are as likely as
+            500. That makes it handy for a score out of 1000, or a percentage with one decimal place: divide the result by 10, so 734
+            becomes 73.4%. For a three-digit code where 000 is allowed, set To to 999 instead and pad the result with zeros. Want several? Set How many to 10 with No repeats on
+            for ten different numbers from 0 to 1000.
+          </p>
+          <QuickRow>
+            <QuickSet tool="numbers" id="0-1000">Random 0–1000</QuickSet>
+            <QuickSet tool="numbers" id="1-1000">Random 1–1000</QuickSet>
           </QuickRow>
           <SectionTitle>Big ranges and lottery picks</SectionTitle>
           <p>
