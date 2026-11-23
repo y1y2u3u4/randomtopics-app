@@ -16,7 +16,7 @@ const SOCIAL = generatorSocial({ card: "character-name-generator", title: TITLE,
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ["catchphrase generator", "catchphrase ideas", "character catchphrase generator", "funny catchphrases", "streamer catchphrase", "hero catchphrases", "villain catchphrases", "slogan ideas"],
+  keywords: ["catchphrase generator", "catchphrase ideas", "character catchphrase generator", "funny catchphrases", "streamer catchphrase", "hero catchphrases", "villain catchphrases", "slogan ideas", "invent catchphrases", "invent a catchphrase", "catchphrase maker", "make up a catchphrase"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
@@ -51,6 +51,11 @@ const FAQ = [
       `There are ${CATCH_TOTAL.toLocaleString("en-US")} distinct lines across ${CATCH_CATS.length} categories. Each template has one or two slots that are filled from a pool, so the same structure produces many different lines, and generating again gives you ten new ones without repeats in the same session.`,
   },
   {
+    question: "How do I invent a catchphrase?",
+    answer:
+      "Start with who says it and when: a hero before a fight, a streamer at the end of every stream, a shop on its sign. Generate ten lines in that category, keep the two that sound most like the speaker, then change one word to something only they would say, such as a nickname, a place or a running joke. Say it out loud three times; if it still sounds natural, you have your catchphrase.",
+  },
+  {
     question: "Is this the same as the party game Catch Phrase?",
     answer:
       "No. Catch Phrase is a word-guessing party game where you describe a word without saying it. This tool makes signature lines for characters, streamers and brands. If you are looking for party-game prompts to act out, the charades page has word lists made for that.",
@@ -71,7 +76,7 @@ export default function CatchphraseGeneratorPage() {
       heading={["Catchphrase", "Generator"]}
       intro={`Generate original catchphrases for heroes, villains, streamers, announcers and brands, each with a note on who would say it. ${CATCH_TOTAL.toLocaleString("en-US")} lines, free, no sign-up.`}
       description={DESCRIPTION}
-      updated="2026-11-02"
+      updated="2026-11-23"
       faq={FAQ}
       inShort={
         <>
@@ -99,6 +104,18 @@ export default function CatchphraseGeneratorPage() {
             <li><strong>Personal motto</strong> — short rules to live by, for a bio, a desk card or a team wall.</li>
             <li><strong>Brand slogan</strong> — benefit-first taglines for a shop, app or service.</li>
           </ul>
+          <SectionTitle>Invent catchphrases galore</SectionTitle>
+          <p>
+            Need to invent catchphrases in bulk, for a cast of characters, a game night or a brainstorm? Each click gives you 10 new lines,
+            and you won&apos;t see a repeat in the same session, so ten clicks means a hundred catchphrases to choose from. Mix categories to
+            give every character a different voice: a hero line for the lead, a villain line for the rival and a sidekick line for comic
+            relief. Then make each one yours in three steps:
+          </p>
+          <ol className="list-decimal pl-5 space-y-1">
+            <li><strong>Pick the speaker</strong> — choose the category that matches who will say it and when.</li>
+            <li><strong>Shortlist</strong> — keep the lines you can say in one breath and would remember tomorrow.</li>
+            <li><strong>Personalise</strong> — swap one word for a name, place or in-joke from your own story or channel.</li>
+          </ol>
           <SectionTitle>How the lines are made</SectionTitle>
           <p>
             Each category has several templates written to sound like that kind of speaker. A template has a slot or two, and each slot

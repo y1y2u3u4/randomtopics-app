@@ -29,7 +29,11 @@ const GENERATOR_PRESETS: Preset[] = [
   { id: "d20", label: "d20", min: 1, max: 20 },
   { id: "lottery", label: "Lottery 6/49", min: 1, max: 49, n: 6, unique: true, sorted: true },
 ];
-const ALL_PRESETS = [...PRESETS, ...GENERATOR_PRESETS.filter((g) => !PRESETS.some((p) => p.id === g.id))];
+/** Only reachable from in-page QuickSet buttons (not shown in the chip row), e.g. "Random 0–1000" (GSC 2026-11-20). */
+const SECTION_PRESETS: Preset[] = [
+  { id: "0-1000", label: "0–1000", min: 0, max: 1000 },
+];
+const ALL_PRESETS = [...PRESETS, ...GENERATOR_PRESETS.filter((g) => !PRESETS.some((p) => p.id === g.id)), ...SECTION_PRESETS];
 const fmt = (n: number) => n.toLocaleString("en-US");
 
 /** `variant="generator"` powers /random-number-generator: same engine, more presets, its own analytics name. */

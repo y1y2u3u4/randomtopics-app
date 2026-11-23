@@ -220,6 +220,24 @@ const BOOST_SECTIONS: BoostSection[] = [
     ],
   },
   {
+    h2: "Heads Up Generator: Play the Forehead Version",
+    id: "heads-up-generator",
+    blocks: [
+      { t: "p", x: "Want a Heads Up generator? The same deck works for the forehead guessing game. In Heads Up, one player holds the phone to their forehead without looking, and the others shout clues, act or hum until the player names the word. You can play that way here:" },
+      {
+        t: "ol",
+        items: [
+          "Pick a category (Movies, Animals and Kids & Family work well) and a difficulty.",
+          "Tap Fullscreen big text so the word fills the screen and can be read from across the room.",
+          "Tap Start round (it hides the word, as classic charades needs), then tap Reveal word and hold the phone to your forehead, screen facing the group.",
+          "The group gives clues: talking is allowed in Heads Up, unlike classic charades. Just don't say the word.",
+          "Say the answer, then hand the phone over so a teammate can tap Got it, or Missed to pass, and deal the next word before the timer runs out.",
+        ],
+      },
+      { t: "p", x: "Keep scores for 2 to 4 teams in Teams & scoring. For clue-giving with forbidden words, try the [Pictionary word generator](/pictionary-word-generator) with spoken clues, or switch to a round of [would you rather](/would-you-rather) between games." },
+    ],
+  },
+  {
     h2: "Charades Words Printable List",
     id: "printable-charades-words",
     blocks: [
@@ -253,6 +271,10 @@ const BOOST_FAQ: BoostFaq[] = [
   {
     question: "How long should each charades turn be?",
     answer: "Sixty seconds is the standard. Use 90 or 120 seconds for kids, hard words or online play, and 30 seconds for a fast party round.",
+  },
+  {
+    question: "Can I use this as a Heads Up generator?",
+    answer: "Yes. Tap Fullscreen big text, start the round, tap Reveal word and hold the phone to your forehead with the screen facing your friends. They give clues without saying the word, and you guess before the timer ends. It is free, works in any phone browser and needs no app download. Heads Up! is a trademark of its owner; this is an unofficial word deck you can play the same way.",
   },
   {
     question: "What is dumb charades?",

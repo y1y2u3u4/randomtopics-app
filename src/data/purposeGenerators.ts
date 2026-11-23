@@ -186,7 +186,7 @@ export const PURPOSE_GENERATORS = {
     actionLabel: "Generate Research Ideas",
     resultLabel: "Your research question",
     applicationCategory: "EducationApplication",
-    keywords: ["research topic generator", "research topics", "research topics for students", "research paper topics", "random topic generator for research", "random research topics", "research question generator", "research paper topic generator"],
+    keywords: ["research topic generator", "research topics", "research topics for students", "research paper topics", "random topic generator for research", "random research topics", "research question generator", "research paper topic generator", "interesting topics to research", "interesting research topics", "fun topics to research"],
     prompts: [
       { text: "How accurately can wearable devices detect changes in sleep quality?", category: "Science & Technology", level: "Beginner", angle: "Compare one consumer device with a sleep diary over a small, clearly defined sample." },
       { text: "How does generative AI change the time students spend on different writing stages?", category: "Science & Technology", level: "Intermediate", angle: "Measure planning, drafting, revising, and fact-checking separately rather than total time alone." },
@@ -287,7 +287,7 @@ export const PURPOSE_GENERATORS = {
     ],
     fullBank: {
       heading: "All 96 research topics by field",
-      intro: "Every question the generator can draw, grouped by field and labelled Beginner, Intermediate or Advanced. Each one comes with a scope note: the comparison, sample or measure that turns it into a project you can finish.",
+      intro: "Interesting topics to research, in full: every question the generator can draw, grouped by field and labelled Beginner, Intermediate or Advanced. Each one comes with a scope note: the comparison, sample or measure that turns it into a project you can finish.",
     },
     intro:
       "A strong research topic is not merely interesting: it names a relationship you can investigate within the time, data, and methods available. These prompts are written as questions and include a scope note, making them easier to turn into a paper proposal than broad subjects such as 'AI' or 'climate change.'",
@@ -301,6 +301,7 @@ export const PURPOSE_GENERATORS = {
       { question: "What makes a good research topic?", answer: "It should be specific, answerable with evidence, connected to existing scholarship, and realistic for your time and access. A useful topic names a relationship or comparison rather than only a broad subject." },
       { question: "Can I use a generated question as my final title?", answer: "Treat it as a starting point. Search recent literature, confirm that evidence is available, and narrow the population, location, period, or variables before submitting a proposal." },
       { question: "What is the difference between Beginner and Advanced?", answer: "Beginner prompts can often be explored with observation, a small survey, or a simple comparison. Advanced prompts involve more variables, controls, longitudinal data, or difficult causal questions." },
+      { question: "What are some interesting topics to research?", answer: "Interesting topics to research are ones where the answer is not obvious yet and you can still gather evidence yourself. A few from the list above: do recommendation algorithms narrow the music people discover, how often do AI chatbots give different answers to the same question, how does tree shade affect which route people walk on hot days, and why do book covers in one genre look so alike. Press Generate for more, or browse all 96 by field below." },
       { question: "What are good research topics for students?", answer: "Good student research topics are narrow enough to finish and use evidence you can actually reach: a local survey, observation, public data or a library database. Beginner topics above, such as retrieval practice versus rereading or noise and sleep in city apartments, can be done in a few weeks; Advanced ones suit a thesis or capstone." },
       { question: "How do I narrow a broad research topic?", answer: "Pick one population, one place, one time period and one or two variables. 'Social media and teenagers' becomes 'How does phone use in the hour before bed relate to sleep quality for 15-year-olds at one school over two weeks?' The scope note under each topic shows one way to do this." },
       { question: "How do I turn a topic into a research question?", answer: "Name the relationship you want to test or explain, then make sure it can be answered with evidence rather than opinion. Start with how, why, to what extent or what is the relationship between, and avoid yes/no questions unless you will measure the size of the effect." },

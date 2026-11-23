@@ -457,6 +457,11 @@ export default function Home() {
                 without repeats until the pool is used. Every
                 topic includes multiple talking points to help you explore the subject in depth.
               </p>
+              <p>
+                Looking for interesting topics to research for a paper or project? The{" "}
+                <Link prefetch={false} href="/research-topic-generator" className="text-[var(--neon-cyan)] underline underline-offset-2">research topic generator</Link>{" "}
+                gives you a ready research question with a scope note, by field and difficulty.
+              </p>
 
               <h3
                 className="text-lg font-semibold text-[var(--text-primary)] pt-4"
