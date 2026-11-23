@@ -8,6 +8,7 @@ on:
       - 'next.config.ts'
       - 'scripts/seo-routing-regression.mjs'
       - 'scripts/inlinks-regression.mjs'
+      - 'scripts/seo-audit.mjs'
       - 'src/components/**'
       - 'scripts/lib/load-typescript.mjs'
       - 'package*.json'
@@ -21,6 +22,7 @@ on:
       - 'next.config.ts'
       - 'scripts/seo-routing-regression.mjs'
       - 'scripts/inlinks-regression.mjs'
+      - 'scripts/seo-audit.mjs'
       - 'src/components/**'
       - 'scripts/lib/load-typescript.mjs'
       - 'package*.json'
@@ -30,7 +32,7 @@ permissions:
 jobs:
   routing:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -55,3 +57,5 @@ jobs:
             sleep 1
           done
           SEO_BASE_URL=http://127.0.0.1:3000 node scripts/seo-routing-regression.mjs
+          # Full on-page audit (titles, canonicals, hreflang targets 200, sitemap, robots) against the built app.
+          SEO_BASE_URL=http://127.0.0.1:3000 node scripts/seo-audit.mjs

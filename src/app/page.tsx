@@ -64,7 +64,7 @@ export default function Home() {
                 { emoji: "🗺️", label: "Random US State", detail: "50 states + capitals", href: "/random-state-generator" },
               ] },
               { heading: "Party games", tools: [
-                { emoji: "🎭", label: "Charades Generator", detail: "528 words + round timer", href: "/charades" },
+                { emoji: "🎭", label: "Charades Generator", detail: "600+ words + round timer", href: "/charades" },
                 { emoji: "🤥", label: "Two Truths and a Lie", detail: "Ideas to bluff with", href: "/topics/two-truths-and-a-lie-ideas" },
                 { emoji: "👉", label: "Most Likely To", detail: "Group voting questions", href: "/most-likely-to" },
                 { emoji: "💿", label: "My 9 Maker", detail: "3×3 favorites grid", href: "/my-9-albums" },

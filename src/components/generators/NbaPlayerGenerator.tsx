@@ -122,7 +122,7 @@ function DailyFive() {
     setDay(dayNumber());
   }, []);
   const five = useMemo(() => (day === null ? [] : dailyFive(day)), [day]);
-  if (day === null) return <div className="mx-auto mt-10 h-48 max-w-4xl" aria-hidden="true" />;
+  if (day === null) return <div className="mx-auto mt-10 h-48 max-w-4xl" aria-hidden="true" data-nba-daily-slot />; // the daily five needs the browser date, so the server renders a sized slot
   const text = fiveShareText(day, five, PAGE_URL);
   const image = async (format: ShareFormat) => {
     try {

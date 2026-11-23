@@ -116,7 +116,7 @@ function DailyRaid() {
     setDay(dayNumber());
   }, []);
   const kit = useMemo(() => (day === null ? null : dailyKit(day)), [day]);
-  if (day === null || !kit) return <div className="mx-auto mt-10 h-64 max-w-3xl" aria-hidden="true" />;
+  if (day === null || !kit) return <div className="mx-auto mt-10 h-64 max-w-3xl" aria-hidden="true" data-tarkov-daily-slot />; // daily kit needs the browser date; server renders a sized slot
   const url = shareUrl(kit);
   const text = `Tarkov daily raid challenge · ${dateLabel(day)}\n${kitText(kit)}\n${url}`;
   const flash = (m: string) => { setNote(m); window.setTimeout(() => setNote(""), 1800); };
