@@ -49,6 +49,7 @@ export default function RuletaDeNombresPage() {
         { href: "/es/ruleta-de-letras", label: "Ruleta de letras" },
         { href: "/es/ruleta-de-numeros", label: "Ruleta de números" },
         { href: "/es/spin-the-wheel", label: "Ruleta de temas" },
+        { href: "/es/generador-de-nombres-aleatorios", label: "Generador de nombres aleatorios" },
         { href: "/es/generador-de-equipos-aleatorios", label: "Generador de equipos" },
       ]}
       content={
@@ -70,6 +71,7 @@ export default function RuletaDeNombresPage() {
             ¿Necesitas un tema y no una persona? Usa la <Link prefetch={false} href="/es/spin-the-wheel" className={linkClass}>ruleta de temas</Link>.
             Para un sí o un no, la <Link prefetch={false} href="/es/ruleta-si-o-no" className={linkClass}>ruleta sí o no</Link>.
             Para el abecedario, la <Link prefetch={false} href="/es/ruleta-de-letras" className={linkClass}>ruleta de letras</Link>.
+            Para inventar un nombre que no está en tu lista, usa el <Link prefetch={false} href="/es/generador-de-nombres-aleatorios" className={linkClass}>generador de nombres aleatorios</Link>.
           </p>
         </>
       }

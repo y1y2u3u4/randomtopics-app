@@ -61,6 +61,16 @@ export default function TopicsIndexPageEs() {
               { href: "/es/ruleta-si-o-no", title: "Ruleta sí o no", detail: "Sí, no o tal vez, con la misma probabilidad" },
               { href: "/es/ruleta-de-letras", title: "Ruleta de letras", detail: "Abecedario con Ñ para Basta o Stop" },
               { href: "/es/ruleta-de-numeros", title: "Ruleta de números", detail: "Del 1 al 20, o el rango que escribas" },
+              { href: "/es/topics/preguntas-para-conocer-a-alguien", title: "Preguntas para conocer a alguien", detail: "45 preguntas distintas de la lista de 21" },
+              { href: "/es/topics/verdad-o-reto-parejas", title: "Verdad o reto para parejas", detail: "45 verdades y retos sin explícitos" },
+              { href: "/es/topics/que-prefieres-preguntas-dificiles", title: "¿Qué prefieres? difíciles", detail: "45 dilemas sin respuesta fácil" },
+              { href: "/es/topics/temas-de-conversacion-para-whatsapp", title: "Temas para WhatsApp", detail: "45 mensajes cortos para copiar al chat" },
+              { href: "/es/topics/juegos-para-whatsapp", title: "Juegos para WhatsApp", detail: "45 rondas que caben en un mensaje" },
+              { href: "/es/topics/yo-nunca-nunca-picante", title: "Yo nunca picante", detail: "45 frases de coqueteo, sin explícitos" },
+              { href: "/es/topics/preguntas-rompehielos-divertidas", title: "Rompehielos divertidos", detail: "45 preguntas para una fiesta" },
+              { href: "/es/ruleta-de-preguntas", title: "Ruleta de preguntas", detail: "Gira y cae una pregunta para conocerse" },
+              { href: "/es/ruleta-de-retos", title: "Ruleta de retos", detail: "Retos de sala, sin contacto" },
+              { href: "/es/generador-de-nombres-aleatorios", title: "Nombres aleatorios", detail: "Nombre y apellido del mismo origen" },
             ].map((item) => (
               <Link prefetch={false} key={item.href} href={item.href} className="glass-card p-6 transition-all duration-300 hover:translate-y-[-3px] group hover:border-[var(--neon-cyan)]/40">
                 <h3 className="text-base font-bold mb-2 group-hover:text-[var(--neon-cyan)] transition-colors leading-snug" style={{ fontFamily: "var(--font-display)" }}>{item.title}</h3>

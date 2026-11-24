@@ -130,7 +130,9 @@ export default function SpinTheWheelPageEs() {
                 <Link prefetch={false} href="/es/ruleta-de-nombres" className="text-[var(--neon-cyan)] hover:underline">ruleta de nombres</Link>,{" "}
                 la <Link prefetch={false} href="/es/ruleta-si-o-no" className="text-[var(--neon-cyan)] hover:underline">ruleta sí o no</Link>,{" "}
                 la <Link prefetch={false} href="/es/ruleta-de-letras" className="text-[var(--neon-cyan)] hover:underline">ruleta de letras</Link> o{" "}
-                la <Link prefetch={false} href="/es/ruleta-de-numeros" className="text-[var(--neon-cyan)] hover:underline">ruleta de números</Link>.
+                la <Link prefetch={false} href="/es/ruleta-de-numeros" className="text-[var(--neon-cyan)] hover:underline">ruleta de números</Link>,{" "}
+                la <Link prefetch={false} href="/es/ruleta-de-preguntas" className="text-[var(--neon-cyan)] hover:underline">ruleta de preguntas</Link> o{" "}
+                la <Link prefetch={false} href="/es/ruleta-de-retos" className="text-[var(--neon-cyan)] hover:underline">ruleta de retos</Link>.
                 ¿Prefieres un mazo fijo? Prueba{" "}
                 <Link prefetch={false} href="/es/would-you-rather" className="text-[var(--neon-cyan)] hover:underline">
                   Qué Prefieres
