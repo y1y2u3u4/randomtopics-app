@@ -8,17 +8,20 @@ import { generatorSocial } from "@/lib/generatorSocial";
 
 const PATH = "/number-randomizer";
 const TITLE = "Number Randomizer — Pick a Number 1 or 2, 1–10, 1–100 & Any Range";
-const DESCRIPTION =
+// Meta, Open Graph, and Twitter only. WebApplication JSON-LD keeps the previous description.
+const META_DESCRIPTION =
+  "Pick a number 1 or 2 instantly — or use 1–10, 1–100, dice and lottery presets. Free randomizer for two-way choices, raffles and classroom picks. No signup.";
+const SCHEMA_DESCRIPTION =
   "Free number randomizer: pick one or up to 1,000 random numbers in any range, with or without repeats, sorted or not. Presets for 1–10, 1–100, 1–1000 and dice. Raffles, classroom picks, games. No signup.";
 
-const SOCIAL = generatorSocial({ card: "number-randomizer", title: TITLE, description: DESCRIPTION, alt: "Number randomizer — random numbers in a range" });
+const SOCIAL = generatorSocial({ card: "number-randomizer", title: TITLE, description: META_DESCRIPTION, alt: "Number randomizer — random numbers in a range" });
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
-  description: DESCRIPTION,
+  description: META_DESCRIPTION,
   keywords: ["number randomizer", "random number picker", "number picker", "random number between 1 and 100", "random number generator no repeats", "pick a random number", "raffle number generator"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
+  openGraph: { title: TITLE, description: META_DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website", images: SOCIAL.images },
   twitter: SOCIAL.twitter,
 };
 
@@ -42,7 +45,7 @@ export default function NumberRandomizerPage() {
       name="Number Randomizer"
       heading={["Number", "Randomizer"]}
       intro="Random numbers in any range — one or a thousand, with or without repeats. Presets for 1–10, 1–100 and dice."
-      description={DESCRIPTION}
+      description={SCHEMA_DESCRIPTION}
       updated="2026-10-28"
       faq={FAQ}
       inShort="Set the range and how many numbers you need, then press Generate. Keep No repeats on for raffle-style draws, or turn it off for dice-style rolls. Results can be sorted and copied, and a link shares the same settings. It is free, needs no signup, and handles up to 1,000 numbers at once."
