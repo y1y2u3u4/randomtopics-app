@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ADSENSE_CLIENT, adPersonalizationAllowed, adRequestAllowed } from "@/lib/adsense";
-import { loadAdSense, pageSettled, setAdEligibility, prepareAd, observeAdRequestsReady, showAdPrivacyChoices, retireAdDocument } from "@/lib/adsenseClient";
+import { loadAdSense, noteAdStartBlocked, pageSettled, setAdEligibility, prepareAd, observeAdRequestsReady, showAdPrivacyChoices, retireAdDocument } from "@/lib/adsenseClient";
 import { observeSpeechAdEntitlement } from "@/lib/speech/adEligibilityClient";
 
 // Where the unit sits: the original in-content spot, right below a tool's
@@ -44,9 +44,13 @@ export default function ArticleAdvertisement({ path, slot, placement = "content"
     const start = () => {
       const bounds = element.getBoundingClientRect();
       if (!allowed() || !entitlement.gate.mayRequest() || document.hidden || bounds.width < 300 || bounds.height < 250 ||
-        element.getAttribute("data-restrict-data-processing") !== rdp) return;
+        element.getAttribute("data-restrict-data-processing") !== rdp) {
+        if (!started && allowed()) noteAdStartBlocked(!entitlement.gate.mayRequest() ? "gate" : document.hidden ? "hidden"
+          : bounds.width < 300 || bounds.height < 250 ? "size" : "rdp");
+        return;
+      }
       if (!started) {
-        if (!entitlement.gate.begin()) return;
+        if (!entitlement.gate.begin()) { noteAdStartBlocked("gate"); return; }
         started = true;
         // Bootstrap Auto ads after server eligibility, without requiring a
         // visitor to scroll down to the separate manual article placement.
@@ -61,6 +65,7 @@ export default function ArticleAdvertisement({ path, slot, placement = "content"
       changed: state => {
         if (!active) return;
         setAdEligibility(state === "free" && allowed());
+        if (!started && state !== "free") noteAdStartBlocked(`ent_${state}`);
         // Only collapse a unit that has never loaded an SDK. Loaded documents
         // retire wholesale; CSS hiding is not used as their privacy boundary.
         if (!started) setExcluded(state === "paid" || state === "unavailable");

@@ -8,18 +8,22 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" }],
       },
       {
+        // Public speech pages send only the origin. `no-referrer` here kept
+        // Google's CMP loader from identifying the site, so it stayed inactive
+        // and no ads were requested (scripts/referrer-policy-regression.mjs).
         source: "/speech/:path*",
-        headers: [{ key: "Referrer-Policy", value: "no-referrer" }],
+        headers: [{ key: "Referrer-Policy", value: "strict-origin" }],
       },
       {
         // Only private practice routes must be excluded. The public speech
         // hub and curated topic pages have their own indexable metadata.
+        // Later rules override the Referrer-Policy above.
         source: "/speech/account/:path*",
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }],
       },
       {
         source: "/speech/practice/:path*",
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }],
       },
       {
         source: "/api/speech/:path*",

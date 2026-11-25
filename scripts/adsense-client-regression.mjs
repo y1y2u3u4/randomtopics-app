@@ -120,7 +120,13 @@ for(const failure of ['error','timeout'])await test(`SDK ${failure} is terminal 
 });
 // 2026-11-25 coverage diagnostics: the stage the ad_cov beacon reports.
 await test('Runtime stage walks not_started -> no_consent -> requested',async f=>{
- assert.equal(f.runtime.adRuntimeStage(),'not_started');
+ assert.equal(f.runtime.adRuntimeStage(),'not_started:never');
+ f.runtime.noteAdStartBlocked('ent_pending');
+ assert.equal(f.runtime.adRuntimeStage(),'not_started:ent_pending');
+ f.runtime.noteAdStartBlocked('gate');
+ assert.equal(f.runtime.adRuntimeStage(),'not_started:ent_pending','gate keeps the entitlement detail');
+ f.runtime.noteAdStartBlocked('size');
+ assert.equal(f.runtime.adRuntimeStage(),'not_started:size');
  const loading=f.boot({...granted,purpose:{consents:{1:false}}});
  assert.equal(f.runtime.adRuntimeStage(),'script_loading');
  f.sdk().onload();

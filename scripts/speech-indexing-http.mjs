@@ -37,7 +37,8 @@ for (const path of [...publicPaths, ...privatePaths, ...excludedCategories]) {
       assert.match(robots, /\bnoindex\b/i, "Private pages and excluded categories stay noindex");
     }
     if (privatePaths.includes(path)) assert.match(header || "", /\bnoindex\b/i, "Private pages retain HTTP noindex");
-    if (path.startsWith("/speech")) assert.equal(response.headers.get("referrer-policy"), "no-referrer", "Speech referrer privacy remains intact");
+    if (privatePaths.includes(path)) assert.equal(response.headers.get("referrer-policy"), "no-referrer", "Private speech routes send no referrer");
+    else if (path.startsWith("/speech")) assert.equal(response.headers.get("referrer-policy"), "strict-origin", "Public speech pages send only the origin (CMP needs it)");
     if (path === "/speech" || path === "/es/speech") {
       const alternates = tags(html, "link").filter(tag => tag.rel === "alternate");
       for (const [lang, href] of [["en", "https://randomtopics.app/speech"], ["es", "https://randomtopics.app/es/speech"]]) {

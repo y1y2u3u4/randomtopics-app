@@ -30,7 +30,17 @@ const marks: AdRuntimeMarks = {};
 let blocker: ConsentBlocker | null = "cmp_missing";
 const now = () => Math.round(performance.now());
 
-export type AdRuntimeStage = "requested" | "retired" | "script_failed" | "script_timeout" | "context_blocked" | "not_started" |
+/** Why a page's ad component has not called loadAdSense yet (last early return wins). */
+export type AdStartBlock = "never" | "ent_pending" | "ent_paid" | "ent_unavailable" | "ent_retired" | "gate" | "hidden" | "size" | "rdp";
+let startBlock: AdStartBlock = "never";
+/** Diagnostics only: record which check held back the first loadAdSense call. */
+export function noteAdStartBlocked(reason: AdStartBlock) {
+  // A closed gate while the entitlement is not "free" is already explained by ent_*.
+  if (reason === "gate" && startBlock.startsWith("ent_")) return;
+  startBlock = reason;
+}
+
+export type AdRuntimeStage = "requested" | "retired" | "script_failed" | "script_timeout" | "context_blocked" | `not_started:${AdStartBlock}` |
   "waiting_settle" | "script_loading" | `no_consent:${string}` | "ineligible" | "privacy_open" | "hidden" | "ready";
 
 /** Where this document's ad runtime stands right now (first match wins). */
@@ -39,7 +49,7 @@ export function adRuntimeStage(): AdRuntimeStage {
   if (retired) return "retired";
   if (scriptFailed) return marks.slow === undefined ? "script_failed" : "script_timeout";
   if (!contextAllowed()) return "context_blocked";
-  if (marks.load === undefined) return "not_started";
+  if (marks.load === undefined) return `not_started:${startBlock}`;
   if (marks.settled === undefined) return "waiting_settle";
   if (!scriptReady) return "script_loading";
   if (!permitted) {

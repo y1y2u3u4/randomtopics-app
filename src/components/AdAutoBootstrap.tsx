@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { adPageAllowed, adRequestAllowed } from "@/lib/adsense";
-import { loadAdSense, pageSettled, setAdEligibility, showAdPrivacyChoices, retireAdDocument } from "@/lib/adsenseClient";
+import { loadAdSense, noteAdStartBlocked, pageSettled, setAdEligibility, showAdPrivacyChoices, retireAdDocument } from "@/lib/adsenseClient";
 import { observeSpeechAdEntitlement } from "@/lib/speech/adEligibilityClient";
 
 // Auto ads (anchor, vignette, Auto in-page) on public pages that have no manual
@@ -42,8 +42,9 @@ export default function AdAutoBootstrap() {
       });
     } });
     const start = () => {
-      if (started || !allowed() || !entitlement.gate.mayRequest() || document.hidden) return;
-      if (!entitlement.gate.begin()) return;
+      if (started || !allowed()) return;
+      if (!entitlement.gate.mayRequest() || document.hidden) { noteAdStartBlocked(document.hidden ? "hidden" : "gate"); return; }
+      if (!entitlement.gate.begin()) { noteAdStartBlocked("gate"); return; }
       started = true;
       void loadAdSense().catch(() => { /* Failed ads must not interrupt the page. */ });
     };
@@ -52,6 +53,7 @@ export default function AdAutoBootstrap() {
       changed: state => {
         if (!active) return;
         setAdEligibility(state === "free" && allowed());
+        if (!started && state !== "free") noteAdStartBlocked(`ent_${state}`);
         if (state === "free") {
           if (frame !== undefined) cancelAnimationFrame(frame);
           frame = requestAnimationFrame(start);
