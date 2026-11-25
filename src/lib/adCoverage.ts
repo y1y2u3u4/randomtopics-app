@@ -7,7 +7,7 @@
 
 export const AD_COVERAGE_SAMPLE = 0.25;
 
-export type AdRuntimeMarks = { load?: number; settled?: number; script?: number; request?: number; slow?: number; late?: number };
+export type AdRuntimeMarks = { load?: number; settled?: number; script?: number; request?: number; slow?: number; late?: number; cmp?: number; cmpError?: number };
 
 /** Coarse buckets keep the event low-cardinality and comparable across days. */
 export function msBucket(ms: number | undefined): string {

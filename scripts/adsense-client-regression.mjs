@@ -124,7 +124,7 @@ await test('Runtime stage walks not_started -> no_consent -> requested',async f=
  const loading=f.boot({...granted,purpose:{consents:{1:false}}});
  assert.equal(f.runtime.adRuntimeStage(),'script_loading');
  f.sdk().onload();
- assert.equal(f.runtime.adRuntimeStage(),'no_consent');
+ assert.equal(f.runtime.adRuntimeStage(),'no_consent:tcf_denied');
  f.consent(granted);await loading;
  assert.equal(f.runtime.adRuntimeStage(),'requested');
  const marks=f.runtime.adRuntimeMarks();
