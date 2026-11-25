@@ -27,3 +27,26 @@ export function advertisingConsent(data: AdConsentData | undefined, usStatus: Us
   if (usStatus === "not-opted-out" && gppStatus === "unavailable") return false;
   return usStatus !== "unknown" && gppStatus !== "unknown";
 }
+
+export type ConsentBlocker = "us_opted_out" | "cmp_missing" | "cmp_not_loaded" | "gdpr_unknown" | "tcf_pending" |
+  "tcf_denied" | "us_no_gpp" | "us_unknown" | "gpp_unknown";
+
+/**
+ * Diagnostics only (2026-11-25 ad coverage): which rule of advertisingConsent
+ * holds requests back, or null when it allows them. Must stay in lockstep with
+ * advertisingConsent; scripts/ad-coverage-regression.mjs checks every combination.
+ */
+export function consentBlocker(data: AdConsentData | undefined, usStatus: UsAdStatus, gppStatus: UsAdStatus = "unavailable"): ConsentBlocker | null {
+  if (usStatus === "opted-out" || gppStatus === "opted-out") return "us_opted_out";
+  if (!data) return "cmp_missing";
+  if (data.cmpStatus !== "loaded") return "cmp_not_loaded";
+  if (typeof data.gdprApplies !== "boolean") return "gdpr_unknown";
+  if (data.gdprApplies) {
+    if (data.eventStatus !== "tcloaded" && data.eventStatus !== "useractioncomplete") return "tcf_pending";
+    return data.purpose?.consents?.[1] === true && data.vendor?.consents?.[755] === true ? null : "tcf_denied";
+  }
+  if (usStatus === "not-opted-out" && gppStatus === "unavailable") return "us_no_gpp";
+  if (usStatus === "unknown") return "us_unknown";
+  if (gppStatus === "unknown") return "gpp_unknown";
+  return null;
+}

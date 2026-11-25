@@ -26,4 +26,20 @@ assert.match(layout,/adsEnabled && <AdCoverageBeacon \/>/);
 const beacon=readFileSync('src/components/AdCoverageBeacon.tsx','utf8');
 assert.match(beacon,/pagehide/);assert.match(beacon,/visibilitychange/);
 assert.doesNotMatch(beacon,/loadAdSense|adsbygoogle|pauseAdRequests/,'beacon must not touch ad requests');
-console.log('PASS: ad coverage beacon contract');
+
+// consentBlocker must agree with advertisingConsent on every input combination.
+const consent=load('src/lib/adConsent.ts',{},new Map());
+const statuses=['unavailable','unknown','not-applicable','not-opted-out','opted-out'];
+const datas=[undefined,{},{cmpStatus:'loading',gdprApplies:false},{cmpStatus:'loaded'},{cmpStatus:'loaded',gdprApplies:false},
+  {cmpStatus:'loaded',gdprApplies:true,eventStatus:'cmpuishown'},
+  {cmpStatus:'loaded',gdprApplies:true,eventStatus:'tcloaded',purpose:{consents:{1:true}},vendor:{consents:{755:true}}},
+  {cmpStatus:'loaded',gdprApplies:true,eventStatus:'useractioncomplete',purpose:{consents:{1:false}},vendor:{consents:{755:true}}},
+  {cmpStatus:'loaded',gdprApplies:true,eventStatus:'useractioncomplete',purpose:{consents:{1:true}},vendor:{consents:{}}}];
+let combos=0;
+for(const d of datas)for(const us of statuses)for(const gpp of statuses){combos++;
+  const allowed=consent.advertisingConsent(d,us,gpp),blocker=consent.consentBlocker(d,us,gpp);
+  assert.equal(blocker===null,allowed,`lockstep ${JSON.stringify(d)} ${us} ${gpp} -> ${blocker}`);}
+assert.equal(consent.consentBlocker(undefined,'unavailable'),'cmp_missing');
+assert.equal(consent.consentBlocker({cmpStatus:'loaded',gdprApplies:false},'not-opted-out','unavailable'),'us_no_gpp');
+assert.equal(consent.consentBlocker({cmpStatus:'loaded',gdprApplies:false},'unknown','unavailable'),'us_unknown');
+console.log(`PASS: ad coverage beacon contract; consentBlocker lockstep over ${combos} combinations`);

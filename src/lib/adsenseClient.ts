@@ -1,6 +1,6 @@
 "use client";
 import { ADSENSE_CLIENT, adPersonalizationAllowed, adRequestAllowed, adRetirementUrl } from "./adsense";
-import { advertisingConsent, type AdConsentData, type UsAdStatus } from "./adConsent";
+import { advertisingConsent, consentBlocker, type ConsentBlocker, type AdConsentData, type UsAdStatus } from "./adConsent";
 import type { AdRuntimeMarks } from "./adCoverage";
 import { gppAdStatus, initialUsAdAvailability, readInitialUsAdStatus, type GppAdData, type UsAdApi } from "./usAdSignal";
 
@@ -27,10 +27,11 @@ let retired = false, eligible = false, scriptReady = false, scriptFailed = false
 // Coverage diagnostics (2026-11-25): AdSense counted ~60% of Umami page views.
 // Milliseconds since navigation start for each runtime step; see adRuntimeStage.
 const marks: AdRuntimeMarks = {};
+let blocker: ConsentBlocker | null = "cmp_missing";
 const now = () => Math.round(performance.now());
 
 export type AdRuntimeStage = "requested" | "retired" | "script_failed" | "script_timeout" | "context_blocked" | "not_started" |
-  "waiting_settle" | "script_loading" | "no_consent" | "ineligible" | "privacy_open" | "hidden" | "ready";
+  "waiting_settle" | "script_loading" | `no_consent:${string}` | "ineligible" | "privacy_open" | "hidden" | "ready";
 
 /** Where this document's ad runtime stands right now (first match wins). */
 export function adRuntimeStage(): AdRuntimeStage {
@@ -41,7 +42,12 @@ export function adRuntimeStage(): AdRuntimeStage {
   if (marks.load === undefined) return "not_started";
   if (marks.settled === undefined) return "waiting_settle";
   if (!scriptReady) return "script_loading";
-  if (!permitted) return "no_consent";
+  if (!permitted) {
+    if (navigator.globalPrivacyControl === true) return "no_consent:gpc";
+    // Tell a blocked/slow CMP script apart from a loaded CMP that never answered.
+    const detail = blocker === "cmp_missing" ? (marks.cmpError !== undefined ? "cmp_blocked" : marks.cmp === undefined ? "cmp_loading" : "cmp_silent") : blocker;
+    return `no_consent:${detail ?? "unknown"}`;
+  }
   if (!eligible) return "ineligible";
   if (privacyChoiceOpen) return "privacy_open";
   if (document.hidden) return "hidden";
@@ -190,6 +196,7 @@ export function loadAdSense() {
     let usStatus: UsAdStatus = "unknown", gppStatus: UsAdStatus = "unavailable";
     let usResolved = false, gppSubscribed = false, tcfSubscribed = false, privacyFailed = false;
     const complete = () => {
+      blocker = consentBlocker(consent, usStatus, gppStatus);
       permitted = !retired && advertisingConsent(consent, usStatus, gppStatus) && navigator.globalPrivacyControl !== true;
       syncAdRequests();
       // Dispose the complete third-party runtime after a final withdrawal.
@@ -264,6 +271,8 @@ export function loadAdSense() {
       const cmpScript = document.createElement("script");
       cmpScript.async = true;
       cmpScript.dataset.rtCmp = "published-google-message";
+      cmpScript.onload = () => { marks.cmp = now(); };
+      cmpScript.onerror = () => { marks.cmpError = now(); };
       cmpScript.src = `https://fundingchoicesmessages.google.com/i/${ADSENSE_CLIENT.slice(3)}?ers=2`;
       const locale = location.pathname.match(/^\/(es|pt)(\/|$)/)?.[1];
       if (locale) cmpScript.src += `&hl=${locale}`;
