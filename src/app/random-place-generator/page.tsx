@@ -30,6 +30,11 @@ const EXAMPLES = [
 
 const FAQ = [
   {
+    question: "Is this a random location generator too?",
+    answer:
+      "Yes. A random location generator and a random place generator do the same job: each click gives you a location with a one-line description. Pick Landmarks and cities or Natural wonders for real locations around the world, Everyday for ordinary settings, or Fantasy for invented ones.",
+  },
+  {
     question: "What is a random place generator?",
     answer:
       "It is a tool that picks a place at random for you. Here each result has a short description, so you can use it as a setting for a story, a scene to draw, a place to daydream about or a game prompt, not just a name.",
@@ -70,7 +75,7 @@ export default function RandomPlacePage() {
       heading={["Random Place", "Generator"]}
       intro={`Get a random place with a one-line description from a list of ${PLACES.length}: everyday settings, real landmarks, natural wonders and fantasy locations. Filter by type and mood, 10 per click, free and no sign-up.`}
       description={DESCRIPTION}
-      updated="2026-11-02"
+      updated="2026-11-25"
       faq={FAQ}
       inShort={
         <>
@@ -92,6 +97,13 @@ export default function RandomPlacePage() {
             Most <strong>random place generators</strong> output just a name, which leaves you to invent everything else. These places arrive with
             a line of scene-setting, so a result such as &quot;a ferry crossing in the fog&quot; already has a sound, a mood and a hint of plot.
             The real places come with a verifiable fact.
+          </p>
+          <SectionTitle>Random location generator</SectionTitle>
+          <p>
+            Searching for a <strong>random location generator</strong>? This is the same tool under another name. Filter by type to get a real
+            location (a city, a landmark or a natural wonder, each with a checkable fact), an everyday setting for a scene, or a fantasy location
+            for a game. Need a random city with a made-up name instead? Use the{" "}
+            <Link prefetch={false} href="/random-city-generator" className={linkClass}>random city generator</Link>.
           </p>
           <SectionTitle>Four types of place</SectionTitle>
           <ul className="list-disc pl-5 space-y-1">

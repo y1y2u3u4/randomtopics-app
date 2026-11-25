@@ -15,12 +15,13 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ["discord qotd bot", "discord question of the day bot", "qotd discord", "discord daily question bot", "discord icebreaker bot"],
+  keywords: ["discord qotd bot", "discord question of the day bot", "qotd discord", "discord daily question bot", "discord icebreaker bot", "qotd ideas for discord", "discord poll questions"],
   alternates: { canonical: PATH, languages: hreflangAlternates(PATH) },
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}${PATH}`, siteName: "Random Topics", type: "website" },
 };
 
 const FAQ = [
+  { question: "What are good QOTD ideas for Discord that work as polls?", answer: "Questions with two to four clear answers work best, because members can vote with a reaction and then explain their pick in the thread: this-or-that choices, 'which would you keep' picks and light ranking questions. The list on this page has 12 original examples with poll options. Avoid yes/no questions, which end the conversation after one emoji." },
   { question: "How do I set up a QOTD bot for my Discord server?", answer: "Open Server Settings, then Integrations, then Webhooks, create a webhook for your QOTD channel and copy its URL. Paste it into the form on this page, choose the category, days and hour, and the bot posts a test question right away." },
   { question: "Do I need to invite a bot to my server?", answer: "No. It posts through the channel webhook you create, so there is no bot user to invite and no permission to read messages. Delete the webhook in Discord and it stops." },
   { question: "Will it ping @everyone?", answer: "No. Messages are sent with mentions switched off, so a question can never ping anyone." },
@@ -40,7 +41,7 @@ export default function Page() {
       heading={["Discord QOTD", "Bot"]}
       intro="Post a question of the day to your Discord server every day at the time you choose. Works with Slack and Teams too. Free for 7 days."
       description={DESCRIPTION}
-      updated="2026-10-24"
+      updated="2026-11-25"
       faq={FAQ}
       inShort="This Discord QOTD bot posts a question of the day to a channel in your server through a webhook, daily, on weekdays or weekly at the hour you pick. Paste the webhook URL, choose a category and it sends a test straight away. It also works with Slack and Microsoft Teams. The first 7 days are free; then it is $7 a month or $59 a year, up to 3 channels."
       related={[
@@ -88,6 +89,29 @@ export default function Page() {
             <li>Copy the HTTP URL it shows (a .logic.azure.com or .environment.api.powerplatform.com address).</li>
           </ol>
           <p className="mt-3">Paste the URL into the form above, choose when to post, and the bot sends a test question straight away.</p>
+          <SectionTitle>QOTD ideas for Discord (original and poll-ready)</SectionTitle>
+          <p>
+            Good server questions are quick to answer and easy to vote on. Each idea below has poll options: post it with one reaction per option,
+            then ask members to reply with why they picked it. All 12 are original to this site.
+          </p>
+          <ol className="list-decimal pl-5 space-y-1">
+            <li><strong>You can only keep one app on your phone for a month. Which?</strong> <span className="text-[var(--text-muted)]">Poll: Maps / Music / Chat / Camera</span></li>
+            <li><strong>Best time of day to be online in this server?</strong> <span className="text-[var(--text-muted)]">Poll: Morning / Lunch / Evening / 3 a.m.</span></li>
+            <li><strong>Pick a lifelong side quest.</strong> <span className="text-[var(--text-muted)]">Poll: Learn every board game / Visit every capital / Cook one dish from every country</span></li>
+            <li><strong>A game you would replay with your memory wiped?</strong> <span className="text-[var(--text-muted)]">Poll: Story game / Puzzle game / Multiplayer classic / Something from childhood</span></li>
+            <li><strong>Which skill would you download instantly?</strong> <span className="text-[var(--text-muted)]">Poll: A language / An instrument / Drawing / Speed-reading</span></li>
+            <li><strong>Hot take ranking: the best snack while gaming is…</strong> <span className="text-[var(--text-muted)]">Poll: Chips / Fruit / Candy / Nothing, keyboards stay clean</span></li>
+            <li><strong>You get a server-wide superpower for a day. Which?</strong> <span className="text-[var(--text-muted)]">Poll: Mute any spoiler / Instant memes / Perfect ping timing</span></li>
+            <li><strong>Which era would you visit for one week?</strong> <span className="text-[var(--text-muted)]">Poll: Ancient Rome / 1920s / 1990s internet / 200 years from now</span></li>
+            <li><strong>Your ideal weekend is mostly…</strong> <span className="text-[var(--text-muted)]">Poll: Outside / Gaming / Sleeping / Something new</span></li>
+            <li><strong>Which fictional place would you move to?</strong> <span className="text-[var(--text-muted)]">Poll: Wizard school / Space station / Cozy farm town / Cyberpunk city</span></li>
+            <li><strong>The first thing you check when you open Discord?</strong> <span className="text-[var(--text-muted)]">Poll: Pings / A favorite channel / Voice chat / Nothing, I lurk</span></li>
+            <li><strong>If this server had a mascot, it would be a…</strong> <span className="text-[var(--text-muted)]">Poll: Cat / Raccoon / Duck / Something we vote on next week</span></li>
+          </ol>
+          <p className="mt-3">
+            Want a new one every day without writing it yourself? Set up the bot above, or draw one by hand from the 
+            <Link prefetch={false} href="/question-of-the-day" className={linkClass}>question of the day</Link> generator.
+          </p>
           <SectionTitle>What the bot posts</SectionTitle>
           <p>
             One question per post, with a small “via randomtopics.app” link. Pick a category: work and team, funny and light, deep and
