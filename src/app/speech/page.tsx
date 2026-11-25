@@ -24,6 +24,8 @@ export const metadata: Metadata = withSocial({
     "Free speech topic generator: 296 random speech topics, updated October 2026, with talking points and a practice timer, for public speaking, Toastmasters and class speeches. No signup.",
   keywords: [
     "speech topic generator",
+    "speak topic generator",
+    "speaking topic generator",
     "random speech topics",
     "random topic generator for public speaking",
     "public speaking topics",
@@ -86,6 +88,11 @@ const speechStarterTopics: Topic[] = [
 ];
 
 const FAQ_ITEMS = [
+  {
+    question: "Is this a speak topic generator?",
+    answer:
+      "Yes. Tap the button to get a random speaking topic with talking points, then start the timer and talk. It works as a speak topic generator for public speaking practice, Toastmasters Table Topics, class speeches and English speaking practice, free and without signing up.",
+  },
   {
     question: "What are good impromptu speech topics?",
     answer:
