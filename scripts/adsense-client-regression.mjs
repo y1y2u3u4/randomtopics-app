@@ -118,6 +118,26 @@ for(const failure of ['error','timeout'])await test(`SDK ${failure} is terminal 
  await assert.rejects(loading,/Advertising unavailable/);f.sdk().onload();f.consent(granted);f.runtime.setAdEligibility(true);
  assert.equal(f.pause(),1);assert.equal(f.stats.resumes,0);assert.equal(f.stats.pushes,0);assert.equal(f.scripts.length,2);
 });
+// 2026-11-25 coverage diagnostics: the stage the ad_cov beacon reports.
+await test('Runtime stage walks not_started -> no_consent -> requested',async f=>{
+ assert.equal(f.runtime.adRuntimeStage(),'not_started');
+ const loading=f.boot({...granted,purpose:{consents:{1:false}}});
+ assert.equal(f.runtime.adRuntimeStage(),'script_loading');
+ f.sdk().onload();
+ assert.equal(f.runtime.adRuntimeStage(),'no_consent');
+ f.consent(granted);await loading;
+ assert.equal(f.runtime.adRuntimeStage(),'requested');
+ const marks=f.runtime.adRuntimeMarks();
+ for(const key of ['load','settled','script','request'])assert.equal(typeof marks[key],'number',key);
+});
+for(const failure of ['error','timeout','late'])await test(`Stage after SDK ${failure}`,async f=>{
+ const loading=f.boot();loading.catch(()=>{});
+ if(failure==='error')f.sdk().onerror();else [...f.timers.values()].find(timer=>timer.ms===10000).callback();
+ if(failure==='late')f.sdk().onload();
+ assert.equal(f.runtime.adRuntimeStage(),failure==='error'?'script_failed':'script_timeout');
+ assert.equal(f.runtime.adRuntimeMarks().late===undefined,failure!=='late');
+ assert.equal(f.stats.resumes,0,'Diagnostics never release a request');
+});
 for(const blocked of ['query','QA','GPC','hidden','private path','preview host'])await test(`Late SDK checks current ${blocked} before resuming`,async f=>{
  const loading=f.boot();
  if(blocked==='query')f.location.search='?rt_ads=off';else if(blocked==='QA')f.storage.set('rt_usage_qa','1');else if(blocked==='GPC')f.navigator.globalPrivacyControl=true;else if(blocked==='hidden')f.document.hidden=true;else if(blocked==='private path')f.location.pathname='/speech/practice';else f.location.hostname='preview.example.test';

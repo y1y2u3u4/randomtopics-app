@@ -1,6 +1,7 @@
 "use client";
 import { ADSENSE_CLIENT, adPersonalizationAllowed, adRequestAllowed, adRetirementUrl } from "./adsense";
 import { advertisingConsent, type AdConsentData, type UsAdStatus } from "./adConsent";
+import type { AdRuntimeMarks } from "./adCoverage";
 import { gppAdStatus, initialUsAdAvailability, readInitialUsAdStatus, type GppAdData, type UsAdApi } from "./usAdSignal";
 
 type AdQueue = { push(value: Record<string, unknown>): unknown; requestNonPersonalizedAds?: number; pauseAdRequests?: number };
@@ -23,6 +24,33 @@ const prepared = new WeakSet<HTMLElement>();
 const readyListeners = new Set<() => void>();
 let permitted = false, hasRequested = false;
 let retired = false, eligible = false, scriptReady = false, scriptFailed = false, privacyChoiceOpen = false;
+// Coverage diagnostics (2026-11-25): AdSense counted ~60% of Umami page views.
+// Milliseconds since navigation start for each runtime step; see adRuntimeStage.
+const marks: AdRuntimeMarks = {};
+const now = () => Math.round(performance.now());
+
+export type AdRuntimeStage = "requested" | "retired" | "script_failed" | "script_timeout" | "context_blocked" | "not_started" |
+  "waiting_settle" | "script_loading" | "no_consent" | "ineligible" | "privacy_open" | "hidden" | "ready";
+
+/** Where this document's ad runtime stands right now (first match wins). */
+export function adRuntimeStage(): AdRuntimeStage {
+  if (hasRequested) return "requested";
+  if (retired) return "retired";
+  if (scriptFailed) return marks.slow === undefined ? "script_failed" : "script_timeout";
+  if (!contextAllowed()) return "context_blocked";
+  if (marks.load === undefined) return "not_started";
+  if (marks.settled === undefined) return "waiting_settle";
+  if (!scriptReady) return "script_loading";
+  if (!permitted) return "no_consent";
+  if (!eligible) return "ineligible";
+  if (privacyChoiceOpen) return "privacy_open";
+  if (document.hidden) return "hidden";
+  return "ready";
+}
+
+export function adRuntimeMarks() {
+  return { ...marks };
+}
 function pauseAdRequests() {
   if (window.adsbygoogle) window.adsbygoogle.pauseAdRequests = 1;
 }
@@ -53,6 +81,7 @@ function syncAdRequests() {
   // Auto ads can run before the manual slot is visible. A later entitlement
   // refresh must be able to resume them without pushing another manual unit.
   hasRequested = true;
+  marks.request ??= now();
   if (queue.pauseAdRequests !== 0) queue.pauseAdRequests = 0;
   for (const listener of readyListeners) listener();
 }
@@ -151,6 +180,7 @@ export function pageSettled(task?: () => void) {
 export function loadAdSense() {
   if (retired) return Promise.reject(new Error("Advertising retired"));
   if (loading) return loading;
+  marks.load = now();
   const queue: AdQueue = window.adsbygoogle ??= [];
   // Child-directed paths reduce data use; this never replaces the published CMP.
   queue.requestNonPersonalizedAds = nonPersonalized();
@@ -222,6 +252,7 @@ export function loadAdSense() {
     // earlier, ~400 KB of third-party script lands in the LCP critical path
     // (PSI mobile LCP 6–7 s vs ~3 s when it started later). See afterPageSettles.
     pageSettled(() => {
+      marks.settled = now();
       if (retired) return;
       if (!document.querySelector('iframe[name="googlefcPresent"]')) {
         const marker = document.createElement("iframe");
@@ -249,8 +280,16 @@ export function loadAdSense() {
       script.setAttribute("data-rt-adsense", "reviewed-public-v1");
       script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
       const fail = () => { scriptFailed = true; pauseAdRequests(); reject(new Error("Advertising unavailable")); };
-      const timeout = window.setTimeout(fail, 10000);
-      script.onload = () => { window.clearTimeout(timeout); if (!scriptFailed) { scriptReady = true; complete(); } };
+      // Fail closed after 10 s. `late` only records whether the SDK still
+      // arrived afterwards (slow network vs blocker) for coverage diagnostics.
+      const timeout = window.setTimeout(() => { marks.slow = now(); fail(); }, 10000);
+      script.onload = () => {
+        window.clearTimeout(timeout);
+        if (scriptFailed) { marks.late = now(); return; }
+        marks.script = now();
+        scriptReady = true;
+        complete();
+      };
       script.onerror = () => { window.clearTimeout(timeout); fail(); };
       document.head.appendChild(script);
     });
