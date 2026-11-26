@@ -35,6 +35,7 @@ const FAQ = [
   { question: "Is there a 9 Games That Shaped Who I Am template?", answer: "This is it. Type “9 games that shaped who I am” as the title, fill the nine squares in the order the games came into your life, and download the 3×3 image. The title is printed on the picture, so the grid explains itself when you post it." },
   { question: "Is this a top 9 games maker?", answer: "Yes — a top 9 is the same 3×3 grid. Type “My top 9 games” as the title, put your number one game in the top-left square and rank the rest left to right, then download the PNG." },
   { question: "Does the My 9 Games template work on a phone?", answer: "Yes. Everything runs in your phone browser: search a game, tap its cover into the 3×3 grid, then tap Share image to send the picture straight to Instagram, X, Threads or TikTok, or Download PNG to save it. Nothing to install and no signup." },
+  { question: "Is this the my9games site?", answer: "No. my9games.net and my9games.app are separate My 9 Games makers run by other people; this is the free My 9 Games template on Random Topics. It does the same job — search nine games, get a 3×3 image for your #my9games post — and adds a 1080×1920 story size, a share link that keeps your picks, your own photo for any square, and sister grids for albums, movies, anime and books." },
   { question: "My 9 Games or My 9 grid — which should I use?", answer: "Use this My 9 Games template when your picks are video games: it searches games and adds the box art for you. Use the My 9 grid maker when you want to fill the squares with your own photos or screenshots — anything at all." },
 ];
 
@@ -48,7 +49,7 @@ export default function MyNineGamesPage() {
       heading={["My 9 Games Template:", "9 Games That Shaped Me"]}
       intro="Pick the 9 games that made you — console, PC and retro — and download a square or story-size grid. No signup, no watermark."
       description={DESCRIPTION}
-      updated="2026-11-21"
+      updated="2026-11-26"
       faq={FAQ}
       related={[{ href: "/my-9-albums", label: "My 9 Albums" }, { href: "/my-9-movies", label: "My 9 Movies" }, { href: "/my-9-characters", label: "My 9 Characters" }, { href: "/my-9-anime", label: "My 9 Anime" }, { href: "/my-9-books", label: "My 9 Books" }, { href: "/my-9-grid", label: "My 9 grid from your own pictures" }]}
       inShort="Search any video game, tap nine covers into the 3×3 grid, reorder them, and download a 1080×1080 PNG or a story-size image. Box art comes from each game's Wikipedia article — Nintendo, PlayStation, Xbox, PC and retro — and you can upload your own picture for anything missing."
@@ -56,7 +57,7 @@ export default function MyNineGamesPage() {
       content={
         <>
           <SectionTitle>What is My 9 Games?</SectionTitle>
-          <p dangerouslySetInnerHTML={{ __html: "<strong>My 9 Games</strong> is the 3×3 grid of the nine video games that shaped you — the trend that took over X and Threads. This template finds the box art for you and turns your picks into one clean image." }} />
+          <p dangerouslySetInnerHTML={{ __html: "<strong>My 9 Games</strong> is the 3×3 grid of the nine video games that shaped you — the trend that took over X and Threads, where posts are usually tagged #my9games. This template finds the box art for you and turns your picks into one clean image." }} />
           <SectionTitle>9 Games That Shaped Me</SectionTitle>
           <p>
             <strong>9 Games That Shaped Me</strong> is the same 3×3 grid with a sharper question: not your nine favourites, but the nine games that changed how you play, think or who you hang out with. A good grid usually tells a story in order — the first game you owned, the one you played with a sibling or friend, the game that got you through a hard year, the one that made you love a genre, and the game you still return to. Type “9 games that shaped me” as the title above the grid and it is printed on the downloaded image.
