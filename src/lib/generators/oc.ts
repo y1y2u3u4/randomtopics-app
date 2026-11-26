@@ -96,9 +96,14 @@ export const ocFilters: FilterGroup[] = [
 const lastByGenre = (g: OcGenre) => OC_LAST.filter((l) => l.genre === g);
 interface Extra { last: number; trait: number; quirk: number; palette: number; item: number }
 
+// A few first names (Ash, Silas) appear in two genres; their key carries the
+// genre so a share link restores the right one. Unique names keep the old key.
+const SHARED_FIRST = new Set(OC_FIRST.filter((f, i) => OC_FIRST.findIndex((o) => o.name === f.name) !== i).map((f) => f.name));
+const ocBaseKey = (f: First) => (SHARED_FIRST.has(f.name) ? `${f.name}@${f.genre}` : f.name);
+
 export const ocGenerator = comboGenerator<First, Extra>({
   items: OC_FIRST,
-  baseKey: (f) => f.name,
+  baseKey: ocBaseKey,
   facets: { genre: (f) => [f.genre], gender: (f) => [f.gender] },
   extra: (f, rng) => {
     const rand = (n: number) => Math.floor(rng() * n);
