@@ -94,6 +94,11 @@ const FAQ_ITEMS = [
       "Yes. Tap the button to get a random speaking topic with talking points, then start the timer and talk. It works as a speak topic generator for public speaking practice, Toastmasters Table Topics, class speeches and English speaking practice, free and without signing up.",
   },
   {
+    question: "Is this Speech Topic Gen (speechtopicgen.com)?",
+    answer:
+      "No. Speech Topic Gen at speechtopicgen.com is a separate site by Baby Steps to the Mic, with a lever, a timer and recording. This is the Random Topics speech topic generator: every one of the 296 topics comes with three talking points, you practise against the same kind of timer, and after a 60-second answer you can get one specific tip to make it clearer. Both are free; use whichever fits how you practise.",
+  },
+  {
     question: "What are good impromptu speech topics?",
     answer:
       "Good impromptu topics are ones almost anyone can speak on without research — personal experiences, opinions, and 'this vs that' choices. Our generator pulls substantive prompts across 16 categories so you always have something meaningful to say.",

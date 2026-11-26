@@ -126,7 +126,8 @@ export default function QuestionOfTheDayPage() {
         <p className="max-w-3xl mx-auto px-4 sm:px-6 pt-4 text-sm text-[var(--text-secondary)]">
           Want today&apos;s question on your class site?{" "}
           <Link prefetch={false} href="/question-of-the-day-widget" className="text-[var(--neon-cyan)] hover:underline">Embed the free question of the day widget</Link>{" "}
-          in Google Sites, Canvas or Notion — it updates itself every day.
+          in Google Sites, Canvas or Notion — it updates itself every day. Running a server?{" "}
+          <Link prefetch={false} href="/discord-qotd-bot" className="text-[var(--neon-cyan)] hover:underline">Get QOTD ideas for Discord that work as polls</Link>.
         </p>
 
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">

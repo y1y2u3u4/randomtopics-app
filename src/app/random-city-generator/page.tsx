@@ -87,6 +87,7 @@ export default function RandomCityGeneratorPage() {
           <p>
             Want a whole country instead? Use the <Link prefetch={false} href="/random-country-generator" className={linkClass}>random country generator</Link>. Need an invented city for a novel or a game map?
             The <Link prefetch={false} href="/city-name-generator" className={linkClass}>city name generator</Link> makes fictional names.
+            For landmarks, natural wonders or everyday settings, use the <Link prefetch={false} href="/random-place-generator" className={linkClass}>random location generator</Link>.
           </p>
         </>
       }
