@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { copyText } from "@/lib/clipboard";
 import { track } from "@/lib/track";
 import { newSeed } from "@/lib/randomGenerators";
+import { decodeShareKeys, encodeShareKeys } from "@/lib/generators/shareKeys";
 import { typingTarget, usePreset } from "./QuickSet";
 
 export interface GeneratorResult {
@@ -106,7 +107,7 @@ function readUrlState(filters: FilterGroup[], counts: number[], defaultCount: nu
   }
   const n = Number(params.get("n"));
   const count = counts.includes(n) ? n : defaultCount;
-  const keys = (params.get("r") ?? "").split("~").filter(Boolean).slice(0, 50);
+  const keys = decodeShareKeys(params.get("r") ?? "");
   return { state, count, keys };
 }
 
@@ -141,7 +142,7 @@ export default function GeneratorUI(props: GeneratorUIProps) {
       const params = new URLSearchParams();
       for (const g of filters) if (nextState[g.id]?.length) params.set(g.id, nextState[g.id].join(","));
       if (nextCount !== defaultCount) params.set("n", String(nextCount));
-      if (nextResults.length) params.set("r", nextResults.map((r) => r.key).join("~"));
+      if (nextResults.length) params.set("r", encodeShareKeys(nextResults.map((r) => r.key)));
       const qs = params.toString();
       window.history.replaceState(null, "", `${window.location.pathname}${qs ? `?${qs}` : ""}`);
     },
