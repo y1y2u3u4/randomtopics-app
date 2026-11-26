@@ -193,6 +193,7 @@ export const EN_ONLY_PATHS: ReadonlySet<string> = new Set([
   "/random-concept-generator",
   "/random-historical-event-generator",
   "/business-name-generator",
+  "/megacorp-name-generator",
   "/bracket-maker",
   "/secret-santa-generator",
   "/question-of-the-day/archive",

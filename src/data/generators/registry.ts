@@ -460,6 +460,12 @@ export const RANDOM_GENERATORS: GeneratorLink[] = [
     detail: { en: "Brandable names by industry and style" },
   },
   {
+    href: "/megacorp-name-generator",
+    emoji: "🏙️",
+    label: { en: "Megacorp Names" },
+    detail: { en: "Cyberpunk & sci-fi corporations with ticker and slogan" },
+  },
+  {
     href: "/bracket-maker",
     emoji: "🏆",
     label: { en: "Bracket Maker" },

@@ -130,6 +130,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   { href: "/random-concept-generator", label: "Random Concept Generator", emoji: "💡", blurb: "Art, story and game concepts on demand", groups: ["creative"] },
   { href: "/random-historical-event-generator", label: "Random Historical Event", emoji: "🏛️", blurb: "Real events with a date and a question", groups: ["classroom", "speaking"] },
   { href: "/business-name-generator", label: "Business Name Generator", emoji: "🏷️", blurb: "Brandable names by industry and style", groups: ["names"] },
+  { href: "/megacorp-name-generator", label: "Megacorp Name Generator", emoji: "🏙️", blurb: "Cyberpunk & sci-fi corporations with ticker and slogan", groups: ["names", "creative"] },
   { href: "/bracket-maker", label: "Bracket Maker", emoji: "🏆", blurb: "4–64 entry tournament bracket, share link", groups: ["party", "classroom"] },
   { href: "/secret-santa-generator", label: "Secret Santa Generator", emoji: "🎅", blurb: "Draw names with exclusions, private reveal links", groups: ["party"] },
   { href: "/my-9-songs", label: "My 9 Songs", emoji: "🎵", blurb: "3×3 favorite songs", groups: ["my9"] },
