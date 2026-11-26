@@ -173,6 +173,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ path: "/random-concept-generator", changeFrequency: "weekly", priority: 0.86, lastModified: "2026-11-08" });
   entries.push({ path: "/random-historical-event-generator", changeFrequency: "weekly", priority: 0.86, lastModified: "2026-11-08" });
   entries.push({ path: "/business-name-generator", changeFrequency: "weekly", priority: 0.86, lastModified: "2026-11-08" });
+  entries.push({ path: "/megacorp-name-generator", changeFrequency: "weekly", priority: 0.86, lastModified: "2026-11-26" });
   entries.push({ path: "/bracket-maker", changeFrequency: "weekly", priority: 0.86, lastModified: "2026-11-08" });
   entries.push({ path: "/secret-santa-generator", changeFrequency: "weekly", priority: 0.88, lastModified: "2026-11-08" });
   entries.push({ path: "/question-of-the-day/november", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-11-08" });

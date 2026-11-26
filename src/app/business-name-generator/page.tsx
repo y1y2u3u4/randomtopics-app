@@ -94,7 +94,8 @@ export default function BusinessNameGeneratorPage() {
           <SectionTitle>Need a different kind of name?</SectionTitle>
           <p>
             For a gamer tag or social handle, use the <Link prefetch={false} href="/username-generator" className={linkClass}>username generator</Link>. For a
-            character or a person&apos;s name, try the <Link prefetch={false} href="/random-name-generator" className={linkClass}>random name generator</Link>.
+            character or a person&apos;s name, try the <Link prefetch={false} href="/random-name-generator" className={linkClass}>random name generator</Link>. Naming an evil
+            corporation for a game or story? The <Link prefetch={false} href="/megacorp-name-generator" className={linkClass}>megacorp name generator</Link> adds a ticker and a slogan.
           </p>
           <SectionTitle>Examples</SectionTitle>
           <GeneratorExamples note={"Real output from three filters:"} sets={EXAMPLES} />
